@@ -1,4 +1,4 @@
-ruby '2.1.2'
+ruby '2.3.1'
 source 'http://rubygems.org'
 
 gem 'rails', '~> 4.2.0'
@@ -6,7 +6,7 @@ gem 'mysql2', '~> 0.3.18'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'bower-rails', '~> 0.11.0'
 
 gem 'haml'
 
