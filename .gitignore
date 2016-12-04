@@ -1,0 +1,96 @@
+.bundle
+assets/*
+db/*.sqlite3
+log/*
+tmp/
+public/stylesheets
+public/system
+doc/diagrams
+nbproject/*
+.idea
+.jhw-cache
+.sass-cache
+.noexec.yaml
+
+# Rails
+.bundle
+db/*.sqlite3
+db/*.sqlite3-journal
+*.log
+tmp/**/*
+
+# Bower files
+/vendor/assets/bower_components
+.bowerrc
+
+# Documentation
+doc/api
+doc/app
+.yardoc
+.yardopts
+coverage
+
+# Public Uploads
+public/system/*
+public/themes/*
+
+# Public Cache
+public/javascripts/cache
+public/stylesheets/cache
+
+# Vendor Cache
+vendor/cache
+
+# Acts as Indexed
+index/**/*
+
+# Mac
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# NetBeans
+nbproject
+
+# Eclipse
+.project
+
+# Redcar
+.redcar
+
+# Redis
+dump.rdb
+
+# Rubinius
+*.rbc
+
+# Vim
+*.swp
+*.swo
+
+# RubyMine
+.idea
+
+# E-texteditor
+.eprj
+
+# Backup
+*~
+
+# Capybara Bug
+capybara-*html
+
+# sass
+.sass-cache
+.sass-cache/*
+
+#rvm
+.rvmrc
+.rvmrc.*
+
+# vendor/extensions dummy applications.
+vendor/extensions/**/spec/dummy
+
+# Vagrant
+.vagrant
