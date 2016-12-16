@@ -1,39 +1,30 @@
 ruby '2.3.1'
 source 'http://rubygems.org'
 
+# Main
 gem 'rails', '~> 4.2.0'
 gem 'mysql2', '~> 0.3.18'
+gem 'sidekiq'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jbuilder', '~> 2.0'
-gem 'bower-rails', '~> 0.11.0'
-
-gem 'haml'
-
-gem "bcrypt-ruby", :require => "bcrypt"
-
-gem 'ranked-model'
-
 gem 'rake', '11.3.0'
-
-gem 'petrovich', '~> 1.0'
-
-gem 'simple_captcha2', require: 'simple_captcha'
-
-gem 'ipgeobase', :git => 'https://github.com/mokevnin/ipgeobase'
-
-gem "haml-rails", "~> 0.8"
-gem 'meta-tags', :require => 'meta_tags'
-
-gem 'bootstrap-sass', '~> 3.3.5'
-gem 'sass-rails', '>= 3.2'
-gem 'font-awesome-sass'
-gem "font-awesome-rails"
-
+gem 'haml'
+gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'carrierwave'
 gem 'rmagick', :require => false
 gem 'mini_magick'
+gem 'therubyracer'
 
+# Rails core extensions
+gem 'cells'
+gem 'draper'
+gem 'configatron'
+
+# Activerecord extensions
+gem 'squeel'
+
+# Authorization, roles
 gem 'devise'
 gem 'devise_lastseenable'
 gem 'omniauth'
@@ -42,13 +33,21 @@ gem 'omniauth-vkontakte'
 gem 'omniauth-mailru'
 gem 'omniauth-gplus'
 
+# Assets
+gem 'bower-rails', '~> 0.11.0'
+gem 'haml-rails', '~> 0.8'
+
+# Misc
 gem 'russian', '~> 0.6.0'
 gem 'kaminari'
-gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary'
-gem 'ru_propisju'
 gem 'translit'
 gem 'rucaptcha'
+
+# CHECK
+gem 'petrovich', '~> 1.0'
+gem 'simple_captcha2', require: 'simple_captcha'
+gem 'ipgeobase', :git => 'https://github.com/mokevnin/ipgeobase'
+gem 'meta-tags', :require => 'meta_tags'
 
 group :development do
   gem 'annotate', require: false
@@ -65,15 +64,11 @@ group :development, :test do
   gem 'spring'
 end
 
+group :development do
+  gem 'capistrano'
+  gem 'rvm-capistrano',  require: false
+end
+
 group :production do
   gem 'unicorn'
 end
-
-
-
-group :development do
-  gem "capistrano"
-  gem "rvm-capistrano",  require: false
-end
-
-gem "therubyracer"
