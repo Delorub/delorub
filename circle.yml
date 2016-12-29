@@ -1,0 +1,12 @@
+dependencies:
+  pre:
+    - cp config/config.yml.sample config/config.yml
+    - cp config/database.yml.ci config/database.yml
+
+database:
+  override:
+    - bundle exec rake db:create db:schema:load --trace
+
+machine:
+  ruby:
+    version: 2.3.1

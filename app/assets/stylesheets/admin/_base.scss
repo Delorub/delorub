@@ -1,0 +1,30 @@
+@import "admin/mixins";
+@import "admin/header";
+@import "admin/breadcrumbs";
+@import "admin/main";
+@import "admin/table_tools";
+@import "admin/tables";
+@import "admin/filters";
+@import "admin/datepicker";
+@import "admin/forms";
+
+#site_title_image {
+	width: 136px;
+	margin-top: 10px;
+}
+
+#footer {
+	display: none;
+}
+
+.action_item a {
+	color: #fff;
+	background: #ea4b35;
+	padding: 2px;
+	float: right;
+	background-image: none;
+	text-transform: uppercase;
+	font-size: 12px;
+	border-radius: 20px;
+	text-decoration: none;
+}

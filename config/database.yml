@@ -1,19 +1,18 @@
-development:
+login: &login
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: delorub_development
-  pool: 5
-  username: delorub
+  username: root
   password:
-  host: localhost
+  pool: 5
+  socket: /tmp/mysql.sock
+  # For Linux:
+  # socket: /var/run/mysqld/mysqld.sock
+ 
+development:
+  <<: *login
+  database: delorub_development
 
 production:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
+  <<: *login
   database: delorub_production
-  pool: 5
-  username: delorub
-  password:
-  host: localhost

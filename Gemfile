@@ -15,6 +15,7 @@ gem 'carrierwave'
 gem 'rmagick', :require => false
 gem 'mini_magick'
 gem 'therubyracer'
+gem 'activeadmin', github: 'activeadmin'
 
 # Rails core extensions
 gem 'cells'
@@ -27,6 +28,7 @@ gem 'squeel'
 # Authorization, roles
 gem 'devise'
 gem 'devise_lastseenable'
+gem 'cancancan'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'

@@ -1,3 +1,3 @@
 class News < ActiveRecord::Base
-	mount_uploader :image, NewsUploader
+  validates :title, :content, presence: true
 end

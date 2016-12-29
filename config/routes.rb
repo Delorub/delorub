@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations' }
+  ActiveAdmin.routes(self)
+  devise_for :users, :controllers => { registrations: 'registrations' }
 
   resources :users, :only => [:index, :destroy]
   #mount RuCaptcha::Engine => "/rucaptcha"
@@ -11,44 +12,6 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
-
-  get '/admin' => 'admin#index'
-
-  get '/admin/cats' => 'cats#index', :ident => "cats"
-  get '/admin/cats/new' => 'cats#new', :ident => "cats"
-  get '/admin/cats/form' => 'cats#form', :ident => "cats"
-  get '/admin/cats/edit/:id' => 'cats#edit', :ident => "cats"
-  get '/admin/cats/delete/:id' => 'cats#delete', :ident => "cats"
-
-  get '/admin/products' => 'products#index', :ident => "products"
-  get '/admin/products/new' => 'products#new', :ident => "products"
-  post '/admin/products/form' => 'products#form', :ident => "products"
-  get '/admin/products/edit/:id' => 'products#edit', :ident => "products"
-  get '/admin/products/delete/:id' => 'products#delete', :ident => "products"
-
-  get '/admin/news' => 'news#index', :ident => "news"
-  get '/admin/news/new' => 'news#new', :ident => "news"
-  post '/admin/news/form' => 'news#form', :ident => "news"
-  get '/admin/news/edit/:id' => 'news#edit', :ident => "news"
-  get '/admin/news/delete/:id' => 'news#delete', :ident => "news"
-
-  get '/admin/articles' => 'article#index', :ident => "article"
-  get '/admin/articles/new' => 'article#new', :ident => "article"
-  post '/admin/articles/form' => 'article#form', :ident => "article"
-  get '/admin/articles/edit/:id' => 'article#edit', :ident => "article"
-  get '/admin/articles/delete/:id' => 'article#delete', :ident => "article"
-
-  get '/admin/experts' => 'expert#index', :ident => "expert"
-  get '/admin/experts/new' => 'expert#new', :ident => "expert"
-  post '/admin/experts/form' => 'expert#form', :ident => "expert"
-  get '/admin/experts/edit/:id' => 'expert#edit', :ident => "expert"
-  get '/admin/experts/delete/:id' => 'expert#delete', :ident => "expert"
-
-  get '/admin/analitics' => 'analitic#index', :ident => "analitic"
-  get '/admin/analitics/new' => 'analitic#new', :ident => "analitic"
-  post '/admin/analitics/form' => 'analitic#form', :ident => "analitic"
-  get '/admin/analitics/edit/:id' => 'analitic#edit', :ident => "analitic"
-  get '/admin/analitics/delete/:id' => 'analitic#delete', :ident => "analitic"
 
   get '/news' => 'home#news_index'
   get '/news/:id' => 'home#news_get'
@@ -121,56 +84,4 @@ Rails.application.routes.draw do
 
   post '/create-task' => 'home#create_task'
   post '/get_notify' => 'home#get_notify'
-
-
-  get '/:url' => 'home#article'
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
 end

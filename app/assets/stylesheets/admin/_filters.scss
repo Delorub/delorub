@@ -1,0 +1,77 @@
+$sidebar-inner-content-width: 300;
+$text-input-horizontal-padding: 10;
+
+.sidebar_section {
+
+  label {
+    display: block;
+    font-size: 14px;
+  }
+
+  select {
+    width: $sidebar-inner-content-width;
+  }
+
+  input[type=text], input[type=password], input[type=email], input[type=url], input[type=tel], textarea {
+    width: $sidebar-inner-content-width - ($text-input-horizontal-padding * 2);
+  }
+  
+  form div {
+    margin-top: 10px;
+  }
+  
+  h3 {
+      text-transform: none;
+      margin: 24px 0 12px 20px;
+      font-size: 14px;
+      font-weight: normal;
+  }
+
+  h3:before {
+      content: "";
+      position: absolute;
+      width: 15px;
+      height: 12px;
+      background: url(news.png) no-repeat;
+      background-size: cover;
+      margin: 1px 0 0 -20px
+  }
+  
+  .buttons {
+
+  }
+  
+  .buttons input {
+      font-size: 12px;
+      background-color: #ea4b35;
+      color: #fff;
+      display: inline-block;
+      text-decoration: none;
+      border: none;
+      text-align: center;
+      text-transform: uppercase;
+      border-radius: 100px;
+      padding: 10px 21px;
+  	  background-color: #339ff5;
+  }
+
+  .clear_filters_btn {
+    margin-left: 30px;
+    color: #999;
+    font-size: 12px;
+  }
+
+  .attributes_table {
+    font-size: 12px;
+    
+    th {
+      text-align: left;
+      padding: 2px;
+    }
+    
+    td {
+      text-align: left;
+      padding: 2px;
+    }
+  }
+}

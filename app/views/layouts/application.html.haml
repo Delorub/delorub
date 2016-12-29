@@ -14,11 +14,11 @@
         .close
         .title Войти через социальные сети
         .soc-block
-          = link_to user_omniauth_authorize_path(:facebook) do
+          = link_to user_facebook_omniauth_authorize_path do
             = image_tag "soc-1.jpg"
-          = link_to user_omniauth_authorize_path(:vkontakte) do
+          = link_to user_vkontakte_omniauth_authorize_path do
             = image_tag "soc-2.jpg"
-          = link_to user_omniauth_authorize_path(:mailru) do
+          = link_to user_mailru_omniauth_authorize_path do
             = image_tag "soc-3.jpg"
           = link_to "#" do
             = image_tag "soc-4.png"
@@ -48,22 +48,22 @@
         .close
         .title Войти через
         .soc-block
-          = link_to user_omniauth_authorize_path(:facebook) do
+          = link_to user_facebook_omniauth_authorize_path do
             = image_tag "soc-1.jpg"
-          = link_to user_omniauth_authorize_path(:vkontakte) do
+          = link_to user_vkontakte_omniauth_authorize_path do
             = image_tag "soc-2.jpg"
-          = link_to user_omniauth_authorize_path(:mailru) do
+          = link_to user_mailru_omniauth_authorize_path do
             = image_tag "soc-3.jpg"
 
       .popup.popup-reg
         .close
         .title Войти через социальные сети
         .soc-block
-          = link_to user_omniauth_authorize_path(:facebook) do
+          = link_to user_facebook_omniauth_authorize_path do
             = image_tag "soc-1.jpg"
-          = link_to user_omniauth_authorize_path(:vkontakte) do
+          = link_to user_vkontakte_omniauth_authorize_path do
             = image_tag "soc-2.jpg"
-          = link_to user_omniauth_authorize_path(:mailru) do
+          = link_to user_mailru_omniauth_authorize_path do
             = image_tag "soc-3.jpg"
           = link_to "#" do
             = image_tag "soc-4.png"
