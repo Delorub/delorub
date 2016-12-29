@@ -2,7 +2,7 @@ require "rvm/capistrano"
 require "bundler/capistrano" 
 
 set :scm,             :git
-set :repository,      "git@bitbucket.org:vovan89/buro.ru.git"
+set :repository,      "git@github.com:Delorub/delorub.git"
 set :branch,          "origin/master"
 set :migrate_target,  :current
 set :ssh_options,     { :forward_agent => true }
@@ -29,10 +29,10 @@ set(:previous_revision) { capture("cd #{current_path}; git rev-parse --short HEA
 default_environment["RAILS_ENV"] = 'production'
 
 # Use our ruby-1.9.2-p290@my_site gemset
-default_environment["PATH"]         = "/usr/local/rvm/gems/ruby-2.2.1/bin:/usr/local/rvm/gems/ruby-2.2.1@global/bin:/usr/local/rvm/rubies/ruby-2.2.1/bin:/usr/local/rvm/bin:/root/.rbenv/plugins/ruby-build/bin:/root/.rbenv/shims:/root/.rbenv/bin:/root/.rbenv/shims:/root/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-default_environment["GEM_HOME"]     = "/usr/local/rvm/gems/ruby-2.2.1"
-default_environment["GEM_PATH"]     = "/usr/local/rvm/gems/ruby-2.2.1:/usr/local/rvm/gems/ruby-2.2.1@global"
-default_environment["RUBY_VERSION"] = "2.2.1"
+default_environment["PATH"]         = "/usr/local/rvm/gems/ruby-2.3.1/bin:/usr/local/rvm/gems/ruby-2.3.1@global/bin:/usr/local/rvm/rubies/ruby-2.3.1/bin:/usr/local/rvm/bin:/root/.rbenv/plugins/ruby-build/bin:/root/.rbenv/shims:/root/.rbenv/bin:/root/.rbenv/shims:/root/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+default_environment["GEM_HOME"]     = "/usr/local/rvm/gems/ruby-2.3.1"
+default_environment["GEM_PATH"]     = "/usr/local/rvm/gems/ruby-2.3.1:/usr/local/rvm/gems/ruby-2.3.1@global"
+default_environment["RUBY_VERSION"] = "2.3.1"
 
 default_run_options[:shell] = 'bash'
 
