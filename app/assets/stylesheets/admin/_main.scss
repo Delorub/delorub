@@ -62,3 +62,17 @@ a, a:visited {
     }
   }
 }
+
+.quicksearch {
+  width: 70%;
+  margin: 0 auto;
+  
+  input[type="text"] {
+    padding: 9px !important;
+    width: 70% !important;
+  }
+  
+  input[type="submit"] {
+    width: 20%;
+  }
+}
