@@ -27,6 +27,7 @@ gem 'configatron'
 gem 'squeel'
 gem 'awesome_nested_set'
 gem 'enumerize'
+gem 'state_machine'
 
 # Authorization, roles
 gem 'devise'
