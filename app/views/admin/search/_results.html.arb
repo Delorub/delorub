@@ -1,0 +1,25 @@
+table class: 'index_table index search_table' do
+  thead do
+    tr do
+      th 'Название'
+      th 'Тип'
+    end
+  end
+  tbody do
+    results.map do |result|
+      tr do
+        td link_to *case result
+          when User
+            [result.name, admin_user_path(result)]
+          when Page
+            [result.title, admin_page_path(result)]
+          when News
+            [result.title, admin_news_path(result)]
+          when Category
+            [result.title, admin_category_path(result)]
+          end
+        td result.class.model_name.human
+      end
+    end
+  end
+end

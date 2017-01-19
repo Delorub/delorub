@@ -14,7 +14,7 @@ ActiveAdmin.register User do
     users
   end
   scope :master do |users|
-    users.where(is_master: true)
+    users.where{ profile_id != nil }
   end
   
   index do
@@ -24,37 +24,64 @@ ActiveAdmin.register User do
     end
     column :email
   end
+
+  member_action :transfer_money, method: [:get, :put] do
+    @billing_resource = Billing::Transfer::Manually.new(user: resource)
+
+    if request.put?
+      @billing_resource.attributes = params[:billing_transfer_manually].permit(:amount)
+      if @billing_resource.save
+        redirect_to resource_path, notice: "Сумма успешно зачислена на счет"
+      end
+    end
+  end
+
+  member_action :add_task_subscription, method: [:get, :put] do
+    @billing_resource = Billing::Task::Subscription.new(user: resource)
+
+    if request.put?
+      @billing_resource.attributes = params[:billing_task_subscription].permit(:active_from, :active_to, :cost)
+      if @billing_resource.save
+        redirect_to resource_path, notice: "Подписка успешно активирована"
+      end
+    end
+  end
+
+  member_action :add_reply_subscription, method: [:get, :put] do
+    @billing_resource = Billing::Reply::Subscription.new(user: resource)
+
+    if request.put?
+      @billing_resource.attributes = params[:billing_reply_subscription].permit(:active_from, :active_to, :cost)
+      if @billing_resource.save
+        redirect_to resource_path, notice: "Подписка успешно активирована"
+      end
+    end
+  end
+
+  member_action :add_task_pack, method: [:get, :put] do
+    @billing_resource = Billing::Task::Pack.new(user: resource)
+
+    if request.put?
+      @billing_resource.attributes = params[:billing_task_pack].permit(:amount, :cost)
+      if @billing_resource.save
+        redirect_to resource_path, notice: "Пакет успешно активирован"
+      end
+    end
+  end
   
-  action_item :roles, only: :show do
-    link_to 'Управление доступом', user_path(user)
+  member_action :add_reply_pack, method: [:get, :put] do
+    @billing_resource = Billing::Reply::Pack.new(user: resource)
+
+    if request.put?
+      @billing_resource.attributes = params[:billing_reply_pack].permit(:amount, :cost)
+      if @billing_resource.save
+        redirect_to resource_path, notice: "Пакет успешно активирован"
+      end
+    end
   end
 
   show do
-    h3 'Основная информация'
-    attributes_table_for user do
-      row :email
-      row :first_name
-      row :last_name
-      row :phone
-    end
-
-    h3 'Доступные действия'
-    attributes_table_for user do
-      row :available_answers
-      row :paid_answers
-      row :available_tasks
-      row :paid_tasks
-    end
-
-    h3 'Анкета мастера'
-    div do
-      para 'Пользователь не заполнил анкету мастера.'
-    end
-
-    h3 'Задания'
-    div do
-      para 'Ничего на найдено'
-    end
+    render partial: 'show'
   end
 
   form do |f|
@@ -69,12 +96,16 @@ ActiveAdmin.register User do
     actions
   end
 
+  sidebar 'Биллинг', only: :show do
+    render partial: 'billing_log_sidebar', locals: { user: user }
+  end
+
+  sidebar 'Пакеты и подписки', only: :show do
+    render partial: 'billing_sidebar', locals: { user: user }
+  end
+
   sidebar 'Права доступа', only: :show do
     para 'Этот пользователь не имеет прав доступа'
-  end
-  
-  sidebar 'Платные функции', only: :show do
-    para 'Ничего не найдено'
   end
 
   sidebar 'Активность', only: :show do

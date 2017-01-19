@@ -1,0 +1,28 @@
+para "Баланс: <b>#{user.balance} руб.</b>".html_safe
+
+if user.billing_logs.count > 0
+  table class: 'attributes_table' do
+    thead do
+      tr do
+        th 'Сумма'
+        th 'Операция'
+      end
+    end
+    tbody do
+      user.billing_logs.latest.limit(5).map do |result|
+        tr do
+          td "#{result.sum} руб"
+          td result.billable.class.model_name.human
+        end
+      end
+    end
+  end 
+
+  div style: "padding: 10px 0; font-size: 11px;" do
+    link_to "Посмотреть все операции", admin_user_billing_logs_path(q: { user_id_eq: user.id })
+  end
+end
+
+span class: 'action_item' do
+  link_to 'Пополнить баланс', transfer_money_admin_user_path(user)
+end

@@ -1,0 +1,9 @@
+active_admin_form_for billing_resource, url: add_task_subscription_admin_user_path(resource), method: :put do |f|
+  f.inputs do
+    f.input :active_from, as: :datepicker
+    f.input :active_to, as: :datepicker
+    f.input :cost
+    para "Эта сумма будет списана со счета пользователя за использование подписки"
+    f.actions
+  end
+end

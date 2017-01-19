@@ -1,10 +1,10 @@
 class Category < ActiveRecord::Base
-  belongs_to :parent_category, -> { where parent_id: nil }, class_name: "Category", foreign_key: :parent_id
-  has_many :subcategories, class_name: "Category"
-
-  scope :root, -> { where parent_id: nil }
+  include Searchable::Category
+  
+  acts_as_nested_set counter_cache: :children_count
 
   validates :title, presence: true
+  #validates :depth, numericality: { less_than_or_equal_to: 2 }
   
   def form_count
     0

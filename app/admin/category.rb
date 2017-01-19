@@ -10,12 +10,20 @@ ActiveAdmin.register Category do
     selectable_column
     column(:title) { |category| link_to "#{category.title}", admin_category_path(category) }
   end
+  
+  form do |f|
+    inputs 'Основное' do
+      input :title
+      input :parent, collection: nested_set_options(Category, category) {|i| "#{'-' * i.level} #{i.title}" }
+    end
+    actions
+  end
 
   show do
     h3 category.title
     attributes_table_for category do
       row :title
-      row :parent_category
+      row :parent
     end
   end
 

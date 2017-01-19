@@ -3,7 +3,8 @@ ActiveAdmin.register_page "Search" do
 
   content do
     panel "Результаты поиска" do
-      AdminSearcher.new params[:q]
+      render partial: 'admin/shared/searchbox', locals: { query: params[:q] }
+      render partial: 'results', locals: { results: AdminSearch.new(query: params[:q]).all }
     end
   end
 end

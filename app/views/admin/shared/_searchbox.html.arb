@@ -1,0 +1,6 @@
+div class: "blank_slate_container", id: "dashboard_default_message" do
+  form class: 'quicksearch', action: admin_search_path do |f|
+    f.input type: :text, name: 'q', placeholder: "Быстрый поиск", value: query
+    f.input type: :submit, value: "Найти"
+  end
+end

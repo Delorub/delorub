@@ -16,6 +16,7 @@ gem 'rmagick', :require => false
 gem 'mini_magick'
 gem 'therubyracer'
 gem 'activeadmin', github: 'activeadmin'
+gem 'searchkick'
 
 # Rails core extensions
 gem 'cells'
@@ -24,11 +25,13 @@ gem 'configatron'
 
 # Activerecord extensions
 gem 'squeel'
+gem 'awesome_nested_set'
+gem 'enumerize'
 
 # Authorization, roles
 gem 'devise'
 gem 'devise_lastseenable'
-gem 'cancancan'
+gem 'pundit'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
@@ -43,7 +46,6 @@ gem 'haml-rails', '~> 0.8'
 gem 'russian', '~> 0.6.0'
 gem 'kaminari'
 gem 'translit'
-gem 'rucaptcha'
 
 # CHECK
 gem 'petrovich', '~> 1.0'

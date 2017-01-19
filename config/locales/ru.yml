@@ -8,6 +8,11 @@ ru:
     edit_model: "Изменить"
     delete_model: "Удалить"
     download: "Экспорт:"
+    transfer_money: "Пополнить баланс"
+    add_task_subscription: "Добавить подписку на задания"
+    add_reply_subscription: "Добавить подписку на ответы"
+    add_reply_pack: "Добавить пакет ответов"
+    add_task_pack: "Добавить пакет заданий"
     blank_slate:
       content: "Ничего нет."
     batch_actions:
@@ -43,6 +48,21 @@ ru:
         few: Новости
         many: Новостей
         other: Новости
+      task:
+        one: Задание
+        few: Задания
+        many: Заданий
+        other: Задания
+      billing/task/pack: "Пакет заданий"
+      billing/reply/pack: "Пакет ответов"
+      billing/task/subscription: "Абонемент на задания"
+      billing/reply/subscription: "Абонемент на ответы"
+      billing/transfer/manually: "Ручное зачисление"
+      user/billing_log:
+        one: Финансовые отчет
+        few: Финансовых отчета
+        many: Финансовых отчетов
+        other: Финансовые отчеты
     attributes:
       user:
         email: "E-mail"
@@ -55,12 +75,32 @@ ru:
         last_sign_in_ip: "Последний IP"
         phone: "Телефон"
         name: "Имя"
-        available_answers: "Доступные ответы"
-        paid_answers: "Оплаченные ответы"
-        available_tasks: "Доступные задания"
-        paid_tasks: "Оплаченные задания"
+        free_replies_available_sum: "Бесплатные ответы"
+        reply_packs_available_sum: "Оплаченные ответы"
+        free_tasks_available_sum: "Бесплатные задания"
+        task_packs_available_sum: "Оплаченные задания"
+      task:
+        title: "Название"
+        user: Пользователь
+        category: Категория
+        price_type: "Тип цены"
+        price_exact: "Точная цена"
+        price_from: "Цена от"
+        price_to: "Цена до"
+        geo_lat: "Географическая ширина"
+        geo_long: "Географическая долгота"
+        geo_address: "Адрес"
+        date_type: "Тип сроков"
+        date_actual: "Дни актуальности"
+        date_from: "Актуально с"
+        date_to: "Актуально до"
+        description: "Описание"
+        notify_email: "Уведомлять на email"
+        visible: "Доступно на сайте"
+        archive: "Находится в архиве"
+        created_at: "Дата создания"
       category:
-        parent_category: "Родительская категория"
+        parent: "Родительская категория"
         title: "Название"
         master_count: "Количество мастеров"
         form_count: "Количество анкет"
@@ -74,3 +114,25 @@ ru:
         slug: "Адрес страницы"
         content: "Содержание"
         draft: "Черновик"
+      billing/task/pack:
+        amount: "Количество заданий"
+        cost: "Стоимость"
+      billing/reply/pack:
+        amount: "Количество ответов"
+        cost: "Стоимость"
+      billing/reply/subscription:
+        active_from: "Действительна с"
+        active_to: "Действительна до"
+        cost: "Стоимость"
+      billing/task/subscription:
+        active_from: "Действительна с"
+        active_to: "Действительна до"
+        cost: "Стоимость"
+      billing/transfer/manually:
+        amount: "Сумма"
+      user/billing_log:
+        created_at: "Дата"
+        sum: "Сумма"
+        billable_type: "Тип операции"
+        billable: "Операция"
+        user: "Пользователь"

@@ -1,0 +1,7 @@
+active_admin_form_for billing_resource, url: transfer_money_admin_user_path(resource), method: :put do |f|
+  f.inputs do
+    f.input :amount
+    para "Данная сумма будет зачислена на счет пользователя с примечанием «Ручное зачисление»"
+    f.actions
+  end
+end

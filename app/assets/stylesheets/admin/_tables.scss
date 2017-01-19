@@ -12,6 +12,12 @@ table.index_table {
   margin-bottom: 10px;
   border: 0;
   border-spacing: 0;
+  
+  &.search_table {
+    th:first-child {
+      padding-left: 20px;
+    }
+  }
 
   th {
     text-align: left;

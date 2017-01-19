@@ -1,0 +1,41 @@
+h3 'Основная информация'
+attributes_table_for user do
+  row :email
+  row :first_name
+  row :last_name
+  row :phone
+  row :reply_packs_available_sum
+  row :task_packs_available_sum
+  row :free_tasks_available_sum
+  row :free_replies_available_sum
+end
+
+h3 do
+  text_node 'Задания'
+  
+  span class: 'action_item' do
+    link_to 'Добавить пакет', add_task_pack_admin_user_path(user)
+  end
+  
+  span class: 'action_item' do
+    link_to 'Добавить подписку', add_task_subscription_admin_user_path(user)
+  end
+end
+div do
+  para "Доступно публикаций заданий: #{user.tasks_available_sum}"
+end
+
+h3 do
+  text_node 'Ответы на задания'
+  
+  span class: 'action_item' do
+    link_to 'Добавить пакет', add_reply_pack_admin_user_path(user)
+  end
+  
+  span class: 'action_item' do
+    link_to 'Добавить подписку', add_reply_subscription_admin_user_path(user)
+  end
+end
+div do
+  para "Доступно ответов на задания: #{user.replies_available_sum}"
+end

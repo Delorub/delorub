@@ -1,0 +1,37 @@
+table class: 'attributes_table', style: "margin-bottom: 10px;" do
+  thead do
+    tr do
+      th 'Название'
+      th 'Количество'
+    end
+  end
+  tbody do
+    user.billing_logs.packs.latest.map do |result|
+      tr do
+        td result.billable.name
+        td result.billable.amount
+      end
+    end
+  end
+end if user.billing_logs.packs.count > 0
+
+table class: 'attributes_table' do
+  thead do
+    tr do
+      th 'Название'
+      th 'Действует до'
+    end
+  end
+  tbody do
+    user.billing_logs.subscriptions.latest.map do |result|
+      tr do
+        td result.billable.name
+        td result.billable.active_to.to_date
+      end
+    end
+  end
+end if user.billing_logs.subscriptions.count > 0
+
+if user.billing_logs.packs.count + user.billing_logs.subscriptions.count == 0
+  para "Платных услуг не найдено"
+end

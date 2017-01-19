@@ -1,28 +1,51 @@
 class User < ActiveRecord::Base
+  FREE_TASKS = 3
+  FREE_REPLIES = 3
+
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+  
+  include Searchable::User
+  
+  has_many :billing_logs
+  has_many :tasks
+  has_many :replies
+  has_many :billing_task_packs, class_name: "Billing::Task::Pack"
+  has_many :billing_task_subscriptions, class_name: "Billing::Task::Subscription"
+  has_many :billing_reply_packs, class_name: "Billing::Reply::Pack"
+  has_many :billing_reply_subscriptions, class_name: "Billing::Reply::Subscription"
   
   validates :first_name, :last_name, :email, presence: true
   validates :email, uniqueness: true
   validates :password, length: { minimum: 8 }, unless: "password.nil?"
   validates :password, presence: true, if: "id.nil?"
   
+  validates :balance, numericality: { greater_than_or_equal_to: 0 }
+  
   def name
     "#{first_name} #{last_name}"
   end
   
-  def available_answers
-    paid_answers + 3
+  def reply_packs_available_sum
+    billing_reply_packs.sum(:amount) - billing_reply_packs.sum(:spent)
   end
   
-  def paid_answers
-    0
+  def task_packs_available_sum
+    billing_task_packs.sum(:amount) - billing_task_packs.sum(:spent)
   end
   
-  def available_tasks
-    paid_tasks + 3
+  def free_tasks_available_sum
+    FREE_TASKS - free_tasks_published
   end
   
-  def paid_tasks
-    0
+  def free_replies_available_sum
+    FREE_REPLIES - free_replies_published
+  end
+  
+  def tasks_available_sum
+    task_packs_available_sum + free_tasks_available_sum
+  end
+  
+  def replies_available_sum
+    reply_packs_available_sum + free_replies_available_sum
   end
 end

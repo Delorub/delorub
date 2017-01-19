@@ -29,8 +29,8 @@
   .action_items {
     span.action_item {
       & > a, & > .dropdown_menu > a {
-        padding: 10px 15px 8px;
         margin-right: 10px;
+        float: right;
       }
     }
   }
