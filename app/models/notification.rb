@@ -15,7 +15,7 @@ class Notification < ActiveRecord::Base
   scope :latest,               -> { order{ created_at.desc } }
   scope :delivered,            -> { where(state: :delivered) }
   scope :expired, -> (time = Time.now, period = 3.months) do
-    .where{ (created_at <= time - period)  }
+    where{ (created_at <= time - period)  }
   end
   
   after_destroy :update_user_unread_notifications_count, if: :unread?
