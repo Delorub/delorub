@@ -1,8 +1,8 @@
 class User::BillingLog < ActiveRecord::Base
-  PACK_TYPES = %w(Billing::Task::Pack Billing::Reply::Pack).freeze
-  SUBSCRIPTION_TYPES = %w(Billing::Task::Subscription Billing::Reply::Subscription).freeze
-  TRANSFER_TYPES = %w(Billing::Transfer::Manually).freeze
-  OTHER_TYPES = %w(Billing::Transfer::Blog Billing::Transfer::Color Billing::Transfer::Autorefresh).freeze
+  PACK_TYPES = %w(Billing::TaskPack Billing::ReplyPack).freeze
+  SUBSCRIPTION_TYPES = %w(Billing::TaskSubscription Billing::ReplySubscription).freeze
+  TRANSFER_TYPES = %w(Billing::TransferManually).freeze
+  OTHER_TYPES = %w(Billing::TransferBlog Billing::TransferColor Billing::TransferAutorefresh).freeze
   
   belongs_to :user
   belongs_to :billable, polymorphic: true

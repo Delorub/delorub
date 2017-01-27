@@ -65,11 +65,11 @@ ru:
         few: "Адреса"
         many: "Адресов"
         other: "Адреса"
-      billing/task/pack: "Пакет заданий"
-      billing/reply/pack: "Пакет ответов"
-      billing/task/subscription: "Абонемент на задания"
-      billing/reply/subscription: "Абонемент на ответы"
-      billing/transfer/manually: "Ручное зачисление"
+      billing/task_pack: "Пакет заданий"
+      billing/reply_pack: "Пакет ответов"
+      billing/task_subscription: "Абонемент на задания"
+      billing/reply_subscription: "Абонемент на ответы"
+      billing/transfer_manually: "Ручное зачисление"
       user/billing_log:
         one: Финансовые отчет
         few: Финансовых отчета
@@ -136,21 +136,21 @@ ru:
         slug: "Адрес страницы"
         content: "Содержание"
         draft: "Черновик"
-      billing/task/pack:
+      billing/task_pack:
         amount: "Количество заданий"
         cost: "Стоимость"
-      billing/reply/pack:
+      billing/reply_pack:
         amount: "Количество ответов"
         cost: "Стоимость"
-      billing/reply/subscription:
+      billing/reply_subscription:
         active_from: "Действительна с"
         active_to: "Действительна до"
         cost: "Стоимость"
-      billing/task/subscription:
+      billing/task_subscription:
         active_from: "Действительна с"
         active_to: "Действительна до"
         cost: "Стоимость"
-      billing/transfer/manually:
+      billing/transfer_manually:
         amount: "Сумма"
       user/billing_log:
         created_at: "Дата"
