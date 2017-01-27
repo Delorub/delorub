@@ -13,11 +13,31 @@ $text-input-horizontal-padding: 10;
   }
 
   input[type=text], input[type=password], input[type=email], input[type=url], input[type=tel], textarea {
-    width: $sidebar-inner-content-width - ($text-input-horizontal-padding * 2);
+    width: 80%;
+    border-radius: 3px;
+    font-size: 15px;
+    border: 1px solid #aaa;
+    padding: 4px 7px;
+  }
+  
+  .filter_string input[type=text] {
+
   }
   
   form div {
     margin-top: 10px;
+  }
+  
+  .select_and_search {
+    select {
+      width: 80%;
+    }
+  }
+  
+  .filter_date_range {
+    input {
+      width: 35%;
+    }
   }
   
   h3 {

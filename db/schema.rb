@@ -148,18 +148,18 @@ ActiveRecord::Schema.define(version: 20170124102657) do
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.integer  "user_id",     limit: 4,     null: false
-    t.string   "work_type",   limit: 255
-    t.string   "pay_type",    limit: 255
+    t.integer  "user_id",       limit: 4,     null: false
+    t.string   "work_type",     limit: 255
+    t.string   "pay_type",      limit: 255
     t.boolean  "have_car"
     t.boolean  "have_truck"
-    t.text     "about",       limit: 65535
-    t.integer  "geo_id",      limit: 4
-    t.float    "geo_lat",     limit: 24
-    t.float    "geo_long",    limit: 24
-    t.string   "geo_address", limit: 255
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.text     "about",         limit: 65535
+    t.integer  "place_id",      limit: 4
+    t.float    "place_lat",     limit: 24
+    t.float    "place_long",    limit: 24
+    t.string   "place_address", limit: 255
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "replies", force: :cascade do |t|
@@ -198,10 +198,10 @@ ActiveRecord::Schema.define(version: 20170124102657) do
     t.integer  "price_exact",   limit: 4
     t.integer  "price_from",    limit: 4
     t.integer  "price_to",      limit: 4
-    t.integer  "geo_id",        limit: 4
-    t.float    "geo_lat",       limit: 24
-    t.float    "geo_long",      limit: 24
-    t.string   "geo_address",   limit: 255
+    t.integer  "place_id",      limit: 4
+    t.float    "place_lat",     limit: 24
+    t.float    "place_long",    limit: 24
+    t.string   "place_address", limit: 255
     t.string   "date_type",     limit: 255,                   null: false
     t.integer  "date_actual",   limit: 4
     t.datetime "date_from"
