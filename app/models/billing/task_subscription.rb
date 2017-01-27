@@ -1,4 +1,4 @@
-class Billing::Task::Subscription < ActiveRecord::Base
+class Billing::TaskSubscription < ActiveRecord::Base
   self.table_name = 'billing_task_subscriptions'
   
   include Billing::Base

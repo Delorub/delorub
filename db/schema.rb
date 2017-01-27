@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170117111522) do
+ActiveRecord::Schema.define(version: 20170124102657) do
 
   create_table "billing_reply_packs", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -122,6 +122,31 @@ ActiveRecord::Schema.define(version: 20170117111522) do
     t.datetime "updated_at",               null: false
   end
 
+  create_table "place_type_names", force: :cascade do |t|
+    t.integer  "level",            limit: 4
+    t.integer  "code",             limit: 4
+    t.string   "name",             limit: 255
+    t.string   "full_name",        limit: 255
+    t.string   "alt_name",         limit: 255
+    t.boolean  "after_place_name"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string  "fias_aoguid",        limit: 255
+    t.string  "name",               limit: 255
+    t.string  "full_name",          limit: 255
+    t.integer "level",              limit: 4
+    t.integer "place_type",         limit: 4
+    t.integer "place_type_name_id", limit: 4
+    t.integer "parent_place_id",    limit: 4
+    t.integer "region_place_id",    limit: 4
+    t.boolean "is_region_center"
+    t.boolean "is_center"
+    t.boolean "custom"
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.integer  "user_id",     limit: 4,     null: false
     t.string   "work_type",   limit: 255
@@ -131,7 +156,7 @@ ActiveRecord::Schema.define(version: 20170117111522) do
     t.text     "about",       limit: 65535
     t.integer  "geo_id",      limit: 4
     t.float    "geo_lat",     limit: 24
-    t.float    "get_long",    limit: 24
+    t.float    "geo_long",    limit: 24
     t.string   "geo_address", limit: 255
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
@@ -175,7 +200,7 @@ ActiveRecord::Schema.define(version: 20170117111522) do
     t.integer  "price_to",      limit: 4
     t.integer  "geo_id",        limit: 4
     t.float    "geo_lat",       limit: 24
-    t.float    "get_long",      limit: 24
+    t.float    "geo_long",      limit: 24
     t.string   "geo_address",   limit: 255
     t.string   "date_type",     limit: 255,                   null: false
     t.integer  "date_actual",   limit: 4
@@ -184,7 +209,7 @@ ActiveRecord::Schema.define(version: 20170117111522) do
     t.string   "contract_type", limit: 255
     t.text     "description",   limit: 65535
     t.boolean  "notify_email"
-    t.boolean  "visible"
+    t.boolean  "visible",                     default: true
     t.boolean  "archive"
     t.boolean  "colored",                     default: false
     t.string   "billable_type", limit: 255

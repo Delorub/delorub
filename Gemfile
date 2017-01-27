@@ -15,7 +15,6 @@ gem 'carrierwave'
 gem 'rmagick', :require => false
 gem 'mini_magick'
 gem 'therubyracer'
-gem 'activeadmin', github: 'activeadmin'
 gem 'searchkick'
 
 # Rails core extensions
@@ -39,6 +38,17 @@ gem 'omniauth-vkontakte'
 gem 'omniauth-mailru'
 gem 'omniauth-gplus'
 
+# Admin
+gem 'activeadmin', github: 'activeadmin'
+gem 'activeadmin_addons'
+
+# API
+gem 'grape'
+gem 'grape-entity'
+gem 'grape-swagger'
+gem 'grape-swagger-entity'
+gem 'hashie-forbidden_attributes'
+
 # Assets
 gem 'bower-rails', '~> 0.11.0'
 gem 'haml-rails', '~> 0.8'
@@ -47,6 +57,7 @@ gem 'haml-rails', '~> 0.8'
 gem 'russian', '~> 0.6.0'
 gem 'kaminari'
 gem 'translit'
+
 
 # CHECK
 gem 'petrovich', '~> 1.0'

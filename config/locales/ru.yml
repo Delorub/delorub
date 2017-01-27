@@ -1,4 +1,11 @@
 ru:
+  place_type:
+    region: "1 - Регион / край"
+    district: "2 - Район"
+    city: "3 - Город"
+    locality: "4 - Населенный пункт"
+    street: "5 - Улица"
+    house: "6 - Дом"
   formtastic:
     create: 'Создать'
     update: 'Обновить'
@@ -53,6 +60,11 @@ ru:
         few: Задания
         many: Заданий
         other: Задания
+      place:
+        one: "Адрес"
+        few: "Адреса"
+        many: "Адресов"
+        other: "Адреса"
       billing/task/pack: "Пакет заданий"
       billing/reply/pack: "Пакет ответов"
       billing/task/subscription: "Абонемент на задания"
@@ -81,8 +93,8 @@ ru:
         task_packs_available_sum: "Оплаченные задания"
       task:
         title: "Название"
-        user: Пользователь
-        category: Категория
+        user_id: Пользователь
+        category_id: Категория
         price_type: "Тип цены"
         price_exact: "Точная цена"
         price_from: "Цена от"
@@ -99,6 +111,16 @@ ru:
         visible: "Доступно на сайте"
         archive: "Находится в архиве"
         created_at: "Дата создания"
+      place:
+        name: "Название"
+        place_type_name: "Тип адреса"
+        fias_aoguid: "Идентификатор ФИАС"
+        parent_place: "Родительский адрес"
+        region_place: "Принадлежит региону"
+        place_type_text: "Общий тип адреса"
+        full_name: "Полное название"
+        level: "Уровень вложенности"
+        search_string: "Поисковые синонимы"
       category:
         parent: "Родительская категория"
         title: "Название"

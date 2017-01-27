@@ -5,14 +5,15 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
   
   include Searchable::User
+  include Geotaggable
   
   has_many :billing_logs
   has_many :tasks
   has_many :replies
-  has_many :billing_task_packs, class_name: "Billing::Task::Pack"
-  has_many :billing_task_subscriptions, class_name: "Billing::Task::Subscription"
-  has_many :billing_reply_packs, class_name: "Billing::Reply::Pack"
-  has_many :billing_reply_subscriptions, class_name: "Billing::Reply::Subscription"
+  has_many :billing_task_packs, class_name: "Billing::TaskPack"
+  has_many :billing_task_subscriptions, class_name: "Billing::TaskSubscription"
+  has_many :billing_reply_packs, class_name: "Billing::ReplyPack"
+  has_many :billing_reply_subscriptions, class_name: "Billing::ReplySubscription"
   
   validates :first_name, :last_name, :email, presence: true
   validates :email, uniqueness: true

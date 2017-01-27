@@ -94,3 +94,5 @@ vendor/extensions/**/spec/dummy
 
 # Vagrant
 .vagrant
+
+public/geo

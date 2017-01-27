@@ -10,12 +10,12 @@ class CreateProfiles < ActiveRecord::Migration
       t.boolean :have_truck
       
       t.text :about
-      
-      t.integer :geo_id, null: true
-      t.float :geo_lat, null: true
-      t.float :geo_long, null: true
-      t.string :geo_address
-      
+
+      t.integer :place_id, null: true
+      t.float :place_lat, null: true
+      t.float :place_long, null: true
+      t.string :place_address
+
       t.timestamps null: false
     end
   end

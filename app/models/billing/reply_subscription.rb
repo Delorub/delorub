@@ -1,4 +1,4 @@
-class Billing::Reply::Subscription < ActiveRecord::Base
+class Billing::ReplySubscription < ActiveRecord::Base
   self.table_name = 'billing_reply_subscriptions'
   
   include Billing::Base

@@ -1,4 +1,4 @@
-class Billing::Reply::Pack < ActiveRecord::Base
+class Billing::ReplyPack < ActiveRecord::Base
   self.table_name = 'billing_reply_packs'
   
   include Billing::Base

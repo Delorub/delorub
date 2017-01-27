@@ -54,6 +54,12 @@ $text-input-horizontal-padding: 10;
       padding: 10px 21px;
   	  background-color: #339ff5;
   }
+  
+  .filter_select {
+    select {
+      width: 100%;
+    }
+  }
 
   .clear_filters_btn {
     margin-left: 30px;

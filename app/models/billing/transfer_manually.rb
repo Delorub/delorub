@@ -1,4 +1,4 @@
-class Billing::Transfer::Manually < ActiveRecord::Base
+class Billing::TransferManually < ActiveRecord::Base
   self.table_name = 'billing_transfer_manually'
 
   include Billing::Base

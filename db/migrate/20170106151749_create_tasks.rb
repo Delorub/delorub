@@ -12,10 +12,10 @@ class CreateTasks < ActiveRecord::Migration
       t.integer :price_from, null: true
       t.integer :price_to, null: true
       
-      t.integer :geo_id, null: true
-      t.float :geo_lat, null: true
-      t.float :geo_long, null: true
-      t.string :geo_address
+      t.integer :place_id, null: true
+      t.float :place_lat, null: true
+      t.float :place_long, null: true
+      t.string :place_address
       
       t.string :date_type, null: false
       t.integer :date_actual, null: true

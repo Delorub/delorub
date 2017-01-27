@@ -26,7 +26,7 @@ ActiveAdmin.register User do
   end
 
   member_action :transfer_money, method: [:get, :put] do
-    @billing_resource = Billing::Transfer::Manually.new(user: resource)
+    @billing_resource = Billing::TransferManually.new(user: resource)
 
     if request.put?
       @billing_resource.attributes = params[:billing_transfer_manually].permit(:amount)
@@ -37,7 +37,7 @@ ActiveAdmin.register User do
   end
 
   member_action :add_task_subscription, method: [:get, :put] do
-    @billing_resource = Billing::Task::Subscription.new(user: resource)
+    @billing_resource = Billing::TaskSubscription.new(user: resource)
 
     if request.put?
       @billing_resource.attributes = params[:billing_task_subscription].permit(:active_from, :active_to, :cost)
@@ -48,7 +48,7 @@ ActiveAdmin.register User do
   end
 
   member_action :add_reply_subscription, method: [:get, :put] do
-    @billing_resource = Billing::Reply::Subscription.new(user: resource)
+    @billing_resource = Billing::ReplySubscription.new(user: resource)
 
     if request.put?
       @billing_resource.attributes = params[:billing_reply_subscription].permit(:active_from, :active_to, :cost)
@@ -59,7 +59,7 @@ ActiveAdmin.register User do
   end
 
   member_action :add_task_pack, method: [:get, :put] do
-    @billing_resource = Billing::Task::Pack.new(user: resource)
+    @billing_resource = Billing::TaskPack.new(user: resource)
 
     if request.put?
       @billing_resource.attributes = params[:billing_task_pack].permit(:amount, :cost)
@@ -70,7 +70,7 @@ ActiveAdmin.register User do
   end
   
   member_action :add_reply_pack, method: [:get, :put] do
-    @billing_resource = Billing::Reply::Pack.new(user: resource)
+    @billing_resource = Billing::ReplyPack.new(user: resource)
 
     if request.put?
       @billing_resource.attributes = params[:billing_reply_pack].permit(:amount, :cost)
