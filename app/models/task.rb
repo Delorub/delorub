@@ -11,5 +11,5 @@ class Task < ActiveRecord::Base
   enumerize :price_type, in: [:exact, :interval, :scale]
   enumerize :date_type, in: [:actual, :interval]
   
-  validates :user, :category, :price_type, :date_type, :place_type, presence: true
+  validates :user, :category, :price_type, :date_type, presence: true
 end
