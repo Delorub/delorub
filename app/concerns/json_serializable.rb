@@ -1,9 +1,9 @@
 module JsonSerializable
-  def load json
+  def self.load json
     new json ? ActiveSupport::JSON.decode(json) : {}
   end
 
-  def dump object
+  def self.dump object
     ActiveSupport::JSON.encode object
   end
 end

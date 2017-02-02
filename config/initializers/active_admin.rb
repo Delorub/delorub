@@ -1,10 +1,27 @@
 ActiveAdmin.setup do |config|
+  config.site_title = "Делоруб"
+  config.site_title_image = "logo-2.png"
+  config.register_stylesheet 'https://fonts.googleapis.com/css?family=Exo+2:100,200,300,400,500,600,700&amp;subset=cyrillic'
+  
+  config.authorization_adapter = ActiveAdmin::PunditAdapter
+  config.on_unauthorized_access = :access_denied
+  
+  config.comments = false
+  
+  config.namespace :admin do |admin|
+    admin.site_title = "Панель администратора"
+  end
+  
+  config.namespace :editor do |editor|
+    editor.site_title = "Панель редактора"
+  end
+
   # == Site Title
   #
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = "Delorub"
+  
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
@@ -16,7 +33,7 @@ ActiveAdmin.setup do |config|
   #
   # Note: Aim for an image that's 21px high so it fits in the header.
   #
-  config.site_title_image = "logo-2.png"
+  
 
   # == Default Namespace
   #
@@ -62,12 +79,11 @@ ActiveAdmin.setup do |config|
   # method in a before filter of all controller actions to
   # ensure that there is a user with proper rights. You can use
   # CanCanAdapter or make your own. Please refer to documentation.
-  # config.authorization_adapter = ActiveAdmin::CanCanAdapter
+  
 
   # In case you prefer Pundit over other solutions you can here pass
   # the name of default policy class. This policy will be used in every
   # case when Pundit is unable to find suitable policy.
-  # config.pundit_default_policy = "MyDefaultPunditPolicy"
 
   # You can customize your CanCan Ability class name here.
   # config.cancan_ability_class = "Ability"
@@ -77,7 +93,7 @@ ActiveAdmin.setup do |config|
   # because, by default, user gets redirected to Dashboard. If user
   # doesn't have access to Dashboard, he'll end up in a redirect loop.
   # Method provided here should be defined in application_controller.rb.
-  # config.on_unauthorized_access = :access_denied
+  
 
   # == Current User
   #
@@ -119,7 +135,7 @@ ActiveAdmin.setup do |config|
   # This allows your users to comment on any resource registered with Active Admin.
   #
   # You can completely disable comments:
-  config.comments = false
+  
   #
   # You can change the name under which comments are registered:
   # config.comments_registration_name = 'AdminComment'
@@ -186,7 +202,7 @@ ActiveAdmin.setup do |config|
   # and feel.
   #
   # To load a stylesheet:
-  config.register_stylesheet 'https://fonts.googleapis.com/css?family=Exo+2:100,200,300,400,500,600,700&amp;subset=cyrillic'
+  
   #
   # You can provide an options hash for more control, which is passed along to stylesheet_link_tag():
   #   config.register_stylesheet 'my_print_stylesheet.css', media: :print

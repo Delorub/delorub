@@ -1,0 +1,22 @@
+if user.permission
+  table class: 'attributes_table' do
+    thead do
+      tr do
+        th 'Список'
+      end
+    end
+    tbody do
+      user.permission.values.each do |k, v|
+        tr do
+          td permission_t k
+        end
+      end
+    end
+  end 
+else
+  para 'Пользователь не имеет прав доступа'
+end
+
+span class: 'action_item' do
+  link_to 'Управление доступом', permission_admin_user_path(user)
+end

@@ -10,9 +10,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jbuilder', '~> 2.0'
 gem 'rake', '11.3.0'
 gem 'haml'
-gem 'bcrypt-ruby', :require => 'bcrypt'
-gem 'carrierwave'
-gem 'rmagick', :require => false
+gem 'bcrypt-ruby', require: 'bcrypt'
+gem 'rmagick', require: false
 gem 'mini_magick'
 gem 'therubyracer'
 gem 'searchkick'
@@ -21,6 +20,7 @@ gem 'searchkick'
 gem 'cells'
 gem 'draper'
 gem 'configatron'
+gem 'virtus'
 
 # Activerecord extensions
 gem 'squeel'
@@ -42,6 +42,9 @@ gem 'omniauth-gplus'
 gem 'activeadmin', github: 'activeadmin'
 gem 'activeadmin_addons'
 
+# Attachments
+gem 'carrierwave', '~> 1.0'
+
 # API
 gem 'grape'
 gem 'grape-entity'
@@ -58,18 +61,17 @@ gem 'russian', '~> 0.6.0'
 gem 'kaminari'
 gem 'translit'
 
-
 # CHECK
 gem 'petrovich', '~> 1.0'
 gem 'simple_captcha2', require: 'simple_captcha'
-gem 'ipgeobase', :git => 'https://github.com/mokevnin/ipgeobase'
-gem 'meta-tags', :require => 'meta_tags'
+gem 'ipgeobase', git: 'https://github.com/mokevnin/ipgeobase'
+gem 'meta-tags', require: 'meta_tags'
 
 group :development do
   gem 'annotate', require: false
   gem 'rubocop', require: false
   gem 'ruby_parser', require: false
-  gem 'capistrano-deploy', '~> 0.1.1', :require => nil
+  gem 'capistrano-deploy', '~> 0.1.1', require: nil
 end
 
 group :development, :test do
@@ -82,7 +84,7 @@ end
 
 group :development do
   gem 'capistrano'
-  gem 'rvm-capistrano',  require: false
+  gem 'rvm-capistrano', require: false
 end
 
 group :production do

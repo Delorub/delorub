@@ -8,12 +8,13 @@ class User < ActiveRecord::Base
   include Geotaggable
   
   has_many :billing_logs
-  has_many :tasks
-  has_many :replies
-  has_many :billing_task_packs, class_name: "Billing::TaskPack"
-  has_many :billing_task_subscriptions, class_name: "Billing::TaskSubscription"
-  has_many :billing_reply_packs, class_name: "Billing::ReplyPack"
-  has_many :billing_reply_subscriptions, class_name: "Billing::ReplySubscription"
+  has_many :tasks, dependent: :destroy
+  has_many :replies, dependent: :destroy
+  has_many :billing_task_packs, class_name: "Billing::TaskPack", dependent: :destroy
+  has_many :billing_task_subscriptions, class_name: "Billing::TaskSubscription", dependent: :destroy
+  has_many :billing_reply_packs, class_name: "Billing::ReplyPack", dependent: :destroy
+  has_many :billing_reply_subscriptions, class_name: "Billing::ReplySubscription", dependent: :destroy
+  has_one :permission, class_name: "UserPermission", dependent: :destroy
   
   validates :first_name, :last_name, :email, presence: true
   validates :email, uniqueness: true

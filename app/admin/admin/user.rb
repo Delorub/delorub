@@ -16,13 +16,24 @@ ActiveAdmin.register User do
   scope :master do |users|
     users.where{ profile_id != nil }
   end
-  
+
   index do
     selectable_column
     column(:name) do |user|
       link_to "#{user.name}", admin_user_path(user)
     end
     column :email
+  end
+  
+  member_action :permission, method: [:get, :put] do
+    @permission_resource = resource.permission || resource.build_permission
+    
+    if request.put?
+      @permission_resource.attributes = params[:user_permission].permit(@permission_resource.data.class.permissions)
+      if @permission_resource.save
+        redirect_to resource_path, notice: "Права доступа успешно обновлены"
+      end
+    end
   end
 
   member_action :transfer_money, method: [:get, :put] do
@@ -105,7 +116,7 @@ ActiveAdmin.register User do
   end
 
   sidebar 'Права доступа', only: :show do
-    para 'Этот пользователь не имеет прав доступа'
+    render partial: 'permission_sidebar', locals: { user: user }
   end
 
   sidebar 'Активность', only: :show do
