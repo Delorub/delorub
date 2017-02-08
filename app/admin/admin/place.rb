@@ -1,4 +1,4 @@
-ActiveAdmin.register Place do
+ActiveAdmin.register Place, namespace: :admin do
   actions :index, :show
   
   filter :by_search_in, label: "Поиск", as: :string

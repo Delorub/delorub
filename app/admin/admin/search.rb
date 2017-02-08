@@ -1,4 +1,4 @@
-ActiveAdmin.register_page "Search" do
+ActiveAdmin.register_page "Search", namespace: :admin do
   menu false
 
   content do

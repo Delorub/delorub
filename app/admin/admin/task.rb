@@ -1,4 +1,4 @@
-ActiveAdmin.register Task do
+ActiveAdmin.register Task, namespace: :admin do
   permit_params :user_id, :category_id, :title, :price_type, :date_type
   
   filter :category_id, as: :ajax_filter, url: '/admin/categories', fields: [:title], display_name: 'title'

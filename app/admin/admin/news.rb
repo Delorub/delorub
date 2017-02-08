@@ -1,4 +1,4 @@
-ActiveAdmin.register News do
+ActiveAdmin.register News, namespace: :admin do
   permit_params :title, :created_at, :content
   
   filter :title

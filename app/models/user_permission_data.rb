@@ -13,7 +13,7 @@ class UserPermissionData
         category: [ :view, :edit, :delete ],
         news: [ :view, :edit, :delete ],
         user: [ :view, :edit, :delete, :permissions, :billing ],
-        page: [ :view, :edit, :delete ],
+        page: [ :view, :edit ],
         reply: []
       },
 

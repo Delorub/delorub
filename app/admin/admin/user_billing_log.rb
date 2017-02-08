@@ -1,4 +1,4 @@
-ActiveAdmin.register User::BillingLog do
+ActiveAdmin.register User::BillingLog, namespace: :admin do
   config.batch_actions = false
 
   filter :user

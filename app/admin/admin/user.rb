@@ -1,4 +1,4 @@
-ActiveAdmin.register User do
+ActiveAdmin.register User, namespace: :admin do
   permit_params do
     permitted = [:email, :first_name, :last_name, :phone, :password]
     permitted
@@ -107,15 +107,15 @@ ActiveAdmin.register User do
     actions
   end
 
-  sidebar 'Биллинг', only: :show do
+  sidebar 'Биллинг', only: :show, if: proc{ authorized? :billing_log_sidebar, user } do
     render partial: 'billing_log_sidebar', locals: { user: user }
   end
 
-  sidebar 'Пакеты и подписки', only: :show do
+  sidebar 'Пакеты и подписки', only: :show, if: proc{ authorized? :billing_sidebar, user }  do
     render partial: 'billing_sidebar', locals: { user: user }
   end
 
-  sidebar 'Права доступа', only: :show do
+  sidebar 'Права доступа', only: :show, if: proc{ authorized? :permission, user } do
     render partial: 'permission_sidebar', locals: { user: user }
   end
 

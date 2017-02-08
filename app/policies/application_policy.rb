@@ -11,7 +11,7 @@ class ApplicationPolicy
   end
 
   def show?
-    scope.where(:id => record.id).exists?
+    index?
   end
 
   def create?
@@ -35,7 +35,11 @@ class ApplicationPolicy
   end
 
   def scope
-    Pundit.policy_scope!(user, record.class)
+    if namespace
+      Pundit::PolicyFinder.new([namespace, record.class]).scope.new(user, record.class).resolve
+    else
+      Pundit.policy_scope!(user, record.class)
+    end
   end
 
   class Scope
@@ -50,4 +54,10 @@ class ApplicationPolicy
       scope
     end
   end
+  
+  private
+
+    def namespace
+      self.class.name.deconstantize.downcase.to_sym unless self.class.name.deconstantize.empty?
+    end
 end

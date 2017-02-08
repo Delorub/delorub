@@ -1,4 +1,4 @@
-ActiveAdmin.register Category do
+ActiveAdmin.register Category, namespace: :admin do
   permit_params do
     permitted = [:title, :parent_id]
     permitted

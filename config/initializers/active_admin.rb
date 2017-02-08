@@ -2,16 +2,22 @@ ActiveAdmin.setup do |config|
   config.site_title = "Делоруб"
   config.site_title_image = "logo-2.png"
   config.register_stylesheet 'https://fonts.googleapis.com/css?family=Exo+2:100,200,300,400,500,600,700&amp;subset=cyrillic'
-  
-  config.authorization_adapter = ActiveAdmin::PunditAdapter
+
+  config.authentication_method = :authenticate_user!
+  config.current_user_method = :current_user
+  config.logout_link_path = :destroy_user_session_path
+  config.authorization_adapter = ActiveAdmin::PermissionAuthorizationAdapter
   config.on_unauthorized_access = :access_denied
-  
+
+  config.batch_actions = true
   config.comments = false
-  
+  config.localize_format = :long
+  config.filters = true
+
   config.namespace :admin do |admin|
     admin.site_title = "Панель администратора"
   end
-  
+
   config.namespace :editor do |editor|
     editor.site_title = "Панель редактора"
   end
@@ -71,7 +77,7 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # within the application controller.
-  # config.authentication_method = :authenticate_admin_user!
+  # 
 
   # == User Authorization
   #
@@ -114,7 +120,7 @@ ActiveAdmin.setup do |config|
   # will call the method to return the path.
   #
   # Default:
-  config.logout_link_path = :destroy_admin_user_session_path
+  
 
   # This setting changes the http method used when rendering the
   # link. For example :get, :delete, :put, etc..
@@ -154,7 +160,7 @@ ActiveAdmin.setup do |config|
   #
   # Enable and disable Batch Actions
   #
-  config.batch_actions = true
+  
 
   # == Controller Filters
   #
@@ -169,7 +175,7 @@ ActiveAdmin.setup do |config|
   # To understand how to localize your app with I18n, read more at
   # https://github.com/svenfuchs/i18n/blob/master/lib%2Fi18n%2Fbackend%2Fbase.rb#L52
   #
-  config.localize_format = :long
+  
 
   # == Setting a Favicon
   #
@@ -277,7 +283,7 @@ ActiveAdmin.setup do |config|
   # hand side with a filter for each attribute of the registered model.
   # You can enable or disable them for all resources here.
   #
-  # config.filters = true
+  # 
   #
   # By default the filters include associations in a select, which means
   # that every record will be loaded for each association.

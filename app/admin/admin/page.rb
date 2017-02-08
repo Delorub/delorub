@@ -1,4 +1,4 @@
-ActiveAdmin.register Page do
+ActiveAdmin.register Page, namespace: :admin do
   permit_params :title, :content, :slug
   
   config.batch_actions = false

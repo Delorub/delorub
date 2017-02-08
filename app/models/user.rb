@@ -50,4 +50,8 @@ class User < ActiveRecord::Base
   def replies_available_sum
     reply_packs_available_sum + free_replies_available_sum
   end
+  
+  def permission
+    super || self.build_permission
+  end
 end
