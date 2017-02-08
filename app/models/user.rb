@@ -23,6 +23,8 @@ class User < ActiveRecord::Base
   
   validates :balance, numericality: { greater_than_or_equal_to: 0 }
   
+  mount_uploader :photo, UserPhotoUploader
+  
   def name
     "#{first_name} #{last_name}"
   end

@@ -1,8 +1,5 @@
 ActiveAdmin.register User, namespace: :admin do
-  permit_params do
-    permitted = [:email, :first_name, :last_name, :phone, :password]
-    permitted
-  end
+  permit_params :email, :first_name, :last_name, :phone, :password, :photo
 
   filter :email
   filter :first_name
@@ -102,7 +99,7 @@ ActiveAdmin.register User, namespace: :admin do
       input :first_name
       input :last_name
       input :phone
-      li "Создан #{f.object.created_at}" unless f.object.new_record?
+      input :photo
     end
     actions
   end

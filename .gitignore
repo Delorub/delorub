@@ -6,6 +6,7 @@ tmp/
 public/stylesheets
 public/system
 doc/diagrams
+public/uploads
 nbproject/*
 .idea
 .jhw-cache

@@ -1,9 +1,6 @@
 ActiveAdmin.register Category, namespace: :admin do
-  permit_params do
-    permitted = [:title, :parent_id]
-    permitted
-  end
-  
+  permit_params :title, :parent_id, :photo
+
   filter :title
 
   index do
@@ -14,7 +11,8 @@ ActiveAdmin.register Category, namespace: :admin do
   form do |f|
     inputs 'Основное' do
       input :title
-      input :parent, collection: nested_set_options(Category, category) {|i| "#{'-' * i.level} #{i.title}" }
+      #input :parent, collection: nested_set_options(Category, category) {|i| "#{'-' * i.level} #{i.title}" }
+      input :photo
     end
     actions
   end
@@ -26,6 +24,8 @@ ActiveAdmin.register Category, namespace: :admin do
       row :parent
     end
   end
+
+  sidebar 'Изображение', only: :show, partial: 'image', if: proc{ !category.photo.file.nil? }
 
   sidebar 'Статистика', only: :show do
     attributes_table_for category do
