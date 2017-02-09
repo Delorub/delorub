@@ -24,7 +24,7 @@ class User::BillingLog < ActiveRecord::Base
     
     def user_have_enough_balance
       if user.balance + sum < 0
-        errors.add :sum, I18n.t('activerecord.errors.models.company.attributes.new_expert_ids.should_be_members')
+        errors.add :sum, I18n.t('activerecord.errors.user_balance')
       end
     end
 end

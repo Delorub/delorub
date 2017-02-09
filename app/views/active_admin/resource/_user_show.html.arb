@@ -14,11 +14,11 @@ h3 do
   text_node 'Задания'
   
   span class: 'action_item' do
-    link_to 'Добавить пакет', add_task_pack_admin_user_path(user)
+    link_to 'Добавить пакет', namespaced_path('add_task_pack_namespace_user_path', user)
   end if authorized? :add_task_pack, user
   
   span class: 'action_item' do
-    link_to 'Добавить подписку', add_task_subscription_admin_user_path(user)
+    link_to 'Добавить подписку', namespaced_path('add_task_subscription_namespace_user_path', user)
   end if authorized? :add_task_subscription, user
 end
 div do
@@ -27,13 +27,13 @@ end
 
 h3 do
   text_node 'Ответы на задания'
-  
+
   span class: 'action_item' do
-    link_to 'Добавить пакет', add_reply_pack_admin_user_path(user)
+    link_to 'Добавить пакет', namespaced_path('add_reply_pack_namespace_user_path', user)
   end if authorized? :add_reply_pack, user
-  
+
   span class: 'action_item' do
-    link_to 'Добавить подписку', add_reply_subscription_admin_user_path(user)
+    link_to 'Добавить подписку', namespaced_path('add_reply_subscription_namespace_user_path', user)
   end if authorized? :add_reply_subscription, user
 end
 div do

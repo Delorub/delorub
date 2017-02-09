@@ -11,7 +11,7 @@ ActiveAdmin.register Category, namespace: :admin do
   form do |f|
     inputs 'Основное' do
       input :title
-      #input :parent, collection: nested_set_options(Category, category) {|i| "#{'-' * i.level} #{i.title}" }
+      input :parent, collection: nested_set_options(Category, category) {|i| "#{'-' * i.level} #{i.title}" }
       input :photo
     end
     actions
@@ -25,7 +25,9 @@ ActiveAdmin.register Category, namespace: :admin do
     end
   end
 
-  sidebar 'Изображение', only: :show, partial: 'image', if: proc{ !category.photo.file.nil? }
+  sidebar 'Изображение', only: :show, if: proc{ !category.photo.file.nil? } do
+    img src: category.photo.thumb.url
+  end
 
   sidebar 'Статистика', only: :show do
     attributes_table_for category do

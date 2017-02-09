@@ -1,4 +1,4 @@
-active_admin_form_for billing_resource, url: add_reply_pack_admin_user_path(resource), method: :put do |f|
+active_admin_form_for billing_resource, url: namespaced_path('add_reply_pack_namespace_user_path', resource), method: :put do |f|
   f.inputs do
     f.input :amount
     f.input :cost

@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   resources :users, :only => [:index, :destroy]
 
   root 'home#index'
+  
+  get '*unmatched_route', to: 'page_not_found#index' unless Rails.env.development?
 end

@@ -10,7 +10,7 @@ class ActiveAdmin::PermissionRenderer < Struct.new(:template, :form, :resource)
   private
 
     def render_form
-      render_part resource.data.class.pretty_permissions
+      render_part resource.pretty_permissions_list
     end
     
     def render_part data, level: 1, prefix: nil

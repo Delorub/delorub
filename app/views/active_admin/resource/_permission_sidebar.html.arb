@@ -18,5 +18,5 @@ else
 end
 
 span class: 'action_item' do
-  link_to 'Управление доступом', permission_admin_user_path(user)
+  link_to 'Управление доступом', namespaced_path('permission_namespace_user_path', user)
 end

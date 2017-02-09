@@ -1,4 +1,4 @@
-ActiveAdmin.register User, namespace: :admin do
+ActiveAdmin.register User, namespace: :editor do
   include ActiveAdminShared::User
   include ActiveAdminShared::UserPermission
   include ActiveAdminShared::UserBilling
@@ -19,7 +19,7 @@ ActiveAdmin.register User, namespace: :admin do
   index do
     selectable_column
     column(:name) do |user|
-      link_to "#{user.name}", admin_user_path(user)
+      link_to "#{user.name}", editor_user_path(user)
     end
     column :email
   end

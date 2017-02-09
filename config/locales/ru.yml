@@ -35,6 +35,8 @@ ru:
       filters: "Поиск"
       search_status: "Как искали?"
   activerecord:
+    errors:
+      user_balance: "Не хватает средств на счету"
     models:
       user:
         one: Пользователь
@@ -81,6 +83,7 @@ ru:
         email: "E-mail"
         password: "Пароль"
         first_name: "Имя"
+        photo: "Фотография"
         last_name: "Фамилия"
         created_at: "Дата регистрации"
         last_sign_in_at: "Последний вход"
@@ -127,6 +130,7 @@ ru:
         title: "Название"
         master_count: "Количество мастеров"
         form_count: "Количество анкет"
+        photo: "Изображение"
       news:
         title: "Заголовок"
         text: "Содержание"
@@ -193,6 +197,7 @@ ru:
         editor: "Панель редактора"
         editor_dashboard: "Доступ к панели редактора"
         editor_user: "Управление пользователями"
+        editor_user_view: "Просмотр пользователей"
         editor_user_permissions: "Управление доступами пользователей"
         editor_user_permissions_description: "Позволяет управлять доступами только в рамках панели редактора"
         editor_user_block: "Блокировка пользователей"

@@ -20,9 +20,9 @@ if user.billing_logs.count > 0
 
   div style: "padding: 10px 0; font-size: 11px;" do
     link_to "Посмотреть все операции", admin_user_billing_logs_path(q: { user_id_eq: user.id })
-  end
+  end if authorized? :index, User::BillingLog
 end
 
 span class: 'action_item' do
-  link_to 'Пополнить баланс', transfer_money_admin_user_path(user)
+  link_to 'Пополнить баланс', namespaced_path('transfer_money_namespace_user_path', user)
 end

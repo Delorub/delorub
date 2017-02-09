@@ -1,6 +1,0 @@
-active_admin_form_for permission_resource, url: permission_admin_user_path(resource), method: :put do |f|
-  f.inputs do
-    render_permissions form: f, permission_resource: permission_resource
-    f.actions
-  end
-end

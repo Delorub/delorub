@@ -4,7 +4,7 @@ class EditorPolicy < ApplicationPolicy
   end
 
   def create?
-    granted?
+    update?
   end
 
   def update?
