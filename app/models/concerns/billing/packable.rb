@@ -2,9 +2,11 @@ module Billing::Packable
   extend ActiveSupport::Concern
 
   included do
+    scope :active, -> { where(avaiable: true) }
+
     validates :amount, presence: true, numericality: { greater_than_or_equal_to: 0 }
     validates :spent, presence: true, numericality: { less_than_or_equal_to: :amount }
-    
+
     before_save :update_availability
   end
   

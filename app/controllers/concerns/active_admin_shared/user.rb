@@ -2,10 +2,7 @@ module ActiveAdminShared::User
   extend ActiveSupport::Concern
 
   def self.included dsl
-    dsl.send :filter, :email
-    dsl.send :filter, :first_name
-    dsl.send :filter, :last_name
-    dsl.send :filter, :phone
+    dsl.send :filter, :by_search_in, label: "Поиск", as: :string
 
     dsl.send :show do
       render 'user_show'

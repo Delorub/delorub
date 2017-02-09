@@ -1,7 +1,7 @@
 ActiveAdmin.register User::BillingLog, namespace: :admin do
   config.batch_actions = false
 
-  filter :user
+  filter :user_id, as: :ransack_filter, url: '/admin/users', display_name: 'name'
   filter :billable_type
   filter :created_at
 

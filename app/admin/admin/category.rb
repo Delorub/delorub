@@ -1,7 +1,7 @@
 ActiveAdmin.register Category, namespace: :admin do
   permit_params :title, :parent_id, :photo
 
-  filter :title
+  filter :by_search_in, label: "Поиск", as: :string
 
   index do
     selectable_column

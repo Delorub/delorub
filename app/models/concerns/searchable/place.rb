@@ -3,16 +3,11 @@ module Searchable::Place
 
   included do
     searchkick word_start: [:name, :full_name, :search_string], language: :russian
-    
+
     scope :by_search_in, ->(q) {
-      data = PlaceSearch.new(query: q, page: 1, per_page: 100).all.map(&:id)
-      if data
-        unscoped.where(id: data).order("field(id, #{data.join(',')})")
-      else
-        scoped
-      end
+      by_search_ids PlaceSearch.new(query: q, page: 1, per_page: 100).all.map(&:id)
     }
-    
+
     def self.ransackable_scopes(auth_object = nil)
       [:by_search_in]
     end

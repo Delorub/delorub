@@ -15,6 +15,8 @@ gem 'rmagick', require: false
 gem 'mini_magick'
 gem 'therubyracer'
 gem 'searchkick'
+gem 'rabl'
+gem 'oj'
 
 # Rails core extensions
 gem 'cells'
