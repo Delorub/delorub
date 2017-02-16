@@ -13,5 +13,12 @@ machine:
 test:
   pre:
     - bundle exec rubocop
+  override:
+    - bundle exec rspec --format progress --out $CIRCLE_TEST_REPORTS/rspec.xml:
+       parallel: true
+       files:
+         - spec/**/*_spec.rb
+       environment:
+         COVERAGE: true
   post:
     - bundle exec rake circleci:coverage
