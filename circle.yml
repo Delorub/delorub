@@ -1,6 +1,5 @@
 dependencies:
   pre:
-    - cp config/config.yml.sample config/config.yml
     - cp config/database.yml.ci config/database.yml
 
 database:

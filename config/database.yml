@@ -8,7 +8,7 @@ login: &login
   socket: /tmp/mysql.sock
   # For Linux:
   # socket: /var/run/mysqld/mysqld.sock
- 
+
 development:
   <<: *login
   database: delorub_development
@@ -16,3 +16,7 @@ development:
 production:
   <<: *login
   database: delorub_production
+
+test: &test
+  <<: *login
+  database: delorub_test

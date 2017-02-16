@@ -70,13 +70,12 @@ gem 'ipgeobase', git: 'https://github.com/mokevnin/ipgeobase'
 gem 'meta-tags', require: 'meta_tags'
 
 group :development, :test do
+  gem 'factory_girl_rails'
+  gem 'faker'
   gem 'pry-byebug', require: false
   gem 'pry-rails'
   gem 'pry-stack_explorer'
-  gem 'web-console', '~> 2.0'
   gem 'spring'
-  gem 'rspec-rails'
-  gem 'factory_girl_rails', require: false
 end
 
 group :development do
@@ -86,10 +85,12 @@ group :development do
   gem 'capistrano-deploy', '~> 0.1.1', require: nil
   gem 'capistrano'
   gem 'rvm-capistrano', require: false
+  gem 'web-console', '~> 2.0'
 end
 
 group :test do
   gem 'rspec-its'
+  gem 'rspec-rails', require: false
 end
 
 group :production do
