@@ -69,24 +69,26 @@ gem 'simple_captcha2', require: 'simple_captcha'
 gem 'ipgeobase', git: 'https://github.com/mokevnin/ipgeobase'
 gem 'meta-tags', require: 'meta_tags'
 
-group :development do
-  gem 'annotate', require: false
-  gem 'rubocop', require: false
-  gem 'ruby_parser', require: false
-  gem 'capistrano-deploy', '~> 0.1.1', require: nil
-end
-
 group :development, :test do
   gem 'pry-byebug', require: false
   gem 'pry-rails'
   gem 'pry-stack_explorer'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'factory_girl', require: false
 end
 
 group :development do
+  gem 'annotate'
+  gem 'rubocop', require: false
+  gem 'ruby_parser', require: false
+  gem 'capistrano-deploy', '~> 0.1.1', require: nil
   gem 'capistrano'
   gem 'rvm-capistrano', require: false
+end
+
+group :test do
+  gem 'rspec-its'
 end
 
 group :production do

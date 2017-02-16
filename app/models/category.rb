@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: categories
+#
+#  id             :integer          not null, primary key
+#  title          :string(255)
+#  parent_id      :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  lft            :integer
+#  rgt            :integer
+#  depth          :integer
+#  children_count :integer
+#  photo          :string(255)
+#
+
 class Category < ActiveRecord::Base
   include Searchable::Category
   

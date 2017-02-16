@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: places
+#
+#  id                 :integer          not null, primary key
+#  fias_aoguid        :string(255)
+#  name               :string(255)
+#  full_name          :string(255)
+#  level              :integer
+#  place_type         :integer
+#  place_type_name_id :integer
+#  parent_place_id    :integer
+#  region_place_id    :integer
+#  is_region_center   :boolean
+#  is_center          :boolean
+#  custom             :boolean
+#
+
 class Place < ActiveRecord::Base
   extend Enumerize
   extend ActiveModel::Naming

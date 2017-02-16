@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: user_billing_logs
+#
+#  id            :integer          not null, primary key
+#  sum           :float(24)
+#  user_id       :integer
+#  billable_type :string(255)
+#  billable_id   :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
 class User::BillingLog < ActiveRecord::Base
   PACK_TYPES = %w(Billing::TaskPack Billing::ReplyPack).freeze
   SUBSCRIPTION_TYPES = %w(Billing::TaskSubscription Billing::ReplySubscription).freeze

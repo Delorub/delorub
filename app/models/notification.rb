@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: notifications
+#
+#  id              :integer          not null, primary key
+#  user_id         :integer
+#  message         :string(255)
+#  state           :string(255)
+#  params          :text(65535)
+#  notifiable_type :string(255)
+#  notifiable_id   :integer
+#  read_at         :datetime
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class Notification < ActiveRecord::Base
   serialize :params, JSON
 
