@@ -21,22 +21,4 @@ module Searchable::Place
       search_string: search_string
     }
   end
-
-  def search_name
-    if place_type_name
-      place_type_name.name_variations.map do |place_name|
-        with_place_name place_name
-      end.join(' ')
-    else
-      name
-    end
-  end
-
-  def search_string
-    if parent_place
-      "#{search_name} #{parent_place.search_string}"
-    else
-      search_name
-    end
-  end
 end

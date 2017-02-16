@@ -2,7 +2,7 @@ module PermissionObject
   extend ActiveSupport::Concern
 
   def respond_to? method, *args
-    super || self.class.permissions.include? key(method)
+    super || self.class.permissions.include?(key method)
   end
 
   def method_missing method, *args, &block
