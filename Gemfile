@@ -92,6 +92,7 @@ end
 group :test do
   gem 'rspec-its'
   gem 'rspec-rails', require: false
+  gem 'simplecov', require: false
 end
 
 group :production do

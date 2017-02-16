@@ -11,5 +11,7 @@ machine:
     version: 2.3.1
 
 test:
-  post:
+  pre:
     - bundle exec rubocop
+  post:
+    - bundle exec rake circleci:coverage
