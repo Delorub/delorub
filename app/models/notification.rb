@@ -19,7 +19,7 @@ class Notification < ActiveRecord::Base
 
   belongs_to :user, counter_cache: true
   belongs_to :notifiable, polymorphic: true
-  
+
   validates :user, presence: true
   validates :notifiable, presence: true, unless: :notifiable_optional?
   validate :ensure_user_not_deleted, if: :user
@@ -33,7 +33,7 @@ class Notification < ActiveRecord::Base
   scope :expired, -> (time = Time.now, period = 3.months) do
     where{ (created_at <= time - period)  }
   end
-  
+
   after_destroy :update_user_unread_notifications_count, if: :unread?
 
   state_machine initial: :created do
@@ -46,7 +46,7 @@ class Notification < ActiveRecord::Base
 
     after_transition on: :deliver, do: [:update_user_unread_notifications_count, :update_cache_unviewed_notifications_count]
   end
-  
+
   def notifiable_optional?
     false
   end
@@ -57,15 +57,15 @@ class Notification < ActiveRecord::Base
       user.cache_unread_notifications_count
     end
   end
-  
+
   def self.read_all
     update_all read_at: Time.now
   end
-  
+
   def unread?
     not read_at
   end
-  
+
   def update_user_unread_notifications_count
     user.cache_unread_notifications_count
   end
@@ -73,7 +73,7 @@ class Notification < ActiveRecord::Base
   def update_cache_unviewed_notifications_count
     cache_unviewed_notifications_count
   end
-  
+
   def ensure_user_not_deleted
     errors.add :user, 'is deleted' if user.deleted?
   end

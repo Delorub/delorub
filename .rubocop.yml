@@ -1,0 +1,76 @@
+require:
+  - rubocop/rspec/focused
+
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+    - 'bin/**/*'
+    - db/schema.rb
+
+Rails:
+  Enabled: true
+
+Style/MethodDefParentheses:
+  EnforcedStyle: require_no_parentheses
+
+Style/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Rails/ActionFilter:
+  EnforcedStyle: filter
+  Enabled: true
+
+Metrics/ParameterLists:
+  Max: 11
+  CountKeywordArgs: false
+
+Style/EmptyCaseCondition:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'app/admin/**/*'
+    - 'lib/tasks/**/*'
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Lint/UnusedBlockArgument:
+  Enabled: false
+
+Lint/UnusedMethodArgument:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 130
+
+Style/SpaceBeforeBlockBraces:
+  Enabled: false
+
+Style/IndentationConsistency:
+  Enabled: false
+
+Style/CaseIndentation:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Style/Lambda:
+  Enabled: false
+
+Style/MethodDefParentheses:
+  EnforcedStyle: require_no_parentheses
+
+Metrics/AbcSize:
+  Max: 30
+
+Style/StructInheritance:
+  Enabled: false

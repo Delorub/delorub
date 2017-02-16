@@ -2,7 +2,7 @@ class Admin::NewsPolicy < AdminPolicy
   def index?
     granted? || user.permission.admin_news_view?
   end
-  
+
   def update?
     granted? || user.permission.admin_news_edit?
   end

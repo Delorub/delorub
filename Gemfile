@@ -81,6 +81,7 @@ end
 group :development do
   gem 'annotate'
   gem 'rubocop', require: false
+  gem 'rubocop-rspec-focused', require: false
   gem 'ruby_parser', require: false
   gem 'capistrano-deploy', '~> 0.1.1', require: nil
   gem 'capistrano'

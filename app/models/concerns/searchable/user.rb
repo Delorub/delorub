@@ -8,7 +8,7 @@ module Searchable::User
       by_search_ids UserSearch.new(query: q, page: 1, per_page: 100).all.map(&:id)
     }
 
-    def self.ransackable_scopes(auth_object = nil)
+    def self.ransackable_scopes auth_object = nil
       [:by_search_in]
     end
   end
@@ -16,7 +16,7 @@ module Searchable::User
   def search_data
     {
       name: name,
-      email: email,
+      email: email
     }
   end
 end

@@ -19,7 +19,7 @@
 
 class Profile < ActiveRecord::Base
   extend Enumerize
-  
+
   belongs_to :user
 
   enumerize :work_type, in: [:single, :company, :team]

@@ -1,13 +1,13 @@
 module ActiveAdmin
   class PermissionAuthorizationAdapter < AuthorizationAdapter
-    def authorized?(action, subject = nil)
+    def authorized? action, subject = nil
       policy = retreive_policy(subject)
       action = format_action(action, subject)
 
       policy.class.method_defined?(action) && policy.send(action)
     end
 
-    def scope_collection(collection, action = Auth::READ)
+    def scope_collection collection, action = Auth::READ
       scope_collection_finder(collection).new(user, collection).resolve
     end
 
@@ -29,10 +29,10 @@ module ActiveAdmin
           when Auth::UPDATE then :update?
           when Auth::READ then subject.is_a?(Class) ? :index? : :show?
           when Auth::DESTROY then subject.is_a?(Class) ? :destroy_all? : :destroy?
-        else "#{action}?"
+          else "#{action}?"
         end
       end
-      
+
       def scope_collection_finder collection
         Pundit::PolicyFinder.new([namespace, collection]).scope
       end

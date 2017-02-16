@@ -2,8 +2,8 @@ class AdminSearch
   attr_reader :query
 
   def initialize query:, page: 1
-    @page            = page
-    @query           = query
+    @page = page
+    @query = query
   end
 
   def search_classes

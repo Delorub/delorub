@@ -7,7 +7,7 @@ class Api::V10::Searches < Grape::API
         per_page: params[:per_page]
     end
   end
-  
+
   namespace :searches do
     desc 'Search places', is_array: true, entity: Entities::Place
     params do

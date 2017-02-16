@@ -9,15 +9,15 @@ module Billing::Packable
 
     before_save :update_availability
   end
-  
+
   def increase_spent
     increase(:amount)
     save!
   end
-  
+
   private
-  
+
     def update_availability
-      available = !(spent == amount)
+      # available = !(spent == amount)
     end
 end

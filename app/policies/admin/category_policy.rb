@@ -2,7 +2,7 @@ class Admin::CategoryPolicy < AdminPolicy
   def index?
     granted? || user.permission.admin_category_view?
   end
-  
+
   def update?
     granted? || user.permission.admin_category_edit?
   end

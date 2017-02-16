@@ -8,7 +8,7 @@ ActiveAdmin.register User::BillingLog, namespace: :admin do
   index do
     column :billable
     column :sum do |log|
-      span class: (log.sum < 0 ? 'red' : 'green') do
+      span class: (log.sum.negative? ? 'red' : 'green') do
         "#{log.sum} руб."
       end
     end
@@ -22,7 +22,7 @@ ActiveAdmin.register User::BillingLog, namespace: :admin do
       simple_format news.content
     end
   end
-  
+
   sidebar 'Информация', only: :show do
     attributes_table_for news do
       row :created_at

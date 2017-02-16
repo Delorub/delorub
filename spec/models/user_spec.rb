@@ -7,6 +7,5 @@ describe User do
   end
 
   describe 'permissions' do
-
   end
 end

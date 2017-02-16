@@ -2,7 +2,7 @@ class BaseUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
 
   storage :file
-  
+
   def cache_dir
     Rails.root.join 'tmp/uploads'
   end

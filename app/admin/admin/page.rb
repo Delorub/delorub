@@ -1,12 +1,12 @@
 ActiveAdmin.register Page, namespace: :admin do
   permit_params :title, :content, :slug
-  
+
   config.batch_actions = false
-  
+
   filter :title
 
   index download_links: false do
-    column(:title) { |page| link_to "#{page.title}", admin_page_path(page) }
+    column(:title) { |page| link_to page.title, admin_page_path(page) }
   end
 
   action_item :view, only: :show do

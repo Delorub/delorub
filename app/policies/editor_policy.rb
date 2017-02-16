@@ -14,7 +14,7 @@ class EditorPolicy < ApplicationPolicy
   def destroy?
     granted?
   end
-  
+
   private
 
     def granted?

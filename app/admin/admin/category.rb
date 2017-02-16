@@ -1,17 +1,19 @@
 ActiveAdmin.register Category, namespace: :admin do
   permit_params :title, :parent_id, :photo
 
-  filter :by_search_in, label: "Поиск", as: :string
+  filter :by_search_in, label: 'Поиск', as: :string
 
   index do
     selectable_column
-    column(:title) { |category| link_to "#{category.title}", admin_category_path(category) }
+    column(:title) do |category|
+      link_to category.title, admin_category_path(category)
+    end
   end
-  
+
   form do |f|
-    inputs 'Основное' do
+    f.inputs 'Основное' do
       input :title
-      input :parent, collection: nested_set_options(Category, category) {|i| "#{'-' * i.level} #{i.title}" }
+      input :parent, collection: nested_set_options_for_category(category)
       input :photo
     end
     actions

@@ -8,7 +8,7 @@ module Searchable::Place
       by_search_ids PlaceSearch.new(query: q, page: 1, per_page: 100).all.map(&:id)
     }
 
-    def self.ransackable_scopes(auth_object = nil)
+    def self.ransackable_scopes auth_object = nil
       [:by_search_in]
     end
   end
@@ -21,21 +21,17 @@ module Searchable::Place
       search_string: search_string
     }
   end
-  
+
   def search_name
     if place_type_name
-      [place_type_name.name, place_type_name.full_name, place_type_name.alt_name].compact.map do |place_name|
-        if place_type_name.after_place_name
-          "#{name} #{place_name}"
-        else
-          "#{place_name} #{name}"
-        end
-      end.join(" ")
+      place_type_name.name_variations.map do |place_name|
+        with_place_name place_name
+      end.join(' ')
     else
       name
     end
   end
-  
+
   def search_string
     if parent_place
       "#{search_name} #{parent_place.search_string}"

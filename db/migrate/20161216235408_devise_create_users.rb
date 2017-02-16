@@ -12,12 +12,12 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :skype
       t.string :website
       t.date :birthday
-      
+
       t.integer :profile_id, null: true
-      
+
       t.integer :free_tasks_published, null: false, default: 0
       t.integer :free_replies_published, null: false, default: 0
-      
+
       t.float :balance, null: false, default: 0.0
 
       ## Recoverable

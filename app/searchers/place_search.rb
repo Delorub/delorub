@@ -20,7 +20,7 @@ class PlaceSearch
     def searchkick_search
       Searchkick.search query,
         index_name: Place,
-        fields: ["name^10", "place_type_name^10", "full_name^2", "search_string"],
+        fields: ['name^10', 'place_type_name^10', 'full_name^2', 'search_string'],
         match: :word_start,
         page: @page,
         per_page: @per_page

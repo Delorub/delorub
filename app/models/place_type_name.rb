@@ -21,8 +21,12 @@ class PlaceTypeName < ActiveRecord::Base
       name
     end
   end
-  
+
   def search_string
-    [name, full_name, alt_name].compact.join(" ")
+    name_variations.join(' ')
+  end
+
+  def name_variations
+    [name, full_name, alt_name].compact
   end
 end

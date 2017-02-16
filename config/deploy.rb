@@ -1,5 +1,5 @@
 require "rvm/capistrano"
-require "bundler/capistrano" 
+require "bundler/capistrano"
 
 set :scm,             :git
 set :repository,      "git@github.com:Delorub/delorub.git"
@@ -20,7 +20,7 @@ role :db,     "148.251.134.131", :primary => true
 
 set(:latest_release)  { fetch(:current_path) }
 set(:release_path)    { fetch(:current_path) }
-set(:current_release) { fetch(:current_path) } 
+set(:current_release) { fetch(:current_path) }
 
 set(:current_revision)  { capture("cd #{current_path}; git rev-parse --short HEAD").strip }
 set(:latest_revision)   { capture("cd #{current_path}; git rev-parse --short HEAD").strip }
@@ -42,7 +42,7 @@ namespace :deploy do
     update
     restart
   end
-  
+
   #run "cd #{current_path}; RAILS_ENV=staging bundle exec rake assets:precompile"
   task :precompile, :role => :app do
     run "cd #{release_path}/ && RAILS_ENV=production rake assets:precompile --trace"
@@ -66,7 +66,7 @@ namespace :deploy do
       update_code
     end
   end
-  
+
   task :after_symlink do
     run "ln -nfs #{shared_path}/images/uploads #{release_path}/public/uploads"
   end
@@ -101,13 +101,13 @@ namespace :deploy do
       ln -s #{shared_path}/pids #{latest_release}/tmp/pids &&
       ln -sf #{shared_path}/database.yml #{latest_release}/config/database.yml
     CMD
-    
+
     if fetch(:normalize_asset_timestamps, true)
       stamp = Time.now.utc.strftime("%Y%m%d%H%M.%S")
       asset_paths = fetch(:public_children, %w(images stylesheets javascripts)).map { |p| "#{latest_release}/public/#{p}" }.join(" ")
       run "find #{asset_paths} -exec touch -t #{stamp} {} ';'; true", :env => { "TZ" => "UTC" }
     end
-    
+
   end
 
   desc "Zero-downtime restart of Unicorn"
@@ -123,7 +123,7 @@ namespace :deploy do
   desc "Stop unicorn"
   task :stop, :except => { :no_release => true } do
     run "kill -s QUIT `cat /tmp/unicorn.buro.pid`"
-  end  
+  end
 
   namespace :rollback do
     desc "Moves the repo back to the previous version of HEAD"

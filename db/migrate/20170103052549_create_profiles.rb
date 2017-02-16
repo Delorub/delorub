@@ -2,13 +2,13 @@ class CreateProfiles < ActiveRecord::Migration
   def change
     create_table :profiles do |t|
       t.integer :user_id, null: false
-      
+
       t.string :work_type
       t.string :pay_type
 
       t.boolean :have_car
       t.boolean :have_truck
-      
+
       t.text :about
 
       t.integer :place_id, null: true

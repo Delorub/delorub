@@ -10,7 +10,7 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
-  config.app_domain = 'buro777.yety.ru'
+  config.app_domain = 'delorub.ru'
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = true
@@ -34,7 +34,7 @@ Rails.application.configure do
   config.assets.compile = true
 
   config.serve_static_assets = true
-  
+
   config.assets.compress = true
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
@@ -84,13 +84,4 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address:              'smtp.yandex.ru',
-    port:                 25,
-    #tls:                  true,
-    #domain:               'yandex.ru',
-    user_name:            'bstclub-noreply@yandex.ru',
-    password:             '2478samsung123',
-    authentication:       'login',
-    enable_starttls_auto: true  }
 end

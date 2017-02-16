@@ -15,11 +15,11 @@ ActiveAdmin.register User, namespace: :admin do
     end
     actions
   end
-  
+
   index do
     selectable_column
     column(:name) do |user|
-      link_to "#{user.name}", admin_user_path(user)
+      link_to user.name, admin_user_path(user)
     end
     column :email
   end
@@ -30,7 +30,7 @@ ActiveAdmin.register User, namespace: :admin do
       row :last_sign_in_at
     end
   end
-  
+
   sidebar 'Безопасность', only: :show do
     attributes_table_for user do
       row :current_sign_in_ip
