@@ -15,13 +15,4 @@ Rails.application.configure do
   config.assets.raise_runtime_errors = true
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address:              'smtp.yandex.ru',
-    port:                 25,
-    #tls:                  true,
-    #domain:               'yandex.ru',
-    user_name:            'bstclub-noreply@yandex.ru',
-    password:             '2478samsung123',
-    authentication:       'login',
-    enable_starttls_auto: true  }
 end

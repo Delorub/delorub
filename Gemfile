@@ -83,9 +83,10 @@ group :development do
   gem 'rubocop', require: false
   gem 'rubocop-rspec-focused', require: false
   gem 'ruby_parser', require: false
-  gem 'capistrano-deploy', '~> 0.1.1', require: nil
-  gem 'capistrano'
-  gem 'rvm-capistrano', require: false
+  gem 'capistrano', '~> 3.7'
+  gem 'capistrano-rails', '~> 1.2'
+  gem 'capistrano-rvm'
+  gem 'capistrano3-unicorn'
   gem 'web-console', '~> 2.0'
 end
 

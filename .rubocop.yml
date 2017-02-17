@@ -25,13 +25,20 @@ Metrics/ParameterLists:
   Max: 11
   CountKeywordArgs: false
 
-Style/EmptyCaseCondition:
-  Enabled: false
+Metrics/LineLength:
+  Max: 130
+
+Metrics/AbcSize:
+  Max: 30
 
 Metrics/BlockLength:
   Exclude:
     - 'app/admin/**/*'
     - 'lib/tasks/**/*'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/**/*'
 
 Style/Documentation:
   Enabled: false
@@ -44,9 +51,6 @@ Lint/UnusedBlockArgument:
 
 Lint/UnusedMethodArgument:
   Enabled: false
-
-Metrics/LineLength:
-  Max: 130
 
 Style/SpaceBeforeBlockBraces:
   Enabled: false
@@ -69,8 +73,8 @@ Style/Lambda:
 Style/MethodDefParentheses:
   EnforcedStyle: require_no_parentheses
 
-Metrics/AbcSize:
-  Max: 30
-
 Style/StructInheritance:
+  Enabled: false
+
+Style/EmptyCaseCondition:
   Enabled: false

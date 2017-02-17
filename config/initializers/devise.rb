@@ -12,12 +12,12 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'noreply@delorub.ru'
 
-  config.omniauth :facebook, "321486941549630", "7d2ef009c03d771a5242c2d70ad25a01"
-  config.omniauth :vkontakte, "5680430", "yCABg4U3qERfxubzNZpJ"
-  config.omniauth :mailru, "749223", "c717764fe93a0fca2e06298d4d2294e4"
-  #config.omniauth :gplus, "749223", "c717764fe93a0fca2e06298d4d2294e4"
+  config.omniauth :facebook, '321486941549630', '7d2ef009c03d771a5242c2d70ad25a01'
+  config.omniauth :vkontakte, '5680430', 'yCABg4U3qERfxubzNZpJ'
+  config.omniauth :mailru, '749223', 'c717764fe93a0fca2e06298d4d2294e4'
+  #config.omniauth :gplus, '749223', 'c717764fe93a0fca2e06298d4d2294e4'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'

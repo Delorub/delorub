@@ -1,5 +1,4 @@
 class AddNestedToCategories < ActiveRecord::Migration
-
   def self.up
     add_column :categories, :lft,       :integer
     add_column :categories, :rgt,       :integer
@@ -16,5 +15,4 @@ class AddNestedToCategories < ActiveRecord::Migration
     remove_column :categories, :depth
     remove_column :categories, :children_count
   end
-
 end
