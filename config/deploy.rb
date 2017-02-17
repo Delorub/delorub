@@ -1,8 +1,6 @@
 lock '3.7.2'
 
 set :application, 'delorub'
-
-set :scm, :git
 set :repo_url, 'git@github.com:Delorub/delorub.git'
 
 set :rvm_type, :system
@@ -14,7 +12,7 @@ set :keep_releases, 5
 append :linked_files, 'config/database.yml'
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system'
 
-set :unicorn_options, { unicorn_stage: fetch(:stage) }
+set :unicorn_options, 'sdfsdf'
 
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
