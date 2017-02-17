@@ -13,6 +13,9 @@ nbproject/*
 .sass-cache
 .noexec.yaml
 
+# Configuration
+config/database.yml
+
 # Rails
 .bundle
 db/*.sqlite3
