@@ -2,6 +2,10 @@ user 'delorub'
 
 app_path = "/var/www/delorub/staging/"
 
+p ENV
+p unicorn_stage
+p unicorn_options
+
 working_directory "#{app_path}/current"
 pid "#{app_path}/current/tmp/pids/unicorn.pid"
 stderr_path "#{app_path}/current/log/unicorn.stderr.log"
