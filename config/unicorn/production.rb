@@ -1,8 +1,6 @@
 user 'delorub'
 
-app_path = "/var/www/delorub/staging/"
-
-
+app_path = File.expand_path(File.dirname(__FILE__) + '/..')
 
 working_directory "#{app_path}/current"
 pid "#{app_path}/current/tmp/pids/unicorn.pid"
@@ -43,6 +41,3 @@ after_fork do |server, worker|
     ActiveRecord::Base.establish_connection
   end
 end
-
-
-p unicorn_options
