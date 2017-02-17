@@ -3,18 +3,18 @@ user 'delorub'
 app_path = "/var/www/delorub/staging/"
 
 working_directory "#{app_path}/current"
-pid "#{working_directory}/tmp/pids/unicorn.pid"
-stderr_path "#{working_directory}/log/unicorn.stderr.log"
-stdout_path "#{working_directory}/log/unicorn.stdout.log"
+pid "#{app_path}/current/tmp/pids/unicorn.pid"
+stderr_path "#{app_path}/current/log/unicorn.stderr.log"
+stdout_path "#{app_path}/current/log/unicorn.stdout.log"
 
 timeout 30
 worker_processes 4
 preload_app true
 
-listen "#{working_directory}/tmp/sockets/unicorn.sock", backlog: 64
+listen "#{app_path}/current/tmp/sockets/unicorn.sock", backlog: 64
 
 before_exec do |server|
-  ENV['BUNDLE_GEMFILE'] = "#{working_directory}/Gemfile"
+  ENV['BUNDLE_GEMFILE'] = "#{app_path}/current/Gemfile"
 end
 
 before_fork do |server, worker|
