@@ -1,5 +1,5 @@
 server 'delorub.ru',
-  roles: %w{app db web},
+  roles: %w(app db web),
   ssh_options: {
     user: 'delorub',
     forward_agent: false,

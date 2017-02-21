@@ -27,6 +27,11 @@ Metrics/ParameterLists:
 
 Metrics/LineLength:
   Max: 130
+  Exclude:
+    - 'config/**/*'
+
+Metrics/CyclomaticComplexity:
+  Max: 23
 
 Metrics/AbcSize:
   Max: 30
@@ -38,9 +43,16 @@ Metrics/BlockLength:
 
 Metrics/MethodLength:
   Exclude:
+    - 'app/controllers/concerns/active_admin_shared/**/*'
     - 'db/migrate/**/*'
 
 Style/Documentation:
+  Enabled: false
+
+Rails/Output:
+  Enabled: false
+
+Rails/OutputSafety:
   Enabled: false
 
 Style/FrozenStringLiteralComment:
@@ -77,4 +89,10 @@ Style/StructInheritance:
   Enabled: false
 
 Style/EmptyCaseCondition:
+  Enabled: false
+
+Bundler/OrderedGems:
+  Enabled: false
+
+NilComparison:
   Enabled: false

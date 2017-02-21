@@ -1,15 +1,56 @@
 class RansackSelectInput < Formtastic::Inputs::StringInput
   def input_html_options
-    relation = !@object.nil? ? @object.send(attributized_method_name) : ''
-    opts = {}
-    opts[:class] = ['select2-ransack-ajax'].concat([@options[:class]] || []).join(' ')
-    opts['data-field'] = @options[:fields] || 'by_search_in'
-    opts['data-url'] = @options[:url] || ''
-    opts['data-response_root'] = @options[:response_root] || @options[:url].to_s.split('/').last
-    opts['data-display_name'] = @options[:display_name] || 'name'
-    opts['data-minimum_input_length'] = @options[:minimum_input_length] || 1
-    opts['data-width'] = @options[:width] if @options[:width]
-    opts['data-selected'] = relation.try(opts['data-display_name'].to_sym)
-    super.merge opts
+    super.merge options
   end
+
+  private
+
+    def options
+      {
+        'class': css_class,
+        'data-field': field,
+        'data-url': url,
+        'data-response_root': response_root,
+        'data-display_name': display_name,
+        'data-minimum_input_length': minimum_input_length,
+        'data-width': width,
+        'data-selected': selected
+      }
+    end
+
+    def relation
+      @relation ||= !@object.nil? ? @object.send(attributized_method_name) : ''
+    end
+
+    def css_class
+      ['select2-ransack-ajax'].concat([@options[:class]] || []).join(' ')
+    end
+
+    def field
+      @options[:fields] || 'by_search_in'
+    end
+
+    def url
+      @options[:url] || ''
+    end
+
+    def response_root
+      @options[:response_root] || @options[:url].to_s.split('/').last
+    end
+
+    def display_name
+      @options[:display_name] || 'name'
+    end
+
+    def minimum_input_length
+      @options[:minimum_input_length] || 1
+    end
+
+    def width
+      @options[:width] if @options[:width]
+    end
+
+    def selected
+      relation.try(opts['data-display_name'].to_sym)
+    end
 end

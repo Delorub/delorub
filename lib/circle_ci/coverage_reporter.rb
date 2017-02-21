@@ -17,19 +17,27 @@ module CircleCi
         threads = Array.new total_containers do |index|
           Thread.new index do |container|
             puts "Copying coverage results from container #{container}"
-            `scp ubuntu@node#{container}:/home/ubuntu/#{ENV['CIRCLE_PROJECT_REPONAME']}/coverage/.resultset-\*-\*.json #{COVERAGE_RESULTS_DIR}`
+            `scp ubuntu@node#{container}:/home/ubuntu/#{reponame}/coverage/.resultset-\*-\*.json #{results_dir}`
           end
         end
 
-        threads.each &:join
+        threads.each(&:join)
+      end
+
+      def reponame
+        ENV['CIRCLE_PROJECT_REPONAME']
       end
 
       def total_containers
         ENV['CIRCLE_NODE_TOTAL'].to_i
       end
 
+      def results_dir
+        COVERAGE_RESULTS_DIR
+      end
+
       def all_results
-        Dir["#{COVERAGE_RESULTS_DIR}/.resultset-*-*.json"]
+        Dir["#{results_dir}/.resultset-*-*.json"]
       end
 
       def merged_results
@@ -37,10 +45,7 @@ module CircleCi
           puts "Processing #{result_file_name}"
           json_data = JSON.parse File.read(result_file_name)
           json_data.reduce results do |merged, (name, data)|
-            SimpleCov::Result
-              .from_hash(name => data)
-              .original_result
-              .merge_resultset merged
+            SimpleCov::Result.from_hash(name => data).original_result.merge_resultset merged
           end
         end
 
@@ -49,6 +54,7 @@ module CircleCi
         end
       end
 
+      # rubocop:disable Metrics/MethodLength
       def report results
         SimpleCov.configure do
           coverage_dir "#{ENV['CIRCLE_ARTIFACTS']}/coverage"

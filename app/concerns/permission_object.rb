@@ -1,8 +1,9 @@
 module PermissionObject
   extend ActiveSupport::Concern
 
-  def respond_to? method, *args
-    super || self.class.permissions.include?(key method)
+  def respond_to_missing? method_name, include_private = false
+    method_key = key method_name
+    super || self.class.permissions.include?(method_key)
   end
 
   def method_missing method, *args, &block
@@ -85,17 +86,18 @@ module PermissionObject
 
   module ClassMethods
     def flatten_pretty_permissions permissions, prefix: nil
+      return if permissions.nil?
       permissions.map do |k, v|
         t = make_permission_title(k, prefix: prefix)
         [t, flatten_pretty_permissions(v, prefix: t)].flatten.compact
-      end.flatten.uniq unless permissions.nil?
+      end.flatten.uniq
     end
 
     def make_permission_title title, prefix: nil
       if prefix.nil?
         title
       else
-        "#{prefix.to_s}_#{title.to_s}".to_sym
+        "#{prefix}_#{title}".to_sym
       end
     end
 
@@ -103,7 +105,7 @@ module PermissionObject
       @permissions ||= flatten_pretty_permissions pretty_permissions
     end
 
-    def have_permission? permission
+    def permission? permission
       permissions.include? permission.to_s.gsub(/[=\?]/, '').to_sym
     end
   end

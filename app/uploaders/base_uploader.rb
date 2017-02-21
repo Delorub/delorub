@@ -4,7 +4,7 @@ class BaseUploader < CarrierWave::Uploader::Base
   storage :file
 
   def cache_dir
-    Rails.root.join 'tmp/uploads'
+    Rails.root.join 'tmp', 'uploads'
   end
 
   def store_dir

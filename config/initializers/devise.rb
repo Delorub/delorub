@@ -17,7 +17,7 @@ Devise.setup do |config|
   config.omniauth :facebook, '321486941549630', '7d2ef009c03d771a5242c2d70ad25a01'
   config.omniauth :vkontakte, '5680430', 'yCABg4U3qERfxubzNZpJ'
   config.omniauth :mailru, '749223', 'c717764fe93a0fca2e06298d4d2294e4'
-  #config.omniauth :gplus, '749223', 'c717764fe93a0fca2e06298d4d2294e4'
+  # config.omniauth :gplus, '749223', 'c717764fe93a0fca2e06298d4d2294e4'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -102,9 +102,6 @@ Devise.setup do |config|
   # encryptor), the cost increases exponentially with the number of stretches (e.g.
   # a value of 20 is already extremely slow: approx. 60 seconds for 1 calculation).
   config.stretches = Rails.env.test? ? 1 : 10
-
-  # Setup a pepper to generate the encrypted password.
-  # config.pepper = 'f71e0ee572f7ab600de85c4787ef31fd7c43e3153723bbd5b92b630c9c765ad75fab8a427ccffb2d2744d5d7450f7bf47ccef8b5350e5c3da34f72a4f458139f'
 
   # Send a notification email when the user's password is changed
   # config.send_password_change_notification = false

@@ -51,12 +51,9 @@ class Task < ActiveRecord::Base
   private
 
     def ensure_user_can_create
-      if !new_record? && user && user.can_post_task?
-        errors.add(:user, 'cannot create tasks')
-      end
+      return unless !new_record? && user && user.can_post_task?
+      errors.add(:user, 'cannot create tasks')
     end
 
-    def update_user
-
-    end
+    def update_user; end
 end

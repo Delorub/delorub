@@ -4,14 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   def not_found
-    raise ActionController::RoutingError.new('Not Found')
+    raise ActionController::RoutingError, 'Not Found'
   end
 
   def active_admin_access_denied exception
-    if Rails.env.development?
-      raise exception
-    else
-      render_page_not_found
-    end
+    raise exception if Rails.env.development?
+    render_page_not_found
   end
 end

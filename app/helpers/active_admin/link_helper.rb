@@ -4,6 +4,6 @@ module ActiveAdmin::LinkHelper
   end
 
   def current_namespace
-    self.active_admin_namespace.name
+    active_admin_namespace.name
   end
 end

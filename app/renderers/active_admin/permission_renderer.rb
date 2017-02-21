@@ -3,10 +3,6 @@ class ActiveAdmin::PermissionRenderer < Struct.new(:template, :form, :resource)
     render_form
   end
 
-  def method_missing method, *args, &block
-    template.send method, *args, &block
-  end
-
   private
 
     def render_form

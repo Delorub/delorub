@@ -13,7 +13,7 @@ module ActiveAdmin
 
     def retreive_policy subject
       policy = retrieve_policy_finder(subject).policy
-      policy or raise Pundit::NotDefinedError, "unable to find policy for `#{subject.inspect}`"
+      raise Pundit::NotDefinedError, "unable to find policy for `#{subject.inspect}`" unless policy
       case subject
         when nil then policy.new user, resource
         when Class then policy.new user, subject.new

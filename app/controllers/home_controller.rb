@@ -1,6 +1,5 @@
 class HomeController < ApplicationController
   layout 'maintenance'
 
-  def index
-  end
+  def index; end
 end

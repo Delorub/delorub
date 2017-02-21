@@ -14,7 +14,6 @@ class RansackFilterInput < Formtastic::Inputs::StringInput
     "#{method}_eq"
   end
 
-  # rubocop:disable Metrics/CyclomaticComplexity
   def input_html_options
     opts = {}
     opts[:class] = ['select2-ransack-ajax'].concat([@options[:class]] || []).join(' ')

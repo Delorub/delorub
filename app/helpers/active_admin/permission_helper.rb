@@ -4,6 +4,8 @@ module ActiveAdmin::PermissionHelper
   end
 
   def permission_t k
-    I18n.t!("activerecord.attributes.user_permission.#{k}") rescue k
+    I18n.t!("activerecord.attributes.user_permission.#{k}")
+  rescue
+    k
   end
 end
