@@ -60,7 +60,7 @@ module CircleCi
           coverage_dir "#{ENV['CIRCLE_ARTIFACTS']}/coverage"
 
           add_group 'API',         'app/api'
-          add_group 'Admin',       'app/admin'
+          add_group 'Admin',       ['app/admin', 'app/controllers/concerns/active_admin_shared', 'app/helpers/active_admin', 'app/renderers/active_admin']
           add_group 'Concerns',    'app/concerns'
           add_group 'Models',      'app/models'
           add_group 'Controllers', 'app/controllers'

@@ -20,7 +20,7 @@ describe Admin::UsersController, type: :controller do
     let(:another_user) { create :user }
 
     def dispatch
-      get :index, id: another_user.id
+      get :show, id: another_user.id
     end
 
     it_behaves_like 'success response'
