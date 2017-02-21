@@ -6,6 +6,19 @@ describe UserPermission do
     it { is_expected.to be_valid }
   end
 
+  describe '#set' do
+    subject { user_permission.superadmin = true }
+
+    it do
+      expect { subject }.to change { user_permission.superadmin }.from(false).to(true)
+    end
+  end
+
+  describe '#get' do
+    subject { user_permission.superadmin? }
+    it { is_expected.to eq false }
+  end
+
   describe '#save' do
     subject { user_permission.save }
 
