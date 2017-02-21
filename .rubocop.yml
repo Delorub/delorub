@@ -74,6 +74,9 @@ Style/IndentationConsistency:
 Style/CaseIndentation:
   Enabled: false
 
+Rails/HttpPositionalArguments:
+  Enabled: false
+
 Style/ClassAndModuleChildren:
   Enabled: false
 

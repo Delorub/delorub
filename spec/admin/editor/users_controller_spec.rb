@@ -16,6 +16,16 @@ describe Editor::UsersController, type: :controller do
     it_behaves_like 'success response'
   end
 
+  describe 'GET /editor/user/:id' do
+    let(:another_user) { create :user }
+
+    def dispatch
+      get :index, id: another_user.id
+    end
+
+    it_behaves_like 'success response'
+  end
+
   describe 'GET /editor/users/:id/permission' do
     def dispatch
       get :permission, id: user.id
