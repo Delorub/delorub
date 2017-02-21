@@ -1,4 +1,6 @@
 describe Admin::UsersController, type: :controller do
+  render_views
+
   let(:user) { create :admin }
   subject { response }
 

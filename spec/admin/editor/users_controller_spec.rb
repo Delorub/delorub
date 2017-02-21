@@ -1,4 +1,6 @@
 describe Editor::UsersController, type: :controller do
+  render_views
+
   let(:user) { create :editor }
   subject { response }
 
