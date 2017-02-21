@@ -20,6 +20,7 @@ module ActiveAdminShared::UserPermission
         if request.put?
           @permission_resource.attributes = params[:user_permission].permit(@permission_resource.permissions_list)
           if @permission_resource.save
+
             redirect_to resource_path, notice: 'Права доступа успешно обновлены'
           end
         end
