@@ -7,7 +7,7 @@ FactoryGirl.define do
       name { Faker::Address.state }
       level 1
       place_type :region
-      association :place_type_name, :region_place_type_name
+      association :place_type_name, factory: :region_place_type_name
     end
 
     factory :city_place do
@@ -15,7 +15,7 @@ FactoryGirl.define do
       level 2
       place_type :city
       association :parent_place, factory: :region_place
-      association :place_type_name, :city_place_type_name
+      association :place_type_name, factory: :city_place_type_name
     end
 
     factory :street_place do
@@ -23,7 +23,7 @@ FactoryGirl.define do
       level 3
       place_type :street
       association :parent_place, factory: :city_place
-      association :place_type_name, :street_place_type_name
+      association :place_type_name, factory: :street_place_type_name
     end
   end
 end

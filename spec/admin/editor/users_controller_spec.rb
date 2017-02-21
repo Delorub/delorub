@@ -9,6 +9,8 @@ describe Editor::UsersController, type: :controller do
   end
 
   describe 'GET /editor/users' do
+    let(:another_user) { create :admin }
+
     def dispatch
       get :index
     end
@@ -16,8 +18,8 @@ describe Editor::UsersController, type: :controller do
     it_behaves_like 'success response'
   end
 
-  describe 'GET /editor/user/:id' do
-    let(:another_user) { create :user }
+  describe 'GET /editor/users/:id' do
+    let(:another_user) { create :admin }
 
     def dispatch
       get :show, id: another_user.id
