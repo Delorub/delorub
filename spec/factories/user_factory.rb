@@ -1,6 +1,9 @@
 FactoryGirl.define do
   factory :user do
-    sequence(:email) { |n| Faker::Internet.email }
+    sequence(:email) { |n| Faker::Internet.unique.email }
+    sequence(:phone) { |n| Phony.format("7999#{(1111111 + n).to_s}") }
+    phone_confirmed true
+
     password { generate :password }
     password_confirmation(&:password)
 

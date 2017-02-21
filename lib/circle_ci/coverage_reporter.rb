@@ -59,18 +59,23 @@ module CircleCi
         SimpleCov.configure do
           coverage_dir "#{ENV['CIRCLE_ARTIFACTS']}/coverage"
 
-          add_group 'API',         'app/api'
-          add_group 'Admin',       ['app/admin', 'app/controllers/concerns/active_admin_shared', 'app/helpers/active_admin', 'app/renderers/active_admin']
-          add_group 'Concerns',    'app/concerns'
-          add_group 'Models',      'app/models'
+          add_group 'API', 'app/api'
+          add_group 'Admin', [
+            'app/admin',
+            'app/controllers/concerns/active_admin_shared',
+            'app/helpers/active_admin',
+            'app/renderers/active_admin'
+          ]
+          add_group 'Concerns', 'app/concerns'
+          add_group 'Models', 'app/models'
           add_group 'Controllers', 'app/controllers'
-          add_group 'Helpers',     'app/helpers'
-          add_group 'Decorators',  'app/draper_decorators'
-          add_group 'Jobs',        'app/jobs'
-          add_group 'Searchers',   ['app/searchers', 'app/queries']
-          add_group 'Renderers',   ['app/renderers', 'app/cells', 'app/service_objects', 'app/forms']
-          add_group 'Mailers',     'app/mailers'
-          add_group 'Lib',         'app/lib'
+          add_group 'Helpers', 'app/helpers'
+          add_group 'Decorators', 'app/draper_decorators'
+          add_group 'Jobs', 'app/jobs'
+          add_group 'Searchers', ['app/searchers', 'app/queries']
+          add_group 'Renderers', ['app/renderers', 'app/cells', 'app/service_objects', 'app/forms']
+          add_group 'Mailers', 'app/mailers'
+          add_group 'Lib', 'app/lib'
         end
 
         SimpleCov::Formatter::HTMLFormatter.new.format results

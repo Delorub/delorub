@@ -307,6 +307,10 @@ GEM
     parser (2.4.0.0)
       ast (~> 2.2)
     petrovich (1.1.1)
+    phony (2.15.41)
+    phony_rails (0.14.5)
+      activesupport (>= 3.0)
+      phony (~> 2.15)
     polyamorous (1.1.0)
       activerecord (>= 3.0)
     powerpack (0.1.1)
@@ -526,6 +530,7 @@ DEPENDENCIES
   omniauth-mailru
   omniauth-vkontakte
   petrovich (~> 1.0)
+  phony_rails
   pry-byebug
   pry-rails
   pry-stack_explorer

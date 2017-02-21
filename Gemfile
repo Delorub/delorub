@@ -60,6 +60,7 @@ gem 'haml-rails', '~> 0.8'
 
 # Misc
 gem 'russian', '~> 0.6.0'
+gem 'phony_rails'
 gem 'kaminari'
 gem 'translit'
 
