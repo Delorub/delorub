@@ -23,6 +23,7 @@ gem 'cells'
 gem 'draper'
 gem 'configatron'
 gem 'virtus'
+gem 'figaro'
 
 # Activerecord extensions
 gem 'squeel'
@@ -53,6 +54,7 @@ gem 'grape-entity'
 gem 'grape-swagger'
 gem 'grape-swagger-entity'
 gem 'hashie-forbidden_attributes'
+gem 'httparty'
 
 # Assets
 gem 'bower-rails', '~> 0.11.0'
@@ -95,6 +97,7 @@ group :test do
   gem 'rspec-its'
   gem 'rspec-rails', require: false
   gem 'simplecov', require: false
+  gem 'webmock'
 end
 
 group :production do

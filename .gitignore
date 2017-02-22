@@ -100,3 +100,6 @@ vendor/extensions/**/spec/dummy
 .vagrant
 
 public/geo
+
+# Ignore application configuration
+/config/application.yml

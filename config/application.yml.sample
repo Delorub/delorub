@@ -1,0 +1,3 @@
+smsc_login: 'delorubtest'
+smsc_password: 'delorubtest'
+smsc_api_url: 'https://smsc.ru/sys/send.php'
