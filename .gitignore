@@ -101,5 +101,3 @@ vendor/extensions/**/spec/dummy
 
 public/geo
 
-# Ignore application configuration
-/config/application.yml
