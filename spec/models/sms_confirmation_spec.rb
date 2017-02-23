@@ -18,7 +18,7 @@ describe SmsConfirmation do
   end
 
   describe '#resend_code' do
-    subject { sms_confirmation.save }
+    subject { sms_confirmation.resend_code }
 
     it { is_expected.to be true }
     it { expect{ subject }.to change(sms_confirmation, :last_sent_at) }

@@ -1,6 +1,6 @@
-describe Task do
-  let(:task) { build :task }
-  subject { task }
+describe Reply do
+  let(:reply) { build :reply }
+  subject { reply }
 
   describe 'validations' do
     it { is_expected.to be_valid }
