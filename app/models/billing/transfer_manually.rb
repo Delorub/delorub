@@ -16,7 +16,9 @@ class Billing::TransferManually < ActiveRecord::Base
   include Billing::Base
   include Billing::Transferable
 
-  belongs_to :admin
+  belongs_to :admin, class_name: 'User'
+
+  validates :admin, presence: true
 
   def name
     'Ручное пополнение'
