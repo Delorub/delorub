@@ -1,4 +1,5 @@
 ru:
+  user_sms_confirmation: "Проверочный код: %{code}. Делоруб"
   place_type:
     region: "1 - Регион / край"
     district: "2 - Район"
@@ -205,4 +206,4 @@ ru:
         editor_news: "Управление новостями"
         editor_task: "Управление заданиями"
         editor_reply: "Управление ответами"
-        
+
