@@ -15,9 +15,8 @@ For mac OS:
     # for nodejs (need to install npm)
     brew install nodejs
 
-    #  Also needs to install npm and bower (it's only manual)
+    # npm
     curl -L https://www.npmjs.org/install.sh | sh
-    npm install -g bower
 
 ## Setup application
 

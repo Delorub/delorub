@@ -57,7 +57,6 @@ gem 'hashie-forbidden_attributes'
 gem 'httparty'
 
 # Assets
-gem 'bower-rails', '~> 0.11.0'
 gem 'haml-rails', '~> 0.8'
 
 # Misc

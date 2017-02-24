@@ -1,6 +1,0 @@
-{
-  "name": "dsl-generated-dependencies",
-  "dependencies": {
-    "jquery": "1.11.2"
-  }
-}

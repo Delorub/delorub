@@ -1,4 +1,0 @@
-# A sample Bowerfile
-# Check out https://github.com/42dev/bower-rails#ruby-dsl-configuration for more options
-
-asset 'jquery', '1.11.2', main_files: ['dist/jquery.js', 'dist/jquery.min.js']
