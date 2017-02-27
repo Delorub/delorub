@@ -58,6 +58,7 @@ gem 'httparty'
 
 # Assets
 gem 'haml-rails', '~> 0.8'
+gem "react_on_rails", "~> 6"
 
 # Misc
 gem 'russian', '~> 0.6.0'
