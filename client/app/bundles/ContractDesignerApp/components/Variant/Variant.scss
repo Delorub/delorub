@@ -1,0 +1,37 @@
+.container {
+  .headingContainer {
+    .inputContainer {
+      input {
+        width: 100%;
+        padding: 6px;
+        font-size: 12px;
+        margin: 0;
+      }
+    }
+
+    .titleContainer {
+      padding: 6px;
+
+      a.title {
+        color: black;
+        text-decoration: none;
+        font-size: 12px;
+      }
+
+      a.insert {
+        float: right;
+        display: block;
+      }
+    }
+  }
+
+  &.editable {
+    .titleContainer { display: none; }
+    .inputContainer { display: inline-block; }
+  }
+
+  &.nonEditable {
+    .titleContainer { display: inline-block; }
+    .inputContainer { display: none;}
+  }
+}

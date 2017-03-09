@@ -8,6 +8,14 @@ module Delorub
   class Application < Rails::Application
     config.paths.add 'app/api', glob: '**/*.rb'
 
+    additional_paths = %W(
+      #{config.root}/app/models/concerns
+      #{config.root}/app/controllers/concerns
+      #{config.root}/app/value_objects
+    )
+    config.autoload_paths   += additional_paths
+    config.eager_load_paths += additional_paths
+
     config.i18n.default_locale = :ru
     config.encoding = 'utf-8'
 

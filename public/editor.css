@@ -1,0 +1,24 @@
+variable {
+  display: inline-block;
+  border: 1px solid #2276d2;
+  border-radius: 5px;
+  padding: 0 5px;
+  margin: 0 2px;
+  color: #2276d2;
+}
+
+.block {
+  border: 1px solid #2276d2;
+  border-radius: 5px;
+  padding: 2px;
+}
+
+.block:before {
+  display: block;
+  font-size: 13px;
+  color: black;
+  content: attr(data-question-title)': 'attr(data-variant-title);
+  background-color: yellow;
+  font-weight: normal;
+  text-decoration: none;
+}

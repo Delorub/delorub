@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222110808) do
+ActiveRecord::Schema.define(version: 20170228094343) do
 
   create_table "billing_reply_packs", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -93,6 +93,20 @@ ActiveRecord::Schema.define(version: 20170222110808) do
     t.integer  "depth",          limit: 4
     t.integer  "children_count", limit: 4
     t.string   "photo",          limit: 255
+  end
+
+  create_table "contract_categories", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "contract_templates", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.integer  "category_id", limit: 4
+    t.text     "markup",      limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "news", force: :cascade do |t|

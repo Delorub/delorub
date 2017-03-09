@@ -1,0 +1,44 @@
+.container {
+  width: auto;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  margin-right: 10px;
+
+  .headingContainer {
+    background-color: #eee;
+    width: auto;
+
+    .inputContainer {
+      width: auto;
+
+      input {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 6px;
+        font-size: 14px;
+        margin: 0;
+        outline: 0;
+        border: 0;
+        border-bottom: 1px solid #ccc;
+      }
+    }
+
+    .titleContainer {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 6px;
+      font-size: 14px;
+    }
+  }
+
+  &.editable {
+    .titleContainer { display: none; }
+    .inputContainer { display: block; }
+  }
+
+  &.nonEditable {
+    .titleContainer { display: inline-block; }
+    .inputContainer { display: none;}
+  }
+}

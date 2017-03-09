@@ -1,0 +1,6 @@
+%h2 Конструктор договоров
+
+= semantic_form_for [:admin, @contract_template], method: :post do |f|
+  = redux_store 'templateStore', props: resource.to_redux
+  = react_component 'ContractDesignerApp'
+  = f.actions

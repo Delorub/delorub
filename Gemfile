@@ -13,7 +13,6 @@ gem 'haml'
 gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'rmagick', require: false
 gem 'mini_magick'
-gem 'therubyracer'
 gem 'searchkick'
 gem 'rabl'
 gem 'oj'
@@ -58,7 +57,8 @@ gem 'httparty'
 
 # Assets
 gem 'haml-rails', '~> 0.8'
-gem "react_on_rails", "~> 6"
+gem 'react_on_rails', '~> 6'
+gem 'mini_racer', platforms: :ruby
 
 # Misc
 gem 'russian', '~> 0.6.0'
