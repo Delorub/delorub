@@ -7,7 +7,7 @@ import css from './App.scss';
 export default class App extends React.Component {
   render() {
     return (
-      <div className={css.appContainer}>
+      <div className="clearfix">
         <div className={css.questionListContainer}>
           <QuestionList />
         </div>

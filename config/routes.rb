@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  get 'contract_designer', to: 'contract#new'
+  get 'contract_designer/:template_id', to: 'contracts#new', as: :contract_designer
 
   get '*unmatched_route', to: 'page_not_found#index' unless Rails.env.development?
 end

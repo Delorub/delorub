@@ -14,7 +14,8 @@ module.exports = {
   context: __dirname,
   entry: [
     'babel-polyfill',
-    './app/bundles/ContractDesignerApp/startup/clientRegistration',
+    //'./app/bundles/ContractDesignerApp/startup/clientRegistration',
+    './app/bundles/ContractApp/startup/clientRegistration',
   ],
   output: {
     filename: 'server-bundle.js',
@@ -36,6 +37,7 @@ module.exports = {
   ],
   module: {
     loaders: [
+      { test: /\.json$/, loader: 'json-loader' },
       { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
       {
         test: /\.css$/,

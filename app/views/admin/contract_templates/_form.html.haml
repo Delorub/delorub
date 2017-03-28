@@ -1,6 +1,9 @@
-%h2 Конструктор договоров
+%h2 Редактор шаблонов договоров
 
-= semantic_form_for [:admin, @contract_template], method: :post do |f|
+= semantic_form_for [:admin, @contract_template] do |f|
+  = f.inputs do
+    = f.input :title
+    = f.input :category
   = redux_store 'templateStore', props: resource.to_redux
   = react_component 'ContractDesignerApp'
   = f.actions

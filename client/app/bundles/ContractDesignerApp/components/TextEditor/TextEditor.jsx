@@ -128,7 +128,7 @@ class TextEditor extends React.Component {
         statusbar: false,
         toolbar1: 'removeformat | undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
         toolbar2: 'insertvariable deleteblock',
-        language: 'ru_RU',
+        language: 'ru',
         custom_elements: '~variable',
         extended_valid_elements: 'variable',
         keep_styles: false,

@@ -11,11 +11,15 @@
 #
 
 class ContractTemplate < ActiveRecord::Base
-  serialize :markup, ContractTemplate::Markup
+  serialize :markup, ContractTemplateData::Markup
+
+  belongs_to :category, class_name: 'ContractCategory'
+
+  #validates :title, :category, presence: true
 
   def markup= value
     return super value unless value.is_a? ActionController::Parameters
-    super ContractTemplate::Markup.new.from_parameters value.with_indifferent_access
+    super ContractTemplateData::Markup.new.from_parameters value.with_indifferent_access
   end
 
   def to_redux
@@ -23,6 +27,14 @@ class ContractTemplate < ActiveRecord::Base
       id: id,
       title: title,
       markup: markup.to_redux
+    }
+  end
+
+  def to_contract_app
+    {
+      id: id,
+      title: title,
+      markup: markup.to_contract_app
     }
   end
 end

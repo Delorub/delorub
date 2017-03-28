@@ -1,4 +1,4 @@
-class ContractTemplate::Question
+class ContractTemplateData::Question
   attr_accessor :title, :id, :variants
 
   def initialize title: '', id: nil, variants: []

@@ -1,17 +1,15 @@
-class ContractTemplate::Markup
-  extend JsonSerializable
-
+class ContractTemplateData::Markup
   attr_accessor :questions, :variables, :text
 
   def initialize questions: [], variables: [], text: ''
     @questions = questions
     @variables = variables
-    @text = ContractTemplate::Text.new(data: text)
+    @text = ContractTemplateData::Text.new(data: text)
   end
 
   def from_parameters parameters
     @questions = get_questions_from_parameters parameters[:questions]
-    @text = ContractTemplate::Text.new(data: parameters[:text])
+    @text = ContractTemplateData::Text.new(data: parameters[:text])
     self
   end
 
@@ -23,11 +21,15 @@ class ContractTemplate::Markup
     }
   end
 
+  def to_contract_app
+    to_redux
+  end
+
   private
 
     def get_questions_from_parameters parameters
       parameters.map do |id, question|
-        ContractTemplate::Question.new(
+        ContractTemplateData::Question.new(
           id: id,
           title: question[:title],
           variants: get_variants_from_parameters(question[:variants])
@@ -37,7 +39,7 @@ class ContractTemplate::Markup
 
     def get_variants_from_parameters parameters
       parameters.map do |id, variant|
-        ContractTemplate::Variant.new(
+        ContractTemplateData::Variant.new(
           id: id,
           title: variant[:title]
         )

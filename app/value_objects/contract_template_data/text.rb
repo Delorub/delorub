@@ -1,4 +1,4 @@
-class ContractTemplate::Text
+class ContractTemplateData::Text
   attr_accessor :data
 
   def initialize data: ''

@@ -1,4 +1,4 @@
-class ContractTemplate::Variant
+class ContractTemplateData::Variant
   attr_accessor :title, :id
 
   def initialize title: '', id: nil

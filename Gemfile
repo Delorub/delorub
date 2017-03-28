@@ -23,6 +23,7 @@ gem 'draper'
 gem 'configatron'
 gem 'virtus'
 gem 'figaro'
+gem 'render_anywhere'
 
 # Activerecord extensions
 gem 'squeel'
@@ -65,6 +66,9 @@ gem 'russian', '~> 0.6.0'
 gem 'phony_rails'
 gem 'kaminari'
 gem 'translit'
+gem 'nokogiri'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 # CHECK
 gem 'petrovich', '~> 1.0'

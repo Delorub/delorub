@@ -21,10 +21,11 @@ module.exports = {
 
     app: [
       './app/bundles/ContractDesignerApp/startup/clientRegistration',
+      './app/bundles/ContractApp/startup/clientRegistration',
     ],
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.jsx', '.json'],
     alias: {
       libs: path.join(process.cwd(), 'app', 'libs'),
       react: path.resolve('./node_modules/react'),
@@ -51,6 +52,7 @@ module.exports = {
   ],
   module: {
     loaders: [
+      { test: /\.json$/, loader: 'json-loader' },
       { test: /\.(woff2?|svg)$/, loader: 'url?limit=10000' },
       { test: /\.(ttf|eot)$/, loader: 'file' },
       { test: /\.(jpe?g|png|gif|svg|ico)$/, loader: 'url?limit=10000' },
