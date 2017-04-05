@@ -84,7 +84,7 @@ module.exports = {
       },
       { test: /\.json$/, use: 'json-loader' },
       { test: /\.(woff2?|svg)$/, use: 'url-loader?limit=10000' },
-      { test: /\.(ttf|eot)$/, use: 'file-loader' },
+      { test: /\.(ttf|eot/otf)$/, use: 'file-loader' },
       {
         test: require.resolve('tinymce/tinymce'),
         use: [
