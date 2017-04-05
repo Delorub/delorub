@@ -14,7 +14,7 @@ $(document).ready(function() {
   		margin: 0,
   		nav: true,
   		navText: [""],
-  		autoplay: true,
+  		autoplay: false,
   		smartSpeed: 450,
   		autoplayTimeout: 1000,
   		autoplayHoverPause: true,

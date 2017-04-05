@@ -1,8 +1,9 @@
-//@import "fonts"
+@import "fonts"
 @import "libs"
 @import "vars"
 $screen-xs-min: 480px
 $screen-sm-min: 768px
+$screen-sml-min: 880px
 $screen-md-min: 992px
 $screen-lg-min: 1200px
 
@@ -48,23 +49,27 @@ body
 	overflow-x: hidden
 	text-align: center
 .dr-top-nav
-	position: absolute
 	z-index: 2
 	width: 100%
 	padding: 10px 0
 	ul.navbar-nav
 		@media (min-width: $screen-sm-min)
-			font-size: 1.1rem
+			font-size: 0.8rem
 			li
 				a
-					padding: 15px 6px
+					padding: 15px 7px
+		@media (min-width: $screen-sml-min)
+			font-size: 1rem
+			li
+				a
+					padding: 15px 8px
 		@media (min-width: $screen-md-min)
 			.dr-top-nav-icon
 				font-size: 14px
 			font-size: 1.2rem
 			li
 				a
-					padding: 15px 9px
+					padding: 15px 11px
 		@media (min-width: $screen-lg-min)
 			.dr-top-nav-icon
 				font-size: 20px
@@ -79,6 +84,7 @@ body
 	.navbar-collapse
 		float: right
 	&-main
+		position: absolute
 		background-color: transparent
 		border-color: transparent
 		ul.navbar-nav
@@ -192,9 +198,10 @@ ul.left_menu
 		right: 0
 .owl-theme
 	.owl-nav [class*=owl-]
-		background: none
+		background: transparent
 		&:hover
 			background: none
+			color: darken(white, 20%)
 	.owl-dots
 		.owl-dot
 			&.active span
