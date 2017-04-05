@@ -99,11 +99,14 @@ body
 		ul.navbar-nav
 			li
 				a
-					color: black
+					color: #4c4c4c
 					&:hover
-						color: lighten(black, 40%)
+						color: lighten(#4c4c4c, 40%)
 				a.active
-					font-weight: 600
+					color: black
+					font-weight: bold
+					&:hover
+						color: lighten(#4c4c4c, 40%)
 .row-eq-height
 	@media (min-width: $screen-sm-min)
   	display: -webkit-box
@@ -277,9 +280,25 @@ ul.left_menu
 					color: #4c4c4c
 					&:hover
 						cursor: pointer
+						color: lighten(#4c4c4c, 40%)
 
 //-------------------------------
+//news style
+.dr-news
+	margin-left: 0
+	margin-right: 0
+	border-top: 1px solid rgba(128, 128, 128, 0.3)
+	border-bottom: 1px solid rgba(128, 128, 128, 0.3)
+	&-content
+		text-align: left
+		//display: flex
+		&-tags
+			position: absolute
+			bottom: 20px
+	&-image
+		padding-left: 0
 
+//-------------------------------
 
 .zadaniya
 	ul.clearfix
