@@ -7,6 +7,7 @@ public/stylesheets
 public/system
 doc/diagrams
 public/uploads
+public/assets
 nbproject/*
 .idea
 .jhw-cache

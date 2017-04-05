@@ -1,0 +1,684 @@
+//@import "fonts"
+@import "libs"
+@import "vars"
+$screen-xs-min: 480px
+$screen-sm-min: 768px
+$screen-md-min: 992px
+$screen-lg-min: 1200px
+
+*::-webkit-input-placeholder
+	color: #666
+	opacity: 1
+
+*:-moz-placeholder
+	color: #666
+	opacity: 1
+
+*::-moz-placeholder
+	color: #666
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #666
+	opacity: 1
+a
+	color: $color
+	text-decoration: none
+	&:hover,&:focus,&:visited,&:active
+		color: $color
+		text-decoration: none
+ul,ol
+	list-style: none
+	margin: 0
+	padding: 0
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: #666
+body input:required:valid,
+body textarea:required:valid
+	color: #666
+body
+	font-size: 12px
+	min-width: 320px
+	max-width: 1440px
+	margin: 0 auto
+	position: relative
+	line-height: 1.5
+	font-family: $PFDinL
+	overflow-x: hidden
+	text-align: center
+.dr-top-nav
+	position: absolute
+	z-index: 2
+	width: 100%
+	padding: 10px 0
+	ul.navbar-nav
+		@media (min-width: $screen-sm-min)
+			font-size: 1.1rem
+			li
+				a
+					padding: 15px 6px
+		@media (min-width: $screen-md-min)
+			.dr-top-nav-icon
+				font-size: 14px
+			font-size: 1.2rem
+			li
+				a
+					padding: 15px 9px
+		@media (min-width: $screen-lg-min)
+			.dr-top-nav-icon
+				font-size: 20px
+			font-size: 1.2rem
+			li
+				a
+					padding: 15px 15px
+		padding-top: 8px
+		li
+			a
+				text-transform: uppercase
+	.navbar-collapse
+		float: right
+	&-main
+		background-color: transparent
+		border-color: transparent
+		ul.navbar-nav
+			li
+				a
+					color: white
+					&:hover
+						color: darken(white, 20%)
+	&-pages
+		box-shadow: 3px 4px 3px 0px rgba(0, 0, 0, 0.12)
+		background-color: white
+		ul.navbar-nav
+			li
+				a
+					color: black
+					&:hover
+						color: lighten(black, 40%)
+				a.active
+					font-weight: 600
+.row-eq-height
+	@media (min-width: $screen-sm-min)
+  	display: -webkit-box
+  	display: -webkit-flex
+  	display: -ms-flexbox
+  	display: flex
+.dr-side-menu
+	box-shadow: 0 -4px 10px 0 rgba(0, 0, 0, 0.12)
+	position: relative
+	z-index: 2
+	padding: 0px
+	.gamburg-menu
+		font-size: 20px
+		margin: 0px 10px 0px -10px
+	.year
+		position: absolute
+		bottom: 70px
+		color: #d5d5d5
+		text-align: center
+		left: 0
+		right: 0
+	nav
+		padding-bottom: 100px
+.container
+	width: 100%
+	@media (min-width: $screen-lg-min)
+		width: 1170px
+.slider
+	box-shadow: 3px 0px 10px 0 rgba(0,0,0,.3)
+.totalz
+	margin-top: 68px
+	a
+		text-transform: uppercase
+		span.n1
+			display: inline-block
+			vertical-align: top
+			width: 45px
+			height: 45px
+			line-height: 43px
+			color: #fff
+			text-align: center
+			border-radius: 45px
+			background-color: #25c0ec
+		span.txa
+			margin-top: 20px
+			display: block
+ul.left_menu
+	margin-top: 23px
+	li
+		a
+			text-transform: uppercase
+			text-align: center
+			display: block
+			padding: 22px 0
+			&:hover
+				background-color: #25c0ec
+				color: #fff
+				.icon_top
+					color: #fff
+			.icon_top
+				font-size: 32px
+				display: block
+				margin: 0 0 13px 0
+.owl-nav
+	position: absolute
+	top: 40%
+	width: 100%
+	.owl-prev, .owl-next
+		color: #c6c7c7
+		cursor: pointer
+		font-family: delorub
+		font-size: 40px !important
+		cursor: pointer
+	.owl-prev
+		position: absolute
+		left: 20px
+		&:before
+			content: '\e801'
+	.owl-next
+		position: absolute
+		right: 20px
+		&:before
+			content: '\e82b'
+.owl-carousel
+	.item-shadow
+		box-shadow: 3px 3px 10px 0 rgba(0,0,0,.12)
+	position: relative
+	.owl-dots
+		position: absolute
+		bottom: 40px
+		left: 0
+		right: 0
+.owl-theme
+	.owl-nav [class*=owl-]
+		background: none
+		&:hover
+			background: none
+	.owl-dots
+		.owl-dot
+			&.active span
+				background: #fff !important
+				border: 1px solid #fff
+			span
+				background: transparent !important
+				border-radius: 30px
+				border: 1px solid #949698
+				margin: 5px
+.dr-wrap-button
+	position: absolute
+	z-index: 2
+	text-align: center
+	left: 0
+	top: 10%
+	@media (min-width: $screen-xs-min)
+		top: 15%
+		a.buttons
+			font-size: 0.6em
+			padding: 6px 20px
+	@media (min-width: $screen-sm-min)
+		top: 20%
+		a.buttons
+			font-size: 0.6em
+			padding: 6px 20px
+	@media (min-width: $screen-md-min)
+		top: 28%
+		a.buttons
+			font-size: 0.8em
+			padding: 10px 30px
+	@media (min-width: $screen-lg-min)
+		font-size: 1.2em
+		top: 35%
+		a.buttons
+			padding: 11px 45px
+	right: 0
+	a.buttons
+		border: 2px solid white
+		color: white
+		display: inline-block
+		border-radius: 30px
+		text-transform: uppercase
+		margin: 0 10px
+		&:hover
+			font-family: $PFDinThin
+			background: #25c0ec
+			color: #fff
+			border: 2px solid #25c0ec
+.dr-bottom-service
+	box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.12)
+	text-align: center
+	padding: 20px 0
+	a
+		padding: 20px 0
+		img
+			margin: 0 20px
+	&-heading
+		display: inline-block
+.dr-content
+	padding: 0
+.dr-bottom-menu
+	padding: 60px 20px
+	text-align: center
+	nav
+		ul
+			li
+				display: inline-block
+				padding: 1%
+				a
+					padding: 0 0px 0 0
+					text-transform: uppercase
+					color: #4c4c4c
+					&:hover
+						cursor: pointer
+
+//-------------------------------
+
+
+.zadaniya
+	ul.clearfix
+		li
+			float: left
+			border-right: 1px solid #eee
+			border-bottom: 1px solid #eee
+			a
+				display: inline-block
+				vertical-align: middle
+				text-align: center
+				position: relative
+				width: 160px
+				height: 58px
+				text-align: center
+				&:hover
+					background-color: #25c0ec
+					color: #fff
+					&:before
+						content: ""
+						position: absolute
+						background: url(../images/design/ugol.png) no-repeat
+						bottom: -7px
+						text-align: center
+						left: 0
+						right: 0
+						width: 15px
+						height: 8px
+						margin: 0 auto
+				> span
+					display: table
+					width: 100%
+					height: 100%
+					> span
+						display: table-cell
+						vertical-align: middle
+.zadaniya__result
+	padding: 25px 0 25px 50px
+	border-bottom: 1px solid #eee
+	input[type="checkbox"]
+		display: none
+	input[type="checkbox"] + label
+		cursor: pointer
+		margin: 0 0 15px 0
+		line-height: 1
+	input[type="checkbox"]:checked + label span
+		background-position: -16px 0
+	input[type="checkbox"] + label span
+		display: inline-block
+		width: 16px
+		height: 16px
+		margin-right: 11px
+		vertical-align: middle
+		background: url(../images/design/sprite_check.png) left top no-repeat
+		cursor: pointer
+		&:hover
+			background-position: -16px 0
+		&:active
+			background-position: -16px 0
+	ul
+		li
+			float: left
+			width: 30%
+.filter_all_master
+	padding: 20px 0 20px 50px
+	font-family: $PFDinMed
+	font-size: 16px
+	border-bottom: 1px solid #eee
+	span
+		display: block
+		margin-bottom: 20px
+	&--inblock
+		display: inline-block
+		vertical-align: top
+	&__oplata
+		width: 265px
+		margin: 0 40px 0 0
+		.wrapes
+				position: relative
+				select
+					appearance: none
+					width: 100%
+					border-radius: 30px
+					font-size: 18px
+					color: #929292
+					height: 45px
+					border: 1px solid #eee !important
+					outline: none
+					padding: 0 0 0 25px
+				.icon-up
+					position: absolute
+					right: 20px
+					transform: rotate(180deg)
+					font-size: 10px
+					color: #cdcdcd
+					top: 18px
+					&:before
+						background: url(../images/design/strelka_bottom.png) no-repeat
+						content: ""
+						position: absolute
+						width: 9px
+						height: 7px
+						transform: rotate(180deg)
+						right: -12px
+						top: -11px
+	&__naim_gorod
+		width: 265px
+		margin: 0 40px 0 0
+		.wrapes
+			position: relative
+			select
+				appearance: none
+				width: 100%
+				border-radius: 30px
+				font-size: 18px
+				color: #929292
+				height: 45px
+				border: 1px solid #eee !important
+				outline: none
+				padding: 0 0 0 25px
+			.icon-up
+				position: absolute
+				right: 20px
+				transform: rotate(180deg)
+				font-size: 10px
+				color: #cdcdcd
+				top: 18px
+				&:before
+					background: url(../images/design/strelka_bottom.png) no-repeat
+					content: ""
+					position: absolute
+					width: 9px
+					height: 7px
+					transform: rotate(180deg)
+					right: -12px
+					top: -11px
+	&__pochasovaya
+		.wrap_wr
+			width: 165px
+			float: left
+			margin-right: 10px
+			.input-group
+				position: relative
+				display: table
+				border-collapse: separate
+				.input-group-addon
+					padding: 6px 12px
+					line-height: 1
+					text-align: center
+					background-color: #fafafa
+					border: 1px solid #eee
+					width: 1%
+					white-space: nowrap
+					display: table-cell
+					vertical-align: middle
+					border-radius: 20px 0 0 20px
+					&:first-child
+						border-right: 0
+				.form-control
+					height: 45px !important
+					border: 1px solid #eee !important
+					display: block
+					border-radius: 0 20px 20px 0 !important
+	&__favorites
+		display: block
+		float: left
+		height: 24px
+		padding: 3px 0 0 90px
+	&__reiting
+		margin: 0 40px 0 0
+		span
+			float: left
+.form-control
+	width: 100%
+	height: 34px
+	padding: 6px 12px
+	background-color: #fff
+	border: 1px solid #ccc
+	border-radius: 4px
+.star
+	margin-top: 2px
+	float: left
+	height: 18px
+	span
+		display: block
+		float: left
+		width: 15px
+		height: 14px
+		background: url(../images/design/star.png) no-repeat !important
+		margin-right: 1px
+		cursor: pointer
+		&.act
+			background-position: 0 -15px !important
+.star1
+	display: inline-block
+	span
+		display: block
+		float: left
+		width: 15px
+		height: 14px
+		background: url(../images/design/star.png) no-repeat !important
+		margin-right: 1px
+		cursor: pointer
+		&.act
+			background-position: 0 -15px !important
+.star2
+	display: inline-block
+	span
+		display: block
+		float: left
+		width: 15px
+		height: 14px
+		background: url(../images/design/star.png) no-repeat !important
+		margin-right: 1px
+		cursor: pointer
+		&.act
+			background-position: 0 -15px !important
+.star3
+	display: inline-block
+	span
+		display: block
+		float: left
+		width: 15px
+		height: 14px
+		background: url(../images/design/star.png) no-repeat !important
+		margin-right: 1px
+		cursor: pointer
+		&.act
+			background-position: 0 -15px !important
+.star4
+	display: inline-block
+	span
+		display: block
+		float: left
+		width: 15px
+		height: 14px
+		background: url(../images/design/star.png) no-repeat !important
+		margin-right: 1px
+		cursor: pointer
+		&.act
+			background-position: 0 -15px !important
+.star5
+	display: inline-block
+	span
+		display: block
+		float: left
+		width: 15px
+		height: 14px
+		background: url(../images/design/star.png) no-repeat !important
+		margin-right: 1px
+		cursor: pointer
+		&.act
+			background-position: 0 -15px !important
+.result_master
+	.block_master
+		border-bottom: 1px solid #eee
+		.avatar_wrap
+			padding: 30px 50px 0px 50px
+			text-align: center
+			display: inline-block
+			vertical-align: top
+			.icon-avtoriz
+				border: 1px solid #dfdfdf
+				padding: 5px
+				border-radius: 40px
+				display: inline-block
+				font-size: 25px
+				margin-bottom: 30px
+			.result_master__kolvo_review
+				color: #4c4c4c
+				margin-bottom: 20px
+			.wrap_zvezdi
+				text-align: center
+				margin-bottom: 10px
+			.result_master__reitingzz
+				color: #b9b9b9
+				span
+					color: #4c4c4c
+					display: block
+		.wrap_kartochka
+			position: relative
+			display: inline-block
+			vertical-align: top
+			width: 580px
+			padding: 30px 0px 83px 0
+			margin-right: 50px
+			.result_master__fio
+				span.fios
+					font-size: 30px
+					font-family: $PFDinExThin
+					float: left
+					color: #4c4c4c
+				span.datez
+					float: right
+					color: #b9b9b9
+					padding: 14px 0
+					font-size: 15px
+			.text
+				color: #929292
+				a.pokaz
+					color: #4c4c4c
+			.knopki
+				a.more
+					position: absolute
+					bottom: 0
+				a.subm_zadanie
+					position: absolute
+					right: 0
+					bottom: 0
+					border: 2px solid #25c0ec
+					text-transform: uppercase
+					padding: 10px 25px
+					border-radius: 30px
+		.wrap_taiming
+			display: inline-block
+			vertical-align: top
+			width: 475px
+			table
+				width: 100%
+				tr
+					td
+						border: 1px solid #eee
+						&.vverh
+							text-align: center
+							padding: 50px 0
+							color: #4c4c4c
+							font-family: $PFDinMed
+							font-size: 16px
+						span.rub
+							font-size: 30px
+						span.dozat
+							font-size: 18px
+							i
+								font-size: 14px
+						&.korob
+							padding: 5px 20px
+							text-align: center
+							.iconz
+								display: block
+								font-size: 30px
+								margin-bottom: 10px
+								&.icon-mebel
+									margin-left: -19px
+							.rab_day,.vih_day
+								color: #b9b9b9
+								display: block
+							.dni,.vih_dni
+								color: #4c4c4c
+							.vih_dni
+								color: #ed6060
+.tc
+	text-align: center
+	box-shadow: 3px 3px 10px 0 rgba(0,0,0,.12)
+	a.pokaz_more
+		display: inline-block
+		vertical-align: top
+		border: 2px solid #ddd
+		margin: 30px 0
+		padding: 15px 35px
+		text-transform: uppercase
+		border-radius: 30px
+.block_info
+	padding: 0 0 0 50px
+	width: 100%
+	border-bottom: 1px solid #eee
+	&__fright
+		float: right
+	&__icons
+		color: #000
+	&--inblock
+		display: inline-block
+		vertical-align: middle
+		height: 100%
+		padding: 27px 50px 27px 0
+	h1
+		font-family: $PFDinExThin
+		font-size: 30px
+		margin: 0
+		span
+			font-family: $PFDinMed
+	&__organizer
+		font-size: 24px
+		font-family: $PFDinExThin
+		span
+			font-family: $PFDinL
+			color: #b9b9b9
+			font-size: 15px
+			display: block
+	&__sort
+		padding: 38px 40px 37px 0
+		&--icons
+			font-size: 25px
+			color: #d1d1d1
+			margin: 0 24px 0 0
+			&:active,&:hover
+				color: #000
+	&__navigations
+		padding: 19px 26px 18px
+		&--bl
+			border-left: 1px solid #eee
+		&:hover
+			background-color: #25c0ec
+		&--icons
+			font-size: 50px
+			color: #eee
+
+
+
+@import "media" // Всегда в конце
