@@ -1,11 +1,8 @@
 @import "fonts"
 @import "libs"
 @import "vars"
-$screen-xs-min: 480px
-$screen-sm-min: 768px
-$screen-sml-min: 880px
-$screen-md-min: 992px
-$screen-lg-min: 1200px
+@import "news"
+
 
 *::-webkit-input-placeholder
 	color: #666
@@ -48,6 +45,10 @@ body
 	font-family: $PFDinL
 	overflow-x: hidden
 	text-align: center
+.container
+	width: 100%
+	@media (min-width: $screen-lg-min)
+		width: 1170px
 .dr-top-nav
 	z-index: 2
 	width: 100%
@@ -76,7 +77,7 @@ body
 			font-size: 1.2rem
 			li
 				a
-					padding: 15px 15px
+					padding: 15px 14px
 		padding-top: 8px
 		li
 			a
@@ -130,10 +131,6 @@ body
 		right: 0
 	nav
 		padding-bottom: 100px
-.container
-	width: 100%
-	@media (min-width: $screen-lg-min)
-		width: 1170px
 .slider
 	box-shadow: 3px 0px 10px 0 rgba(0,0,0,.3)
 .totalz
@@ -284,18 +281,8 @@ ul.left_menu
 
 //-------------------------------
 //news style
-.dr-news
-	margin-left: 0
-	margin-right: 0
-	border-top: 1px solid rgba(128, 128, 128, 0.3)
-	border-bottom: 1px solid rgba(128, 128, 128, 0.3)
-	&-content
-		text-align: left
-		&-tags
-			//position: absolute
-			//bottom: 20px
-	&-image
-		padding-left: 0
+
+
 
 //-------------------------------
 
