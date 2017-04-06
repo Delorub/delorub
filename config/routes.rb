@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :destroy]
 
-  root 'home#index'
+  root 'main#index'
 
   get 'contract_designer/:template_id', to: 'contracts#new', as: :contract_designer
 
