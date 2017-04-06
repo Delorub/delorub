@@ -14,12 +14,6 @@ const sourcePath = path.join(__dirname, './app');
 module.exports = {
   context: __dirname,
   entry: {
-    vendor: [
-      'babel-polyfill',
-      'es5-shim/es5-shim',
-      'es5-shim/es5-sham'
-    ],
-
     contract_designer_app: [
       './app/bundles/ContractDesignerApp/startup/clientRegistration',
     ],
@@ -30,8 +24,9 @@ module.exports = {
 
     website: [
       './app',
+      './app/bundles/NotificationsApp/startup/clientRegistration',
       `bootstrap-loader/lib/bootstrap.loader?configFilePath=${__dirname}/bootstrap.yml!bootstrap-loader/no-op.js`,
-    ],
+    ]
   },
   output: {
     filename: '[name]-bundle.js',
@@ -53,12 +48,12 @@ module.exports = {
         NODE_ENV: JSON.stringify(nodeEnv),
       },
     }),
-    new webpack.optimize.CommonsChunkPlugin({
+    /*new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       filename: 'vendor-bundle.js',
       minChunks: Infinity,
       chunks: ['vendor', 'contract_designer_app', 'contract_app']
-    }),
+    }),*/
     new copyWebpackPlugin([
       { from: './node_modules/tinymce/skins', to: './skins' },
       { from: './node_modules/tinymce/plugins', to: './plugins' },
@@ -73,7 +68,21 @@ module.exports = {
       filename: '[name]-bundle.css',
       allChunks: true,
       disable: false
-    })
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      beautify: false,
+      comments: false,
+      compress: {
+        sequences: true,
+        booleans: true,
+        loops: true,
+        unused: true,
+        warnings: false,
+        drop_console: true,
+        unsafe: true
+      }
+    }),
+    new webpack.optimize.OccurrenceOrderPlugin()
   ],
   module: {
     rules: [
@@ -147,6 +156,10 @@ module.exports = {
       path.join(__dirname, '../public')
     ],
     port: 9000,
+    watchContentBase: true,
+    watchOptions: {
+      watch: true
+    },
     stats: {
       assets: true,
       children: false,
