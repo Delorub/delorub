@@ -19,7 +19,7 @@
     "build:test": "yarn run build:client && yarn run build:server",
     "build:production": "yarn run build:production:client && yarn run build:production:server",
     "lint": "eslint --ext .js,.jsx .",
-    "hardreset": "rm -rf ./node_modules && npm install && npm run-script build:client"
+    "hardreset": "rm -rf ./node_modules && yarn install && yarn run-script build:client"
   },
   "dependencies": {
     "bootstrap-sass": "^3.3.7",
