@@ -16,7 +16,7 @@ ActiveAdmin.register Category, namespace: :admin do
       input :parent, collection: nested_set_options_for_category(category)
       input :photo
     end
-    actions
+    f.actions
   end
 
   show do
