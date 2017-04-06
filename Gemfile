@@ -23,6 +23,7 @@ gem 'configatron'
 gem 'virtus'
 gem 'figaro'
 gem 'render_anywhere'
+gem 'inherited_resources'
 
 # Activerecord extensions
 gem 'squeel'
@@ -41,7 +42,7 @@ gem 'omniauth-mailru'
 gem 'omniauth-gplus'
 
 # Admin
-gem 'activeadmin', github: 'activeadmin'
+gem 'activeadmin', '1.0.0.pre4'
 gem 'activeadmin_addons'
 
 # Attachments
@@ -61,11 +62,12 @@ gem 'yui-compressor'
 gem 'haml-rails', '~> 0.8'
 gem 'react_on_rails', '~> 6'
 gem 'mini_racer', platforms: :ruby
+gem 'jquery-ui-rails', '~> 5'
 
 # Misc
 gem 'russian', '~> 0.6.0'
 gem 'phony_rails'
-gem 'kaminari'
+gem 'kaminari', '~> 0.15'
 gem 'translit'
 gem 'nokogiri'
 gem 'wicked_pdf'

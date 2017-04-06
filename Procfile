@@ -1,6 +1,8 @@
 # Run Rails without hot reloading (static assets).
 rails: REACT_ON_RAILS_ENV= rails s -b 0.0.0.0
 
+elasticsearch: elasticsearch
+
 # Build client assets, watching for changes.
 rails-client-assets: rm -rf app/assets/webpack/* || true && yarn run build:dev:client
 
