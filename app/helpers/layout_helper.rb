@@ -4,10 +4,10 @@ module LayoutHelper
   end
 
   def navigation_css_class
-    "dr-top-nav-#{controller_name == 'home' ? 'main' : 'pages'}"
+    "dr-top-nav-#{controller_name == 'main' ? 'main' : 'pages'}"
   end
 
   def navigation_logo_path
-    controller_name == 'home' ? '/images/design/logo1.png' : '/images/design/logo.png'
+    controller_name == 'main' ? '/images/design/logo1.png' : '/images/design/logo.png'
   end
 end
