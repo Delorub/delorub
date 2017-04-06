@@ -23,9 +23,10 @@
  * `public/` Folder which store static assets, such as favicons, static images, robots.txt, etc, which are used only from html, but not from css or js
 
 ## Installation
+Yarn and nodejs should be installed before (see main readme for instructions)
 ```sh
 $ cd client
-$ npm install
+$ yarn install
 ```
 
 ## Development process
