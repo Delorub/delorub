@@ -1,31 +1,14 @@
-# Be sure to restart your server when you modify this file.
+Rails.application.config.assets.tap do |assets|
+  assets.version = '1.0'
+  assets.precompile += %w(admin.css)
+  assets.precompile += %w(admin.js)
+  assets.precompile += %w(.svg .eot .woff .ttf)
 
-# Version of your assets, change this if you want to expire all your assets.
-Rails.application.config.assets.version = '1.0'
+  assets.paths << Rails.root.join('app', 'assets', 'webpack')
 
-# Add additional assets to the asset load path
-# Rails.application.config.assets.paths << Emoji.images_path
-
-# Precompile additional assets.
-# application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-# Rails.application.config.assets.precompile += %w( search.js )
-
-Rails.application.config.assets.precompile += %w(admin.css)
-Rails.application.config.assets.precompile += %w(admin.js)
-Rails.application.config.assets.precompile += %w(.svg .eot .woff .ttf)
-# Add client/assets/ folders to asset pipeline's search path.
-# If you do not want to move existing images and fonts from your Rails app
-# you could also consider creating symlinks there that point to the original
-# rails directories. In that case, you would not add these paths here.
-# If you have a different server bundle file than your client bundle, you'll
-# need to add it here, like this:
-# Rails.application.config.assets.precompile += %w( server-bundle.js )
-
-# Add folder with webpack generated assets to assets.paths
-Rails.application.config.assets.paths << Rails.root.join("app", "assets", "webpack")
-
-Rails.application.config.assets.precompile +=
-  [
-    "application.js",
-    "application.css"
-  ]
+  assets.precompile +=
+    [
+      'application.js',
+      'application.css'
+    ]
+end

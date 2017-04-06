@@ -5,7 +5,6 @@ source 'http://rubygems.org'
 gem 'rails', '~> 4.2.0'
 gem 'mysql2', '~> 0.3.18'
 gem 'sidekiq'
-gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jbuilder', '~> 2.0'
 gem 'rake', '11.3.0'
@@ -57,6 +56,8 @@ gem 'hashie-forbidden_attributes'
 gem 'httparty'
 
 # Assets
+gem 'uglifier', '>= 1.3.0'
+gem 'yui-compressor'
 gem 'haml-rails', '~> 0.8'
 gem 'react_on_rails', '~> 6'
 gem 'mini_racer', platforms: :ruby

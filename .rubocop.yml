@@ -6,6 +6,7 @@ AllCops:
     - 'vendor/**/*'
     - 'tmp/**/*'
     - 'bin/**/*'
+    - 'client/**/*'
     - db/schema.rb
 
 Rails:

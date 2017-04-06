@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include Pundit
   include RenderPageNotFound
 
   protect_from_forgery

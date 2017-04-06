@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # API
   mount ApplicationAPI => '/api'
 
-  devise_for :users, controllers: { registrations: 'registrations' }
+  devise_for :users
 
   resources :users, only: [:index, :destroy]
 
