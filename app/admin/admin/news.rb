@@ -1,5 +1,5 @@
 ActiveAdmin.register News, namespace: :admin do
-  permit_params :title, :created_at, :content
+  permit_params :title, :created_at, :content, :photo
 
   filter :title
   filter :created_at
@@ -8,6 +8,15 @@ ActiveAdmin.register News, namespace: :admin do
     selectable_column
     column(:title) { |news| link_to news.title, admin_news_path(news) }
     column :created_at
+  end
+
+  form do |f|
+    f.inputs 'Основное' do
+      input :title
+      input :content
+      input :photo
+    end
+    actions
   end
 
   show do

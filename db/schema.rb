@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170304020341) do
+ActiveRecord::Schema.define(version: 20170407065414) do
 
   create_table "billing_reply_packs", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -121,6 +121,7 @@ ActiveRecord::Schema.define(version: 20170304020341) do
     t.text     "content",    limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.string   "photo",      limit: 255
   end
 
   create_table "notifications", force: :cascade do |t|

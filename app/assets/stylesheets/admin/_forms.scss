@@ -223,19 +223,21 @@
 
     /* Buttons */
 
-    input[type=submit], input[type=button], button {
-      cursor: pointer;
-      font-size: 12px;
-      background-color: #ea4b35;
-      color: #fff;
-      display: inline-block;
-      text-decoration: none;
-      border: none;
-      text-align: center;
-      text-transform: uppercase;
-      border-radius: 100px;
-      padding: 10px 21px;
-  	  background-color: #339ff5;
+    .action {
+      input[type=submit], input[type=button], button {
+        cursor: pointer;
+        font-size: 12px;
+        background-color: #ea4b35;
+        color: #fff;
+        display: inline-block;
+        text-decoration: none;
+        border: none;
+        text-align: center;
+        text-transform: uppercase;
+        border-radius: 100px;
+        padding: 10px 21px;
+    	  background-color: #339ff5;
+      }
     }
 
     .buttons, .actions {

@@ -8,6 +8,7 @@ ReactOnRails.configure do |config|
 
   # Define the files we need to check for webpack compilation when running tests.
   config.webpack_generated_files = %w(website-bundle.js website-bundle.css)
+  config.webpack_generated_files = %w(admin-bundle.js admin-bundle.css)
   config.webpack_generated_files += %w(contract_app-bundle.js contract_app-bundle.css)
   config.webpack_generated_files += %w(contract_designer_app-bundle.js contract_designer_app-bundle.css)
   config.webpack_generated_files += %w(server-bundle.js)

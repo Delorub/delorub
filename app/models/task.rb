@@ -6,7 +6,7 @@
 #  title         :string(255)      not null
 #  category_id   :integer          not null
 #  user_id       :integer          not null
-#  price_type    :string(255)      not null
+#  price_type    :string           not null
 #  price_scale   :string(255)
 #  price_exact   :integer
 #  price_from    :integer
@@ -15,7 +15,7 @@
 #  place_lat     :float(24)
 #  place_long    :float(24)
 #  place_address :string(255)
-#  date_type     :string(255)      not null
+#  date_type     :string           not null
 #  date_actual   :integer
 #  date_from     :datetime
 #  date_to       :datetime

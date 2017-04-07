@@ -23,9 +23,13 @@ module.exports = {
     ],
 
     website: [
-      './app',
+      './app/application',
       './app/bundles/NotificationsApp/startup/clientRegistration',
       `bootstrap-loader/lib/bootstrap.loader?configFilePath=${__dirname}/bootstrap.yml!bootstrap-loader/no-op.js`,
+    ],
+
+    admin: [
+      './app/admin'
     ]
   },
   output: {

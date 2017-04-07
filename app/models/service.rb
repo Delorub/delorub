@@ -6,7 +6,7 @@
 #  profile_id :integer
 #  title      :string(255)
 #  price      :integer
-#  price_type :string(255)
+#  price_type :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

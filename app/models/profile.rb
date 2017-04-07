@@ -4,8 +4,8 @@
 #
 #  id            :integer          not null, primary key
 #  user_id       :integer          not null
-#  work_type     :string(255)
-#  pay_type      :string(255)
+#  work_type     :string
+#  pay_type      :string
 #  have_car      :boolean
 #  have_truck    :boolean
 #  about         :text(65535)
