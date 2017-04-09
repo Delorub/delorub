@@ -54,11 +54,43 @@
           </nav>
           <div class="dr-container">
             <div class="dr-news-header">
-              <h2>Все <span class="dr-news-header-unmarked">новости<span></h2>
+              <h2>Создание <span class="dr-news-header-unmarked">задания<span></h2>
             </div>
+            <div class="row row-eq-height">
+              <div class="col-md-5">
+                <div class="dr-task-name">
+                  <span>Название задания *</span>
+                  <input type="text" class="form-control" placeholder="Введите название задания">
+                </div>
+                <div class="dr-task-description">
+                  <span>Название задания *</span>
+                  <textarea name="name" rows="6" cols="60" class="form-control" placeholder="Введите описание задания"></textarea>
+                </div>
+                <div class="dr-task-photo">
+                  <span>Фото *</span>
+                  <br>
+                  <button type="button" class="btn dr-button-empty">Выбрать фото</button>
+                </div>
+                <div class="dr-task-paid-functions">
+                  <span>Платные функции</span>
+                  <br>
+                  <select>
+                    <option>Пункт 1</option>
+                    <option>Пункт 2</option>
+                  </select>
+                </div>
+              </div>
 
+              <div class="col-md-7">
+                <div class="dr-task-budget">
+                  <span>Бюджет *</span>
+                  <input type="range" min="0" max="100" step="1" value="50">
+                </div>
+              </div>
+            </div>
             <button type="button" class="btn dr-button-empty">Показать еще</button>
           </div>
+
           <div class="dr-bottom-menu">
             <nav>
               <ul>

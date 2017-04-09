@@ -14,9 +14,9 @@ const sourcePath = path.join(__dirname, './app');
 module.exports = {
   context: __dirname,
   entry: {
-    contract_designer_app: [
-      './app/bundles/ContractDesignerApp/startup/clientRegistration',
-    ],
+    //contract_designer_app: [
+    //  './app/bundles/ContractDesignerApp/startup/clientRegistration',
+    //],
 
     contract_app: [
       './app/bundles/ContractApp/startup/clientRegistration',
@@ -159,7 +159,7 @@ module.exports = {
       path.join(__dirname, 'markup'),
       path.join(__dirname, '../public')
     ],
-    port: 9000,
+    port: 9001,
     watchContentBase: true,
     watchOptions: {
       watch: true
