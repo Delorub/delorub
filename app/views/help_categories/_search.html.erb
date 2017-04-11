@@ -1,0 +1,8 @@
+<div class="row dr-news row-eq-height dr-news-first">
+  <div class="col-xs-12 col-sm-12 dr-news-content">
+    <%= form_tag(help_index_path, method: 'get') do %>
+      <%= text_field_tag(:query, params[:query]) %>
+      <%= submit_tag('Искать') %>
+    <% end %>
+  </div>
+</div>

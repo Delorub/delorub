@@ -15,6 +15,10 @@ class AdminPolicy < ApplicationPolicy
     granted?
   end
 
+  def reorder?
+    granted?
+  end
+
   private
 
     def granted?

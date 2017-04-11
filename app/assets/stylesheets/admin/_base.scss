@@ -18,6 +18,12 @@
 #site_title_image {
 	width: 136px;
 	margin-top: 10px;
+  margin-right: 10px;
+}
+
+#utility_nav {
+  width: 200px;
+  text-align: right;
 }
 
 #footer {
@@ -77,4 +83,8 @@ form.contract_template {
   }
 
   .error { color: red }
+}
+
+#help_answer_synonyms {
+  height: 50px;
 }

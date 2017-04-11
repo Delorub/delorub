@@ -23,7 +23,8 @@ class UserPermission < ActiveRecord::Base
       user: [:view, :edit, :delete, :permissions, :billing],
       page: [:view, :edit],
       reply: [],
-      contract_template: []
+      contract_template: [],
+      help: []
     },
 
     editor:

@@ -9,6 +9,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :destroy]
   resources :news, only: [:index, :show]
+  resources :help_categories, only: :index, path: 'help', as: :help do
+    resources :help_answers, only: :show, path: 'answer', as: :answer
+  end
+  resources :help_questions, only: [:new, :create], path: 'help'
 
   root 'main#index'
 

@@ -12,6 +12,7 @@
 #  depth          :integer
 #  children_count :integer
 #  photo          :string(255)
+#  position       :integer
 #
 
 class Category < ActiveRecord::Base
@@ -19,8 +20,9 @@ class Category < ActiveRecord::Base
 
   mount_uploader :photo, CategoryPhotoUploader
   acts_as_nested_set counter_cache: :children_count
+  acts_as_list
 
-  validates :title, presence: true
+  validates :title, :photo, presence: true
 
   def form_count
     0

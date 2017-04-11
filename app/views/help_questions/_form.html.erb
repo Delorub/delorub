@@ -1,0 +1,11 @@
+<div class="row dr-news row-eq-height dr-news-first">
+  <div class="col-xs-12 col-sm-12 dr-news-content">
+    <h3>Не нашли то что искали?</h3>
+    <%= form_for @help_question do |f| %>
+      <%= f.text_field :name %>
+      <%= f.text_field :email %><br>
+      <%= f.text_area :content %><br>
+      <%= f.submit 'Отправить' %>
+    <% end %>
+  </div>
+</div>

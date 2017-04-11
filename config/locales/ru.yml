@@ -35,10 +35,36 @@ ru:
     sidebars:
       filters: "Поиск"
       search_status: "Как искали?"
+  attributes:
+    name: Имя
+    category: Категория
+    title: Название
+    content: Содержимое
+    synonyms: Синонимы
   activerecord:
     errors:
       user_balance: "Не хватает средств на счету"
     models:
+      contract_template:
+        one: Шаблон
+        few: Шаблона
+        many: Шаблонов
+        other: Шаблоны договоров
+      help_question:
+        one: Тикет
+        few: Тикета
+        many: Тикетов
+        other: Поддержка
+      help_category:
+        one: Раздел помощи
+        few: Раздела помощи
+        many: Разделов помощи
+        other: Разделы помощи
+      help_answer:
+        one: Ответ
+        few: Ответа
+        many: Ответов
+        other: Ответы
       user:
         one: Пользователь
         few: Пользователя
@@ -165,6 +191,8 @@ ru:
         billable_type: "Тип операции"
         billable: "Операция"
         user: "Пользователь"
+      help_answer:
+        help_category: "Раздел"
       user_permission:
         superadmin: "Супер администратор"
         superadmin_description: "Доступ ко всем возможным функциям, а так же невозможность блокирования и изменения профиля другими администраторами"

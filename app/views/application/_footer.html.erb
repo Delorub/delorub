@@ -8,7 +8,7 @@
       <li><a href="#">Это интересно</a></li>
       <li><a href="#">Контакты компании</a></li>
       <li><a href="#">О компании</a></li>
-      <li><a href="#">Помощь</a></li>
+      <li><a href="<%= help_index_path %>">Помощь</a></li>
       <% if current_user %>
         <li><a href="<%= destroy_user_session_path %>">Выход</a></li>
       <% end %>
