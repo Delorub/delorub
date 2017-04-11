@@ -281,14 +281,54 @@ ul.left_menu
   background-color: white
   padding: 10px 20px
   border: 1px solid rgba(128, 128, 128, 0.3)
-  border-radius: 25px
+  border-radius: $borderRadius
 //-------------------------------
 // create_task
 .dr-task-description
-  textarea
-    resize: none
-
-
+	textarea
+		margin-top: 10px
+		resize: none
+.dr-task
+	text-align: left
+	span
+		font-weight: bold
+	&-div
+		padding: 30px 20px
+		.multiselect
+			width: 100%
+			.selectBox
+				position: relative
+				select
+					width: 100%
+					font-weight: bold
+				.overSelect
+					position: absolute
+					left: 0
+					right: 0
+					top: 0
+					bottom: 0
+			#checkboxes
+				display: none
+				border: 1px #dadada solid
+				label
+					display: block
+					&:hover
+						background-color: #1e90ff
+	&-select
+		margin-top: 10px
+		width: 100%
+		padding: 10px
+		border-radius: $borderRadius
+		background-color: transparent
+		color: darken(#b7b7b7, 30%)
+	&-name
+		input
+			margin-top: 10px
+			width: 100%
+			padding: 10px
+			border-radius: $borderRadius
+			background-color: transparent
+			color: darken(#b7b7b7, 30%)
 //-------------------------------
 
 .zadaniya
