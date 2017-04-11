@@ -19,6 +19,20 @@
     <!-- iOS Safari -->
     <meta name="apple-mobile-web-app-status-bar-style" content="#000">
 </head>
+<script>
+var expanded = false;
+
+function showCheckboxes() {
+var checkboxes = document.getElementById("checkboxes");
+if (!expanded) {
+  checkboxes.style.display = "block";
+  expanded = true;
+} else {
+  checkboxes.style.display = "none";
+  expanded = false;
+  }
+}
+</script>
 <body>
   <div class="container">
     <div class="row row-eq-height">
@@ -56,25 +70,25 @@
             <div class="dr-news-header">
               <h2>Создание <span class="dr-news-header-unmarked">задания<span></h2>
             </div>
-            <div class="row row-eq-height">
+            <div class="row row-eq-height dr-task">
               <div class="col-md-5">
-                <div class="dr-task-name">
+                <div class="dr-task-name dr-task-div">
                   <span>Название задания *</span>
                   <input type="text" class="form-control" placeholder="Введите название задания">
                 </div>
-                <div class="dr-task-description">
+                <div class="dr-task-description dr-task-div">
                   <span>Название задания *</span>
                   <textarea name="name" rows="6" cols="60" class="form-control" placeholder="Введите описание задания"></textarea>
                 </div>
-                <div class="dr-task-photo">
+                <div class="dr-task-photo dr-task-div">
                   <span>Фото *</span>
                   <br>
                   <button type="button" class="btn dr-button-empty">Выбрать фото</button>
                 </div>
-                <div class="dr-task-paid-functions">
+                <div class="dr-task-paid-functions dr-task-div">
                   <span>Платные функции</span>
                   <br>
-                  <select>
+                  <select class="dr-task-select">
                     <option>Пункт 1</option>
                     <option>Пункт 2</option>
                   </select>
@@ -82,13 +96,108 @@
               </div>
 
               <div class="col-md-7">
-                <div class="dr-task-budget">
+                <div class="dr-task-budget dr-task-div">
                   <span>Бюджет *</span>
                   <input type="range" min="0" max="100" step="1" value="50">
                 </div>
+                <div class="row row-eq-height">
+
+                  <div class="col-md-6">
+                    <div class="dr-task-paid-functions dr-task-div">
+                      <span>Сроки *</span>
+                      <br>
+                      <select class="dr-task-select">
+                        <option>Завершить работу</option>
+                        <option>Пункт 2</option>
+                      </select>
+                    </div>
+
+                    <div class="dr-task-paid-functions dr-task-div">
+                      <span>Город *</span>
+                      <br>
+                      <select class="dr-task-select">
+                        <option>Москва</option>
+                        <option>Пункт 2</option>
+                      </select>
+                    </div>
+
+                    <div class="dr-task-paid-functions dr-task-div">
+                      <span>Категория задания *</span>
+                      <br>
+                      <select class="dr-task-select">
+                        <option>Фото- и видеосъемка</option>
+                        <option>Пункт 2</option>
+                      </select>
+                    </div>
+
+                    <div class="dr-task-paid-functions dr-task-div">
+                      <span>Заключение договора</span>
+                      <br>
+                      <select class="dr-task-select">
+                        <option>Без договора</option>
+                        <option>Пункт 2</option>
+                      </select>
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="dr-task-paid-functions dr-task-div">
+                      <span>Дата *</span>
+                      <br>
+                      <select class="dr-task-select">
+                        <option>Завершить работу</option>
+                        <option>Пункт 2</option>
+                      </select>
+                    </div>
+
+                    <div class="dr-task-paid-functions dr-task-div">
+                      <span>Адрес</span>
+                      <br>
+                      <select class="dr-task-select">
+                        <option>Москва</option>
+                        <option>Пункт 2</option>
+                      </select>
+                    </div>
+
+                    <div class="dr-task-paid-functions dr-task-div">
+                      <span>Подкатегория задания</span>
+                      <br>
+                      <select class="dr-task-select">
+                        <option>Фотосъемка</option>
+                        <option>Пункт 2</option>
+                      </select>
+                    </div>
+
+                    <div class="dr-task-paid-functions dr-task-div">
+                      <span>Формат уведомлений об откликах</span>
+                      <br>
+                      <form>
+                        <div class="multiselect">
+                          <div class="selectBox" onclick="showCheckboxes()">
+                            <select class="dr-task-select">
+                              <option>Выберите формат</option>
+                            </select>
+                            <div class="overSelect"></div>
+                          </div>
+                          <div id="checkboxes">
+                            <label for="one">
+                              <input type="checkbox" id="one" />На email и в уведомления</label>
+                              <label for="two">
+                              <input type="checkbox" id="two" />Second checkbox</label>
+                              <label for="three">
+                              <input type="checkbox" id="three" />Third checkbox</label>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+
+                  </div>
+
+                </div>
               </div>
             </div>
-            <button type="button" class="btn dr-button-empty">Показать еще</button>
+            <button type="button" class="btn dr-button-empty">Добавить задание</button>
           </div>
 
           <div class="dr-bottom-menu">
