@@ -159,7 +159,7 @@ module.exports = {
       path.join(__dirname, 'markup'),
       path.join(__dirname, '../public')
     ],
-    port: 9001,
+    port: 9002,
     watchContentBase: true,
     watchOptions: {
       watch: true

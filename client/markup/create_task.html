@@ -32,6 +32,11 @@ if (!expanded) {
   expanded = false;
   }
 }
+$('#ex1').slider({
+	formatter: function(value) {
+		return 'Current value: ' + value;
+	}
+});
 </script>
 <body>
   <div class="container">
@@ -69,6 +74,7 @@ if (!expanded) {
           <div class="dr-container">
             <div class="dr-news-header">
               <h2>Создание <span class="dr-news-header-unmarked">задания<span></h2>
+              <button type="button" class="btn dr-button-empty right">Предпросмотр</button>
             </div>
             <div class="row row-eq-height dr-task">
               <div class="col-md-5">
@@ -98,7 +104,8 @@ if (!expanded) {
               <div class="col-md-7">
                 <div class="dr-task-budget dr-task-div">
                   <span>Бюджет *</span>
-                  <input type="range" min="0" max="100" step="1" value="50">
+                  <input type="range" min="0" max="100" step="1" value="80">
+                  <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="14"/>
                 </div>
                 <div class="row row-eq-height">
 
@@ -142,13 +149,11 @@ if (!expanded) {
                   </div>
 
                   <div class="col-md-6">
-                    <div class="dr-task-paid-functions dr-task-div">
+                    <div class="dr-task-date dr-task-div">
                       <span>Дата *</span>
                       <br>
-                      <select class="dr-task-select">
-                        <option>Завершить работу</option>
-                        <option>Пункт 2</option>
-                      </select>
+                      <input type="date" name="user_date" />
+                      <input type="time" name="user_time" />
                     </div>
 
                     <div class="dr-task-paid-functions dr-task-div">

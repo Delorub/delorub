@@ -39,6 +39,8 @@ body
 	font-family: $PFDinL
 	overflow-x: hidden
 	text-align: center
+.right
+  float: right
 .container
 	width: 100%
 	@media (min-width: $screen-lg-min)
@@ -289,46 +291,126 @@ ul.left_menu
 		margin-top: 10px
 		resize: none
 .dr-task
-	text-align: left
-	span
-		font-weight: bold
-	&-div
-		padding: 30px 20px
-		.multiselect
-			width: 100%
-			.selectBox
-				position: relative
-				select
-					width: 100%
-					font-weight: bold
-				.overSelect
-					position: absolute
-					left: 0
-					right: 0
-					top: 0
-					bottom: 0
-			#checkboxes
-				display: none
-				border: 1px #dadada solid
-				label
-					display: block
-					&:hover
-						background-color: #1e90ff
-	&-select
+  &-date
+    input
+      margin-top: 10px
+      width: 49%
+      padding: 6px 10px
+      border-radius: $borderRadius
+      color: darken(#b7b7b7, 30%)
+      background-color: transparent
+  text-align: left
+  span
+    font-weight: bold
+.dr-task-select
+  margin-top: 10px
+  width: 100%
+  padding: 10px
+  border-radius: $borderRadius
+  background-color: transparent
+  color: darken(#b7b7b7, 30%)
+.dr-task-budget
+  #ex1Slider .slider-selection
+    background: #bababa
+.dr-task-name
+	input
 		margin-top: 10px
 		width: 100%
 		padding: 10px
 		border-radius: $borderRadius
 		background-color: transparent
 		color: darken(#b7b7b7, 30%)
-	&-name
-		input
-			margin-top: 10px
-			width: 100%
-			padding: 10px
-			border-radius: $borderRadius
-			background-color: transparent
-			color: darken(#b7b7b7, 30%)
+.dr-task-div
+  padding: 30px 20px
+  .multiselect
+    width: 100%
+    .selectBox
+      position: relative
+      select
+        width: 100%
+        font-weight: bold
+      .overSelect
+        position: absolute
+        left: 0
+        right: 0
+        top: 0
+        bottom: 0
+    #checkboxes
+      display: none
+      border: 1px #dadada solid
+      label
+        display: block
+        &:hover
+          background-color: #1e90ff
+input[type=range]
+  -webkit-appearance: none
+  margin: 18px 0
+  width: 100%
+  &:focus
+    outline: none
+  &::-webkit-slider-runnable-track
+    width: 100%
+    height: 8.4px
+    cursor: pointer
+    animate: 0.2s
+    background: #25c0ec
+    border-radius: 1.3px
+    border: 0.2px solid #25c0ec
+  &::-webkit-slider-thumb
+    border: 1px solid #25c0ec
+    height: 36px
+    width: 16px
+    border-radius: 3px
+    background: #25c0ec
+    cursor: pointer
+    -webkit-appearance: none
+    margin-top: -14px
+  &:focus::-webkit-slider-runnable-track
+    background: #25c0ec
+  &::-moz-range-track
+    width: 100%
+    height: 8.4px
+    cursor: pointer
+    animate: 0.2s
+    background: #25c0ec
+    border-radius: 1.3px
+    border: 0.2px solid #25c0ec
+  &::-moz-range-thumb
+    border: 1px solid #25c0ec
+    height: 36px
+    width: 16px
+    border-radius: 3px
+    background: #25c0ec
+    cursor: pointer
+  &::-ms-track
+    width: 100%
+    height: 8.4px
+    cursor: pointer
+    animate: 0.2s
+    background: transparent
+    border-color: transparent
+    border-width: 16px 0
+    color: transparent
+  &::-ms-fill-lower
+    background: #25c0ec
+    border: 0.2px solid #25c0ec
+    border-radius: 2.6px
+  &::-ms-fill-upper
+    background: #25c0ec
+    border: 0.2px solid #25c0ec
+    border-radius: 2.6px
+  &::-ms-thumb
+    border: 1px solid #25c0ec
+    height: 36px
+    width: 16px
+    border-radius: 3px
+    background: #25c0ec
+    cursor: pointer
+  &:focus
+    &::-ms-fill-lower
+      background: #25c0ec
+    &::-ms-fill-upper
+      background: #25c0ec
 //-------------------------------
 
 .zadaniya
