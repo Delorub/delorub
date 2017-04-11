@@ -1,0 +1,19 @@
+<div class="dr-container">
+<div class="dr-news-header">
+  <h2>Помощь</h2>
+</div>
+<%= render 'search' %>
+<div class="row dr-news row-eq-height dr-news-first">
+  <div class="col-xs-12 col-sm-12 dr-news-content">
+    <% collection.each do |category| %>
+      <h3><%= category.title %></h3>
+      <% help_category_answers(category).each do |answer| %>
+        <div>
+          <a href="<%= help_answer_path(category, answer) %>"><%= answer.title %></a>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<%= render 'help_questions/form' %>
+</div>

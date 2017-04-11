@@ -1,10 +1,14 @@
 ActiveAdmin.register Category, namespace: :admin do
+  config.sort_order = 'position_asc'
+  config.paginate = false
+
   permit_params :title, :parent_id, :photo
 
   filter :by_search_in, label: 'Поиск', as: :string
 
-  index do
-    selectable_column
+  reorderable
+
+  index download_links: false, as: :reorderable_table do
     column(:title) do |category|
       link_to category.title, admin_category_path(category)
     end

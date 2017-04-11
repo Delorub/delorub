@@ -20,7 +20,7 @@ gem 'oj'
 gem 'cells'
 gem 'draper'
 gem 'configatron'
-gem 'virtus'
+gem 'reform-rails'
 gem 'figaro'
 gem 'render_anywhere'
 gem 'inherited_resources'
@@ -30,6 +30,7 @@ gem 'squeel'
 gem 'awesome_nested_set'
 gem 'enumerize'
 gem 'state_machine'
+gem 'acts_as_list'
 
 # Authorization, roles
 gem 'devise'
@@ -44,6 +45,7 @@ gem 'omniauth-gplus'
 # Admin
 gem 'activeadmin', '1.0.0.pre4'
 gem 'activeadmin_addons'
+gem 'activeadmin_reorderable', github: 'delphist/activeadmin_reorderable', branch: 'feature/add-belongs-to-support'
 
 # Attachments
 gem 'carrierwave', '~> 1.0'

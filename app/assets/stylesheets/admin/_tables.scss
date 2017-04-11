@@ -12,7 +12,7 @@ table.index_table {
   margin-bottom: 10px;
   border: 0;
   border-spacing: 0;
-  
+
   &.search_table {
     th:first-child {
       padding-left: 20px;
@@ -25,16 +25,16 @@ table.index_table {
     padding-top: 3px;
     padding-left: 3px;
     height: 30px;
-    
+
     &:first-child {
       border-radius: 30px 0 0 0;
     }
-    
+
     &.col-selectable {
       width: 30px;
       padding-left: 20px;
     }
-    
+
     &:last-child {
       border-radius: 0 30px 0 0;
     }
@@ -53,7 +53,7 @@ table.index_table {
     &.sorted-asc a { background-position: 0 -27px; }
     &.sorted-desc a {  background-position: 0 -56px;}
   }
-  
+
   tr {
     .col-selectable {
       padding-left: 20px;
@@ -64,12 +64,33 @@ table.index_table {
     padding: 10px 8px;
     border-bottom: 1px solid #e8e8e8;
     vertical-align: top;
-    
+
     &.col-created_at {
       width: 150px;
       font-size: 12px;
       color: #666;
     }
+
+    &.col-actions {
+      width: 200px;
+    }
+
+    .table_actions {
+      a {
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.aa-reorderable {
+  .reorder-handle-col {
+    text-align: center;
+    width: 40px;
+  }
+  .reorder-handle {
+    cursor: move;
   }
 }
 
@@ -83,16 +104,16 @@ table.index_table {
     border-radius: 0 0 30px 30px;
     margin-bottom: 10px;
   }
-  
+
   .pagination_information {
     float: left;
     color: #666;
     text-transform: lowercase;
   }
-  
+
   .download_links {
     float: right;
-    
+
     a {
       border-radius: 15px;
       padding: 5px 10px;

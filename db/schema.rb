@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170407065414) do
+ActiveRecord::Schema.define(version: 20170411041547) do
 
   create_table "billing_reply_packs", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 20170407065414) do
     t.integer  "depth",          limit: 4
     t.integer  "children_count", limit: 4
     t.string   "photo",          limit: 255
+    t.integer  "position",       limit: 4
   end
 
   create_table "contract_categories", force: :cascade do |t|
@@ -114,6 +115,27 @@ ActiveRecord::Schema.define(version: 20170407065414) do
     t.text     "data",        limit: 65535
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+  end
+
+  create_table "help_answers", force: :cascade do |t|
+    t.integer "help_category_id", limit: 4
+    t.string  "title",            limit: 255
+    t.text    "content",          limit: 65535
+    t.text    "synonyms",         limit: 65535
+    t.integer "position",         limit: 4
+  end
+
+  create_table "help_categories", force: :cascade do |t|
+    t.string  "title",    limit: 255
+    t.integer "position", limit: 4
+  end
+
+  create_table "help_questions", force: :cascade do |t|
+    t.string  "name",     limit: 255
+    t.string  "email",    limit: 255
+    t.text    "content",  limit: 65535
+    t.text    "reply",    limit: 65535
+    t.boolean "answered",               default: false
   end
 
   create_table "news", force: :cascade do |t|
