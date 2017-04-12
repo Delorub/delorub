@@ -2,6 +2,8 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import $ from 'jquery';
 import 'imports-loader?jQuery=jquery!owl.carousel';
+import "bootstrap-slider/dist/bootstrap-slider.js";
+import "bootstrap-slider/dist/css/bootstrap-slider.css";
 
 $(document).ready(function() {
   $('.owl-carousel').owlCarousel({
