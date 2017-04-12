@@ -24,7 +24,8 @@ class UserPermission < ActiveRecord::Base
       page: [:view, :edit],
       reply: [],
       contract_template: [],
-      help: []
+      help: [],
+      vacancy: []
     },
 
     editor:

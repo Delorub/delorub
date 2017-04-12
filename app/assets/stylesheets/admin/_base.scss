@@ -1,90 +1,36 @@
-@import "admin/mixins";
-@import "admin/header";
-@import "admin/breadcrumbs";
-@import "admin/main";
-@import "admin/table_tools";
-@import "admin/tables";
-@import "admin/filters";
-@import "admin/datepicker";
-@import "admin/forms";
-@import "admin/fullscreen";
-
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
+html {
+  font-size: 110%;
 }
 
-#site_title_image {
-	width: 136px;
-	margin-top: 10px;
-  margin-right: 10px;
+#header {
+  background-color: white;
+  box-shadow: 3px 4px 3px 0px rgba(0, 0, 0, 0.12);
+  border-color: #e7e7e7;
+  border-width: 0 0 1px;
+  padding: 14px 0px;
+  margin-bottom: 5px;
+  text-transform: uppercase
 }
 
-#utility_nav {
-  width: 200px;
-  text-align: right;
+#title_bar {
+  background-color: white;
+  border-bottom: 1px solid #e7e7e7;
+
+  .breadcrumb {
+    font-size: 2.6em;
+    text-transform: none;
+    display: inline;
+  }
+
+  h2 {
+    display: inline;
+  }
+}
+
+#main_content {
+  font-size: 120%;
 }
 
 #footer {
-	display: none;
-}
-
-.action_item {
-  a {
-  margin-top: 5px;
-    display: table;
-  	color: #fff;
-  	background: #ea4b35;
-  	padding: 2px;
-  	background-image: none;
-  	text-transform: uppercase;
-  	font-size: 12px;
-  	border-radius: 20px;
-  	text-decoration: none;
-    padding: 10px 15px 8px;
-  }
-}
-
-h3 {
-  @include clearfix;
-}
-
-h3 .action_item a {
-  float: right;
-  background-color: #339ff5;
-  padding: 4px 15px;
-  margin-left: 5px;
-  font-size: 11px;
-}
-
-form.contract_template {
-  li {
-    float: left;
-    width: 50%;
-    display: block;
-    position: relative;
-
-    input[type="text"] {
-      display: block;
-      width: 95%;
-      padding: 5px;
-      font-size: 16px;
-      box-sizing: border-box;
-    }
-
-    .select2-container {
-      width: 100% !important;
-    }
-  }
-
-  fieldset {
-    margin-bottom: 10px;
-  }
-
-  .error { color: red }
-}
-
-#help_answer_synonyms {
-  height: 50px;
+  display: none;
 }

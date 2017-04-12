@@ -4,4 +4,5 @@ Rails.application.config.assets.tap do |assets|
   assets.precompile += %w(admin.js website-bundle.js)
   assets.precompile += %w(.svg .eot .woff .ttf)
   assets.paths << Rails.root.join('app', 'assets', 'webpack')
+  assets.paths << Rails.root.join('app', 'assets', 'fonts')
 end

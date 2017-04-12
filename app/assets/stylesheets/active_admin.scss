@@ -1,3 +1,6 @@
 //= require activeadmin_addons/all
+@import "admin/fonts";
+@import "flattened_active_admin/variables";
+@import "flattened_active_admin/mixins";
+@import "flattened_active_admin/base";
 @import "admin/base";
-//@import "activeadmin_reorderable";

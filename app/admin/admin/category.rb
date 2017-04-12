@@ -2,16 +2,19 @@ ActiveAdmin.register Category, namespace: :admin do
   config.sort_order = 'position_asc'
   config.paginate = false
 
+  sortable tree: true, collapsible: true
+
   permit_params :title, :parent_id, :photo
 
   filter :by_search_in, label: 'Поиск', as: :string
+  filter :category_id
 
-  reorderable
-
-  index download_links: false, as: :reorderable_table do
-    column(:title) do |category|
-      link_to category.title, admin_category_path(category)
-    end
+  index download_links: false, as: :sortable do
+    label :title
+    actions
+    #|category|
+      #link_to category.title, admin_category_path(category)
+    #end
   end
 
   form do |f|

@@ -20,9 +20,9 @@ class Category < ActiveRecord::Base
 
   mount_uploader :photo, CategoryPhotoUploader
   acts_as_nested_set counter_cache: :children_count
-  acts_as_list
+  acts_as_list scope: [:parent_id], top_of_list: 0
 
-  validates :title, :photo, presence: true
+  validates :title, presence: true
 
   def form_count
     0

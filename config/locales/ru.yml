@@ -41,10 +41,18 @@ ru:
     title: Название
     content: Содержимое
     synonyms: Синонимы
+    description: Описание
+    small_description: Краткое описание
+    archive: В архиве
   activerecord:
     errors:
       user_balance: "Не хватает средств на счету"
     models:
+      vacancy:
+        one: Вакансия
+        few: Вакансии
+        many: Вакансий
+        other: Вакансии
       contract_template:
         one: Шаблон
         few: Шаблона
