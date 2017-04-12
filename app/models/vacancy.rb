@@ -14,4 +14,6 @@ class Vacancy < ActiveRecord::Base
   acts_as_list
 
   validates :title, :small_description, :description, presence: true
+
+  scope :visible, -> { where{ archive == false } }
 end

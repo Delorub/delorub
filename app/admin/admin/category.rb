@@ -12,9 +12,6 @@ ActiveAdmin.register Category, namespace: :admin do
   index download_links: false, as: :sortable do
     label :title
     actions
-    #|category|
-      #link_to category.title, admin_category_path(category)
-    #end
   end
 
   form do |f|

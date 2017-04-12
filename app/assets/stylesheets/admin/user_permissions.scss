@@ -1,0 +1,20 @@
+.user_permission {
+  fieldset.inputs {
+    border: 0px !important;
+    padding: 5px;
+    padding-left: 20px;
+  }
+
+  label {
+    padding-left: 0px !important;
+  }
+
+  fieldset ol > li {
+    padding: 5px;
+  }
+
+  small {
+    padding-left: 25px;
+    font-size: 90%;
+  }
+}

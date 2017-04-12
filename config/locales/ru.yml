@@ -44,6 +44,10 @@ ru:
     description: Описание
     small_description: Краткое описание
     archive: В архиве
+    created_at: Создано
+    updated_at: Обновлено
+    deleted_at: Удалено
+    actions: Действия
   activerecord:
     errors:
       user_balance: "Не хватает средств на счету"

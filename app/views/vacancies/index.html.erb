@@ -1,0 +1,13 @@
+<div class="dr-container">
+<div class="dr-news-header">
+  <h2>Наши <span class="dr-news-header-unmarked">вакансии<span></h2>
+</div>
+<div class="row dr-news row-eq-height dr-news-first">
+  <% collection.each do |vacancy| %>
+  <div class="col-xs-12 col-sm-12 dr-news-content">
+    <h3><%= vacancy.title %></h3>
+    <p><%= vacancy.small_description %></p>
+  </div>
+  <% end %>
+</div>
+</div>
