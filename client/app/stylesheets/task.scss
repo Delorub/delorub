@@ -1,0 +1,75 @@
+.dr-task-description {
+    textarea {
+        margin-top: 10px;
+        resize: none;
+    }
+}
+.dr-task {
+    &-date {
+        input {
+            margin-top: 10px;
+            width: 49%;
+            padding: 6px 10px;
+            border-radius: $borderRadius;
+            color: darken(#b7b7b7, 30%);
+            background-color: transparent;
+        }    
+    }
+    &-select {
+        margin-top: 10px;
+        width: 100%;
+        padding: 10px;
+        border-radius: $borderRadius;
+        background-color: transparent;
+        color: darken(#b7b7b7, 30%); 
+    }
+    &-budget {
+        #ex1Slider {
+            .slider-selection {
+                background: #bababa;
+            }
+        } 
+    }
+    &-name {
+        input {
+            margin-top: 10px;
+            width: 100%;
+            padding: 10px;
+            border-radius: $borderRadius;
+            background-color: transparent;
+            color: darken(#b7b7b7, 30%);
+        } 
+    }
+    &-div {
+        padding: 30px 20px;
+        .multiselect {
+            width: 100%;
+            .selectBox {
+                position: relative;
+                select {
+                    width: 100%;
+                    font-weight: bold;
+                }
+                .overSelect {
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+                }
+            }
+            #checkboxes {
+                display: none;
+                border: 1px #dadada solid;
+                label {
+                    display: block;
+                    &:hover {background-color: #25c0ec;}                        
+                }
+            }
+        }
+    }
+    text-align: left;
+    span {
+        font-weight: bold;
+    }
+}

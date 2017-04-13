@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta charset="utf-8">
     <title>Delorub</title>
     <meta name="description" content="">
@@ -18,210 +18,214 @@
     <meta name="msapplication-navbutton-color" content="#000">
     <!-- iOS Safari -->
     <meta name="apple-mobile-web-app-status-bar-style" content="#000">
-</head>
-<script>
-var expanded = false;
 
-function showCheckboxes() {
-var checkboxes = document.getElementById("checkboxes");
-if (!expanded) {
-  checkboxes.style.display = "block";
-  expanded = true;
-} else {
-  checkboxes.style.display = "none";
-  expanded = false;
-  }
-}
-$('#ex1').slider({
-	formatter: function(value) {
-		return 'Current value: ' + value;
-	}
-});
-</script>
-<body>
-  <div class="container">
-    <div class="row row-eq-height">
-      <div class="col-sm-11 col-sm-push-1 dr-content">
-        <main class="content">
-          <nav role="navigation" class="navbar navbar-default dr-top-nav dr-top-nav-pages navbar-static-top">
-            <div class="container-fluid">
-              <!-- Brand and toggle get grouped for better mobile display -->
-              <div class="navbar-header">
+    <script>
+      var expanded = false;
+
+      function showCheckboxes() {
+          var checkboxes = document.getElementById("checkboxes");
+          if (!expanded) {
+              checkboxes.style.display = "block";
+              expanded = true;
+          } else {
+              checkboxes.style.display = "none";
+              expanded = false;
+          }
+      }
+      $('#ex1').slider({
+          formatter: function (value) {
+              return 'Current value: ' + value;
+          }
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row row-eq-height">
+        <div class="col-sm-11 col-sm-push-1 dr-content">
+          <main class="content">
+            <nav role="navigation" class="navbar navbar-default dr-top-nav dr-top-nav-pages navbar-static-top">
+              <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
                   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#"><img src="/images/design/logo.png" alt=""></a>
-              </div>
-              <!-- Collect the nav links, forms, and other content for toggling -->
-              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                  <li><a href="#">Новости</a></li>
-                  <li><a href="#">Все задания</a></li>
-                  <li><a href="#">Все мастера</a></li>
-                  <li><a href="#">Как стать мастером</a></li>
-                  <li><a href="#">Как это работает?</a></li>
-                  <li><a href="#" class='dr-top-nav-icon icon-search'></a></li>
-                  <li><a href="#" class='dr-top-nav-icon icon-koll_active'></a></li>
-                  <li><a href="#">Александр Ермолаев</a></li>
-                  <li><a href="#" class='dr-top-nav-icon icon-avtoriz'></a></li>
-                </ul>
-              </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-          </nav>
-          <div class="dr-container">
-            <div class="dr-news-header">
-              <h2>Создание <span class="dr-news-header-unmarked">задания<span></h2>
-              <button type="button" class="btn dr-button-empty right">Предпросмотр</button>
-            </div>
-            <div class="row row-eq-height dr-task">
-              <div class="col-md-5">
-                <div class="dr-task-name dr-task-div">
-                  <span>Название задания *</span>
-                  <input type="text" class="form-control" placeholder="Введите название задания">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#"><img src="/images/design/logo.png" alt=""></a>
                 </div>
-                <div class="dr-task-description dr-task-div">
-                  <span>Название задания *</span>
-                  <textarea name="name" rows="6" cols="60" class="form-control" placeholder="Введите описание задания"></textarea>
-                </div>
-                <div class="dr-task-photo dr-task-div">
-                  <span>Фото *</span>
-                  <br>
-                  <button type="button" class="btn dr-button-empty">Выбрать фото</button>
-                </div>
-                <div class="dr-task-paid-functions dr-task-div">
-                  <span>Платные функции</span>
-                  <br>
-                  <select class="dr-task-select">
-                    <option>Пункт 1</option>
-                    <option>Пункт 2</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="col-md-7">
-                <div class="dr-task-budget dr-task-div">
-                  <span>Бюджет *</span>
-                  <input type="range" min="0" max="100" step="1" value="80">
-                  <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="14"/>
-                </div>
-                <div class="row row-eq-height">
-
-                  <div class="col-md-6">
-                    <div class="dr-task-paid-functions dr-task-div">
-                      <span>Сроки *</span>
-                      <br>
-                      <select class="dr-task-select">
-                        <option>Завершить работу</option>
-                        <option>Пункт 2</option>
-                      </select>
-                    </div>
-
-                    <div class="dr-task-paid-functions dr-task-div">
-                      <span>Город *</span>
-                      <br>
-                      <select class="dr-task-select">
-                        <option>Москва</option>
-                        <option>Пункт 2</option>
-                      </select>
-                    </div>
-
-                    <div class="dr-task-paid-functions dr-task-div">
-                      <span>Категория задания *</span>
-                      <br>
-                      <select class="dr-task-select">
-                        <option>Фото- и видеосъемка</option>
-                        <option>Пункт 2</option>
-                      </select>
-                    </div>
-
-                    <div class="dr-task-paid-functions dr-task-div">
-                      <span>Заключение договора</span>
-                      <br>
-                      <select class="dr-task-select">
-                        <option>Без договора</option>
-                        <option>Пункт 2</option>
-                      </select>
-                    </div>
-
-                  </div>
-
-                  <div class="col-md-6">
-                    <div class="dr-task-date dr-task-div">
-                      <span>Дата *</span>
-                      <br>
-                      <input type="date" name="user_date" />
-                      <input type="time" name="user_time" />
-                    </div>
-
-                    <div class="dr-task-paid-functions dr-task-div">
-                      <span>Адрес</span>
-                      <br>
-                      <select class="dr-task-select">
-                        <option>Москва</option>
-                        <option>Пункт 2</option>
-                      </select>
-                    </div>
-
-                    <div class="dr-task-paid-functions dr-task-div">
-                      <span>Подкатегория задания</span>
-                      <br>
-                      <select class="dr-task-select">
-                        <option>Фотосъемка</option>
-                        <option>Пункт 2</option>
-                      </select>
-                    </div>
-
-                    <div class="dr-task-paid-functions dr-task-div">
-                      <span>Формат уведомлений об откликах</span>
-                      <br>
-                      <form>
-                        <div class="multiselect">
-                          <div class="selectBox" onclick="showCheckboxes()">
-                            <select class="dr-task-select">
-                              <option>Выберите формат</option>
-                            </select>
-                            <div class="overSelect"></div>
-                          </div>
-                          <div id="checkboxes">
-                            <label for="one">
-                              <input type="checkbox" id="one" />На email и в уведомления</label>
-                              <label for="two">
-                              <input type="checkbox" id="two" />Second checkbox</label>
-                              <label for="three">
-                              <input type="checkbox" id="three" />Third checkbox</label>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-
-                  </div>
-
-                </div>
-              </div>
-            </div>
-            <button type="button" class="btn dr-button-empty">Добавить задание</button>
-          </div>
-
-          <div class="dr-bottom-menu">
-            <nav>
-              <ul>
-                <li><a href="#">Главная</a></li>
-                <li><a href="#">О проекте делоруб</a></li>
-                <li><a href="#">Как это работает?</a></li>
-                <li><a href="#">Как стать мастером?</a></li>
-                <li><a href="#">Это интересно</a></li>
-                <li><a href="#">Контакты компании</a></li>
-                <li><a href="#">О компании</a></li>
-                <li><a href="#">Помощь</a></li>
-              </ul>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav">
+                    <li><a href="#">Новости</a></li>
+                    <li><a href="#">Все задания</a></li>
+                    <li><a href="#">Все мастера</a></li>
+                    <li><a href="#">Как стать мастером</a></li>
+                    <li><a href="#">Как это работает?</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav right">
+                    <li><a href="#" class='dr-top-nav-icon icon-search'></a></li>
+                    <li><a href="#" class='dr-top-nav-icon icon-koll_active'></a></li>
+                    <li><a href="#">Александр Ермолаев</a></li>
+                    <li><a href="#" class='dr-top-nav-icon icon-avtoriz'></a></li>
+                  </ul>
+                </div><!-- /.navbar-collapse -->
+              </div><!-- /.container-fluid -->
             </nav>
-          </div>
-        </main>
-      </div>
-      <div class="col-sm-1 col-sm-pull-11 dr-side-menu">
+            <div class="dr-container">
+              <div class="dr-header-span">
+                <p>
+                  Создание <p class="dr-header-span-unmarked">&nbsp;задания<p>
+                </p>
+              </div>
+              <div class="row row-eq-height dr-task">
+                <div class="col-md-5">
+                  <div class="dr-task-name dr-task-div">
+                    <span>Название задания&nbsp;*</span>
+                    <input type="text" class="form-control" placeholder="Введите название задания">
+                  </div>
+                  <div class="dr-task-description dr-task-div">
+                    <span>Название задания&nbsp;*</span>
+                    <textarea name="name" rows="6" cols="60" class="form-control" placeholder="Введите описание задания"></textarea>
+                  </div>
+                  <div class="dr-task-photo dr-task-div">
+                    <span>Фото&nbsp;*</span>
+                    <br>
+                    <button type="button" class="btn dr-button-empty">Выбрать фото</button>
+                  </div>
+                  <div class="dr-task-paid-functions dr-task-div">
+                    <span>Платные функции</span>
+                    <br>
+                    <select class="dr-task-select">
+                      <option>Пункт 1</option>
+                      <option>Пункт 2</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-md-7">
+                  <div class="dr-task-budget dr-task-div">
+                    <span>Бюджет&nbsp;*</span>
+                    <input type="range" min="0" max="100" step="1" value="80">
+                    <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="14"/>
+                  </div>
+                  <div class="row row-eq-height">
+
+                    <div class="col-md-6">
+                      <div class="dr-task-paid-functions dr-task-div">
+                        <span>Сроки&nbsp;*</span>
+                        <br>
+                        <select class="dr-task-select">
+                          <option>Завершить работу</option>
+                          <option>Пункт 2</option>
+                        </select>
+                      </div>
+
+                      <div class="dr-task-paid-functions dr-task-div">
+                        <span>Город&nbsp;*</span>
+                        <br>
+                        <select class="dr-task-select">
+                          <option>Москва</option>
+                          <option>Пункт 2</option>
+                        </select>
+                      </div>
+
+                      <div class="dr-task-paid-functions dr-task-div">
+                        <span>Категория задания&nbsp;*</span>
+                        <br>
+                        <select class="dr-task-select">
+                          <option>Фото- и видеосъемка</option>
+                          <option>Пункт 2</option>
+                        </select>
+                      </div>
+
+                      <div class="dr-task-paid-functions dr-task-div">
+                        <span>Заключение договора</span>
+                        <br>
+                        <select class="dr-task-select">
+                          <option>Без договора</option>
+                          <option>Пункт 2</option>
+                        </select>
+                      </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="dr-task-date dr-task-div">
+                        <span>Дата&nbsp;*</span>
+                        <br>
+                        <input type="date" name="user_date" />
+                        <input type="time" name="user_time" />
+                      </div>
+
+                      <div class="dr-task-paid-functions dr-task-div">
+                        <span>Адрес</span>
+                        <br>
+                        <select class="dr-task-select">
+                          <option>Москва</option>
+                          <option>Пункт 2</option>
+                        </select>
+                      </div>
+
+                      <div class="dr-task-paid-functions dr-task-div">
+                        <span>Подкатегория задания</span>
+                        <br>
+                        <select class="dr-task-select">
+                          <option>Фотосъемка</option>
+                          <option>Пункт 2</option>
+                        </select>
+                      </div>
+
+                      <div class="dr-task-paid-functions dr-task-div">
+                        <span>Формат уведомлений об откликах</span>
+                        <br>
+                        <form>
+                          <div class="multiselect">
+                            <div class="selectBox" onclick="showCheckboxes()">
+                              <select class="dr-task-select">
+                                <option>Выберите формат</option>
+                              </select>
+                              <div class="overSelect"></div>
+                            </div>
+                            <div id="checkboxes">
+                              <label for="one">
+                                <input type="checkbox" id="one" />На email и в уведомления</label>
+                              <label for="two">
+                                <input type="checkbox" id="two" />Second checkbox</label>
+                              <label for="three">
+                                <input type="checkbox" id="three" />Third checkbox</label>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="btn dr-button-empty">Добавить задание</button>
+            </div>
+
+            <div class="dr-bottom-menu">
+              <nav>
+                <ul>
+                  <li><a href="#">Главная</a></li>
+                  <li><a href="#">О проекте делоруб</a></li>
+                  <li><a href="#">Как это работает?</a></li>
+                  <li><a href="#">Как стать мастером?</a></li>
+                  <li><a href="#">Это интересно</a></li>
+                  <li><a href="#">Контакты компании</a></li>
+                  <li><a href="#">О компании</a></li>
+                  <li><a href="#">Помощь</a></li>
+                </ul>
+              </nav>
+            </div>
+          </main>
+        </div>
+        <div class="col-sm-1 col-sm-pull-11 dr-side-menu">
           <br>
           <br>
           <a href="#" class="gamburg-menu icon-gamb_menu"></a>
@@ -237,9 +241,9 @@ $('#ex1').slider({
             </ul>
           </nav>
           <div class="year">© 2017</div>
+        </div>
       </div>
-  </div>
 
-<script src="website-bundle.js"></script>
-</body>
+      <script src="website-bundle.js"></script>
+  </body>
 </html>

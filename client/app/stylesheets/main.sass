@@ -40,11 +40,11 @@ body
 	overflow-x: hidden
 	text-align: center
 .right
-  float: right
+    float: right
 .container
 	width: 100%
 	@media (min-width: $screen-lg-min)
-		width: 1170px
+		width: 1280px
 .dr-top-nav
 	z-index: 2
 	width: 100%
@@ -77,9 +77,7 @@ body
 		padding-top: 8px
 		li
 			a
-				text-transform: uppercase
-	.navbar-collapse
-		float: right
+				text-transform: uppercase	
 	&-main
 		position: absolute
 		background-color: transparent
@@ -98,12 +96,12 @@ body
 				a
 					color: #4c4c4c
 					&:hover
-						color: lighten(#4c4c4c, 40%)
+						color: lighten(#4c4c4c, 30%)
 				a.active
 					color: black
 					font-weight: bold
 					&:hover
-						color: lighten(#4c4c4c, 40%)
+						color: lighten(#4c4c4c, 30%)
 .row-eq-height
 	@media (min-width: $screen-sm-min)
   	display: -webkit-box
@@ -138,7 +136,7 @@ body
 			vertical-align: top
 			width: 45px
 			height: 45px
-			line-height: 43px
+			line-height: 46px
 			color: #fff
 			text-align: center
 			border-radius: 45px
@@ -242,8 +240,7 @@ ul.left_menu
 		border-radius: 30px
 		text-transform: uppercase
 		margin: 0 10px
-		&:hover
-			font-family: $PFDinThin
+		&:hover			
 			background: #25c0ec
 			color: #fff
 			border: 2px solid #25c0ec
@@ -257,25 +254,39 @@ ul.left_menu
 			margin: 0 20px
 	&-heading
 		display: inline-block
+.dr-bottom-service-heading
+    &:hover
+        cursor: pointer
+        span
+            color: lighten(#4c4c4c, 30%)
 .dr-content
 	padding: 0
 .dr-bottom-menu
-	padding: 60px 20px
-	text-align: center
-	nav
-		ul
-			li
-				display: inline-block
-				padding: 1%
-				a
-					padding: 0 0px 0 0
-					text-transform: uppercase
-					color: #4c4c4c
-					&:hover
-						cursor: pointer
-						color: lighten(#4c4c4c, 40%)
-
-
+    padding: 60px 20px
+    text-align: center
+    //background-color: #f8fbfb
+    nav
+        ul
+            li
+                display: inline-block
+                padding: 1%
+                a
+                    padding: 0
+                    text-transform: uppercase
+                    color: #4c4c4c
+                    &:hover
+                        cursor: pointer
+                        color: lighten(#4c4c4c, 30%)
+.dr-header-span    
+    font-size: 3rem
+    text-align: left
+    padding: 15px 40px 20px 40px
+    font-weight: bold
+    p
+        display: inline-block
+    &-unmarked
+        color: darken(#b7b7b7, 30%)
+        font-weight: 200
 .dr-button-empty
   text-transform: uppercase
   color: darken(#b7b7b7, 30%)
@@ -286,62 +297,7 @@ ul.left_menu
   border-radius: $borderRadius
 //-------------------------------
 // create_task
-.dr-task-description
-	textarea
-		margin-top: 10px
-		resize: none
-.dr-task
-  &-date
-    input
-      margin-top: 10px
-      width: 49%
-      padding: 6px 10px
-      border-radius: $borderRadius
-      color: darken(#b7b7b7, 30%)
-      background-color: transparent
-  text-align: left
-  span
-    font-weight: bold
-.dr-task-select
-  margin-top: 10px
-  width: 100%
-  padding: 10px
-  border-radius: $borderRadius
-  background-color: transparent
-  color: darken(#b7b7b7, 30%)
-.dr-task-budget
-  #ex1Slider .slider-selection
-    background: #bababa
-.dr-task-name
-	input
-		margin-top: 10px
-		width: 100%
-		padding: 10px
-		border-radius: $borderRadius
-		background-color: transparent
-		color: darken(#b7b7b7, 30%)
-.dr-task-div
-  padding: 30px 20px
-  .multiselect
-    width: 100%
-    .selectBox
-      position: relative
-      select
-        width: 100%
-        font-weight: bold
-      .overSelect
-        position: absolute
-        left: 0
-        right: 0
-        top: 0
-        bottom: 0
-    #checkboxes
-      display: none
-      border: 1px #dadada solid
-      label
-        display: block
-        &:hover
-          background-color: #1e90ff
+
 input[type=range]
   -webkit-appearance: none
   margin: 18px 0
@@ -411,6 +367,8 @@ input[type=range]
       background: #25c0ec
     &::-ms-fill-upper
       background: #25c0ec
+
+
 //-------------------------------
 
 .zadaniya
