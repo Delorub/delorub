@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170412060215) do
+ActiveRecord::Schema.define(version: 20170412174305) do
 
   create_table "billing_reply_packs", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -131,11 +131,14 @@ ActiveRecord::Schema.define(version: 20170412060215) do
   end
 
   create_table "help_questions", force: :cascade do |t|
-    t.string  "name",     limit: 255
-    t.string  "email",    limit: 255
-    t.text    "content",  limit: 65535
-    t.text    "reply",    limit: 65535
-    t.boolean "answered",               default: false
+    t.string   "name",       limit: 255
+    t.string   "email",      limit: 255
+    t.text     "content",    limit: 65535
+    t.text     "reply",      limit: 65535
+    t.boolean  "answered",                 default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "replied_at"
   end
 
   create_table "news", force: :cascade do |t|

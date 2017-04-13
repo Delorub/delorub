@@ -1,0 +1,14 @@
+h3 'Вопрос'
+attributes_table_for resource do
+  row :email
+  row :name
+  row :content
+  row :created_at
+end
+
+active_admin_form_for resource, url: reply_admin_help_question_path, method: :put do |f|
+  f.inputs 'Написать ответ' do
+    f.input :reply
+    f.actions
+  end
+end

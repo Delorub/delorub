@@ -21,6 +21,7 @@ ru:
     add_reply_subscription: "Добавить подписку на ответы"
     add_reply_pack: "Добавить пакет ответов"
     add_task_pack: "Добавить пакет заданий"
+    reply: "Ответить"
     permission: "Права доступа"
     blank_slate:
       content: "Ничего нет."
@@ -46,8 +47,10 @@ ru:
     archive: В архиве
     created_at: Создано
     updated_at: Обновлено
+    slug: Адрес
     deleted_at: Удалено
     actions: Действия
+    reply: Ответ
   activerecord:
     errors:
       user_balance: "Не хватает средств на счету"
@@ -134,6 +137,9 @@ ru:
         reply_packs_available_sum: "Оплаченные ответы"
         free_tasks_available_sum: "Бесплатные задания"
         task_packs_available_sum: "Оплаченные задания"
+      help_question:
+        answered: "Отвечено"
+        replied_at: "Дата ответа"
       task:
         title: "Название"
         user_id: Пользователь

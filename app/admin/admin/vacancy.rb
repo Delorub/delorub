@@ -11,9 +11,6 @@ ActiveAdmin.register Vacancy, namespace: :admin do
     column(:title, sortable: false) do |item|
       link_to item.title, resource_path(item)
     end
-    actions do
-      #item 'В архив', edit_admin_post_path(post)
-    end
   end
 
   form do |f|

@@ -1,4 +1,8 @@
 class Admin::HelpQuestionPolicy < AdminPolicy
+  def reply?
+    granted?
+  end
+
   private
 
     def granted?

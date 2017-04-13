@@ -21,6 +21,4 @@ ActiveAdmin.setup do |config|
   config.namespace :editor do |editor|
     editor.site_title = 'Панель редактора'
   end
-
-  config.footer = '<a href="/">Делоруб</a> (с) 2017'
 end
