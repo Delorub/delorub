@@ -5,31 +5,41 @@ import 'imports-loader?jQuery=jquery!owl.carousel';
 import "bootstrap-slider/dist/bootstrap-slider.js";
 import "bootstrap-slider/dist/css/bootstrap-slider.css";
 
-$(document).ready(function() {
-  $('.owl-carousel').owlCarousel({
-  		loop: true,
-  		animateOut: 'fadeOut',
-  		touchDrag: false,
-      mouseDrag: true,
-  		loop: true,
-      dots: true,
-  		margin: 0,
-  		nav: true,
-  		navText: [""],
-  		autoplay: false,
-  		smartSpeed: 450,
-  		autoplayTimeout: 1000,
-  		autoplayHoverPause: true,
-  		responsive: {
-  			0: {
-  				items: 1
-  			},
-  			600: {
-  				items: 1
-  			},
-  			1000: {
-  				items: 1
-  			}
-  		}
-  	});
+$(document).ready(function () {
+    $('.owl-carousel').owlCarousel({
+        loop: true,
+        animateOut: 'fadeOut',
+        touchDrag: false,
+        mouseDrag: true,
+        loop: true,
+        dots: true,
+        margin: 0,
+        nav: true,
+        navText: [""],
+        autoplay: false,
+        smartSpeed: 450,
+        autoplayTimeout: 1000,
+        autoplayHoverPause: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 1
+            },
+            1000: {
+                items: 1
+            }
+        }
+    });    
 });
+
+$('#ex1').slider({
+    formatter: function (value) {
+        return 'Current value: ' + value;
+    }
+});
+
+$(".js-example-tags").select2({
+  tags: true
+})

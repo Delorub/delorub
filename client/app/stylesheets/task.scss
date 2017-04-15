@@ -1,44 +1,49 @@
-.dr-task-description {
-    textarea {
-        margin-top: 10px;
-        resize: none;
-    }
-}
-.dr-task {
-    &-date {
-        input {
-            margin-top: 10px;
-            width: 49%;
-            padding: 6px 10px;
-            border-radius: $borderRadius;
-            color: darken(#b7b7b7, 30%);
-            background-color: transparent;
-        }    
-    }
-    &-select {
+.dr-task {    
+    &-name input, &-select, &-budget input[type=text], &-date input {
         margin-top: 10px;
         width: 100%;
         padding: 10px;
         border-radius: $borderRadius;
         background-color: transparent;
-        color: darken(#b7b7b7, 30%); 
+        color: darken(#b7b7b7, 30%);
+    }
+    &-description textarea {
+        margin-top: 10px;
+        resize: none;
+        border-radius: $borderRadius;
+    }
+    &-date {
+        input {            
+            width: 49%;
+            padding: 6px 10px;            
+        }    
     }
     &-budget {
         #ex1Slider {
             .slider-selection {
-                background: #bababa;
+                background: #25c0ec;
             }
-        } 
-    }
-    &-name {
-        input {
-            margin-top: 10px;
-            width: 100%;
-            padding: 10px;
-            border-radius: $borderRadius;
-            background-color: transparent;
+        }
+        .minValue, .maxValue {
             color: darken(#b7b7b7, 30%);
-        } 
+            float:left;
+            margin-top: 10px;
+        }
+        .maxValue {            
+            float: right;
+        }
+        input [type=text] {
+            color: black;
+            font-weight: bold;
+        }
+    }
+    &-photo { 
+        button {
+            margin: 10px 0;
+        }
+        .photoInfo {
+            color: darken(#b7b7b7, 30%);
+        }
     }
     &-div {
         padding: 30px 20px;
@@ -71,5 +76,14 @@
     text-align: left;
     span {
         font-weight: bold;
+    }
+}
+.slider{
+    margin-top: 10px;
+    &-horizontal {
+        width: 100% !important;
+    }
+    &-handle {
+        background-color: #25c0ec;
     }
 }
