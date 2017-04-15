@@ -28,7 +28,8 @@
     "owl.carousel": "^2.2.0",
     "react-on-rails": "^6.2.1",
     "react-tinymce-input": "^1.2.1",
-    "select2": "^4.0.3"
+    "select2": "^4.0.3",
+    "smartwizard": "^4.2.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.3",
