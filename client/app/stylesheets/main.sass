@@ -247,7 +247,7 @@ ul.left_menu
 .dr-bottom-service
 	box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.12)
 	text-align: center
-	padding: 20px 0
+	padding-top: 20px
 	a
 		padding: 20px 0
 		img
@@ -263,6 +263,8 @@ ul.left_menu
     margin-right: 0
     margin-left: 0
     border-top: 1px solid rgba(128, 128, 128, 0.3)
+.lastRowWithoutBorder
+    border: none
 .dr-content
 	padding: 0
 .dr-bottom-menu
@@ -305,6 +307,18 @@ ul.left_menu
   padding: 10px 20px
   border: 1px solid rgba(128, 128, 128, 0.3)
   border-radius: $borderRadius
+.dr-button-blueFull
+  text-transform: uppercase
+  color: white
+  margin: 30px 0
+  background-color: #25c0ec
+  padding: 10px 20px
+  border: 2px solid #25c0ec
+  border-radius: $borderRadius
+  &:hover
+    border: 2px solid lighten(#25c0ec, 20%)
+    background-color: lighten(#25c0ec, 20%)
+    color: white
 .dr-button-blue
   text-transform: uppercase
   color: darken(#b7b7b7, 30%)
@@ -315,8 +329,8 @@ ul.left_menu
   border-radius: $borderRadius
   font-weight: bold
   &:hover
-    background-color: #25c0ec
-    color: white
+    border: 2px solid lighten(#25c0ec, 20%)
+    color: lighten(#6b6b6b, 20%)
 //-------------------------------
 // create_task
 

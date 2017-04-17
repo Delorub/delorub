@@ -6,3 +6,117 @@
         color: darken(#b7b7b7, 70%);
     }
 }
+.dr-header-step {
+    padding: 0;
+    height: 100px;
+    vertical-align: middle;
+    p:first-child {
+        padding: 15px 0px 15px 40px;
+    }
+    button {
+        margin: 29px 0;
+    }
+}
+.steps {
+    display: inline-block;
+    float: right;
+    padding-right: 150px;
+}
+
+ul.step-anchor{
+    display: block;
+    border: 0;
+    padding: 0px;    
+    border-radius: 5px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    list-style: none;
+    overflow: hidden;    
+}
+ul.step-anchor li+li:before {
+    padding: 0;
+}
+ul.step-anchor > li {
+}
+
+ul.step-anchor > li > a, ul.step-anchor > li > a:hover  {
+
+    text-decoration: none;
+    padding: 29px 0 29px 45px;
+    position: relative;
+    display: block;
+    border: 0 !important;
+    border-radius: 0;
+    outline-style:none;
+    cursor: default;
+    color: darken(#b7b7b7, 30%);
+    font-weight: 200;
+}
+ul.step-anchor > li > a:after {
+    content: " ";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-left: 30px solid white;
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    left: 100%;
+    z-index: 2;
+}
+ul.step-anchor > li > a:before {
+    content: " ";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;           /* Go big on the size, and let overflow hide */
+    border-bottom: 50px solid transparent;
+    border-left: 30px solid #ddd;
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    margin-left: 1px;
+    left: 100%;
+    z-index: 1;
+}
+ul.step-anchor > li:first-child > a {
+    padding-left: 15px;
+}
+ul.step-anchor > li > a {
+    padding-top: 29px;
+    padding-bottom: 29px;
+}
+ul.step-anchor > li > a:hover  {    
+    text-decoration: none;
+    outline-style:none;    
+    border-color: white;
+}
+ul.step-anchor > li > a:hover:after {
+    border-left-color: white;
+}
+ul.step-anchor > li > a small{
+}
+ul.step-anchor > li.active > a {
+    border-color: #eeffee !important;
+    color: black !important;
+    background: #eeffee !important;
+}
+ul.step-anchor > li.active > a:after {
+    border-left: 30px solid #eeffee !important;
+}
+
+/* Responsive CSS */
+@media screen and (max-width: 768px) {
+    ul.step-anchor{
+        border: 0;        
+    }
+    .nav-tabs > li {
+        float: none !important;
+        margin-bottom: 0;
+    }    
+    ul.step-anchor > li > a:after, ul.step-anchor > li > a:before {
+        display: none;
+    }
+}
