@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Delorub</title>
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta property="og:image" content="path/to/image.jpg">
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/images/favicon/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-touch-icon-114x114.png">
+    <link rel="stylesheet" href="website-bundle.css">
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#000">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#000">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#000">    
+  </head>
+  <body>
+    <div class="container">
+      <div class="row row-eq-height">
+        <div class="col-sm-11 col-sm-push-1 dr-content">
+          <main class="content">
+            <nav role="navigation" class="navbar navbar-default dr-top-nav dr-top-nav-pages navbar-static-top">
+              <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#"><img src="/images/design/logo.png" alt=""></a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav">
+                    <li><a href="#">Новости</a></li>
+                    <li><a href="#">Все задания</a></li>
+                    <li><a href="#">Все мастера</a></li>
+                    <li><a href="#">Как стать мастером</a></li>
+                    <li><a href="#">Как это работает?</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav right">
+                    <li><a href="#" class='dr-top-nav-icon icon-search'></a></li>
+                    <li><a href="#" class='dr-top-nav-icon icon-koll_active'></a></li>
+                    <li><a href="#">Александр Ермолаев</a></li>
+                    <li><a href="#" class='dr-top-nav-icon icon-avtoriz'></a></li>
+                  </ul>
+                </div><!-- /.navbar-collapse -->
+              </div><!-- /.container-fluid -->
+            </nav>
+            <div class="dr-container">
+              <div class="dr-header-span">
+                <p>
+                  Создание <p class="dr-header-span-unmarked">&nbsp;анкеты мастера<p>                  
+                </p>                
+              </div>
+              <div class="dr-header-span dr-header-step">
+                <p>
+                  Выберите <p class="dr-header-span-unmarked">&nbsp;специализацию<p>                  
+                </p>
+                <div class="steps">
+                  <ul class="nav-tabs step-anchor">
+                    <li><a>&nbsp;</a></li>
+                    <li class="activated"><a>1 этап</a></li>
+                    <li class="active"><a>2 этап</a></li>
+                    <li><a>3 этап</a></li>
+                    <li><a></a></li>
+                  </ul> 
+                </div>
+
+                <button type="button" class="btn dr-button-blue">Далее</button>
+              </div>
+              <div class="row row-eq-height dr-task">
+                <div class="col-md-3">
+                  <div class="dr-task-photo dr-task-div center">                                          
+                    <span>Фото</span>
+                    <div class="dr-profile-avatar">
+                      <a href="#" class="dr-top-nav-icon icon-avtoriz"></a>
+                      <br>
+                      <span>Загрузить фото</span>
+                    </div>
+                    <span class="icon_top icon-information"></span>
+                    <p class="photoInfo">
+                      Максимальный размер файла 5 МБ,<br> формат .jpg, .jpeg, .png, .gif.<br> <b>Обратите внимание:</b> профили без фото не допускаются.
+                    </p>
+
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="dr-task-description dr-task-div">
+                    <span>Описание задания</span>
+                    <textarea name="name" rows="10" cols="60" class="form-control" placeholder="Введите описание задания"></textarea>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="dr-task-paid-functions dr-task-div">
+                    <span>Город</span>
+                    <br>
+                    <select class="dr-task-select">
+                      <option>Москва</option>
+                      <option>Пункт 2</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row row-eq-height dr-task lastRow">                
+                <div class="col-md-6">
+                  <div class="dr-task-div">
+                    <span>Фото примеров работ</span>
+                  </div>                  
+                  <div class="dr-task-photo dr-task-div">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <button type="button" class="btn dr-button-blue">Выбрать фото</button>
+                      </div>
+                      <div class="col-md-6">
+                        <span class="icon_top icon-information"></span>
+                        <p class="marginTop10">Вы можете загрузить до 10 фото.</p>
+                        <p class="photoInfo">
+                          Максимальный размер файла 5 МБ,<br> формат .jpg, .jpeg, .png, .gif.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="dr-profile-gallery"></div>
+                  <div class="dr-task-paid-functions dr-task-div">
+                    <span>Платные функции</span>
+                    <br>                        
+                    <select class="js-example-tags">
+                      <option value="AL">Alabama</option>
+                      <option value="WY">Wyoming</option>
+                    </select>                    
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="dr-task-div">
+                    <span>Дипломы и сертификаты</span>
+                  </div>                  
+                  <div class="dr-task-photo dr-task-div">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <button type="button" class="btn dr-button-blue">Выбрать фото</button>
+                      </div>
+                      <div class="col-md-6">
+                        <span class="icon_top icon-information"></span>
+                        <p class="marginTop10">Вы можете загрузить до 10 фото.</p>
+                        <p class="photoInfo">
+                          Максимальный размер файла 5 МБ,<br> формат .jpg, .jpeg, .png, .gif.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="dr-profile-gallery"></div>
+                  <div class="dr-task-paid-functions dr-task-div">
+                    <span>Формат уведомления об откликах</span>
+                    <br>                        
+                    <select class="js-example-tags">
+                      <option value="AL">Alabama</option>
+                      <option value="WY">Wyoming</option>
+                    </select>                    
+                  </div>
+                </div>
+              </div>
+
+              <div class="row lastRow">
+                <button type="button" class="btn dr-button-blue">Сохранить</button>
+                <button type="button" class="btn dr-button-blue">Предпросмотр</button>
+                <button type="button" class="btn dr-button-blueFull">Далее</button>
+              </div>              
+            </div>
+
+            <div class="dr-bottom-menu">
+              <nav>
+                <ul>
+                  <li><a href="#">Главная</a></li>
+                  <li><a href="#">О проекте делоруб</a></li>
+                  <li><a href="#">Как это работает?</a></li>
+                  <li><a href="#">Как стать мастером?</a></li>
+                  <li><a href="#">Это интересно</a></li>
+                  <li><a href="#">Контакты компании</a></li>
+                  <li><a href="#">О компании</a></li>
+                  <li><a href="#">Помощь</a></li>
+                </ul>
+              </nav>
+            </div>
+          </main>
+        </div>
+        <div class="col-sm-1 col-sm-pull-11 dr-side-menu">
+          <br>
+          <br>
+          <a href="#" class="gamburg-menu icon-gamb_menu"></a>
+          <div class="totalz">
+            <a href="#"><span class="n1">10</span><span class="txa">Мои<br> задания</span></a>
+          </div>
+          <nav>
+            <ul class="left_menu">
+              <li><a href="#"><span class="icon_top icon-add"></span>Создать<br> задание</a></li>
+              <li><a href="#"><span class="icon_top icon-zadacha"></span>Создать<br> анкету</a></li>
+              <li><a href="#"><span class="icon_top icon-setups"></span>Мои<br> настройки</a></li>
+              <li><a href="#"><span class="icon_top icon-cart"></span>Мои<br> покупки</a></li>
+            </ul>
+          </nav>
+          <div class="year">© 2017</div>
+        </div>
+      </div>
+    </div>
+    <script src="website-bundle.js"></script>
+  </body>
+</html>
