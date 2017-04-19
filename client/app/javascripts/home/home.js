@@ -42,6 +42,6 @@ $('#ex1').slider({
     }
 });
 
-$("select").select2({
+$(".select2").select2({
   tags: true
-})
+});

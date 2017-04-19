@@ -88,3 +88,13 @@
         background-color: #25c0ec;
     }
 }
+span.select2-container {
+    margin-top: 10px;
+    width: 100% !important;
+    span.select2-selection {
+        padding: 10px;
+        border-radius: 25px;
+        background-color: transparent;
+        color: #6b6b6b;
+    }
+}
