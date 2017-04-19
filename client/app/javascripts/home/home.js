@@ -4,6 +4,8 @@ import $ from 'jquery';
 import 'imports-loader?jQuery=jquery!owl.carousel';
 import "bootstrap-slider/dist/bootstrap-slider.js";
 import "bootstrap-slider/dist/css/bootstrap-slider.css";
+import "select2/dist/js/select2.js";
+import "select2/dist/css/select2.css";
 
 $(document).ready(function () {
     $('.owl-carousel').owlCarousel({
@@ -31,7 +33,7 @@ $(document).ready(function () {
                 items: 1
             }
         }
-    });    
+    });
 });
 
 $('#ex1').slider({
@@ -40,6 +42,6 @@ $('#ex1').slider({
     }
 });
 
-$(".js-example-tags").select2({
+$("select").select2({
   tags: true
 })
