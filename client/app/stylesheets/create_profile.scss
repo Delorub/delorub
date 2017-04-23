@@ -42,7 +42,7 @@
         }
         &:hover {
             cursor: pointer;
-        }
+        }        
     }
     &-div {
         margin: 0 auto;
@@ -53,6 +53,47 @@
         span.worktime {
             all: unset;
             color: #6b6b6b;
+        }
+    }
+    &-phoneCheck {
+        border-right: 1px solid rgba(128, 128, 128, 0.3);
+        border-left: 1px solid rgba(128, 128, 128, 0.3);
+        span {
+            margin-top: 30px;
+            font-weight: bold;  
+            font-size: 2rem;
+        }
+        input {            
+            width: 60%;
+            padding: 10px;
+            border-radius: 25px;
+            background-color: transparent;
+            color: #6b6b6b;
+            margin: 20px auto 0px;
+        }
+    }
+    &-verification {                
+        width: 100%;
+        font-size: 2rem;
+        padding: 16px 20px 16px 20px;
+        text-align: left;
+        p {
+            display: inline-block;
+            color: #6b6b6b;
+            margin-left: 20px;
+        }
+        span {
+            font-weight: bold;
+            font-size: 2.5rem;
+            display: inline-block;
+            vertical-align: top;            
+            height: 45px;
+            line-height: 70px;
+            margin-left: 20px;
+        }
+        &-middle {
+            border-right: 1px solid rgba(128, 128, 128, 0.3);
+            border-left: 1px solid rgba(128, 128, 128, 0.3);
         }
     }
 }
@@ -198,6 +239,11 @@ ul.step-anchor > li.activated > a {
         margin-bottom: 0;
     }    
     ul.step-anchor > li > a:after, ul.step-anchor > li > a:before {
+        display: none;
+    }
+}
+@media screen and (max-width: 992px) {
+    .steps {
         display: none;
     }
 }

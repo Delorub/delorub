@@ -92,9 +92,22 @@ span.select2-container {
     margin-top: 10px;
     width: 100% !important;
     span.select2-selection {
-        padding: 10px;
+        padding: 19px 10px;
         border-radius: 25px;
         background-color: transparent;
         color: #6b6b6b;
+        &__rendered {
+            font-size: 1.2rem;
+            font-weight: normal;
+            margin-top: -13px;
+            color: #6b6b6b !important;
+        }
+        &__arrow {
+            top: 6px !important;
+            b {
+                border-width: 6px 3px 0 !important;
+                border-color: #695656 transparent transparent !important;
+            }
+        }
     }
 }
