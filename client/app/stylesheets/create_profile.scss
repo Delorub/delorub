@@ -23,11 +23,11 @@
     padding-right: 150px;
 }
 .dr-profile {
-    &-gallery {
-        width: 93%;
-        height: 200px;
-        border: 1px solid gray;
+    &-gallery { 
         margin: 0 auto;
+        img {
+            display: inline-block;
+        }        
     }
     &-avatar {
         border: 1px solid rgba(128, 128, 128, 0.3);
