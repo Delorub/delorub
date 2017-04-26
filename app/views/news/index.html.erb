@@ -1,20 +1,20 @@
 <div class="dr-container">
-<div class="dr-news-header">
-  <h2>Все <span class="dr-news-header-unmarked">новости<span></h2>
-</div>
-<div class="row dr-news row-eq-height dr-news-first">
-  <% @news.each do |news| %>
-  <div class="col-xs-4 col-sm-4 dr-news-image">
-    <img src="<%= news.photo.thumb.url %>" class="img-responsive" alt="">
+  <div class="dr-header-span">
+    <h2>Все <span class="dr-header-span-unmarked">новости<span></h2>
   </div>
-  <div class="col-xs-8 col-sm-8 dr-news-content">
-    <span class="dr-news-content-date">06.02.2017</span>
-    <h3><%= news.title %></h3>
-    <p><%= news.content.html_safe %></p>
-    <p class="dr-news-content-tags">
-      <a href="<%= resource_url(news) %>" class="dr-news-content-tags-read-more">Читать полностью</a>
-    </p>
+  <div class="row dr-news row-eq-height dr-news-first">
+    <% @news.each do |news| %>
+    <div class="col-xs-4 col-sm-4 dr-news-image">
+      <img src="<%= news.photo.thumb.url %>" class="img-responsive" alt="">
+    </div>
+    <div class="col-xs-8 col-sm-8 dr-news-content">
+      <span class="dr-news-content-date">06.02.2017</span>
+      <h3><%= news.title %></h3>
+      <p><%= news.content.html_safe %></p>
+      <p class="dr-news-content-tags">
+        <a href="<%= resource_url(news) %>" class="dr-news-content-tags-read-more">Читать полностью</a>
+      </p>
+    </div>
+    <% end %>
   </div>
-  <% end %>
-</div>
 </div>

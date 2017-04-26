@@ -24,8 +24,12 @@ module.exports = {
 
     website: [
       './app/application',
-      './app/bundles/NotificationsApp/startup/clientRegistration',
       `bootstrap-loader/lib/bootstrap.loader?configFilePath=${__dirname}/bootstrap.yml!bootstrap-loader/no-op.js`,
+    ],
+
+    website_apps: [
+      './app/bundles/NotificationsApp/startup/clientRegistration',
+      './app/bundles/CreateProfileApp/startup/clientRegistration',
     ],
 
     admin: [
@@ -153,7 +157,7 @@ module.exports = {
       }
     ],
   },
-  //devtool: devBuild ? 'eval-source-map' : 'source-map',
+  devtool: devBuild ? 'eval-source-map' : 'source-map',
   devServer: {
     contentBase: [
       path.join(__dirname, 'markup'),

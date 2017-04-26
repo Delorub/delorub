@@ -8,8 +8,12 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [:index, :destroy]
+  resources :create_profile
+
   resources :news, only: [:index, :show]
+
   resources :vacancies, only: :index
+
   resources :help_categories, only: :index, path: 'help', as: :help do
     resources :help_answers, only: :show, path: 'answer', as: :answer
   end
@@ -20,5 +24,4 @@ Rails.application.routes.draw do
   get 'contract_designer/:template_id', to: 'contracts#new', as: :contract_designer
 
   get '*unmatched_route', to: 'pages#show'
-  get '*unmatched_route', to: 'page_not_found#index' unless Rails.env.development?
 end

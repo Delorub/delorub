@@ -1,5 +1,5 @@
 class MainController < ApplicationController
   def index
-    @categories = Category.all
+    @categories = Category.roots
   end
 end

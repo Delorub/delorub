@@ -22,7 +22,9 @@
     "hot-assets": "(cd client && yarn run hot-assets)",
     "start": "(cd client && yarn run start --silent)"
   },
-  "dependencies": {},
+  "dependencies": {
+    "react-multistep": "^2.2.10"
+  },
   "devDependencies": {},
   "cacheDirectories": [
     "node_modules",

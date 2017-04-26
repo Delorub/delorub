@@ -10,7 +10,7 @@ class ActiveAdmin::PermissionRenderer < Struct.new(:template, :form, :resource)
     end
 
     def render_part data, level: 1, prefix: nil
-      form.inputs style: 'padding-left: 20px;' do
+      form.inputs do
         data.each do |k, v|
           render_level title: make_title(prefix, k), form: form, level: level, v: v
         end

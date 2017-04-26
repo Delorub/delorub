@@ -23,6 +23,8 @@ gem 'configatron'
 gem 'figaro'
 gem 'render_anywhere'
 gem 'inherited_resources'
+gem 'wicked'
+gem 'reform-rails'
 
 # Activerecord extensions
 gem 'squeel'

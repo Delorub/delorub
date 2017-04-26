@@ -21,10 +21,11 @@ class Profile < ActiveRecord::Base
   extend Enumerize
 
   belongs_to :user
+  has_many :specializations
 
   enumerize :work_type, in: [:single, :company, :team]
   enumerize :pay_type, in: [:cash, :emoney, :card, :other]
   enumerize :car_type, in: [:passenger, :truck, :none]
 
-  validates :user_id, presence: true
+  validates :user_id, presence: true, if: :active?
 end
