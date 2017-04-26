@@ -3788,6 +3788,13 @@ react-router@^3.0.0:
     prop-types "^15.5.6"
     warning "^3.0.0"
 
+react-select2-wrapper@^1.0.4-beta4:
+  version "1.0.4-beta4"
+  resolved "https://registry.yarnpkg.com/react-select2-wrapper/-/react-select2-wrapper-1.0.4-beta4.tgz#1b3f7f7b1ba4b690644fb6e741a543b5ff6440cd"
+  dependencies:
+    select2 "^4.0.0"
+    shallow-equal-fuzzy "^0.0.2"
+
 react-tinymce-input@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/react-tinymce-input/-/react-tinymce-input-1.2.1.tgz#90c37ce4a680fb60f4129f8f84ef52ec70ead71c"
@@ -4112,7 +4119,7 @@ select-hose@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/select-hose/-/select-hose-2.0.0.tgz#625d8658f865af43ec962bfc376a37359a4994ca"
 
-select2@^4.0.3:
+select2@^4.0.0, select2@^4.0.3:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/select2/-/select2-4.0.3.tgz#207733fe91eacb9cb1a13f12463401f472449e0f"
   dependencies:
@@ -4187,6 +4194,10 @@ sha.js@^2.3.6:
   resolved "https://registry.yarnpkg.com/sha.js/-/sha.js-2.4.8.tgz#37068c2c476b6baf402d14a49c67f597921f634f"
   dependencies:
     inherits "^2.0.1"
+
+shallow-equal-fuzzy@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/shallow-equal-fuzzy/-/shallow-equal-fuzzy-0.0.2.tgz#999717c968d36223b1bd7ea95405b697b19fd55c"
 
 signal-exit@^3.0.0:
   version "3.0.2"

@@ -6,6 +6,7 @@ class CreateProfileForm < Reform::Form
 
   def to_redux
     {
+      photo_url: nil,
       main_specialization_id: nil,
       specializations: specializations
     }

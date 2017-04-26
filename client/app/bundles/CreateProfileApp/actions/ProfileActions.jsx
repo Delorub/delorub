@@ -3,6 +3,12 @@ export const toggleSubcategory = (id) => ({
   id: id
 })
 
-export const checkCategory = (id, check) => ({
-  type: 'CATEGORY_CHECK'
+export const selectCategory = (id) => ({
+  type: 'CATEGORY_SELECT',
+  id: id
+})
+
+export const setPhotoUrl = (url) => ({
+  type: 'PHOTO_SET_URL',
+  url: url
 })

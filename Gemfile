@@ -77,6 +77,7 @@ gem 'translit'
 gem 'nokogiri'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem 'foreman'
 
 # CHECK
 gem 'petrovich', '~> 1.0'

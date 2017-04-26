@@ -30,6 +30,8 @@
         }
     }
     &-avatar {
+        background-position: center;
+        background-size: cover;
         display: block;
         border: 1px solid rgba(128, 128, 128, 0.3);
         border-radius: 50px;

@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [:index, :destroy]
-  resources :create_profile
+  resources :profile, only: [:new, :create]
+  resources :task
 
   resources :news, only: [:index, :show]
 

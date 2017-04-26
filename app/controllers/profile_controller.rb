@@ -1,7 +1,7 @@
-class CreateProfileController < ApplicationController
+class ProfileController < ApplicationController
   helper_method :create_profile_props
 
-  def index
+  def new
     @profile = CreateProfileForm.new Profile.new
   end
 

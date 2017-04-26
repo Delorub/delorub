@@ -1,5 +1,5 @@
 # Run Rails without hot reloading (static assets).
-rails: REACT_ON_RAILS_ENV= rails s -b 0.0.0.0
+rails: REACT_ON_RAILS_ENV= rails s -b 0.0.0.0 -p 4000
 
 # Run elasticsearch
 #elasticsearch: elasticsearch
