@@ -1,11 +1,34 @@
-<div class="row dr-news row-eq-height dr-news-first">
-  <div class="col-xs-12 col-sm-12 dr-news-content">
-    <h3>Не нашли то что искали?</h3>
-    <%= form_for @help_question do |f| %>
-      <%= f.text_field :name %>
-      <%= f.text_field :email %><br>
-      <%= f.text_area :content %><br>
-      <%= f.submit 'Отправить' %>
-    <% end %>
-  </div>
+<div class="dr-header-span">
+  <p>
+    Задать вопрос в службу поддержки
+  </p>
 </div>
+<%= form_for @help_question do |f| %>
+  <div class="row">
+    <div class="col-md-4  col-sm-6">
+      <div class="dr-help-question">
+        <span>Имя&nbsp;*</span>
+        <%= f.text_field :name, class: 'form-control', placeholder: "Ваше имя" %>
+      </div>
+    </div>
+    <div class="col-md-4  col-sm-6">
+      <div class="dr-help-question">
+        <span>E-mail&nbsp;*</span>
+        <%= f.text_field :name, class: 'form-control', placeholder: "Ваш email для связи" %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="dr-help-question">
+        <span>Ваш вопрос&nbsp;*</span>
+        <span class="right decorationNone">Осталось: 300 символов</span>
+        <%= f.text_area :content, class: 'form-control', rows: 5, cols: 60, placeholder: "Ваш вопрос" %>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="lastRow">
+    <input type="submit" class="btn dr-button-blueFull" value="Отправить вопрос">
+  </div>
+<% end %>

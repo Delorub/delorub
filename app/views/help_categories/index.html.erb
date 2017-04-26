@@ -1,19 +1,25 @@
 <div class="dr-container">
   <div class="dr-header-span">
-    <h2>Помощь</h2>
+    <p>Помощь</p>
+    <a href="<%= new_help_question_path %>" class="btn dr-button-empty">Задать вопрос</a>
   </div>
   <%= render 'search' %>
-  <div class="row dr-news row-eq-height dr-news-first">
-    <div class="col-xs-12 col-sm-12 dr-news-content">
-      <% collection.each do |category| %>
-        <h3><%= category.title %></h3>
-        <% help_category_answers(category).each do |answer| %>
-          <div>
-            <a href="<%= help_answer_path(category, answer) %>"><%= answer.title %></a>
+  <div class="dr-help-container">
+    <% split_collection_to_columns(collection).each do |column| %>
+      <div class="row">
+        <% column.each do |category| %>
+          <div class="col-md-3 col-sm-6 col-sm-6">
+            <div class="dr-help-div">
+              <h4><%= category.title %></h4>
+              <% help_category_answers(category).each do |answer| %>
+                <a href="<%= help_answer_path(category, answer) %>"><%= answer.title %></a>
+              <% end %>
+            </div>
           </div>
         <% end %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
+  <%= render 'flash' %>
   <%= render 'help_questions/form' %>
 </div>

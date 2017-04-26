@@ -1,6 +1,6 @@
 import update from 'react/lib/update';
 
-export default function form (state = [], action) {
+export default function profile (state = [], action) {
   switch (action.type) {
     case 'SUBCATEGORY_TOGGLE':
       var i = state.specializations.indexOf(action.id);
