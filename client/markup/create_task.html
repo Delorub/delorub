@@ -19,20 +19,6 @@
     <!-- iOS Safari -->
     <meta name="apple-mobile-web-app-status-bar-style" content="#000">
 
-    <script>
-      var expanded = false;
-
-      function showCheckboxes() {
-          var checkboxes = document.getElementById("checkboxes");
-          if (!expanded) {
-              checkboxes.style.display = "block";
-              expanded = true;
-          } else {
-              checkboxes.style.display = "none";
-              expanded = false;
-          }
-      }
-    </script>
   </head>
   <body>
     <div class="container">
@@ -72,38 +58,38 @@
             <div class="dr-container">
               <div class="dr-header-span">
                 <p>
-                  Создание <p class="dr-header-span-unmarked">&nbsp;задания<p>                  
+                  Создание <span class="dr-header-span-unmarked">задания</span>                  
                 </p>
                 <button type="button" class="btn dr-button-empty">Предпросмотр</button>
               </div>
               <div class="row row-eq-height dr-task">
                 <div class="col-md-5">
                   <div class="dr-task-name dr-task-div">
-                    <span>Название задания&nbsp;*</span>
+                    <span class="input-label">Название задания&nbsp;*</span>
                     <input type="text" class="form-control" placeholder="Введите название задания">
                   </div>
                   <div class="dr-task-description dr-task-div">
-                    <span>Описание задания&nbsp;*</span>
+                    <span class="input-label">Описание задания&nbsp;*</span>
                     <textarea name="name" rows="6" cols="60" class="form-control" placeholder="Введите описание задания"></textarea>
                   </div>
                   <div class="dr-task-photo dr-task-div">
                     <div class="row">
                       <div class="col-md-6">
-                        <span>Фото&nbsp;*</span>
-                        <br>
+                        <span class="input-label">Фото&nbsp;*</span>
+                        <br/>
                         <button type="button" class="btn dr-button-blue">Выбрать фото</button>
                       </div>
                       <div class="col-md-6">
                         <span class="icon_top icon-information"></span>
                         <p class="photoInfo">
-                          Максимальный размер файла 5 МБ, формат .jpg, .jpeg, .png, .gif.<br> <b>Обратите внимание:</b> профили без фото не допускаются.
+                          Максимальный размер файла 5 МБ, формат .jpg, .jpeg, .png, .gif.<br/> <b>Обратите внимание:</b> профили без фото не допускаются.
                         </p>
                       </div>
                     </div>
                   </div>
                   <div class="dr-task-paid-functions dr-task-div">
-                    <span>Платные функции</span>
-                    <br>
+                    <span class="input-label">Платные функции</span>
+                    <br/>
                     <select class="dr-task-select">
                       <option>Пункт 1</option>
                       <option>Пункт 2</option>
@@ -115,8 +101,11 @@
                   <div class="dr-task-budget dr-task-div">                    
                     <div class="row">                      
                       <div class="col-md-4">
-                        <span>Бюджет&nbsp;*</span>
-                        <input type="text" class="form-control" placeholder="300 000">
+                        <span class="input-label">Бюджет&nbsp;*</span>
+                        <label class="dr-task-budget-placeinput">
+                          <input type="text" class="form-control" required="1">
+                          <span class="dr-task-budget-placeholder">300 000<span class="glyphicon glyphicon-ruble" aria-hidden="true"></span></span>
+                        </label>                        
                       </div>
                       <div class="col-md-8">                        
                         <span class="minValue">0</span>
@@ -129,8 +118,8 @@
 
                     <div class="col-md-6">
                       <div class="dr-task-paid-functions dr-task-div">
-                        <span>Сроки&nbsp;*</span>
-                        <br>
+                        <span class="input-label">Сроки&nbsp;*</span>
+                        <br/>
                         <select class="dr-task-select">
                           <option>Завершить работу</option>
                           <option>Пункт 2</option>
@@ -138,8 +127,8 @@
                       </div>
 
                       <div class="dr-task-paid-functions dr-task-div">
-                        <span>Город&nbsp;*</span>
-                        <br>
+                        <span class="input-label">Город&nbsp;*</span>
+                        <br/>
                         <select class="dr-task-select">
                           <option>Москва</option>
                           <option>Пункт 2</option>
@@ -147,8 +136,8 @@
                       </div>
 
                       <div class="dr-task-paid-functions dr-task-div">
-                        <span>Категория задания&nbsp;*</span>
-                        <br>
+                        <span class="input-label">Категория задания&nbsp;*</span>
+                        <br/>
                         <select class="dr-task-select">
                           <option>Фото- и видеосъемка</option>
                           <option>Пункт 2</option>
@@ -156,8 +145,8 @@
                       </div>
 
                       <div class="dr-task-paid-functions dr-task-div">
-                        <span>Заключение договора</span>
-                        <br>
+                        <span class="input-label">Заключение договора</span>
+                        <br/>
                         <select class="dr-task-select">
                           <option>Без договора</option>
                           <option>Пункт 2</option>
@@ -168,15 +157,15 @@
 
                     <div class="col-md-6">
                       <div class="dr-task-date dr-task-div">
-                        <span>Дата&nbsp;*</span>
-                        <br>
+                        <span class="input-label">Дата&nbsp;*</span>
+                        <br/>
                         <input type="date" name="user_date" />
                         <input type="time" name="user_time" />
                       </div>
 
                       <div class="dr-task-paid-functions dr-task-div">
-                        <span>Адрес</span>
-                        <br>
+                        <span class="input-label">Адрес</span>
+                        <br/>
                         <select class="dr-task-select">
                           <option>Москва</option>
                           <option>Пункт 2</option>
@@ -184,8 +173,8 @@
                       </div>
 
                       <div class="dr-task-paid-functions dr-task-div">
-                        <span>Подкатегория задания</span>
-                        <br>
+                        <span class="input-label">Подкатегория задания</span>
+                        <br/>
                         <select class="dr-task-select">
                           <option>Фотосъемка</option>
                           <option>Пункт 2</option>
@@ -193,9 +182,9 @@
                       </div>
 
                       <div class="dr-task-paid-functions dr-task-div">
-                        <span>Формат уведомлений об откликах</span>
-                        <br>                        
-                        <select class="js-example-tags select2">
+                        <span class="input-label">Формат уведомлений об откликах</span>
+                        <br/>                        
+                        <select class="js-example-tags select2" data-minimum-results-for-search="Infinity">
                           <option value="AL">На email и уведомления</option>
                           <option value="WY">Wyoming</option>
                         </select>                        
@@ -226,18 +215,18 @@
           </main>
         </div>
         <div class="col-sm-1 col-sm-pull-11 dr-side-menu">
-          <br>
-          <br>
+          <br/>
+          <br/>
           <a href="#" class="gamburg-menu icon-gamb_menu"></a>
           <div class="totalz">
-            <a href="#"><span class="n1">10</span><span class="txa">Мои<br> задания</span></a>
+            <a href="#"><span class="n1">10</span><span class="txa">Мои<br/> задания</span></a>
           </div>
           <nav>
             <ul class="left_menu">
-              <li><a href="#"><span class="icon_top icon-add"></span>Создать<br> задание</a></li>
-              <li><a href="#"><span class="icon_top icon-zadacha"></span>Создать<br> анкету</a></li>
-              <li><a href="#"><span class="icon_top icon-setups"></span>Мои<br> настройки</a></li>
-              <li><a href="#"><span class="icon_top icon-cart"></span>Мои<br> покупки</a></li>
+              <li><a href="#"><span class="icon_top icon-add"></span>Создать<br/> задание</a></li>
+              <li><a href="#"><span class="icon_top icon-zadacha"></span>Создать<br/> анкету</a></li>
+              <li><a href="#"><span class="icon_top icon-setups"></span>Мои<br/> настройки</a></li>
+              <li><a href="#"><span class="icon_top icon-cart"></span>Мои<br/> покупки</a></li>
             </ul>
           </nav>
           <div class="year">© 2017</div>
