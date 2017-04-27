@@ -13,7 +13,8 @@ class ProfileController < ApplicationController
           {
             id: e.id,
             title: e.title,
-            parent_id: e.parent_id
+            parent_id: e.parent_id,
+            photo_thumb_url: e.photo.thumb.url
           }
         }
       }
