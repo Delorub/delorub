@@ -1,0 +1,36 @@
+.dr-one-ticket {
+    &-ticket {
+        &-content {
+            color: #6b6b6b;
+            text-align: left;
+            padding: 30px;
+            border-right: 1px solid rgba(128, 128, 128, 0.3);
+        }
+        &-photo {
+            div {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+        &-avatar {
+            a {
+                font-size: 2rem;
+            }
+        }
+        &-name {
+            p {
+                text-transform: uppercase;
+            }
+        }
+        &-rating {
+            #rating {                
+                color: #6b6b6b;
+            }
+        }
+        &-verify {
+            p {
+                
+            }
+        }
+    }
+}
