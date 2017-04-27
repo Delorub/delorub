@@ -33,7 +33,10 @@
             margin-right: 0;
             div.col-md-3 {
                 padding-left: 0;
-                padding-right: 0;                               
+                padding-right: 0;
+                &:hover {
+                    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.12);
+                }
             }
             @media (min-width: $screen-sm-min) {
                 div.col-sm-6:nth-child(odd) {
@@ -53,7 +56,7 @@
     }
     &-complete {
         border-bottom: none;
-        box-shadow: 3px 4px 3px 0px rgba(0, 0, 0, 0.12);
+        box-shadow: 4px 6px 20px 2px rgba(0, 0, 0, 0.12);
     }
     &-question {
         padding: 30px 40px;
