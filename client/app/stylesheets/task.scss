@@ -2,7 +2,7 @@
     &-name input, &-select, &-budget input[type=text], &-date input {
         margin-top: 10px;
         width: 100%;
-        padding: 10px;
+        padding: 10px 15px;
         border-radius: $borderRadius;
         background-color: transparent;
         color: darken(#b7b7b7, 30%);
@@ -15,7 +15,7 @@
     &-date {
         input {            
             width: 49%;
-            padding: 6px 10px;            
+            padding: 6px 15px;            
         }    
     }
     &-budget {
@@ -35,7 +35,40 @@
         }
         input [type=text] {
             color: black;
+            font-size: 1.8rem;
             font-weight: bold;
+        }
+        &-placeholder {
+            z-index: 100;    
+            left: 15px;
+            cursor: text;   
+            position: absolute;
+            top: 15px;
+            width: 100%;    
+            display: none;
+            color: #333333;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        .glyphicon {
+            top: 3px;
+            font-weight: normal;
+            color: lightgray;
+        }
+
+        &-placeinput > input:invalid + span.dr-task-budget-placeholder {
+            display: inline;
+        }        
+        &-placeinput {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 0px;
+            font-weight: normal;
+        }
+        &-placeholder span {            
+            float: right;
+            margin-right: 30px;
+            display: inline-block;
         }
     }
     &-photo { 
@@ -47,35 +80,10 @@
         }
     }
     &-div {
-        padding: 30px 20px;
-        .multiselect {
-            width: 100%;
-            .selectBox {
-                position: relative;
-                select {
-                    width: 100%;
-                    font-weight: bold;
-                }
-                .overSelect {
-                    position: absolute;
-                    left: 0;
-                    right: 0;
-                    top: 0;
-                    bottom: 0;
-                }
-            }
-            #checkboxes {
-                display: none;
-                border: 1px #dadada solid;
-                label {
-                    display: block;
-                    &:hover {background-color: #25c0ec;}                        
-                }
-            }
-        }
+        padding: 30px 20px;        
     }
     text-align: left;
-    span {
+    .input-label {
         font-weight: bold;
         font-size: 1.4rem;
     }
@@ -89,12 +97,13 @@
         background-color: #25c0ec;
     }
 }
+
 span.select2-container {
     margin-top: 10px;
-    width: 100% !important;
+    width: 100% !important;    
     span.select2-selection {
         padding: 19px 10px;
-        border-radius: 25px;
+        border-radius: 25px !important;
         background-color: transparent;
         color: #6b6b6b;
         &__rendered {
