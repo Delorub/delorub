@@ -1,4 +1,4 @@
-.dr-task {    
+.dr-task {
     &-name input, &-select, &-budget input[type=text], &-date input {
         margin-top: 10px;
         width: 100%;
@@ -13,10 +13,10 @@
         border-radius: $borderRadius;
     }
     &-date {
-        input {            
+        input {
             width: 49%;
-            padding: 6px 15px;            
-        }    
+            padding: 6px 15px;
+        }
     }
     &-budget {
         #ex1Slider {
@@ -30,7 +30,7 @@
             margin-top: 10px;
             font-weight: normal;
         }
-        .maxValue {            
+        .maxValue {
             float: right;
         }
         input [type=text] {
@@ -39,12 +39,12 @@
             font-weight: bold;
         }
         &-placeholder {
-            z-index: 100;    
+            z-index: 100;
             left: 15px;
-            cursor: text;   
+            cursor: text;
             position: absolute;
             top: 15px;
-            width: 100%;    
+            width: 100%;
             display: none;
             color: #333333;
             font-size: 1.8rem;
@@ -58,20 +58,20 @@
 
         &-placeinput > input:invalid + span.dr-task-budget-placeholder {
             display: inline;
-        }        
+        }
         &-placeinput {
             position: relative;
             overflow: hidden;
             margin-bottom: 0px;
             font-weight: normal;
         }
-        &-placeholder span {            
+        &-placeholder span {
             float: right;
             margin-right: 30px;
             display: inline-block;
         }
     }
-    &-photo { 
+    &-photo {
         button {
             margin: 10px 0;
         }
@@ -80,7 +80,10 @@
         }
     }
     &-div {
-        padding: 30px 20px;        
+        padding: 30px 20px;
+    }
+    &-invisible {
+        visibility: hidden;
     }
     text-align: left;
     .input-label {
@@ -95,29 +98,5 @@
     }
     &-handle {
         background-color: #25c0ec;
-    }
-}
-
-span.select2-container {
-    margin-top: 10px;
-    width: 100% !important;    
-    span.select2-selection {
-        padding: 19px 10px;
-        border-radius: 25px !important;
-        background-color: transparent;
-        color: #6b6b6b;
-        &__rendered {
-            font-size: 1.2rem;
-            font-weight: normal;
-            margin-top: -13px;
-            color: #6b6b6b !important;
-        }
-        &__arrow {
-            top: 6px !important;
-            b {
-                border-width: 6px 3px 0 !important;
-                border-color: #695656 transparent transparent !important;
-            }
-        }
     }
 }

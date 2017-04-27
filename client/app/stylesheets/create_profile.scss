@@ -117,10 +117,16 @@
         }
     }
     .week-odd {
-        background-color: #eeffee;
+      color: green;
+      &.active {
+        background-color: #EBFFEF !important;
+      }
     }
-    .week-end > span {
+    .week-end {
         color: red;
+        &.active {
+          background-color: #FDA5A7 !important;
+        }
     }
 }
 .btn-group.dr-radio{

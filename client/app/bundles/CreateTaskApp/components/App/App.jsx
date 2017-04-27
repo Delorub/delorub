@@ -1,6 +1,14 @@
 import React from 'react';
+import Budget from '../Budget/Budget';
+import Category from '../Category/Category';
+import DateSelector from '../DateSelector/DateSelector';
+import Subcategory from '../Subcategory/Subcategory';
+import Select2 from 'react-select2-wrapper';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as taskActions from '../../actions/TaskActions'
 
-export default class App extends React.Component {
+class App extends React.Component {
   render() {
     return (
       <div className="dr-container">
@@ -8,7 +16,7 @@ export default class App extends React.Component {
           <p>
             Создание <span className="dr-header-span-unmarked">&nbsp;задания</span>
           </p>
-          <button type="button" className="btn dr-button-empty">Предпросмотр</button>
+          <input type="submit" className="btn dr-button-empty" value="Предпросмотр" />
         </div>
         <div className="row row-eq-height dr-task">
           <div className="col-md-5">
@@ -38,27 +46,17 @@ export default class App extends React.Component {
             <div className="dr-task-paid-functions dr-task-div">
               <span>Платные функции</span>
               <br />
-              <select className="dr-task-select">
-                <option>Пункт 1</option>
-                <option>Пункт 2</option>
-              </select>
+              <Select2
+                data={[
+                  { text: 'Размещение в ТОП заданий — 500Р (3 дня)', id: '1' },
+                ]}
+                data-minimum-results-for-search="Infinity"
+              />
             </div>
           </div>
 
           <div className="col-md-7">
-            <div className="dr-task-budget dr-task-div">
-              <div className="row">
-                <div className="col-md-4">
-                  <span>Бюджет&nbsp;*</span>
-                  <input type="text" className="form-control" placeholder="300 000" />
-                </div>
-                <div className="col-md-8">
-                  <span className="minValue">0</span>
-                  <span className="maxValue">300 000</span>
-                  <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="300" data-slider-step="1" data-slider-value="240" />
-                </div>
-              </div>
-            </div>
+            <Budget />
             <div className="row row-eq-height">
 
               <div className="col-md-6">
@@ -80,33 +78,24 @@ export default class App extends React.Component {
                   </select>
                 </div>
 
-                <div className="dr-task-paid-functions dr-task-div">
-                  <span>Категория задания&nbsp;*</span>
-                  <br />
-                  <select className="dr-task-select">
-                    <option>Фото- и видеосъемка</option>
-                    <option>Пункт 2</option>
-                  </select>
-                </div>
+                <Category categories={this.props.categories} />
 
                 <div className="dr-task-paid-functions dr-task-div">
                   <span>Заключение договора</span>
                   <br />
-                  <select className="dr-task-select">
-                    <option>Без договора</option>
-                    <option>Пункт 2</option>
-                  </select>
+                  <Select2
+                    data={[
+                      { text: 'Без договора', id: '1' },
+                    ]}
+                    data-minimum-results-for-search="Infinity"
+                  />
                 </div>
 
               </div>
 
               <div className="col-md-6">
-                <div className="dr-task-date dr-task-div">
-                  <span>Дата&nbsp;*</span>
-                  <br />
-                  <input type="date" name="user_date" />
-                  <input type="time" name="user_time" />
-                </div>
+
+                <DateSelector />
 
                 <div className="dr-task-paid-functions dr-task-div">
                   <span>Адрес</span>
@@ -117,31 +106,37 @@ export default class App extends React.Component {
                   </select>
                 </div>
 
-                <div className="dr-task-paid-functions dr-task-div">
-                  <span>Подкатегория задания</span>
-                  <br />
-                  <select className="dr-task-select">
-                    <option>Фотосъемка</option>
-                    <option>Пункт 2</option>
-                  </select>
-                </div>
+                <Subcategory categories={this.props.categories} />
 
                 <div className="dr-task-paid-functions dr-task-div">
                   <span>Формат уведомлений об откликах</span>
                   <br />
-                  <select className="js-example-tags select2">
-                    <option value="AL">На email и уведомления</option>
-                    <option value="WY">Wyoming</option>
-                  </select>
+                  <Select2
+                    data={[
+                      { text: 'На email и в уведомлениях', id: 'email-notifications' },
+                      { text: 'Только уведомления', id: 'notifications' },
+                    ]}
+                    data-minimum-results-for-search="Infinity"
+                  />
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div className="row lastRow">
-          <button type="button" className="btn dr-button-blueFull">Добавить задание</button>
+        <input type="submit" className="btn dr-button-blueFull" value="Добавить задание" />
         </div>
       </div>
     );
   }
 }
+
+function mapStateToProps(state) {
+  return state.$$taskStore.task
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(taskActions, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

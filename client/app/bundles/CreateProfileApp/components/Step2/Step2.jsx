@@ -58,8 +58,9 @@ export default class Step2 extends React.Component {
             <br />
               <Select2
                 data={[
-                  { text: 'Размещение в ТОП мастеров — 500Р (3 дня)', id: '' },
+                  { text: 'Размещение в ТОП мастеров — 500Р (3 дня)', id: '1' },
                 ]}
+                data-minimum-results-for-search="Infinity"
               />
           </div>
         </div>
@@ -91,6 +92,7 @@ export default class Step2 extends React.Component {
                 { text: 'На email и в уведомлениях', id: 'email-notifications' },
                 { text: 'Только уведомления', id: 'notifications' },
               ]}
+              data-minimum-results-for-search="Infinity"
             />
           </div>
         </div>
