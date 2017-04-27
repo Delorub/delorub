@@ -982,7 +982,7 @@ bootstrap-sass@^3.3.7:
   version "3.3.7"
   resolved "https://registry.yarnpkg.com/bootstrap-sass/-/bootstrap-sass-3.3.7.tgz#6596c7ab40f6637393323ab0bc80d064fc630498"
 
-bootstrap-slider@^9.7.3:
+bootstrap-slider@^9.7.2, bootstrap-slider@^9.7.3:
   version "9.7.3"
   resolved "https://registry.yarnpkg.com/bootstrap-slider/-/bootstrap-slider-9.7.3.tgz#ce7cb972d901f281c8e284b30456edacf81af993"
 
@@ -3697,6 +3697,12 @@ react-base16-styling@^0.5.1:
     lodash.curry "^4.0.1"
     lodash.flow "^3.3.0"
     pure-color "^1.2.0"
+
+react-bootstrap-slider@^1.1.7:
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/react-bootstrap-slider/-/react-bootstrap-slider-1.1.7.tgz#52557d2397d4569af9dd31a531d9ffc9d02e6230"
+  dependencies:
+    bootstrap-slider "^9.7.2"
 
 react-bootstrap@^0.30.7:
   version "0.30.8"

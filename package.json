@@ -23,6 +23,7 @@
     "start": "(cd client && yarn run start --silent)"
   },
   "dependencies": {
+    "react-bootstrap-slider": "^1.1.7",
     "react-multistep": "^2.2.10"
   },
   "devDependencies": {},

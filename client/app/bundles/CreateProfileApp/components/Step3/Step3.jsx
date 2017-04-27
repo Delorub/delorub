@@ -1,4 +1,5 @@
 import React from 'react';
+import Select2 from 'react-select2-wrapper';
 
 export default class Step3 extends React.Component {
   render() {
@@ -57,10 +58,13 @@ export default class Step3 extends React.Component {
             <div className="dr-task dr-profile-div">
               <span>Вариант оплаты&nbsp;*</span>
               <br />
-              <select className="dr-task-select">
-                <option>Цена за час</option>
-                <option>Пункт 2</option>
-              </select>
+              <Select2
+                data={[
+                  { text: 'Цена за час', id: 'hour' },
+                  { text: 'Цена за проект', id: 'project' },
+                ]}
+                data-minimum-results-for-search="Infinity"
+              />
             </div>
           </div>
         </div>
@@ -76,7 +80,7 @@ export default class Step3 extends React.Component {
                   <input type="checkbox" checked autoComplete="off" />
                   <span>Пн</span>
                 </label>
-                <label className="btn btn-primary">
+                <label className="btn btn-primary week-odd">
                   <input type="checkbox" autoComplete="off" />
                   <span>Вт</span>
                 </label>
@@ -84,7 +88,7 @@ export default class Step3 extends React.Component {
                   <input type="checkbox" autoComplete="off" />
                   <span>Ср</span>
                 </label>
-                <label className="btn btn-primary">
+                <label className="btn btn-primary week-odd">
                   <input type="checkbox" autoComplete="off" />
                   <span>Чт</span>
                 </label>

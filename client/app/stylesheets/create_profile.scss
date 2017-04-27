@@ -20,7 +20,7 @@
 .steps {
     display: inline-block;
     float: right;
-    padding-right: 150px;
+    padding-right: 40px;
 }
 .dr-profile {
     &-gallery {
@@ -117,10 +117,16 @@
         }
     }
     .week-odd {
-        background-color: #eeffee;
+      color: green;
+      &.active {
+        background-color: #EBFFEF !important;
+      }
     }
-    .week-end > span {
+    .week-end {
         color: red;
+        &.active {
+          background-color: #FDA5A7 !important;
+        }
     }
 }
 .btn-group.dr-radio{

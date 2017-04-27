@@ -17,6 +17,12 @@ class Steps extends React.Component {
       <div className="dr-header-span dr-header-step">
         {config[currentStep].title}
         <div className="steps">
+        { currentStep < (config.length - 1) &&
+          <button type="button" className="btn dr-button-blue" onClick={::this.handleNext}>Далее</button>
+        }
+        { currentStep == (config.length - 1) &&
+          <button type="button" className="btn dr-button-blue">Готово</button>
+        }
           <ul className="nav-tabs step-anchor">
             <li><a>&nbsp;</a></li>
             {config.map((step, i) =>
@@ -25,13 +31,6 @@ class Steps extends React.Component {
             <li><a></a></li>
           </ul>
         </div>
-
-        { currentStep < (config.length - 1) &&
-          <button type="button" className="btn dr-button-blue" onClick={::this.handleNext}>Далее</button>
-        }
-        { currentStep == (config.length - 1) &&
-          <button type="button" className="btn dr-button-blue">Готово</button>
-        }
       </div>
     );
   }
