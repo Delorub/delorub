@@ -10,8 +10,7 @@
         }
     }
     &-div {
-        border-top: 1px solid rgba(128, 128, 128, 0.3);
-        //border-right: 1px solid rgba(128, 128, 128, 0.3);
+        border-top: 1px solid rgba(128, 128, 128, 0.3);        
         color: #6b6b6b;
         text-align: left;
         padding: 20px 40px;
@@ -35,7 +34,7 @@
                 padding-left: 0;
                 padding-right: 0;
                 &:hover {
-                    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.12);
+                    box-shadow: $shadowHover;
                 }
             }
             @media (min-width: $screen-sm-min) {
