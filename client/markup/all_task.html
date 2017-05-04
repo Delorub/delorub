@@ -17,7 +17,8 @@
     <!-- Windows Phone -->
     <meta name="msapplication-navbutton-color" content="#000">
     <!-- iOS Safari -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="#000">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#000">    
+  
   </head>
   <body>
     <div class="container">
@@ -65,7 +66,15 @@
                       <div class="dr-header-span without-border">
                         <p>
                           Все <p class="dr-header-span-unmarked">&nbsp;задания<p>                 
-                        </p>                
+                        </p>
+                        <a href="#openDropdown" class="">
+                          <span class="dr-dropdown-arrow-bottom">
+                            <b></b>
+                          </span>
+                          <!--<span class="dr-dropdown-arrow-top">
+                            <b></b>
+                          </span>-->
+                        </a>
                       </div> 
                     </div>
 
@@ -90,8 +99,21 @@
 
               </div>
 
+              <div id="openDropdown" class="dr-dropdown">
+                <div class="row">
+
+                  <div class="col-md-12">
+                    <a href="#close" title="Закрыть" class="close">X</a>
+                    <div class="dr-dropdown-content">
+                      <a href="#">Мои задания</a>
+                      <a href="#" class="lastRow">Подходящие задания</a>                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <div id="openModal" class="row modal-categories">                
-                
+
                 <div class="col-md-12 padding-none">
                   <div  class="modal-categories-content">
 

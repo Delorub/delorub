@@ -43,5 +43,12 @@ $('#ex1').slider({
 });
 
 $(".select2").select2({
-  tags: true
+    tags: true
+});
+
+$(document).ready(function () {
+    $("a.dr-dropdown-button").click(function () {
+        $("span.dr-dropdown-arrow-bottom").toggleClass("dr-dropdown-arrow-top");
+        return false;
+    });
 });
