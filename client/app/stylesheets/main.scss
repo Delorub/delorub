@@ -461,6 +461,10 @@ ul.left_menu {
     border-right: $border;
 }
 
+.border-top {
+    border-top: $border;
+}
+
 .rowWithOutPadding {
     margin-left: 0;
     margin-right: 0;
@@ -626,7 +630,7 @@ ul.left_menu {
     }
 }
 .padding-none {
-    padding: 0;
+    padding: 0 !important;
 }
 
 .margin-none {
@@ -643,11 +647,26 @@ ul.left_menu {
     }
 }
 
+.bold-text {
+    color: #4c4c4c;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
 .gray-text {
     color: #888888;
     &-light {
         color: #b9b9b9;
     }
 }
+.black-text {
+    color: #333333;
+    cursor: pointer;   
+}
+
+.red-text {
+    color: #ed6161;
+}
+
 
 @import "media"; // Всегда в конце
