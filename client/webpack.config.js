@@ -158,7 +158,7 @@ module.exports = {
       }
     ],
   },
-  devtool: devBuild ? 'eval-source-map' : 'source-map',
+  //devtool: devBuild ? 'eval-source-map' : 'source-map',
   devServer: {
     contentBase: [
       path.join(__dirname, 'markup'),
