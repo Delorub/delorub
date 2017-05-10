@@ -48,16 +48,16 @@ class Question extends React.Component {
     const name = 'contract_template[markup][questions][' + this.props.id + '][title]'
 
     const containerClasses = classNames({
-      [css.container]: true,
-      [(focused_title || title == '') ? css.editable : css.nonEditable]: true
+      ['container']: true,
+      [(focused_title || title == '') ? 'editable' : 'nonEditable']: true
     });
 
-    return <div className={containerClasses}>
-      <div className={css.headingContainer}>
-        <div className={css.titleContainer} onClick={::this.onEditClick}>
+    return (<div className={containerClasses}>
+      <div className="headingContainer">
+        <div className="titleContainer" onClick={::this.onEditClick}>
           {title}
         </div>
-        <div className={css.inputContainer}>
+        <div className="inputContainer">
           <input
             ref={ (input) => { this.titleInput = input; } }
             name={name}
@@ -69,10 +69,10 @@ class Question extends React.Component {
             placeholder="Введите название вопроса" />
         </div>
       </div>
-      <div className={css.variantsContainer}>
+      <div className="variantsContainer">
         <VariantList id={this.props.id}/>
       </div>
-    </div>;
+    </div>);
   }
 }
 

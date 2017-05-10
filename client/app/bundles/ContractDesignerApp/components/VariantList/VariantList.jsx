@@ -20,12 +20,12 @@ class VariantList extends React.Component {
       />
     );
 
-    return <div>
+    return (<div>
       <div>
         {listItems}
       </div>
-      <a href="#" className={css.add} onClick={::this.handleAddClick}>Добавить ответ</a>
-    </div>;
+      <a href="#" className="add" onClick={::this.handleAddClick}>Добавить ответ</a>
+    </div>);
   }
 }
 

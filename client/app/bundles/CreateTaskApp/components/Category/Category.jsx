@@ -1,14 +1,9 @@
 import React from 'react';
-import Select2 from 'react-select2-wrapper';
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import * as taskActions from '../../actions/TaskActions'
+import { renderSelect2 } from 'libs/delorub/redux-form-select2'
+import { required } from 'libs/delorub/redux-form-validations'
+import { Field } from 'redux-form';
 
-class Category extends React.Component {
-  handleChange(e) {
-    this.props.selectMainCategory(e.target.value)
-  }
-
+export default class Category extends React.Component {
   listCategories() {
     var categories = []
 
@@ -25,34 +20,18 @@ class Category extends React.Component {
   }
 
   render() {
-    const { main_category_id } = this.props
-
     return (
-      <div className="dr-task-paid-functions dr-task-div">
-        <span>Категория задания *</span>
-        <br />
-        <Select2
-          value={main_category_id}
-          onSelect={::this.handleChange}
-          className="dr-task-select"
-          data={this.listCategories()}
-          options={{
-            placeholder: 'Выберите категорию',
-          }}
+      <Field
+        component={renderSelect2}
+        className="dr-task-select"
+        name="main_category_id"
+        data={this.listCategories()}
+        options={{
+          placeholder: 'Выберите категорию',
+        }}
+        label="Категория задания"
+        validate={[required]}
         />
-      </div>
     )
   }
 }
-
-function mapStateToProps(state) {
-  return {
-    main_category_id: state.$$taskStore.task.main_category_id
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(taskActions, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Category)

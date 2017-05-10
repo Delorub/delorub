@@ -55,17 +55,17 @@ class Variant extends React.Component {
     const name = 'contract_template[markup][questions][' + this.props.question.id + '][variants][' + this.props.id + '][title]'
 
     const containerClasses = classNames({
-      [css.container]: true,
-      [(focused_title || title == '') ? css.editable : css.nonEditable]: true
+      'container': true,
+      [(focused_title || title == '') ? 'editable' : 'nonEditable']: true
     });
 
-    return <div className={containerClasses}>
-      <div className={css.headingContainer}>
-        <div className={css.titleContainer}>
-          <a href="#" className={css.title} onClick={::this.onEditClick}>{title}</a>
-          <a href="#" className={css.insert} onClick={::this.onInsertClick}>→</a>
+    return (<div className={containerClasses}>
+      <div className="headingContainer">
+        <div className="titleContainer">
+          <a href="#" className="title" onClick={::this.onEditClick}>{title}</a>
+          <a href="#" className="insert" onClick={::this.onInsertClick}>→</a>
         </div>
-        <div className={css.inputContainer}>
+        <div className="inputContainer">
           <input
             ref={ (input) => { this.titleInput = input; } }
             name={name}
@@ -77,7 +77,7 @@ class Variant extends React.Component {
             placeholder="Вариант ответа" />
         </div>
       </div>
-    </div>;
+    </div>);
   }
 }
 

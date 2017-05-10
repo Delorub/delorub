@@ -25,7 +25,7 @@ class DateActual extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    date_actual: state.$$taskStore.task.date_actual,
+    date_actual: state.form.task.date_actual,
   }
 }
 

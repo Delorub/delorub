@@ -10,4 +10,12 @@ module LayoutHelper
   def navigation_logo_path
     controller_name == 'main' ? '/images/design/logo1.png' : '/images/design/logo.png'
   end
+
+  def show_side_menu?
+    user_signed_in?
+  end
+
+  def container_css_classes
+    show_side_menu? ? '' : ' dr-container-without-sidemenu'
+  end
 end

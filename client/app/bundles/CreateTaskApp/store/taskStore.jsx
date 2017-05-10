@@ -8,8 +8,7 @@ const enhancer = compose(
 
 export default (props, railsContext) => {
   const initialState = {
-    $$taskStore: props,
-    railsContext,
+    railsContext
   };
 
   const reducer = combineReducers(reducers);

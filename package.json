@@ -24,7 +24,8 @@
   },
   "dependencies": {
     "react-bootstrap-slider": "^1.1.7",
-    "react-multistep": "^2.2.10"
+    "react-multistep": "^2.2.10",
+    "redux-form": "^6.7.0"
   },
   "devDependencies": {},
   "cacheDirectories": [

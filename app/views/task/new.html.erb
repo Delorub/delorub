@@ -1,2 +1,4 @@
-<%= redux_store 'taskStore', props: { task: @task.to_redux } %>
-<%= react_component 'CreateTaskApp', props: create_task_props %>
+<div class="dr-container<%= container_css_classes %>">
+  <%= redux_store 'taskStore' %>
+  <%= react_component 'CreateTaskApp', props: create_task_props %>
+</div>

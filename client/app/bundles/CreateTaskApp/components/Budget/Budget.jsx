@@ -49,7 +49,7 @@ class Budget extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    price_exact: state.$$taskStore.task.price_exact,
+    price_exact: state.form.task.price_exact,
   }
 }
 
