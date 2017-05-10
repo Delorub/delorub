@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import DateActual from './DateActual';
 
-class DateSelector extends React.Component {
+export default class DateSelector extends React.Component {
   render() {
     const { date_type } = this.props
 
@@ -10,14 +10,8 @@ class DateSelector extends React.Component {
       return <DateActual />;
     } else if(date_type == 'interval') {
       return <DateInterval />;
+    } else {
+      return null;
     }
   }
 }
-
-function mapStateToProps(state) {
-  return {
-    date_type: state.$$taskStore.task.date_type,
-  }
-}
-
-export default connect(mapStateToProps)(DateSelector)

@@ -12,6 +12,9 @@
     <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-touch-icon-114x114.png">
     <%=  stylesheet_link_tag 'website-bundle', media: 'all' %>
     <%=  stylesheet_link_tag 'website_apps-bundle', media: 'all' %>
+    <% if Rails.env.development? %>
+      <script src="http://localhost:8097"></script>
+    <% end %>
     <meta name="theme-color" content="#000">
     <meta name="msapplication-navbutton-color" content="#000">
     <meta name="apple-mobile-web-app-status-bar-style" content="#000">
@@ -19,14 +22,14 @@
 <body class="<%= body_css_classnames %>">
   <div class="container">
     <div class="row row-eq-height">
-      <div class="col-sm-11 col-sm-push-1 dr-content">
+      <div class="<%= show_side_menu? ? 'col-sm-11 col-sm-push-1' : 'col-sm-12' %> dr-content">
         <main class="content">
           <%= render 'navigation' %>
           <%= yield %>
           <%= render 'footer' %>
         </main>
       </div>
-      <%= render 'side_menu' %>
+      <%= render 'side_menu' if show_side_menu? %>
     </div>
   <%= javascript_include_tag 'website-bundle' %>
   <%= javascript_include_tag 'website_apps-bundle' %>

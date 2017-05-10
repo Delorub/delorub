@@ -8,10 +8,10 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="clearfix">
-        <div className={css.questionListContainer}>
+        <div className="questionListContainer">
           <QuestionList />
         </div>
-        <div className={css.textEditorContainer}>
+        <div className="textEditorContainer">
           <TextEditor />
         </div>
       </div>

@@ -15,14 +15,14 @@ class QuestionList extends React.Component {
       />
     );
 
-    return <div>
+    return (<div>
       <div>
         {listItems}
       </div>
-      <div className={css.buttons}>
-        <a href="#" className={css.add} onClick={this.props.addQuestion}>Добавить вопрос</a>
+      <div className="buttons">
+        <a href="#" className="add" onClick={this.props.addQuestion}>Добавить вопрос</a>
       </div>
-    </div>;
+    </div>);
   }
 }
 

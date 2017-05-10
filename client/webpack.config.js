@@ -14,9 +14,9 @@ const sourcePath = path.join(__dirname, './app');
 module.exports = {
   context: __dirname,
   entry: {
-    //contract_designer_app: [
-    //  './app/bundles/ContractDesignerApp/startup/clientRegistration',
-    //],
+    contract_designer_app: [
+      './app/bundles/ContractDesignerApp/startup/clientRegistration',
+    ],
 
     contract_app: [
       './app/bundles/ContractApp/startup/clientRegistration',
@@ -158,7 +158,7 @@ module.exports = {
       }
     ],
   },
-  devtool: devBuild ? 'eval-source-map' : 'source-map',
+  //devtool: devBuild ? 'eval-source-map' : 'source-map',
   devServer: {
     contentBase: [
       path.join(__dirname, 'markup'),

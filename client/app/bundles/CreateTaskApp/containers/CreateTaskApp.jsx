@@ -12,7 +12,6 @@ export default class CreateTaskApp extends React.Component {
       <Provider store={store}>
         <div>
           <App {...this.props}/>
-          <DevTools />
         </div>
       </Provider>
     );

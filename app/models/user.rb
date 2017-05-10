@@ -62,6 +62,8 @@ class User < ActiveRecord::Base
   has_one :active_task_pack, -> { active }, class_name: 'Billing::TaskSubscription'
   has_one :active_reply_pack, -> { active }, class_name: 'Billing::ReplySubscription'
 
+  accepts_nested_attributes_for :permission
+
   validates :first_name, :last_name, :email, presence: true
   validates :email, uniqueness: true
   validates :password, length: { minimum: 8 }, unless: 'password.nil?'

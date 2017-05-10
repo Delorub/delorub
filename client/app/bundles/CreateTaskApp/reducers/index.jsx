@@ -1,12 +1,7 @@
-import taskReducer, { $$initialState as $$taskState } from './taskReducer';
 import railsContextReducer, { initialState as railsContextState } from './railsContextReducer';
+import { reducer as formReducer } from 'redux-form'
 
 export default {
-  $$taskStore: taskReducer,
   railsContext: railsContextReducer,
-};
-
-export const initialStates = {
-  $$taskState,
-  railsContextState,
+  form: formReducer
 };

@@ -119,7 +119,7 @@ class TextEditor extends React.Component {
   }
 
   render() {
-    return <TinyMCEInput
+    return (<TinyMCEInput
       name='contract_template[markup][text]'
       value={this.props.data}
       onSetupEditor={this._tinymceSetup}
@@ -137,7 +137,7 @@ class TextEditor extends React.Component {
         content_css: '/editor.css?v=8'
       }}
       onChange={::this.handleChange}
-    />;
+    />);
   }
 }
 
