@@ -1,5 +1,5 @@
 .dr-one-ticket {
-    box-shadow: 4px 6px 20px 2px rgba(0, 0, 0, 0.12);
+    box-shadow: $shadowHeader;
     margin-left: 0px;
     margin-right: 0px;
     position: relative;
@@ -100,7 +100,7 @@
         }
     }
     &-show-more {
-        box-shadow: 4px 6px 20px 2px rgba(0, 0, 0, 0.12);
+        box-shadow: $shadowHeader;
         position: relative;
         z-index: 2;
     }

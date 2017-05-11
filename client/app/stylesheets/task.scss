@@ -24,6 +24,11 @@
             .slider-selection {
                 background: #25c0ec;
             }
+            .slider-handle {
+                background-image: none;
+                background-color: #49d3fb;
+                border: 2px solid #25c0ec;
+            }
         }
         .minValue, .maxValue {
             color: darken(#b7b7b7, 30%);
@@ -83,18 +88,18 @@
     &-div {
         padding: 30px 20px;
         &-error {
-          input {
-            border-color: $errorColor;
-          }
+            input {
+                border-color: $errorColor;
+            }
 
-          .select2-selection {
-            border-color: $errorColor;
-          }
+            .select2-selection {
+                border-color: $errorColor;
+            }
 
-          .error {
-            float: right;
-            color: $errorColor;
-          }
+            .error {
+                float: right;
+                color: $errorColor;
+            }
         }
     }
     &-invisible {

@@ -11,6 +11,44 @@
             }
         }
     }
+    &-input {
+        @extend .dr-task-div;
+        padding: 30px 30px;
+        text-align: left;
+        .current-value {
+            margin-left: 37%;
+        }
+        .dr-all-masters-stars {
+            display: inline-block;
+            float: right;
+        }
+        .slider-selection {
+            background: #25c0ec;
+        }
+        .slider-handle {
+            background-image: none;
+            background-color: #49d3fb;
+            border: 2px solid #25c0ec;
+        }
+        span {
+            &:first-child {
+                //margin-left: 10px;
+                font-weight: bold;
+                font-size: 1.4rem;
+            }
+        }
+        input[type=text] {
+            border-radius: $borderRadius;
+            width: 45%;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 18px 15px;
+            color: #6b6b6b;
+        }
+        input+input {
+            margin-left: 15px;
+        }        
+    }
     &-stars {
         span.glyphicon {            
             cursor: pointer;
@@ -53,7 +91,21 @@
     }
 }
 
-
+.category-active {
+    color: white;
+    background-color: #25c0ec;
+    position: relative;
+    &:after {
+        content: '';
+        border: 8px solid transparent;
+        border-top: 8px solid #25c0ec;
+        position: absolute;
+        left: 50%;
+        margin-left: -8px;
+        bottom: -16px;
+        width: 0;
+    }
+}
 
 /*
 .zadaniya {

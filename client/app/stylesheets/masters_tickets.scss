@@ -1,0 +1,21 @@
+.dr-masters-tickets-ticket-request {
+    @extend .dr-one-ticket-request;
+    &:hover {
+        box-shadow: $shadowHover;
+        .dr-one-ticket-request-button {
+            button {
+                @extend .dr-button-succsess;
+            }            
+        }
+        .dr-one-ticket-request-button+.dr-one-ticket-request-button {
+            button {
+                @extend .dr-button-warning;
+            }            
+        }
+        .dr-one-ticket-request-button+.dr-one-ticket-request-button+.dr-one-ticket-request-button {
+            button {
+                @extend .dr-button-danger;
+            }            
+        }
+    }
+}
