@@ -15,7 +15,7 @@
     }
     &-date {
         input {
-            width: 49%;
+            width: 100%;
             padding: 6px 15px;
         }
     }
@@ -83,11 +83,7 @@
     &-div {
         padding: 30px 20px;
         &-error {
-          input {
-            border-color: $errorColor;
-          }
-
-          .select2-selection {
+          input, .select2-selection, textarea {
             border-color: $errorColor;
           }
 

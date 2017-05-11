@@ -16,6 +16,7 @@ export const renderSelect2 = field => {
        <span className="error">{field.meta.error}</span>}
       <br />
       <Select2
+        multiple={field.multiple}
         value={field.input.value}
         name={field.input.name}
         onOpen={field.input.onFocus}
@@ -23,6 +24,7 @@ export const renderSelect2 = field => {
         onSelect={field.input.onChange}
         options={field.options}
         data={field.data}
+        disabled={field.disabled}
         className={field.className}
       />
     </div>

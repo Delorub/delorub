@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactBootstrapSlider from 'react-bootstrap-slider';
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import * as taskActions from '../../actions/TaskActions'
+import { renderField } from 'libs/delorub/redux-form-input'
+import { required, minLength } from 'libs/delorub/redux-form-validations'
+import { Field } from 'redux-form';
 
-class Budget extends React.Component {
+export default class Budget extends React.Component {
   changeValue(e) {
-    this.props.changeBudget(e.target.value)
+    this.props.change('task[price_exact]', e.target.value)
   }
 
   getPrice() {
@@ -26,10 +26,20 @@ class Budget extends React.Component {
     return (
       <div className="dr-task-budget dr-task-div">
         <div className="row">
-          <div className="col-md-4">
-            <span>Бюджет *</span>
-            <input type="text" className="form-control" value={this.getPrice()} onChange={::this.changeValue} />
-          </div>
+          <Field
+            component={renderField}
+            type="hidden"
+            name="task[price_type]"
+            />
+          <Field
+            component={renderField}
+            type="text"
+            containerClasses="col-md-4"
+            className="form-control"
+            name="task[price_exact]"
+            label="Бюджет"
+            validate={[required]}
+            />
           <div className="col-md-8">
             <span className="minValue">{min}</span>
             <span className="maxValue">{max}</span>
@@ -46,15 +56,3 @@ class Budget extends React.Component {
     );
   }
 }
-
-function mapStateToProps(state) {
-  return {
-    price_exact: state.form.task.price_exact,
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(taskActions, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Budget)

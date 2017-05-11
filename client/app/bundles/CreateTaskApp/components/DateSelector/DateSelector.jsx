@@ -4,12 +4,12 @@ import DateActual from './DateActual';
 
 export default class DateSelector extends React.Component {
   render() {
-    const { date_type } = this.props
+    const { date_type } = this.props.task
 
     if(date_type == 'actual') {
-      return <DateActual />;
+      return (<DateActual {...this.props} />);
     } else if(date_type == 'interval') {
-      return <DateInterval />;
+      return (<DateInterval {...this.props} />);
     } else {
       return null;
     }

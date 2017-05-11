@@ -24,7 +24,7 @@ export default class Category extends React.Component {
       <Field
         component={renderSelect2}
         className="dr-task-select"
-        name="main_category_id"
+        name="task[main_category_id]"
         data={this.listCategories()}
         options={{
           placeholder: 'Выберите категорию',

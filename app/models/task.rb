@@ -42,6 +42,7 @@ class Task < ActiveRecord::Base
 
   enumerize :price_type, in: [:exact, :interval, :scale]
   enumerize :date_type, in: [:actual, :interval]
+  enumerize :contract_type, in: [:no_contract, :contract]
 
   validates :title, :description, :user, :category, :price_type, :date_type, presence: true
   validate :ensure_user_can_create

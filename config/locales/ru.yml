@@ -7,6 +7,14 @@ ru:
     locality: "4 - Населенный пункт"
     street: "5 - Улица"
     house: "6 - Дом"
+  enumerize:
+    task:
+      date_type:
+        actual: "Завершить работу"
+        interval: "Выполнить в период"
+      contract_type:
+        contract: С договором
+        no_contract: Без договора
   formtastic:
     create: 'Создать'
     update: 'Обновить'

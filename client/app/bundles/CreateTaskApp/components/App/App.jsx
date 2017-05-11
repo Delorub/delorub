@@ -5,6 +5,13 @@ import Budget from '../Budget/Budget';
 import Category from '../Category/Category';
 import DateSelector from '../DateSelector/DateSelector';
 import Subcategory from '../Subcategory/Subcategory';
+import DescriptionInput from '../DescriptionInput/DescriptionInput';
+import DateTypeInput from '../DateTypeInput/DateTypeInput';
+import ContractInput from '../ContractInput/ContractInput';
+import NotificationsTypeInput from '../NotificationsTypeInput/NotificationsTypeInput';
+import PaidFunctionsInput from '../PaidFunctionsInput/PaidFunctionsInput';
+import CityInput from 'libs/delorub/components/CityInput';
+import AddressInput from 'libs/delorub/components/AddressInput';
 import Select2 from 'react-select2-wrapper';
 import { Field, reduxForm, formValueSelector } from 'redux-form';
 
@@ -14,7 +21,7 @@ class App extends React.Component {
   }
 
   handleInitialize() {
-    this.props.initialize(this.props.task);
+    this.props.initialize({ task: this.props.task });
   }
 
   handleOnSubmit() {
@@ -25,19 +32,20 @@ class App extends React.Component {
     const { handleSubmit, pristine, reset, submitting } = this.props
 
     return (
-      <form ref="formComponent" action="asd" method="post" onSubmit={handleSubmit(::this.handleOnSubmit)}>
-
+      <form ref="formComponent" accept-charset="UTF-8" action={this.props.form_action} method="post" onSubmit={handleSubmit(::this.handleOnSubmit)}>
+        <input type='hidden' name='utf8' value='✓' />
+        <input name="authenticity_token" value={this.props.authenticity_token} type="hidden" />
         <div className="dr-header-span">
           <p>Создание <span className="dr-header-span-unmarked">&nbsp;задания</span></p>
           <input type="submit" className="btn dr-button-empty" value="Предпросмотр" />
         </div>
         <div className="row row-eq-height dr-task">
           <div className="col-md-5">
+
             <Title />
-            <div className="dr-task-description dr-task-div">
-              <span>Описание задания *</span>
-              <textarea name="name" rows="6" cols="60" className="form-control" placeholder="Введите описание задания"></textarea>
-            </div>
+
+            <DescriptionInput />
+
             <div className="dr-task-photo dr-task-div">
               <div className="row">
                 <div className="col-md-6">
@@ -53,82 +61,37 @@ class App extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="dr-task-paid-functions dr-task-div">
-              <span>Платные функции</span>
-              <br />
-              <Select2
-                data={[
-                  { text: 'Размещение в ТОП заданий — 500Р (3 дня)', id: '1' },
-                ]}
-                data-minimum-results-for-search="Infinity"
-              />
-            </div>
+
+            <PaidFunctionsInput {...this.props} />
+
           </div>
-
           <div className="col-md-7">
-            <Budget />
+
+            <Budget {...this.props}/>
+
             <div className="row row-eq-height">
-
               <div className="col-md-6">
-                <div className="dr-task-paid-functions dr-task-div">
-                  <span>Сроки&nbsp;*</span>
-                  <br />
-                  <select className="dr-task-select">
-                    <option>Завершить работу</option>
-                    <option>Пункт 2</option>
-                  </select>
-                </div>
 
-                <div className="dr-task-paid-functions dr-task-div">
-                  <span>Город&nbsp;*</span>
-                  <br />
-                  <select className="dr-task-select">
-                    <option>Москва</option>
-                    <option>Пункт 2</option>
-                  </select>
-                </div>
+                <DateTypeInput {...this.props} />
 
-                <Category categories={this.props.categories} />
+                <CityInput name="task[place_id]" />
 
-                <div className="dr-task-paid-functions dr-task-div">
-                  <span>Заключение договора</span>
-                  <br />
-                  <Select2
-                    data={[
-                      { text: 'Без договора', id: '1' },
-                    ]}
-                    data-minimum-results-for-search="Infinity"
-                  />
-                </div>
+                <Category {...this.props} />
+
+                <ContractInput {...this.props} />
 
               </div>
 
               <div className="col-md-6">
 
-                <DateSelector date_type={this.props.date_type} />
+                <DateSelector {...this.props} />
 
-                <div className="dr-task-paid-functions dr-task-div">
-                  <span>Адрес</span>
-                  <br />
-                  <select className="dr-task-select">
-                    <option>Москва</option>
-                    <option>Пункт 2</option>
-                  </select>
-                </div>
+                <AddressInput name="task[place_address]" />
 
-                <Subcategory categories={this.props.categories} main_category_id={this.props.main_category_id} />
+                <Subcategory {...this.props} />
 
-                <div className="dr-task-paid-functions dr-task-div">
-                  <span>Формат уведомлений об откликах</span>
-                  <br />
-                  <Select2
-                    data={[
-                      { text: 'На email и в уведомлениях', id: 'email-notifications' },
-                      { text: 'Только уведомления', id: 'notifications' },
-                    ]}
-                    data-minimum-results-for-search="Infinity"
-                  />
-                </div>
+                <NotificationsTypeInput {...this.props} />
+
               </div>
             </div>
           </div>
@@ -149,8 +112,9 @@ App = reduxForm({
 
 App = connect(
   state => ({
-    date_type: selector(state, 'date_type'),
-    main_category_id: selector(state, 'main_category_id'),
+    price_exact: selector(state, 'task[price_exact]'),
+    date_type: selector(state, 'task[date_type]'),
+    main_category_id: selector(state, 'task[main_category_id]'),
   })
 )(App)
 
