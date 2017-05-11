@@ -6,12 +6,12 @@ class TaskController < ApplicationController
 
   def new
     @form = TaskForm.new Task.new
-    @form.user_id = current_user.id
+    @form.user_id = current_user.id if user_signed_in?
   end
 
   def create
     @form = TaskForm.new Task.new
-    @form.user_id = current_user.id
+    @form.user_id = current_user.id if user_signed_in?
 
     if @form.validate task_params
       return redirect_to task_path(@form.model) if @form.save
