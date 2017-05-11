@@ -62,7 +62,7 @@ gem 'hashie-forbidden_attributes'
 gem 'httparty'
 
 # Assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 gem 'yui-compressor'
 gem 'haml-rails', '~> 0.8'
 gem 'react_on_rails', '~> 6'

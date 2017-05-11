@@ -98,7 +98,12 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: 'babel-loader'
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ["es2015", "stage-0", "react"],
+          }
+        }
       },
       { test: /\.json$/, use: 'json-loader' },
       { test: /\.(woff2?|svg)$/, use: 'url-loader?limit=10000' },
@@ -158,7 +163,7 @@ module.exports = {
       }
     ],
   },
-  //devtool: devBuild ? 'eval-source-map' : 'source-map',
+  devtool: devBuild ? 'eval-source-map' : 'source-map',
   devServer: {
     contentBase: [
       path.join(__dirname, 'markup'),

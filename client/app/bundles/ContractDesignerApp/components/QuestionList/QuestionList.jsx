@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Question from '../Question/Question';
-import css from './QuestionList.scss'
 import * as questionActions from '../../actions/QuestionActions'
 
 class QuestionList extends React.Component {

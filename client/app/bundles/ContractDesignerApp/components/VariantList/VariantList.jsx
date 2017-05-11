@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Variant from '../Variant/Variant';
-import css from './VariantList.scss'
 import * as questionActions from '../../actions/QuestionActions'
 
 class VariantList extends React.Component {
