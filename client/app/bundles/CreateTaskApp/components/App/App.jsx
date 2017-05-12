@@ -49,7 +49,7 @@ class App extends React.Component {
             <div className="dr-task-photo dr-task-div">
               <div className="row">
                 <div className="col-md-6">
-                  <span>Фото&nbsp;*</span>
+                  <span className="input-label">Фото&nbsp;*</span>
                   <br />
                   <button type="button" className="btn dr-button-blue">Выбрать фото</button>
                 </div>

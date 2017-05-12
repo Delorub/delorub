@@ -11,7 +11,7 @@ export default class DateActual extends React.Component {
   render() {
     return (
       <div className="dr-task-date dr-task-div">
-        <span>Дата</span>
+        <span className="input-label">Дата</span>
         <br />
         <div className="row">
           <div className="col-md-6">

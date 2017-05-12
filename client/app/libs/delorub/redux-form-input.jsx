@@ -20,7 +20,7 @@ export const renderField = ({ input, label, placeholder, className, containerCla
 
   return (
     <div className={divClasses}>
-      <span>{label}</span>
+      <span className="input-label">{label}</span>
       {touched && (error && <span className="error">{error}</span>)}
       <input {...input} placeholder={placeholder} type={type} className={className} />
     </div>
