@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderField } from '../libs/renderHelpers'
+import { renderField } from 'libs/delorub/redux-form-input'
 import { required, minLength } from 'libs/delorub/redux-form-validations'
 import { Field } from 'redux-form';
 

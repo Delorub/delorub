@@ -10,7 +10,7 @@ export const renderField = field => {
 
   return (
     <div className={divClasses}>
-      <span>{field.label}</span>
+      <span className="input-label">{field.label}</span>
       {field.meta.touched && (field.meta.error && <span className="error">{field.meta.error}</span>)}
       <textarea {...field.input} placeholder={field.placeholder} className={field.className} />
     </div>
