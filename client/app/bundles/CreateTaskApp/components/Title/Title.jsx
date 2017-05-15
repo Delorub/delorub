@@ -12,7 +12,7 @@ export default class Title extends React.Component {
         component={renderField}
         type="text"
         className="form-control"
-        name="title"
+        name="task[title]"
         label="Название задания"
         placeholder="Введите название задания"
         validate={[required, minLength4]}
