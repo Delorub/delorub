@@ -39,12 +39,13 @@
         .maxValue {
             float: right;
         }
-        input [type=text] {
+        input[type=text] {
+            margin-top: 0;
             color: black;
             font-size: 1.8rem;
             font-weight: bold;
         }
-        &-placeholder {
+        /*&-placeholder {
             z-index: 100;
             left: 15px;
             cursor: text;
@@ -55,13 +56,12 @@
             color: #333333;
             font-size: 1.8rem;
             font-weight: bold;
-        }
+        }*/
         .glyphicon {
-            top: 3px;
-            font-weight: normal;
-            color: lightgray;
-        }
-
+            //top: 3px;
+            font-weight: normal;            
+        }        
+        /*
         &-placeinput > input:invalid + span.dr-task-budget-placeholder {
             display: inline;
         }
@@ -75,7 +75,7 @@
             float: right;
             margin-right: 30px;
             display: inline-block;
-        }
+        }*/
     }
     &-photo {
         button {
