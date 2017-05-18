@@ -3,9 +3,9 @@
 # Table name: user_billing_logs
 #
 #  id            :integer          not null, primary key
-#  sum           :float(24)
+#  sum           :float
 #  user_id       :integer
-#  billable_type :string(255)
+#  billable_type :string
 #  billable_id   :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null

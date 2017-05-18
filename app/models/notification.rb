@@ -4,10 +4,10 @@
 #
 #  id              :integer          not null, primary key
 #  user_id         :integer
-#  message         :string(255)
-#  state           :string(255)
-#  params          :text(65535)
-#  notifiable_type :string(255)
+#  message         :string
+#  state           :string
+#  params          :text
+#  notifiable_type :string
 #  notifiable_id   :integer
 #  read_at         :datetime
 #  created_at      :datetime         not null

@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 
 # Main
 gem 'rails', '~> 4.2.0'
-gem 'mysql2', '~> 0.3.18'
+gem 'pg'
 gem 'sidekiq'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jbuilder', '~> 2.0'
@@ -15,6 +15,7 @@ gem 'mini_magick'
 gem 'searchkick'
 gem 'rabl'
 gem 'oj'
+gem 'friendly_id', '~> 5.1.0'
 
 # Rails core extensions
 gem 'cells'

@@ -5,9 +5,9 @@
 #  id            :integer          not null, primary key
 #  task_id       :integer
 #  user_id       :integer
-#  status        :string(255)
-#  content       :text(65535)
-#  billable_type :string(255)
+#  status        :string
+#  content       :text
+#  billable_type :string
 #  billable_id   :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null

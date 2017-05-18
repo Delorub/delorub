@@ -4,7 +4,7 @@
 #
 #  id          :integer          not null, primary key
 #  template_id :integer
-#  data        :text(65535)
+#  data        :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #

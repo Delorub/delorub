@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  user_id    :integer
-#  cost       :float(24)
+#  cost       :float
 #  amount     :integer
 #  spent      :integer          default(0), not null
 #  available  :boolean          default(TRUE)

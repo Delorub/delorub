@@ -2,9 +2,9 @@ test:
   host: localhost
   username: ubuntu
   database: circle_ruby_test
-  adapter: mysql2
+  adapter: postgresql
 development:
   host: localhost
   username: ubuntu
   database: circle_ruby_test
-  adapter: mysql2
+  adapter: postgresql

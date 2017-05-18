@@ -9,24 +9,20 @@
     </div>
     <br/>
     <div class="dr-one-ticket-ticket-name">
-      <p>Александр <br/> Ермолаев</p>
+      <p><%= task.user.first_name %><br/><%= task.user.last_name %></p>
     </div>
     <div class="dr-one-ticket-ticket-rating">
       <br/>
       <br/>
       <span class="gray-text-light">Рейтинг</span>
       <br/>
-      <span>41775</span>
+      <span>0</span>
     </div>
   </div>
   <div class="col-md-5 dr-one-ticket-ticket-content without-border gray-text">
-    <span class="content-header">Перевод с русского на немецкий</span>
-    <span class="content-header-sub">Разное / Работа с текстом, копирайтинг, переводы</span>
-    <p>
-      Необходимо сделать перевод текстов туристической тематики.
-      Сроки выполнения - до завтрашней ночи/раннего утра воскресенья.
-      Оплата - 120 рублей за 1000 символов... <a class="dr-news-content-show-all">Показать всё</a>
-    </p>
+    <span class="content-header"><%= task.title %></span>
+    <span class="content-header-sub"><%= task.category.title %></span>
+    <p><%= task.description %></p>
 
     <div class="dr-all-task-adress">
       <p>
@@ -35,7 +31,7 @@
     </div>
   </div>
   <div class="col-md-3 dr-all-task-button-div">
-    <span class="dr-header-span-price">3 000 <span class="glyphicon glyphicon-ruble" aria-hidden="true"></span></span>
+    <span class="dr-header-span-price"><%= task.price_exact %> <span class="glyphicon glyphicon-ruble" aria-hidden="true"></span></span>
     <div class="dr-one-ticket-discussion-quote">
       <button type="button" class="btn dr-button-blue">Откликнуться на задание</button>
     </div>
@@ -44,7 +40,7 @@
     <div class="dr-one-ticket-refinement dr-all-task">
       <span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>
       <p class="gray-text-light">Актуально<br/>до</p>
-      <span>20.01.2017</span>
+      <span><%= task.date_actual %></span>
     </div>
     <div class="dr-one-ticket-refinement dr-all-task without-border">
       <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>

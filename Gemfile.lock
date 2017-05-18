@@ -201,6 +201,8 @@ GEM
     formtastic (3.1.5)
       actionpack (>= 3.2.13)
     formtastic_i18n (0.6.0)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     grape (0.19.1)
@@ -292,7 +294,6 @@ GEM
       tool (~> 0.2)
     mustermann-grape (0.4.0)
       mustermann (= 0.4.0)
-    mysql2 (0.3.21)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (4.1.0)
@@ -324,6 +325,7 @@ GEM
     parser (2.4.0.0)
       ast (~> 2.2)
     petrovich (1.1.1)
+    pg (0.20.0)
     phony (2.15.42)
     phony_rails (0.14.5)
       activesupport (>= 3.0)
@@ -557,6 +559,7 @@ DEPENDENCIES
   figaro
   flattened_active_admin
   foreman
+  friendly_id (~> 5.1.0)
   grape
   grape-entity
   grape-swagger
@@ -573,7 +576,6 @@ DEPENDENCIES
   meta-tags
   mini_magick
   mini_racer
-  mysql2 (~> 0.3.18)
   nokogiri
   oj
   omniauth
@@ -582,6 +584,7 @@ DEPENDENCIES
   omniauth-mailru
   omniauth-vkontakte
   petrovich (~> 1.0)
+  pg
   phony_rails
   pry-byebug
   pry-rails

@@ -38,6 +38,7 @@ export default class Budget extends React.Component {
             className="form-control"
             name="task[price_exact]"
             label="Бюджет"
+            glyphicon="ruble"
             validate={[required]}
             />
           <div className="col-md-8">

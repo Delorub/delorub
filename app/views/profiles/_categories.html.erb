@@ -1,0 +1,28 @@
+<div class="dr-all-masters-categories">
+  <% Category.roots.in_groups_of(8) do |chunk| %>
+    <div class="dr-all-masters-categories-row">
+    <% chunk.each do |category| %>
+      <a href="<%= current_url(category: category) %>" class="dr-all-masters-categories-row-category border-right"><%= category.title %></a>
+    <% end %>
+    </div>
+  <% end %>
+</div>
+
+<% if profiles_heading_categories.count > 0 %>
+  <div class="profileRefinement border-top">
+    <div class="row">
+      <% profiles_heading_categories.in_groups(4, false) do |chunk| %>
+        <div class="col-md-3">
+        <% chunk.each do |category| %>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" value="<%= category.id %>"<%= (@category && category.id == @category.id) ? ' checked="checked"' : '' %>>
+              <a href="<%= current_url(category: category) %>"><%= category.title %></a>
+            </label>
+          </div>
+        <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

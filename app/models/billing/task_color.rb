@@ -5,7 +5,7 @@
 #  id         :integer          not null, primary key
 #  user_id    :integer
 #  task_id    :integer
-#  cost       :float(24)
+#  cost       :float
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

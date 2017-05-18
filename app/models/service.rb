@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  profile_id :integer
-#  title      :string(255)
+#  title      :string
 #  price      :integer
 #  price_type :string
 #  created_at :datetime         not null

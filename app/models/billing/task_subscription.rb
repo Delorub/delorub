@@ -4,7 +4,7 @@
 #
 #  id          :integer          not null, primary key
 #  user_id     :integer
-#  cost        :float(24)
+#  cost        :float
 #  active_from :datetime
 #  active_to   :datetime
 #  created_at  :datetime         not null

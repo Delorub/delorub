@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-export const renderField = ({ input, label, placeholder, className, containerClasses, type, meta: { touched, error, warning } }) => {
+export const renderField = ({ input, label, placeholder, className, containerClasses, glyphicon, type, meta: { touched, error, warning } }) => {
   if(type == 'hidden') {
     return (<input {...input} type={type} />)
   }
@@ -18,11 +18,25 @@ export const renderField = ({ input, label, placeholder, className, containerCla
     );
   }
 
+  var inputComponent = <input {...input} placeholder={placeholder} type={type} className={className} />
+  if(glyphicon) {
+    var addonClasses = classNames(
+      'glyphicon', 'glyphicon-' + glyphicon
+    );
+
+    var inputContainer = (<div className="input-group">
+      {inputComponent}
+      <span className="input-group-addon"><span className={addonClasses}></span></span>
+    </div>);
+  } else {
+    var inputContainer = inputComponent;
+  }
+
   return (
     <div className={divClasses}>
       <span className="input-label">{label}</span>
       {touched && (error && <span className="error">{error}</span>)}
-      <input {...input} placeholder={placeholder} type={type} className={className} />
+      {inputContainer}
     </div>
   )
 }

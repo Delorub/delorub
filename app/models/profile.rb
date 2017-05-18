@@ -8,11 +8,11 @@
 #  pay_type      :string
 #  have_car      :boolean
 #  have_truck    :boolean
-#  about         :text(65535)
+#  about         :text
 #  place_id      :integer
-#  place_lat     :float(24)
-#  place_long    :float(24)
-#  place_address :string(255)
+#  place_lat     :float
+#  place_long    :float
+#  place_address :string
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #

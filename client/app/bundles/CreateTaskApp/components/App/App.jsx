@@ -32,7 +32,7 @@ class App extends React.Component {
     const { handleSubmit, pristine, reset, submitting } = this.props
 
     return (
-      <form ref="formComponent" accept-charset="UTF-8" action={this.props.form_action} method="post" onSubmit={handleSubmit(::this.handleOnSubmit)}>
+      <form ref="formComponent" acceptCharset="UTF-8" action={this.props.form_action} method="post" onSubmit={handleSubmit(::this.handleOnSubmit)}>
         <input type='hidden' name='utf8' value='✓' />
         <input name="authenticity_token" value={this.props.authenticity_token} type="hidden" />
         <div className="dr-header-span">

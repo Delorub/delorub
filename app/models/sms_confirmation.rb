@@ -3,9 +3,9 @@
 # Table name: sms_confirmations
 #
 #  id           :integer          not null, primary key
-#  token        :string(255)
-#  phone        :string(255)
-#  code         :string(255)
+#  token        :string
+#  phone        :string
+#  code         :string
 #  accepted     :boolean          default(FALSE)
 #  attempts     :integer          default(0)
 #  last_sent_at :datetime

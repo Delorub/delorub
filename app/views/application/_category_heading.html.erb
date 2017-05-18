@@ -1,0 +1,11 @@
+<% if @category %>
+<div class="col-md-7 dr-all-task-subdivision">
+  <% if @category.parent %>
+    <h3><%= @category.parent.title %></h3>
+    <span><%= @category.title %></span>
+  <% else %>
+    <h3><%= @category.title %></h3>
+    <span>Все разделы</span>
+  <% end %>
+</div>
+<% end %>

@@ -3,9 +3,9 @@
 # Table name: places
 #
 #  id                 :integer          not null, primary key
-#  fias_aoguid        :string(255)
-#  name               :string(255)
-#  full_name          :string(255)
+#  fias_aoguid        :string
+#  name               :string
+#  full_name          :string
 #  level              :integer
 #  place_type         :integer
 #  place_type_name_id :integer

@@ -1,0 +1,76 @@
+<div class="dr-container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="dr-header-span without-border">
+            <p>Все <span class="dr-header-span-unmarked">мастера</span></p>
+          </div>
+        </div>
+          <%= render 'category_heading' %>
+      </div>
+    </div>
+  </div>
+
+  <%= render 'categories' %>
+
+  <div class="row margin-none border-top">
+
+    <div class="col-md-3 padding-none">
+      <div class="dr-all-masters-input">
+        <span class="input-label">Город</span>
+
+        <select class="dr-task-select">
+          <option>Москва</option>
+          <option>Пункт 2</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-3 padding-none">
+      <div class="dr-all-masters-input">
+        <span class="input-label">Рейтинг</span>
+        <div class="dr-all-masters-stars">
+          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+        </div>
+        <br/><br/>
+        <span class="minValue gray-text">0</span>
+        <span class="currentValue current-value">41775</span>
+        <span class="maxValue right gray-text">300 000</span>
+        <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="300" data-slider-step="1" data-slider-value="41"/>
+      </div>
+    </div>
+    <div class="col-md-3 padding-none">
+      <div class="dr-all-masters-input">
+        <span class="input-label">Вариант оплаты</span>
+
+        <select class="dr-task-select">
+          <option>Цена за час</option>
+          <option>Пункт 2</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-3 padding-none">
+      <div class="dr-all-masters-input">
+        <span class="input-label">Почасовая ставка</span>
+        <br/>
+        <input type="text" class="form-control" placeholder="16500"/>
+        <input type="text" class="form-control" placeholder="16500"/>
+      </div>
+    </div>
+
+  </div>
+
+  <% collection.each do |profile| %>
+    <%= render partial: 'profile', locals: { profile: profile } %>
+  <% end %>
+
+  <%= render 'no_records' if collection.length == 0 %>
+
+  <!--<div class="lastRow">
+    <button type="button" class="btn dr-button-empty">Показать еще</button>
+  </div>-->
+</div>

@@ -1,0 +1,26 @@
+<div id="openModal" class="row modal-categories">
+  <div class="col-md-12 padding-none">
+    <div  class="modal-categories-content">
+      <a href="#close" title="Закрыть" class="close">X</a>
+      <div class="row margin-none">
+        <div class="col-md-12 padding-none modal-categories-content-header">
+          <a href="<%= tasks_path %>" class="btn dr-button-blueFull">Все задания</a>
+          <a href="<%= my_tasks_path %>" class="btn dr-button-blue">Мои задания</a>
+          <a href="<%= suggested_tasks_path %>" class="btn dr-button-blue">Подходящие задания</a>
+        </div>
+      </div>
+      <div class="dr-bottom-service">
+        <div class="row">
+          <% Category.roots.each do |category| %>
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+              <a href="<%= current_url(category: category) %>" class="dr-bottom-service-heading">
+                <img class="img-responsive" src="<%= category.photo.thumb.url %>" alt="">
+                <span><%= category.title %></span>
+              </a>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

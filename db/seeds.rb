@@ -1,7 +1,7 @@
-admins = User.create(
+admins = User.create([
   { first_name: 'Алексей', last_name: 'Петров', password: 'test123123', email: 'admin@delorub.com', permission_attributes: { superadmin: true } },
   { first_name: 'Мария', last_name: 'Иванова', password: 'test123123', email: 'editor@delorub.com', permission_attributes: { editor: true } }
-)
+])
 
 categories = Category.create([
   { title: 'Ремонт', photo: File.open('public/images/icons/hammer.png') },
@@ -22,7 +22,12 @@ categories = Category.create([
   { title: 'Разное', photo: File.open('public/images/icons/fix.png') }
 ])
 
-help_categories = HelpCategory.create(
+Category.create([
+  { title: 'Ремонт автомобилей', parent: categories[0] },
+  { title: 'Ремонт квартир', parent: categories[0] }
+])
+
+help_categories = HelpCategory.create([
   { title: 'Частые вопросы' },
   { title: 'Заказчикам' },
   { title: 'Исполнителям' },
@@ -31,4 +36,4 @@ help_categories = HelpCategory.create(
   { title: 'Спорные ситуации' },
   { title: 'Финансы' },
   { title: 'Профиль' },
-)
+])

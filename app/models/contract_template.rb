@@ -3,9 +3,9 @@
 # Table name: contract_templates
 #
 #  id          :integer          not null, primary key
-#  title       :string(255)
+#  title       :string
 #  category_id :integer
-#  markup      :text(65535)
+#  markup      :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #

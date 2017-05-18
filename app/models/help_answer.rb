@@ -4,9 +4,9 @@
 #
 #  id               :integer          not null, primary key
 #  help_category_id :integer
-#  title            :string(255)
-#  content          :text(65535)
-#  synonyms         :text(65535)
+#  title            :string
+#  content          :text
+#  synonyms         :text
 #  position         :integer
 #
 

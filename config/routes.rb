@@ -8,8 +8,24 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [:index, :destroy]
-  resources :profile, only: [:new, :create]
-  resources :task
+
+  resources :profiles, only: [:show, :edit, :update], path: 'profile'
+  resources :profiles, only: [:new, :create]
+  resources :profiles, only: [:index] do
+    collection do
+      get '/:category_id', to: :index, as: :category
+    end
+  end
+
+  resources :tasks, only: [:show, :edit, :update], path: 'task'
+  resources :tasks, only: [:new, :create]
+  resources :tasks, only: [:index] do
+    collection do
+      get '/my(/:category_id)', to: :index, as: :my, defaults: { scope: :my }
+      get '/suggested(/:category_id)', to: :index, as: :suggested, defaults: { scope: :suggested }
+      get '/:category_id', to: :index, as: :category
+    end
+  end
 
   resources :news, only: [:index, :show]
 

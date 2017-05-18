@@ -3,10 +3,10 @@
 # Table name: help_questions
 #
 #  id         :integer          not null, primary key
-#  name       :string(255)
-#  email      :string(255)
-#  content    :text(65535)
-#  reply      :text(65535)
+#  name       :string
+#  email      :string
+#  content    :text
+#  reply      :text
 #  answered   :boolean          default(FALSE)
 #  created_at :datetime
 #  updated_at :datetime

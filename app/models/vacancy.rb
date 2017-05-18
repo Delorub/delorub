@@ -3,9 +3,9 @@
 # Table name: vacancies
 #
 #  id                :integer          not null, primary key
-#  title             :string(255)
-#  small_description :text(65535)
-#  description       :text(65535)
+#  title             :string
+#  small_description :text
+#  description       :text
 #  position          :integer
 #  archive           :boolean          default(FALSE)
 #

@@ -3,11 +3,11 @@
 # Table name: news
 #
 #  id         :integer          not null, primary key
-#  title      :string(255)
-#  content    :text(65535)
+#  title      :string
+#  content    :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  photo      :string(255)
+#  photo      :string
 #
 
 class News < ActiveRecord::Base

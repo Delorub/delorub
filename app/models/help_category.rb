@@ -3,7 +3,7 @@
 # Table name: help_categories
 #
 #  id       :integer          not null, primary key
-#  title    :string(255)
+#  title    :string
 #  position :integer
 #
 

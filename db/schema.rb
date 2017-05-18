@@ -11,313 +11,332 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170412174305) do
+ActiveRecord::Schema.define(version: 20170517150059) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "billing_reply_packs", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.float    "cost",       limit: 24
-    t.integer  "amount",     limit: 4
-    t.integer  "spent",      limit: 4,  default: 0,    null: false
-    t.boolean  "available",             default: true
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.integer  "user_id"
+    t.float    "cost"
+    t.integer  "amount"
+    t.integer  "spent",      default: 0,    null: false
+    t.boolean  "available",  default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "billing_reply_subscriptions", force: :cascade do |t|
-    t.integer  "user_id",     limit: 4
-    t.float    "cost",        limit: 24
+    t.integer  "user_id"
+    t.float    "cost"
     t.datetime "active_from"
     t.datetime "active_to"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "billing_task_autorefreshes", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.integer  "task_id",    limit: 4
-    t.float    "cost",       limit: 24
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.integer  "user_id"
+    t.integer  "task_id"
+    t.float    "cost"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "billing_task_blogs", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.integer  "task_id",    limit: 4
-    t.float    "cost",       limit: 24
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.integer  "user_id"
+    t.integer  "task_id"
+    t.float    "cost"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "billing_task_colors", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.integer  "task_id",    limit: 4
-    t.float    "cost",       limit: 24
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.integer  "user_id"
+    t.integer  "task_id"
+    t.float    "cost"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "billing_task_packs", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.float    "cost",       limit: 24
-    t.integer  "amount",     limit: 4
-    t.integer  "spent",      limit: 4,  default: 0,    null: false
-    t.boolean  "available",             default: true
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.integer  "user_id"
+    t.float    "cost"
+    t.integer  "amount"
+    t.integer  "spent",      default: 0,    null: false
+    t.boolean  "available",  default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "billing_task_subscriptions", force: :cascade do |t|
-    t.integer  "user_id",     limit: 4
-    t.float    "cost",        limit: 24
+    t.integer  "user_id"
+    t.float    "cost"
     t.datetime "active_from"
     t.datetime "active_to"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "billing_transfer_manually", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.integer  "admin_id",   limit: 4
-    t.float    "amount",     limit: 24
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.integer  "user_id"
+    t.integer  "admin_id"
+    t.float    "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string   "title",          limit: 255
-    t.integer  "parent_id",      limit: 4
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.integer  "lft",            limit: 4
-    t.integer  "rgt",            limit: 4
-    t.integer  "depth",          limit: 4
-    t.integer  "children_count", limit: 4
-    t.string   "photo",          limit: 255
-    t.integer  "position",       limit: 4
+    t.string   "title"
+    t.integer  "parent_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.integer  "depth"
+    t.integer  "children_count"
+    t.string   "photo"
+    t.integer  "position"
+    t.string   "slug"
   end
 
+  add_index "categories", ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
+
   create_table "contract_categories", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "contract_templates", force: :cascade do |t|
-    t.string   "title",       limit: 255
-    t.integer  "category_id", limit: 4
-    t.text     "markup",      limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "title"
+    t.integer  "category_id"
+    t.text     "markup"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "contracts", force: :cascade do |t|
-    t.integer  "template_id", limit: 4
-    t.text     "data",        limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "template_id"
+    t.text     "data"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
   create_table "help_answers", force: :cascade do |t|
-    t.integer "help_category_id", limit: 4
-    t.string  "title",            limit: 255
-    t.text    "content",          limit: 65535
-    t.text    "synonyms",         limit: 65535
-    t.integer "position",         limit: 4
+    t.integer "help_category_id"
+    t.string  "title"
+    t.text    "content"
+    t.text    "synonyms"
+    t.integer "position"
   end
 
   create_table "help_categories", force: :cascade do |t|
-    t.string  "title",    limit: 255
-    t.integer "position", limit: 4
+    t.string  "title"
+    t.integer "position"
   end
 
   create_table "help_questions", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "email",      limit: 255
-    t.text     "content",    limit: 65535
-    t.text     "reply",      limit: 65535
-    t.boolean  "answered",                 default: false
+    t.string   "name"
+    t.string   "email"
+    t.text     "content"
+    t.text     "reply"
+    t.boolean  "answered",   default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "replied_at"
   end
 
   create_table "news", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.text     "content",    limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.string   "photo",      limit: 255
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "photo"
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.integer  "user_id",         limit: 4
-    t.string   "message",         limit: 255
-    t.string   "state",           limit: 255
-    t.text     "params",          limit: 65535
-    t.string   "notifiable_type", limit: 255
-    t.integer  "notifiable_id",   limit: 4
+    t.integer  "user_id"
+    t.string   "message"
+    t.string   "state"
+    t.text     "params"
+    t.string   "notifiable_type"
+    t.integer  "notifiable_id"
     t.datetime "read_at"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "pages", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.string   "slug",       limit: 255
-    t.text     "content",    limit: 65535
+    t.string   "title"
+    t.string   "slug"
+    t.text     "content"
     t.boolean  "draft"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "place_type_names", force: :cascade do |t|
-    t.integer  "level",            limit: 4
-    t.integer  "code",             limit: 4
-    t.string   "name",             limit: 255
-    t.string   "full_name",        limit: 255
-    t.string   "alt_name",         limit: 255
+    t.integer  "level"
+    t.integer  "code"
+    t.string   "name"
+    t.string   "full_name"
+    t.string   "alt_name"
     t.boolean  "after_place_name"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "places", force: :cascade do |t|
-    t.string  "fias_aoguid",        limit: 255
-    t.string  "name",               limit: 255
-    t.string  "full_name",          limit: 255
-    t.integer "level",              limit: 4
-    t.integer "place_type",         limit: 4
-    t.integer "place_type_name_id", limit: 4
-    t.integer "parent_place_id",    limit: 4
-    t.integer "region_place_id",    limit: 4
+    t.string  "fias_aoguid"
+    t.string  "name"
+    t.string  "full_name"
+    t.integer "level"
+    t.integer "place_type"
+    t.integer "place_type_name_id"
+    t.integer "parent_place_id"
+    t.integer "region_place_id"
     t.boolean "is_region_center"
     t.boolean "is_center"
     t.boolean "custom"
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.integer  "user_id",       limit: 4,     null: false
-    t.string   "work_type",     limit: 255
-    t.string   "pay_type",      limit: 255
+    t.integer  "user_id",       null: false
+    t.string   "work_type"
+    t.string   "pay_type"
     t.boolean  "have_car"
     t.boolean  "have_truck"
-    t.text     "about",         limit: 65535
-    t.integer  "place_id",      limit: 4
-    t.float    "place_lat",     limit: 24
-    t.float    "place_long",    limit: 24
-    t.string   "place_address", limit: 255
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.text     "about"
+    t.integer  "place_id"
+    t.float    "place_lat"
+    t.float    "place_long"
+    t.string   "place_address"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "replies", force: :cascade do |t|
-    t.integer  "task_id",       limit: 4
-    t.integer  "user_id",       limit: 4
-    t.string   "status",        limit: 255
-    t.text     "content",       limit: 65535
-    t.string   "billable_type", limit: 255
-    t.integer  "billable_id",   limit: 4
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.integer  "task_id"
+    t.integer  "user_id"
+    t.string   "status"
+    t.text     "content"
+    t.string   "billable_type"
+    t.integer  "billable_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "services", force: :cascade do |t|
-    t.integer  "profile_id", limit: 4
-    t.string   "title",      limit: 255
-    t.integer  "price",      limit: 4
-    t.string   "price_type", limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "profile_id"
+    t.string   "title"
+    t.integer  "price"
+    t.string   "price_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sms_confirmations", force: :cascade do |t|
-    t.string   "token",        limit: 255
-    t.string   "phone",        limit: 255
-    t.string   "code",         limit: 255
-    t.boolean  "accepted",                 default: false
-    t.integer  "attempts",     limit: 4,   default: 0
+    t.string   "token"
+    t.string   "phone"
+    t.string   "code"
+    t.boolean  "accepted",     default: false
+    t.integer  "attempts",     default: 0
     t.datetime "last_sent_at"
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "specializations", force: :cascade do |t|
-    t.integer  "profile_id",  limit: 4
-    t.integer  "category_id", limit: 4
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.integer  "profile_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string   "title",         limit: 255,                   null: false
-    t.integer  "category_id",   limit: 4,                     null: false
-    t.integer  "user_id",       limit: 4,                     null: false
-    t.string   "price_type",    limit: 255,                   null: false
-    t.string   "price_scale",   limit: 255
-    t.integer  "price_exact",   limit: 4
-    t.integer  "price_from",    limit: 4
-    t.integer  "price_to",      limit: 4
-    t.integer  "place_id",      limit: 4
-    t.float    "place_lat",     limit: 24
-    t.float    "place_long",    limit: 24
-    t.string   "place_address", limit: 255
-    t.string   "date_type",     limit: 255,                   null: false
-    t.integer  "date_actual",   limit: 4
+    t.string   "title",                         null: false
+    t.integer  "category_id",                   null: false
+    t.integer  "user_id",                       null: false
+    t.string   "price_type",                    null: false
+    t.string   "price_scale"
+    t.integer  "price_exact"
+    t.integer  "price_from"
+    t.integer  "price_to"
+    t.integer  "place_id"
+    t.float    "place_lat"
+    t.float    "place_long"
+    t.string   "place_address"
+    t.string   "date_type",                     null: false
+    t.integer  "date_actual"
     t.datetime "date_from"
     t.datetime "date_to"
-    t.string   "contract_type", limit: 255
-    t.text     "description",   limit: 65535
+    t.string   "contract_type"
+    t.text     "description"
     t.boolean  "notify_email"
-    t.boolean  "visible",                     default: true
+    t.boolean  "visible",       default: true
     t.boolean  "archive"
-    t.boolean  "colored",                     default: false
-    t.string   "billable_type", limit: 255
-    t.integer  "billable_id",   limit: 4
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.boolean  "colored",       default: false
+    t.string   "billable_type"
+    t.integer  "billable_id"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "user_billing_logs", force: :cascade do |t|
-    t.float    "sum",           limit: 24
-    t.integer  "user_id",       limit: 4
-    t.string   "billable_type", limit: 255
-    t.integer  "billable_id",   limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.float    "sum"
+    t.integer  "user_id"
+    t.string   "billable_type"
+    t.integer  "billable_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "user_permissions", force: :cascade do |t|
-    t.text     "data",       limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.integer  "user_id",    limit: 4
+    t.text     "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "",  null: false
-    t.string   "encrypted_password",     limit: 255, default: "",  null: false
-    t.string   "first_name",             limit: 255
-    t.string   "middle_name",            limit: 255
-    t.string   "last_name",              limit: 255
-    t.string   "phone",                  limit: 255
-    t.string   "skype",                  limit: 255
-    t.string   "website",                limit: 255
+    t.string   "email",                  default: "",  null: false
+    t.string   "encrypted_password",     default: "",  null: false
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "last_name"
+    t.string   "phone"
+    t.string   "skype"
+    t.string   "website"
     t.date     "birthday"
-    t.integer  "profile_id",             limit: 4
-    t.integer  "free_tasks_published",   limit: 4,   default: 0,   null: false
-    t.integer  "free_replies_published", limit: 4,   default: 0,   null: false
-    t.float    "balance",                limit: 24,  default: 0.0, null: false
-    t.string   "reset_password_token",   limit: 255
+    t.integer  "profile_id"
+    t.integer  "free_tasks_published",   default: 0,   null: false
+    t.integer  "free_replies_published", default: 0,   null: false
+    t.float    "balance",                default: 0.0, null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,   null: false
+    t.integer  "sign_in_count",          default: 0,   null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
-    t.datetime "created_at",                                       null: false
-    t.datetime "updated_at",                                       null: false
-    t.string   "photo",                  limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.string   "photo"
     t.boolean  "phone_confirmed"
   end
 
@@ -325,11 +344,11 @@ ActiveRecord::Schema.define(version: 20170412174305) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "vacancies", force: :cascade do |t|
-    t.string  "title",             limit: 255
-    t.text    "small_description", limit: 65535
-    t.text    "description",       limit: 65535
-    t.integer "position",          limit: 4
-    t.boolean "archive",                         default: false
+    t.string  "title"
+    t.text    "small_description"
+    t.text    "description"
+    t.integer "position"
+    t.boolean "archive",           default: false
   end
 
 end

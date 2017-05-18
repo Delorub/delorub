@@ -5,9 +5,9 @@
 #  id               :integer          not null, primary key
 #  level            :integer
 #  code             :integer
-#  name             :string(255)
-#  full_name        :string(255)
-#  alt_name         :string(255)
+#  name             :string
+#  full_name        :string
+#  alt_name         :string
 #  after_place_name :boolean
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
