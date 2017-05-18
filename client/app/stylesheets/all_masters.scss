@@ -3,11 +3,23 @@
         &-row {
             border-top: $border;
             &-category {
+                &-content {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+                border-right: $border;
+                margin-right: -2px;
                 display: inline-block;
                 width: 12.21%;
-                height: 100%;
+                height: 50px;
                 padding: 10px 0;
                 vertical-align: middle;
+                position: relative;
+                &:last-child {
+                    border-right: none;
+                }
             }
         }
     }
@@ -49,12 +61,16 @@
             margin-left: 15px;
         }        
     }
-    &-stars {
-        cursor: pointer;
+    &-stars {        
         span.glyphicon {
+            cursor: pointer;
             font-size: 1.4rem;
-            &:hover {
+            padding-left: 3px;
+            &:hover ~ span.glyphicon {
                 opacity: 0.5;
+            }
+            &:first-child {
+                padding-left: 0;
             }
         }
         span.glyphicon-star {
@@ -98,6 +114,7 @@
     color: white;
     background-color: #25c0ec;
     position: relative;
+    //margin-left: -2px;
     &:after {
         content: '';
         border: 8px solid transparent;
@@ -107,7 +124,7 @@
         margin-left: -8px;
         bottom: -16px;
         width: 0;
-    }
+    }    
 }
 
 /*
