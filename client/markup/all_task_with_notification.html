@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Delorub</title>
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta property="og:image" content="path/to/image.jpg">
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/images/favicon/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-touch-icon-114x114.png">
+    <link rel="stylesheet" href="website-bundle.css">
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#000">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#000">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#000">    
+  
+  </head>
+  <body>
+    <div class="container">
+      <div class="row row-eq-height">
+        <div class="col-sm-11 col-sm-push-1 dr-content">
+          <main class="content">
+            <nav role="navigation" class="navbar navbar-default dr-top-nav dr-top-nav-pages navbar-static-top">
+              <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#"><img src="/images/design/logo.png" alt=""></a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav">
+                    <li><a href="#">Новости</a></li>
+                    <li><a href="#">Все задания</a></li>
+                    <li><a href="#">Все мастера</a></li>
+                    <li><a href="#">Как стать мастером</a></li>
+                    <li><a href="#">Как это работает?</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav right">
+                    <li><a href="#" class='dr-top-nav-icon icon-search'></a></li>
+                    <li><a href="#" class='dr-top-nav-icon icon-koll_active'></a></li>
+                    <li><a href="#">Александр Ермолаев</a></li>
+                    <li><a href="#" class='dr-top-nav-icon icon-avtoriz'></a></li>
+                  </ul>
+                </div><!-- /.navbar-collapse -->
+              </div><!-- /.container-fluid -->
+            </nav>
+            <div class="dr-container">
+              <div class="dr-header-span dr-header-span-complete">
+                <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
+                <p>
+                  Спасибо. <p class="dr-header-span-unmarked">&nbsp;Регистрация прошла успешно.<p>                  
+                </p>                
+              </div>
+              <div class="dr-header-span dr-header-span-error">
+                <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+                <p>
+                  Ошибка. <p class="dr-header-span-unmarked">&nbsp;Регистрация не завершена.<p>                  
+                </p>                
+              </div>
+              <div class="row">
+
+                <div class="col-sm-12 col-md-8">
+
+                  <div class="row">
+
+                    <div class="col-md-5">
+                      <div class="dr-header-span without-border">
+                        <p>
+                          Все <p class="dr-header-span-unmarked">&nbsp;задания<p>                 
+                        </p>
+                        <a href="#openDropdown" class="">
+                          <span class="dr-dropdown-arrow-bottom">
+                            <b></b>
+                          </span>
+                          <!--<span class="dr-dropdown-arrow-top">
+                            <b></b>
+                          </span>-->
+                        </a>
+                      </div> 
+                    </div>
+
+                    <div class="col-md-7 dr-all-task-subdivision">
+
+                      <h3>Организация мероприятий</h3>
+                      <span>Оформление помещений</span>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="col-sm-12 col-md-4 dr-all-task-categories">
+
+                  <a href="#openModal">
+                    <button type="button" class="btn dr-button-empty">Категории заданий</button>
+                  </a>                 
+
+                </div>
+
+              </div>
+
+              <div id="openDropdown" class="dr-dropdown">
+                <div class="row">
+
+                  <div class="col-md-12">
+                    <a href="#close" title="Закрыть" class="close">X</a>
+                    <div class="dr-dropdown-content">
+                      <a href="#">Мои задания</a>
+                      <a href="#" class="lastRow">Подходящие задания</a>                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="openModal" class="row modal-categories">                
+
+                <div class="col-md-12 padding-none">
+                  <div  class="modal-categories-content">
+
+                    <a href="#close" title="Закрыть" class="close">X</a>
+
+                    <div class="row margin-none">
+                      <div class="col-md-12 padding-none modal-categories-content-header">
+                        <button type="button" class="btn dr-button-blueFull">Все задания</button>
+                        <button type="button" class="btn dr-button-blue">Мои задания</button>
+                        <button type="button" class="btn dr-button-blue">Подходящие задания</button>
+                      </div>
+                    </div>
+                    <div class="dr-bottom-service">
+                      <div class="row">
+                        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                          <a href="#" class="dr-bottom-service-heading">
+                            <img class="img-responsive" src="/images/icons/hammer.png" alt="">
+                            <span>Ремонт</span>
+                          </a>
+                        </div>
+                        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                          <a href="#" class="dr-bottom-service-heading">
+                            <img class="img-responsive" src="/images/icons/broom.png" alt="">
+                            <span>Уборка</span>
+                          </a>
+                        </div>
+                        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                          <a href="#" class="dr-bottom-service-heading">
+                            <img class="img-responsive" src="/images/icons/student.png" alt="">
+                            <span>Образование</span>
+                          </a>
+                        </div>
+                        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                          <a href="#" class="dr-bottom-service-heading">
+                            <img class="img-responsive" src="/images/icons/cargo.png" alt="">
+                            <span>Грузоперевозки</span>
+                          </a>
+                        </div>
+
+                        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                          <a href="#" class="dr-bottom-service-heading">
+                            <img class="img-responsive" src="/images/icons/pomade.png" alt="">
+                            <span>Красота и здоровье</span>
+                          </a>
+                        </div>
+                        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                          <a href="#" class="dr-bottom-service-heading">
+                            <img class="img-responsive" src="/images/icons/vape.png" alt="">
+                            <span>Вейпинг</span>
+                          </a>
+                        </div>
+                        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                          <a href="#" class="dr-bottom-service-heading">
+                            <img class="img-responsive" src="/images/icons/cooking.png" alt="">
+                            <span>Кейтеринг и кулинария</span>
+                          </a>
+                        </div>
+                        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                          <a href="#" class="dr-bottom-service-heading">
+                            <img class="img-responsive" src="/images/icons/sport.png" alt="">
+                            <span>Спорт и туризм</span>
+                          </a>
+                        </div>
+                        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                          <a href="#" class="dr-bottom-service-heading">
+                            <img class="img-responsive" src="/images/icons/laptop.png" alt="">
+                            <span>Интернет-услуги</span>
+                          </a>
+                        </div>
+                        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                          <a href="#" class="dr-bottom-service-heading">
+                            <img class="img-responsive" src="/images/icons/cleaner.png" alt="">
+                            <span>Домашний персонал</span>
+                          </a>
+                        </div>
+
+                        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                          <a href="#" class="dr-bottom-service-heading">
+                            <img class="img-responsive" src="/images/icons/photo.png" alt="">
+                            <span>Фото и видеосъемка</span>
+                          </a>
+                        </div>
+                        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                          <a href="#" class="dr-bottom-service-heading">
+                            <img class="img-responsive" src="/images/icons/law.png" alt="">
+                            <span>Юридическая помощь</span>
+                          </a>
+                        </div>
+                        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                          <a href="#" class="dr-bottom-service-heading">
+                            <img class="img-responsive" src="/images/icons/animal.png" alt="">
+                            <span>Уход за животными</span>
+                          </a>
+                        </div>
+                        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                          <a href="#" class="dr-bottom-service-heading">
+                            <img class="img-responsive" src="/images/icons/cocktail.png" alt="">
+                            <span>Организация мероприятий</span>
+                          </a>
+                        </div>
+                        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                          <a href="#" class="dr-bottom-service-heading">
+                            <img class="img-responsive" src="/images/icons/horse.png" alt="">
+                            <span>Тату, пирсинг</span>
+                          </a>
+                        </div>
+                        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                          <a href="#" class="dr-bottom-service-heading">
+                            <img class="img-responsive" src="/images/icons/fix.png" alt="">
+                            <span>Разное</span>
+                          </a>
+                        </div>
+
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="profileRefinement dr-all-task">
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="checkbox">
+                      <label>Ведущие и звёзды</label>
+                    </div>
+                    <div class="checkbox marked">
+                      <label>Оформление помещений</label>
+                    </div>
+                    <div class="checkbox">
+                      <label>Организация детских праздников</label>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="checkbox">
+                      <label>Музыкальное сопровождение</label>
+                    </div>
+                    <div class="checkbox">
+                      <label>Организация питания</label>
+                    </div>
+                    <div class="checkbox">
+                      <label>Фотографы</label>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="checkbox">
+                      <label>Видеооператоры</label>
+                    </div>
+                    <div class="checkbox">
+                      <label>Праздник под ключ</label>
+                    </div>
+                    <div class="checkbox">
+                      <label>Другие ивент услуги</label>
+                    </div>
+                  </div>
+                </div>                
+              </div>
+
+              <div class="row row-eq-height dr-all-task-container">
+
+                <div class="col-md-2 padding-none">                  
+                  <div class="dr-one-ticket-ticket-avatar">
+                    <div class="dr-vacancy-content-avatar-roundInner">
+                      <a href="#" class='dr-top-nav-icon icon-avtoriz'></a>
+                    </div>
+                  </div>
+                  <br/>
+                  <div class="dr-one-ticket-ticket-name">
+                    <p>Александр <br/> Ермолаев</p>
+                  </div>
+                  <div class="dr-one-ticket-ticket-rating">
+                    <br/>
+                    <br/>
+                    <span class="gray-text-light">Рейтинг</span>
+                    <br/>
+                    <span>41775</span>
+                  </div>
+                </div>                
+                <div class="col-md-5 dr-one-ticket-ticket-content without-border gray-text">
+                  <span class="content-header">Перевод с русского на немецкий</span>
+                  <span class="content-header-sub">Разное / Работа с текстом, копирайтинг, переводы</span>
+                  <p>
+                    Необходимо сделать перевод текстов туристической тематики. 
+                    Сроки выполнения - до завтрашней ночи/раннего утра воскресенья.
+                    Оплата - 120 рублей за 1000 символов... <a class="dr-news-content-show-all">Показать всё</a>
+                  </p>                 
+
+                  <div class="dr-all-task-adress">
+                    <p>
+                      <span class="gray-text-light">Адрес:</span> Виртуальное задание
+                    </p>
+                  </div>                  
+                </div>
+                <div class="col-md-3 dr-all-task-button-div">
+                  <span class="dr-header-span-price">3 000 <span class="glyphicon glyphicon-ruble" aria-hidden="true"></span></span>
+                  <div class="dr-one-ticket-discussion-quote">
+                    <button type="button" class="btn dr-button-blue">Откликнуться на задание</button>
+                  </div>                  
+                </div>
+                <div class="col-md-2 padding-none">
+                  <div class="dr-one-ticket-refinement dr-all-task">
+                    <span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>
+                    <p class="gray-text-light">Актуально<br/>до</p>
+                    <span>20.01.2017</span>                   
+                  </div>
+                  <div class="dr-one-ticket-refinement dr-all-task without-border">
+                    <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
+                    <p class="gray-text-light">Удобное<br/>время</p>
+                    <span>18:30</span>                    
+                  </div>                  
+                </div>                
+              </div>
+
+              <div class="row row-eq-height dr-all-task-container">
+
+                <div class="col-md-2 padding-none">                  
+                  <div class="dr-one-ticket-ticket-avatar">
+                    <div class="dr-vacancy-content-avatar-roundInner">
+                      <a href="#" class='dr-top-nav-icon icon-avtoriz'></a>
+                    </div>
+                  </div>
+                  <br/>
+                  <div class="dr-one-ticket-ticket-name">
+                    <p>Александр <br/> Ермолаев</p>
+                  </div>
+                  <div class="dr-one-ticket-ticket-rating">
+                    <br/>
+                    <br/>
+                    <span class="gray-text-light">Рейтинг</span>
+                    <br/>
+                    <span>41775</span>
+                  </div>
+                </div>                
+                <div class="col-md-5 dr-one-ticket-ticket-content without-border gray-text">
+                  <span class="content-header">Перевод с русского на немецкий</span>
+                  <span class="content-header-sub">Разное / Работа с текстом, копирайтинг, переводы</span>
+                  <p>
+                    Необходимо сделать перевод текстов туристической тематики. 
+                    Сроки выполнения - до завтрашней ночи/раннего утра воскресенья.
+                    Оплата - 120 рублей за 1000 символов... <a class="dr-news-content-show-all">Показать всё</a>
+                  </p>                 
+
+                  <div class="dr-all-task-adress">
+                    <p>
+                      <span class="gray-text-light">Адрес:</span> Виртуальное задание
+                    </p>
+                  </div>                  
+                </div>
+                <div class="col-md-3 dr-all-task-button-div">
+                  <span class="dr-header-span-price">3 000 <span class="glyphicon glyphicon-ruble" aria-hidden="true"></span></span>
+                  <div class="dr-one-ticket-discussion-quote">
+                    <button type="button" class="btn dr-button-blue">Откликнуться на задание</button>
+                  </div>                  
+                </div>
+                <div class="col-md-2 padding-none">
+                  <div class="dr-one-ticket-refinement dr-all-task">
+                    <span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>
+                    <p class="gray-text-light">Актуально<br/>до</p>
+                    <span>20.01.2017</span>                   
+                  </div>
+                  <div class="dr-one-ticket-refinement dr-all-task without-border">
+                    <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
+                    <p class="gray-text-light">Удобное<br/>время</p>
+                    <span>18:30</span>                    
+                  </div>                  
+                </div>                
+              </div>
+
+              <div class="row row-eq-height dr-all-task-container">
+
+                <div class="col-md-2 padding-none">                  
+                  <div class="dr-one-ticket-ticket-avatar">
+                    <div class="dr-vacancy-content-avatar-roundInner">
+                      <a href="#" class='dr-top-nav-icon icon-avtoriz'></a>
+                    </div>
+                  </div>
+                  <br/>
+                  <div class="dr-one-ticket-ticket-name">
+                    <p>Александр <br/> Ермолаев</p>
+                  </div>
+                  <div class="dr-one-ticket-ticket-rating">
+                    <br/>
+                    <br/>
+                    <span class="gray-text-light">Рейтинг</span>
+                    <br/>
+                    <span>41775</span>
+                  </div>
+                </div>                
+                <div class="col-md-5 dr-one-ticket-ticket-content without-border gray-text">
+                  <span class="content-header">Перевод с русского на немецкий</span>
+                  <span class="content-header-sub">Разное / Работа с текстом, копирайтинг, переводы</span>
+                  <p>
+                    Необходимо сделать перевод текстов туристической тематики. 
+                    Сроки выполнения - до завтрашней ночи/раннего утра воскресенья.
+                    Оплата - 120 рублей за 1000 символов... <a class="dr-news-content-show-all">Показать всё</a>
+                  </p>                 
+
+                  <div class="dr-all-task-adress">
+                    <p>
+                      <span class="gray-text-light">Адрес:</span> Виртуальное задание
+                    </p>
+                  </div>                  
+                </div>
+                <div class="col-md-3 dr-all-task-button-div">
+                  <span class="dr-header-span-price">3 000 <span class="glyphicon glyphicon-ruble" aria-hidden="true"></span></span>
+                  <div class="dr-one-ticket-discussion-quote">
+                    <button type="button" class="btn dr-button-blue">Откликнуться на задание</button>
+                  </div>                  
+                </div>
+                <div class="col-md-2 padding-none">
+                  <div class="dr-one-ticket-refinement dr-all-task">
+                    <span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>
+                    <p class="gray-text-light">Актуально<br/>до</p>
+                    <span>20.01.2017</span>                   
+                  </div>
+                  <div class="dr-one-ticket-refinement dr-all-task without-border">
+                    <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
+                    <p class="gray-text-light">Удобное<br/>время</p>
+                    <span>18:30</span>                    
+                  </div>                  
+                </div>                
+              </div>
+
+              <div class="row row-eq-height dr-all-task-container">
+
+                <div class="col-md-2 padding-none">                  
+                  <div class="dr-one-ticket-ticket-avatar">
+                    <div class="dr-vacancy-content-avatar-roundInner">
+                      <a href="#" class='dr-top-nav-icon icon-avtoriz'></a>
+                    </div>
+                  </div>
+                  <br/>
+                  <div class="dr-one-ticket-ticket-name">
+                    <p>Александр <br/> Ермолаев</p>
+                  </div>
+                  <div class="dr-one-ticket-ticket-rating">
+                    <br/>
+                    <br/>
+                    <span class="gray-text-light">Рейтинг</span>
+                    <br/>
+                    <span>41775</span>
+                  </div>
+                </div>                
+                <div class="col-md-5 dr-one-ticket-ticket-content without-border gray-text">
+                  <span class="content-header">Перевод с русского на немецкий</span>
+                  <span class="content-header-sub">Разное / Работа с текстом, копирайтинг, переводы</span>
+                  <p>
+                    Необходимо сделать перевод текстов туристической тематики. 
+                    Сроки выполнения - до завтрашней ночи/раннего утра воскресенья.
+                    Оплата - 120 рублей за 1000 символов... <a class="dr-news-content-show-all">Показать всё</a>
+                  </p>                 
+
+                  <div class="dr-all-task-adress">
+                    <p>
+                      <span class="gray-text-light">Адрес:</span> Виртуальное задание
+                    </p>
+                  </div>                  
+                </div>
+                <div class="col-md-3 dr-all-task-button-div">
+                  <span class="dr-header-span-price">3 000 <span class="glyphicon glyphicon-ruble" aria-hidden="true"></span></span>
+                  <div class="dr-one-ticket-discussion-quote">
+                    <button type="button" class="btn dr-button-blue">Откликнуться на задание</button>
+                  </div>                  
+                </div>
+                <div class="col-md-2 padding-none">
+                  <div class="dr-one-ticket-refinement dr-all-task">
+                    <span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>
+                    <p class="gray-text-light">Актуально<br/>до</p>
+                    <span>20.01.2017</span>                   
+                  </div>
+                  <div class="dr-one-ticket-refinement dr-all-task without-border">
+                    <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
+                    <p class="gray-text-light">Удобное<br/>время</p>
+                    <span>18:30</span>                    
+                  </div>                  
+                </div>                
+              </div>
+
+
+
+
+
+
+
+
+              <div class="lastRow">
+                <button type="button" class="btn dr-button-empty">Показать еще</button>
+              </div>              
+            </div>
+
+            <div class="dr-bottom-menu">
+              <nav>
+                <ul>
+                  <li><a href="#">Главная</a></li>
+                  <li><a href="#">О проекте делоруб</a></li>
+                  <li><a href="#">Как это работает?</a></li>
+                  <li><a href="#">Как стать мастером?</a></li>
+                  <li><a href="#">Это интересно</a></li>
+                  <li><a href="#">Контакты компании</a></li>
+                  <li><a href="#">О компании</a></li>
+                  <li><a href="#">Помощь</a></li>
+                </ul>
+              </nav>
+            </div>
+          </main>
+        </div>
+        <div class="col-sm-1 col-sm-pull-11 dr-side-menu">
+          <br/>
+          <br/>
+          <a href="#" class="gamburg-menu icon-gamb_menu"></a>
+          <div class="totalz">
+            <a href="#"><span class="n1">10</span><span class="txa">Мои<br/> задания</span></a>
+          </div>
+          <nav>
+            <ul class="left_menu">
+              <li><a href="#"><span class="icon_top icon-add"></span>Создать<br/> задание</a></li>
+              <li><a href="#"><span class="icon_top icon-zadacha"></span>Создать<br/> анкету</a></li>
+              <li><a href="#"><span class="icon_top icon-setups"></span>Мои<br/> настройки</a></li>
+              <li><a href="#"><span class="icon_top icon-cart"></span>Мои<br/> покупки</a></li>
+            </ul>
+          </nav>
+          <div class="year">© 2017</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="website-bundle.js"></script>
+  </body>
+</html>

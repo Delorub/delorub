@@ -553,7 +553,21 @@ ul.left_menu {
     font-size: 2rem;
     background-color: #eeffee;
     padding: 23px 40px 28px 40px;
+    .glyphicon {
+        padding-right: 20px;
+        font-size: 2.5rem;
+        color: #32b161;
+    }
 }
+
+.dr-header-span-error {
+    @extend .dr-header-span-complete;
+    background-color: #ffd6d6;
+    .glyphicon {        
+        color: #954444;
+    }
+}
+
 .dr-button-empty {
     text-transform: uppercase;
     color: darken(#b7b7b7, 30%);
@@ -564,31 +578,32 @@ ul.left_menu {
     border-radius: $borderRadius;
 }
 
-.dr-button-blueFull {
-    text-transform: uppercase;
-    color: white;
-    margin: 30px 0;
-    background-color: #25c0ec;
+.dr-button-blue {
+    @extend .dr-button-empty; 
     padding: 10px 20px;
-    border: 2px solid #25c0ec;
-    border-radius: $borderRadius;
-
+    border: 2px solid #25c0ec;    
+    font-weight: bold;
     &:hover {
         border: 2px solid lighten(#25c0ec, 20%);
+        color: lighten(#6b6b6b, 20%);
+    }
+}
+
+.dr-button-blueFull {
+    @extend .dr-button-blue;    
+    color: white;    
+    background-color: #25c0ec;
+    &:hover {        
         background-color: lighten(#25c0ec, 20%);
         color: white;
     }
 }
 
 .dr-button-warning {
-    text-transform: uppercase;
-    color: white;
-    margin: 30px 0;
-    background-color: #eda431;
-    padding: 10px 20px;
+    @extend .dr-button-blue;
+    color: white;    
+    background-color: #eda431;    
     border: 2px solid #eea236;
-    border-radius: $borderRadius;
-
     &:hover {
         border-color: lighten(#eea236, 20%);
         background-color: lighten(#eda431, 20%);
@@ -597,14 +612,10 @@ ul.left_menu {
 }
 
 .dr-button-succsess {
-    text-transform: uppercase;
-    color: white;
-    margin: 30px 0;
-    background-color: #4ccd6a;
-    padding: 10px 20px;
+    @extend .dr-button-blue;
+    color: white;    
+    background-color: #4ccd6a;    
     border: 2px solid #3dba5a;
-    border-radius: $borderRadius;
-
     &:hover {
         border-color: lighten(#3dba5a, 20%);
         background-color: lighten(#4ccd6a, 20%);
@@ -613,14 +624,10 @@ ul.left_menu {
 }
 
 .dr-button-danger {
-    text-transform: uppercase;
-    color: white;
-    margin: 30px 0;
-    background-color: #fa607e;
-    padding: 10px 20px;
+    @extend .dr-button-blue;
+    color: white;    
+    background-color: #fa607e;    
     border: 2px solid #f3516f;
-    border-radius: $borderRadius;
-
     &:hover {
         border-color: lighten(#f3516f, 20%);
         background-color: lighten(#fa607e, 20%);
@@ -628,27 +635,12 @@ ul.left_menu {
     }
 }
 
-.dr-button-blue {
-    text-transform: uppercase;
-    color: darken(#b7b7b7, 30%);
-    margin: 30px 0;
-    background-color: white;
-    padding: 10px 20px;
-    border: 2px solid #25c0ec;
-    border-radius: $borderRadius;
-    font-weight: bold;
-
-    &:hover {
-        border: 2px solid lighten(#25c0ec, 20%);
-        color: lighten(#6b6b6b, 20%);
-    }
-}
 .padding-none {
     padding: 0 !important;
 }
 
 .margin-none {
-    margin: 0;
+    margin: 0 !important;
 }
 
 .content-header {

@@ -50,9 +50,12 @@
         }        
     }
     &-stars {
-        span.glyphicon {            
-            cursor: pointer;
+        cursor: pointer;
+        span.glyphicon {
             font-size: 1.4rem;
+            &:hover {
+                opacity: 0.5;
+            }
         }
         span.glyphicon-star {
             @extend .glyphicon;

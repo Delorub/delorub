@@ -16,7 +16,7 @@
     &-date {
         input {
             width: 100%;
-            padding: 6px 15px;
+            padding: 7px 15px;
         }
     }
     &-budget {
@@ -76,6 +76,9 @@
             margin-right: 30px;
             display: inline-block;
         }*/
+    }
+    input[type=text] {
+        padding: 18px 15px;
     }
     &-photo {
         button {
