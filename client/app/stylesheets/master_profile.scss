@@ -135,8 +135,44 @@
     left: 0;    
     &-content {
         margin: 50px auto;
+        @extend .padding-none;
         width: 60%;
         background-color: #fff;
+        > .row {
+            @extend .margin-none;
+            > .col-md-2 {
+                @extend .padding-none;
+            }
+        }
+        &-yourcomment {
+            padding: 20px;
+            background-color: #f3fdf9;
+            &-textarea {
+                background-color: #d8f4e9;
+                border-radius: $borderRadius;
+                &-button {
+                    float: right;
+                    position: relative;                    
+                    display: inline-block;
+                    margin-top: -140px;
+                    margin-right: 7%;
+                    p {
+                        color: #99c5b4;
+                    }
+                }
+                > textarea {
+                    border-radius: $borderRadius;
+                    resize: none;
+                    padding: 15px;
+                    width: 70%;
+                }
+                > span.gray-text-light {
+                    margin-top: -25px;
+                    position: absolute;
+                    right: 40%;
+                }
+            }
+        }
         &-comment {
             text-align: left;
             padding: 10px;
@@ -177,22 +213,17 @@
 }
 
 .close-image {
-    background: #606061;
+    background: black;
+    opacity: 0.8;
     color: #FFFFFF;
-    line-height: 25px;
+    line-height: 40px;
     position: absolute;
-    right: -12px;
-    text-align: center;
-    top: -10px;
-    width: 24px;
-    text-decoration: none;
-    font-weight: bold;
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
-    border-radius: 12px;
-    -moz-box-shadow: 1px 1px 3px #000;
-    -webkit-box-shadow: 1px 1px 3px #000;
-    box-shadow: 1px 1px 3px #000;
+    right: 20%;
+    text-align: center;    
+    width: 40px;
+    height: 40px;
+    text-decoration: none;    
+    font-size: 2rem;
     &:hover {
         background: #00d9ff;
     }
