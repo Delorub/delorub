@@ -45,37 +45,11 @@
             font-size: 1.8rem;
             font-weight: bold;
         }
-        /*&-placeholder {
-            z-index: 100;
-            left: 15px;
-            cursor: text;
-            position: absolute;
-            top: 15px;
-            width: 100%;
-            display: none;
-            color: #333333;
-            font-size: 1.8rem;
-            font-weight: bold;
-        }*/
-        .glyphicon {
-            //top: 3px;
+        
+        .glyphicon {            
             font-weight: normal;            
         }        
-        /*
-        &-placeinput > input:invalid + span.dr-task-budget-placeholder {
-            display: inline;
-        }
-        &-placeinput {
-            position: relative;
-            overflow: hidden;
-            margin-bottom: 0px;
-            font-weight: normal;
-        }
-        &-placeholder span {
-            float: right;
-            margin-right: 30px;
-            display: inline-block;
-        }*/
+        
     }
     input[type=text] {
         padding: 18px 15px;
@@ -107,8 +81,7 @@
     }
     text-align: left;
     .input-label {
-        font-weight: bold;
-        font-size: 1.4rem;
+        @extend .bold-text;
     }
 }
 .slider{

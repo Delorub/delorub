@@ -44,9 +44,7 @@
         }
         span {
             &:first-child {
-                //margin-left: 10px;
-                font-weight: bold;
-                font-size: 1.4rem;
+                @extend .bold-text;
             }
         }
         input[type=text] {
@@ -96,11 +94,11 @@
     }
     &-price {
         > span {
-            color: #4c4c4c;
-            font-size: 1.4rem;
-            font-weight: bold;
+            @extend .bold-text;
+            padding-left: 10px;
             &:first-child {
                 font-size: 2.5rem;
+                padding-left: 0;
             }
         }
         span.glyphicon {

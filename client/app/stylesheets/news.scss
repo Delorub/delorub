@@ -34,6 +34,7 @@
         overflow: hidden;
         &-show-all{
             color: lighten(black, 20%);
+            @extend .bold-text-light;
             &:hover {cursor: pointer;}
 
         }

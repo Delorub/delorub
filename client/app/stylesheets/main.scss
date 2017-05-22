@@ -58,6 +58,7 @@ body {
     font-family: $PFDinL;
     overflow-x: hidden;
     text-align: center;
+    letter-spacing: 0.03em;
 }
 
 body.without-sidemenu {
@@ -665,7 +666,11 @@ ul.left_menu {
 .bold-text {
     color: #4c4c4c;
     font-size: 1.4rem;
-    font-weight: bold;
+    font-family: $PFDinMed;
+    &-light {
+        font-weight: 600;
+        letter-spacing: 0.05em;
+    }
 }
 
 .gray-text {
