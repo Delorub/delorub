@@ -12,6 +12,9 @@
         margin-right: 0;
         margin-left: 0;
         border-top: $border;
+        .col-md-4 {
+            position: relative;
+        }
         &:hover {
             box-shadow: $shadowHover;
             button.dr-button-blue {
