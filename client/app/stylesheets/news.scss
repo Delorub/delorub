@@ -46,13 +46,15 @@
         }
         &-tags{
             color: lighten(#b7b7b7, 5%);
-            a{&:hover {cursor: pointer;}}
-
+            a {
+                @extend .bold-text-light;
+                &:hover {cursor: pointer;}
+            }
 
             &-read-more {
                 float: right;
                 margin-right: 10px;
-                color: lighten(black, 20%);
+                @extend .bold-text-light;
             }
         }
     }
