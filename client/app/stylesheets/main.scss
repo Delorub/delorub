@@ -627,13 +627,55 @@ ul.left_menu {
 }
 
 .dr-button-danger {
-    @extend .dr-button-blue;
+    @extend .dr-button-blue;    
     color: white;    
     background-color: #fa607e;    
     border: 2px solid #f3516f;
     &:hover {
         border-color: lighten(#f3516f, 20%);
         background-color: lighten(#fa607e, 20%);
+        color: white;
+    }
+}
+
+.dr-button-vk {
+    @extend .dr-button-blue;
+    width: 80%;
+    margin: 10px 0;
+    color: white;    
+    background-color: #507299;    
+    border: 2px solid #507299;
+    &:hover {
+        border-color: lighten(#507299, 20%);
+        background-color: lighten(#507299, 20%);
+        color: white;
+    }
+}
+
+.dr-button-odnoklassniki {
+    @extend .dr-button-blue;
+    width: 80%;
+    margin: 10px 0;
+    color: white;    
+    background-color: #f58220;    
+    border: 2px solid #f58220;
+    &:hover {
+        border-color: lighten(#f58220, 20%);
+        background-color: lighten(#f58220, 20%);
+        color: white;
+    }
+}
+
+.dr-button-facebook {
+    @extend .dr-button-blue;
+    width: 80%;
+    margin: 10px 0;
+    color: white;    
+    background-color: #5f83d2;    
+    border: 2px solid #5f83d2;
+    &:hover {
+        border-color: lighten(#5f83d2, 20%);
+        background-color: lighten(#5f83d2, 20%);
         color: white;
     }
 }
@@ -689,5 +731,12 @@ ul.left_menu {
     color: #ed6161;
 }
 
+.dr-social {
+    text-align: center;
+}
+
+.dr-login-div {
+    padding: 20px 20px;
+}
 
 @import "media"; // Всегда в конце
