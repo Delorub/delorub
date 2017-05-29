@@ -108,7 +108,7 @@ body.without-sidemenu {
         }
 
         @media (min-width: $screen-sml-min) {
-            font-size: 1rem;
+            font-size: 0.9rem;
 
             li {
                 a {
@@ -122,11 +122,11 @@ body.without-sidemenu {
                 font-size: 14px;
             }
 
-            font-size: 1.1rem;
+            font-size: 1rem;
 
             li {
                 a {
-                    padding: 15px 11px;
+                    padding: 15px 8px;
                 }
             }
         }
@@ -209,7 +209,8 @@ body.without-sidemenu {
 .dr-side-menu {
     box-shadow: 0 -4px 10px 0 rgba(0, 0, 0, 0.12);
     position: relative;
-    z-index: 2;
+    background-color: #fff;
+    z-index: 999;
     padding: 0px;
 
     .gamburg-menu {
@@ -678,6 +679,60 @@ ul.left_menu {
         background-color: lighten(#5f83d2, 20%);
         color: white;
     }
+}
+
+.dr-search {
+    input[type=search] {
+        -webkit-appearance: textfield;
+        -webkit-box-sizing: content-box;
+        font-family: inherit;
+        font-size: 100%;
+        background: #ededed url(/images/design/search_black.png) no-repeat 9px center;
+        border: solid 1px #ccc;              
+        width: 15px;
+        padding: 12px 14px;
+        color: transparent;
+        cursor: pointer;        
+        border-radius: $borderRadius;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        transition: all 0.5s;
+        opacity: 0;
+        &:focus {
+            border-color: #6dcff6;
+            -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+            -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+            box-shadow: 0 0 5px rgba(109,207,246,.5);
+            width: 50px;
+            padding-left: 32px;
+            color: #4c4c4c;
+            background-color: #fff;
+            cursor: auto;
+            opacity: 1;
+            @media (min-width: $screen-md-min) {
+                width: 75px;
+            }
+            @media (min-width: $screen-lg-min) {
+                width: 100px;
+            }
+            &:-moz-placeholder {
+                color: #4c4c4c;
+            }
+            &::-webkit-input-placeholder {
+                color: #4c4c4c;
+            }
+        }
+    }
+    input::-webkit-search-decoration,
+    input::-webkit-search-cancel-button {
+        display: none;
+    }   
+    input:-moz-placeholder {
+        color: transparent;
+    }
+    input::-webkit-input-placeholder {
+        color: transparent;
+    }    
 }
 
 .padding-none {
