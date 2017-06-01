@@ -31,3 +31,27 @@ RSpec.configure do |config|
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
 end
+
+if ENV['CIRCLE_ARTIFACTS']
+  SimpleCov.coverage_dir "#{ENV['CIRCLE_ARTIFACTS']}/coverage"
+end
+
+SimpleCov.start do
+  add_group 'API', 'app/api'
+  add_group 'Admin', [
+    'app/admin',
+    'app/controllers/concerns/active_admin_shared',
+    'app/helpers/active_admin',
+    'app/renderers/active_admin'
+  ]
+  add_group 'Concerns', 'app/concerns'
+  add_group 'Models', 'app/models'
+  add_group 'Controllers', 'app/controllers'
+  add_group 'Helpers', 'app/helpers'
+  add_group 'Decorators', 'app/draper_decorators'
+  add_group 'Jobs', 'app/jobs'
+  add_group 'Searchers', ['app/searchers', 'app/queries']
+  add_group 'Renderers', ['app/renderers', 'app/cells', 'app/service_objects', 'app/forms']
+  add_group 'Mailers', 'app/mailers'
+  add_group 'Lib', 'app/lib'
+end

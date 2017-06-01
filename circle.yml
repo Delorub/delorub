@@ -4,7 +4,7 @@ dependencies:
   post:
     - bundle exec rake assets:precompile assets:clean
   cache_directories:
-    - "public/assets"
+    - public/assets
 
 database:
   override:
@@ -26,5 +26,3 @@ test:
          - spec/**/*_spec.rb
        environment:
          COVERAGE: true
-  post:
-    - bundle exec rake circleci:coverage
