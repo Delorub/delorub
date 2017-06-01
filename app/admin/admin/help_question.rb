@@ -3,12 +3,10 @@ ActiveAdmin.register HelpQuestion, namespace: :admin do
 
   config.filters = false
 
-  member_action :reply, method: [:get, :put] do
+  member_action :reply, method: %i( get put ) do
     if request.put?
       resource.attributes = params[:help_question].permit(:reply)
-      if resource.save
-        redirect_to resource_path, notice: 'Ответ отправлен!'
-      end
+      return redirect_to resource_path, notice: 'Ответ отправлен!' if resource.save
     end
   end
 
