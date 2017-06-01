@@ -31,15 +31,13 @@ For mac OS:
     npm install
     
     # run redis server
-    redis-server in terminal
+    redis-server
 
     # configure database
     copy database.yml.sample and rename it to database.yml, change credentials to yours
     
     # run 
-    rake db:create
-    rake db:migrate
-    rake db:seed
+    rake db:setup
     
     # start application
     rails s
