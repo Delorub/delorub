@@ -20,7 +20,7 @@
 #  index_categories_on_slug  (slug) UNIQUE
 #
 
-class Category < ActiveRecord::Base
+class Category < ApplicationRecord
   include FriendlyId
   include Searchable::Category
 

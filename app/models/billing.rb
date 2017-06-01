@@ -1,2 +1,2 @@
-class Billing < ActiveRecord::Base
+class Billing < ApplicationRecord
 end

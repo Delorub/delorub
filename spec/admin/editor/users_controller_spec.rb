@@ -71,7 +71,7 @@ describe Editor::UsersController, type: :controller do
 
       it { is_expected.to redirect_to editor_user_path(another_user) }
       it do
-        expect { subject }.not_to change { another_user.reload.permission.superadmin }
+        expect { subject }.not_to(change { another_user.reload.permission.superadmin })
       end
     end
   end

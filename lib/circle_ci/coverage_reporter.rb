@@ -54,7 +54,6 @@ module CircleCi
         end
       end
 
-      # rubocop:disable Metrics/MethodLength
       def report results
         SimpleCov.configure do
           coverage_dir "#{ENV['CIRCLE_ARTIFACTS']}/coverage"

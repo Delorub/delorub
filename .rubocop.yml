@@ -8,6 +8,7 @@ AllCops:
     - 'bin/**/*'
     - 'client/**/*'
     - db/schema.rb
+    - db/seeds.rb
 
 Rails:
   Enabled: true
@@ -15,8 +16,12 @@ Rails:
 Style/MethodDefParentheses:
   EnforcedStyle: require_no_parentheses
 
-Style/AlignParameters:
+Layout/AlignParameters:
   EnforcedStyle: with_fixed_indentation
+
+Style/SymbolArray:
+  Enabled: true
+  EnforcedStyle: brackets
 
 Rails/ActionFilter:
   EnforcedStyle: filter
@@ -38,6 +43,10 @@ Metrics/AbcSize:
   Max: 30
 
 Metrics/BlockLength:
+  ExcludedMethods:
+    - 'describe'
+    - 'context'
+    - 'draw'
   Exclude:
     - 'app/admin/**/*'
     - 'lib/tasks/**/*'
@@ -47,6 +56,7 @@ Metrics/MethodLength:
   Exclude:
     - 'app/controllers/concerns/active_admin_shared/**/*'
     - 'db/migrate/**/*'
+  Max: 40
 
 Style/Documentation:
   Enabled: false
@@ -66,13 +76,13 @@ Lint/UnusedBlockArgument:
 Lint/UnusedMethodArgument:
   Enabled: false
 
-Style/SpaceBeforeBlockBraces:
+Layout/SpaceBeforeBlockBraces:
   Enabled: false
 
-Style/IndentationConsistency:
+Layout/IndentationConsistency:
   Enabled: false
 
-Style/CaseIndentation:
+Layout/CaseIndentation:
   Enabled: false
 
 Rails/HttpPositionalArguments:
@@ -80,9 +90,6 @@ Rails/HttpPositionalArguments:
 
 Style/ClassAndModuleChildren:
   Enabled: false
-
-Style/AlignParameters:
-  EnforcedStyle: with_fixed_indentation
 
 Style/Lambda:
   Enabled: false

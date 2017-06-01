@@ -13,7 +13,7 @@
 #  updated_at       :datetime         not null
 #
 
-class PlaceTypeName < ActiveRecord::Base
+class PlaceTypeName < ApplicationRecord
   def display_name
     if alt_name
       alt_name

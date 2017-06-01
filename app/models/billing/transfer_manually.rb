@@ -10,7 +10,7 @@
 #  updated_at :datetime         not null
 #
 
-class Billing::TransferManually < ActiveRecord::Base
+class Billing::TransferManually < ApplicationRecord
   self.table_name = 'billing_transfer_manually'
 
   include Billing::Base

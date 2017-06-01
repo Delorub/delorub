@@ -13,7 +13,7 @@
 #  updated_at    :datetime         not null
 #
 
-class Reply < ActiveRecord::Base
+class Reply < ApplicationRecord
   include Searchable::Reply
 
   belongs_to :task

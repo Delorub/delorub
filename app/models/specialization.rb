@@ -9,7 +9,7 @@
 #  updated_at  :datetime         not null
 #
 
-class Specialization < ActiveRecord::Base
+class Specialization < ApplicationRecord
   belongs_to :profile
   belongs_to :category
 

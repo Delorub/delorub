@@ -9,7 +9,7 @@
 #  user_id    :integer
 #
 
-class UserPermission < ActiveRecord::Base
+class UserPermission < ApplicationRecord
   PERMISSIONS = {
     admin:
     {

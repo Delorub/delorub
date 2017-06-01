@@ -8,5 +8,5 @@
 #  updated_at :datetime         not null
 #
 
-class ContractCategory < ActiveRecord::Base
+class ContractCategory < ApplicationRecord
 end

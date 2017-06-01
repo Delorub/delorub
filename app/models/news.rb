@@ -10,7 +10,7 @@
 #  photo      :string
 #
 
-class News < ActiveRecord::Base
+class News < ApplicationRecord
   include Searchable::News
 
   mount_uploader :photo, NewsPhotoUploader

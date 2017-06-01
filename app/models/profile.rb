@@ -17,7 +17,7 @@
 #  updated_at    :datetime         not null
 #
 
-class Profile < ActiveRecord::Base
+class Profile < ApplicationRecord
   extend Enumerize
 
   belongs_to :user

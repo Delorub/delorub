@@ -11,7 +11,7 @@
 #  updated_at  :datetime         not null
 #
 
-class Billing::ReplySubscription < ActiveRecord::Base
+class Billing::ReplySubscription < ApplicationRecord
   self.table_name = 'billing_reply_subscriptions'
 
   include Billing::Base

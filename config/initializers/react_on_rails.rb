@@ -1,17 +1,16 @@
-# Shown below are the defaults for configuration
 ReactOnRails.configure do |config|
   # Client bundles are configured in application.js
 
   # Directory where your generated assets go. All generated assets must go to the same directory.
   # Configure this in your webpack config files. This relative to your Rails root directory.
-  config.generated_assets_dir = File.join(%w(app assets webpack))
+  config.generated_assets_dir = File.join %w[app assets webpack]
 
   # Define the files we need to check for webpack compilation when running tests.
-  config.webpack_generated_files = %w(website-bundle.js website-bundle.css)
-  config.webpack_generated_files = %w(admin-bundle.js admin-bundle.css)
-  config.webpack_generated_files += %w(contract_app-bundle.js contract_app-bundle.css)
-  config.webpack_generated_files += %w(contract_designer_app-bundle.js contract_designer_app-bundle.css)
-  config.webpack_generated_files += %w(server-bundle.js)
+  config.webpack_generated_files = %w[website-bundle.js website-bundle.css]
+  config.webpack_generated_files = %w[admin-bundle.js admin-bundle.css]
+  config.webpack_generated_files += %w[contract_app-bundle.js contract_app-bundle.css]
+  config.webpack_generated_files += %w[contract_designer_app-bundle.js contract_designer_app-bundle.css]
+  config.webpack_generated_files += %w[server-bundle.js]
 
   # This is the file used for server rendering of React when using `(prerender: true)`
   # If you are never using server rendering, you may set this to "".
@@ -80,5 +79,4 @@ ReactOnRails.configure do |config|
   # For any asset matching this regex, non-digested symlink will be created (what webpack's css wants)
   # To disable symlinks set this parameter to nil.
   config.symlink_non_digested_assets_regex = /\.(png|jpg|jpeg|gif|tiff|woff|ttf|eot|svg|map)/
-
 end

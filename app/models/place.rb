@@ -16,7 +16,7 @@
 #  custom             :boolean
 #
 
-class Place < ActiveRecord::Base
+class Place < ApplicationRecord
   extend Enumerize
   extend ActiveModel::Naming
   include Searchable::Place

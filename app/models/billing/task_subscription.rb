@@ -11,7 +11,7 @@
 #  updated_at  :datetime         not null
 #
 
-class Billing::TaskSubscription < ActiveRecord::Base
+class Billing::TaskSubscription < ApplicationRecord
   self.table_name = 'billing_task_subscriptions'
 
   include Billing::Base

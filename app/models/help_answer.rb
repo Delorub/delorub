@@ -10,7 +10,7 @@
 #  position         :integer
 #
 
-class HelpAnswer < ActiveRecord::Base
+class HelpAnswer < ApplicationRecord
   include Searchable::HelpAnswer
 
   belongs_to :help_category

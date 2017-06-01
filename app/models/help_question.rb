@@ -13,7 +13,7 @@
 #  replied_at :datetime
 #
 
-class HelpQuestion < ActiveRecord::Base
+class HelpQuestion < ApplicationRecord
   validates :name, :email, :content, presence: true
   validates :content, length: { minimum: 8 }
 
@@ -32,7 +32,7 @@ class HelpQuestion < ActiveRecord::Base
 
     def check_reply
       return if reply == '' || !reply_changed?
-      self.replied_at = Time.now
+      self.replied_at = Time.current
       self.answered = true
     end
 end
