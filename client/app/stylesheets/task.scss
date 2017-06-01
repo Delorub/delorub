@@ -1,11 +1,21 @@
 .dr-task {
-    &-name input, &-select, &-budget input[type=text], &-date input {
+    &-name input,&-password input, &-select, &-budget input[type=text], &-date input {
         margin-top: 10px;
         width: 100%;
         padding: 10px 15px;
         border-radius: $borderRadius;
         background-color: transparent;
         color: darken(#b7b7b7, 30%);
+    }
+    &-password {
+        input[type=checkbox] {
+            float: left;
+            display: block;
+            margin-top: 4px;
+            margin-right: 10px;
+            width: inherit;
+            padding: 10px;
+        }
     }
     &-description textarea {
         margin-top: 10px;
@@ -45,13 +55,13 @@
             font-size: 1.8rem;
             font-weight: bold;
         }
-        
+
         .glyphicon {            
             font-weight: normal;            
         }        
-        
+
     }
-    input[type=text] {
+    input[type=text], input[type=password] {
         padding: 18px 15px;
     }
     &-photo {

@@ -38,7 +38,7 @@
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                  <ul class="nav navbar-nav">
+                  <ul class="nav navbar-nav nav-close">
                     <li><a href="#">Новости</a></li>
                     <li><a href="#">Все задания</a></li>
                     <li><a href="#">Все мастера</a></li>
@@ -46,8 +46,30 @@
                     <li><a href="#">Как это работает?</a></li>
                   </ul>
                   <ul class="nav navbar-nav right">
-                    <li><a href="#" class='dr-top-nav-icon icon-search'></a></li>
-                    <li><a href="#" class='dr-top-nav-icon icon-koll_active'></a></li>
+                    <li>
+                      <div id="sb-search" class="sb-search">
+                        <form>
+                          <input class="sb-search-input" placeholder="Поиск" type="text" value="" name="search" id="search">
+                          <input class="sb-search-submit" type="submit" value="">
+                          <span class="sb-icon-search"><a href="#" class='dr-top-nav-icon icon-search dr-search-icon'></a></span>
+                        </form>
+                      </div>                      
+                    </li>
+                    <li><a href="#" class='dr-top-nav-icon icon-search dr-search-icon'></a></li>
+                    <li>
+                      <a href="#" class='dr-top-nav-icon icon-koll_active'></a>
+                      <div class="dropdown-contain">
+                        <div class="drop-out">
+                          <div class="triangle"></div>
+                          <ul>
+                            <li>Уведомление 1</li>
+                            <li><a href="#" class="dropdown-link">Ссылка 1</a></li>
+                            <li>Уведомление 2</li>
+                            <li><a href="#" class="dropdown-link">Ссылка 2</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
                     <li><a href="#">Александр Ермолаев</a></li>
                     <li><a href="#" class='dr-top-nav-icon icon-avtoriz'></a></li>
                   </ul>
@@ -207,6 +229,9 @@
         </div>
       </div>
     </div>
+    <script>
+
+    </script>
     <script src="website-bundle.js"></script>
   </body>
 </html>
