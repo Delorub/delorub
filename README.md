@@ -2,42 +2,36 @@ Welcome to the Delorub!
 
 # Getting started
 
-## Install dependencies
+## Setup
+### Bundler
+To install and run bundler:
 
-For mac OS:
+```
+gem install bundler
+bundle
+```
 
-    # automatic
-    brew install bundle
+If you've got an error with installing rmagick, try `brew install imagemagick@6 && brew link imagemagick@6 --force`
 
-    # for sidekiq
-    brew install redis
-
-    # for nodejs (need to install npm)
-    brew install nodejs
-
-    # npm
-    curl -L https://www.npmjs.org/install.sh | sh
+### Npm
+To install npm packages:
+```
+brew install nodejs
+curl -L https://www.npmjs.org/install.sh | sh
+npm install
+```
     
-    # imagemagick
-    brew install imagemagick
+### Redis
+To install and run redis server(for sidekiq):
+```
+brew install redis
+redis-server
+```
 
-## Setup application
+### Database
+Copy `database.yml.sample` and rename it to `database.yml`, change credentials to yours
 
-    # run bundler
-    bundle
-    If you've got an error with installing rmagick, try brew install imagemagick@6 && brew link imagemagick@6 --force
+Run `rake db:setup`
     
-    # run npm
-    npm install
-    
-    # run redis server
-    redis-server
-
-    # configure database
-    copy database.yml.sample and rename it to database.yml, change credentials to yours
-    
-    # run 
-    rake db:setup
-    
-    # start application
-    rails s
+### Start an application
+`rails s`
