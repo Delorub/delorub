@@ -1,12 +1,18 @@
 dependencies:
   pre:
     - cp config/database.yml.ci config/database.yml
+  post:
+    - bundle exec rake assets:precompile assets:clean
+  cache_directories:
+    - public/assets
 
 database:
   override:
     - bundle exec rake db:create db:schema:load --trace
 
 machine:
+  node:
+    version: 7.1.0
   ruby:
     version: 2.3.1
 
@@ -14,11 +20,9 @@ test:
   pre:
     - bundle exec rubocop
   override:
-    - bundle exec rspec --format progress --out $CIRCLE_TEST_REPORTS/rspec.xml:
+    - bundle exec rspec --format progress:
        parallel: true
        files:
          - spec/**/*_spec.rb
        environment:
          COVERAGE: true
-  post:
-    - bundle exec rake circleci:coverage

@@ -31,7 +31,7 @@
 #  updated_at    :datetime         not null
 #
 
-class Task < ActiveRecord::Base
+class Task < ApplicationRecord
   include Searchable::Task
 
   extend Enumerize

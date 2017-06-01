@@ -7,7 +7,7 @@
 #  position :integer
 #
 
-class HelpCategory < ActiveRecord::Base
+class HelpCategory < ApplicationRecord
   acts_as_list
 
   has_many :help_answers, -> { order(position: :asc) }

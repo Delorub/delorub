@@ -12,7 +12,7 @@
 #  updated_at :datetime         not null
 #
 
-class Billing::ReplyPack < ActiveRecord::Base
+class Billing::ReplyPack < ApplicationRecord
   self.table_name = 'billing_reply_packs'
 
   include Billing::Base

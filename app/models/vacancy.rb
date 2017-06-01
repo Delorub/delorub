@@ -10,7 +10,7 @@
 #  archive           :boolean          default(FALSE)
 #
 
-class Vacancy < ActiveRecord::Base
+class Vacancy < ApplicationRecord
   acts_as_list
 
   validates :title, :small_description, :description, presence: true

@@ -12,6 +12,6 @@ class ContractsController < ApplicationController
       file << pdf
     end
 
-    render pdf: 'filename.pdf', encoding: "UTF-8"
+    render pdf: 'filename.pdf', encoding: 'UTF-8'
   end
 end

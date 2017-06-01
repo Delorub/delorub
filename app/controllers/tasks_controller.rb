@@ -10,7 +10,7 @@ class TasksController < ApplicationController
 
   def new
     @form = TaskForm.new Task.new
-    get_form_from_session
+    form_from_session
     @form.user_id = current_user.id if user_signed_in?
   end
 
@@ -48,8 +48,7 @@ class TasksController < ApplicationController
     def task_params
       params.require(:task).permit(:title, :description, :main_category_id, :category_id, :price_type, :price_exact,
         :price_from, :price_to, :date_type, :date_actual_date, :date_actual_time, :contract_type, :paid_functions,
-        :notifications_type, :place_id, :place_address
-      )
+        :notifications_type, :place_id, :place_address)
     end
 
     def current_url category:
@@ -64,13 +63,13 @@ class TasksController < ApplicationController
       end
     end
 
-    def get_form_from_session
+    def form_from_session
       @form.validate session[form_session_key] if session[form_session_key]
     end
 
     def store_form_to_session
       @form.save do |data|
-        after_authorization = :task
+        after_authorization :task
         session[form_session_key] = data
       end
     end

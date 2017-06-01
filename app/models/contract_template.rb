@@ -10,12 +10,12 @@
 #  updated_at  :datetime         not null
 #
 
-class ContractTemplate < ActiveRecord::Base
+class ContractTemplate < ApplicationRecord
   serialize :markup, ContractTemplateData::Markup
 
   belongs_to :category, class_name: 'ContractCategory'
 
-  #validates :title, :category, presence: true
+  # validates :title, :category, presence: true
 
   def markup= value
     return super value unless value.is_a? ActionController::Parameters

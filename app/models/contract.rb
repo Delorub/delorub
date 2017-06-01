@@ -9,7 +9,7 @@
 #  updated_at  :datetime         not null
 #
 
-class Contract < ActiveRecord::Base
+class Contract < ApplicationRecord
   serialize :data, ContractData
 
   belongs_to :template, class_name: 'ContractTemplate'

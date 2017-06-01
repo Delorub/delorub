@@ -14,7 +14,7 @@
 #  updated_at      :datetime         not null
 #
 
-class Notification < ActiveRecord::Base
+class Notification < ApplicationRecord
   serialize :params, JSON
 
   belongs_to :user, counter_cache: true

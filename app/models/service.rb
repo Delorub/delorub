@@ -11,7 +11,7 @@
 #  updated_at :datetime         not null
 #
 
-class Service < ActiveRecord::Base
+class Service < ApplicationRecord
   extend Enumerize
 
   enumerize :price_type, in: [:one_time, :hour, :day, :month]

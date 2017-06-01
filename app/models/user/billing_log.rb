@@ -11,11 +11,11 @@
 #  updated_at    :datetime         not null
 #
 
-class User::BillingLog < ActiveRecord::Base
-  PACK_TYPES = %w(Billing::TaskPack Billing::ReplyPack).freeze
-  SUBSCRIPTION_TYPES = %w(Billing::TaskSubscription Billing::ReplySubscription).freeze
-  TRANSFER_TYPES = %w(Billing::TransferManually).freeze
-  OTHER_TYPES = %w(Billing::TransferBlog Billing::TransferColor Billing::TransferAutorefresh).freeze
+class User::BillingLog < ApplicationRecord
+  PACK_TYPES = %w[Billing::TaskPack Billing::ReplyPack].freeze
+  SUBSCRIPTION_TYPES = %w[Billing::TaskSubscription Billing::ReplySubscription].freeze
+  TRANSFER_TYPES = %w[Billing::TransferManually].freeze
+  OTHER_TYPES = %w[Billing::TransferBlog Billing::TransferColor Billing::TransferAutorefresh].freeze
 
   belongs_to :user
   belongs_to :billable, polymorphic: true

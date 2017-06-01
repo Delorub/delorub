@@ -13,7 +13,7 @@
 #  updated_at   :datetime         not null
 #
 
-class SmsConfirmation < ActiveRecord::Base
+class SmsConfirmation < ApplicationRecord
   validates :phone, :code, :token, presence: true
 
   before_validation :generate_code

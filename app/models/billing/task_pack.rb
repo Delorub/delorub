@@ -12,7 +12,7 @@
 #  updated_at :datetime         not null
 #
 
-class Billing::TaskPack < ActiveRecord::Base
+class Billing::TaskPack < ApplicationRecord
   self.table_name = 'billing_task_packs'
 
   include Billing::Base

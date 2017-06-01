@@ -1,7 +1,7 @@
 class Api::V10::Searches < Grape::API
   helpers do
     def place_search
-      return popular_places unless params[:query].present?
+      return popular_places if params[:query].blank?
 
       PlaceSearch.new \
         query: params[:query],

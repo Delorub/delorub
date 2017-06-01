@@ -11,7 +11,7 @@
 #  updated_at :datetime         not null
 #
 
-class Page < ActiveRecord::Base
+class Page < ApplicationRecord
   include Searchable::Page
 
   validates :title, :content, :slug, presence: true

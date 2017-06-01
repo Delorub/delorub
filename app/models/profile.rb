@@ -17,7 +17,7 @@
 #  updated_at    :datetime         not null
 #
 
-class Profile < ActiveRecord::Base
+class Profile < ApplicationRecord
   extend Enumerize
 
   belongs_to :user
@@ -27,5 +27,5 @@ class Profile < ActiveRecord::Base
   enumerize :pay_type, in: [:cash, :emoney, :card, :other]
   enumerize :car_type, in: [:passenger, :truck, :none]
 
-  validates :user_id, presence: true, if: :active?
+  # validates :user_id, presence: true, if: :active?
 end

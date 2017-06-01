@@ -17,7 +17,7 @@ class ContractTemplateData::Markup
     {
       questions: questions,
       text: { data: text.data },
-      variables: variables,
+      variables: variables
     }
   end
 

@@ -8,10 +8,10 @@ module Delorub
   class Application < Rails::Application
     config.paths.add 'app/api', glob: '**/*.rb'
 
-    additional_paths = %W(
+    additional_paths = %W[
       #{config.root}/app/models/concerns
       #{config.root}/app/controllers/concerns
-    )
+    ]
     config.autoload_paths += additional_paths
     config.eager_load_paths += additional_paths
 
