@@ -27,5 +27,5 @@ class Profile < ApplicationRecord
   enumerize :pay_type, in: [:cash, :emoney, :card, :other]
   enumerize :car_type, in: [:passenger, :truck, :none]
 
-  validates :user_id, presence: true, if: :active?
+  # validates :user_id, presence: true, if: :active?
 end

@@ -16,7 +16,7 @@ test:
   pre:
     - bundle exec rubocop
   override:
-    - bundle exec rspec --format progress --out $CIRCLE_TEST_REPORTS/rspec.xml:
+    - bundle exec rspec --format progress:
        parallel: true
        files:
          - spec/**/*_spec.rb
