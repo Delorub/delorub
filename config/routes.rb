@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :profiles, only: [:new, :create]
   resources :profiles, only: [:index] do
     collection do
-      get '/:category_id', to: :index, as: :category
+      get '/:category_id', action: :index, as: :category
     end
   end
 
@@ -21,9 +21,9 @@ Rails.application.routes.draw do
   resources :tasks, only: [:new, :create]
   resources :tasks, only: [:index] do
     collection do
-      get '/my(/:category_id)', to: :index, as: :my, defaults: { scope: :my }
-      get '/suggested(/:category_id)', to: :index, as: :suggested, defaults: { scope: :suggested }
-      get '/:category_id', to: :index, as: :category
+      get '/my(/:category_id)', action: :index, as: :my, defaults: { scope: :my }
+      get '/suggested(/:category_id)', action: :index, as: :suggested, defaults: { scope: :suggested }
+      get '/:category_id', action: :index, as: :category
     end
   end
 
