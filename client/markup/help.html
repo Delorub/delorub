@@ -48,7 +48,7 @@
                   <ul class="nav navbar-nav right">
                     <li><a href="#" class='dr-top-nav-icon icon-search'></a></li>
                     <li>
-                      <a href="#open-notification" class='dr-top-nav-icon icon-koll_active'></a>
+                      <a id="open-notification-link" class='dr-top-nav-icon icon-koll_active'></a>
                       <div class="dropdown-contain" id="open-notification">
                         <div class="drop-out">
                           <div class="triangle-white"></div>
@@ -278,19 +278,7 @@
       </div>
     </div>
 
-    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
-    <script>
-      jQuery(function ($) {
-          $(document).mouseup(function (e) { // событие клика по веб-документу
-              var div = $("#open-notification"); // тут указываем ID элемента
-              if (!div.is(e.target) // если клик был не по нашему блоку
-                      && div.has(e.target).length === 0 // и не по его дочерним элементам
-                      && div.css('display') === 'block') { // и блок показывается
-                  div.hide(); // скрываем его
-              }
-          });
-      });
-    </script>
+       
     <script src="website-bundle.js"></script>
   </body>
 </html>

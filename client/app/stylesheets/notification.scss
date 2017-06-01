@@ -2,6 +2,10 @@ ul li.drop {
     position: relative;
 }
 
+#open-notification-link {
+    cursor: pointer;
+}
+
 .dropdown-contain {
     width: 160px;
     position: absolute;
@@ -11,8 +15,8 @@ ul li.drop {
     top: -400px;
     display: none;
     &:target {
-        display: block;
-        pointer-events: auto;
+        //display: block;
+        //pointer-events: auto;
     }
 }
 
