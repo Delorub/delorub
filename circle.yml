@@ -1,6 +1,10 @@
 dependencies:
   pre:
     - cp config/database.yml.ci config/database.yml
+  post:
+    - bundle exec rake assets:precompile assets:clean
+  cache_directories:
+    - "public/assets"
 
 database:
   override:
