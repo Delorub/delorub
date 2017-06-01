@@ -19,12 +19,13 @@ For mac OS:
     curl -L https://www.npmjs.org/install.sh | sh
     
     # imagemagick
-    brew install imagemagick (if you've got an error with installing rmagick, try brew install imagemagick@6 && brew link imagemagick@6 --force)
+    brew install imagemagick
 
 ## Setup application
 
     # run bundler
     bundle
+    If you've got an error with installing rmagick, try brew install imagemagick@6 && brew link imagemagick@6 --force
     
     # run npm
     npm install
