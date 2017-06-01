@@ -13,12 +13,12 @@ bundle
 
 If you've got an error with installing rmagick, try `brew install imagemagick@6 && brew link imagemagick@6 --force`
 
-### Npm and yarn
+### Frontend
 To install packages:
 ```
 brew install nodejs
+brew install yarn
 curl -L https://www.npmjs.org/install.sh | sh
-npm install
 yarn install
 ```
     
