@@ -6,7 +6,7 @@ import DevTools from '../containers/DevTools'
 
 export default class CreateTaskApp extends React.Component {
   render() {
-    const store = ReactOnRails.getStore('profileStore');
+    const store = ReactOnRails.getStore('createProfileStore');
 
     return (
       <Provider store={store}>

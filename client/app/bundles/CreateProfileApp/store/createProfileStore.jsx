@@ -8,7 +8,7 @@ const enhancer = compose(
 
 export default (props, railsContext) => {
   const initialState = {
-    $$profileStore: props,
+    $$createProfileStore: props,
     railsContext,
   };
 

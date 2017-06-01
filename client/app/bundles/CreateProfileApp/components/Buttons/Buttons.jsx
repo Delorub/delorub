@@ -3,6 +3,7 @@ import { config } from '../Steps/config';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as formActions from '../../actions/FormActions'
+import SubmitButton from './SubmitButton';
 
 class Buttons extends React.Component {
   handlePrev(event) {
@@ -21,12 +22,9 @@ class Buttons extends React.Component {
         { currentStep > 0 &&
           <button type="button" className="btn dr-button-blue" onClick={::this.handlePrev}>Назад</button>
         }
-        <button type="button" className="btn dr-button-blue">Предпросмотр</button>
-        { currentStep == (config.length - 1) &&
-          <input type="submit" className="btn dr-button-blueFull" value="Готово" />
-        }
-        { currentStep < (config.length - 1) &&
-          <button type="button" className="btn dr-button-blueFull" onClick={::this.handleNext}>Далее</button>
+        <input type="submit" className="btn dr-button-blue" name="preview" value="Предпросмотр" />
+        { currentStep <= (config.length - 1) &&
+          <input type="submit" className="btn dr-button-blueFull" name="next" value="Далее" />
         }
       </div>
     );
@@ -35,7 +33,7 @@ class Buttons extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    currentStep: state.$$profileStore.form.step
+    currentStep: state.$$createProfileStore.wizard.step
   }
 }
 

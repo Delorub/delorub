@@ -1,7 +1,5 @@
 import React from 'react';
 import Steps from '../Steps/Steps';
-import Navigation from '../Navigation/Navigation';
-import Buttons from '../Buttons/Buttons';
 
 export default class App extends React.Component {
   render() {
@@ -9,12 +7,10 @@ export default class App extends React.Component {
       <div className="dr-container">
         <div className="dr-header-span">
           <p>
-            Создание <p className="dr-header-span-unmarked">&nbsp;анкеты мастера</p>
+            Создание <span className="dr-header-span-unmarked">&nbsp;анкеты мастера</span>
           </p>
         </div>
-        <Navigation />
         <Steps {...this.props}/>
-        <Buttons />
       </div>
     );
   }

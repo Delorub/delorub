@@ -21,6 +21,6 @@ class TaskQuery
     end
 
     def apply_category
-      @collection = collection.by_category category
+      @collection = collection.by_category_with_descendants category
     end
 end

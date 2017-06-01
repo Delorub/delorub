@@ -32,7 +32,7 @@ class Steps extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    currentStep: state.$$profileStore.form.step
+    currentStep: state.$$createProfileStore.wizard.step
   }
 }
 

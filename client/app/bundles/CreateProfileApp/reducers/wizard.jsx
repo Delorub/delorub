@@ -1,6 +1,6 @@
 import update from 'react/lib/update';
 
-export default function form (state = [], action) {
+export default function wizard (state = [], action) {
   switch (action.type) {
     case 'STEP_NEXT':
       return update(state, {

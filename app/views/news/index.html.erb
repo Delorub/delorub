@@ -2,19 +2,24 @@
   <div class="dr-header-span">
     <h2>Все <span class="dr-header-span-unmarked">новости<span></h2>
   </div>
-  <div class="row dr-news row-eq-height dr-news-first">
-    <% @news.each do |news| %>
-    <div class="col-xs-4 col-sm-4 dr-news-image">
-      <img src="<%= news.photo.thumb.url %>" class="img-responsive" alt="">
+
+  <% if collection.length > 0  %>
+    <div class="row dr-news row-eq-height dr-news-first">
+      <% collection.each do |news| %>
+      <div class="col-xs-4 col-sm-4 dr-news-image">
+        <img src="<%= news.photo.thumb.url %>" class="img-responsive" alt="">
+      </div>
+      <div class="col-xs-8 col-sm-8 dr-news-content">
+        <span class="dr-news-content-date">06.02.2017</span>
+        <h3><%= news.title %></h3>
+        <p><%= news.content.html_safe %></p>
+        <p class="dr-news-content-tags">
+          <a href="<%= resource_url(news) %>" class="dr-news-content-tags-read-more">Читать полностью</a>
+        </p>
+      </div>
+      <% end %>
     </div>
-    <div class="col-xs-8 col-sm-8 dr-news-content">
-      <span class="dr-news-content-date">06.02.2017</span>
-      <h3><%= news.title %></h3>
-      <p><%= news.content.html_safe %></p>
-      <p class="dr-news-content-tags">
-        <a href="<%= resource_url(news) %>" class="dr-news-content-tags-read-more">Читать полностью</a>
-      </p>
-    </div>
-    <% end %>
-  </div>
+  <% end %>
+
+  <%= render 'no_records' if collection.length == 0 %>
 </div>

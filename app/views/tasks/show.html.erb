@@ -1,0 +1,122 @@
+<div class="dr-container">
+  <div class="dr-header-span">
+    <p class="dr-header-span-unmarked"><%= resource.title %></p>
+    <span class="dr-header-span-price"><%= resource.price_exact %></span>
+    <button type="button" class="btn dr-button-blue">Откликнуться на задание</button>
+  </div>
+
+  <div class="row  dr-one-ticket">
+    <div class="row row-eq-height margin-none">
+      <div class="col-md-2 padding-none">
+        <div class="dr-one-ticket-ticket-avatar">
+          <div class="dr-vacancy-content-avatar-roundInner">
+            <a href="#" class='dr-top-nav-icon icon-avtoriz'></a>
+          </div>
+        </div>
+        <br/>
+        <div class="dr-one-ticket-ticket-name">
+          <p>Александр <br/> Ермолаев</p>
+        </div>
+        <div class="dr-one-ticket-ticket-rating">
+          <br/>
+          <br/>
+          <span class="gray-text-light">Рейтинг</span>
+          <br/>
+          <span class="bold-text-light">41775</span>
+        </div>
+      </div>
+      <div class="col-md-4 dr-one-ticket-ticket-photo">
+        <div class="row">
+          <div class="col-md-12">
+            <img src="/images/ticket/img_main.png" class="img-responsive" alt="">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <img src="/images/ticket/img_1.png" class="img-responsive" alt="">
+          </div>
+          <div class="col-md-4">
+            <img src="/images/ticket/img_2.png" class="img-responsive" alt="">
+          </div>
+          <div class="col-md-4">
+            <img src="/images/ticket/img_3.png" class="img-responsive" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 dr-one-ticket-ticket-content gray-text triangle-bottom">
+        <p><%= resource.description %></p>
+      </div>
+      <div class="col-md-2 padding-none">
+        <div class="dr-one-ticket-refinement">
+          <span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>
+          <p class="gray-text-light">Актуально<br/>до</p>
+          <span class="bold-text-light">20.01.2017</span>
+        </div>
+        <div class="dr-one-ticket-refinement">
+          <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
+          <p class="gray-text-light">Удобное<br/>время</p>
+          <span class="bold-text-light">18:30</span>
+        </div>
+        <div class="dr-one-ticket-refinement without-border">
+          <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+          <p class="gray-text-light">Работа<br/>с</p>
+          <span class="bold-text-light">договором</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A9144367a4e18bb4eae2d5789c358d718e591294787a45e85efbb9a35315b9b49&amp;width=100%&amp;height=255&amp;lang=ru_RU&amp;scroll=true"></script>
+      </div>
+    </div>
+  </div>
+
+  <div class="row margin-none">
+
+    <div class="col-md-12 padding-none">
+      <div class="dr-one-ticket-ask-master-header">
+        <div class="dr-header-span without-border">
+          <p class="dr-header-span-unmarked">
+            Отклик на задание
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row row-eq-height margin-none">
+    <div class="col-md-2">
+      <div class="dr-one-ticket-ticket-avatar">
+        <div class="dr-vacancy-content-avatar-roundInner">
+          <a href="#" class='dr-top-nav-icon icon-avtoriz'></a>
+        </div>
+      </div>
+      <br/>
+      <div class="dr-one-ticket-ticket-name">
+        <p>Другой <br/> Человек</p>
+      </div>
+      <div class="dr-one-ticket-ticket-rating">
+        <br/>
+        <br/>
+        <span class="gray-text-light">Рейтинг</span>
+        <br/>
+        <span class="bold-text-light">41775</span>
+      </div>
+    </div>
+
+    <div class="col-md-10 dr-one-ticket-ask-master-content">
+      <div class="dr-task-description dr-task-div">
+        <span class="textarea-label">Ваш комментарий</span>
+        <textarea name="name" rows="6" cols="60" class="form-control" placeholder="Введите Ваш комментарий"></textarea>
+        <div class="">
+          <span class="gray-text-light">Осталось: <b>300 символов</b></span>
+          <div class="dr-one-ticket-ask-master-content-send">
+            <button type="button" class="btn dr-button-blueFull">отправить</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

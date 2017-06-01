@@ -1,12 +1,9 @@
-import profileReducer, { $$initialState as $$profileState } from './profileReducer';
+import createProfileReducer from './createProfileReducer';
 import railsContextReducer, { initialState as railsContextState } from './railsContextReducer';
+import { reducer as formReducer } from 'redux-form'
 
 export default {
-  $$profileStore: profileReducer,
+  $$createProfileStore: createProfileReducer,
   railsContext: railsContextReducer,
-};
-
-export const initialStates = {
-  $$profileState,
-  railsContextState,
-};
+  form: formReducer
+}

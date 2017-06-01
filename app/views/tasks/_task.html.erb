@@ -31,9 +31,9 @@
     </div>
   </div>
   <div class="col-md-3 dr-all-task-button-div">
-    <span class="dr-header-span-price"><%= task.price_exact %> <span class="glyphicon glyphicon-ruble" aria-hidden="true"></span></span>
+    <span class="dr-header-span-price"><%= task.price_exact %> ₽</span>
     <div class="dr-one-ticket-discussion-quote">
-      <button type="button" class="btn dr-button-blue">Откликнуться на задание</button>
+      <a href="<%= task_path(task) %>" class="btn dr-button-blue">Откликнуться на задание</a>
     </div>
   </div>
   <div class="col-md-2 padding-none">

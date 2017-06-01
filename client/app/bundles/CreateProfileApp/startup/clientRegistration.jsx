@@ -1,12 +1,12 @@
 import ReactOnRails from 'react-on-rails';
 
 import CreateProfileApp from '../containers/CreateProfileApp';
-import profileStore from '../store/profileStore';
+import createProfileStore from '../store/createProfileStore';
 
 ReactOnRails.register({
   CreateProfileApp
 });
 
 ReactOnRails.registerStore({
-  profileStore
+  createProfileStore
 });

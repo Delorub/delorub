@@ -43,14 +43,4 @@ class PhotoInput extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    photo_url: state.$$profileStore.profile.photo_url
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(profileActions, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(PhotoInput)
+export default PhotoInput

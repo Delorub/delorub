@@ -1,10 +1,10 @@
 class ProfilesController < ApplicationController
   inherit_resources
 
-  helper_method :create_profile_props, :current_url
+  helper_method :create_profile_form_props, :current_url
 
   def new
-    @profile = CreateProfileForm.new Profile.new
+    @form = CreateProfileForm.new Profile.new
   end
 
   def index
@@ -25,16 +25,11 @@ class ProfilesController < ApplicationController
       @category = Category.friendly.find params[:category_id] if params[:category_id]
     end
 
-    def create_profile_props
+    def create_profile_form_props
       {
-        categories: Category.all.map { |e|
-          {
-            id: e.id,
-            title: e.title,
-            parent_id: e.parent_id,
-            photo_thumb_url: e.photo.thumb.url
-          }
-        }
+        form_action: profiles_path,
+        create_profile: Entities::CreateProfileForm.represent(@form),
+        categories: Entities::Category.represent(Category.all)
       }
     end
 end

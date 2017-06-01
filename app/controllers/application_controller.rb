@@ -19,4 +19,12 @@ class ApplicationController < ActionController::Base
     raise exception if Rails.env.development?
     render_page_not_found
   end
+
+  def after_authorization
+    session[:after_authorization]
+  end
+
+  def after_authorization= value
+    session[:after_authorization] = value
+  end
 end

@@ -1,10 +1,9 @@
 import Immutable from 'immutable';
 import { combineReducers } from 'redux'
-import profile from './profile'
-import form from './form'
+import wizard from './wizard'
 
 const rootReducer = combineReducers({
-  profile, form
+  wizard
 })
 
 export default rootReducer

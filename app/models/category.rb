@@ -33,6 +33,10 @@ class Category < ActiveRecord::Base
 
   friendly_id :title, use: :slugged
 
+  def self_and_descendants_ids
+    self_and_descendants.map(&:id)
+  end
+
   def form_count
     0
   end

@@ -53,10 +53,14 @@ class TasksController < ApplicationController
     end
 
     def current_url category:
-      if category
-        category_tasks_path(category_id: category)
+      params = {}
+      params[:category_id] = category if category
+      if @scope == :my
+        my_tasks_path(params)
+      elsif @scope == :suggested
+        suggested_tasks_path(params)
       else
-        tasks_path
+        category_tasks_path(params)
       end
     end
 
@@ -66,6 +70,7 @@ class TasksController < ApplicationController
 
     def store_form_to_session
       @form.save do |data|
+        after_authorization = :task
         session[form_session_key] = data
       end
     end
@@ -78,13 +83,7 @@ class TasksController < ApplicationController
       {
         form_action: tasks_path,
         task: Entities::TaskForm.represent(@form),
-        categories: Category.all.map { |e|
-          {
-            id: e.id,
-            title: e.title,
-            parent_id: e.parent_id
-          }
-        }
+        categories: Entities::Category.represent(Category.all)
       }
     end
 end

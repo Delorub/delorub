@@ -77,7 +77,7 @@ export default class Step3 extends React.Component {
               <br />
               <div className="btn-group dr-checkbox" data-toggle="buttons">
                 <label className="btn btn-primary week-odd">
-                  <input type="checkbox" checked autoComplete="off" />
+                  <input type="checkbox" autoComplete="off" />
                   <span>Пн</span>
                 </label>
                 <label className="btn btn-primary week-odd">

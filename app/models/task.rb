@@ -51,6 +51,7 @@ class Task < ActiveRecord::Base
 
   scope :by_user, ->(user) { where user_id: user.id }
   scope :by_category, ->(category) { where category_id: category.id }
+  scope :by_category_with_descendants, ->(category) { where category_id: category.self_and_descendants_ids }
 
   private
 

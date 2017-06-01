@@ -5,7 +5,11 @@ import * as profileActions from '../../actions/ProfileActions'
 
 class Category extends React.Component {
   handleClick(event) {
-    this.props.selectCategory(this.props.id)
+    event.preventDefault()
+    this.props.change('create_profile[main_specialization_id]', this.props.id)
+    if(this.props.main_specialization_id != this.props.id) {
+      this.props.change('create_profile[specializations]', [])
+    }
   }
 
   render() {
@@ -22,14 +26,4 @@ class Category extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    specializations: state.$$profileStore.profile.specializations
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(profileActions, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Category)
+export default Category
