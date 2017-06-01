@@ -13,12 +13,13 @@ bundle
 
 If you've got an error with installing rmagick, try `brew install imagemagick@6 && brew link imagemagick@6 --force`
 
-### Npm
-To install npm packages:
+### Npm and yarn
+To install packages:
 ```
 brew install nodejs
 curl -L https://www.npmjs.org/install.sh | sh
 npm install
+yarn install
 ```
     
 ### Redis
@@ -34,4 +35,4 @@ Copy `database.yml.sample` and rename it to `database.yml`, change credentials t
 Run `rake db:setup`
     
 ### Start an application
-`rails s`
+`foreman start`
