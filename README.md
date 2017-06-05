@@ -29,10 +29,15 @@ brew install redis
 redis-server
 ```
 
-### Database
+### Database and import
 Copy `database.yml.sample` and rename it to `database.yml`, change credentials to yours
 
 Run `rake db:setup`
     
+Run `rake places:import:seed` for import a dump
+    
 ### Start an application
 `foreman start`
+
+### ElasticSearch
+`Place.reindex` for reindexing an ES index

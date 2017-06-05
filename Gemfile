@@ -93,6 +93,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-stack_explorer'
   gem 'spring'
+  gem 'byebug'
 end
 
 group :development do

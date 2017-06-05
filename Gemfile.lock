@@ -542,6 +542,7 @@ DEPENDENCIES
   annotate
   awesome_nested_set
   bcrypt-ruby
+  byebug
   capistrano (~> 3.7)
   capistrano-rails (~> 1.2)
   capistrano-rvm
@@ -624,4 +625,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.14.6
+   1.15.0

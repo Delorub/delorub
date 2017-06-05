@@ -8,7 +8,7 @@ require 'webmock/rspec'
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 
-WebMock.disable_net_connect!
+WebMock.allow_net_connect!
 
 RSpec.configure do |config|
   # Ensure that if we are running js tests, we are using latest webpack assets
@@ -30,4 +30,16 @@ RSpec.configure do |config|
   end
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
+
+  config.before(:suite) do
+    Place.reindex
+
+    Searchkick.disable_callbacks
+  end
+
+  config.around(:each, search: true) do |example|
+    Searchkick.enable_callbacks
+    example.run
+    Searchkick.disable_callbacks
+  end
 end
