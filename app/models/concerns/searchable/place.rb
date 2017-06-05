@@ -4,8 +4,8 @@ module Searchable::Place
   included do
     searchkick word_start: [:name, :full_name, :search_string], language: :russian
 
-    scope :by_search_in, ->(q) {
-      by_search_ids PlaceSearch.new(query: q, page: 1, per_page: 100).all.map(&:id)
+    scope :by_search_in, ->(q, type) {
+      by_search_ids PlaceSearch.new(query: q, page: 1, per_page: 100, place_type: type).all.map(&:id)
     }
 
     def self.ransackable_scopes auth_object = nil
@@ -18,7 +18,8 @@ module Searchable::Place
       full_name: full_name,
       name: name,
       place_type_name: place_type_name.search_string,
-      search_string: search_string
+      search_string: search_string,
+      place_type: place_type
     }
   end
 end

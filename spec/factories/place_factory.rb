@@ -10,20 +10,45 @@ FactoryGirl.define do
       association :place_type_name, factory: :region_place_type_name
     end
 
+    factory :district_place do
+      name { Faker::Address.state_abbr }
+      level 2
+      place_type :district
+      association :place_type_name, factory: :district_place_type_name
+    end
+
     factory :city_place do
       name { Faker::Address.city }
-      level 2
+      level 3
       place_type :city
-      association :parent_place, factory: :region_place
       association :place_type_name, factory: :city_place_type_name
+    end
+
+    factory :locality_place do
+      name { Faker::Address.country }
+      level 4
+      place_type :locality
+      association :place_type_name, factory: :locality_place_type_name
     end
 
     factory :street_place do
       name { Faker::Address.street_name }
-      level 3
+      level 5
       place_type :street
-      association :parent_place, factory: :city_place
       association :place_type_name, factory: :street_place_type_name
+    end
+
+    factory :house_place do
+      name { Faker::Address.building_number }
+      level 6
+      place_type :house
+      association :place_type_name, factory: :house_place_type_name
+    end
+
+    trait :reindex do
+      after(:create) do |place, _evaluator|
+        place.reindex(refresh: true)
+      end
     end
   end
 end
