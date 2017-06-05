@@ -67,6 +67,13 @@ jQuery(function ($) {
     });
 });
 
+jQuery(function ($) {
+    $('#open-search-link').click(function (e) {
+        $( "div.sb-search" ).toggleClass( "sb-search-open" );
+        $( "#toggle-nav" ).toggleClass( "nav-close" );
+    });
+});
+
 (function (window) {
 
     'use strict';
