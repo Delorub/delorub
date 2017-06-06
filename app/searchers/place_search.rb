@@ -1,7 +1,7 @@
 class PlaceSearch
   attr_reader :query, :page, :per_page, :place_type
 
-  def initialize query:, page: 1, per_page: 20, type:
+  def initialize query:, page: 1, per_page: 20, type: nil
     @page = page
     @query = query
     @per_page = per_page

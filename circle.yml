@@ -1,16 +1,21 @@
 dependencies:
   pre:
     - cp config/database.yml.ci config/database.yml
-  post:
-    - bundle exec rake assets:precompile assets:clean
   cache_directories:
     - public/assets
+    - elasticsearch-5.4.1
+  post:
+    - if [[ ! -e elasticsearch-5.4.1 ]]; then wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.4.1.tar.gz && tar -xvf elasticsearch-5.4.1.tar.gz; fi
+    - elasticsearch-5.4.1/bin/elasticsearch: {background: true}
+    - sleep 10 && wget --waitretry=5 --retry-connrefused -v http://127.0.0.1:9200/
 
 database:
   override:
     - bundle exec rake db:create db:schema:load --trace
 
 machine:
+  services:
+    - elasticsearch
   node:
     version: 7.1.0
   ruby:
