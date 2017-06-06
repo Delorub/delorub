@@ -1,10 +1,12 @@
 describe Place, search: true do
   let!(:region_place) { create(:region_place, :reindex) }
   let!(:district_place) { create(:district_place, :reindex) }
-  let!(:city_place) { create(:city_place,
-                             :reindex,
-                             name: 'Санкт-Петербург',
-                             place_type: :city) }
+  let!(:city_place) do
+    create(:city_place,
+      :reindex,
+      name: 'Санкт-Петербург',
+      place_type: :city)
+  end
   let!(:locality_place) { create(:locality_place, :reindex) }
   let!(:street_place) { create(:street_place, :reindex) }
   let!(:house_place) { create(:house_place, :reindex) }
@@ -26,7 +28,7 @@ describe Place, search: true do
     end
   end
 
-  context 'search if the city param sends' do
+  context 'search with a city param' do
     let(:results) { PlaceSearch.new(query: '*', type: 'city').all.results }
 
     it 'checks that filters by four types(region, district, city, locality)' do

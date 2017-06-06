@@ -1,11 +1,11 @@
 class PlaceSearch
   attr_reader :query, :page, :per_page, :place_type
 
-  def initialize query:, page: 1, per_page: 20, type: nil
+  def initialize query:, page: 1, per_page: 20, type:
     @page = page
     @query = query
     @per_page = per_page
-    @place_type = place_type_value(type)
+    @place_type = place_type_value type
   end
 
   def all
@@ -30,7 +30,7 @@ class PlaceSearch
         }
     end
 
-    def place_type_value(type)
+    def place_type_value type
       if type.present? && type == 'city'
         city_types
       else
@@ -43,6 +43,6 @@ class PlaceSearch
     end
 
     def city_types
-      all_types - %w(street house)
+      all_types - %w[street house]
     end
 end
