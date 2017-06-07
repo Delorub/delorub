@@ -38,7 +38,7 @@
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                  <ul class="nav navbar-nav nav-close">
+                  <ul class="nav navbar-nav" id="toggle-nav">
                     <li><a href="#">Новости</a></li>
                     <li><a href="#">Все задания</a></li>
                     <li><a href="#">Все мастера</a></li>
@@ -51,11 +51,11 @@
                         <form>
                           <input class="sb-search-input" placeholder="Поиск" type="text" value="" name="search" id="search">
                           <input class="sb-search-submit" type="submit" value="">
-                          <span class="sb-icon-search"><a href="#" class='dr-top-nav-icon icon-search dr-search-icon'></a></span>
+                          <span class="sb-icon-search"></span>
                         </form>
                       </div>                      
                     </li>
-                    <li><a href="#" class='dr-top-nav-icon icon-search dr-search-icon'></a></li>
+                    <li><a id="open-search-link" class='dr-top-nav-icon icon-search dr-search-icon'></a></li>
                     <li>
                       <a id="open-notification-link" class='dr-top-nav-icon icon-koll_active'></a>
                       <div class="dropdown-contain" id="open-notification">
