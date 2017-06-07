@@ -5,7 +5,8 @@ module Searchable::Category
     searchkick word_start: [:title], language: :russian
 
     scope :by_search_in, ->(q) {
-      by_search_ids CategorySearch.new(query: q, page: 1, per_page: 100).all.map(&:id)
+      ids = CategorySearch.new(query: q, page: 1, per_page: 100).all.map(&:id)
+      where(id: ids)
     }
 
     def self.ransackable_scopes auth_object = nil

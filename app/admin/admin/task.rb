@@ -1,7 +1,8 @@
 ActiveAdmin.register Task, namespace: :admin do
   permit_params :user_id, :category_id, :title, :price_type, :date_type
 
-  filter :category_id, as: :ransack_filter, url: '/admin/categories', display_name: 'title'
+  filter :by_search_in, label: 'Поиск', as: :string
+  filter :category_id, as: :ransack_filter, url: '/admin/categories', display_name: 'title', order_by: 'description_asc'
   filter :user_id, as: :ransack_filter, url: '/admin/users', display_name: 'name'
   filter :created_at
 
