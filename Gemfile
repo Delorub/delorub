@@ -105,6 +105,7 @@ group :development do
   gem 'capistrano-rvm'
   gem 'capistrano3-unicorn'
   gem 'web-console', '~> 2.0'
+  gem 'overcommit'
 end
 
 group :test do
