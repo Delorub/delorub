@@ -18,7 +18,8 @@ module Searchable::Place
       full_name: full_name,
       name: name,
       place_type_name: place_type_name.search_string,
-      search_string: search_string
+      search_string: search_string,
+      place_type: place_type
     }
   end
 end

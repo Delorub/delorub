@@ -17,5 +17,17 @@ FactoryGirl.define do
     factory :street_place_type_name do
       name 'ул.'
     end
+
+    factory :district_place_type_name do
+      name 'р-н.'
+    end
+
+    factory :locality_place_type_name do
+      name 'участок'
+    end
+
+    factory :house_place_type_name do
+      name 'д.'
+    end
   end
 end

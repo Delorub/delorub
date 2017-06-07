@@ -8,12 +8,13 @@ require 'webmock/rspec'
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 
-WebMock.disable_net_connect!
+WebMock.disable_net_connect!(allow_localhost: true)
 
 RSpec.configure do |config|
   # Ensure that if we are running js tests, we are using latest webpack assets
   # This will use the defaults of :js and :server_rendering meta tags
   ReactOnRails::TestHelper.configure_rspec_to_compile_assets(config)
+  config.filter_run_excluding search: true
 
   config.include Rails.application.routes.url_helpers
 
@@ -30,28 +31,16 @@ RSpec.configure do |config|
   end
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
-end
 
-if ENV['CIRCLE_ARTIFACTS']
-  SimpleCov.coverage_dir "#{ENV['CIRCLE_ARTIFACTS']}/coverage"
-end
+  config.before(:suite) do
+    Place.reindex
 
-SimpleCov.start do
-  add_group 'API', 'app/api'
-  add_group 'Admin', [
-    'app/admin',
-    'app/controllers/concerns/active_admin_shared',
-    'app/helpers/active_admin',
-    'app/renderers/active_admin'
-  ]
-  add_group 'Concerns', 'app/concerns'
-  add_group 'Models', 'app/models'
-  add_group 'Controllers', 'app/controllers'
-  add_group 'Helpers', 'app/helpers'
-  add_group 'Decorators', 'app/draper_decorators'
-  add_group 'Jobs', 'app/jobs'
-  add_group 'Searchers', ['app/searchers', 'app/queries']
-  add_group 'Renderers', ['app/renderers', 'app/cells', 'app/service_objects', 'app/forms']
-  add_group 'Mailers', 'app/mailers'
-  add_group 'Lib', 'app/lib'
+    Searchkick.disable_callbacks
+  end
+
+  config.around(:each, search: true) do |example|
+    Searchkick.enable_callbacks
+    example.run
+    Searchkick.disable_callbacks
+  end
 end
