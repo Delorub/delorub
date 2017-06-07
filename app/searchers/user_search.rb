@@ -5,7 +5,7 @@ class UserSearch < BaseSearch
       Searchkick.search query,
         index_name: User,
         match: :word_start,
-        page: @page,
-        per_page: @per_page
+        page: page,
+        per_page: per_page
     end
 end
