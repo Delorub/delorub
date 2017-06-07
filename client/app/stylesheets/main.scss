@@ -51,7 +51,7 @@ body textarea:required:valid {
 body {
     font-size: 12px;
     min-width: 320px;
-    max-width: 1440px;
+    max-width: 1920px;
     margin: 0 auto;
     position: relative;
     line-height: 1.5;
@@ -85,9 +85,14 @@ body.without-sidemenu {
 
 .container {
     width: 100%;
-
     @media (min-width: $screen-lg-min) {
         width: 1280px;
+    }
+    @media (min-width: $screen-lgm-min) {
+        width: 1520px;
+    }
+    @media (min-width: $screen-lgl-min) {
+        width: 1760px;
     }
 }
 
@@ -455,7 +460,7 @@ ul.left_menu {
     margin-left: 0;
     border-top: 1px solid rgba(128, 128, 128, 0.3);
 
-    button {
+    .btn {
         margin-left: 10px;
         margin-right: 10px;
     }
@@ -540,10 +545,10 @@ ul.left_menu {
         }
     }
 
-    button, a.btn, input {
+    .btn, a.btn, input {
         margin: 15px 5px;
         float: right;
-    }
+    }    
 }
 
 .dr-header-span-price {

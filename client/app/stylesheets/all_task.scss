@@ -17,7 +17,7 @@
         }
         &:hover {
             box-shadow: $shadowHover;
-            button.dr-button-blue {
+            .dr-button-blue {
                 @extend .dr-button-blueFull;
             }
         }
@@ -81,7 +81,7 @@
             box-shadow: 0 6px 4px -4px rgba(0, 0, 0, .2);
             text-align: left;
             padding-left: 20px;
-            button {
+            .btn {
                 margin-left: 20px;
             }
         }

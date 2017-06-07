@@ -3,17 +3,17 @@
     &:hover {
         box-shadow: $shadowHover;
         .dr-one-ticket-request-button {
-            button {
+            .btn {
                 @extend .dr-button-succsess;
             }            
         }
         .dr-one-ticket-request-button+.dr-one-ticket-request-button {
-            button {
+            .btn {
                 @extend .dr-button-warning;
             }            
         }
         .dr-one-ticket-request-button+.dr-one-ticket-request-button+.dr-one-ticket-request-button {
-            button {
+            .btn {
                 @extend .dr-button-danger;
             }            
         }
