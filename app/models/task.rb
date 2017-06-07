@@ -44,7 +44,7 @@ class Task < ApplicationRecord
   enumerize :date_type, in: [:actual, :interval]
   enumerize :contract_type, in: [:no_contract, :contract]
 
-  validates :title, :description, :user, :category, :price_type, :date_type, presence: true
+  validates :title, :description, :user_id, :category_id, :price_type, :date_type, presence: true
   validate :ensure_user_can_create
 
   after_create :update_user
