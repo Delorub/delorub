@@ -59,11 +59,6 @@ PreCommit:
     enabled: false
     on_warn: pass
 
-  # Checks for hard tabs in files
-  HardTabs:
-    enabled: true
-    on_warn: fail
-
 PrePush:
   RSpec:
     enabled: true
