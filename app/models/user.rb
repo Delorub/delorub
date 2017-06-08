@@ -39,7 +39,7 @@ class User < ApplicationRecord
   FREE_TASKS = 3
   FREE_REPLIES = 3
 
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   phony_normalize :phone
   phony_normalized_method :phone
@@ -47,7 +47,9 @@ class User < ApplicationRecord
   include Searchable::User
   include Geotaggable
 
-  has_many :billing_logs
+  has_many :omniauth_relations, dependent: :nullify
+
+  has_many :billing_logs, dependent: :destroy
   has_many :tasks, dependent: :destroy
   has_many :replies, dependent: :destroy
   has_one :permission, class_name: 'UserPermission', dependent: :destroy

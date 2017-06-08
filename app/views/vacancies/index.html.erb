@@ -1,44 +1,42 @@
-<div class="dr-container<%= container_css_classes %>">
-  <div class="dr-header-span">
-    <p>
-      Наши <span class="dr-header-span-unmarked">вакансии</span>
-    </p>
-  </div>
-  <div class="dr-vacancy-image">
-    <img src="/images/vacancy/img_1.png" class="img-responsive" alt="">
-  </div>
-  <% collection.each do |vacancy| %>
-  <div class="row row-eq-height dr-vacancy">
-    <div class="col-md-8 dr-vacancy-content">
-      <div class="row">
+<div class="dr-header-span">
+  <p>
+    Наши <span class="dr-header-span-unmarked">вакансии</span>
+  </p>
+</div>
+<div class="dr-vacancy-image">
+  <img src="/images/vacancy/img_1.png" class="img-responsive" alt="">
+</div>
+<% collection.each do |vacancy| %>
+<div class="row row-eq-height dr-vacancy">
+  <div class="col-md-8 dr-vacancy-content">
+    <div class="row">
 
-        <div class="col-md-3">
-          <div class="dr-vacancy-content-avatar">
-            <div class="dr-vacancy-content-avatar-roundOuter">
-              <div class="dr-vacancy-content-avatar-roundInner">
-                <a href="#" class='dr-top-nav-icon icon-avtoriz'></a>
-              </div>
+      <div class="col-md-3">
+        <div class="dr-vacancy-content-avatar">
+          <div class="dr-vacancy-content-avatar-roundOuter">
+            <div class="dr-vacancy-content-avatar-roundInner">
+              <a href="#" class='dr-top-nav-icon icon-avtoriz'></a>
             </div>
           </div>
         </div>
-        <div class="col-md-9">
-          <div class="dr-vacancy-content-text">
-            <h3><%= vacancy.title %></h3>
-            <p><%= vacancy.small_description %></p>
-          </div>
+      </div>
+      <div class="col-md-9">
+        <div class="dr-vacancy-content-text">
+          <h3><%= vacancy.title %></h3>
+          <p><%= vacancy.small_description %></p>
         </div>
+      </div>
 
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="dr-vacancy-button">
-        <button type="button" class="btn dr-button-blue">Подробнее</button>
-      </div>
-      <div class="dr-vacancy-button">
-        <button type="button" class="btn dr-button-blueFull">Откликнуться на вакансию</button>
-      </div>
     </div>
   </div>
-  <% end %>
-  <%= render 'no_records' if collection.length == 0 %>
+  <div class="col-md-4">
+    <div class="dr-vacancy-button">
+      <button type="button" class="btn dr-button-blue">Подробнее</button>
+    </div>
+    <div class="dr-vacancy-button">
+      <button type="button" class="btn dr-button-blueFull">Откликнуться на вакансию</button>
+    </div>
+  </div>
 </div>
+<% end %>
+<%= render 'no_records' if collection.length == 0 %>

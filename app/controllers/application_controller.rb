@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
 
   rescue_from ActiveRecord::RecordNotFound, ActionController::RoutingError, with: :rescue_not_found
 
+  before_filter :show_global_container
+
   protect_from_forgery
 
   def rescue_not_found exception
@@ -26,5 +28,9 @@ class ApplicationController < ActionController::Base
 
   def after_authorization= value
     session[:after_authorization] = value
+  end
+
+  def show_global_container
+    @global_container = true
   end
 end

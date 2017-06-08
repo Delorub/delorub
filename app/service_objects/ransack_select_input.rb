@@ -51,6 +51,6 @@ class RansackSelectInput < Formtastic::Inputs::StringInput
     end
 
     def selected
-      relation.try(opts['data-display_name'].to_sym)
+      relation.try(display_name.to_sym)
     end
 end

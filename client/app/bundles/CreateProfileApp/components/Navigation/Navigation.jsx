@@ -6,10 +6,6 @@ import Item from './Item';
 import * as formActions from '../../actions/FormActions'
 
 class Steps extends React.Component {
-  handleNext(event) {
-    this.props.nextStep()
-  }
-
   render() {
     const { currentStep } = this.props
 
@@ -18,10 +14,10 @@ class Steps extends React.Component {
         {config[currentStep].title}
         <div className="steps">
         { currentStep < (config.length - 1) &&
-          <button type="button" className="btn dr-button-blue" onClick={::this.handleNext}>Далее</button>
+          <button type="submit" className="btn dr-button-blue" name="next">Далее</button>
         }
         { currentStep == (config.length - 1) &&
-          <button type="button" className="btn dr-button-blue">Готово</button>
+          <button type="submit" className="btn dr-button-blue" name="send">Готово</button>
         }
           <ul className="nav-tabs step-anchor">
             <li><a>&nbsp;</a></li>

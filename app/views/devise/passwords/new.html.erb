@@ -1,20 +1,18 @@
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
-  <div class="dr-container">
-    <div class="dr-header-span">
-      <p>Восстановить пароль</p>
-      <%= render "devise/shared/links" %>
-    </div>
-    <div class="row row-eq-height dr-task">
-      <div class="col-md-4">
-        <div class="dr-task-name dr-task-div">
-          <span>Email</span>
-          <%= f.email_field :email, autofocus: true, class: 'form-control' %>
-        </div>
+  <div class="dr-header-span">
+    <p>Восстановить пароль</p>
+    <%= render "devise/shared/links" %>
+  </div>
+  <div class="row row-eq-height dr-task">
+    <div class="col-md-4">
+      <div class="dr-task-name dr-task-div">
+        <span>Email</span>
+        <%= f.email_field :email, autofocus: true, class: 'form-control' %>
       </div>
     </div>
-    <div class="row lastRow">
-      <input type="submit" class="btn dr-button-blueFull" value="Восстановить">
-    </div>
+  </div>
+  <div class="row lastRow">
+    <input type="submit" class="btn dr-button-blueFull" value="Восстановить">
   </div>
 <% end %>

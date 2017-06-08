@@ -18,4 +18,8 @@ module LayoutHelper
   def container_css_classes
     show_side_menu? ? '' : ' dr-container-without-sidemenu'
   end
+
+  def global_container?
+    @global_container
+  end
 end

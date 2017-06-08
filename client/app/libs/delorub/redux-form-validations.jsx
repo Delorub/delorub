@@ -1,6 +1,9 @@
 export const required = value =>
   value ? undefined : 'Обязательно для заполнения'
 
+export const requiredArray = value =>
+  value.length > 0 ? undefined : 'Обязательно для заполнения'
+
 export const maxLength = max => value =>
   value && value.length > max ? `Не более ${max} символов` : undefined
 

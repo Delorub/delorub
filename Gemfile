@@ -41,8 +41,7 @@ gem 'pundit'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
-gem 'omniauth-mailru'
-gem 'omniauth-gplus'
+gem 'omniauth-odnoklassniki'
 
 # Admin
 gem 'activeadmin', '1.0.0.pre4'

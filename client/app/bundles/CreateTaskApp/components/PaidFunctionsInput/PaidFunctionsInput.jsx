@@ -6,7 +6,6 @@ import { Field } from 'redux-form';
 
 export default class PaidFunctionsInput extends React.Component {
   render() {
-    console.log(this.props.task.paid_functions_options)
     return (
       <Field
         component={renderSelect2}

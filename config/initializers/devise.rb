@@ -1,5 +1,3 @@
-# Use this hook to configure devise mailer, warden hooks and so forth.
-# Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
@@ -8,16 +6,20 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   config.secret_key = 'd20209a0f75b14f7419dbea7d97476092b999b3bac514252416d460a562e57f7af34376b207f63281f7012ee474063d237eab00d04d15c52d1ed69794c174a59'
 
-  # ==> Mailer Configuration
-  # Configure the e-mail address which will be shown in Devise::Mailer,
-  # note that it will be overwritten if you use your own mailer class
-  # with default "from" parameter.
   config.mailer_sender = 'noreply@delorub.ru'
 
-  config.omniauth :facebook, '321486941549630', '7d2ef009c03d771a5242c2d70ad25a01'
-  config.omniauth :vkontakte, '5680430', 'yCABg4U3qERfxubzNZpJ'
-  config.omniauth :mailru, '749223', 'c717764fe93a0fca2e06298d4d2294e4'
-  # config.omniauth :gplus, '749223', 'c717764fe93a0fca2e06298d4d2294e4'
+  config.omniauth :facebook,
+    Figaro.env.facebook_app_id!,
+    Figaro.env.facebook_app_secret!
+
+  config.omniauth :vkontakte,
+    Figaro.env.vkontakte_app_id!,
+    Figaro.env.vkontakte_app_secret!
+
+  config.omniauth :odnoklassniki,
+    Figaro.env.odnoklassniki_app_id!,
+    Figaro.env.odnoklassniki_app_secret!,
+    public_key: Figaro.env.odnoklassniki_app_public_key!
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'

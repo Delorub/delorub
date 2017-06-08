@@ -11,6 +11,7 @@ module Delorub
     additional_paths = %W[
       #{config.root}/app/models/concerns
       #{config.root}/app/controllers/concerns
+      #{config.root}/app/lib
     ]
     config.autoload_paths += additional_paths
     config.eager_load_paths += additional_paths

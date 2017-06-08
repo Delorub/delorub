@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170517150059) do
+ActiveRecord::Schema.define(version: 20170607172559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -215,18 +215,26 @@ ActiveRecord::Schema.define(version: 20170517150059) do
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.integer  "user_id",       null: false
+    t.integer  "user_id",                                     null: false
     t.string   "work_type"
-    t.string   "pay_type"
     t.boolean  "have_car"
-    t.boolean  "have_truck"
     t.text     "about"
     t.integer  "place_id"
-    t.float    "place_lat"
-    t.float    "place_long"
-    t.string   "place_address"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+    t.string   "price_type"
+    t.integer  "price_hourly"
+    t.integer  "price_project"
+    t.boolean  "have_instrument",             default: false
+    t.boolean  "can_departure",               default: false
+    t.boolean  "working_all_time",            default: false
+    t.string   "working_days"
+    t.integer  "working_hours_from"
+    t.integer  "working_hours_to"
+    t.integer  "rating_votes_count"
+    t.integer  "rating_votes_sum"
+    t.float    "rating"
+    t.boolean  "notifications_email_enabled", default: true
   end
 
   create_table "replies", force: :cascade do |t|
@@ -304,6 +312,18 @@ ActiveRecord::Schema.define(version: 20170517150059) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
+
+  create_table "user_omniauth_relations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "external_id"
+    t.text     "data"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "user_omniauth_relations", ["provider", "external_id"], name: "index_user_omniauth_relations_on_provider_and_external_id", unique: true, using: :btree
+  add_index "user_omniauth_relations", ["user_id"], name: "index_user_omniauth_relations_on_user_id", using: :btree
 
   create_table "user_permissions", force: :cascade do |t|
     t.text     "data"
