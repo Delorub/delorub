@@ -51,7 +51,7 @@ body textarea:required:valid {
 body {
     font-size: 12px;
     min-width: 320px;
-    max-width: 1920px;
+    max-width: 1440px;
     margin: 0 auto;
     position: relative;
     line-height: 1.5;
@@ -88,12 +88,12 @@ body.without-sidemenu {
     @media (min-width: $screen-lg-min) {
         width: 1280px;
     }
-    @media (min-width: $screen-lgm-min) {
+    /*@media (min-width: $screen-lgm-min) {
         width: 1520px;
     }
     @media (min-width: $screen-lgl-min) {
         width: 1760px;
-    }
+    }*/
 }
 
 .dr-top-nav {
