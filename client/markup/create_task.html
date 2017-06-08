@@ -20,26 +20,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="#000">
 
   </head>
-  <body>
-    <div id="openMap" class="modal-map">                
+  <body>   
 
-      <div class="modal-map-content"> 
-        <a href="#close" title="Закрыть" class="close-map">X</a>                  
-
-        <div class="modal-map-content-header">
-          Выбор адреса по карте
-        </div>
-        <div class="modal-map-content-text">
-          <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A9144367a4e18bb4eae2d5789c358d718e591294787a45e85efbb9a35315b9b49&amp;width=100%&amp;height=300&amp;lang=ru_RU&amp;scroll=true"></script>
-        </div>
-
-        <div>
-          <button type="button" class="btn dr-button-blueFull">Выбрать</button>
-        </div>
-
-      </div>                
-    </div>
-    
     <div class="container">
       <div class="row row-eq-height">
         <div class="col-sm-11 col-sm-push-1 dr-content">
@@ -74,7 +56,7 @@
                 </div><!-- /.navbar-collapse -->
               </div><!-- /.container-fluid -->
             </nav> 
-            
+
             <div class="dr-container">
               <div class="dr-header-span">
                 <p>
@@ -123,9 +105,9 @@
                       <div class="col-md-4">
                         <span class="input-label">Бюджет&nbsp;*</span>
                         <div class="input-group">
-                            <input type="text" class="form-control" required="1" placeholder="300 000"/>
-                            <span class="input-group-addon">₽</span>
-                          </div>
+                          <input type="text" class="form-control" required="1" placeholder="300 000"/>
+                          <span class="input-group-addon">₽</span>
+                        </div>
 
                       </div>
                       <div class="col-md-8">
@@ -186,7 +168,7 @@
 
                       <div class="dr-task-paid-functions dr-task-div">
                         <span class="input-label">Адрес</span>
-                        <a href="#openMap" id="openMap-link">Поставить метку на карте</a>
+                        <a href="#openMap" class="openMap-link">Поставить метку на карте</a>
                         <br/>
                         <select class="dr-task-select">
                           <option>Москва</option>
@@ -254,6 +236,24 @@
           <div class="year">© 2017</div>
         </div>
       </div>
+    </div>
+    <div id="openMap" class="modal-map">                
+
+      <div class="modal-map-content"> 
+        <a href="#close" title="Закрыть" class="close-map">X</a>                  
+
+        <div class="modal-map-content-header">
+          Выбор адреса по карте
+        </div>
+        <div class="modal-map-content-text">
+          <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A9144367a4e18bb4eae2d5789c358d718e591294787a45e85efbb9a35315b9b49&amp;width=100%&amp;height=300&amp;lang=ru_RU&amp;scroll=true"></script>
+        </div>
+
+        <div>
+          <button type="button" class="btn dr-button-blueFull">Выбрать</button>
+        </div>
+
+      </div>                
     </div>
     <script src="website-bundle.js"></script>
   </body>
