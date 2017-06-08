@@ -62,6 +62,11 @@ ru:
   activerecord:
     errors:
       user_balance: "Не хватает средств на счету"
+      models:
+        task:
+          attributes:
+            user:
+              no_available_tasks: У вас закончились бесплатные задания
     models:
       vacancy:
         one: Вакансия

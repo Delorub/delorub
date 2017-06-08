@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderSelect2 } from 'libs/delorub/redux-form-select2'
+import RenderSelect2 from 'libs/delorub/components/RenderSelect2'
 import { required } from 'libs/delorub/redux-form-validations'
 import { Field } from 'redux-form';
 
@@ -25,7 +25,7 @@ export default class Subcategory extends React.Component {
 
     return (
       <Field
-        component={renderSelect2}
+        component={RenderSelect2}
         className="dr-task-select"
         name="task[category_id]"
         data={this.listCategories()}
