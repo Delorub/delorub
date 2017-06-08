@@ -1,3 +1,13 @@
 smsc_login: 'delorubtest'
 smsc_password: 'delorubtest'
 smsc_api_url: 'https://smsc.ru/sys/send.php'
+
+odnoklassniki_app_id: '1xxxxxxx8'
+odnoklassniki_app_public_key: 'CxxxxxxxxxxxxxA'
+odnoklassniki_app_secret: 'BxxxxxxxxxxxxxxxxxxxxB'
+
+vkontakte_app_id: '6064911'
+vkontakte_app_secret: 'sAEQC27d4tC9PatXo86F'
+
+facebook_app_id: '6064911'
+facebook_app_secret: 'sAEQC27d4tC9PatXo86F'

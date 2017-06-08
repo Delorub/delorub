@@ -1,10 +1,26 @@
 import React from 'react';
+import Navigation from '../Navigation/Navigation';
+import Buttons from '../Buttons/Buttons';
+import Fields from './Fields';
 import Select2 from 'react-select2-wrapper';
+import { Field, reduxForm, formValueSelector } from 'redux-form';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as formActions from '../../actions/FormActions'
+import { required, requiredArray } from 'libs/delorub/redux-form-validations'
 
-export default class Step3 extends React.Component {
+class Step3 extends React.Component {
+  handleOnSubmit(e) {
+    this.refs.formComponent.submit()
+  }
+
   render() {
+    const { handleSubmit } = this.props
+
     return (
-      <div>
+      <form ref="formComponent" onSubmit={handleSubmit(::this.handleOnSubmit)}>
+        <Navigation />
+        <Fields />
         <div className="row">
           <div className="col-md-3">
             <div className="dr-task dr-profile-div">
@@ -184,7 +200,23 @@ export default class Step3 extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+        <Buttons />
+      </form>
     );
   }
 }
+
+const selector = formValueSelector('wizard')
+
+Step3 = reduxForm({
+  form: 'wizard',
+  destroyOnUnmount: false,
+  forceUnregisterOnUnmount: true
+})(Step3);
+
+Step3 = connect(
+  state => ({}),
+  dispatch => (bindActionCreators(formActions, dispatch))
+)(Step3)
+
+export default Step3

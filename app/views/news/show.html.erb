@@ -1,14 +1,12 @@
-<div class="dr-container<%= container_css_classes %>">
-  <div class="dr-header-span">
-    <h2><%= @news.title %></h2>
-  </div>
-  <div class="row dr-news row-eq-height dr-news-first">
-    <div class="col-xs-4 col-sm-4 dr-news-image">
-      <img src="<%= @news.photo.thumb.url %>" class="img-responsive" alt="">
-    </div>
-    <div class="col-xs-8 col-sm-8 dr-news-content">
-      <p><%= @news.content.html_safe %></p>
-    </div>
-  </div>
-  <a type="button" href="<%= collection_url %>" class="btn dr-news-load-more">Вернуться к списку новостей</a>
+<div class="dr-header-span">
+  <h2><%= @news.title %></h2>
 </div>
+<div class="row dr-news row-eq-height dr-news-first">
+  <div class="col-xs-4 col-sm-4 dr-news-image">
+    <img src="<%= @news.photo.thumb.url %>" class="img-responsive" alt="">
+  </div>
+  <div class="col-xs-8 col-sm-8 dr-news-content">
+    <p><%= @news.content.html_safe %></p>
+  </div>
+</div>
+<a type="button" href="<%= collection_url %>" class="btn dr-news-load-more">Вернуться к списку новостей</a>

@@ -3,28 +3,27 @@ import { config } from './config';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import classNames from 'classnames'
+import * as formActions from '../../actions/FormActions'
 
 class Steps extends React.Component {
+  handleNext(event) {
+    this.props.nextStep()
+  }
+
   render() {
     const { currentStep } = this.props
-    var listSteps = []
+    var displayStep = null
 
     config.forEach(function(step, i) {
       var StepComponent = step.component
-      const itemClasses = classNames({
-        'hidden': (i != currentStep)
-      });
-
-      listSteps.push(
-        <div key={i} className={itemClasses}>
-          <StepComponent key={i} id={i} {...this.props} />
-        </div>
-      );
+      if(i == currentStep) {
+        displayStep = <StepComponent key={i} id={i} {...this.props} onSubmit={::this.handleNext} />
+      }
     }, this);
 
     return (
         <div>
-          {listSteps}
+          {displayStep}
         </div>
     );
   }
@@ -36,4 +35,8 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(Steps)
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(formActions, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Steps)

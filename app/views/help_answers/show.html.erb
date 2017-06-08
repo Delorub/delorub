@@ -1,14 +1,12 @@
-<div class="dr-container<%= container_css_classes %>">
-  <div class="dr-header-span">
-    <%= resource.title %>
-    <a href="<%= new_help_question_path %>" class="btn dr-button-empty">Задать вопрос</a>
-  </div>
-  <%= render 'help_categories/search' %>
-  <div class="dr-news dr-single-news">
-    <div class="dr-single-news-content">
-      <%= resource.content %>
-    </div>
-  </div>
-  <%= render 'help_categories/flash' %>
-  <%= render 'help_questions/form' %>
+<div class="dr-header-span">
+  <%= resource.title %>
+  <a href="<%= new_help_question_path %>" class="btn dr-button-empty">Задать вопрос</a>
 </div>
+<%= render 'help_categories/search' %>
+<div class="dr-news dr-single-news">
+  <div class="dr-single-news-content">
+    <%= resource.content %>
+  </div>
+</div>
+<%= render 'help_categories/flash' %>
+<%= render 'help_questions/form' %>

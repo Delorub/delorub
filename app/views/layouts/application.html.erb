@@ -26,7 +26,14 @@
       <div class="<%= show_side_menu? ? 'col-sm-11 col-sm-push-1' : 'col-sm-12' %> dr-content">
         <main class="content">
           <%= render 'navigation' %>
+          <% if global_container? %>
+            <div class="dr-container<%= container_css_classes %>">
+              <%= render 'shared/after_container' %>
+          <% end %>
           <%= yield %>
+          <% if global_container? %>
+            </div>
+          <% end %>
           <%= render 'footer' %>
         </main>
       </div>

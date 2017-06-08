@@ -14,12 +14,18 @@ class Step1 extends React.Component {
   }
 
   handleInitialize() {
-    this.props.initialize({ create_profile: this.props.create_profile });
+    if(!this.props.main_specialization_id) {
+      this.props.initialize({ create_profile: this.props.create_profile })
+    }
   }
 
-  handleOnSubmit(e) {
-    console.log(this.props.valid);
-    this.props.nextStep()
+  renderCategory(field) {
+    return (
+      <div>
+        {field.meta.touched && field.meta.error &&
+         <span className="error">{field.meta.error}</span>}
+        <input type="hidden" {...field.input} />
+      </div>)
   }
 
   render() {
@@ -32,37 +38,40 @@ class Step1 extends React.Component {
       }
     }, this);
 
-    var currentCol = 0
     this.props.categories.forEach(function(category) {
       if (category.parent_id == main_specialization_id) {
-        currentCol++
-        if(currentCol > 4) {
-          currentCol = 1
-        }
-        if(listSubcategories[currentCol] == undefined) {
-          listSubcategories[currentCol] = []
-        }
-        listSubcategories[currentCol].push(<Subcategory key={category.id} {...this.props} {...category} />);
+        listSubcategories.push(category);
       }
     }, this);
 
+    const requiredMainSpecialization = value =>
+      value ? undefined : 'Выберите основную специализацию'
+
+    const requiredSpecializations = value =>
+      value.length > 0 ? undefined : 'Выберите хотя бы одну специализацию'
+
     return (
-      <form ref="formComponent" onSubmit={handleSubmit(::this.handleOnSubmit)}>
+      <form onSubmit={handleSubmit}>
         <Navigation />
         <div>
           <div className="dr-bottom-service">
             <div className="row">
               {listCategories}
             </div>
+            <Field
+              component={this.renderCategory}
+              name="create_profile[main_specialization_id]"
+              validate={[requiredMainSpecialization]}
+            />
           </div>
-          { main_specialization_id != null &&
+          { main_specialization_id != null && listSubcategories.length > 0 &&
             <div className="profileRefinement">
-              <input type="hidden" name="main_specialization_id" value={main_specialization_id} />
               <Field
                 component={renderSpecializations}
                 name="create_profile[specializations]"
                 specializations={listSubcategories}
-                main_specialization_id
+                columns="4"
+                validate={[requiredSpecializations]}
               />
             </div>
           }
@@ -73,24 +82,7 @@ class Step1 extends React.Component {
   }
 }
 
-const validate = values => {
-  const create_profile = values.create_profile
-  const errors = {}
-
-  if (create_profile.specializations && create_profile.specializations.length == 0) {
-    create_profile.specializations = 'Required'
-  }
-
-  create_profile.specializations = 'Required'
-  return errors
-}
-
-const selector = formValueSelector('create_profile')
-
-Step1 = reduxForm({
-  form: 'create_profile',
-  validate
-})(Step1);
+const selector = formValueSelector('wizard')
 
 Step1 = connect(
   state => ({
@@ -100,4 +92,8 @@ Step1 = connect(
   dispatch => (bindActionCreators(formActions, dispatch))
 )(Step1)
 
-export default Step1
+export default reduxForm({
+  form: 'wizard',
+  destroyOnUnmount: false,
+  forceUnregisterOnUnmount: true
+})(Step1)

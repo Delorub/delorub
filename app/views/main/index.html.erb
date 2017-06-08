@@ -1,5 +1,8 @@
 <%= render 'slider' %>
 <div class="dr-bottom-service">
+  <% unless global_container? %>
+    <%= render 'shared/after_container' %>
+  <% end %>
   <div class="row">
     <% @categories.each do |category| %>
       <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">

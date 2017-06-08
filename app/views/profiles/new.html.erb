@@ -1,4 +1,2 @@
-<div class="dr-container<%= container_css_classes %>">
-  <%= redux_store 'createProfileStore', props: { wizard: { step: 0 } } %>
-  <%= react_component 'CreateProfileApp', props: create_profile_form_props %>
-</div>
+<%= redux_store 'createProfileStore', props: { wizard: { step: 0 } } %>
+<%= react_component 'CreateProfileApp', props: create_profile_form_props %>

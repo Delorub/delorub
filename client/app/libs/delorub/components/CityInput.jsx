@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderSelect2 } from 'libs/delorub/redux-form-select2'
+import RenderSelect2 from 'libs/delorub/components/RenderSelect2'
 import { required } from 'libs/delorub/redux-form-validations'
 import { Field } from 'redux-form';
 
@@ -37,7 +37,8 @@ class CityInput extends React.Component {
 
     return (
       <Field
-        component={renderSelect2}
+        ref="selectField"
+        component={RenderSelect2}
         className="dr-task-select"
         options={_options}
         label={this.props.label}

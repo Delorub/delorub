@@ -1,29 +1,43 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-<div class="dr-container">
-  <div class="dr-header-span">
-    <p>Вход</p>
-    <%= render "devise/shared/links" %>
-  </div>
-  <div class="row row-eq-height dr-task">
-    <div class="col-md-4">
-      <div class="dr-task-name dr-task-div">
-        <span>Email</span>
-        <%= f.email_field :email, autofocus: true, class: 'form-control' %>
-      </div>
-      <div class="dr-task-name dr-task-div">
-        <span>Пароль</span>
-        <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
-      </div>
-      <% if devise_mapping.rememberable? -%>
-        <div class="dr-task-name dr-task-div">
+<div class="dr-header-span">
+  <p>Вход</p>
+  <%= render "devise/shared/links" %>
+</div>
+<div class="row row-eq-height dr-task">
+  <div class="col-md-4">
+    <div class="dr-task-name dr-login-div">
+      <span class="bold-text">Логин / email</span>
+      <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+    </div>
+    <div class="dr-task-password dr-login-div">
+      <span class="bold-text">Пароль</span>
+      <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+    </div>
+    <% if devise_mapping.rememberable? -%>
+      <div class="dr-task-password dr-login-div">
+        <label class="bold-text">
           <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
-        </div>
-      <% end -%>
+          Запомнить меня
+        </label>
+        <a href="<%= new_password_path(resource_name) %>" class="bold-text-light right">Забыли пароль?</a>
+      </div>
+    <% end -%>
+  </div>
+  <div class="col-md-4 col-md-offset-2 center">
+    <br/>
+    <span class="bold-text">Войти через социальные сети</span>
+    <div class="dr-social">
+      <a href="<%= omniauth_authorize_path(resource_name, :vkontakte) %>" class="btn dr-button-vk">VK</a>
+    </div>
+    <div class="dr-social">
+      <a href="<%= omniauth_authorize_path(resource_name, :facebook) %>" class="btn dr-button-facebook">Facebook</a>
+    </div>
+    <div class="dr-social">
+      <a href="<%= omniauth_authorize_path(resource_name, :odnoklassniki) %>" class="btn dr-button-odnoklassniki">Одноклассники</a>
     </div>
   </div>
-  <div class="row lastRow">
-    <input type="submit" class="btn dr-button-blueFull" value="Войти">
-  </div>
+</div>
+<div class="row lastRow">
+  <input type="submit" class="btn dr-button-blueFull" value="Войти">
 </div>
 <% end %>

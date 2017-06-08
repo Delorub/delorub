@@ -22,9 +22,14 @@ class Buttons extends React.Component {
         { currentStep > 0 &&
           <button type="button" className="btn dr-button-blue" onClick={::this.handlePrev}>Назад</button>
         }
-        <input type="submit" className="btn dr-button-blue" name="preview" value="Предпросмотр" />
-        { currentStep <= (config.length - 1) &&
+        { currentStep < (config.length - 1) &&
           <input type="submit" className="btn dr-button-blueFull" name="next" value="Далее" />
+        }
+        { currentStep == (config.length - 1) &&
+          <input type="submit" className="btn dr-button-blue" name="preview" value="Предпросмотр" />
+        }
+        { currentStep == (config.length - 1) &&
+          <input type="submit" className="btn dr-button-blueFull" name="send" value="Готово" />
         }
       </div>
     );
