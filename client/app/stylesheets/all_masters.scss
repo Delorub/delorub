@@ -82,7 +82,9 @@
             bottom: -50px;
         }
         &-button {
-            float: right;
+            .btn {
+               float: right; 
+            }            
         }
     }
     &-days {
