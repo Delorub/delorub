@@ -3,6 +3,7 @@ FactoryGirl.define do
     sequence(:email) { |n| Faker::Internet.unique.email }
     sequence(:phone) { |n| Phony.format("7999#{1_234_567 + n}") }
     phone_confirmed true
+    balance 100
 
     password { generate :password }
     password_confirmation(&:password)

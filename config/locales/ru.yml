@@ -168,6 +168,13 @@ ru:
         visible: "Доступно на сайте"
         archive: "Находится в архиве"
         created_at: "Дата создания"
+        price_scale: "Ценовая шкала"
+        place: "Место"
+        place_lat: "Место(широта)"
+        place_long: "Место(долгота)"
+        place_address: "Адрес"
+        contract_type: "Тип контракта"
+        colored:  "Выделенный"
       place:
         name: "Название"
         place_type_name: "Тип адреса"
