@@ -1,27 +1,10 @@
 ActiveAdmin.register Task, namespace: :admin do
-  permit_params :user_id,
-    :category_id,
-    :title,
-    :price_type,
-    :date_type,
-    :description,
-    :visible,
-    :price_exact,
-    :price_from,
-    :price_to,
-    :place_lat,
-    :place_long,
-    :place_address,
-    :date_actual,
-    :date_from,
-    :date_to,
-    :notify_email,
-    :archive,
-    :price_scale,
-    :contract_type
+  permit_params :user_id, :category_id, :title, :price_type, :date_type, :description, :visible, :price_exact, :price_from,
+    :price_to, :place_lat, :place_long, :place_address, :date_actual, :date_from, :date_to, :notify_email, :archive,
+    :price_scale, :contract_type
 
   filter :by_search_in, label: 'Поиск', as: :string
-  filter :category_id, as: :ransack_filter, url: '/admin/categories', display_name: 'title', order_by: 'description_asc'
+  filter :category_id, as: :ransack_filter, url: '/admin/categories', display_name: 'title'
   filter :user_id, as: :ransack_filter, url: '/admin/users', display_name: 'name'
   filter :created_at
 

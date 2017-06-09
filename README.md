@@ -43,4 +43,4 @@ Run `rake places:import:seed` for import a dump
 
 Reindeing all models:
 
-`es:reindex`
+`rake searchkick:reindex:all`

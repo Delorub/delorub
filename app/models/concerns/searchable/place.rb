@@ -5,8 +5,7 @@ module Searchable::Place
     searchkick word_start: [:name, :full_name, :search_string], language: :russian
 
     scope :by_search_in, ->(q) {
-      ids = PlaceSearch.new(query: q, page: 1, per_page: 100).all.map(&:id)
-      where(id: ids)
+      search_by_ids PlaceSearch.new(query: q, page: 1, per_page: 100).all.map(&:id)
     }
 
     def self.ransackable_scopes auth_object = nil
