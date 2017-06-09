@@ -94,9 +94,10 @@
 .close-vacancy {    
     opacity: 0.8;    
     line-height: 40px;
-    position: absolute;
-    top: 6%;
-    right: 22%;
+    position: relative;
+    margin-right: 3%;
+    margin-top: 3%;
+    float: right;
     text-align: center;
     width: 40px;
     height: 40px;
