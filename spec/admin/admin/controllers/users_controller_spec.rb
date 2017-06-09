@@ -2,30 +2,49 @@ describe Admin::UsersController, type: :controller do
   render_views
 
   let(:user) { create :admin }
+  let(:params) { FactoryGirl.attributes_for(:user) }
   subject { response }
 
   before do
     sign_in user
   end
 
-  describe 'GET /admin/users' do
-    let(:another_user) { create :admin }
-
-    def dispatch
+  describe 'GET #index' do
+    before :each do
       get :index
     end
 
-    it_behaves_like 'success response'
+    it 'checks the status' do
+      expect(response.status).to eq(200)
+    end
   end
 
-  describe 'GET /admin/users/:id' do
-    let(:another_user) { create :admin }
-
-    def dispatch
-      get :show, id: another_user.id
+  describe 'GET #show' do
+    before :each do
+      get :show, id: user.id
     end
 
-    it_behaves_like 'success response'
+    it 'checks the status' do
+      expect(response.status).to eq(200)
+    end
+
+    it 'assigns users' do
+      expect(assigns(:user)).to eq(user)
+    end
+  end
+
+  describe 'GET #new' do
+    it 'checks the status' do
+      get :new
+      expect(response.status).to eq(200)
+    end
+  end
+
+  describe 'POST #create' do
+    it 'checks the redirect status' do
+      post :create, user: params
+      expect(response.status).to eq 302
+    end
   end
 
   describe 'GET /admin/users/:id/permission' do

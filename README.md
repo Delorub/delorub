@@ -40,4 +40,7 @@ Run `rake places:import:seed` for import a dump
 `foreman start`
 
 ### ElasticSearch
-`Place.reindex` for reindexing an ES index
+
+Reindeing all models:
+
+`rake searchkick:reindex:all`

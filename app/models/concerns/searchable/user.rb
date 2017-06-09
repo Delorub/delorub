@@ -5,7 +5,7 @@ module Searchable::User
     searchkick word_start: [:name, :email], language: :russian
 
     scope :by_search_in, ->(q) {
-      by_search_ids UserSearch.new(query: q, page: 1, per_page: 100).all.map(&:id)
+      search_by_ids UserSearch.new(query: q, page: 1, per_page: 100).all.map(&:id)
     }
 
     def self.ransackable_scopes auth_object = nil

@@ -37,3 +37,4 @@ help_categories = HelpCategory.create([
   { title: 'Финансы' },
   { title: 'Профиль' },
 ])
+
