@@ -1,5 +1,5 @@
 describe SmsConfirmation do
-  let(:sms_confirmation) { build :sms_confirmation }
+  let(:sms_confirmation) { build described_class }
   subject { sms_confirmation }
 
   before do

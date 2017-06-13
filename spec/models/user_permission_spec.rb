@@ -1,9 +1,13 @@
 describe UserPermission do
-  let(:user_permission) { build :user_permission }
+  let(:user_permission) { build described_class }
   subject { user_permission }
 
   describe 'validations' do
     it { is_expected.to be_valid }
+  end
+
+  describe 'relations' do
+    it { is_expected.to belong_to(:user) }
   end
 
   describe '#set' do
