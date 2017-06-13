@@ -22,5 +22,11 @@ FactoryGirl.define do
     factory :superadmin do
       association :permission, factory: :superadmin_user_permission
     end
+
+    trait :reindex do
+      after(:create) do |user, _evaluator|
+        user.reindex(refresh: true)
+      end
+    end
   end
 end
