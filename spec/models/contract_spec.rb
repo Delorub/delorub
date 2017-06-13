@@ -1,5 +1,5 @@
 describe Contract do
-  let(:contract) { build :contract }
+  let(:contract) { build described_class }
   subject { contract }
 
   describe 'validations' do

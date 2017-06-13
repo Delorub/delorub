@@ -1,5 +1,5 @@
 describe Reply do
-  let(:reply) { build :reply }
+  let(:reply) { build described_class }
   subject { reply }
 
   describe 'validations' do

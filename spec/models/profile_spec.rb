@@ -1,5 +1,5 @@
 describe Profile do
-  let(:profile) { build :profile }
+  let(:profile) { build described_class }
   subject { profile }
 
   describe 'validations' do

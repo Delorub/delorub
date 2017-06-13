@@ -1,5 +1,5 @@
 describe Place do
-  let(:place) { build :place }
+  let(:place) { build described_class }
   subject { place }
 
   describe 'validations' do

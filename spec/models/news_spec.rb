@@ -1,5 +1,5 @@
 describe News do
-  let(:news) { build :news }
+  let(:news) { build described_class }
   subject { news }
 
   describe 'validations' do

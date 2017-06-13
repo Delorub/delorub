@@ -1,5 +1,5 @@
 describe PlaceTypeName do
-  let(:place_type_name) { build :place_type_name }
+  let(:place_type_name) { build described_class }
   subject { place_type_name }
 
   describe 'validations' do

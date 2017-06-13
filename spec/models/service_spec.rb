@@ -1,5 +1,5 @@
 describe Service do
-  let(:service) { build :service }
+  let(:service) { build described_class }
   subject { service }
 
   describe 'validations' do

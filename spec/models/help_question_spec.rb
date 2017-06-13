@@ -1,5 +1,5 @@
 describe HelpQuestion do
-  let(:help_question) { build :help_question }
+  let(:help_question) { build described_class }
   subject { help_question }
 
   describe 'validations' do
