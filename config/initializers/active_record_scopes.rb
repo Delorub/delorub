@@ -2,9 +2,9 @@ module SharedScopes
   extend ActiveSupport::Concern
 
   module ClassMethods
-    def by_search_ids ids
+    def search_by_ids ids
       if ids.any?
-        unscoped.where(id: ids).order("field(id, #{ids.join(',')})")
+        unscoped.where(id: ids)
       else
         none
       end

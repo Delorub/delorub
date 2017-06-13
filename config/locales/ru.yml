@@ -93,6 +93,11 @@ ru:
         few: Пользователя
         many: Пользователей
         other: Пользователи
+      profile:
+        one: Профиль
+        few: Профиля
+        many: Профилей
+        other: Профили
       category:
         one: Категория
         few: Категории
@@ -168,6 +173,13 @@ ru:
         visible: "Доступно на сайте"
         archive: "Находится в архиве"
         created_at: "Дата создания"
+        price_scale: "Ценовая шкала"
+        place: "Место"
+        place_lat: "Место(широта)"
+        place_long: "Место(долгота)"
+        place_address: "Адрес"
+        contract_type: "Тип контракта"
+        colored:  "Выделенный"
       place:
         name: "Название"
         place_type_name: "Тип адреса"
@@ -261,3 +273,21 @@ ru:
         editor_news: "Управление новостями"
         editor_task: "Управление заданиями"
         editor_reply: "Управление ответами"
+      profile:
+        work_type: 'Тип работы'
+        have_car: 'Есть машина'
+        about: 'О себе'
+        user_id: 'Пользователь'
+        place_id: 'ID места'
+        price_type: 'Тип ставки'
+        price_hourly: 'Часовая ставка'
+        price_project: 'Ставка за проект'
+        have_instrument: 'Есть инструменты'
+        can_departure: 'Выезд'
+        working_all_time: 'Круглосуточно'
+        working_days: 'Рабочие дни'
+        working_hours_from: 'с'
+        working_hours_to: 'по'
+        rating_votes_count: 'Кол-во оценок'
+        rating_votes_sum: 'Рейтинг'
+        notifications_email_enabled: 'Уведомение по email'

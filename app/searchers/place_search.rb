@@ -1,15 +1,9 @@
-class PlaceSearch
-  attr_reader :query, :page, :per_page, :place_type
+class PlaceSearch < BaseSearch
+  attr_reader :place_type
 
   def initialize query:, page: 1, per_page: 20, type: nil
-    @page = page
-    @query = query
-    @per_page = per_page
+    super(query: query, page: page, per_page: per_page)
     @place_type = place_type_value type
-  end
-
-  def all
-    searchkick_query
   end
 
   private

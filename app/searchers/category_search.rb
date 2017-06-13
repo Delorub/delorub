@@ -5,7 +5,7 @@ class CategorySearch < BaseSearch
       Searchkick.search query,
         index_name: Category,
         match: :word_start,
-        page: @page,
-        per_page: @per_page
+        page: page,
+        per_page: per_page
     end
 end

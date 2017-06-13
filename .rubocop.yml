@@ -88,6 +88,9 @@ Layout/CaseIndentation:
 Rails/HttpPositionalArguments:
   Enabled: false
 
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
 Style/ClassAndModuleChildren:
   Enabled: false
 
