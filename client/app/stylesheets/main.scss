@@ -303,16 +303,16 @@ ul.left_menu {
 
     .owl-prev, .owl-next {
         color: #c6c7c7;
-        cursor: pointer;
+        cursor: pointer;        
         font-family: delorub;
         font-size: 40px !important;
-        cursor: pointer;
+        font-weight: 900;
+        cursor: pointer;        
     }
 
     .owl-prev {
         position: absolute;
         left: 20px;
-
         &:before {
             content: "";
         }
@@ -321,7 +321,6 @@ ul.left_menu {
     .owl-next {
         position: absolute;
         right: 20px;
-
         &:before {
             content: "";
         }
@@ -346,10 +345,12 @@ ul.left_menu {
 .owl-theme {
     .owl-nav [class*=owl-] {
         background: transparent;
-
+        padding: 5px 25px;
         &:hover {
-            background: none;
-            color: darken(white, 20%);
+            background: rgba(37, 192, 236, 0.5);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;            
         }
     }
 
