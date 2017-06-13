@@ -6,6 +6,10 @@ describe UserPermission do
     it { is_expected.to be_valid }
   end
 
+  describe 'relations' do
+    it { is_expected.to belong_to(:user) }
+  end
+
   describe '#set' do
     subject { user_permission.superadmin = true }
 
