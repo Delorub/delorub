@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import ReactOnRails from 'react-on-rails';
 import App from '../components/App/App'
 
-export default class CreateTaskApp extends React.Component {
+export default class TaskFormApp extends React.Component {
   render() {
     const store = ReactOnRails.getStore('taskStore');
 

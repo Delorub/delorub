@@ -5,6 +5,7 @@ import Budget from '../Budget/Budget';
 import Category from '../Category/Category';
 import DateSelector from '../DateSelector/DateSelector';
 import Subcategory from '../Subcategory/Subcategory';
+import PhotoInput from '../PhotoInput/PhotoInput';
 import DescriptionInput from '../DescriptionInput/DescriptionInput';
 import DateTypeInput from '../DateTypeInput/DateTypeInput';
 import ContractInput from '../ContractInput/ContractInput';
@@ -32,8 +33,15 @@ class App extends React.Component {
     const { handleSubmit, pristine, reset, submitting } = this.props
 
     return (
-      <form ref="formComponent" acceptCharset="UTF-8" action={this.props.form_action} method="post" onSubmit={handleSubmit(::this.handleOnSubmit)}>
-        <input type='hidden' name='utf8' value='✓' />
+      <form
+        ref="formComponent"
+        acceptCharset="UTF-8"
+        action={this.props.form_action}
+        method="post"
+        onSubmit={handleSubmit(::this.handleOnSubmit)}
+        enctype="multipart/form-data"
+        >
+        <input type="hidden" name="utf8" value="✓" />
         <input name="authenticity_token" value={this.props.authenticity_token} type="hidden" />
         <div className="dr-header-span">
           <p>Создание <span className="dr-header-span-unmarked">&nbsp;задания</span></p>
@@ -46,21 +54,7 @@ class App extends React.Component {
 
             <DescriptionInput />
 
-            <div className="dr-task-photo dr-task-div">
-              <div className="row">
-                <div className="col-md-6">
-                  <span className="input-label">Фото&nbsp;*</span>
-                  <br />
-                  <button type="button" className="btn dr-button-blue">Выбрать фото</button>
-                </div>
-                <div className="col-md-6">
-                  <span className="icon_top icon-information"></span>
-                  <p className="photoInfo">
-                    Максимальный размер файла 5 МБ, формат .jpg, .jpeg, .png, .gif.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <PhotoInput {...this.props} />
 
             <PaidFunctionsInput {...this.props} />
 
@@ -115,6 +109,7 @@ App = connect(
     price_exact: selector(state, 'task[price_exact]'),
     date_type: selector(state, 'task[date_type]'),
     main_category_id: selector(state, 'task[main_category_id]'),
+    files: selector(state, 'task[files]'),
   })
 )(App)
 

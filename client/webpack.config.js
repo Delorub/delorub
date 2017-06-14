@@ -30,7 +30,7 @@ module.exports = {
     website_apps: [
       './app/bundles/NotificationsApp/startup/clientRegistration',
       './app/bundles/CreateProfileApp/startup/clientRegistration',
-      './app/bundles/CreateTaskApp/startup/clientRegistration',
+      './app/bundles/TaskFormApp/startup/clientRegistration',
     ],
 
     admin: [
