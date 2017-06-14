@@ -61,6 +61,9 @@ Metrics/MethodLength:
 Style/Documentation:
   Enabled: false
 
+Style/CommentAnnotation:
+  Enabled: false
+
 Rails/Output:
   Enabled: false
 
@@ -86,6 +89,9 @@ Layout/CaseIndentation:
   Enabled: false
 
 Rails/HttpPositionalArguments:
+  Enabled: false
+
+Rails/HasAndBelongsToMany:
   Enabled: false
 
 Style/ClassAndModuleChildren:

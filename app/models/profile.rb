@@ -27,12 +27,18 @@
 
 class Profile < ApplicationRecord
   extend Enumerize
+  include Searchable::Profile
 
   belongs_to :user
-  has_many :specializations
+
+  has_and_belongs_to_many :categories
+
+  accepts_nested_attributes_for :categories
 
   enumerize :pay_type, in: [:hourly]
   enumerize :car_type, in: [:passenger, :none]
 
   validates :user_id, presence: true
+
+  delegate :name, to: :user
 end

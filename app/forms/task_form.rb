@@ -1,11 +1,7 @@
-class TaskForm < Reform::Form
+class TaskForm < BaseForm
   property :title
-  validates :title, presence: true
-
   property :description
-  validates :description, presence: true
 
-  property :user_id
   property :category_id
   property :main_category_id, virtual: true
 
@@ -28,6 +24,12 @@ class TaskForm < Reform::Form
 
   property :notifications_type, virtual: true, default: 'notifications-email'
   property :paid_functions, virtual: true, default: []
+
+  validation :default do
+    required(:title).filled
+    required(:description).filled
+    required(:category_id).filled
+  end
 
   def contract_type_options
     Task.contract_type.options

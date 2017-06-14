@@ -9,21 +9,24 @@ class TasksController < ApplicationController
   end
 
   def new
-    @form = TaskForm.new Task.new
+    @form = TaskForm.new Task.new(user: current_user)
     form_from_session
-    @form.user_id = current_user.id if user_signed_in?
   end
 
   def create
-    @form = TaskForm.new Task.new
-    @form.user_id = current_user.id if user_signed_in?
+    @form = TaskForm.new Task.new(user: current_user)
 
     if @form.validate task_params
       unless user_signed_in?
         store_form_to_session
-        return redirect_to new_user_registration_path
+        return redirect_to new_user_session_path, notice: 'Отлично! Для завершения нужно войти либо зарегистрироваться'
       end
-      return redirect_to task_path(@form.model) if @form.save
+      creator = Task::FormCreator.new(@form)
+      creator.perform
+      return redirect_to task_path(creator.model), notice: 'Задание добавлено!' if creator.model.persisted?
+      flash.now.alert = creator.last_error
+    else
+      flash.now.alert = @form.errors
     end
 
     render 'new'
@@ -64,18 +67,13 @@ class TasksController < ApplicationController
     end
 
     def form_from_session
-      @form.validate session[form_session_key] if session[form_session_key]
+      @form.validate create_data_after_authorization(:task) if create_after_authorization? :task
     end
 
     def store_form_to_session
       @form.save do |data|
-        after_authorization :task
-        session[form_session_key] = data
+        create_after_authorization :task, data
       end
-    end
-
-    def form_session_key
-      :task_form_data
     end
 
     def task_form_props

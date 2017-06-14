@@ -15,7 +15,7 @@
 #  profile_id             :integer
 #  free_tasks_published   :integer          default(0), not null
 #  free_replies_published :integer          default(0), not null
-#  balance                :float            default(0.0), not null
+#  balance                :decimal(10, 2)   default(0.0), not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
@@ -53,6 +53,7 @@ class User < ApplicationRecord
   has_many :tasks, dependent: :destroy
   has_many :replies, dependent: :destroy
   has_one :permission, class_name: 'UserPermission', dependent: :destroy
+  has_one :profile
 
   has_many :task_packs, class_name: 'Billing::TaskPack', dependent: :destroy
   has_many :task_subscriptions, class_name: 'Billing::TaskSubscription', dependent: :destroy
@@ -67,9 +68,6 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :permission
 
   validates :first_name, :last_name, :email, presence: true
-  validates :email, uniqueness: true
-  validates :password, length: { minimum: 8 }, unless: 'password.nil?'
-  validates :password, presence: true, if: 'id.nil?'
   validates :balance, numericality: { greater_than_or_equal_to: 0 }
   validates :phone, phony_plausible: true
   validate :ensure_phone_not_confirmed, if: :phone
