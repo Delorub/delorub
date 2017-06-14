@@ -7,7 +7,7 @@ admins = User.create([
   {
     first_name: 'Алексей',
     last_name: 'Петров',
-    password: 'password',
+    password: 'test123123',
     email: 'admin@delorub.com',
     permission_attributes: { superadmin: true },
     confirmed_at: DateTime.current.utc,
@@ -16,7 +16,7 @@ admins = User.create([
   {
     first_name: 'Мария',
     last_name: 'Иванова',
-    password: 'password',
+    password: 'test123123',
     email: 'editor@delorub.com',
     permission_attributes: { editor: true },
     confirmed_at: DateTime.current.utc,

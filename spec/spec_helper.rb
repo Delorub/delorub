@@ -5,6 +5,7 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'webmock/rspec'
 require 'shoulda/matchers'
+require 'support/controller_helpers'
 
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
@@ -44,4 +45,7 @@ RSpec.configure do |config|
     example.run
     Searchkick.disable_callbacks
   end
+
+  config.include Devise::TestHelpers, type: :controller
+  config.include ControllerHelpers, type: :controller
 end

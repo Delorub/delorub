@@ -30,6 +30,8 @@
 #  free_tasks_published   :integer          default(0), not null
 #  free_replies_published :integer          default(0), not null
 #  balance                :decimal(10, 2)   default(0.0), not null
+#  photo                  :string
+#  phone_confirmed        :boolean
 #  tokens                 :json
 #  created_at             :datetime
 #  updated_at             :datetime

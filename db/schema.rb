@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614105514) do
+ActiveRecord::Schema.define(version: 20170614105515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -360,6 +360,8 @@ ActiveRecord::Schema.define(version: 20170614105514) do
     t.integer  "free_tasks_published",                            default: 0,       null: false
     t.integer  "free_replies_published",                          default: 0,       null: false
     t.decimal  "balance",                precision: 10, scale: 2, default: 0.0,     null: false
+    t.string   "photo"
+    t.boolean  "phone_confirmed"
     t.json     "tokens"
     t.datetime "created_at"
     t.datetime "updated_at"

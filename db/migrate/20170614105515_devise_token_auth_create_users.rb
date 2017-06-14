@@ -48,6 +48,8 @@ class DeviseTokenAuthCreateUsers < ActiveRecord::Migration
       t.integer :free_tasks_published, null: false, default: 0
       t.integer :free_replies_published, null: false, default: 0
       t.decimal :balance, null: false, default: 0.0, precision: 10, scale: 2
+      t.string :photo
+      t.boolean :phone_confirmed
 
       ## Tokens
       t.json :tokens
