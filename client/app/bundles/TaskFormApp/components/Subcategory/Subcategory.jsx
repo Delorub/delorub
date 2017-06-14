@@ -1,14 +1,15 @@
 import React from 'react';
-import { renderSelect2 } from 'libs/delorub/redux-form-select2'
+import RenderSelect2 from 'libs/delorub/components/RenderSelect2'
 import { required } from 'libs/delorub/redux-form-validations'
 import { Field } from 'redux-form';
 
-export default class Category extends React.Component {
+export default class Subcategory extends React.Component {
   listCategories() {
+    const { main_category_id } = this.props
     var categories = []
 
     this.props.categories.forEach(function(category) {
-      if (category.parent_id == null) {
+      if (category.parent_id == main_category_id) {
         categories.push({
           id: category.id,
           text: category.title
@@ -20,17 +21,20 @@ export default class Category extends React.Component {
   }
 
   render() {
+    const { main_category_id } = this.props
+
     return (
       <Field
-        component={renderSelect2}
+        component={RenderSelect2}
         className="dr-task-select"
-        name="task[main_category_id]"
+        name="task[category_id]"
         data={this.listCategories()}
         options={{
-          placeholder: 'Выберите категорию',
+          placeholder: 'Выберите подкатегорию',
         }}
-        label="Категория задания"
+        label="Подкатегория задания"
         validate={[required]}
+        disabled={main_category_id == null}
         />
     )
   }

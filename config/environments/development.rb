@@ -17,5 +17,6 @@ Rails.application.configure do
   config.assets.raise_runtime_errors = true
   config.assets.compile = true
 
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.default_url_options = { host: 'local.delorub.ru:4000' }
 end

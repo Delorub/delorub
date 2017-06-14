@@ -10,16 +10,20 @@ Devise.setup do |config|
 
   config.omniauth :facebook,
     Figaro.env.facebook_app_id!,
-    Figaro.env.facebook_app_secret!
+    Figaro.env.facebook_app_secret!,
+    scope: 'email',
+    info_fields: 'email, first_name, last_name'
 
   config.omniauth :vkontakte,
     Figaro.env.vkontakte_app_id!,
-    Figaro.env.vkontakte_app_secret!
+    Figaro.env.vkontakte_app_secret!,
+    scope: 'email', image_size: 'original'
 
   config.omniauth :odnoklassniki,
     Figaro.env.odnoklassniki_app_id!,
     Figaro.env.odnoklassniki_app_secret!,
-    public_key: Figaro.env.odnoklassniki_app_public_key!
+    public_key: Figaro.env.odnoklassniki_app_public_key!,
+    scope: 'GET_EMAIL'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'

@@ -1,10 +1,10 @@
 import ReactOnRails from 'react-on-rails';
 
-import CreateTaskApp from '../containers/CreateTaskApp';
+import TaskFormApp from '../containers/TaskFormApp';
 import taskStore from '../store/taskStore';
 
 ReactOnRails.register({
-  CreateTaskApp
+  TaskFormApp
 });
 
 ReactOnRails.registerStore({

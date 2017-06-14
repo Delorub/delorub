@@ -1,31 +1,35 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
   <div class="dr-header-span">
     <p>Регистрация</p>
     <%= render "devise/shared/links" %>
   </div>
   <div class="row row-eq-height dr-task">
     <div class="col-md-4">
-      <div class="dr-task-name dr-task-div">
+      <div class="dr-task-name dr-task-div<%= error_class_for :email %>">
         <span>Email</span>
+        <%= error_block_for :email %>
         <%= f.email_field :email, autofocus: true, class: 'form-control' %>
       </div>
-      <div class="dr-task-name dr-task-div">
+      <div class="dr-task-name dr-task-div<%= error_class_for :password %>">
         <span>Пароль</span>
+        <%= error_block_for :password %>
         <%= f.password_field :password, autocomplete: 'off', class: 'form-control' %>
       </div>
-      <div class="dr-task-name dr-task-div">
+      <div class="dr-task-name dr-task-div<%= error_class_for :password_confirmation %>">
         <span>Подтвердите пароль</span>
+        <%= error_block_for :password_confirmation %>
         <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control' %>
       </div>
     </div>
     <div class="col-md-4">
-      <div class="dr-task-name dr-task-div">
+      <div class="dr-task-name dr-task-div<%= error_class_for :first_name %>">
         <span>Имя</span>
+        <%= error_block_for :first_name %>
         <%= f.text_field :first_name, class: 'form-control' %>
       </div>
-      <div class="dr-task-name dr-task-div">
+      <div class="dr-task-name dr-task-div<%= error_class_for :last_name %>">
         <span>Фамилия</span>
+        <%= error_block_for :last_name %>
         <%= f.text_field :last_name, class: 'form-control' %>
       </div>
     </div>

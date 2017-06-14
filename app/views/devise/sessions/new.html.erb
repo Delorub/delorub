@@ -1,16 +1,18 @@
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= form_for resource, as: resource_name, url: session_path(resource_name) do |f| %>
 <div class="dr-header-span">
   <p>Вход</p>
   <%= render "devise/shared/links" %>
 </div>
 <div class="row row-eq-height dr-task">
   <div class="col-md-4">
-    <div class="dr-task-name dr-login-div">
+    <div class="dr-task-name dr-login-div<%= error_class_for :email %>">
       <span class="bold-text">Логин / email</span>
+      <%= error_block_for :email %>
       <%= f.email_field :email, autofocus: true, class: 'form-control' %>
     </div>
-    <div class="dr-task-password dr-login-div">
+    <div class="dr-task-password dr-login-div<%= error_class_for :password %>">
       <span class="bold-text">Пароль</span>
+      <%= error_block_for :password %>
       <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
     </div>
     <% if devise_mapping.rememberable? -%>
