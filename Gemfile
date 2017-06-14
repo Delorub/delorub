@@ -114,6 +114,8 @@ group :test do
   gem 'rspec-rails', require: false
   gem 'simplecov', require: false
   gem 'webmock'
+  gem 'shoulda', '~> 3.5'
+  gem 'shoulda-matchers', '~> 2.0'
 end
 
 group :production do

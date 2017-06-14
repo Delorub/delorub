@@ -5,7 +5,7 @@
 #  id         :integer          not null, primary key
 #  user_id    :integer
 #  admin_id   :integer
-#  amount     :float
+#  amount     :decimal(10, 2)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

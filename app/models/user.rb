@@ -15,7 +15,7 @@
 #  profile_id             :integer
 #  free_tasks_published   :integer          default(0), not null
 #  free_replies_published :integer          default(0), not null
-#  balance                :float            default(0.0), not null
+#  balance                :decimal(10, 2)   default(0.0), not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
