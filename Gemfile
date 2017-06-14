@@ -105,6 +105,8 @@ group :development do
   gem 'capistrano3-unicorn'
   gem 'web-console', '~> 2.0'
   gem 'overcommit'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test do
@@ -112,6 +114,8 @@ group :test do
   gem 'rspec-rails', require: false
   gem 'simplecov', require: false
   gem 'webmock'
+  gem 'shoulda', '~> 3.5'
+  gem 'shoulda-matchers', '~> 2.0'
 end
 
 group :production do

@@ -4,7 +4,7 @@ class CreateBillingTransferManually < ActiveRecord::Migration
       t.integer :user_id
       t.integer :admin_id
 
-      t.float :amount
+      t.decimal :amount, precision: 10, scale: 2
 
       t.timestamps null: false
     end
