@@ -13,6 +13,7 @@ nbproject/*
 .jhw-cache
 .sass-cache
 .noexec.yaml
+.byebug_history
 
 # Configuration
 config/database.yml

@@ -9,6 +9,7 @@ AllCops:
     - 'client/**/*'
     - db/schema.rb
     - db/seeds.rb
+    - db/migrate/*
 
 Rails:
   Enabled: true
@@ -113,4 +114,7 @@ Bundler/OrderedGems:
   Enabled: false
 
 NilComparison:
+  Enabled: false
+
+Rails/Blank:
   Enabled: false

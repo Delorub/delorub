@@ -1,17 +1,20 @@
-class Api::V10::Searches < Grape::API
+class Api::V10::Searches < ApplicationAPI
+  helpers ::Grape::AuthHelpers
+
   helpers do
     def place_search
       return popular_places if params[:query].blank?
 
-      PlaceSearch.new \
+      PlaceSearch.new(
         query: params[:query],
         page: params[:page],
         per_page: params[:per_page],
         type: params[:type]
+      ).all
     end
 
     def popular_places
-      Place.limit(params[:per_page]).order('level ASC')
+      PlaceQuery.new(current_user).popular_places
     end
   end
 
@@ -24,9 +27,10 @@ class Api::V10::Searches < Grape::API
       optional :type, type: String, desc: 'Type of place', values: ['city']
     end
     get :place do
+      authenticate!
       present :query, params[:query]
       present :type, params[:type]
-      present :places, place_search.all, with: Entities::Place
+      present :places, place_search, with: Entities::Place
     end
   end
 end
