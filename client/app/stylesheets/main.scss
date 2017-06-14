@@ -50,7 +50,7 @@ body textarea:required:valid {
 
 body {
     font-size: 12px;
-    min-width: 320px;
+    min-width: 1020px;
     max-width: 1440px;
     margin: 0 auto;
     position: relative;
@@ -83,7 +83,7 @@ body.without-sidemenu {
     text-align: center;
 }
 
-.container {
+.container {    
     width: 100%;
     @media (min-width: $screen-lg-min) {
         width: 1280px;
@@ -101,6 +101,9 @@ body.without-sidemenu {
     width: 100%;
     padding: 10px 0;
     max-width: 1440px;
+    .navbar-header {
+        margin-left: 25px;
+    }
     ul.navbar-nav {
         @media (min-width: $screen-sm-min) {
             font-size: 0.8rem;
@@ -304,25 +307,25 @@ ul.left_menu {
     .owl-prev, .owl-next {
         color: #c6c7c7;
         cursor: pointer;        
-        font-family: delorub;
-        font-size: 40px !important;
-        font-weight: 900;
+        font-family: $DelorubSliderArrows;
+        font-size: 50px !important;
+        //font-weight: 900;
         cursor: pointer;        
     }
 
     .owl-prev {
         position: absolute;
-        left: 20px;
+        left: 20px;        
         &:before {
-            content: "";
+            content: "\e801";
         }
     }
 
     .owl-next {
         position: absolute;
-        right: 20px;
-        &:before {
-            content: "";
+        right: 20px;        
+        &:before {            
+            content: "\e800";
         }
     }
 }
@@ -343,9 +346,15 @@ ul.left_menu {
 }
 
 .owl-theme {
+    .owl-nav .owl-prev {
+        padding: 5px 30px 5px 20px;
+    }
+    .owl-nav .owl-next {
+        padding: 5px 20px 5px 30px;
+    }
     .owl-nav [class*=owl-] {
         background: transparent;
-        padding: 5px 25px;
+        //padding: 5px 25px;
         &:hover {
             background: rgba(37, 192, 236, 0.5);
             color: #fff;
@@ -353,7 +362,6 @@ ul.left_menu {
             border-radius: 50px;            
         }
     }
-
     .owl-dots {
         .owl-dot {
             &.active span {
@@ -375,28 +383,19 @@ ul.left_menu {
     z-index: 9;
     text-align: center;
     left: 0;
-    top: 10%;
+    top: 23.5%;
 
     @media (min-width: $screen-xs-min) {
-        top: 15%;
+        top: 23.5%;
 
         a.buttons {
             font-size: 0.6em;
             padding: 6px 20px;
         }
-    }
-
-    @media (min-width: $screen-sm-min) {
-        top: 20%;
-
-        a.buttons {
-            font-size: 0.6em;
-            padding: 6px 20px;
-        }
-    }
+    }    
 
     @media (min-width: $screen-md-min) {
-        top: 25%;
+        top: 23.5%;
 
         a.buttons {
             font-size: 0.8em;
@@ -406,15 +405,25 @@ ul.left_menu {
 
     @media (min-width: $screen-lg-min) {
         font-size: 1.2em;
+        top: 26.5%;
+
+        a.buttons {
+            padding: 11px 45px;
+        }
+    }
+
+    @media (min-width: $screen-lgs-min) {
+        font-size: 1.2em;
         top: 29%;
 
         a.buttons {
             padding: 11px 45px;
         }
     }
+
     @media (min-width: $screen-lgm-min) {
         font-size: 1.2em;
-        top: 30%;
+        top: 30.7%;
 
         a.buttons {
             padding: 11px 45px;
