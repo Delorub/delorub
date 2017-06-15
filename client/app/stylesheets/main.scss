@@ -101,6 +101,8 @@ body.without-sidemenu {
     width: 100%;
     padding: 10px 0;
     max-width: 1440px;
+    font-family: $PFDinExThin;
+    font-weight: 600;
     .navbar-header {
         margin-left: 25px;
     }
@@ -419,7 +421,7 @@ ul.left_menu {
 
     @media (min-width: $screen-lg-min) {
         font-size: 1.2em;
-        top: 26.5%;
+        top: 26%;
 
         a.buttons {
             padding: 11px 45px;
@@ -428,7 +430,7 @@ ul.left_menu {
 
     @media (min-width: $screen-lgs-min) {
         font-size: 1.2em;
-        top: 29%;
+        top: 28.5%;
 
         a.buttons {
             padding: 11px 45px;
@@ -437,7 +439,7 @@ ul.left_menu {
 
     @media (min-width: $screen-lgm-min) {
         font-size: 1.2em;
-        top: 30.7%;
+        top: 30.5%;
 
         a.buttons {
             padding: 11px 45px;
@@ -537,6 +539,8 @@ ul.left_menu {
 }
 .dr-bottom-menu {
     padding: 60px 20px;
+    font-family: $PFDinExThin;
+    font-weight: 600;
     text-align: center;
     @media (min-width: $screen-sm-min) {
             font-size: 0.8rem;
