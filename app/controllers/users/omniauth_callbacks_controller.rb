@@ -28,8 +28,14 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
       return success_sign_in @omniauth.user if @omniauth.user
 
-      flash.now.notice = 'Поздравляем! Осталось указать немного информации о себе'
       @user = User::OmniauthCreator.new(@omniauth).perform
+
+      if @user.valid?
+        @user.save
+        return success_sign_in @user
+      end
+
+      flash.now.notice = 'Поздравляем! Осталось указать немного информации о себе'
       render 'devise/registrations/new'
     end
 

@@ -14,9 +14,9 @@ const sourcePath = path.join(__dirname, './app');
 module.exports = {
   context: __dirname,
   entry: {
-    contract_designer_app: [
+    /*contract_designer_app: [
       './app/bundles/ContractDesignerApp/startup/clientRegistration',
-    ],
+    ],*/
 
     contract_app: [
       './app/bundles/ContractApp/startup/clientRegistration',
@@ -30,7 +30,7 @@ module.exports = {
     website_apps: [
       './app/bundles/NotificationsApp/startup/clientRegistration',
       './app/bundles/CreateProfileApp/startup/clientRegistration',
-      './app/bundles/CreateTaskApp/startup/clientRegistration',
+      './app/bundles/TaskFormApp/startup/clientRegistration',
     ],
 
     admin: [
