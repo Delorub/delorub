@@ -30,6 +30,7 @@ class Profile < ApplicationRecord
   include Searchable::Profile
 
   belongs_to :user
+  belongs_to :place
 
   has_and_belongs_to_many :categories
 
@@ -38,6 +39,7 @@ class Profile < ApplicationRecord
   enumerize :pay_type, in: [:hourly]
   enumerize :car_type, in: [:passenger, :none]
 
+  validates_with Profile::PlaceValidator
   validates :user_id, presence: true
 
   delegate :name, to: :user

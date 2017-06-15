@@ -9,6 +9,7 @@ AllCops:
     - 'client/**/*'
     - db/schema.rb
     - db/seeds.rb
+    - db/migrate/*
 
 Rails:
   Enabled: true

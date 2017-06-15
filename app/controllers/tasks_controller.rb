@@ -1,6 +1,8 @@
 class TasksController < ApplicationController
   inherit_resources
 
+  before_filter :authenticate_user!
+
   helper_method :task_form_props, :current_url
 
   def index

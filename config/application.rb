@@ -12,6 +12,7 @@ module Delorub
       #{config.root}/app/models/concerns
       #{config.root}/app/controllers/concerns
       #{config.root}/app/lib
+      #{config.root}/app/validators
     ]
     config.autoload_paths += additional_paths
     config.eager_load_paths += additional_paths

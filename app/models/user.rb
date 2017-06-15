@@ -3,19 +3,9 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  email                  :string           default(""), not null
+#  provider               :string           default("email"), not null
+#  uid                    :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
-#  first_name             :string
-#  middle_name            :string
-#  last_name              :string
-#  phone                  :string
-#  skype                  :string
-#  website                :string
-#  birthday               :date
-#  profile_id             :integer
-#  free_tasks_published   :integer          default(0), not null
-#  free_replies_published :integer          default(0), not null
-#  balance                :decimal(10, 2)   default(0.0), not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
@@ -24,28 +14,48 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string
 #  last_sign_in_ip        :string
-#  created_at             :datetime         not null
-#  updated_at             :datetime         not null
+#  confirmation_token     :string
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
+#  unconfirmed_email      :string
+#  first_name             :string
+#  middle_name            :string
+#  last_name              :string
+#  phone                  :string
+#  skype                  :string
+#  website                :string
+#  email                  :string
+#  birthday               :date
+#  profile_id             :integer
+#  free_tasks_published   :integer          default(0), not null
+#  free_replies_published :integer          default(0), not null
+#  balance                :decimal(10, 2)   default(0.0), not null
 #  photo                  :string
 #  phone_confirmed        :boolean
+#  tokens                 :json
+#  created_at             :datetime
+#  updated_at             :datetime
 #
 # Indexes
 #
+#  index_users_on_confirmation_token    (confirmation_token) UNIQUE
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_users_on_uid_and_provider      (uid,provider) UNIQUE
 #
 
 class User < ApplicationRecord
   FREE_TASKS = 3
   FREE_REPLIES = 3
 
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable
-
   phony_normalize :phone
   phony_normalized_method :phone
 
   include Searchable::User
   include Geotaggable
+  include DeviseTokenAuth::Concerns::User
+
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   has_many :omniauth_relations, dependent: :nullify
 
@@ -53,7 +63,7 @@ class User < ApplicationRecord
   has_many :tasks, dependent: :destroy
   has_many :replies, dependent: :destroy
   has_one :permission, class_name: 'UserPermission', dependent: :destroy
-  has_one :profile
+  has_one :profile, dependent: :destroy
 
   has_many :task_packs, class_name: 'Billing::TaskPack', dependent: :destroy
   has_many :task_subscriptions, class_name: 'Billing::TaskSubscription', dependent: :destroy
