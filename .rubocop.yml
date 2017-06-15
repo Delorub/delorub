@@ -115,6 +115,3 @@ Bundler/OrderedGems:
 
 NilComparison:
   Enabled: false
-
-Rails/Blank:
-  Enabled: false
