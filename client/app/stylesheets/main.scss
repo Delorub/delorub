@@ -50,7 +50,7 @@ body textarea:required:valid {
 
 body {
     font-size: 12px;
-    min-width: 320px;
+    min-width: 1020px;
     max-width: 1440px;
     margin: 0 auto;
     position: relative;
@@ -83,7 +83,7 @@ body.without-sidemenu {
     text-align: center;
 }
 
-.container {
+.container {    
     width: 100%;
     @media (min-width: $screen-lg-min) {
         width: 1280px;
@@ -97,10 +97,13 @@ body.without-sidemenu {
 }
 
 .dr-top-nav {
-    z-index: 2;
+    z-index: 3;
     width: 100%;
     padding: 10px 0;
-
+    max-width: 1440px;
+    .navbar-header {
+        margin-left: 25px;
+    }
     ul.navbar-nav {
         @media (min-width: $screen-sm-min) {
             font-size: 0.8rem;
@@ -163,7 +166,7 @@ body.without-sidemenu {
         position: absolute;
         background-color: transparent;
         border-color: transparent;
-
+        margin-top: 20px;
         ul.navbar-nav {
             li {
                 a {
@@ -239,6 +242,8 @@ body.without-sidemenu {
 
 .dr-slider {
     box-shadow: 3px 0px 10px 0 rgba(0, 0, 0, 0.3);
+    z-index: 2;
+    position: relative;
 }
 
 .totalz {
@@ -256,7 +261,7 @@ body.without-sidemenu {
             color: #fff;
             text-align: center;
             border-radius: 45px;
-            background-color: #25c0ec;
+            background-color: $blueColor;
         }
 
         span.txa {
@@ -277,7 +282,7 @@ ul.left_menu {
             padding: 22px 0;
 
             &:hover {
-                background-color: #25c0ec;
+                background-color: $blueColor;
                 color: #fff;
 
                 .icon_top {
@@ -301,27 +306,26 @@ ul.left_menu {
 
     .owl-prev, .owl-next {
         color: #c6c7c7;
-        cursor: pointer;
-        font-family: delorub;
-        font-size: 40px !important;
-        cursor: pointer;
+        cursor: pointer;        
+        font-family: $DelorubSliderArrows;
+        font-size: 50px !important;
+        //font-weight: 900;
+        cursor: pointer;        
     }
 
     .owl-prev {
         position: absolute;
-        left: 20px;
-
+        left: 20px;        
         &:before {
-            content: "";
+            content: "\e801";
         }
     }
 
     .owl-next {
         position: absolute;
-        right: 20px;
-
-        &:before {
-            content: "";
+        right: 20px;        
+        &:before {            
+            content: "\e800";
         }
     }
 }
@@ -342,15 +346,22 @@ ul.left_menu {
 }
 
 .owl-theme {
+    .owl-nav .owl-prev {
+        padding: 5px 30px 5px 20px;
+    }
+    .owl-nav .owl-next {
+        padding: 5px 20px 5px 30px;
+    }
     .owl-nav [class*=owl-] {
         background: transparent;
-
+        //padding: 5px 25px;
         &:hover {
-            background: none;
-            color: darken(white, 20%);
+            background: rgba(37, 192, 236, 0.5);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;            
         }
     }
-
     .owl-dots {
         .owl-dot {
             &.active span {
@@ -369,31 +380,22 @@ ul.left_menu {
 }
 .dr-wrap-button {
     position: absolute;
-    z-index: 2;
+    z-index: 9;
     text-align: center;
     left: 0;
-    top: 10%;
+    top: 23.5%;
 
     @media (min-width: $screen-xs-min) {
-        top: 15%;
+        top: 23.5%;
 
         a.buttons {
             font-size: 0.6em;
             padding: 6px 20px;
         }
-    }
-
-    @media (min-width: $screen-sm-min) {
-        top: 20%;
-
-        a.buttons {
-            font-size: 0.6em;
-            padding: 6px 20px;
-        }
-    }
+    }    
 
     @media (min-width: $screen-md-min) {
-        top: 28%;
+        top: 23.5%;
 
         a.buttons {
             font-size: 0.8em;
@@ -403,7 +405,25 @@ ul.left_menu {
 
     @media (min-width: $screen-lg-min) {
         font-size: 1.2em;
-        top: 35%;
+        top: 26.5%;
+
+        a.buttons {
+            padding: 11px 45px;
+        }
+    }
+
+    @media (min-width: $screen-lgs-min) {
+        font-size: 1.2em;
+        top: 29%;
+
+        a.buttons {
+            padding: 11px 45px;
+        }
+    }
+
+    @media (min-width: $screen-lgm-min) {
+        font-size: 1.2em;
+        top: 30.7%;
 
         a.buttons {
             padding: 11px 45px;
@@ -421,10 +441,13 @@ ul.left_menu {
         margin: 0 10px;
 
         &:hover {
-            background: #25c0ec;
+            background: $blueColor;
             color: #fff;
-            border: 2px solid #25c0ec;
+            border: 2px solid $blueColor;
         }
+    }
+    .btn {
+        margin: 0;
     }
 }
 
@@ -590,10 +613,10 @@ ul.left_menu {
 .dr-button-blue {
     @extend .dr-button-empty; 
     padding: 10px 20px;
-    border: 2px solid #25c0ec;    
+    border: 2px solid $blueColor;    
     font-weight: bold;
     &:hover {
-        border: 2px solid lighten(#25c0ec, 20%);
+        border: 2px solid lighten($blueColor, 20%);
         color: lighten(#6b6b6b, 20%);
     }
 }
@@ -601,9 +624,9 @@ ul.left_menu {
 .dr-button-blueFull {
     @extend .dr-button-blue;    
     color: white;    
-    background-color: #25c0ec;
+    background-color: $blueColor;
     &:hover {        
-        background-color: lighten(#25c0ec, 20%);
+        background-color: lighten($blueColor, 20%);
         color: white;
     }
 }

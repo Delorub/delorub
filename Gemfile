@@ -26,6 +26,7 @@ gem 'render_anywhere'
 gem 'inherited_resources'
 gem 'wicked'
 gem 'reform-rails'
+gem 'dry-validation'
 
 # Activerecord extensions
 gem 'squeel'
@@ -108,6 +109,7 @@ group :development do
   gem 'overcommit'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'letter_opener'
 end
 
 group :test do

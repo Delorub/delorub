@@ -47,18 +47,29 @@ class Task < ApplicationRecord
   validates :title, :description, :user_id, :category_id, :price_type, :date_type, presence: true
   validate :ensure_user_can_create
 
-  after_create :update_user
-
   scope :by_user, ->(user) { where user_id: user.id }
   scope :by_category, ->(category) { where category_id: category.id }
   scope :by_category_with_descendants, ->(category) { where category_id: category.self_and_descendants_ids }
 
+  after_create :increment_user_free_tasks, unless: :billable
+  after_destroy :decrement_user_free_tasks, unless: :billable
+
   private
 
-    def ensure_user_can_create
-      return unless !new_record? && user && user.can_post_task?
-      errors.add(:user, 'cannot create tasks')
+    def increment_user_free_tasks
+      user.increment :free_tasks_published
+      user.save
     end
 
-    def update_user; end
+    def decrement_user_free_tasks
+      user.decrement :free_tasks_published
+      user.save
+    end
+
+    def ensure_user_can_create
+      return unless new_record?
+      return unless user
+      return if user.tasks_available_sum.positive?
+      errors.add :user, :no_available_tasks
+    end
 end

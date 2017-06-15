@@ -48,6 +48,7 @@ Metrics/BlockLength:
     - 'describe'
     - 'context'
     - 'draw'
+    - 'setup'
   Exclude:
     - 'app/admin/**/*'
     - 'lib/tasks/**/*'

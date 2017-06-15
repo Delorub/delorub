@@ -78,9 +78,6 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :permission
 
   validates :first_name, :last_name, :email, presence: true
-  validates :email, uniqueness: true
-  validates :password, length: { minimum: 8 }, unless: 'password.nil?'
-  validates :password, presence: true, if: 'id.nil?'
   validates :balance, numericality: { greater_than_or_equal_to: 0 }
   validates :phone, phony_plausible: true
   validate :ensure_phone_not_confirmed, if: :phone
