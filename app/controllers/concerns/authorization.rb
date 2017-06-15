@@ -15,7 +15,7 @@ module Authorization
     session[:after_authorization] = { type: type, data: data }
   end
 
-  def after_sign_in_path_for(resource)
+  def after_sign_in_path_for resource
     if @after_authorization_creator && @after_authorization_creator.path
       return @after_authorization_creator.path
     end
@@ -24,8 +24,7 @@ module Authorization
 
   def sign_in resource_or_scope, *args
     if session[:after_authorization] && session[:after_authorization]['data']
-      options = args.extract_options!
-      scope = Devise::Mapping.find_scope!(resource_or_scope)
+      args.extract_options!
       resource = args.last || resource_or_scope
 
       @after_authorization_creator = AfterAuthorizationCreator.new \

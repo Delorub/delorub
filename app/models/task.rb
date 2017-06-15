@@ -57,11 +57,13 @@ class Task < ApplicationRecord
   private
 
     def increment_user_free_tasks
-      user.increment! :free_tasks_published
+      user.increment :free_tasks_published
+      user.save
     end
 
     def decrement_user_free_tasks
-      user.decrement! :free_tasks_published
+      user.decrement :free_tasks_published
+      user.save
     end
 
     def ensure_user_can_create
