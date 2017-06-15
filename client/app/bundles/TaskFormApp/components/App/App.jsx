@@ -39,7 +39,6 @@ class App extends React.Component {
         action={this.props.form_action}
         method="post"
         onSubmit={handleSubmit(::this.handleOnSubmit)}
-        enctype="multipart/form-data"
         >
         <input type="hidden" name="utf8" value="✓" />
         <input name="authenticity_token" value={this.props.authenticity_token} type="hidden" />
@@ -49,43 +48,25 @@ class App extends React.Component {
         </div>
         <div className="row row-eq-height dr-task">
           <div className="col-md-5">
-
             <Title />
-
             <DescriptionInput />
-
             <PhotoInput {...this.props} />
-
             <PaidFunctionsInput {...this.props} />
-
           </div>
           <div className="col-md-7">
-
             <Budget {...this.props}/>
-
             <div className="row row-eq-height">
               <div className="col-md-6">
-
                 <DateTypeInput {...this.props} />
-
                 <CityInput name="task[place_id]" />
-
                 <Category {...this.props} />
-
                 <ContractInput {...this.props} />
-
               </div>
-
               <div className="col-md-6">
-
                 <DateSelector {...this.props} />
-
                 <AddressInput name="task[place_address]" />
-
                 <Subcategory {...this.props} />
-
                 <NotificationsTypeInput {...this.props} />
-
               </div>
             </div>
           </div>

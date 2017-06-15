@@ -40,6 +40,8 @@ class Task < ApplicationRecord
   belongs_to :category
   belongs_to :billable, polymorphic: true
 
+  has_many :files, class_name: 'TaskFile', dependent: :destroy
+
   enumerize :price_type, in: [:exact, :interval, :scale]
   enumerize :date_type, in: [:actual, :interval]
   enumerize :contract_type, in: [:no_contract, :contract]
@@ -70,6 +72,6 @@ class Task < ApplicationRecord
       return unless new_record?
       return unless user
       return if user.tasks_available_sum.positive?
-      errors.add :user, :no_available_tasks
+      #errors.add :user, :no_available_tasks
     end
 end

@@ -20,6 +20,14 @@ class TaskForm < BaseForm
   property :place_id
   property :place_address
 
+  collection :files,
+    populator: ->(fragment:, **) {
+      item = files.find { |file| file.id == fragment['id'].to_i }
+      item ? item : files.append(TaskFile.find_by(id: fragment['id']))
+    } do
+    property :id
+  end
+
   property :contract_type, default: 'no_contract'
 
   property :notifications_type, virtual: true, default: 'notifications-email'

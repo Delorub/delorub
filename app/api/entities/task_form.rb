@@ -7,6 +7,10 @@ class Entities::TaskForm < Grape::Entity
   expose :main_category_id
   expose :category_id
 
+  expose :files, with: Entities::TaskFile do |e|
+    e.files.map { |file| file.model }
+  end
+
   expose :price_type
   expose :price_exact
   expose :price_type_options

@@ -27,19 +27,15 @@
     <div class="col-md-4 dr-one-ticket-ticket-photo">
       <div class="row">
         <div class="col-md-12">
-          <img src="/images/ticket/img_main.png" class="img-responsive" alt="">
+          <img src="<%= resource.files.first.file.big_preview.url %>" class="img-responsive" alt="">
         </div>
       </div>
       <div class="row">
-        <div class="col-md-4">
-          <img src="/images/ticket/img_1.png" class="img-responsive" alt="">
-        </div>
-        <div class="col-md-4">
-          <img src="/images/ticket/img_2.png" class="img-responsive" alt="">
-        </div>
-        <div class="col-md-4">
-          <img src="/images/ticket/img_3.png" class="img-responsive" alt="">
-        </div>
+        <% resource.files.each do |file| %>
+          <div class="col-md-4">
+            <img src="<%= file.file.preview.url %>" class="img-responsive" alt="">
+          </div>
+        <% end %>
       </div>
     </div>
     <div class="col-md-4 dr-one-ticket-ticket-content gray-text triangle-bottom">

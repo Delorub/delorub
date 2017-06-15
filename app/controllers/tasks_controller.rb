@@ -53,7 +53,7 @@ class TasksController < ApplicationController
     def task_params
       params.require(:task).permit(:title, :description, :main_category_id, :category_id, :price_type, :price_exact,
         :price_from, :price_to, :date_type, :date_actual_date, :date_actual_time, :contract_type, :paid_functions,
-        :notifications_type, :place_id, :place_address)
+        :notifications_type, :place_id, :place_address, files: [:id])
     end
 
     def current_url category:
