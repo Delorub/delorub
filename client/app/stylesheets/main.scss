@@ -411,30 +411,41 @@ ul.left_menu {
 .dr-bottom-service {
     box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.12);
     text-align: center;
-    padding-top: 20px;
-
-    a {
-        padding: 20px 0;
-        img {
-            margin: 0 20px;
-        }
-    }
+    padding-top: 20px;    
     &-heading {
         display: inline-block;
+    }
+    &-content {
+        position: absolute;
+        left: 0;        
+        width: 70%;       
+        margin-left: 15%;
     }
     &-odd-row, &-even-row {
         width: 95%;
         margin: 0 auto;
-        &-category {
-            display: inline-block;
-            width: 12.2%;
+        height: 150px;
+        &-category {            
+            width: 12.5%;
             position: relative;
-            min-height: 160px;
+            float: left;
+            box-sizing: content-box;
+            min-height: 150px;
             a {
-                padding: 20px; 
-            }
-            span {
-                font-size: 1.5rem;
+                padding: 20px 0;
+                img {
+                    margin: 20px auto;
+                }
+                span {
+                    font-size: 1.2rem;
+                    @media (min-width: $screen-lg-min) {
+                        font-size: 1.4rem;
+                    }
+                     @media (min-width: $screen-lgm-min) {
+                        font-size: 1.5rem;
+                    }                    
+                    display: block;
+                }
             }
         }
     }
