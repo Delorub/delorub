@@ -3,8 +3,6 @@ class TasksController < ApplicationController
   inherit_resources
   decorates_assigned :tasks
 
-  before_filter :authenticate_user!
-
   helper_method :task_form_props, :current_url
 
   def index
@@ -100,7 +98,7 @@ class TasksController < ApplicationController
 
     def task_form_props
       {
-        form_action: resource.new_record? ? tasks_path : task_path(resource),
+        form_action: params[:id].nil? ? tasks_path : task_path(resource),
         task: Entities::TaskForm.represent(@form),
         categories: Entities::Category.represent(Category.all)
       }
