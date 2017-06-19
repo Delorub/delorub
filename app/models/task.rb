@@ -2,33 +2,34 @@
 #
 # Table name: tasks
 #
-#  id            :integer          not null, primary key
-#  title         :string           not null
-#  category_id   :integer          not null
-#  user_id       :integer          not null
-#  price_type    :string           not null
-#  price_scale   :string
-#  price_exact   :integer
-#  price_from    :integer
-#  price_to      :integer
-#  place_id      :integer
-#  place_lat     :float
-#  place_long    :float
-#  place_address :string
-#  date_type     :string           not null
-#  date_actual   :integer
-#  date_from     :datetime
-#  date_to       :datetime
-#  contract_type :string
-#  description   :text
-#  notify_email  :boolean
-#  visible       :boolean          default(TRUE)
-#  archive       :boolean
-#  colored       :boolean          default(FALSE)
-#  billable_type :string
-#  billable_id   :integer
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
+#  id                 :integer          not null, primary key
+#  title              :string           not null
+#  category_id        :integer          not null
+#  user_id            :integer          not null
+#  price_type         :string           not null
+#  price_scale        :string
+#  price_exact        :integer
+#  price_from         :integer
+#  price_to           :integer
+#  place_id           :integer
+#  place_lat          :float
+#  place_long         :float
+#  place_address      :string
+#  date_type          :string           not null
+#  contract_type      :string
+#  description        :text
+#  notify_email       :boolean
+#  visible            :boolean          default(TRUE)
+#  archive            :boolean
+#  colored            :boolean          default(FALSE)
+#  billable_type      :string
+#  billable_id        :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  date_actual_date   :datetime
+#  date_actual_time   :integer
+#  date_interval_from :datetime
+#  date_interval_to   :datetime
 #
 
 class Task < ApplicationRecord
@@ -39,6 +40,7 @@ class Task < ApplicationRecord
   belongs_to :user
   belongs_to :category
   belongs_to :billable, polymorphic: true
+  belongs_to :place
 
   has_many :files, class_name: 'TaskFile', dependent: :destroy
 
@@ -72,6 +74,6 @@ class Task < ApplicationRecord
       return unless new_record?
       return unless user
       return if user.tasks_available_sum.positive?
-      #errors.add :user, :no_available_tasks
+      errors.add :user, :no_available_tasks
     end
 end

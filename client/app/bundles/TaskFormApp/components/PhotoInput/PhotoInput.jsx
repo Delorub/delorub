@@ -9,6 +9,10 @@ class PhotoInput extends React.Component {
     this.props.array.push('task[files]', result.body)
   }
 
+  onUploadClick() {
+    this.refs.dropzone.open()
+  }
+
   onAddFiles(files) {
     files.forEach(file => {
       request
@@ -57,6 +61,8 @@ class PhotoInput extends React.Component {
     return (
       <div>
         <Dropzone
+          ref="dropzone"
+          disableClick
           name={this.props.name}
           onDrop={( filesToUpload, e ) => this.onAddFiles(filesToUpload)}
           className="dr-task-photo dr-task-div"
@@ -65,7 +71,7 @@ class PhotoInput extends React.Component {
             <div className="col-md-6">
               <span className="input-label">Фото&nbsp;*</span>
               <br />
-              <button type="button" className="btn dr-button-blue">Выбрать фото</button>
+              <button type="button" className="btn dr-button-blue" onClick={::this.onUploadClick}>Выбрать фото</button>
             </div>
             <div className="col-md-6">
               <span className="icon_top icon-information"></span>

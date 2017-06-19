@@ -3,11 +3,16 @@ import Navigation from '../Navigation/Navigation';
 import Buttons from '../Buttons/Buttons';
 import Fields from './Fields';
 import Select2 from 'react-select2-wrapper';
+import PriceTypeInput from './PriceTypeInput'
+import PriceSelector from './PriceSelector'
+import YesNoField from './YesNoField'
+import WorkingDaysField from './WorkingDaysField'
 import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as formActions from '../../actions/FormActions'
 import { required, requiredArray } from 'libs/delorub/redux-form-validations'
+import RenderTimePickerField from 'libs/delorub/redux-form-timepicker'
 
 class Step3 extends React.Component {
   handleOnSubmit(e) {
@@ -23,123 +28,67 @@ class Step3 extends React.Component {
         <Fields />
         <div className="row">
           <div className="col-md-3">
-            <div className="dr-task dr-profile-div">
-              <span>Наличие автомобиля</span>
-              <br />
-              <div className="btn-group dr-radio" data-toggle="buttons">
-                <label className="btn btn-primary active">
-                  <input type="radio" name="car" id="option1" autoComplete="off" />
-                  <span>Да</span>
-                </label>
-                <label className="btn btn-primary">
-                  <input type="radio" name="car" id="option2" autoComplete="off" />
-                  <span>Нет</span>
-                </label>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-3">
-            <div className="dr-task dr-profile-div">
-              <span>Наличие своего инструмента</span>
-              <br />
-              <div className="btn-group dr-radio" data-toggle="buttons">
-                <label className="btn btn-primary active">
-                  <input type="radio" name="tools" id="option1" autoComplete="off" />
-                  <span>Да</span>
-                </label>
-                <label className="btn btn-primary">
-                  <input type="radio" name="tools" id="option2" autoComplete="off" />
-                  <span>Нет</span>
-                </label>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-3">
-            <div className="dr-task dr-profile-div">
-              <span>Выезд/прием на дому</span>
-              <br />
-              <div className="btn-group dr-radio" data-toggle="buttons">
-                <label className="btn btn-primary active">
-                  <input type="radio" name="visit" id="option1" autoComplete="off" />
-                  <span>Да</span>
-                </label>
-                <label className="btn btn-primary">
-                  <input type="radio" name="visit" id="option2" autoComplete="off" />
-                  <span>Нет</span>
-                </label>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-3">
-            <div className="dr-task dr-profile-div">
-              <span>Вариант оплаты&nbsp;*</span>
-              <br />
-              <Select2
-                data={[
-                  { text: 'Цена за час', id: 'hour' },
-                  { text: 'Цена за проект', id: 'project' },
-                ]}
-                data-minimum-results-for-search="Infinity"
+            <Field
+              component={YesNoField}
+              name="create_profile[have_car]"
+              label="Наличие автомобиля"
               />
-            </div>
+          </div>
+          <div className="col-md-3">
+            <Field
+              component={YesNoField}
+              name="create_profile[have_instrument]"
+              label="Наличие своего инструмента"
+              />
+          </div>
+          <div className="col-md-3">
+            <Field
+              component={YesNoField}
+              name="create_profile[can_departure]"
+              label="Выезд/прием на дому"
+              />
+          </div>
+          <div className="col-md-3">
+            <PriceTypeInput {...this.props} />
           </div>
         </div>
         <div className="row">
           <div className="col-md-3">
             <div className="dr-task dr-profile-div">
-              <span>Рабочие дни</span>
-              <input type="checkbox" name="worktime" className="worktime" />
-              <span className="worktime">24 часа/без выходных</span>
+              <span class="input-label">Рабочие дни&nbsp;</span>
+              <label className="worktime">
+                <Field
+                  component="input"
+                  type="checkbox"
+                  name="create_profile[working_all_time]"
+                  />
+                &nbsp;24 часа/без выходных
+              </label>
               <br />
-              <div className="btn-group dr-checkbox" data-toggle="buttons">
-                <label className="btn btn-primary week-odd">
-                  <input type="checkbox" autoComplete="off" />
-                  <span>Пн</span>
-                </label>
-                <label className="btn btn-primary week-odd">
-                  <input type="checkbox" autoComplete="off" />
-                  <span>Вт</span>
-                </label>
-                <label className="btn btn-primary week-odd">
-                  <input type="checkbox" autoComplete="off" />
-                  <span>Ср</span>
-                </label>
-                <label className="btn btn-primary week-odd">
-                  <input type="checkbox" autoComplete="off" />
-                  <span>Чт</span>
-                </label>
-                <label className="btn btn-primary week-odd">
-                  <input type="checkbox" autoComplete="off" />
-                  <span>Пт</span>
-                </label>
-                <label className="btn btn-primary week-end">
-                  <input type="checkbox" autoComplete="off" />
-                  <span>Сб</span>
-                </label>
-                <label className="btn btn-primary week-end">
-                  <input type="checkbox" autoComplete="off" />
-                  <span>Вс</span>
-                </label>
-              </div>
+              <Field
+                component={WorkingDaysField}
+                name="create_profile[working_days]"
+                label="Выезд/прием на дому"
+                days={this.props.create_profile.working_days_options}
+                />
             </div>
           </div>
           <div className="col-md-3">
             <div className="dr-task dr-profile-div dr-task-date">
-              <span>Рабочее время</span>
+              <span class="input-label">Рабочее время</span>
               <br />
-              <input type="time" name="user_time" />
-              <input type="time" name="user_time" />
+              <Field
+                component={RenderTimePickerField}
+                name="create_profile[working_hours_from]"
+                />
+              <Field
+                component={RenderTimePickerField}
+                name="create_profile[working_hours_to]"
+                />
             </div>
           </div>
           <div className="col-md-offset-3 col-md-3">
-            <div className="dr-task dr-profile-div">
-              <span>Почасовая ставка&nbsp;*</span>
-              <br />
-              <select className="dr-task-select">
-                <option>300 000</option>
-                <option>Пункт 2</option>
-              </select>
-            </div>
+            <PriceSelector {...this.props} />
           </div>
         </div>
         <div className="dr-header-span lastRow">
@@ -215,7 +164,9 @@ Step3 = reduxForm({
 })(Step3);
 
 Step3 = connect(
-  state => ({}),
+  state => ({
+    price_type: selector(state, 'create_profile[price_type]'),
+  }),
   dispatch => (bindActionCreators(formActions, dispatch))
 )(Step3)
 

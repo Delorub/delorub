@@ -31,10 +31,10 @@ class Task::FormCreator
 
     def params
       [
-        :title, :description, :category_id, :date_type, :date_actual,
-        :date_from, :date_to, :price_type,
-        :price_exact, :price_from, :price_to, :place_id, :place_address,
-        :contract_type # , :date_actual_date, :date_actual_time
+        :title, :description, :category_id, :date_type,
+        :price_type, :price_exact, :price_from, :price_to, :place_id,
+        :place_address, :contract_type, :date_actual_date, :date_actual_time,
+        :date_interval_from, :date_interval_to
       ]
     end
 end

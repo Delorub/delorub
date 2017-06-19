@@ -1,24 +1,28 @@
 import React from 'react';
-import TimePicker from 'rc-time-picker';
-import 'rc-time-picker/assets/index.css';
+import TimeInput from 'time-input';
 import classNames from 'classnames';
 import moment from 'moment';
 
-export const renderField = field => {
-  var divClasses = classNames(
-    { 'dr-task-div-error': field.meta.touched && field.meta.error }
-  );
+export default class RenderTimePickerField extends React.Component {
+  render() {
+    const { input, meta, ...rest } = this.props
 
-  return (
-    <div className={divClasses}>
-      <TimePicker
-        showSecond={false}
-        name={field.input.name}
-        className={field.className}
-        onChangeRaw={field.input.onChange}
-        onOpen={field.input.onFocus}
-        onClose={field.input.onBlur}
-      />
-    </div>
-  )
+    var divClasses = classNames(
+      { 'dr-task-div-error': meta.touched && meta.error }
+    );
+
+    return (
+      <div className={divClasses}>
+        <input type="hidden" name={input.name} value={input.value} />
+        <TimeInput
+          value={input.value || '12:00'}
+          defaultValue={input.value}
+          onChange={input.onChange}
+          onFocus={input.onFocus}
+          onBlur={input.onBlur}
+          {...rest}
+        />
+      </div>
+    )
+  }
 }

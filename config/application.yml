@@ -2,12 +2,12 @@ smsc_login: 'delorubtest'
 smsc_password: 'delorubtest'
 smsc_api_url: 'https://smsc.ru/sys/send.php'
 
-odnoklassniki_app_id: '1251408128'
-odnoklassniki_app_public_key: 'CBAKPHJLEBABABABA'
-odnoklassniki_app_secret: 'F6B063DABD33B48E412A567E'
+odnoklassniki_app_id: '1251484160'
+odnoklassniki_app_public_key: 'CBADCJJLEBABABABA'
+odnoklassniki_app_secret: '91A0DFC9B8E389F13F1489EB'
 
-vkontakte_app_id: '6064911'
-vkontakte_app_secret: 'sAEQC27d4tC9PatXo86F'
+vkontakte_app_id: '6075628'
+vkontakte_app_secret: 'Xb0QfdGTu0myb4MAGxph'
 
 facebook_app_id: '161878731019435'
 facebook_app_secret: '26f3e11a32ed00ee8e490e51b17a1b19'

@@ -11,6 +11,7 @@ class TaskQuery
   def perform
     apply_user if scope == :my
     apply_category if category
+    apply_order
     collection
   end
 
@@ -22,5 +23,9 @@ class TaskQuery
 
     def apply_category
       @collection = collection.by_category_with_descendants category
+    end
+
+    def apply_order
+      @collection = collection.order('id DESC')
     end
 end

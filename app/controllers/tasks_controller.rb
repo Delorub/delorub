@@ -1,5 +1,7 @@
 class TasksController < ApplicationController
+  include Pundit
   inherit_resources
+  decorates_assigned :tasks
 
   before_filter :authenticate_user!
 
@@ -8,6 +10,7 @@ class TasksController < ApplicationController
   def index
     fetch_category
     fetch_scope
+    super
   end
 
   def new
@@ -25,13 +28,30 @@ class TasksController < ApplicationController
       end
       creator = Task::FormCreator.new(@form)
       creator.perform
-      return redirect_to task_path(creator.model), notice: 'Задание добавлено!' if creator.model.persisted?
+      return redirect_to task_path(creator.model), notice: 'Задание добавлено' if creator.model.persisted?
       flash.now.alert = creator.last_error
     else
       flash.now.alert = @form.errors
     end
 
     render 'new'
+  end
+
+  def edit
+    @form = TaskForm.new resource
+  end
+
+  def update
+    @form = TaskForm.new resource
+
+    if @form.validate task_params
+      creator = Task::FormCreator.new(@form)
+      creator.perform
+      return redirect_to task_path(creator.model), notice: 'Задание отредактировано' if creator.model.persisted?
+      flash.now.alert = creator.last_error
+    else
+      flash.now.alert = @form.errors
+    end
   end
 
   private
@@ -80,7 +100,7 @@ class TasksController < ApplicationController
 
     def task_form_props
       {
-        form_action: tasks_path,
+        form_action: resource.new_record? ? tasks_path : task_path(resource),
         task: Entities::TaskForm.represent(@form),
         categories: Entities::Category.represent(Category.all)
       }

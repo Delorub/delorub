@@ -36,8 +36,10 @@ class Profile < ApplicationRecord
 
   accepts_nested_attributes_for :categories
 
-  enumerize :pay_type, in: [:hourly]
-  enumerize :car_type, in: [:passenger, :none]
+  enumerize :price_type, in: [:hourly, :project]
+  enumerize :working_days,
+    in: { monday: 1, tuesday: 2, wednesday: 3, thursday: 4, friday: 5, saturday: 6, sunday: 0 },
+    multiple: true
 
   validates_with Profile::PlaceValidator
   validates :user_id, presence: true

@@ -3,12 +3,16 @@
   <br>
   <a href="#" class="gamburg-menu icon-gamb_menu"></a>
   <div class="totalz">
-    <a href="<%= my_tasks_path %>"><span class="n1">0</span><span class="txa">Мои<br> задания</span></a>
+    <a href="<%= my_tasks_path %>"><span class="n1"><%= current_user.tasks.count %></span><span class="txa">Мои<br> задания</span></a>
   </div>
   <nav>
     <ul class="left_menu">
-      <li><a href="<%= new_task_path %>"><span class="icon_top icon-add"></span>Создать<br> задание</a></li>
-      <li><a href="<%= new_profile_path %>"><span class="icon_top icon-zadacha"></span>Создать<br> анкету</a></li>
+      <% if policy(Task).create? %>
+        <li><a href="<%= new_task_path %>"><span class="icon_top icon-add"></span>Создать<br> задание</a></li>
+      <% end %>
+      <% if policy(Profile).create? %>
+        <li><a href="<%= new_profile_path %>"><span class="icon_top icon-zadacha"></span>Создать<br> анкету</a></li>
+      <% end %>
       <li><a href="#"><span class="icon_top icon-setups"></span>Мои<br> настройки</a></li>
     </ul>
   </nav>
