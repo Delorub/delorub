@@ -141,7 +141,10 @@
                                 font-size: 2rem;
                             }
                             &:last-child {
-                                font-size: 1.6rem;
+                                font-size: 1.4rem;
+                                @media (min-width: $screen-lg-min) {
+                                    font-size: 1.6rem;
+                                }                                
                                 letter-spacing: 0.15rem;
                                 font-family: $PFDinExThin;
                             }
