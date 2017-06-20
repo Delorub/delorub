@@ -5,14 +5,11 @@ Rails.application.routes.draw do
   # API
   mount ApplicationAPI => '/api'
 
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations' }
-
-  namespace :api, defaults: { format: :json } do
-    mount_devise_token_auth_for 'User', at: 'auth', controllers: {
-      registrations:  'overrides/devise_token_auth/registrations',
-      sessions: 'overrides/devise_token_auth/sessions'
-    }, skip: [:omniauth_callbacks]
-  end
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
+  }
 
   resources :users, only: [:index, :destroy]
 
