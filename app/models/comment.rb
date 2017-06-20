@@ -23,5 +23,7 @@ class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :parent, class_name: 'Comment'
 
+  has_many :comments, foreign_key: 'parent_id'
+
   validates :user_id, :commentable_id, :commentable_type, :text, presence: true
 end
