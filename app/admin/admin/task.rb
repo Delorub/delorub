@@ -1,7 +1,7 @@
 ActiveAdmin.register Task, namespace: :admin do
   permit_params :user_id, :category_id, :title, :price_type, :date_type, :description, :visible, :price_exact, :price_from,
-    :price_to, :place_lat, :place_long, :place_address, :date_actual, :date_from, :date_to, :notify_email, :archive,
-    :price_scale, :contract_type
+    :price_to, :place_lat, :place_long, :place_address, :date_actual_date, :date_interval_from, :date_interval_to,
+    :notify_email, :archive, :price_scale, :contract_type
 
   filter :by_search_in, label: 'Поиск', as: :string
   filter :category_id, as: :ransack_filter, url: '/admin/categories', display_name: 'title'
@@ -30,9 +30,8 @@ ActiveAdmin.register Task, namespace: :admin do
       f.input :place_lat
       f.input :place_long
       f.input :place_address
-      f.input :date_actual
-      f.input :date_from, as: :date_time_picker
-      f.input :date_to, as: :date_time_picker
+      f.input :date_actual_date
+      f.input :date_interval_to, as: :date_time_picker
       f.input :notify_email
       f.input :archive
       f.input :price_scale
@@ -56,8 +55,8 @@ ActiveAdmin.register Task, namespace: :admin do
       row :place_address
       row :date_type
       row :date_actual
-      row :date_from
-      row :date_to
+      row :date_interval_from
+      row :date_interval_to
       row :description
       row :notify_email
       row :visible

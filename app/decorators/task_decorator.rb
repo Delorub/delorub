@@ -17,11 +17,6 @@ class TaskDecorator < Draper::Decorator
     object.date_interval_to.strftime '%d.%m.%Y'
   end
 
-  def formatted_date_actual_date
-    return unless object.date_actual_date
-    object.date_actual_date.strftime '%d.%m.%Y'
-  end
-
   def formatted_date_actual_time
     return unless object.date_actual_time
     format '%02d:%02d', date_actual_time_hour, date_actual_time_minute

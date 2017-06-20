@@ -1,9 +1,10 @@
 describe Grape::AuthHelpers do
+  include described_class
+
   let(:user) { create :user }
 
   before :each do
     cookies.delete :access_token
-    include described_class
   end
 
   context 'wrong cookie' do
