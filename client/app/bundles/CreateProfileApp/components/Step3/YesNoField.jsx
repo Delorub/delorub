@@ -14,7 +14,7 @@ export default class YesNoField extends React.Component {
 
     return (
       <div className={divClasses}>
-        <span class="input-label">{label}</span>
+        <span className="input-label">{label}</span>
         <br />
         <div className="btn-group dr-radio">
           <label className={classNames({ 'active': input.value == 'yes', 'btn btn-primary': true })}>

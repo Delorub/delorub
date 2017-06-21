@@ -7,7 +7,7 @@ export default class App extends React.Component {
       <div className="dr-container">
         <div className="dr-header-span">
           <p>
-            Создание <span className="dr-header-span-unmarked">&nbsp;анкеты мастера</span>
+            {this.props.create_profile.profile_id ? 'Редактирование' : 'Создание'} <span className="dr-header-span-unmarked">&nbsp;анкеты мастера</span>
           </p>
         </div>
         <Steps {...this.props}/>

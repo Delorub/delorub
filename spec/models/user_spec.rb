@@ -1,5 +1,5 @@
 describe User do
-  let(:user) { build described_class }
+  let(:user) { build :user }
   subject { user }
 
   describe 'validations' do

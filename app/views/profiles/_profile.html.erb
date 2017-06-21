@@ -2,18 +2,16 @@
 
   <div class="col-md-2 padding-none">
     <div class="dr-one-ticket-ticket-avatar">
-      <div class="dr-vacancy-content-avatar-roundInner">
-        <a href="#" class='dr-top-nav-icon icon-avtoriz'></a>
-      </div>
+      <%= render 'shared/user_photo', user: profile.user %>
     </div>
     <br/>
     <div>
-      <p>150 отзывов</p>
+      <p>0 отзывов</p>
     </div>
     <div class="dr-all-masters-stars">
-      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+      <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+      <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+      <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
       <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
       <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
     </div>
@@ -22,62 +20,22 @@
       <br/>
       <span class="gray-text-light">Рейтинг</span>
       <br/>
-      <span>41775</span>
+      <span>0</span>
     </div>
   </div>
   <div class="col-md-6 dr-one-ticket-ticket-content gray-text">
-    <span class="dr-news-content-date">На сайте с 10.01.2015</span>
-    <span class="content-header">Ермолаев Александр Сергеевич</span>
+    <span class="dr-news-content-date">На сайте с <%= l profile.user.created_at, format: :date %></span>
+    <span class="content-header"><a href="<%= profile_path(profile) %>"><%= profile.user.name %></a></span>
     <br/><br/>
     <p>
-      Необходимо сделать перевод текстов туристической тематики.
-      Сроки выполнения - до завтрашней ночи/раннего утра воскресенья.
-      Сроки выполнения - до завтрашней ночи/раннего утра воскресенья.
-      Оплата - 120 рублей за 1000 символов... <a class="dr-news-content-show-all">Показать всё</a>
+      <%= simple_format profile.about.truncate(150, separator: /\s/) %>
     </p>
-    <div class="dr-all-masters-content-button">
-      <button type="button" class="btn dr-button-blue">Откликнуться на задание</button>
-    </div>
-    <div class="dr-all-masters-content-more">
-      <p>
-        <span class="black-text">Подробнее</span>
-
-      </p>
-
-    </div>
   </div>
   <div class="col-md-4 padding-none">
     <div class="dr-one-ticket-refinement dr-all-task">
       <br/>
-      <p class="bold-text">Почасовая ставка</p>
-      <div class="dr-all-masters-price">
-        <span>1 650</span>   <span class="glyphicon glyphicon-ruble" aria-hidden="true"></span><span>/час</span>
-      </div>
+      <%= render 'shared/task_price_type', profile: profile %>
     </div>
-    <div class="dr-one-ticket-refinement dr-all-task without-border padding-none">
-      <div class="row dr-all-masters-days margin-none">
-        <div class="col-md-4 border-right dr-all-masters-days-blocks">
-          <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
-          <br/>
-          <span class="gray-text-light">Рабочие<br/>дни</span>
-          <br/>
-          <span>Пн, Ср, Пт</span>
-        </div>
-        <div class="col-md-4 border-right dr-all-masters-days-blocks">
-          <span class="glyphicon glyphicon-bed" aria-hidden="true"></span>
-          <br/>
-          <span class="gray-text-light">Выходные<br/>дни</span>
-          <br/>
-          <span class="red-text">Вт, Чт, Сб, Вс</span>
-        </div>
-        <div class="col-md-4 dr-all-masters-days-blocks">
-          <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
-          <br/>
-          <span class="gray-text-light">Рабочее<br/>время</span>
-          <br/>
-          <span>с 11:30 до 19:30</span>
-        </div>
-      </div>
-    </div>
+    <%= render 'shared/task_working_info', profile: profile %>
   </div>
 </div>

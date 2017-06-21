@@ -1,28 +1,35 @@
 class CreateProfileForm < Reform::Form
-  property :main_specialization_id, virtual: true
+  include Composition
 
-  collection :categories do
-    property :category_id
+  property :main_category_id, on: :profile
+  collection :categories,
+    on: :profile,
+    populator: ->(fragment:, **) {
+      item = categories.find { |category| category.id == fragment['id'].to_i }
+      item ? item : categories.append(Category.find_by(id: fragment['id']))
+    } do
+    property :id
   end
 
-  property :about
-  property :place_id
+  property :temporary_photo_id, on: :user, virtual: true
+  property :about, on: :profile
+  property :place_id, on: :user
 
-  property :price_type, default: 'hourly'
-  property :price_hourly
-  property :price_project
+  property :price_type, default: 'hourly', on: :profile
+  property :price_hourly, on: :profile
+  property :price_project, on: :profile
 
-  property :have_car, default: false
-  property :have_instrument, default: false
-  property :can_departure, default: false
+  property :have_car, default: 'no', on: :profile
+  property :have_instrument, default: 'no', on: :profile
+  property :can_departure, default: 'no', on: :profile
 
-  property :working_days
-  property :working_all_time, default: false
-  property :working_hours_from, default: '10:00'
-  property :working_hours_to, default: '18:00'
+  collection :working_days, on: :profile
+  property :working_all_time, default: false, on: :profile
+  property :working_hours_from, default: '10:00', on: :profile
+  property :working_hours_to, default: '18:00', on: :profile
 
-  property :notifications_type, virtual: true, default: 'notifications-email'
-  property :paid_functions, virtual: true, default: []
+  property :notifications_type, virtual: true, default: 'notifications-email', on: :profile
+  property :paid_functions, virtual: true, default: [], on: :profile
 
   def notifications_type_options
     [

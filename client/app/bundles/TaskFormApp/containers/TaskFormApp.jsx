@@ -10,7 +10,7 @@ export default class TaskFormApp extends React.Component {
     return (
       <Provider store={store}>
         <div>
-          <App {...this.props} authenticity_token={ReactOnRails.authenticityToken()}/>
+          <App {...this.props} authenticity_token={ReactOnRails.authenticityToken()} />
         </div>
       </Provider>
     );

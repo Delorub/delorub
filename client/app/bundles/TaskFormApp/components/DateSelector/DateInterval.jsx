@@ -15,14 +15,14 @@ export default class DateInterval extends React.Component {
             <Field
               component={renderDatePickerField}
               className="form-control"
-              name="task[date_interval_from]"
+              name="task[date_interval_from_date]"
               validate={[required]}
               />
           </div>
           <div className="col-md-6">
             <Field
               component={renderDatePickerField}
-              name="task[date_interval_to]"
+              name="task[date_interval_to_date]"
               className="form-control"
               validate={[required]}
               />

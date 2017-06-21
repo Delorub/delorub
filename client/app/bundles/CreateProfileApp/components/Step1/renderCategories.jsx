@@ -1,11 +1,11 @@
 import React from 'react';
 import classNames from 'classnames'
 
-const renderSpecializations = ({ label, required, name, specializations, input, meta}) => {
+const renderCategories = ({ label, required, name, subcategories, input, meta}) => {
   var data = []
   var currentCol = 0
 
-  specializations.forEach(function(category, index) {
+  subcategories.forEach(function(category, index) {
     currentCol++
     if(currentCol > 4) {
       currentCol = 1
@@ -13,37 +13,36 @@ const renderSpecializations = ({ label, required, name, specializations, input, 
     if(data[currentCol] == undefined) {
       data[currentCol] = []
     }
-    category.index = index
     data[currentCol].push(category);
   }, this);
 
   return (<div>
     <div className="row">
-    { data.map((specializations, index) => (
+    { data.map((categories, index) => (
       <div className="col-md-3" key={index}>
-        { specializations.map((specialization) => (
+        { categories.map((category, index2) => (
           <div
             className={classNames({
               ['checkbox']: true,
-              ['marked']: input.value.indexOf(specialization.id) !== -1
+              ['marked']: input.value.indexOf(category.id) !== -1
             })}
-            key={specialization.index}
+            key={index2}
             >
             <label>
               <input type="checkbox"
-                name={`${name}[${specialization.index}]`}
-                value={specialization.id}
-                checked={input.value.indexOf(specialization.id) !== -1}
+                name={`${name}[${category.index}]`}
+                value={category.id}
+                checked={input.value.indexOf(category.id) !== -1}
                 onChange={event => {
                   const newValue = [...input.value];
                   if(event.target.checked) {
-                    newValue.push(specialization.id);
+                    newValue.push(category.id);
                   } else {
-                    newValue.splice(newValue.indexOf(specialization.id), 1);
+                    newValue.splice(newValue.indexOf(category.id), 1);
                   }
                   return input.onChange(newValue);
-                }}/>
-              {specialization.title}
+                }} />
+              {category.title}
             </label>
           </div>
         )) }
@@ -53,6 +52,6 @@ const renderSpecializations = ({ label, required, name, specializations, input, 
     {meta.touched && meta.error &&
      <span className="error">{meta.error}</span>}
   </div>)
-};
+}
 
-export default renderSpecializations;
+export default renderCategories;

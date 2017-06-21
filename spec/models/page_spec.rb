@@ -1,5 +1,5 @@
 describe Page do
-  let(:page) { build described_class }
+  let(:page) { build :page }
   subject { page }
 
   describe 'validations' do

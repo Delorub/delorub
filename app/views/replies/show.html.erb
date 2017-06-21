@@ -1,0 +1,16 @@
+<%= render 'tasks/info', resource: resource.task %>
+<div class="dr-header-span">
+  <p class="dr-header-span-unmarked">
+    Просмотр отклика
+  </p>
+  <a href="<%= task_path(resource.task) %>" class="btn dr-button-blue">Смотреть все отклики</a>
+</div>
+<%= render 'replies/reply' %>
+<!--
+<div class="dr-header-span">
+  <p class="dr-header-span-unmarked">
+    Обсуждение
+  </p>
+</div>
+-->
+<%= render 'comments/form' %>

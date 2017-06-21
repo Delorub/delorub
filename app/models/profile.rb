@@ -7,7 +7,6 @@
 #  work_type                   :string
 #  have_car                    :boolean
 #  about                       :text
-#  place_id                    :integer
 #  created_at                  :datetime         not null
 #  updated_at                  :datetime         not null
 #  price_type                  :string
@@ -30,7 +29,6 @@ class Profile < ApplicationRecord
   include Searchable::Profile
 
   belongs_to :user
-  belongs_to :place
 
   has_and_belongs_to_many :categories
 
@@ -41,7 +39,6 @@ class Profile < ApplicationRecord
     in: { monday: 1, tuesday: 2, wednesday: 3, thursday: 4, friday: 5, saturday: 6, sunday: 0 },
     multiple: true
 
-  validates_with Profile::PlaceValidator
   validates :user_id, presence: true
 
   delegate :name, to: :user

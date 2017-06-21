@@ -41,7 +41,7 @@ Metrics/CyclomaticComplexity:
   Max: 23
 
 Metrics/AbcSize:
-  Max: 30
+  Max: 40
 
 Metrics/BlockLength:
   ExcludedMethods:

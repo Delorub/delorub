@@ -14,7 +14,7 @@ class Api::V10::Searches < ApplicationAPI
     end
 
     def popular_places
-      Place::PopularQuery.new(current_user.profile).perform
+      Place::PopularQuery.new(current_user).perform
     end
   end
 

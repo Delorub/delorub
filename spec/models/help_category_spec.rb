@@ -1,5 +1,5 @@
 describe HelpCategory do
-  let(:help_category) { build described_class }
+  let(:help_category) { build :help_category }
   subject { help_category }
 
   describe 'validations' do

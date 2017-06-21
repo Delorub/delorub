@@ -5,6 +5,8 @@ FactoryGirl.define do
     phone_confirmed true
     balance 100
 
+    association :place, factory: :city_place
+
     password { generate :password }
     password_confirmation(&:password)
 

@@ -12,12 +12,12 @@ class TasksController < ApplicationController
   end
 
   def new
-    @form = TaskForm.new Task.new(user: current_user)
+    @form = TaskForm.new Task.new(user: current_user).decorate
     form_from_session
   end
 
   def create
-    @form = TaskForm.new Task.new(user: current_user)
+    @form = TaskForm.new Task.new(user: current_user).decorate
 
     if @form.validate task_params
       unless user_signed_in?
@@ -36,11 +36,11 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @form = TaskForm.new resource
+    @form = TaskForm.new resource.decorate
   end
 
   def update
-    @form = TaskForm.new resource
+    @form = TaskForm.new resource.decorate
 
     if @form.validate task_params
       creator = Task::FormCreator.new(@form)
@@ -71,7 +71,7 @@ class TasksController < ApplicationController
     def task_params
       params.require(:task).permit(:title, :description, :main_category_id, :category_id, :price_type, :price_exact,
         :price_from, :price_to, :date_type, :date_actual_date, :date_actual_time, :contract_type, :paid_functions,
-        :notifications_type, :place_id, :place_address, files: [:id])
+        :notifications_type, :place_id, :place_address, :date_interval_from_date, :date_interval_to_date, files: [:id])
     end
 
     def current_url category:

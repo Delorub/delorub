@@ -16,6 +16,8 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
+    aasm (4.12.0)
+      concurrent-ruby (~> 1.0)
     actionmailer (4.2.8)
       actionpack (= 4.2.8)
       actionview (= 4.2.8)
@@ -540,7 +542,6 @@ GEM
     sshkit (1.13.1)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
-    state_machine (1.2.0)
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.7)
@@ -584,6 +585,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aasm
   active_admin-sortable_tree
   activeadmin (= 1.0.0.pre4)
   activeadmin_addons
@@ -665,7 +667,6 @@ DEPENDENCIES
   simplecov
   spring
   squeel
-  state_machine
   translit
   uglifier
   unicorn

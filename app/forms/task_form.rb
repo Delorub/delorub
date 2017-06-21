@@ -3,13 +3,13 @@ class TaskForm < BaseForm
   property :description
 
   property :category_id
-  property :main_category_id, virtual: true
+  property :main_category_id
 
   property :date_type, default: 'actual'
-  property :date_actual_date, default: -> { (Time.zone.now + 1.day).strftime('%d.%m.%Y') }
-  property :date_actual_time, default: -> { Time.zone.now.strftime('%H:%M') }
-  property :date_interval_from, default: -> { Time.zone.now.strftime('%d.%m.%Y') }
-  property :date_interval_to, default: -> { (Time.zone.now + 1.day).strftime('%d.%m.%Y') }
+  property :date_actual_date, default: -> { I18n.l(Time.zone.now + 1.day, format: :date) }
+  property :date_actual_time, default: -> { I18n.l(Time.zone.now, format: :timeofday) }
+  property :date_interval_from_date, default: -> { I18n.l(Time.zone.now, format: :date) }
+  property :date_interval_to_date, default: -> { I18n.l(Time.zone.now + 1.day, format: :date) }
 
   property :price_type, default: 'exact'
   property :price_exact, default: 1000

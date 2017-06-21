@@ -30,7 +30,7 @@ ActiveAdmin.register Task, namespace: :admin do
       f.input :place_lat
       f.input :place_long
       f.input :place_address
-      f.input :date_actual_date
+      f.input :date_actual, as: :date_time_picker
       f.input :date_interval_to, as: :date_time_picker
       f.input :notify_email
       f.input :archive

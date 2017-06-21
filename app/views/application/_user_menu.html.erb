@@ -1,3 +1,9 @@
 <li><%= render 'notifications'%></li>
 <li><a href="#"><%= current_user.name %></a></li>
-<li><a href="#" class='dr-top-nav-icon icon-avtoriz'></a></li>
+<li>
+  <% if current_user.photo.present? %>
+    <img src="<%= current_user.photo.very_small.url %>" class="dr-top-nav-avatar">
+  <% else %>
+    <a href="#" class='dr-top-nav-icon icon-avtoriz'></a>
+  <% end %>
+</li>

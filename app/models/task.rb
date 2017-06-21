@@ -26,8 +26,7 @@
 #  billable_id        :integer
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
-#  date_actual_date   :datetime
-#  date_actual_time   :integer
+#  date_actual        :datetime
 #  date_interval_from :datetime
 #  date_interval_to   :datetime
 #
@@ -43,6 +42,7 @@ class Task < ApplicationRecord
   belongs_to :place
 
   has_many :files, class_name: 'TaskFile', dependent: :destroy
+  has_many :replies, dependent: :destroy
 
   enumerize :price_type, in: [:exact, :interval, :scale]
   enumerize :date_type, in: [:actual, :interval]

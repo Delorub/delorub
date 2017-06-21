@@ -30,10 +30,12 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  access_token           :string
+#  place_id               :integer
 #
 # Indexes
 #
 #  index_users_on_email                 (email) UNIQUE
+#  index_users_on_place_id              (place_id)
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 
@@ -48,6 +50,8 @@ class User < ApplicationRecord
   include Geotaggable
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+
+  belongs_to :place
 
   has_many :omniauth_relations, dependent: :nullify
 
@@ -85,6 +89,10 @@ class User < ApplicationRecord
 
   def name
     "#{first_name} #{last_name}"
+  end
+
+  def master?
+    profile.present? && !profile.new_record?
   end
 
   def reply_packs_available_sum

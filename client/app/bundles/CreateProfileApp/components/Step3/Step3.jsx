@@ -5,6 +5,7 @@ import Fields from './Fields';
 import Select2 from 'react-select2-wrapper';
 import PriceTypeInput from './PriceTypeInput'
 import PriceSelector from './PriceSelector'
+import Verification from './Verification'
 import YesNoField from './YesNoField'
 import WorkingDaysField from './WorkingDaysField'
 import { Field, reduxForm, formValueSelector } from 'redux-form';
@@ -23,7 +24,16 @@ class Step3 extends React.Component {
     const { handleSubmit } = this.props
 
     return (
-      <form ref="formComponent" onSubmit={handleSubmit(::this.handleOnSubmit)}>
+      <form
+        ref="formComponent"
+        acceptCharset="UTF-8"
+        action={this.props.form_action}
+        method="post"
+        onSubmit={handleSubmit(::this.handleOnSubmit)}
+        >
+        <input type="hidden" name="utf8" value="✓" />
+        <input name="authenticity_token" value={this.props.authenticity_token} type="hidden" />
+        { this.props.create_profile.profile_id && ( <input name="_method" value="PUT" type="hidden" />) }
         <Navigation />
         <Fields />
         <div className="row">
@@ -55,7 +65,7 @@ class Step3 extends React.Component {
         <div className="row">
           <div className="col-md-3">
             <div className="dr-task dr-profile-div">
-              <span class="input-label">Рабочие дни&nbsp;</span>
+              <span className="input-label">Рабочие дни&nbsp;</span>
               <label className="worktime">
                 <Field
                   component="input"
@@ -75,7 +85,7 @@ class Step3 extends React.Component {
           </div>
           <div className="col-md-3">
             <div className="dr-task dr-profile-div dr-task-date">
-              <span class="input-label">Рабочее время</span>
+              <span className="input-label">Рабочее время</span>
               <br />
               <Field
                 component={RenderTimePickerField}
@@ -91,64 +101,7 @@ class Step3 extends React.Component {
             <PriceSelector {...this.props} />
           </div>
         </div>
-        <div className="dr-header-span lastRow">
-          <p>
-            Верификация <span className="dr-header-span-unmarked">&nbsp;аккаунта</span>
-          </p>
-        </div>
-        <div className="dr-header-span dr-header-span-complete">
-          <p>
-            Спасибо. <span className="dr-header-span-unmarked">&nbsp;Ваш телефон подтвержден. Верификация аккаунта прошла успешно!</span>
-          </p>
-        </div>
-        <div className="row rowWithOutPadding">
-          <div className="col-md-4">
-            <div className="dr-profile-verification">
-              <span>1</span>
-              <p>
-                Введите номер<br /> телефона
-              </p>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="dr-profile-verification dr-profile-verification-middle">
-              <span>2</span>
-              <p>
-                Введите присланный<br /> код из СМС
-              </p>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="dr-profile-verification">
-              <span>3</span>
-              <p>
-                Нажмите кнопку<br /> "Подтвердить телефон"
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="row rowWithOutPadding lastRow">
-          <div className="col-md-offset-4 col-md-4">
-            <div className="dr-profile-phoneCheck">
-              <br />
-              <span>Введите номер вашего<br /> телефона *</span>
-              <br />
-              <input type="text" className="form-control" placeholder="" />
-              <button type="button" className="btn dr-button-blue">Выслать код в смс</button>
-            </div>
-          </div>
-        </div>
-        <div className="row rowWithOutPadding lastRow">
-          <div className="col-md-offset-4 col-md-4">
-            <div className="dr-profile-phoneCheck">
-              <br />
-              <span>Введите проверочный код<br /> из СМС сообщения *</span>
-              <br />
-              <input type="text" className="form-control" placeholder="" />
-              <button type="button" className="btn dr-button-blue">Подтвердить телефон</button>
-            </div>
-          </div>
-        </div>
+        <Verification {...this.props} />
         <Buttons />
       </form>
     );

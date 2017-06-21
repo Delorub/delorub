@@ -26,11 +26,12 @@ class AfterAuthorizationCreator
 
     def create_task
       @path = new_task_path
-      form = TaskForm.new Task.new(user: user)
+      form = TaskForm.new Task.new(user: user).decorate
       return unless form.validate data
-      task = Task::FormCreator.new(form).perform
-      return unless task.persisted?
+      creator = Task::FormCreator.new(form)
+      creator.perform
+      return unless creator.model.persisted?
       @should_clear_session = true
-      @path = task_path(task)
+      @path = task_path(creator.model)
     end
 end

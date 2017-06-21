@@ -1,5 +1,5 @@
 describe UserPermission do
-  let(:user_permission) { build described_class }
+  let(:user_permission) { build :user_permission }
   subject { user_permission }
 
   describe 'validations' do

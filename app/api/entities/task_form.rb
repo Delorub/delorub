@@ -17,16 +17,14 @@ class Entities::TaskForm < Grape::Entity
 
   expose :date_type
   expose :date_actual_date do |e|
-    e.model.decorate.formatted_date_actual_date
+    I18n.l Time.zone.parse(e.date_actual_date), format: :datepicker_date
   end
-  expose :date_actual_time do |e|
-    e.model.decorate.formatted_date_actual_time
+  expose :date_actual_time
+  expose :date_interval_from_date do |e|
+    I18n.l Time.zone.parse(e.date_interval_from_date), format: :datepicker_date
   end
-  expose :date_interval_from do |e|
-    e.model.decorate.formatted_date_interval_from
-  end
-  expose :date_interval_to do |e|
-    e.model.decorate.formatted_date_interval_to
+  expose :date_interval_to_date do |e|
+    I18n.l Time.zone.parse(e.date_interval_to_date), format: :datepicker_date
   end
   expose :date_type_options
 

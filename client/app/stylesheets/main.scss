@@ -110,6 +110,11 @@ body.without-sidemenu {
     .navbar-header {
         margin-left: 25px;
     }
+    &-avatar {
+      border: 1px solid rgba(128, 128, 128, 0.3);
+      border-radius: 50%;
+      margin-top: 10px;
+    }
     ul.navbar-nav {
         @media (min-width: $screen-sm-min) {
             font-size: 0.8rem;

@@ -7,7 +7,15 @@
     }
     &-content {
         border-bottom: 1px solid rgba(128, 128, 128, 0.3);
-        border-right: 1px solid rgba(128, 128, 128, 0.3);        
+        border-right: 1px solid rgba(128, 128, 128, 0.3);
+        &-avatar-img {
+          padding-top: 8px;
+          img {
+            border: 1px solid rgba(128, 128, 128, 0.3);
+            border-radius: 50%;
+            margin: 25px auto;
+          }
+        }
         &-avatar {
             a {
                 font-size: 2rem;
@@ -16,7 +24,7 @@
                 border: 1px solid rgba(128, 128, 128, 0.3);
                 border-radius: 25px;
                 width: 50px;
-                height: 50px;                
+                height: 50px;
                 padding-top: 8px;
                 margin: 25px auto;
             }
@@ -47,7 +55,7 @@
     }
 }
 
-.modal-vacancy {    
+.modal-vacancy {
     margin: 0;
     background: rgba(0,0,0,0.8);
     z-index: 99999;
@@ -61,12 +69,12 @@
     top: 0;
     right: 0;
     bottom: 0;
-    left: 0;    
-    &-content {        
+    left: 0;
+    &-content {
         margin: 80px auto;
         @extend .padding-none;
         width: 60%;
-        background-color: #fff;        
+        background-color: #fff;
         &-header, &-text {
             padding: 30px;
             text-align: left;
@@ -75,7 +83,7 @@
             @extend .gray-text;
         }
         &-text {
-            font-size: 1.5rem;  
+            font-size: 1.5rem;
             border-bottom: none;
         }
         > div {
@@ -91,8 +99,8 @@
     pointer-events: auto;
 }
 
-.close-vacancy {    
-    opacity: 0.8;    
+.close-vacancy {
+    opacity: 0.8;
     line-height: 40px;
     position: relative;
     margin-right: 3%;

@@ -21,7 +21,15 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :tasks, only: [:show, :edit, :update], path: 'task'
+  resources :tasks, only: [:show, :edit, :update], path: 'task' do
+    resources :replies, only: [:show, :create, :update, :destroy] do
+      member do
+        get 'cancel_decline'
+        get 'decline'
+        get 'accept'
+      end
+    end
+  end
   resources :tasks, only: [:new, :create]
   resources :tasks, only: [:index] do
     collection do

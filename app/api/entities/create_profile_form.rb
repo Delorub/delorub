@@ -1,18 +1,30 @@
 class Entities::CreateProfileForm < Grape::Entity
-  expose :main_specialization_id
-  expose :categories
+  expose :profile_id do |e|
+    e.model[:profile].id
+  end
+  expose :user_id do |e|
+    e.model[:user].id
+  end
+
+  expose :main_category_id
+  expose :categories do |e|
+    e.categories.map(&:id)
+  end
 
   expose :about
 
-  expose :have_car do |e|
-    e.have_car ? 'yes' : 'no'
+  expose :photo_url do |e|
+    if e.temporary_photo_id
+      User::TemporaryPhoto.find_by(id: e.temporary_photo_id).photo.upload_preview.url
+    else
+      e.model[:user].photo.upload_preview.url
+    end
   end
-  expose :have_instrument do |e|
-    e.have_instrument ? 'yes' : 'no'
-  end
-  expose :can_departure do |e|
-    e.can_departure ? 'yes' : 'no'
-  end
+  expose :temporary_photo_id
+
+  expose :have_car
+  expose :have_instrument
+  expose :can_departure
   expose :working_all_time
   expose :working_hours_from
   expose :working_hours_to
@@ -26,6 +38,8 @@ class Entities::CreateProfileForm < Grape::Entity
   expose :paid_functions_options
 
   expose :price_type
+  expose :price_hourly
+  expose :price_project
   expose :price_type_options
 
   expose :place_id

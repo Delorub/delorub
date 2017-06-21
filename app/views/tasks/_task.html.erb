@@ -1,11 +1,7 @@
 <div class="row row-eq-height dr-all-task-container">
-
-
   <div class="col-md-2 padding-none">
     <div class="dr-one-ticket-ticket-avatar">
-      <div class="dr-vacancy-content-avatar-roundInner">
-        <a href="#" class='dr-top-nav-icon icon-avtoriz'></a>
-      </div>
+      <%= render 'shared/user_photo', user: task.user %>
     </div>
     <br/>
     <div class="dr-one-ticket-ticket-name">
@@ -22,11 +18,11 @@
   <div class="col-md-5 dr-one-ticket-ticket-content without-border gray-text">
     <span class="content-header"><a href="<%= resource_url(task) %>"><%= task.title %></a></span>
     <span class="content-header-sub"><%= task.category.title %></span>
-    <p><%= task.description %></p>
+    <p><%= simple_format task.description.truncate(150, separator: /\s/) %></p>
     <% if task.place.present? %>
       <div class="dr-all-task-adress">
         <p>
-          <span class="gray-text-light">Адрес:</span> <%= task.place.name %>
+          <span class="gray-text-light">Адрес:</span> <%= task.place.name %>, <%= task.place_address %>
         </p>
       </div>
     <% end %>
@@ -49,19 +45,19 @@
       <div class="dr-one-ticket-refinement dr-all-task">
         <span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>
         <p class="gray-text-light">Актуально<br/>до</p>
-        <span><%= task.formatted_date_actual_date %></span>
+        <span><%= task.date_actual_date %></span>
       </div>
       <div class="dr-one-ticket-refinement dr-all-task without-border">
         <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
         <p class="gray-text-light">Удобное<br/>время</p>
-        <span><%= task.formatted_date_actual_time %></span>
+        <span><%= task.date_actual_time %></span>
       </div>
     <% end %>
     <% if task.date_type.interval? %>
       <div class="dr-one-ticket-refinement dr-all-task">
         <span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>
         <p class="gray-text-light">Выполнить в период</p>
-        <span><%= task.formatted_date_interval_from %> – <%= task.formatted_date_interval_to %></span>
+        <span><%= task.date_interval_from_date %> – <%= task.date_interval_to_date %></span>
       </div>
     <% end %>
   </div>

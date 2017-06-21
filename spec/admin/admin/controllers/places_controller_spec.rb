@@ -18,10 +18,6 @@ describe Admin::PlacesController, type: :controller do
     it 'checks the status' do
       expect(response.status).to eq(200)
     end
-
-    it 'assigns places' do
-      expect(assigns(:places)).to eq([place])
-    end
   end
 
   describe 'GET #show' do

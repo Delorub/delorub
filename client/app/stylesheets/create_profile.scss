@@ -30,6 +30,19 @@
             display: inline-block;
         }
     }
+    &-uploaded-avatar {
+      background-position: center;
+      background-size: cover;
+      display: block;
+      width: 100px;
+      height: 100px;
+      margin: 20px auto;
+
+      img {
+        border-radius: 50%;
+        border: 1px solid rgba(128, 128, 128, 0.3);
+      }
+    }
     &-avatar {
         background-position: center;
         background-size: cover;
