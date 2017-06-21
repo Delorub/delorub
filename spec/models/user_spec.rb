@@ -71,4 +71,13 @@ describe User do
       it { is_expected.not_to be_valid }
     end
   end
+
+  describe 'callbacks' do
+    let(:user) { create :user }
+    context 'access token generation' do
+      it 'checks that access token exists after user has been created' do
+        expect(user.access_token).not_to be_nil
+      end
+    end
+  end
 end

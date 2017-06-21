@@ -9,18 +9,14 @@ admins = User.create([
     last_name: 'Петров',
     password: 'test123123',
     email: 'admin@delorub.com',
-    permission_attributes: { superadmin: true },
-    confirmed_at: DateTime.current.utc,
-    uid: SecureRandom.uuid
+    permission_attributes: { superadmin: true }
   },
   {
     first_name: 'Мария',
     last_name: 'Иванова',
     password: 'test123123',
     email: 'editor@delorub.com',
-    permission_attributes: { editor: true },
-    confirmed_at: DateTime.current.utc,
-    uid: SecureRandom.uuid
+    permission_attributes: { editor: true }
   }
 ])
 

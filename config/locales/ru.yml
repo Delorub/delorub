@@ -182,7 +182,7 @@ ru:
         geo_long: "Географическая долгота"
         geo_address: "Адрес"
         date_type: "Тип сроков"
-        date_actual: "Дни актуальности"
+        date_actual_date: "Дни актуальности"
         date_from: "Актуально с"
         date_to: "Актуально до"
         description: "Описание"
