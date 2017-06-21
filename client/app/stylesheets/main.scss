@@ -404,21 +404,23 @@ ul.left_menu {
         .btn {
             margin: 20px 0;
             margin-right: 5%;
-            padding: 12px 30px;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 1.7rem;
         }
     }
     &-right .btn {
         margin: 20px 0;
         margin-left: 5%;
-        padding: 12px 30px;
+        padding: 15px 35px;
+        border-radius: 50px;
+        font-size: 1.6rem;
     }
 }
 
 .dr-bottom-service {
-    box-shadow: 0 -4px 5px -4px rgba(0, 0, 0, 0.12);
-    //box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.12);
-    text-align: center;
-    //padding-top: 20px; 
+    box-shadow: 0 -4px 5px -4px rgba(0, 0, 0, 0.12);    
+    text-align: center;    
     &-odd-row-category {
         &:nth-child(even) {
             background-color: #f7f7f7;
@@ -722,6 +724,19 @@ ul.left_menu {
         border-color: lighten(#5f83d2, 20%);
         background-color: lighten(#5f83d2, 20%);
         color: white;
+    }
+}
+.dr-button-triangleTop {
+    position: relative;
+    &:after {
+        content: '';
+        border: 8px solid transparent;
+        border-bottom: 8px solid #25c0ec;
+        position: absolute;
+        left: 50%;
+        margin-left: -8px;
+        top: -16px;
+        width: 0;
     }
 }
 
