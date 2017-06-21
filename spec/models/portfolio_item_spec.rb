@@ -5,7 +5,7 @@ describe PortfolioItem do
   describe 'validations' do
     it { is_expected.to be_valid }
     it { is_expected.to validate_presence_of(:profile_id) }
-    it { is_expected.to validate_presence_of(:title) }
+    it { is_expected.to validate_presence_of(:file) }
   end
 
   describe 'relations' do

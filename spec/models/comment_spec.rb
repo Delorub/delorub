@@ -8,6 +8,7 @@ describe Comment do
     it { is_expected.to validate_presence_of(:commentable_id) }
     it { is_expected.to validate_presence_of(:commentable_type) }
     it { is_expected.to validate_presence_of(:text) }
+    it { is_expected.to validate_length_of(:text).is_at_most(1000) }
   end
 
   describe 'relations' do

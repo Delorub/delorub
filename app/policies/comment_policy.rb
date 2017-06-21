@@ -1,9 +1,13 @@
 class CommentPolicy < ApplicationPolicy
+  def create?
+    user.present?
+  end
+
   def update?
-    user.id == record.user_id
+    owner?
   end
 
   def destroy?
-    user.id == record.user_id
+    owner?
   end
 end

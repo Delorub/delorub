@@ -14,6 +14,15 @@ class PortfolioItemUploader < BaseUploader
     end
   end
 
+  version :preview, if: :image? do
+    process resize_to_limit: [100, 50]
+    process convert: 'png'
+
+    def full_filename for_file = model.photo.file
+      'thumb.png'
+    end
+  end
+
   # def extension_whitelist
   #  %w(jpg jpeg gif png)
   # end

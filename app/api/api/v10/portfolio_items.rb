@@ -10,10 +10,6 @@ class Api::V10::PortfolioItems < ApplicationAPI
     def find_comment
       find_portfolio_item.comments.find(params[:comment_id])
     end
-
-    def destroy comment
-      Comment::DestroyService.new(comment).perform
-    end
   end
 
   resource :portfolio_items do
@@ -30,6 +26,8 @@ class Api::V10::PortfolioItems < ApplicationAPI
           requires :text, type: String, desc: 'Comment'
         end
         post do
+          authenticate!
+          authorize Comment, :create?
           find_portfolio_item.comments.create(
             parent_id: params[:parent_id],
             text: params[:text],
@@ -58,7 +56,7 @@ class Api::V10::PortfolioItems < ApplicationAPI
           authenticate!
           comment = find_comment
           authorize comment, :destroy?
-          destroy comment
+          comment.destroy
           status 200
         end
       end

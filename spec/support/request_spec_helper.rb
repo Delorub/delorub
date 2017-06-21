@@ -14,6 +14,10 @@ module RequestSpecHelper
     logout(warden_scope(resource))
   end
 
+  def send_access_token token
+    header 'Access-Token', token
+  end
+
   private
 
   def warden_scope resource

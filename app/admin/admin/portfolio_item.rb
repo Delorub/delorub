@@ -1,9 +1,8 @@
 ActiveAdmin.register PortfolioItem do
-  permit_params :title, :file, :profile_id
+  permit_params :file, :profile_id
 
   form do |f|
     inputs 'Основное' do
-      input :title
       input :file
       input :profile
     end
@@ -12,7 +11,9 @@ ActiveAdmin.register PortfolioItem do
 
   index do
     selectable_column
-    column :title
+    column :preview do |item|
+      image_tag item.preview.url
+    end
     column :profile do |item|
       link_to item.profile.name, admin_profile_path(item.profile)
     end
@@ -20,9 +21,7 @@ ActiveAdmin.register PortfolioItem do
   end
 
   show do
-    h3 portfolio_item.title
     attributes_table_for portfolio_item do
-      row :title
       row :profile do |item|
         link_to item.profile.name, admin_profile_path(item.profile)
       end

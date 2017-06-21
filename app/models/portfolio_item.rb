@@ -3,7 +3,6 @@
 # Table name: portfolio_items
 #
 #  id         :integer          not null, primary key
-#  title      :string
 #  profile_id :integer
 #  file       :string
 #  created_at :datetime         not null
@@ -19,7 +18,7 @@ class PortfolioItem < ApplicationRecord
 
   belongs_to :profile
 
-  validates :profile_id, :title, presence: true
+  validates :profile_id, :file, presence: true
 
   has_many :comments, as: :commentable
 end

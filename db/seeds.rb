@@ -67,7 +67,7 @@ HelpCategory.create([
 ])
 
 ### PortfolioItems
-portfolio_item = profile.portfolio_items.create(title: Faker::Lorem.word)
+portfolio_item = profile.portfolio_items.create(file: File.open(File.join(Rails.root, 'spec', 'support', 'portfolio_item', 'files', 'image.png')))
 
 ### Comments
 portfolio_item.comments.create!(user: admins.sample, text: Faker::Lorem.sentence(10))
