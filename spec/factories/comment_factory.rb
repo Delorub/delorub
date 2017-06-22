@@ -1,8 +1,7 @@
 FactoryGirl.define do
   factory :comment do
     user
-    commentable_id 1
-    commentable_type 'PortfolioItem'
+    association :commentable, factory: :portfolio_item
     text 'text'
   end
 end

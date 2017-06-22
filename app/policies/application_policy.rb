@@ -58,7 +58,7 @@ class ApplicationPolicy
   protected
 
     def owner?
-      false if user.blank?
+      return false if user.blank?
 
       if record.respond_to? :user_id
         record.user_id == user.id
