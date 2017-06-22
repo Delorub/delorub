@@ -2,22 +2,10 @@ module Grape::AuthHelpers
   extend Grape::API::Helpers
 
   def current_user
-    @current_user = set_user_by_token
+    @current_user = User.find_by(access_token: cookies[:access_token])
   end
 
-  def authenticate!
+  def authenticate_user!
     error!('401 Unauthorized', 401) unless current_user
-  end
-
-  def set_user_by_token
-    uid = request.headers['Uid']
-    client = request.headers['Client']
-
-    user = User.find_by(uid: uid)
-    if user.tokens.to_h.keys.include? client
-      user
-    else
-      false
-    end
   end
 end

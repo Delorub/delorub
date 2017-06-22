@@ -7,9 +7,10 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    super
+    cookies[:access_token] = current_user.access_token
+  end
 
   # DELETE /resource/sign_out
   # def destroy

@@ -38,7 +38,6 @@ gem 'acts_as_list'
 # Authorization, roles
 gem 'devise'
 gem 'devise_lastseenable'
-gem 'devise_token_auth'
 gem 'pundit'
 gem 'omniauth'
 gem 'omniauth-facebook'
