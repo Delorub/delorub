@@ -59,13 +59,14 @@ body {
     overflow-x: hidden;
     text-align: center;
     letter-spacing: 0.03em;
+    background-color: #f8fbfb;
 }
 
 body.without-sidemenu {
     .dr-container {
         box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.12);
         .dr-bottom-service {
-            box-shadow: none;
+            //box-shadow: none;
         }
     }
 }
@@ -73,6 +74,8 @@ body.without-sidemenu {
 .dr-container {
     box-shadow: 4px 2px 10px 0px rgba(0, 0, 0, 0.12);
     margin-top: -20px;
+    position: relative;
+    background-color: #fff;
 }
 
 .right {
@@ -317,7 +320,7 @@ ul.left_menu {
 
 .owl-nav {
     position: absolute;
-    top: 40%;
+    top: 41%;
     width: 100%;
 
     .owl-prev, .owl-next {
@@ -368,7 +371,7 @@ ul.left_menu {
         background: transparent;
         //padding: 5px 25px;
         &:hover {
-            background: rgba(37, 192, 236, 0.5);
+            background: rgba(37, 192, 236, 0.3);
             color: #fff;
             text-decoration: none;
             border-radius: 50px;
@@ -400,18 +403,36 @@ ul.left_menu {
         border-right: 1px dotted rgba(128, 128, 128, 0.3);
         margin-right: -15px;
         .btn {
+            margin: 20px 0;
             margin-right: 5%;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 1.6rem;
         }
     }
     &-right .btn {
+        margin: 20px 0;
         margin-left: 5%;
+        padding: 15px 35px;
+        border-radius: 50px;
+        font-size: 1.6rem;
+
     }
 }
 
 .dr-bottom-service {
-    box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.12);
-    text-align: center;
-    padding-top: 20px;
+    box-shadow: 0 -4px 5px -4px rgba(0, 0, 0, 0.12);    
+    text-align: center;    
+    &-odd-row-category {
+        &:nth-child(even) {
+            background-color: #f7f7f7;
+        }
+    }
+    &-even-row-category {
+        &:nth-child(odd) {
+            background-color: #f7f7f7;
+        }
+    }
     &-heading {
         display: inline-block;
     }
@@ -431,41 +452,34 @@ ul.left_menu {
             float: left;
             box-sizing: content-box;
             min-height: 150px;
+            &:hover {
+                cursor: pointer;
+                background-color: $blueColor;
+                a {
+                    color: #fff;
+                    img {
+                        -webkit-filter: brightness(100);
+                        filter: brightness(100);
+                    }
+                }
+            }
             a {
                 padding: 20px 0;
                 img {
                     margin: 20px auto;
                 }
                 span {
-                    font-size: 1.2rem;
+                    font-size: 1.1rem;
+                    line-height: 18px;
                     @media (min-width: $screen-lg-min) {
-                        font-size: 1.4rem;
+                        font-size: 1.3rem;
                     }
-                     @media (min-width: $screen-lgm-min) {
+                    @media (min-width: $screen-lgm-min) {
                         font-size: 1.5rem;
-                    }
+                    }                    
                     display: block;
                 }
             }
-        }
-    }
-    &-odd-row-category {
-        &:nth-child(even) {
-            background-color: #f7f7f7;
-        }
-    }
-    &-even-row-category {
-        &:nth-child(odd) {
-            background-color: #f7f7f7;
-        }
-    }
-}
-.dr-bottom-service-heading {
-    &:hover {
-        cursor: pointer;
-
-        span {
-            color: lighten(#4c4c4c, 30%);
         }
     }
 }
@@ -514,6 +528,7 @@ ul.left_menu {
     padding: 0;
 }
 .dr-bottom-menu {
+    //background-color: #f8fbfb;
     padding: 60px 20px;
     font-family: $PFDinExThin;
     font-weight: 600;
@@ -611,12 +626,12 @@ ul.left_menu {
     background-color: white;
     padding: 11px 30px;
     border: 1px solid rgba(128, 128, 128, 0.3);
-    border-radius: $borderRadius;
+    border-radius: $borderRadius;    
 }
 
 .dr-button-blue {
-    @extend .dr-button-empty;
-    padding: 10px 30px;
+    @extend .dr-button-empty; 
+    padding: 10px 30px;    
     border: 2px solid $blueColor;
     &:hover {
         border: 2px solid lighten($blueColor, 20%);
@@ -709,6 +724,19 @@ ul.left_menu {
         border-color: lighten(#5f83d2, 20%);
         background-color: lighten(#5f83d2, 20%);
         color: white;
+    }
+}
+.dr-button-triangleTop {
+    position: relative;
+    &:after {
+        content: '';
+        border: 8px solid transparent;
+        border-bottom: 8px solid #25c0ec;
+        position: absolute;
+        left: 50%;
+        margin-left: -8px;
+        top: -16px;
+        width: 0;
     }
 }
 
