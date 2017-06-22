@@ -71,19 +71,30 @@
     .dr-bottom-service {
         box-shadow: none;
     }
-    &-content {
-        margin-top: 180px;
-        margin-left: 215px;
-        margin-right: 100px;
-        position: absolute;    
+    &-content {        
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: fixed;    
         background: #fff;
+        min-width: 992px;
         &-header {
             box-shadow: 0 6px 4px -4px rgba(0, 0, 0, .2);
             text-align: left;
             padding-left: 20px;
+            z-index: 1;
             .btn {
                 margin-left: 20px;
             }
+        }
+        .dr-bottom-service-odd-row-category a span, .dr-bottom-service-even-row-category a span {
+            font-size: 1.1rem;            
+            @media (min-width: $screen-lg-min) {
+                font-size: 1.15rem;
+            }
+            @media (min-width: $screen-lgm-min) {
+                font-size: 1.2rem;
+            }           
         }
     }
 }
