@@ -404,17 +404,26 @@ ul.left_menu {
         border-right: 1px dotted rgba(128, 128, 128, 0.3);
         margin-right: -15px;
         .btn {
+            margin: 20px 0;
             margin-right: 5%;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 1.6rem;
         }
     }
     &-right .btn {
+        margin: 20px 0;
         margin-left: 5%;
+        padding: 15px 35px;
+        border-radius: 50px;
+        font-size: 1.6rem;
+
     }
 }
 
 .dr-bottom-service {
-    box-shadow: 0 -4px 5px -4px rgba(0, 0, 0, 0.12);    
-    text-align: center;     
+    box-shadow: 0 -4px 5px -4px rgba(0, 0, 0, 0.12);
+    text-align: center;
     &-odd-row-category {
         &:nth-child(even) {
             background-color: #f7f7f7;
@@ -474,9 +483,7 @@ ul.left_menu {
             }
         }
     }
-
 }
-
 
 .lastRow {
     margin-right: 0;
@@ -521,7 +528,7 @@ ul.left_menu {
 .dr-content {
     padding: 0;
 }
-.dr-bottom-menu {    
+.dr-bottom-menu {
     padding: 60px 20px;
     font-family: $PFDinExThin;
     font-weight: 600;
@@ -623,8 +630,8 @@ ul.left_menu {
 }
 
 .dr-button-blue {
-    @extend .dr-button-empty;
-    padding: 10px 30px;
+    @extend .dr-button-empty; 
+    padding: 10px 30px;    
     border: 2px solid $blueColor;
 
     &:hover {
@@ -718,6 +725,19 @@ ul.left_menu {
         border-color: lighten(#5f83d2, 20%);
         background-color: lighten(#5f83d2, 20%);
         color: white;
+    }
+}
+.dr-button-triangleTop {
+    position: relative;
+    &:after {
+        content: '';
+        border: 8px solid transparent;
+        border-bottom: 8px solid #25c0ec;
+        position: absolute;
+        left: 50%;
+        margin-left: -8px;
+        top: -16px;
+        width: 0;
     }
 }
 
