@@ -1,16 +1,22 @@
 <%= render 'slider' %>
-<div class="dr-bottom-service">
+<div>
   <% unless global_container? %>
     <%= render 'shared/after_container' %>
   <% end %>
-  <div class="row">
-    <% @categories.each do |category| %>
-      <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-        <a href="<%= category_tasks_path(category_id: category) %>" class="dr-bottom-service-heading">
-          <img class="img-responsive" src="<%= category.photo.thumb.url %>" alt="">
-          <span><%= category.title %></span>
-        </a>
-      </div>
-    <% end %>
-  </div>
+  <% i = 0 %>
+  <% @categories.in_groups_of(8, false).each do |categories_group| %>
+    <div class="dr-bottom-service-<%= i == 1 ? 'odd' : 'even' %>-row">
+      <% categories_group.each do |category| %>
+        <div class="dr-bottom-service-<%= i == 1 ? 'odd' : 'even' %>-row-category">
+          <a href="<%= category_tasks_path(category_id: category) %>" class="dr-bottom-service-heading">
+            <img src="<%= category.photo.thumb.url %>" alt="<%= category.title %>" height="33">
+            <div class="dr-bottom-service-content">
+              <span><%= category.title %></span>
+            </div>
+          </a>
+        </div>
+      <% end %>
+      <% i += 1 %>
+    </div>
+  <% end %>
 </div>

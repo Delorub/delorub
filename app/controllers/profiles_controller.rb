@@ -4,7 +4,7 @@ class ProfilesController < ApplicationController
   helper_method :create_profile_form_props, :current_url
 
   def new
-    @form = CreateProfileForm.new Profile.new(place_id: 1)
+    @form = CreateProfileForm.new Profile.new(place_id: 1, working_days: [:saturday, :thursday])
   end
 
   def index

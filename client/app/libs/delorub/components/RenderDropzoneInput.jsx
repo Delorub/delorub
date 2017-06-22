@@ -7,8 +7,6 @@ export default class RenderDropzoneInput extends React.Component {
     const { input, options, data, meta, containerClasses, disabled, className, multiple, label } = this.props
     const files = input.value;
 
-    console.log(files)
-
     return (
       <div>
         <Dropzone

@@ -39,59 +39,43 @@ class App extends React.Component {
         action={this.props.form_action}
         method="post"
         onSubmit={handleSubmit(::this.handleOnSubmit)}
-        enctype="multipart/form-data"
         >
         <input type="hidden" name="utf8" value="✓" />
         <input name="authenticity_token" value={this.props.authenticity_token} type="hidden" />
+        { this.props.task_id && ( <input name="_method" value="PUT" type="hidden" />) }
         <div className="dr-header-span">
-          <p>Создание <span className="dr-header-span-unmarked">&nbsp;задания</span></p>
-          <input type="submit" className="btn dr-button-empty" value="Предпросмотр" />
+          <p>{this.props.task_id ? 'Редактирование' : 'Создание'} <span className="dr-header-span-unmarked">&nbsp;задания</span></p>
+          <input type="submit" className="btn dr-button-empty" value="Предпросмотр" disabled={pristine || submitting} />
         </div>
         <div className="row row-eq-height dr-task">
           <div className="col-md-5">
-
             <Title />
-
             <DescriptionInput />
-
             <PhotoInput {...this.props} />
-
             <PaidFunctionsInput {...this.props} />
-
           </div>
           <div className="col-md-7">
-
             <Budget {...this.props}/>
-
             <div className="row row-eq-height">
               <div className="col-md-6">
-
                 <DateTypeInput {...this.props} />
-
                 <CityInput name="task[place_id]" />
-
                 <Category {...this.props} />
-
                 <ContractInput {...this.props} />
-
               </div>
-
               <div className="col-md-6">
-
                 <DateSelector {...this.props} />
-
                 <AddressInput name="task[place_address]" />
-
                 <Subcategory {...this.props} />
-
                 <NotificationsTypeInput {...this.props} />
-
               </div>
             </div>
           </div>
         </div>
         <div className="row lastRow">
-          <button type="submit" className="btn dr-button-blueFull" disabled={pristine || submitting}>Добавить задание</button>
+          <button type="submit" className="btn dr-button-blueFull" disabled={pristine || submitting}>
+            {this.props.task_id ? 'Отредактировать' : 'Добавить задание'}
+          </button>
         </div>
       </form>
     );
@@ -106,6 +90,7 @@ App = reduxForm({
 
 App = connect(
   state => ({
+    task_id: selector(state, 'task[id]'),
     price_exact: selector(state, 'task[price_exact]'),
     date_type: selector(state, 'task[date_type]'),
     main_category_id: selector(state, 'task[main_category_id]'),

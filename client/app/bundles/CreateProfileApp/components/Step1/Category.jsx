@@ -19,7 +19,7 @@ class Category extends React.Component {
       <div className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
         <a href="#" className="dr-bottom-service-heading" onClick={::this.handleClick} >
           <img className="img-responsive" src={photo_thumb_url} alt="" />
-          <span>{this.props.title}</span>
+          <span class="marked">{this.props.title}</span>
         </a>
       </div>
     );

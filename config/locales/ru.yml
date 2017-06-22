@@ -8,6 +8,18 @@ ru:
     street: "5 - Улица"
     house: "6 - Дом"
   enumerize:
+    profile:
+      price_type:
+        hourly: "Почасовая ставка"
+        project: "Оплата за проект"
+      working_days:
+        sunday: 'Вс'
+        monday: 'Пн'
+        tuesday: 'Вт'
+        wednesday: 'Ср'
+        thursday: 'Чт'
+        friday: 'Пт'
+        saturday: 'Сб'
     task:
       date_type:
         actual: "Завершить работу"

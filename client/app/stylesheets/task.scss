@@ -22,11 +22,14 @@
         resize: none;
         border-radius: $borderRadius;
         padding: 15px;
+        height: 200px;
     }
     &-date {
         input {
-            width: 100%;
+            width: 45%;
             padding: 7px 15px;
+            margin-right: 5px;
+            float: left;
         }
     }
     &-budget {
@@ -56,9 +59,9 @@
             font-weight: bold;
         }
 
-        .glyphicon {            
-            font-weight: normal;            
-        }        
+        .glyphicon {
+            font-weight: normal;
+        }
 
     }
     input[type=text], input[type=password] {
