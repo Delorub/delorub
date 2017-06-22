@@ -18,7 +18,7 @@ class PortfolioItem < ApplicationRecord
 
   belongs_to :profile
 
-  validates :profile_id, :file, presence: true
+  validates :file, presence: true
 
   has_many :comments, as: :commentable
 end

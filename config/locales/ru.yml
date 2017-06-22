@@ -150,6 +150,11 @@ ru:
         few: "Комментария"
         many: "Комментариев"
         other: "Комментарии"
+      certificate:
+        one: "Сертификат"
+        few: "Сертификата"
+        many: "Сертификатов"
+        other: "Сертификаты"
       billing/task_pack: "Пакет заданий"
       billing/reply_pack: "Пакет ответов"
       billing/task_subscription: "Абонемент на задания"

@@ -1,4 +1,4 @@
-describe PortfolioItem do
+describe Certificate do
   let(:portfolio_item) { build described_class }
   subject { portfolio_item }
 
@@ -9,6 +9,5 @@ describe PortfolioItem do
 
   describe 'relations' do
     it { is_expected.to belong_to(:profile) }
-    it { is_expected.to have_many(:comments) }
   end
 end

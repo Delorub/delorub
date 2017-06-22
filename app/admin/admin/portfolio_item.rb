@@ -12,7 +12,7 @@ ActiveAdmin.register PortfolioItem do
   index do
     selectable_column
     column :preview do |item|
-      image_tag item.preview.url
+      image_tag item.file.preview.url
     end
     column :profile do |item|
       link_to item.profile.name, admin_profile_path(item.profile)
@@ -24,6 +24,9 @@ ActiveAdmin.register PortfolioItem do
     attributes_table_for portfolio_item do
       row :profile do |item|
         link_to item.profile.name, admin_profile_path(item.profile)
+      end
+      row :thumb do |item|
+        image_tag item.file.thumb.url
       end
       h3 'Комментарии'
       table_for portfolio_item.comments do

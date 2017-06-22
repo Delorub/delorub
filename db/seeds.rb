@@ -4,6 +4,7 @@ Category.delete_all
 HelpCategory.delete_all
 PortfolioItem.delete_all
 Comment.delete_all
+Certificate.delete_all
 
 ### Admins
 admins = User.create([
@@ -70,4 +71,7 @@ HelpCategory.create([
 portfolio_item = profile.portfolio_items.create(file: File.open(File.join(Rails.root, 'spec', 'support', 'portfolio_item', 'files', 'image.png')))
 
 ### Comments
-portfolio_item.comments.create!(user: admins.sample, text: Faker::Lorem.sentence(10))
+portfolio_item.comments.create(user: admins.sample, text: Faker::Lorem.sentence(10))
+
+### Certificates
+profile.certificates.create(file: File.open(File.join(Rails.root, 'spec', 'support', 'certificate', 'files', 'image.png')))
