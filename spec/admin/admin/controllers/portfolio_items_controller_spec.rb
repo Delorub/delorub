@@ -49,7 +49,7 @@ describe Admin::PortfolioItemsController, type: :controller do
   describe 'POST #create' do
     it 'checks the redirect status' do
       post :create, portfolio_item: params
-      expect(response.status).to eq 200
+      expect(response.status).to eq 302
     end
   end
 

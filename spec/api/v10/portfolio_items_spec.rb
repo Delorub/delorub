@@ -82,5 +82,34 @@ describe Api::V10::PortfolioItems do
         end
       end
     end
+
+    describe 'DELETE /api/portfolio_items/:id/comments/:comment_id' do
+      context 'not authenticated user' do
+        it 'returns 401' do
+          delete "/api/portfolio_items/#{portfolio_item.id}/comments/#{comment_of_user.id}", body
+          expect(last_response.status).to eq 401
+        end
+      end
+
+      context 'authenticated user' do
+        before :each do
+          send_access_token user.access_token
+        end
+
+        context 'if not owner' do
+          it 'returns 403' do
+            delete "/api/portfolio_items/#{portfolio_item.id}/comments/#{another_comment.id}", body
+            expect(last_response.status).to eq 403
+          end
+        end
+
+        context 'if owner' do
+          it 'returns 200' do
+            delete "/api/portfolio_items/#{portfolio_item.id}/comments/#{comment_of_user.id}", body
+            expect(last_response.status).to eq 200
+          end
+        end
+      end
+    end
   end
 end

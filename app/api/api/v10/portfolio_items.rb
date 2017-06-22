@@ -51,7 +51,7 @@ class Api::V10::PortfolioItems < ApplicationAPI
           present comment, with: Entities::Comment
         end
 
-        desc 'Destroy comment of profile item'
+        desc 'Delete comment of profile item'
         delete ':comment_id' do
           authenticate!
           comment = find_comment
