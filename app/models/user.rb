@@ -4,7 +4,6 @@
 #
 #  id                     :integer          not null, primary key
 #  provider               :string           default("email"), not null
-#  uid                    :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
@@ -14,10 +13,6 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string
 #  last_sign_in_ip        :string
-#  confirmation_token     :string
-#  confirmed_at           :datetime
-#  confirmation_sent_at   :datetime
-#  unconfirmed_email      :string
 #  first_name             :string
 #  middle_name            :string
 #  last_name              :string
@@ -32,16 +27,14 @@
 #  balance                :decimal(10, 2)   default(0.0), not null
 #  photo                  :string
 #  phone_confirmed        :boolean
-#  tokens                 :json
 #  created_at             :datetime
 #  updated_at             :datetime
+#  access_token           :string
 #
 # Indexes
 #
-#  index_users_on_confirmation_token    (confirmation_token) UNIQUE
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
-#  index_users_on_uid_and_provider      (uid,provider) UNIQUE
 #
 
 class User < ApplicationRecord
@@ -53,7 +46,6 @@ class User < ApplicationRecord
 
   include Searchable::User
   include Geotaggable
-  include DeviseTokenAuth::Concerns::User
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
@@ -84,7 +76,10 @@ class User < ApplicationRecord
 
   scope :confirmed_phone, ->(n) { where{ (phone == n) & (phone_confirmed == true) } }
 
-  before_save :check_free_replies_and_tasks
+  before_save do
+    check_free_replies_and_tasks
+    set_access_token
+  end
 
   mount_uploader :photo, UserPhotoUploader
 
@@ -125,6 +120,18 @@ class User < ApplicationRecord
     def check_free_replies_and_tasks
       self.free_tasks_published = [free_tasks_published.to_i, FREE_TASKS].min
       self.free_replies_published = [free_replies_published.to_i, FREE_TASKS].min
+    end
+
+    def set_access_token
+      # TODO replace this method to 'has_secure_token' after Rails 5 update
+      self.access_token = generate_token
+    end
+
+    def generate_token
+      loop do
+        token = SecureRandom.hex(10)
+        break token unless User.where(access_token: token).exists?
+      end
     end
 
     def ensure_phone_not_confirmed

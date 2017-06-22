@@ -22,7 +22,7 @@ class TaskFileUploader < BaseUploader
   end
 
   version :big_preview do
-    process resize_to_fit: [380, 10000]
+    process resize_to_fit: [380, 10_000]
     process convert: 'jpg'
 
     def full_filename for_file = model.file.file
