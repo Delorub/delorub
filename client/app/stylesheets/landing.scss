@@ -113,7 +113,11 @@
             text-align: center;
             top: 20%;
             width: 100%;
+            text-transform: uppercase;
             z-index: 9;
+            &-lowercase {
+                text-transform: none;
+            }
             &-content {
                 &-top, &-bottom {
                     font-size: 1.7rem;                
@@ -129,6 +133,7 @@
                     font-weight: 600;
                 }
                 &-subcontent {
+                    text-transform: none;
                     margin-top: 3%;
                     &-left, &-right {
                         width: 43%;
