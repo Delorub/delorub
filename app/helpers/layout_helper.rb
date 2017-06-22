@@ -8,7 +8,7 @@ module LayoutHelper
   end
 
   def navigation_logo_path
-    controller_name == 'main' ? '/images/design/logo1.png' : '/images/design/logo.png'
+    controller_name == 'main' ? '/images/design/logo1.svg' : '/images/design/logo.png'
   end
 
   def show_side_menu?
@@ -16,7 +16,7 @@ module LayoutHelper
   end
 
   def container_css_classes
-    show_side_menu? ? '' : ' dr-container-without-sidemenu'
+    show_side_menu? ? '' : ' dr-container-without-sidemenu without-sidemenu'
   end
 
   def global_container?

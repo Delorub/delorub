@@ -1,13 +1,14 @@
 class TasksController < ApplicationController
+  include Pundit
   inherit_resources
-
-  before_filter :authenticate_user!
+  decorates_assigned :tasks
 
   helper_method :task_form_props, :current_url
 
   def index
     fetch_category
     fetch_scope
+    super
   end
 
   def new
@@ -25,13 +26,30 @@ class TasksController < ApplicationController
       end
       creator = Task::FormCreator.new(@form)
       creator.perform
-      return redirect_to task_path(creator.model), notice: 'Задание добавлено!' if creator.model.persisted?
+      return redirect_to task_path(creator.model), notice: 'Задание добавлено' if creator.model.persisted?
       flash.now.alert = creator.last_error
     else
       flash.now.alert = @form.errors
     end
 
     render 'new'
+  end
+
+  def edit
+    @form = TaskForm.new resource
+  end
+
+  def update
+    @form = TaskForm.new resource
+
+    if @form.validate task_params
+      creator = Task::FormCreator.new(@form)
+      creator.perform
+      return redirect_to task_path(creator.model), notice: 'Задание отредактировано' if creator.model.persisted?
+      flash.now.alert = creator.last_error
+    else
+      flash.now.alert = @form.errors
+    end
   end
 
   private
@@ -53,7 +71,7 @@ class TasksController < ApplicationController
     def task_params
       params.require(:task).permit(:title, :description, :main_category_id, :category_id, :price_type, :price_exact,
         :price_from, :price_to, :date_type, :date_actual_date, :date_actual_time, :contract_type, :paid_functions,
-        :notifications_type, :place_id, :place_address)
+        :notifications_type, :place_id, :place_address, files: [:id])
     end
 
     def current_url category:
@@ -80,7 +98,7 @@ class TasksController < ApplicationController
 
     def task_form_props
       {
-        form_action: tasks_path,
+        form_action: params[:id].nil? ? tasks_path : task_path(resource),
         task: Entities::TaskForm.represent(@form),
         categories: Entities::Category.represent(Category.all)
       }

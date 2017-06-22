@@ -86,8 +86,9 @@ body.without-sidemenu {
     text-align: center;
 }
 
-.container {    
-    width: 100%;    
+
+.container {
+    width: 100%;
     @media (min-width: $screen-lgm-min) {
         width: 1440px;
     }
@@ -324,15 +325,16 @@ ul.left_menu {
     width: 100%;
 
     .owl-prev, .owl-next {
-        color: #c6c7c7;                
+        color: #c6c7c7;
+        cursor: pointer;
         font-family: $DelorubSliderArrows;
-        font-size: 50px !important;        
-        cursor: pointer;        
+        font-size: 50px !important;
+        cursor: pointer;
     }
 
     .owl-prev {
-        position: absolute;        
-        left: 20px;        
+        position: absolute;
+        left: 20px;
         &:before {
             color: #59ff10;
             content: "\e801";
@@ -340,9 +342,9 @@ ul.left_menu {
     }
 
     .owl-next {
-        position: absolute;        
-        right: 20px;        
-        &:before {  
+        position: absolute;
+        right: 20px;
+        &:before {
             color: #00aeff;
             content: "\e800";
         }
@@ -373,7 +375,7 @@ ul.left_menu {
             background: rgba(37, 192, 236, 0.3);
             color: #fff;
             text-decoration: none;
-            border-radius: 50px;            
+            border-radius: 50px;
         }
     }
     .owl-dots {
@@ -395,30 +397,24 @@ ul.left_menu {
 .dr-wrap-button {
     &-left, &-right {
         display: inline-block;
-        margin: 10px;  
+        margin: 10px;
         width: 35%;
     }
     &-left {
         border-right: 1px dotted rgba(128, 128, 128, 0.3);
         margin-right: -15px;
         .btn {
-            margin: 20px 0;
             margin-right: 5%;
-            padding: 12px 30px;
         }
     }
     &-right .btn {
-        margin: 20px 0;
         margin-left: 5%;
-        padding: 12px 30px;
     }
 }
 
 .dr-bottom-service {
-    box-shadow: 0 -4px 5px -4px rgba(0, 0, 0, 0.12);
-    //box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.12);
-    text-align: center;
-    //padding-top: 20px; 
+    box-shadow: 0 -4px 5px -4px rgba(0, 0, 0, 0.12);    
+    text-align: center;     
     &-odd-row-category {
         &:nth-child(even) {
             background-color: #f7f7f7;
@@ -434,15 +430,15 @@ ul.left_menu {
     }
     &-content {
         position: absolute;
-        left: 0;        
-        width: 70%;       
+        left: 0;
+        width: 70%;
         margin-left: 15%;
     }
     &-odd-row, &-even-row {
         width: 95%;
         margin: 0 auto;
         height: 150px;
-        &-category {            
+        &-category {
             width: 12.5%;
             position: relative;
             float: left;
@@ -525,8 +521,7 @@ ul.left_menu {
 .dr-content {
     padding: 0;
 }
-.dr-bottom-menu {
-    //background-color: #f8fbfb;
+.dr-bottom-menu {    
     padding: 60px 20px;
     font-family: $PFDinExThin;
     font-weight: 600;
@@ -588,7 +583,7 @@ ul.left_menu {
     .btn, a.btn, input {
         margin: 15px 5px;
         float: right;
-    }    
+    }
 }
 
 .dr-header-span-price {
@@ -612,7 +607,7 @@ ul.left_menu {
 .dr-header-span-error {
     @extend .dr-header-span-complete;
     background-color: #ffd6d6;
-    .glyphicon {        
+    .glyphicon {
         color: #954444;
     }
 }
@@ -628,9 +623,10 @@ ul.left_menu {
 }
 
 .dr-button-blue {
-    @extend .dr-button-empty; 
-    padding: 10px 30px;    
-    border: 2px solid $blueColor;    
+    @extend .dr-button-empty;
+    padding: 10px 30px;
+    border: 2px solid $blueColor;
+
     &:hover {
         border: 2px solid lighten($blueColor, 20%);
         color: lighten(#6b6b6b, 20%);
@@ -638,10 +634,10 @@ ul.left_menu {
 }
 
 .dr-button-blueFull {
-    @extend .dr-button-blue;    
-    color: white;    
+    @extend .dr-button-blue;
+    color: white;
     background-color: $blueColor;
-    &:hover {        
+    &:hover {
         background-color: lighten($blueColor, 20%);
         color: white;
     }
@@ -649,8 +645,8 @@ ul.left_menu {
 
 .dr-button-warning {
     @extend .dr-button-blue;
-    color: white;    
-    background-color: #eda431;    
+    color: white;
+    background-color: #eda431;
     border: 2px solid #eea236;
     &:hover {
         border-color: lighten(#eea236, 20%);
@@ -661,8 +657,8 @@ ul.left_menu {
 
 .dr-button-succsess {
     @extend .dr-button-blue;
-    color: white;    
-    background-color: #4ccd6a;    
+    color: white;
+    background-color: #4ccd6a;
     border: 2px solid #3dba5a;
     &:hover {
         border-color: lighten(#3dba5a, 20%);
@@ -672,9 +668,9 @@ ul.left_menu {
 }
 
 .dr-button-danger {
-    @extend .dr-button-blue;    
-    color: white;    
-    background-color: #fa607e;    
+    @extend .dr-button-blue;
+    color: white;
+    background-color: #fa607e;
     border: 2px solid #f3516f;
     &:hover {
         border-color: lighten(#f3516f, 20%);
@@ -687,8 +683,8 @@ ul.left_menu {
     @extend .dr-button-blue;
     width: 80%;
     margin: 10px 0;
-    color: white;    
-    background-color: #507299;    
+    color: white;
+    background-color: #507299;
     border: 2px solid #507299;
     &:hover {
         border-color: lighten(#507299, 20%);
@@ -701,8 +697,8 @@ ul.left_menu {
     @extend .dr-button-blue;
     width: 80%;
     margin: 10px 0;
-    color: white;    
-    background-color: #f58220;    
+    color: white;
+    background-color: #f58220;
     border: 2px solid #f58220;
     &:hover {
         border-color: lighten(#f58220, 20%);
@@ -715,8 +711,8 @@ ul.left_menu {
     @extend .dr-button-blue;
     width: 80%;
     margin: 10px 0;
-    color: white;    
-    background-color: #5f83d2;    
+    color: white;
+    background-color: #5f83d2;
     border: 2px solid #5f83d2;
     &:hover {
         border-color: lighten(#5f83d2, 20%);
@@ -769,7 +765,7 @@ ul.left_menu {
 }
 .black-text {
     color: #333333;
-    cursor: pointer;   
+    cursor: pointer;
 }
 
 .red-text {

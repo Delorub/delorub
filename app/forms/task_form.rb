@@ -6,11 +6,10 @@ class TaskForm < BaseForm
   property :main_category_id, virtual: true
 
   property :date_type, default: 'actual'
-  property :date_actual
-  property :date_actual_date, virtual: true
-  property :date_actual_time, virtual: true
-  property :date_from
-  property :date_to
+  property :date_actual_date, default: -> { (Time.zone.now + 1.day).strftime('%d.%m.%Y') }
+  property :date_actual_time, default: -> { Time.zone.now.strftime('%H:%M') }
+  property :date_interval_from, default: -> { Time.zone.now.strftime('%d.%m.%Y') }
+  property :date_interval_to, default: -> { (Time.zone.now + 1.day).strftime('%d.%m.%Y') }
 
   property :price_type, default: 'exact'
   property :price_exact, default: 1000
@@ -19,6 +18,14 @@ class TaskForm < BaseForm
 
   property :place_id
   property :place_address
+
+  collection :files,
+    populator: ->(fragment:, **) {
+      item = files.find { |file| file.id == fragment['id'].to_i }
+      item ? item : files.append(TaskFile.find_by(id: fragment['id']))
+    } do
+    property :id
+  end
 
   property :contract_type, default: 'no_contract'
 

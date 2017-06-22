@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614105515) do
+ActiveRecord::Schema.define(version: 20170618201222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -275,11 +275,20 @@ ActiveRecord::Schema.define(version: 20170614105515) do
     t.datetime "updated_at",                   null: false
   end
 
+  create_table "task_files", force: :cascade do |t|
+    t.string   "file"
+    t.integer  "task_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "task_files", ["task_id"], name: "index_task_files_on_task_id", using: :btree
+
   create_table "tasks", force: :cascade do |t|
-    t.string   "title",                         null: false
-    t.integer  "category_id",                   null: false
-    t.integer  "user_id",                       null: false
-    t.string   "price_type",                    null: false
+    t.string   "title",                              null: false
+    t.integer  "category_id",                        null: false
+    t.integer  "user_id",                            null: false
+    t.string   "price_type",                         null: false
     t.string   "price_scale"
     t.integer  "price_exact"
     t.integer  "price_from"
@@ -288,20 +297,21 @@ ActiveRecord::Schema.define(version: 20170614105515) do
     t.float    "place_lat"
     t.float    "place_long"
     t.string   "place_address"
-    t.string   "date_type",                     null: false
-    t.integer  "date_actual"
-    t.datetime "date_from"
-    t.datetime "date_to"
+    t.string   "date_type",                          null: false
     t.string   "contract_type"
     t.text     "description"
     t.boolean  "notify_email"
-    t.boolean  "visible",       default: true
+    t.boolean  "visible",            default: true
     t.boolean  "archive"
-    t.boolean  "colored",       default: false
+    t.boolean  "colored",            default: false
     t.string   "billable_type"
     t.integer  "billable_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.datetime "date_actual_date"
+    t.integer  "date_actual_time"
+    t.datetime "date_interval_from"
+    t.datetime "date_interval_to"
   end
 
   create_table "user_billing_logs", force: :cascade do |t|

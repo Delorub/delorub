@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames'
 
 const renderSpecializations = ({ label, required, name, specializations, input, meta}) => {
   var data = []
@@ -21,7 +22,13 @@ const renderSpecializations = ({ label, required, name, specializations, input, 
     { data.map((specializations, index) => (
       <div className="col-md-3" key={index}>
         { specializations.map((specialization) => (
-          <div className="checkbox" key={specialization.index}>
+          <div
+            className={classNames({
+              ['checkbox']: true,
+              ['marked']: input.value.indexOf(specialization.id) !== -1
+            })}
+            key={specialization.index}
+            >
             <label>
               <input type="checkbox"
                 name={`${name}[${specialization.index}]`}

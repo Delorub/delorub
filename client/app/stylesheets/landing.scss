@@ -13,21 +13,23 @@
 
         @media (min-width: $screen-md-min) {
             top: 78%;            
+
         }
 
         @media (min-width: $screen-lg-min) {
             font-size: 1.2em;
             top: 79%;            
+
         }
 
         @media (min-width: $screen-lgs-min) {
             font-size: 1.2em;
-            top: 80%;            
+            top: 80%;
         }
 
         @media (min-width: $screen-lgm-min) {
             font-size: 1.2em;
-            top: 82%;            
+            top: 82%;
         }
 
         right: 0;        
@@ -162,6 +164,34 @@
                         padding-left: 55px;
                         p {
                             &:nth-child(2) {
+                                color: #00aeff;
+                            }
+                        }
+                    }
+                }
+                &-subcontent {
+                    margin-top: 3%;
+                    &-left, &-right {
+                        width: 40%;
+                        display: inline-block;
+                        text-align: left;
+                        vertical-align: top;
+                        p {
+                            &:first-child {
+                                color: #59ff10;
+                                font-size: 2rem;
+                            }
+                            &:last-child {
+                                font-size: 1.6rem;
+                                letter-spacing: 0.15rem;
+                                font-family: $PFDinExThin;
+                            }
+                        }
+                    }
+                    &-right {
+                        padding-left: 55px;
+                        p {
+                            &:first-child {
                                 color: #00aeff;
                             }
                         }

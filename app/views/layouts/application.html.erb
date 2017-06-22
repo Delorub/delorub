@@ -25,6 +25,7 @@
     <div class="row row-eq-height">
       <div class="<%= show_side_menu? ? 'col-sm-11 col-sm-push-1' : 'col-sm-12' %> dr-content">
         <main class="content">
+          <div class="dr-container">
           <%= render 'navigation' %>
           <% if global_container? %>
             <div class="dr-container<%= container_css_classes %>">
@@ -34,6 +35,7 @@
           <% if global_container? %>
             </div>
           <% end %>
+          </div>
           <%= render 'footer' %>
         </main>
       </div>
