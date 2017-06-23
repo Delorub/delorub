@@ -16,7 +16,7 @@ module LayoutHelper
   end
 
   def show_main_design?
-    ['main', 'custom_pages'].include? controller_name
+    %w[main custom_pages].include? controller_name
   end
 
   def show_side_menu?
