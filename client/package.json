@@ -13,11 +13,11 @@
     "build:production:client": "NODE_ENV=production webpack --config webpack.config.js",
     "build:production:server": "NODE_ENV=production webpack --config webpack.server.config.js",
     "build:client": "webpack --config webpack.config.js",
-    "build:dev:client": "webpack -w --config webpack.config.js",
-    "build:dev:server": "webpack -w --config webpack.server.config.js",
+    "build:dev:client": "NODE_ENV=development webpack -w --config webpack.config.js",
+    "build:dev:server": "NODE_ENV=development webpack -w --config webpack.server.config.js",
     "build:server": "webpack --config webpack.server.config.js",
     "build:test": "yarn run build:client && yarn run build:server",
-    "build:production": "yarn run build:production:client && yarn run build:production:server",
+    "build:production": "rm -rf ../public/webpack/production && NODE_ENV=production yarn run build:production:client && yarn run build:production:server",
     "lint": "eslint --ext .js,.jsx .",
     "hardreset": "rm -rf ./node_modules && yarn install && yarn run-script build:client"
   },
@@ -31,7 +31,7 @@
     "react-bootstrap-slider": "^1.1.7",
     "react-datepicker": "^0.48.0",
     "react-dropzone": "^3.13.2",
-    "react-on-rails": "^6.2.1",
+    "react-on-rails": "^8.0.5",
     "react-select": "^1.0.0-rc.5",
     "react-select2-wrapper": "^1.0.4-beta4",
     "react-time-input": "^0.0.16",
@@ -97,6 +97,8 @@
     "uglify-js": "git+https://github.com/mishoo/UglifyJS2.git#harmony",
     "url-loader": "^0.5.7",
     "webpack": "^2.3.3",
+    "webpack-manifest-plugin": "^1.1.0",
+    "webpack-merge": "^4.1.0",
     "webpack-dev-server": "^2.4.2"
   }
 }

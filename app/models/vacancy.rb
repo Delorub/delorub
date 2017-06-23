@@ -15,5 +15,5 @@ class Vacancy < ApplicationRecord
 
   validates :title, :small_description, :description, presence: true
 
-  scope :visible, -> { where{ archive == false } }
+  scope :visible, -> { where(archive: false) }
 end

@@ -27,7 +27,7 @@ describe Admin::CategoriesController, type: :controller do
 
   describe 'GET #show' do
     before :each do
-      get :show, id: category.slug
+      get :show, params: { id: category.slug }
     end
 
     it 'checks the status' do
@@ -48,14 +48,14 @@ describe Admin::CategoriesController, type: :controller do
 
   describe 'POST #create' do
     it 'checks the redirect status' do
-      post :create, category: params
+      post :create, params: { category: params }
       expect(response.status).to eq 302
     end
   end
 
   describe 'GET #edit' do
     before :each do
-      get :edit, id: category.slug
+      get :edit, params: { id: category.slug }
     end
 
     it 'checks the status' do
@@ -69,7 +69,7 @@ describe Admin::CategoriesController, type: :controller do
 
   describe 'PATCH #update' do
     before :each do
-      patch :update, id: category.slug, category: params
+      patch :update, params: { id: category.slug, category: params }
     end
 
     it 'checks the redirect status' do
@@ -79,7 +79,7 @@ describe Admin::CategoriesController, type: :controller do
 
   describe 'DELETE #destroy' do
     it 'checks the status' do
-      delete :destroy, id: category.slug
+      delete :destroy, params: { id: category.slug }
       expect(response.status).to eq 302
     end
   end

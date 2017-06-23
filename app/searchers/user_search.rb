@@ -3,6 +3,7 @@ class UserSearch < BaseSearch
 
     def searchkick_search
       Searchkick.search query,
+        fields: [:name, :email],
         index_name: User,
         match: :word_start,
         page: page,

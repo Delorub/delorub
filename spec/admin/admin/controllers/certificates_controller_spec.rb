@@ -27,7 +27,7 @@ describe Admin::CertificatesController, type: :controller do
 
   describe 'GET #show' do
     before :each do
-      get :show, id: certificate.id
+      get :show, params: { id: certificate.id }
     end
 
     it 'checks the status' do
@@ -48,14 +48,14 @@ describe Admin::CertificatesController, type: :controller do
 
   describe 'POST #create' do
     it 'checks the redirect status' do
-      post :create, certificate: params
-      expect(response.status).to eq 302
+      post :create, params: { certificate: params }
+      expect(response.status).to eq 200
     end
   end
 
   describe 'GET #edit' do
     before :each do
-      get :edit, id: certificate.id
+      get :edit, params: { id: certificate.id }
     end
 
     it 'checks the status' do
@@ -69,7 +69,7 @@ describe Admin::CertificatesController, type: :controller do
 
   describe 'PATCH #update' do
     before :each do
-      patch :update, id: certificate.id, certificate: params
+      patch :update, params: { id: certificate.id, certificate: params }
     end
 
     it 'checks the redirect status' do
@@ -79,7 +79,7 @@ describe Admin::CertificatesController, type: :controller do
 
   describe 'DELETE #destroy' do
     it 'checks the status' do
-      delete :destroy, id: certificate.id
+      delete :destroy, params: { id: certificate.id }
       expect(response.status).to eq 302
     end
   end

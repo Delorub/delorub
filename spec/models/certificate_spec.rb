@@ -1,5 +1,5 @@
 describe Certificate do
-  let(:portfolio_item) { build described_class }
+  let(:portfolio_item) { build :portfolio_item }
   subject { portfolio_item }
 
   describe 'validations' do

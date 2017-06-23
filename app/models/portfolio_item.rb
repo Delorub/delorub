@@ -16,7 +16,7 @@
 class PortfolioItem < ApplicationRecord
   mount_uploader :file, PortfolioItemUploader
 
-  belongs_to :profile
+  belongs_to :profile, optional: true
 
   validates :file, presence: true
 

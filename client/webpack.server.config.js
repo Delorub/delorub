@@ -4,7 +4,12 @@
 // Common webpack configuration for server bundle
 
 const webpack = require('webpack');
-const path = require('path');
+const ManifestPlugin = require('webpack-manifest-plugin');
+const { resolve } = require('path');
+const webpackConfigLoader = require('react-on-rails/webpackConfigLoader');
+const configPath = resolve('..', 'config');
+const { manifest } = webpackConfigLoader(configPath);
+const { webpackOutputPath, webpackPublicOutputDir } = webpackConfigLoader(configPath);
 const devBuild = process.env.NODE_ENV !== 'production';
 const nodeEnv = devBuild ? 'development' : 'production';
 
@@ -13,15 +18,18 @@ module.exports = {
   entry: [
     'babel-polyfill',
     './app/bundles/ContractApp/startup/clientRegistration',
+    './app/bundles/NotificationsApp/startup/clientRegistration',
+    './app/bundles/CreateProfileApp/startup/clientRegistration',
+    './app/bundles/TaskFormApp/startup/clientRegistration',
   ],
   output: {
-    filename: 'server-bundle.js',
-    path: path.resolve(__dirname, '../app/assets/webpack'),
+    filename: 'server.js',
+    path: webpackOutputPath
   },
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      libs: path.join(process.cwd(), 'app', 'libs'),
+      libs: resolve(process.cwd(), 'app', 'libs'),
     },
   },
   plugins: [

@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, ActionController::RoutingError, with: :rescue_not_found
   rescue_from Pundit::NotAuthorizedError, with: :rescue_not_authorized
 
-  before_filter :show_global_container
+  before_action :show_global_container
 
   protect_from_forgery
 

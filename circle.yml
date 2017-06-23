@@ -3,6 +3,8 @@ dependencies:
     - cp config/database.yml.ci config/database.yml
   cache_directories:
     - public/assets
+  post:
+    - bundle exec rake assets:precompile
 
 database:
   override:
