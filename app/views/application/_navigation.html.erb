@@ -10,7 +10,7 @@
       <a class="navbar-brand" href="<%= root_path %>"><img src="<%= navigation_logo_path %>" alt=""></a>
     </div>
     <div class="collapse navbar-collapse" id="main-navigation">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav" id="toggle-nav">
         <li><a href="<%= news_index_path %>">Новости</a></li>
         <li><a href="<%= tasks_path %>">Все задания</a></li>
         <li><a href="<%= profiles_path %>">Все мастера</a></li>
@@ -18,7 +18,16 @@
         <li><a href="<%= how_it_works_path %>">Как это работает?</a></li>
       </ul>
       <ul class="nav navbar-nav right">
-        <li><a href="#" class='dr-top-nav-icon icon-search'></a></li>
+        <li>
+          <div id="sb-search" class="sb-search">
+            <form>
+              <input class="sb-search-input" placeholder="Поиск" type="text" value="" name="search" id="search">
+              <input class="sb-search-submit" type="submit" value="">
+              <span class="sb-icon-search"></span>
+            </form>
+          </div>
+        </li>
+        <li><a id="open-search-link" class='dr-top-nav-icon icon-search dr-search-icon'></a></li>
         <% if user_signed_in? %>
           <%= render 'user_menu' %>
         <% else %>

@@ -36,7 +36,7 @@
             </div>
           <% end %>
           </div>
-          <%= render 'footer' %>
+          <%= render 'footer' unless controller_name == 'custom_pages' %>
         </main>
       </div>
       <%= render 'side_menu' if show_side_menu? %>
