@@ -30,7 +30,7 @@ class TaskForm < BaseForm
   property :contract_type, default: 'no_contract'
 
   property :notifications_type, virtual: true, default: 'notifications-email'
-  property :paid_functions, virtual: true, default: []
+  property :paid_functions, virtual: true, default: ''
 
   validation :default do
     required(:title).filled

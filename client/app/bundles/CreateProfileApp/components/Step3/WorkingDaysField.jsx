@@ -17,7 +17,6 @@ export default class WorkingDaysField extends React.Component {
               value={day[1]}
               checked={input.value.indexOf(day[1]) !== -1}
               onChange={event => {
-                console.log(1)
                 const newValue = [...input.value];
                 if(event.target.checked) {
                   newValue.push(day[1]);

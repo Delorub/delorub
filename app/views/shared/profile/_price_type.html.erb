@@ -1,0 +1,12 @@
+<% if profile.price_type.hourly? %>
+  <p class="bold-text">Почасовая ставка</p>
+  <div class="dr-all-masters-price">
+    <span><%= price_format profile.price_hourly %></span><span>₽/час</span>
+  </div>
+<% end %>
+<% if profile.price_type.project? %>
+  <p class="bold-text">Цена за проект</p>
+  <div class="dr-all-masters-price">
+    <span><%= price_format profile.price_project %></span><span>₽</span>
+  </div>
+<% end %>

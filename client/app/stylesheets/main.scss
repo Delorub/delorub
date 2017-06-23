@@ -2,6 +2,14 @@
     outline: none;
 }
 
+input::-webkit-contacts-auto-fill-button {
+  visibility: hidden;
+  display: none !important;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}
+
 *::-webkit-input-placeholder {
     color: #666;
     opacity: 1;
@@ -481,7 +489,7 @@ ul.left_menu {
                     }
                     @media (min-width: $screen-lgm-min) {
                         font-size: 1.5rem;
-                    }                    
+                    }
                     display: block;
                 }
             }
@@ -630,12 +638,12 @@ ul.left_menu {
     background-color: white;
     padding: 11px 30px;
     border: 1px solid rgba(128, 128, 128, 0.3);
-    border-radius: $borderRadius;    
+    border-radius: $borderRadius;
 }
 
 .dr-button-blue {
-    @extend .dr-button-empty; 
-    padding: 10px 30px;    
+    @extend .dr-button-empty;
+    padding: 10px 30px;
     border: 2px solid $blueColor;
 
     &:hover {

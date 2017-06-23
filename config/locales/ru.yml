@@ -29,6 +29,7 @@ ru:
       date_type:
         actual: "Завершить работу"
         interval: "Выполнить в период"
+        none: "Не указывать сроки"
       contract_type:
         contract: С договором
         no_contract: Без договора

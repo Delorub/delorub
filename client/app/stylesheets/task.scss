@@ -1,5 +1,5 @@
 .dr-task {
-    &-name input,&-password input, &-select, &-budget input[type=text], &-date input {
+    &-name input[type=text],&-password input, &-select, &-budget input[type=text], &-date input {
         margin-top: 10px;
         width: 100%;
         padding: 10px 15px;

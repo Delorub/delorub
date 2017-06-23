@@ -13,10 +13,12 @@ export default class MainCategory extends React.Component {
     const { title, photo_thumb_url } = this.props
 
     return (
-      <div className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+      <div className={this.props.className}>
         <a href="#" className="dr-bottom-service-heading" onClick={::this.handleClick} >
           <img className="img-responsive" src={photo_thumb_url} alt="" />
-          <span className="marked">{this.props.title}</span>
+          <div className="dr-bottom-service-content">
+            <span>{this.props.title}</span>
+          </div>
         </a>
       </div>
     );

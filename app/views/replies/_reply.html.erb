@@ -1,4 +1,4 @@
-<div class="row row-eq-height dr-one-ticket-request">
+<div class="row row-eq-height dr-masters-tickets-ticket-request">
   <div class="col-md-2 border-right">
     <div class="dr-one-ticket-ticket-avatar">
       <%= render 'shared/user_photo', user: resource.user %>
@@ -31,22 +31,22 @@
     <% end %>
     <% if policy(resource).accept? %>
       <div class="dr-one-ticket-request-button">
-        <a href="<%= accept_task_reply_path(resource.task, resource) %>" class="btn dr-button-succsess">Выбрать мастера</a>
+        <a href="<%= accept_task_reply_path(resource.task, resource) %>" class="btn dr-button-empty">Выбрать мастера</a>
       </div>
     <% end %>
     <% if policy(resource).comment? %>
       <div class="dr-one-ticket-request-button">
-        <a href="<%= task_reply_path(resource.task, resource) %>" class="btn dr-button-warning">Комментировать</a>
+        <a href="<%= task_reply_path(resource.task, resource) %>" class="btn dr-button-empty">Комментировать</a>
       </div>
     <% end %>
     <% if policy(resource).decline? %>
       <div class="dr-one-ticket-request-button without-border">
-        <a href="<%= decline_task_reply_path(resource.task, resource) %>" class="btn dr-button-danger">Отказать мастеру</a>
+        <a href="<%= decline_task_reply_path(resource.task, resource) %>" class="btn dr-button-empty">Отказать мастеру</a>
       </div>
     <% end %>
     <% if policy(resource).cancel_decline? %>
       <div class="dr-one-ticket-request-button without-border">
-        <a href="<%= cancel_decline_task_reply_path(resource.task, resource) %>" class="btn dr-button-succsess">Отменить отказ</a>
+        <a href="<%= cancel_decline_task_reply_path(resource.task, resource) %>" class="btn dr-button-empty">Отменить отказ</a>
       </div>
     <% end %>
   </div>

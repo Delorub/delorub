@@ -13,7 +13,6 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as formActions from '../../actions/FormActions'
 import { required, requiredArray } from 'libs/delorub/redux-form-validations'
-import RenderTimePickerField from 'libs/delorub/redux-form-timepicker'
 
 class Step3 extends React.Component {
   handleOnSubmit(e) {

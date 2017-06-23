@@ -1,6 +1,6 @@
 <div class="dr-header-span">
   <p class="dr-header-span-unmarked"><%= resource.title %></p>
-  <span class="dr-header-span-price"><%= resource.price_exact %> ₽</span>
+  <span class="dr-header-span-price"><%= price_format resource.price_exact %> ₽</span>
   <% if policy(resource).edit? %>
     <a href="<%= edit_task_path(resource) %>" class="btn dr-button-blue">Редактировать задание</a>
   <% end %>
@@ -46,25 +46,7 @@
       <p><%= simple_format resource.description %></p>
     </div>
     <div class="col-md-2 padding-none">
-      <% if resource.date_type.actual? %>
-        <div class="dr-one-ticket-refinement dr-all-task">
-          <span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>
-          <p class="gray-text-light">Актуально<br/>до</p>
-          <span><%= resource.decorate.date_actual_date %></span>
-        </div>
-        <div class="dr-one-ticket-refinement dr-all-task without-border">
-          <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
-          <p class="gray-text-light">Удобное<br/>время</p>
-          <span><%= resource.decorate.date_actual_time %></span>
-        </div>
-      <% end %>
-      <% if resource.date_type.interval? %>
-        <div class="dr-one-ticket-refinement dr-all-task">
-          <span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>
-          <p class="gray-text-light">Выполнить в период</p>
-          <span><%= resource.decorate.date_interval_from_date %> – <%= resource.decorate.date_interval_to_date %></span>
-        </div>
-      <% end %>
+      <%= render 'shared/task/info', resource: resource %>
     </div>
   </div>
 </div>

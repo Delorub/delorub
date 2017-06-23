@@ -13,6 +13,10 @@ export const minLength = min => value =>
 export const number = value =>
   value && isNaN(Number(value)) ? 'Должно быть числом' : undefined
 
+export const time = value =>
+  value && !/^[0-2][0-3]:[0-5][0-9]$/i.test(value) ?
+  'Неверный формат времени' : undefined
+
 export const email = value =>
   value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ?
   'Неверный email-адрес' : undefined
