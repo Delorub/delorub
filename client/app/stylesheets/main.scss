@@ -653,6 +653,9 @@ ul.left_menu {
         background-color: lighten($blueColor, 20%);
         color: white;
     }
+    &:focus, &:active, &:visited {
+        color: white;
+    }
 }
 
 .dr-button-warning {
@@ -663,6 +666,9 @@ ul.left_menu {
     &:hover {
         border-color: lighten(#eea236, 20%);
         background-color: lighten(#eda431, 20%);
+        color: white;
+    }
+    &:focus, &:active, &:visited {
         color: white;
     }
 }
@@ -677,6 +683,9 @@ ul.left_menu {
         background-color: lighten(#4ccd6a, 20%);
         color: white;
     }
+    &:focus, &:active, &:visited {
+        color: white;
+    }
 }
 
 .dr-button-danger {
@@ -687,6 +696,9 @@ ul.left_menu {
     &:hover {
         border-color: lighten(#f3516f, 20%);
         background-color: lighten(#fa607e, 20%);
+        color: white;
+    }
+    &:focus, &:active, &:visited {
         color: white;
     }
 }
@@ -703,6 +715,9 @@ ul.left_menu {
         background-color: lighten(#507299, 20%);
         color: white;
     }
+    &:focus, &:active, &:visited {
+        color: white;
+    }
 }
 
 .dr-button-odnoklassniki {
@@ -715,6 +730,9 @@ ul.left_menu {
     &:hover {
         border-color: lighten(#f58220, 20%);
         background-color: lighten(#f58220, 20%);
+        color: white;
+    }
+    &:focus, &:active, &:visited {
         color: white;
     }
 }
@@ -731,6 +749,9 @@ ul.left_menu {
         background-color: lighten(#5f83d2, 20%);
         color: white;
     }
+    &:focus, &:active, &:visited {
+        color: white;
+    }
 }
 .dr-button-triangleTop {
     position: relative;
@@ -743,6 +764,9 @@ ul.left_menu {
         margin-left: -8px;
         top: -16px;
         width: 0;
+    }
+    &:focus, &:active, &:visited {
+        color: white;
     }
 }
 
