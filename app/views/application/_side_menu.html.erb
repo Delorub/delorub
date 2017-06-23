@@ -13,7 +13,9 @@
       <% if policy(Profile).create? %>
         <li><a href="<%= new_profile_path %>"><span class="icon_top icon-zadacha"></span>Создать<br> анкету</a></li>
       <% end %>
-      <li><a href="#"><span class="icon_top icon-setups"></span>Мои<br> настройки</a></li>
+      <% if user_signed_in? && current_user.master? && policy(current_user.profile).edit? %>
+        <li><a href="<%= edit_profile_path(current_user.profile) %>"><span class="icon_top icon-setups"></span>Моя<br> анкета</a></li>
+      <% end %>
     </ul>
   </nav>
   <div class="year">© 2017</div>

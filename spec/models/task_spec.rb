@@ -1,5 +1,5 @@
 describe Task do
-  let(:task) { build described_class }
+  let(:task) { build :task }
   subject { task }
 
   describe 'validations' do

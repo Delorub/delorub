@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux'
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
 import { Field, FieldArray } from 'redux-form';

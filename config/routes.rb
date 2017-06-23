@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   # API
   mount ApplicationAPI => '/api'
 
+  root 'main#index'
+
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations',
@@ -21,7 +23,15 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :tasks, only: [:show, :edit, :update], path: 'task'
+  resources :tasks, only: [:show, :edit, :update], path: 'task' do
+    resources :replies, only: [:show, :create, :update, :destroy] do
+      member do
+        get 'cancel_decline'
+        get 'decline'
+        get 'accept'
+      end
+    end
+  end
   resources :tasks, only: [:new, :create]
   resources :tasks, only: [:index] do
     collection do
@@ -40,7 +50,8 @@ Rails.application.routes.draw do
   end
   resources :help_questions, only: [:new, :create], path: 'help'
 
-  root 'main#index'
+  get 'how-to-master', to: 'custom_pages#how_to_master', as: 'how_to_master'
+  get 'how-it-works', to: 'custom_pages#how_it_works', as: 'how_it_works'
 
   get 'contract_designer/:template_id', to: 'contracts#new', as: :contract_designer
 

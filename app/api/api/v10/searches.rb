@@ -14,7 +14,7 @@ class Api::V10::Searches < ApplicationAPI
     end
 
     def popular_places
-      Place::PopularQuery.new(current_user.profile).perform
+      Place::PopularQuery.new(current_user).perform
     end
   end
 
@@ -27,7 +27,7 @@ class Api::V10::Searches < ApplicationAPI
       optional :type, type: String, desc: 'Type of place', values: ['city']
     end
     get :place do
-      authenticate_user!
+      # authenticate_user!
       present :query, params[:query]
       present :type, params[:type]
       present :places, place_search, with: Entities::Place

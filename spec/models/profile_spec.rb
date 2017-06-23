@@ -1,5 +1,5 @@
 describe Profile do
-  let(:profile) { build described_class }
+  let(:profile) { build :profile }
   subject { profile }
 
   describe 'validations' do
@@ -9,7 +9,6 @@ describe Profile do
 
   describe 'relations' do
     it { is_expected.to belong_to(:user) }
-    it { is_expected.to belong_to(:place) }
     it { is_expected.to have_and_belong_to_many(:categories) }
     it { is_expected.to have_many(:portfolio_items) }
     it { is_expected.to have_many(:certificates) }

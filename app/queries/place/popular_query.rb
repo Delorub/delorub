@@ -1,13 +1,22 @@
 class Place::PopularQuery
-  attr_reader :profile
+  attr_reader :user
 
-  def initialize profile
-    @profile = profile
+  def initialize user
+    @user = user
   end
 
   def perform
-    city_of_current_profile = Place.where(id: profile.place.id)
-    all_cities = Place.only_cities
-    (city_of_current_profile + all_cities).uniq
+    ([city_of_current_user] + all_cities).compact.uniq
   end
+
+  private
+
+    def city_of_current_user
+      return if user.blank?
+      user.place
+    end
+
+    def all_cities
+      Place.only_cities
+    end
 end

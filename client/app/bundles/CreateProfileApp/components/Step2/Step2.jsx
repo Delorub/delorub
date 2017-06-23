@@ -2,7 +2,6 @@ import React from 'react';
 import Navigation from '../Navigation/Navigation';
 import Buttons from '../Buttons/Buttons';
 import Select2 from 'react-select2-wrapper';
-import PlaceInput from './PlaceInput';
 import PhotoInput from './PhotoInput';
 import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { connect } from 'react-redux'
@@ -29,27 +28,20 @@ class Step2 extends React.Component {
         <Navigation />
         <div className="row row-eq-height dr-task">
           <div className="col-md-3">
-            <div className="dr-task-photo dr-task-div center">
-              <span>Фото</span>
-              <PhotoInput />
-              <span className="icon_top icon-information"></span>
-              <p className="photoInfo">
-                Максимальный размер файла 5 МБ,<br /> формат .jpg, .jpeg, .png, .gif.<br /> <b>Обратите внимание:</b> профили без фото не допускаются.
-              </p>
-            </div>
+            <PhotoInput {...this.props} />
           </div>
           <div className="col-md-6">
             <Field
               component={renderField}
               className="form-control"
-              name="create_profile[description]"
+              name="create_profile[about]"
               label="Описание"
               placeholder="Введите описание"
               validate={[required, minLength10]}
               />
           </div>
           <div className="col-md-3">
-            <CityInput name="task[place_id]" />
+            <CityInput name="create_profile[place_id]" />
           </div>
         </div>
 
@@ -76,7 +68,7 @@ class Step2 extends React.Component {
             <Field
               component={RenderSelect2}
               className="dr-task-select"
-              name="task[paid_functions]"
+              name="create_profile[paid_functions]"
               data={optionsToSelect2(this.props.create_profile.paid_functions_options)}
               options={{
                 allowClear: true,
@@ -129,7 +121,9 @@ class Step2 extends React.Component {
 const selector = formValueSelector('wizard')
 
 Step2 = connect(
-  state => ({}),
+  state => ({
+    photo_url: selector(state, 'create_profile[photo_url]'),
+  }),
   dispatch => (bindActionCreators(formActions, dispatch))
 )(Step2)
 

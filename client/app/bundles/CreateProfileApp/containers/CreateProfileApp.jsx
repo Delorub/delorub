@@ -11,7 +11,7 @@ export default class CreateTaskApp extends React.Component {
     return (
       <Provider store={store}>
         <div>
-          <App {...this.props}/>
+          <App {...this.props} authenticity_token={ReactOnRails.authenticityToken()} />
         </div>
       </Provider>
     );

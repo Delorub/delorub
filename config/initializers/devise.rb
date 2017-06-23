@@ -23,7 +23,7 @@ Devise.setup do |config|
     Figaro.env.odnoklassniki_app_id!,
     Figaro.env.odnoklassniki_app_secret!,
     public_key: Figaro.env.odnoklassniki_app_public_key!,
-    scope: 'GET_EMAIL'
+    scope: 'GET_EMAIL', fields: 'email'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'

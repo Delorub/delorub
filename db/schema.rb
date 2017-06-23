@@ -153,6 +153,11 @@ ActiveRecord::Schema.define(version: 20170622134930) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "deals", force: :cascade do |t|
+    t.integer "task_id"
+    t.integer "reply_id"
+  end
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
     t.integer  "sluggable_id",              null: false
@@ -252,13 +257,12 @@ ActiveRecord::Schema.define(version: 20170622134930) do
   end
 
   add_index "portfolio_items", ["profile_id"], name: "index_portfolio_items_on_profile_id", using: :btree
-
+  
   create_table "profiles", force: :cascade do |t|
     t.integer  "user_id",                                     null: false
     t.string   "work_type"
     t.boolean  "have_car"
     t.text     "about"
-    t.integer  "place_id"
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
     t.string   "price_type"
@@ -285,7 +289,10 @@ ActiveRecord::Schema.define(version: 20170622134930) do
     t.integer  "billable_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "aasm_state"
   end
+
+  add_index "replies", ["aasm_state"], name: "index_replies_on_aasm_state", using: :btree
 
   create_table "services", force: :cascade do |t|
     t.integer  "profile_id"
@@ -340,8 +347,7 @@ ActiveRecord::Schema.define(version: 20170622134930) do
     t.integer  "billable_id"
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
-    t.datetime "date_actual_date"
-    t.integer  "date_actual_time"
+    t.datetime "date_actual"
     t.datetime "date_interval_from"
     t.datetime "date_interval_to"
   end
@@ -374,6 +380,10 @@ ActiveRecord::Schema.define(version: 20170622134930) do
     t.integer  "user_id"
   end
 
+  create_table "user_temporary_photos", force: :cascade do |t|
+    t.string "photo"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "provider",                                        default: "email", null: false
     t.string   "encrypted_password",                              default: "",      null: false
@@ -402,9 +412,11 @@ ActiveRecord::Schema.define(version: 20170622134930) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "access_token"
+    t.integer  "place_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["place_id"], name: "index_users_on_place_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "vacancies", force: :cascade do |t|

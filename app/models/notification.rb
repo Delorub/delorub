@@ -26,17 +26,6 @@ class Notification < ApplicationRecord
 
   after_destroy :update_user_unread_notifications_count, if: :unread?
 
-  state_machine initial: :created do
-    state :created
-    state :delivered
-
-    event :deliver do
-      transition created: :delivered
-    end
-
-    after_transition on: :deliver, do: [:update_user_unread_notifications_count, :update_cache_unviewed_notifications_count]
-  end
-
   def unread?
     !read_at
   end

@@ -1,5 +1,5 @@
 describe Vacancy do
-  let(:vacancy) { build described_class }
+  let(:vacancy) { build :vacancy }
   subject { vacancy }
 
   describe 'validations' do

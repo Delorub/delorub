@@ -3,12 +3,30 @@ class UserPhotoUploader < BaseUploader
     "original.#{model.photo.file.extension}" if original_filename
   end
 
-  version :thumb do
-    process resize_to_limit: [100, 100]
+  version :very_small do
+    process resize_to_fill: [25, 25]
     process convert: 'png'
 
     def full_filename for_file = model.photo.file
-      'thumb.png'
+      'very_small.png'
+    end
+  end
+
+  version :small do
+    process resize_to_fill: [50, 50]
+    process convert: 'png'
+
+    def full_filename for_file = model.photo.file
+      'small.png'
+    end
+  end
+
+  version :upload_preview do
+    process resize_to_fill: [100, 100]
+    process convert: 'png'
+
+    def full_filename for_file = model.photo.file
+      'upload_preview.png'
     end
   end
 end

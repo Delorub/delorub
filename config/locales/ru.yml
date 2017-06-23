@@ -1,4 +1,9 @@
 ru:
+  time:
+    formats:
+      datepicker_date: '%d.%m.%Y'
+      date: '%d.%m.%Y'
+      timeofday: '%H:%M'
   user_sms_confirmation: "Проверочный код: %{code}. Делоруб"
   place_type:
     region: "1 - Регион / край"

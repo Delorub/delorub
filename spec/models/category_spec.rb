@@ -1,5 +1,5 @@
 describe Category do
-  let(:category) { build described_class }
+  let(:category) { build :category }
   subject { category }
 
   describe 'validations' do

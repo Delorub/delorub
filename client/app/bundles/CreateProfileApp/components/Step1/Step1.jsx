@@ -1,6 +1,6 @@
 import React from 'react';
-import Category from './Category';
-import renderSpecializations from './renderSpecializations';
+import MainCategory from './MainCategory';
+import renderCategories from './renderCategories';
 import Navigation from '../Navigation/Navigation';
 import Buttons from '../Buttons/Buttons';
 import { Field, reduxForm, formValueSelector } from 'redux-form';
@@ -14,7 +14,9 @@ class Step1 extends React.Component {
   }
 
   handleInitialize() {
-    if(!this.props.main_specialization_id) {
+    this.props.create_profile.categories = this.props.create_profile.categories.map((e) => (parseInt(e)))
+
+    if(!this.props.main_category_id) {
       this.props.initialize({ create_profile: this.props.create_profile })
     }
   }
@@ -29,25 +31,25 @@ class Step1 extends React.Component {
   }
 
   render() {
-    const { main_specialization_id, handleSubmit } = this.props
+    const { main_category_id, handleSubmit } = this.props
     var listCategories = [], listSubcategories = []
 
-    this.props.categories.forEach(function(category) {
+    this.props.all_categories.forEach(function(category) {
       if (category.parent_id == null) {
-        listCategories.push(<Category key={category.id} {...this.props} {...category} />);
+        listCategories.push(<MainCategory key={category.id} {...this.props} {...category} />);
       }
     }, this);
 
-    this.props.categories.forEach(function(category) {
-      if (category.parent_id == main_specialization_id) {
+    this.props.all_categories.forEach(function(category) {
+      if (category.parent_id == main_category_id) {
         listSubcategories.push(category);
       }
     }, this);
 
-    const requiredMainSpecialization = value =>
+    const requiredMainCategory = value =>
       value ? undefined : 'Выберите основную специализацию'
 
-    const requiredSpecializations = value =>
+    const requiredCategories = value =>
       value.length > 0 ? undefined : 'Выберите хотя бы одну специализацию'
 
     return (
@@ -60,18 +62,18 @@ class Step1 extends React.Component {
             </div>
             <Field
               component={this.renderCategory}
-              name="create_profile[main_specialization_id]"
-              validate={[requiredMainSpecialization]}
+              name="create_profile[main_category_id]"
+              validate={[requiredMainCategory]}
             />
           </div>
-          { main_specialization_id != null && listSubcategories.length > 0 &&
+          { main_category_id != null && listSubcategories.length > 0 &&
             <div className="profileRefinement">
               <Field
-                component={renderSpecializations}
-                name="create_profile[specializations]"
-                specializations={listSubcategories}
+                component={renderCategories}
+                name="create_profile[categories]"
+                subcategories={listSubcategories}
                 columns="4"
-                validate={[requiredSpecializations]}
+                validate={[requiredCategories]}
               />
             </div>
           }
@@ -86,8 +88,8 @@ const selector = formValueSelector('wizard')
 
 Step1 = connect(
   state => ({
-    main_specialization_id: selector(state, 'create_profile[main_specialization_id]'),
-    specializations: selector(state, 'create_profile[specializations]'),
+    main_category_id: selector(state, 'create_profile[main_category_id]'),
+    categories: selector(state, 'create_profile[categories]'),
   }),
   dispatch => (bindActionCreators(formActions, dispatch))
 )(Step1)

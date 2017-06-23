@@ -32,7 +32,7 @@ gem 'dry-validation'
 gem 'squeel'
 gem 'awesome_nested_set'
 gem 'enumerize'
-gem 'state_machine'
+gem 'aasm'
 gem 'acts_as_list'
 
 # Authorization, roles

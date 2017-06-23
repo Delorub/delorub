@@ -46,6 +46,6 @@ RSpec.configure do |config|
     Searchkick.disable_callbacks
   end
 
-  config.include Devise::TestHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :controller
   config.include ControllerHelpers, type: :controller
 end

@@ -23,10 +23,9 @@ module Authorization
   end
 
   def sign_in resource_or_scope, *args
+    args.extract_options!
+    resource = args.last || resource_or_scope
     if session[:after_authorization] && session[:after_authorization]['data']
-      args.extract_options!
-      resource = args.last || resource_or_scope
-
       @after_authorization_creator = AfterAuthorizationCreator.new \
         session[:after_authorization]['type'],
         session[:after_authorization]['data'],
@@ -36,5 +35,6 @@ module Authorization
       session[:after_authorization] = nil if @after_authorization_creator.should_clear_session?
     end
     super
+    cookies[:access_token] = resource.access_token
   end
 end

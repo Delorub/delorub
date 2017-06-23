@@ -59,7 +59,7 @@ class App extends React.Component {
             <div className="row row-eq-height">
               <div className="col-md-6">
                 <DateTypeInput {...this.props} />
-                <CityInput name="task[place_id]" />
+                <CityInput name="task[place_id]" place_name="task[place_name]" />
                 <Category {...this.props} />
                 <ContractInput {...this.props} />
               </div>
