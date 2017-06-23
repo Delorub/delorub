@@ -1,6 +1,6 @@
 class ProfilePolicy < ApplicationPolicy
   def create?
-    return false if user.master?
+    return false if user.present? && user.master?
     true
   end
 

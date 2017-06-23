@@ -4,13 +4,13 @@ class ProfilesController < ApplicationController
   helper_method :create_profile_form_props, :current_url
 
   def new
-    authorize build_profile, :create?
-    @form = CreateProfileForm.new profile: build_profile, user: current_user
+    authorize Profile.new(user: current_user), :create?
+    @form = CreateProfileForm.new profile: Profile.new(user: current_user).decorate, user: current_user_or_new
   end
 
   def create
-    authorize build_profile, :create?
-    @form = CreateProfileForm.new profile: Profile.new(user: current_user).decorate, user: current_user.dup
+    authorize Profile.new(user: current_user), :create?
+    @form = CreateProfileForm.new profile: Profile.new(user: current_user).decorate, user: current_user_or_new
 
     if @form.validate create_profile_params
       unless user_signed_in?
@@ -42,8 +42,8 @@ class ProfilesController < ApplicationController
 
   private
 
-    def build_profile
-      Profile.new(user: current_user.dup)
+    def current_user_or_new
+      user_signed_in? ? current_user : User.new
     end
 
     def check_after_profile_creation profile
