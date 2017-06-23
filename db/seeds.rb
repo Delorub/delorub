@@ -2,7 +2,11 @@ User.delete_all
 Profile.delete_all
 Category.delete_all
 HelpCategory.delete_all
+PortfolioItem.delete_all
+Comment.delete_all
+Certificate.delete_all
 
+### Admins
 admins = User.create([
   {
     first_name: 'Алексей',
@@ -20,8 +24,10 @@ admins = User.create([
   }
 ])
 
+### Profiles
 profile = Profile.create(user_id: admins.first.id, place: Place.only_cities.sample)
 
+### Categories
 categories = Category.create([
   { title: 'Ремонт', photo: File.open('public/images/icons/hammer.png') },
   { title: 'Уборка', photo: File.open('public/images/icons/broom.png') },
@@ -49,7 +55,8 @@ Category.create([
 profile.categories << categories.first
 profile.save
 
-help_categories = HelpCategory.create([
+### HelpCategories
+HelpCategory.create([
   { title: 'Частые вопросы' },
   { title: 'Заказчикам' },
   { title: 'Исполнителям' },
@@ -59,3 +66,12 @@ help_categories = HelpCategory.create([
   { title: 'Финансы' },
   { title: 'Профиль' },
 ])
+
+### PortfolioItems
+portfolio_item = profile.portfolio_items.create(file: File.open(File.join(Rails.root, 'spec', 'support', 'portfolio_item', 'files', 'image.png')))
+
+### Comments
+portfolio_item.comments.create(user: admins.sample, text: Faker::Lorem.sentence(10))
+
+### Certificates
+profile.certificates.create(file: File.open(File.join(Rails.root, 'spec', 'support', 'certificate', 'files', 'image.png')))

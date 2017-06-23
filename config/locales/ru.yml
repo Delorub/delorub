@@ -145,6 +145,21 @@ ru:
         few: "Адреса"
         many: "Адресов"
         other: "Адреса"
+      portfolio_item:
+        one: "Пример работы"
+        few: "Примеры работ"
+        many: "Примеры работ"
+        other: "Примеры работ"
+      comment:
+        one: "Комментарий"
+        few: "Комментария"
+        many: "Комментариев"
+        other: "Комментарии"
+      certificate:
+        one: "Сертификат"
+        few: "Сертификата"
+        many: "Сертификатов"
+        other: "Сертификаты"
       billing/task_pack: "Пакет заданий"
       billing/reply_pack: "Пакет ответов"
       billing/task_subscription: "Абонемент на задания"
@@ -313,3 +328,9 @@ ru:
         rating_votes_count: 'Кол-во оценок'
         rating_votes_sum: 'Рейтинг'
         notifications_email_enabled: 'Уведомение по email'
+      portfolio_item:
+        profile: 'Пользователь'
+      comment:
+        user: 'Пользователь'
+        text: 'Комментарий'
+        parent: 'Родитель'

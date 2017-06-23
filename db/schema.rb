@@ -109,6 +109,29 @@ ActiveRecord::Schema.define(version: 20170622183630) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "certificates", force: :cascade do |t|
+    t.string   "file"
+    t.integer  "profile_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "certificates", ["profile_id"], name: "index_certificates_on_profile_id", using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "parent_id"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.text     "text"
+  end
+
+  add_index "comments", ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
+  add_index "comments", ["parent_id"], name: "index_comments_on_parent_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
   create_table "contract_categories", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at", null: false
@@ -225,6 +248,15 @@ ActiveRecord::Schema.define(version: 20170622183630) do
     t.boolean "is_center"
     t.boolean "custom"
   end
+
+  create_table "portfolio_items", force: :cascade do |t|
+    t.integer  "profile_id"
+    t.string   "file"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "portfolio_items", ["profile_id"], name: "index_portfolio_items_on_profile_id", using: :btree
 
   create_table "profiles", force: :cascade do |t|
     t.integer  "user_id",                                     null: false

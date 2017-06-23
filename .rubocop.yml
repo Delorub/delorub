@@ -49,6 +49,9 @@ Metrics/BlockLength:
     - 'context'
     - 'draw'
     - 'setup'
+    - 'resources'
+    - 'resource'
+    - 'route_param'
   Exclude:
     - 'app/admin/**/*'
     - 'lib/tasks/**/*'

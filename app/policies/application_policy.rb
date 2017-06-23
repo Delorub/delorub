@@ -55,6 +55,18 @@ class ApplicationPolicy
     end
   end
 
+  protected
+
+    def owner?
+      return false if user.blank?
+
+      if record.respond_to? :user_id
+        record.user_id == user.id
+      else
+        record.profile_id == profile.id
+      end
+    end
+
   private
 
     def namespace

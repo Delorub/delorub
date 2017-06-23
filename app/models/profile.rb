@@ -32,6 +32,9 @@ class Profile < ApplicationRecord
 
   has_and_belongs_to_many :categories
 
+  has_many :portfolio_items
+  has_many :certificates
+
   accepts_nested_attributes_for :categories
 
   enumerize :price_type, in: [:hourly, :project]

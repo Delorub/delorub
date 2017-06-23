@@ -21,4 +21,5 @@ ActiveAdmin.setup do |config|
   config.namespace :editor do |editor|
     editor.site_title = 'Панель редактора'
   end
+  config.comments_registration_name = 'AdminComment'
 end
