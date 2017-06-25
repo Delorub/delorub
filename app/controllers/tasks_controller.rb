@@ -12,11 +12,13 @@ class TasksController < ApplicationController
   end
 
   def new
+    authorize Task, :create?
     @form = TaskForm.new Task.new(user: current_user).decorate
     form_from_session
   end
 
   def create
+    authorize Task, :create?
     @form = TaskForm.new Task.new(user: current_user).decorate
 
     if @form.validate task_params
@@ -36,10 +38,12 @@ class TasksController < ApplicationController
   end
 
   def edit
+    authorize resource, :edit?
     @form = TaskForm.new resource.decorate
   end
 
   def update
+    authorize resource, :edit?
     @form = TaskForm.new resource.decorate
 
     if @form.validate task_params

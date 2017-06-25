@@ -24,7 +24,7 @@ class PhotoInput extends React.Component {
   renderFilePreview(params) {
     return (
       <div className="dr-task-photo-load-image">
-        <img class="img-responsive" src={params.input.value} className="img-responsive" />
+        <img src={params.input.value} className="img-responsive" />
         <a><span className="glyphicon glyphicon-remove"></span></a>
       </div>
     )
@@ -38,7 +38,7 @@ class PhotoInput extends React.Component {
 
   renderFiles(params) {
     return (
-      <div>
+      <div className="dr-task-photo-load">
         {params.fields.map((field, index) =>
           <Field
             key={index}
@@ -82,8 +82,8 @@ class PhotoInput extends React.Component {
               </p>
             </div>
           </div>
+            <FieldArray name="task[files]" component={::this.renderFiles} />
         </Dropzone>
-          <FieldArray name="task[files]" component={::this.renderFiles} className="dr-task-photo-load" />
       </div>
     )
   }

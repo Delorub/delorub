@@ -37,6 +37,6 @@ class PlaceSearch < BaseSearch
     end
 
     def city_types
-      all_types - %w[street house]
+      %w[city]
     end
 end

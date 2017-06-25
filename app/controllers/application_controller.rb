@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   include Authorization
 
   rescue_from ActiveRecord::RecordNotFound, ActionController::RoutingError, with: :rescue_not_found
+  rescue_from Pundit::NotAuthorizedError, with: :rescue_not_authorized
 
   before_filter :show_global_container
 
@@ -20,9 +21,15 @@ class ApplicationController < ActionController::Base
       raise ActionController::RoutingError, 'Not Found'
     end
 
-    def active_admin_access_denied exception
+    def access_denied exception
       raise exception if Rails.env.development?
       render_page_not_found
+    end
+
+    def rescue_not_authorized exception
+      raise exception if Rails.env.development?
+      return render_page_not_found if user_signed_in?
+      redirect_to new_user_session_path, alert: 'Войдите в систему для просмотра этой страницы'
     end
 
     def show_global_container
