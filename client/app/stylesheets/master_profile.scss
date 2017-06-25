@@ -72,7 +72,6 @@
     }
     &-sub-header {
         text-align: left;
-
         > div {
             font-size: 3rem;
             text-align: center;
@@ -82,7 +81,7 @@
             display: inline-block;
             @extend .border-right;
             &:first-child {
-                min-width: 16.666%;
+                width: 16.66667%;
             }
             &:last-child {
                 margin-left: -3px;
