@@ -17,6 +17,9 @@
     .btn {
         margin: 29px 0;
     }
+    &-noborder {
+        border-bottom: none;
+    }
 }
 .steps {
     display: inline-block;
@@ -24,6 +27,9 @@
     padding-right: 40px;
 }
 .dr-profile {
+    .dr-bottom-service {
+        box-shadow: $shadowHover;
+    }
     &-gallery {
         margin: 0 auto;
         img {
