@@ -111,9 +111,9 @@ body.without-sidemenu {
         margin-left: 25px;
     }
     &-avatar {
-      border: 1px solid rgba(128, 128, 128, 0.3);
-      border-radius: 50%;
-      margin-top: 10px;
+        border: 1px solid rgba(128, 128, 128, 0.3);
+        border-radius: 50%;
+        margin-top: 10px;
     }
     ul.navbar-nav {
         @media (min-width: $screen-sm-min) {
@@ -763,9 +763,10 @@ ul.left_menu {
         margin-left: -8px;
         top: -16px;
         width: 0;
-    }
-    &:focus, &:active, &:visited {
-        color: white;
+        &:hover {
+            border-bottom-color: lighten($blueColor, 20%);
+            background-color: lighten($blueColor, 20%);
+        }
     }
 }
 
