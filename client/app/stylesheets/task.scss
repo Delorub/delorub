@@ -74,27 +74,33 @@
         .photoInfo {
             color: darken(#b7b7b7, 30%);
         }
-        &-load {
-            display: grid;
-            grid-template-columns: repeat(5,1fr);
-            margin-top: 20px;
+        &-load {                    
+            margin-top: 20px;            
+            display: flex;
+            flex-wrap: wrap;
             &-image {
                 position: relative;
                 padding: 2px;
+                width: 20%;                
                 a {
                     position: absolute;
                     top: 30%;
                     right: 35%;
-                    color: black;
+                    color: #fff;
                     font-size: 3rem;
                     display: none;
                 }
                 &:hover {
                     cursor: pointer;
-                    filter: invert(1);
+                    filter: sepia(1);                    
                     a {
                         display: block;
                     }
+                }                
+            }
+            .cssload-container {
+                &:hover {
+                    filter: none;
                 }
             }
         }
