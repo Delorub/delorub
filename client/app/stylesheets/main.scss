@@ -84,7 +84,6 @@ body.without-sidemenu {
     margin-top: -20px;
     position: relative;
     background-color: #fff;
-    margin-bottom: 160px;
 }
 
 .right {
@@ -546,16 +545,12 @@ ul.left_menu {
     font-family: $PFDinExThin;
     font-weight: 600;
     text-align: center;
-    height: 160px;
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
     @media (min-width: $screen-sm-min) {
         font-size: 0.8rem;
     }
     @media (min-width: $screen-md-min) {
         font-size: 1rem;
-    }    
+    }
     @media (min-width: $screen-lg-min) {
         font-size: 1.2rem;
     }
