@@ -1,0 +1,105 @@
+.right {
+    float: right;
+}
+
+.center {
+    text-align: center;
+}
+
+.row-eq-height {
+    @media (min-width: $screen-sm-min) {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+    }
+}
+
+.lastRow {
+    margin-right: 0;
+    margin-left: 0;
+    border-top: 1px solid rgba(128, 128, 128, 0.3);
+
+    .btn {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+.marginTop10 {
+    margin-top: 10px;
+}
+
+.lastRowWithoutBorder {
+    border: none;
+}
+
+.without-border {
+    border: none !important;
+}
+
+.border-right {
+    border-right: $border;
+}
+
+.border-top {
+    border-top: $border;
+}
+
+.rowWithOutPadding {
+    margin-left: 0;
+    margin-right: 0;
+    div.col-md-4 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.padding-none {
+    padding: 0 !important;
+}
+
+.margin-none {
+    margin: 0 !important;
+}
+
+.bold-text {
+    color: #4c4c4c;
+    font-size: 1.4rem;
+    font-family: $PFDinMed;
+    font-weight: normal;
+    &-light {
+        font-weight: 600;
+        letter-spacing: 0.05em;
+    }
+}
+
+.gray-text {
+    color: #888888;
+    &-light {
+        color: #b9b9b9;
+    }
+}
+.black-text {
+    color: #333333;
+    cursor: pointer;
+}
+
+.red-text {
+    color: #ed6161;
+}
+
+.dr-social {
+    text-align: center;
+}
+
+.dr-login-div {
+    padding: 20px 20px;
+}
+
+.input-group {
+    margin-top: 10px;
+    &-addon {
+        border-radius: $borderRadius;
+    }
+}

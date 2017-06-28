@@ -1,0 +1,146 @@
+.dr-button-empty {
+    text-transform: uppercase;
+    color: darken(#b7b7b7, 30%);
+    margin: 30px 0;
+    background-color: white;
+    padding: 11px 30px;
+    border: 1px solid rgba(128, 128, 128, 0.3);
+    border-radius: $borderRadius;
+}
+
+.dr-button-blue {
+    @extend .dr-button-empty;
+    padding: 10px 30px;
+    border: 2px solid $blueColor;
+
+    &:hover {
+        border: 2px solid lighten($blueColor, 20%);
+        color: lighten(#6b6b6b, 20%);
+    }
+}
+
+.dr-button-blueFull {
+    @extend .dr-button-blue;
+    color: white;
+    background-color: $blueColor;
+    &:hover {
+        background-color: lighten($blueColor, 20%);
+        color: white;
+    }
+    &:focus, &:active, &:visited {
+        color: white;
+    }
+}
+
+.dr-button-warning {
+    @extend .dr-button-blue;
+    color: white;
+    background-color: #eda431;
+    border: 2px solid #eea236;
+    &:hover {
+        border-color: lighten(#eea236, 20%);
+        background-color: lighten(#eda431, 20%);
+        color: white;
+    }
+    &:focus, &:active, &:visited {
+        color: white;
+    }
+}
+
+.dr-button-succsess {
+    @extend .dr-button-blue;
+    color: white;
+    background-color: #4ccd6a;
+    border: 2px solid #3dba5a;
+    &:hover {
+        border-color: lighten(#3dba5a, 20%);
+        background-color: lighten(#4ccd6a, 20%);
+        color: white;
+    }
+    &:focus, &:active, &:visited {
+        color: white;
+    }
+}
+
+.dr-button-danger {
+    @extend .dr-button-blue;
+    color: white;
+    background-color: #fa607e;
+    border: 2px solid #f3516f;
+    &:hover {
+        border-color: lighten(#f3516f, 20%);
+        background-color: lighten(#fa607e, 20%);
+        color: white;
+    }
+    &:focus, &:active, &:visited {
+        color: white;
+    }
+}
+
+.dr-button-vk {
+    @extend .dr-button-blue;
+    width: 80%;
+    margin: 10px 0;
+    color: white;
+    background-color: #507299;
+    border: 2px solid #507299;
+    &:hover {
+        border-color: lighten(#507299, 20%);
+        background-color: lighten(#507299, 20%);
+        color: white;
+    }
+    &:focus, &:active, &:visited {
+        color: white;
+    }
+}
+
+.dr-button-odnoklassniki {
+    @extend .dr-button-blue;
+    width: 80%;
+    margin: 10px 0;
+    color: white;
+    background-color: #f58220;
+    border: 2px solid #f58220;
+    &:hover {
+        border-color: lighten(#f58220, 20%);
+        background-color: lighten(#f58220, 20%);
+        color: white;
+    }
+    &:focus, &:active, &:visited {
+        color: white;
+    }
+}
+
+.dr-button-facebook {
+    @extend .dr-button-blue;
+    width: 80%;
+    margin: 10px 0;
+    color: white;
+    background-color: #5f83d2;
+    border: 2px solid #5f83d2;
+    &:hover {
+        border-color: lighten(#5f83d2, 20%);
+        background-color: lighten(#5f83d2, 20%);
+        color: white;
+    }
+    &:focus, &:active, &:visited {
+        color: white;
+    }
+}
+.dr-button-triangleTop {
+    position: relative;
+    &:after {
+        content: '';
+        border: 8px solid transparent;
+        border-bottom: 8px solid #25c0ec;
+        position: absolute;
+        left: 50%;
+        margin-left: -8px;
+        top: -16px;
+        width: 0;
+        &:hover {
+            border-bottom-color: lighten($blueColor, 20%);
+            background-color: lighten($blueColor, 20%);
+        }
+    }
+}
