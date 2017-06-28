@@ -42,6 +42,10 @@ class RepliesController < ApplicationController
     redirect_to task_path(resource.task), notice: 'Отказ отменен'
   end
 
+  def show
+    authorize resource, :show?
+  end
+
   private
 
     def store_form_to_session

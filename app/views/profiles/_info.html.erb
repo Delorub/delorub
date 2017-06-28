@@ -3,7 +3,7 @@
     <%= resource.user.first_name %> <%= resource.user.last_name %>
   </p>
   <div class="dr-master-profile-header-price">
-    <%= render 'shared/task_price_type', profile: resource %>
+    <%= render 'shared/profile/price_type', profile: resource %>
   </div>
   <% if policy(resource).edit? %>
     <a href="<%= edit_profile_path(resource) %>" class="btn dr-button-empty">Редактировать анкету</a>

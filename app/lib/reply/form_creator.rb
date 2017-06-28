@@ -19,9 +19,9 @@ class Reply::FormCreator
   end
 
   def last_error
-    # return unless model
-    # return if model.errors.empty?
-    # model.errors[model.errors.keys.first].first
+    return unless model
+    return if model.errors.empty?
+    model.errors[model.errors.keys.first].first
   end
 
   private

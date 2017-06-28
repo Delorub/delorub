@@ -1,4 +1,4 @@
-user 'www-data'
+user 'delorub'
 
 app_path = File.expand_path(File.dirname(__FILE__) + '/../..')
 

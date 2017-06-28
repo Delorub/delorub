@@ -13,6 +13,14 @@ class Api::V10::PortfolioItems < ApplicationAPI
   end
 
   resource :portfolio_items do
+    desc 'Upload new profile item'
+    params do
+      requires :file, type: File
+    end
+    post do
+      present PortfolioItem.create(file: params[:file]), with: Entities::PortfolioItem
+    end
+
     route_param :id do
       resources :comments do
         desc 'Get comments for particular profile item'

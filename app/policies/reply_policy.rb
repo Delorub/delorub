@@ -17,6 +17,10 @@ class ReplyPolicy < ApplicationPolicy
     task_owner? && record.may_accept?
   end
 
+  def show?
+    comment?
+  end
+
   def comment?
     task_owner?
   end

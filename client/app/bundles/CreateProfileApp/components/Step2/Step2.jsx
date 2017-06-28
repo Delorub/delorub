@@ -9,6 +9,7 @@ import * as formActions from '../../actions/FormActions'
 import { required, minLength } from 'libs/delorub/redux-form-validations'
 import { renderField } from 'libs/delorub/redux-form-textarea'
 import RenderSelect from 'libs/delorub/components/RenderSelect'
+import PhotosInput from 'libs/delorub/components/PhotosInput'
 import { optionsToSelect2 } from 'libs/delorub/options-to-select2'
 import CityInput from 'libs/delorub/components/CityInput';
 
@@ -49,31 +50,22 @@ class Step2 extends React.Component {
             <div className="dr-task-div">
               <span>Фото примеров работ</span>
             </div>
-            <div className="dr-task-photo dr-task-div">
-              <div className="row">
-                <div className="col-md-6">
-                  <button type="button" className="btn dr-button-blue">Выбрать фото</button>
-                </div>
-                <div className="col-md-6">
-                  <span className="icon_top icon-information"></span>
-                  <p className="marginTop10">Вы можете загрузить до 10 фото.</p>
-                  <p className="photoInfo">
-                    Максимальный размер файла 5 МБ,<br /> формат .jpg, .jpeg, .png, .gif.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="dr-profile-gallery"></div>
+            <PhotosInput
+              label=""
+              inputName="create_profile[portfolio][][id]"
+              fieldName="create_profile[portfolio]"
+              apiUrl="/api/portfolio_items"
+              fieldId="id"
+              fieldPreview="upload_preview_url"
+              {...this.props}
+            />
             <Field
               component={RenderSelect}
               className="dr-task-select"
               name="create_profile[paid_functions]"
-              data={optionsToSelect2(this.props.create_profile.paid_functions_options)}
-              options={{
-                allowClear: true,
-                minimumResultsForSearch: Infinity,
-                placeholder: 'Выберите платные функции для вашего задания',
-              }}
+              options={optionsToSelect2(this.props.create_profile.paid_functions_options)}
+              placeholder="Выберите платные функции для вашего задания"
+              clearable={true}
               label="Платные функции"
               />
           </div>
@@ -101,11 +93,8 @@ class Step2 extends React.Component {
               component={RenderSelect}
               className="dr-task-select"
               name="create_profile[notifications_type]"
-              data={optionsToSelect2(this.props.create_profile.notifications_type_options)}
-              options={{
-                minimumResultsForSearch: Infinity,
-                placeholder: 'Выберите формат уведомлений',
-              }}
+              options={optionsToSelect2(this.props.create_profile.notifications_type_options)}
+              placeholder="Выберите формат уведомлений"
               label="Формат уведомлений об откликах"
               validate={[required]}
               />

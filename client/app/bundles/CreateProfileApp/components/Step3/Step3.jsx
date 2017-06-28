@@ -8,11 +8,13 @@ import PriceSelector from './PriceSelector'
 import Verification from './Verification'
 import YesNoField from './YesNoField'
 import WorkingDaysField from './WorkingDaysField'
+import { required, time } from 'libs/delorub/redux-form-validations'
+import { normalizeTime } from 'libs/delorub/redux-form-normalizers'
+import { renderField } from 'libs/delorub/redux-form-input'
 import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as formActions from '../../actions/FormActions'
-import { required, requiredArray } from 'libs/delorub/redux-form-validations'
 
 class Step3 extends React.Component {
   handleOnSubmit(e) {
@@ -87,12 +89,26 @@ class Step3 extends React.Component {
               <span className="input-label">Рабочее время</span>
               <br />
               <Field
-                component={RenderTimePickerField}
+                component={renderField}
+                type="text"
+                label=""
+                containerClasses={[]}
+                className="form-control"
                 name="create_profile[working_hours_from]"
+                placeholder="С"
+                validate={[required, time]}
+                normalize={normalizeTime}
                 />
               <Field
-                component={RenderTimePickerField}
+                component={renderField}
+                type="text"
+                label=""
+                containerClasses={[]}
+                className="form-control"
                 name="create_profile[working_hours_to]"
+                placeholder="До"
+                validate={[required, time]}
+                normalize={normalizeTime}
                 />
             </div>
           </div>
@@ -100,7 +116,6 @@ class Step3 extends React.Component {
             <PriceSelector {...this.props} />
           </div>
         </div>
-        <Verification {...this.props} />
         <Buttons />
       </form>
     );

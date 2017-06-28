@@ -26,7 +26,8 @@ class Reply < ApplicationRecord
   belongs_to :user
   belongs_to :billable, polymorphic: true
 
-  validates :user, :task, presence: true
+  validates :user, :task, :content, presence: true
+  validates :content, length: { minimum: 5, maximum: 2000 }
 
   scope :by_user, ->(user) { where user_id: user.id }
 

@@ -22,4 +22,11 @@ module Searchable::Place
       place_type: place_type
     }
   end
+
+  private
+
+    def place_type_name_search_string
+      return if place_type_name.blank?
+      place_type_name.search_string
+    end
 end

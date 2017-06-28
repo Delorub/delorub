@@ -13,6 +13,7 @@ export const renderField = field => {
     <div className={divClasses}>
       <DatePicker
         dateFormat='DD.MM.YYYY'
+        locale="ru"
         name={field.input.name}
         selected={field.input.value ? moment(field.input.value, 'DD.MM.YYYY') : null}
         className={field.className}

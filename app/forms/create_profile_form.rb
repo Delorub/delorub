@@ -29,7 +29,7 @@ class CreateProfileForm < Reform::Form
   property :working_hours_to, default: '18:00', on: :profile
 
   property :notifications_type, virtual: true, default: 'notifications-email', on: :profile
-  property :paid_functions, virtual: true, default: [], on: :profile
+  property :paid_functions, virtual: true, default: '', on: :profile
 
   def notifications_type_options
     [

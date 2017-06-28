@@ -37,6 +37,22 @@ class ProfilesController < ApplicationController
     @form = CreateProfileForm.new profile: resource.decorate, user: resource.user
   end
 
+  def update
+    authorize resource, :edit?
+    @form = CreateProfileForm.new profile: resource.decorate, user: resource.user
+
+    if @form.validate create_profile_params
+      creator = Profile::FormCreator.new(@form)
+      creator.perform
+      return redirect_to profile_path(creator.model[:profile]), notice: 'Профиль отредактирован' if creator.model[:profile].persisted?
+      flash.now.alert = creator.last_error
+    else
+      flash.now.alert = @form.errors
+    end
+
+    render 'edit'
+  end
+
   def index
     fetch_category
   end
@@ -77,7 +93,7 @@ class ProfilesController < ApplicationController
 
     def create_profile_form_props
       {
-        form_action: profiles_path,
+        form_action: params[:id].nil? ? profiles_path : profile_path(resource),
         create_profile: Entities::CreateProfileForm.represent(@form),
         all_categories: Entities::Category.represent(Category.all)
       }

@@ -24,11 +24,12 @@ Rails.application.routes.draw do
   end
 
   resources :tasks, only: [:show, :edit, :update], path: 'task' do
-    resources :replies, only: [:show, :create, :update, :destroy] do
+    resources :replies, only: [:show, :create, :edit, :update, :destroy] do
       member do
         get 'cancel_decline'
         get 'decline'
         get 'accept'
+        get 'delete'
       end
     end
   end

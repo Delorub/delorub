@@ -12,11 +12,8 @@ export default class PriceTypeInput extends React.Component {
         className="dr-task-select"
         containerClasses="dr-task dr-profile-div"
         name="create_profile[price_type]"
-        data={optionsToSelect2(this.props.create_profile.price_type_options)}
-        options={{
-          minimumResultsForSearch: Infinity,
-          placeholder: 'Выберите вариант оплаты',
-        }}
+        options={optionsToSelect2(this.props.create_profile.price_type_options)}
+        placeholder="Выберите вариант оплаты"
         label="Вариант оплаты"
         validate={[required]}
         />
