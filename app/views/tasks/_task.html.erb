@@ -28,7 +28,7 @@
     <% end %>
   </div>
   <div class="col-md-3 dr-all-task-button-div">
-    <span class="dr-header-span-price"><%= task.price_exact %> ₽</span>
+    <span class="dr-header-span-price"><%= price_format task.price_exact %> ₽</span>
     <% if policy(task).reply? || policy(task).edit? %>
     <div class="dr-one-ticket-discussion-quote">
       <% if policy(task).reply? %>
@@ -41,24 +41,6 @@
     <% end %>
   </div>
   <div class="col-md-2 padding-none">
-    <% if task.date_type.actual? %>
-      <div class="dr-one-ticket-refinement dr-all-task">
-        <span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>
-        <p class="gray-text-light">Актуально<br/>до</p>
-        <span><%= task.date_actual_date %></span>
-      </div>
-      <div class="dr-one-ticket-refinement dr-all-task without-border">
-        <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
-        <p class="gray-text-light">Удобное<br/>время</p>
-        <span><%= task.date_actual_time %></span>
-      </div>
-    <% end %>
-    <% if task.date_type.interval? %>
-      <div class="dr-one-ticket-refinement dr-all-task">
-        <span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>
-        <p class="gray-text-light">Выполнить в период</p>
-        <span><%= task.date_interval_from_date %> – <%= task.date_interval_to_date %></span>
-      </div>
-    <% end %>
+    <%= render 'shared/task/info', resource: task %>
   </div>
 </div>

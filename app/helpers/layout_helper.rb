@@ -12,7 +12,7 @@ module LayoutHelper
   end
 
   def navigation_logo_path
-    show_main_design? ? '/images/design/logo1.svg' : '/images/design/logo.png'
+    show_main_design? ? '/images/design/logo1.svg' : '/images/design/logo.svg'
   end
 
   def show_main_design?
@@ -29,5 +29,9 @@ module LayoutHelper
 
   def global_container?
     @global_container
+  end
+
+  def price_format value
+    number_with_delimiter value, delimiter: ' '
   end
 end

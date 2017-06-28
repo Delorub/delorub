@@ -1193,7 +1193,7 @@ clap@^1.0.9:
   dependencies:
     chalk "^1.1.3"
 
-classnames@2.x, classnames@^2.2.5:
+classnames@2.x, classnames@^2.2.4, classnames@^2.2.5:
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.5.tgz#fb3801d453467649ef3603c7d61a02bd129bde6d"
 
@@ -3850,6 +3850,13 @@ react-dropzone@^3.13.2:
     attr-accept "^1.0.3"
     prop-types "^15.5.7"
 
+react-input-autosize@^1.1.3:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/react-input-autosize/-/react-input-autosize-1.1.4.tgz#cbc45072d4084ddc57806db8e3b34e644b8366ac"
+  dependencies:
+    create-react-class "^15.5.2"
+    prop-types "^15.5.8"
+
 react-json-tree@^0.10.0:
   version "0.10.7"
   resolved "https://registry.yarnpkg.com/react-json-tree/-/react-json-tree-0.10.7.tgz#1f6cd1b1b7dc01f9745b7a30ffabe2c880d04d4c"
@@ -3919,6 +3926,19 @@ react-select2-wrapper@^1.0.4-beta4:
   dependencies:
     select2 "^4.0.0"
     shallow-equal-fuzzy "^0.0.2"
+
+react-select@^1.0.0-rc.5:
+  version "1.0.0-rc.5"
+  resolved "https://registry.yarnpkg.com/react-select/-/react-select-1.0.0-rc.5.tgz#9d316f252b1adc372ddb5cdf1f119c6b7cfdb5d6"
+  dependencies:
+    classnames "^2.2.4"
+    create-react-class "^15.5.2"
+    prop-types "^15.5.8"
+    react-input-autosize "^1.1.3"
+
+react-time-input@^0.0.16:
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/react-time-input/-/react-time-input-0.0.16.tgz#b255560e0ae3b40249145c67a428cbe98f094434"
 
 react-tinymce-input@^1.2.1:
   version "1.2.1"

@@ -1,7 +1,8 @@
 import React from 'react';
 import { renderField as renderDatePickerField } from 'libs/delorub/redux-form-datepicker'
-import RenderTimePickerField from 'libs/delorub/redux-form-timepicker'
-import { required } from 'libs/delorub/redux-form-validations'
+import { renderField } from 'libs/delorub/redux-form-input'
+import { required, time } from 'libs/delorub/redux-form-validations'
+import { normalizeTime } from 'libs/delorub/redux-form-normalizers'
 import { Field } from 'redux-form';
 import moment from 'moment';
 
@@ -26,10 +27,15 @@ export default class DateActual extends React.Component {
           </div>
           <div className="col-md-6">
             <Field
-              component={RenderTimePickerField}
+              component={renderField}
+              type="text"
+              label=""
+              containerClasses={[]}
+              className="form-control"
               name="task[date_actual_time]"
               placeholder="Время"
-              validate={[required]}
+              validate={[required, time]}
+              normalize={normalizeTime}
               />
           </div>
         </div>

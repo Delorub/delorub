@@ -3,7 +3,6 @@ import { Field } from 'redux-form';
 
 export default class Fields extends React.Component {
   renderCategories(params) {
-    console.log(params)
     return (
       <div>
         {params.input.value.map((category, index) => (

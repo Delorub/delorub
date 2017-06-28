@@ -45,7 +45,7 @@ class Task < ApplicationRecord
   has_many :replies, dependent: :destroy
 
   enumerize :price_type, in: [:exact, :interval, :scale]
-  enumerize :date_type, in: [:actual, :interval]
+  enumerize :date_type, in: [:actual, :interval, :none]
   enumerize :contract_type, in: [:no_contract, :contract]
 
   validates :title, :description, :user_id, :category_id, :price_type, :date_type, presence: true

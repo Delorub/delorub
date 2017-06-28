@@ -1,6 +1,5 @@
 import React from 'react';
 import { renderField as renderDatePickerField } from 'libs/delorub/redux-form-datepicker'
-import RenderTimePickerField from 'libs/delorub/redux-form-timepicker'
 import { required } from 'libs/delorub/redux-form-validations'
 import { Field } from 'redux-form';
 

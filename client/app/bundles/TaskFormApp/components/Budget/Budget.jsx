@@ -3,6 +3,7 @@ import ReactBootstrapSlider from 'react-bootstrap-slider';
 import { renderField } from 'libs/delorub/redux-form-input'
 import { required, minLength } from 'libs/delorub/redux-form-validations'
 import { Field } from 'redux-form';
+import { normalizePositiveNum } from 'libs/delorub/redux-form-normalizers'
 
 export default class Budget extends React.Component {
   changeValue(e) {
@@ -11,11 +12,11 @@ export default class Budget extends React.Component {
 
   getPrice() {
     const { price_exact } = this.props
-    if(price_exact == null) {
+    if(!price_exact) {
       return 0;
     }
 
-    return price_exact
+    return parseInt(price_exact)
   }
 
   render() {
@@ -40,6 +41,7 @@ export default class Budget extends React.Component {
             label="Бюджет"
             glyphicon="ruble"
             validate={[required]}
+            normalize={normalizePositiveNum}
             />
           <div className="col-md-8">
             <span className="minValue">{min}</span>

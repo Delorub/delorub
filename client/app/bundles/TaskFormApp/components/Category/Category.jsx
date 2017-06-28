@@ -1,17 +1,24 @@
 import React from 'react';
-import RenderSelect2 from 'libs/delorub/components/RenderSelect2'
+import RenderSelect from 'libs/delorub/components/RenderSelect'
 import { required } from 'libs/delorub/redux-form-validations'
 import { Field } from 'redux-form';
 
 export default class Category extends React.Component {
+  onChange(e, v) {
+    if(v != this.props.main_category_id) {
+          console.log(this.props.main_category_id)
+      this.props.change('task[category_id]', null)
+    }
+  }
+
   listCategories() {
     var categories = []
 
     this.props.categories.forEach(function(category) {
       if (category.parent_id == null) {
         categories.push({
-          id: category.id,
-          text: category.title
+          value: category.id,
+          label: category.title
         });
       }
     });
@@ -22,15 +29,16 @@ export default class Category extends React.Component {
   render() {
     return (
       <Field
-        component={RenderSelect2}
+        component={RenderSelect}
         className="dr-task-select"
         name="task[main_category_id]"
-        data={this.listCategories()}
-        options={{
-          placeholder: 'Выберите категорию',
-        }}
+        options={this.listCategories()}
+        placeholder="Выберите категорию"
         label="Категория задания"
+        onChange={::this.onChange}
         validate={[required]}
+        searchable={true}
+        clearable={false}
         />
     )
   }

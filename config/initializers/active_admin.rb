@@ -7,7 +7,7 @@ ActiveAdmin.setup do |config|
   config.current_user_method = :current_user
   config.logout_link_path = :destroy_user_session_path
   config.authorization_adapter = ActiveAdmin::PermissionAuthorizationAdapter
-  config.on_unauthorized_access = :active_admin_access_denied
+  config.on_unauthorized_access = :access_denied
 
   config.batch_actions = true
   config.comments = false

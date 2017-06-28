@@ -4,6 +4,7 @@ class RepliesController < ApplicationController
   belongs_to :task
 
   def create
+    authorize Reply.new(user: current_user, task: parent), :create?
     @form = ReplyForm.new Reply.new(user: current_user, task: parent)
     if @form.validate reply_params
       unless user_signed_in?

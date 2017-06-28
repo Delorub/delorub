@@ -13,7 +13,6 @@ import NotificationsTypeInput from '../NotificationsTypeInput/NotificationsTypeI
 import PaidFunctionsInput from '../PaidFunctionsInput/PaidFunctionsInput';
 import CityInput from 'libs/delorub/components/CityInput';
 import AddressInput from 'libs/delorub/components/AddressInput';
-import Select2 from 'react-select2-wrapper';
 import { Field, reduxForm, formValueSelector } from 'redux-form';
 
 class App extends React.Component {

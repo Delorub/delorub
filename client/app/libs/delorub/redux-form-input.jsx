@@ -34,8 +34,8 @@ export const renderField = ({ input, label, placeholder, className, containerCla
 
   return (
     <div className={divClasses}>
-      <span className="input-label">{label}</span>
-      {touched && (error && <span className="error">{error}</span>)}
+      { label && (<span className="input-label">{label}</span>) }
+      {label && touched && (error && <span className="error">{error}</span>)}
       {inputContainer}
     </div>
   )

@@ -33,6 +33,7 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    authorize resource, :edit?
     @form = CreateProfileForm.new profile: resource.decorate, user: resource.user
   end
 

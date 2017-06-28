@@ -32,11 +32,24 @@ class Step1 extends React.Component {
 
   render() {
     const { main_category_id, handleSubmit } = this.props
-    var listCategories = [], listSubcategories = []
+    var listCategories = [[]], listSubcategories = []
 
+    var i = 0;
+    var row = 0;
     this.props.all_categories.forEach(function(category) {
       if (category.parent_id == null) {
-        listCategories.push(<MainCategory key={category.id} {...this.props} {...category} />);
+        i++
+        if(i > 8) {
+          i = -1
+          row++
+          listCategories[row] = []
+        }
+        if(row % 2 == 1) {
+          var className = 'dr-bottom-service-even-row-category'
+        } else {
+          var className = 'dr-bottom-service-odd-row-category'
+        }
+        listCategories[row].push(<MainCategory className={className} key={category.id} {...this.props} {...category} />);
       }
     }, this);
 
@@ -55,11 +68,13 @@ class Step1 extends React.Component {
     return (
       <form onSubmit={handleSubmit}>
         <Navigation />
-        <div>
+        <div className="dr-profile">
           <div className="dr-bottom-service">
-            <div className="row">
-              {listCategories}
-            </div>
+              {listCategories.map((row, index) => (
+                <div className="dr-bottom-service-odd-row" key={index}>
+                  {row}
+                </div>
+              ))}
             <Field
               component={this.renderCategory}
               name="create_profile[main_category_id]"

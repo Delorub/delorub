@@ -1,7 +1,6 @@
 import React from 'react';
 import Navigation from '../Navigation/Navigation';
 import Buttons from '../Buttons/Buttons';
-import Select2 from 'react-select2-wrapper';
 import PhotoInput from './PhotoInput';
 import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { connect } from 'react-redux'
@@ -9,7 +8,7 @@ import { bindActionCreators } from 'redux'
 import * as formActions from '../../actions/FormActions'
 import { required, minLength } from 'libs/delorub/redux-form-validations'
 import { renderField } from 'libs/delorub/redux-form-textarea'
-import RenderSelect2 from 'libs/delorub/components/RenderSelect2'
+import RenderSelect from 'libs/delorub/components/RenderSelect'
 import { optionsToSelect2 } from 'libs/delorub/options-to-select2'
 import CityInput from 'libs/delorub/components/CityInput';
 
@@ -66,7 +65,7 @@ class Step2 extends React.Component {
             </div>
             <div className="dr-profile-gallery"></div>
             <Field
-              component={RenderSelect2}
+              component={RenderSelect}
               className="dr-task-select"
               name="create_profile[paid_functions]"
               data={optionsToSelect2(this.props.create_profile.paid_functions_options)}
@@ -99,7 +98,7 @@ class Step2 extends React.Component {
             </div>
             <div className="dr-profile-gallery"></div>
             <Field
-              component={RenderSelect2}
+              component={RenderSelect}
               className="dr-task-select"
               name="create_profile[notifications_type]"
               data={optionsToSelect2(this.props.create_profile.notifications_type_options)}

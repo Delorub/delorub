@@ -1,5 +1,5 @@
 .dr-task {
-    &-name input,&-password input, &-select, &-budget input[type=text], &-date input {
+    &-name input[type=text],&-password input, &-select, &-budget input[type=text], &-date input {
         margin-top: 10px;
         width: 100%;
         padding: 10px 15px;
@@ -74,6 +74,36 @@
         .photoInfo {
             color: darken(#b7b7b7, 30%);
         }
+        &-load {                    
+            margin-top: 20px;            
+            display: flex;
+            flex-wrap: wrap;
+            &-image {
+                position: relative;
+                padding: 2px;
+                width: 20%;                
+                a {
+                    position: absolute;
+                    top: 30%;
+                    right: 35%;
+                    color: #fff;
+                    font-size: 3rem;
+                    display: none;
+                }
+                &:hover {
+                    cursor: pointer;
+                    filter: sepia(1);                    
+                    a {
+                        display: block;
+                    }
+                }                
+            }
+            .cssload-container {
+                &:hover {
+                    filter: none;
+                }
+            }
+        }
     }
     &-div {
         padding: 30px 20px;
@@ -104,5 +134,92 @@
     }
     &-handle {
         background-color: #25c0ec;
+    }
+}
+
+
+.cssload-container{
+    position:relative;
+}
+
+.cssload-whirlpool,
+.cssload-whirlpool::before,
+.cssload-whirlpool::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px solid rgb(204,204,204);
+    border-left-color: rgb(0,0,0);
+    border-radius: 574px;
+    -o-border-radius: 574px;
+    -ms-border-radius: 574px;
+    -webkit-border-radius: 574px;
+    -moz-border-radius: 574px;
+}
+
+.cssload-whirlpool {
+    margin: -14px 0 0 -14px;
+    height: 29px;
+    width: 29px;
+    animation: cssload-rotate 2050ms linear infinite;
+    -o-animation: cssload-rotate 2050ms linear infinite;
+    -ms-animation: cssload-rotate 2050ms linear infinite;
+    -webkit-animation: cssload-rotate 2050ms linear infinite;
+    -moz-animation: cssload-rotate 2050ms linear infinite;
+}
+
+.cssload-whirlpool::before {
+    content: "";
+    margin: -13px 0 0 -13px;
+    height: 25px;
+    width: 25px;
+    animation: cssload-rotate 2050ms linear infinite;
+    -o-animation: cssload-rotate 2050ms linear infinite;
+    -ms-animation: cssload-rotate 2050ms linear infinite;
+    -webkit-animation: cssload-rotate 2050ms linear infinite;
+    -moz-animation: cssload-rotate 2050ms linear infinite;
+}
+
+.cssload-whirlpool::after {
+    content: "";
+    margin: -17px 0 0 -17px;
+    height: 32px;
+    width: 32px;
+    animation: cssload-rotate 4100ms linear infinite;
+    -o-animation: cssload-rotate 4100ms linear infinite;
+    -ms-animation: cssload-rotate 4100ms linear infinite;
+    -webkit-animation: cssload-rotate 4100ms linear infinite;
+    -moz-animation: cssload-rotate 4100ms linear infinite;
+}
+
+
+
+@keyframes cssload-rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@-o-keyframes cssload-rotate {
+    100% {
+        -o-transform: rotate(360deg);
+    }
+}
+
+@-ms-keyframes cssload-rotate {
+    100% {
+        -ms-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes cssload-rotate {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes cssload-rotate {
+    100% {
+        -moz-transform: rotate(360deg);
     }
 }

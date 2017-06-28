@@ -1,40 +1,59 @@
-.select2 {
-    padding-top: 10px;
-}
-
-.select2-container--default {
+.Select--single.Select, .Select {
+    padding-top: 10px !important;
     width: 100% !important;
     text-align: left;
-    span.select2-selection {
-        padding: 19px 10px;
-        border-radius: 19px;
-        background-color: transparent;
-        color: #6b6b6b;
-        &__rendered {
-            font-size: 1.2rem;
-            font-weight: normal;
-            margin-top: -13px;
-            color: #6b6b6b !important;
+
+    &.is-open {
+      .Select-control {
+        border-color: #66afe9;
+        outline: 0;
+        border-radius: 19px 19px 0 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+      }
+
+      .Select-menu-outer {
+        border-color: #66afe9;
+        outline: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+      }
+
+      .Select-value {
+        .Select-value-label {
+          color: #aaa;
         }
-        &__arrow {
-            top: 16px !important;
-            b {
-                border-width: 6px 3px 0 !important;
-                border-color: #695656 transparent transparent !important;
-            }
-        }
+      }
+    }
+
+    &-control {
+      height: 38px;
+      border-radius: 19px;
+      background-color: transparent;
+      color: #6b6b6b;
+    }
+
+    &-placeholder, &-value {
+      line-height: 38px !important;
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+      font-size: 14px;
+    }
+
+    &-input {
+      height: 38px !important;
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+
+      input {
+        font-size: 14px;
+        line-height: 20px;
+      }
     }
 }
 
-.select2-dropdown {
-    border-color: #66afe9;
-    outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-}
-
-.select2-container--open .select2-selection {
-    outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+.dr-task-div-error {
+  .Select-control {
+    border-color: $errorColor !important
+  }
 }

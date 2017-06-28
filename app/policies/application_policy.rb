@@ -63,7 +63,7 @@ class ApplicationPolicy
       if record.respond_to? :user_id
         record.user_id == user.id
       else
-        record.profile_id == profile.id
+        record.profile_id == user.profile.id
       end
     end
 

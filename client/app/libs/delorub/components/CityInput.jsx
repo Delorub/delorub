@@ -1,54 +1,44 @@
 import React from 'react';
-import RenderSelect2 from 'libs/delorub/components/RenderSelect2'
+import RenderSelect from 'libs/delorub/components/RenderSelect'
 import { required } from 'libs/delorub/redux-form-validations'
 import { Field } from 'redux-form';
+import request from 'superagent';
 
 class CityInput extends React.Component {
-  data(params) {
-    return {
-      query: params.term,
-      page: params.page,
-      perpage: 30
-    }
-  }
+  renderOption(option) {
+		return (
+			<span>{option.label}<br /><small>{option.region_name}</small></span>
+		);
+	}
 
-  processResults(data, params) {
-    return {
-      results: data.places.map(function(e) {
-        return {
-          id: e.id,
-          text: e.display_name
-        }
-      }),
-      pagination: {
-        more: data.places.length == 30
-      }
-    }
-  }
-
-  getOptions() {
-    return {
-      placeholder: this.props.placeholder,
-      ajax: {
-        url: '/api/searches/place',
-        dataType: 'json',
-        delay: 250,
-        data: this.data,
-        processResults: this.processResults,
-        cache: true
-      }
-    }
+  getOptions(input, callback) {
+    request
+      .get('/api/searches/place')
+      .query({ query: input, type: 'city' })
+      .end((error, response) => (
+        callback(null, { options: response.body.places.map(function(e) {
+          return {
+            value: e.id,
+            label: e.name,
+            region_name: e.region_name
+          }
+        }) })
+      ))
   }
 
   render() {
     return (
       <Field
         ref="selectField"
-        component={RenderSelect2}
+        component={RenderSelect}
         className="dr-task-select"
-        options={this.getOptions()}
+        optionRenderer={::this.renderOption}
+        loadOptions={::this.getOptions}
+        filterOption={(e) => true}
         label={this.props.label}
         validate={[required]}
+        noResultsText="Ничего не найдено"
+        clearable={false}
         {...this.props}
         />
     )
@@ -58,7 +48,8 @@ class CityInput extends React.Component {
 CityInput.defaultProps = {
   placeholder: 'Выберите город',
   label: 'Город',
-  name: 'place_id'
+  name: 'place_id',
+  searchable: true
 }
 
 export default CityInput
