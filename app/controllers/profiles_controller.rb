@@ -44,7 +44,9 @@ class ProfilesController < ApplicationController
     if @form.validate create_profile_params
       creator = Profile::FormCreator.new(@form)
       creator.perform
-      return redirect_to profile_path(creator.model[:profile]), notice: 'Профиль отредактирован' if creator.model[:profile].persisted?
+      if creator.model[:profile].persisted?
+        return redirect_to profile_path(creator.model[:profile]), notice: 'Профиль отредактирован'
+      end
       flash.now.alert = creator.last_error
     else
       flash.now.alert = @form.errors

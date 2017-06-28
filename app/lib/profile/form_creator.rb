@@ -51,10 +51,9 @@ class Profile::FormCreator
 
     def assign_hash_to_user
       @model[:user].place_id = hash[:user]['place_id']
-      if hash[:user]['temporary_photo_id'].present?
-        @model[:user].remove_photo!
-        @model[:user].photo = user_temporary_photo.photo.file
-      end
+      return if hash[:user]['temporary_photo_id'].blank?
+      @model[:user].remove_photo!
+      @model[:user].photo = user_temporary_photo.photo.file
     end
 
     def user_temporary_photo

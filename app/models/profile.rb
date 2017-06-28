@@ -47,7 +47,7 @@ class Profile < ApplicationRecord
   delegate :name, to: :user
 
   scope :by_category,
-    ->(category) { joins(:categories).where(categories: { id: category.id } ) }
+    ->(category) { joins(:categories).where(categories: { id: category.id }) }
   scope :by_category_with_descendants,
-    ->(category) { joins(:categories).where(categories: { id: category.self_and_descendants_ids } ) }
+    ->(category) { joins(:categories).where(categories: { id: category.self_and_descendants_ids }) }
 end
