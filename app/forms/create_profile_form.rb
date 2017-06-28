@@ -11,6 +11,24 @@ class CreateProfileForm < Reform::Form
     property :id
   end
 
+  collection :certificates,
+    on: :profile,
+    populator: ->(fragment:, **) {
+      item = certificates.find { |certificate| certificate.id == fragment['id'].to_i }
+      item ? item : certificates.append(Certificate.find_by(id: fragment['id'], profile_id: nil))
+    } do
+    property :id
+  end
+
+  collection :portfolio_items,
+    on: :profile,
+    populator: ->(fragment:, **) {
+      item = portfolio_items.find { |portfolio_item| portfolio_item.id == fragment['id'].to_i }
+      item ? item : portfolio_items.append(PortfolioItem.find_by(id: fragment['id'], profile_id: nil))
+    } do
+    property :id
+  end
+
   property :temporary_photo_id, on: :user, virtual: true
   property :about, on: :profile
   property :place_id, on: :user

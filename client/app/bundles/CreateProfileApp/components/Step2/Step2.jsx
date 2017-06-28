@@ -52,8 +52,8 @@ class Step2 extends React.Component {
             </div>
             <PhotosInput
               label=""
-              inputName="create_profile[portfolio][][id]"
-              fieldName="create_profile[portfolio]"
+              inputName="create_profile[portfolio_items][][id]"
+              fieldName="create_profile[portfolio_items]"
               apiUrl="/api/portfolio_items"
               fieldId="id"
               fieldPreview="upload_preview_url"
@@ -74,21 +74,15 @@ class Step2 extends React.Component {
             <div className="dr-task-div">
               <span>Дипломы и сертификаты</span>
             </div>
-            <div className="dr-task-photo dr-task-div">
-              <div className="row">
-                <div className="col-md-6">
-                  <button type="button" className="btn dr-button-blue">Выбрать фото</button>
-                </div>
-                <div className="col-md-6">
-                  <span className="icon_top icon-information"></span>
-                  <p className="marginTop10">Вы можете загрузить до 10 фото.</p>
-                  <p className="photoInfo">
-                    Максимальный размер файла 5 МБ,<br /> формат .jpg, .jpeg, .png, .gif.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="dr-profile-gallery"></div>
+            <PhotosInput
+              label=""
+              inputName="create_profile[certificates][][id]"
+              fieldName="create_profile[certificates]"
+              apiUrl="/api/certificates"
+              fieldId="id"
+              fieldPreview="upload_preview_url"
+              {...this.props}
+            />
             <Field
               component={RenderSelect}
               className="dr-task-select"

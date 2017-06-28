@@ -18,5 +18,5 @@ class Certificate < ApplicationRecord
 
   belongs_to :profile
 
-  validates :profile_id, :file, presence: true
+  validates :file, presence: true
 end

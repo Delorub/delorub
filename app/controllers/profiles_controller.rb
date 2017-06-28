@@ -59,6 +59,10 @@ class ProfilesController < ApplicationController
 
   private
 
+    def end_of_association_chain
+      ProfileQuery.new(collection: super, category: @category, current_user: current_user).perform
+    end
+
     def current_user_or_new
       user_signed_in? ? current_user : User.new
     end
@@ -88,7 +92,7 @@ class ProfilesController < ApplicationController
       params.require(:create_profile).permit(:main_category_id, :temporary_photo_id,
         :about, :place_id, :notifications_type, :paid_functions, :have_car, :have_instrument, :can_departure,
         :price_type, :working_hours_from, :working_hours_to, :price_hourly, :price_project,
-        categories: [:id], working_days: {})
+        categories: [:id], portfolio_items: [:id], certificates: [:id], working_days: {})
     end
 
     def create_profile_form_props

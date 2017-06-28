@@ -5,8 +5,12 @@
       <div class="row margin-none">
         <div class="col-md-12 padding-none modal-categories-content-header">
           <a href="<%= tasks_path %>" class="btn dr-button-blueFull">Все задания</a>
-          <a href="<%= my_tasks_path %>" class="btn dr-button-blue">Мои задания</a>
-          <a href="<%= suggested_tasks_path %>" class="btn dr-button-blue">Подходящие задания</a>
+          <% if user_signed_in? %>
+            <a href="<%= my_tasks_path %>" class="btn dr-button-blue">Мои задания</a>
+          <% end %>
+          <% if user_signed_in? && current_user.master? %>
+            <a href="<%= suggested_tasks_path %>" class="btn dr-button-blue">Подходящие задания</a>
+          <% end %>
         </div>
       </div>
       <div class="dr-bottom-service">

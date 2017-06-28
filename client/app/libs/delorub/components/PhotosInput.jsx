@@ -5,7 +5,6 @@ import { Field, FieldArray } from 'redux-form';
 
 class PhotosInput extends React.Component {
   onUploadFinish(error, result) {
-    console.log(this.props)
     this.props.array.push(this.props.fieldName, result.body)
   }
 
@@ -22,11 +21,15 @@ class PhotosInput extends React.Component {
     });
   }
 
+  removeFile(event) {
+    event.preventDefault()
+  }
+
   renderFilePreview(params) {
     return (
       <div className="dr-task-photo-load-image">
         <img src={params.input.value} className="img-responsive" />
-        <a><span className="glyphicon glyphicon-remove"></span></a>
+        <a href="#" onClick={::this.removeFile}><span className="glyphicon glyphicon-remove"></span></a>
       </div>
     )
   }

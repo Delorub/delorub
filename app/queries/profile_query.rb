@@ -1,16 +1,13 @@
-class TaskQuery
-  attr_accessor :scope, :category, :current_user, :collection
+class ProfileQuery
+  attr_accessor :category, :current_user, :collection
 
-  def initialize collection:, scope:, category:, current_user:
+  def initialize collection:, category:, current_user:
     @collection = collection
-    @scope = scope
     @category = category
     @current_user = current_user
   end
 
   def perform
-    apply_user if scope == :my
-    apply_suggested if scope == :suggested
     apply_category if category
     apply_order
     collection
@@ -20,10 +17,6 @@ class TaskQuery
 
     def apply_user
       @collection = collection.by_user current_user
-    end
-
-    def apply_suggested
-      @collection = collection.by_category_ids current_user.profile.category_ids
     end
 
     def apply_category

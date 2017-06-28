@@ -27,21 +27,21 @@ class Task::FormCreator
   private
 
     def assign_hash_to_model
-      model.attributes = hash.slice(*params)
-      model.file_ids = file_ids
+      @model.attributes = hash.slice(*params)
+      @model.file_ids = file_ids
       assign_date
     end
 
     def assign_date
-      model.date_actual = nil
-      model.date_interval_from = nil
-      model.date_interval_to = nil
-      case model.date_type.to_sym
+      @model.date_actual = nil
+      @model.date_interval_from = nil
+      @model.date_interval_to = nil
+      case @model.date_type.to_sym
       when :actual
-        model.date_actual = Time.zone.parse "#{hash[:date_actual_date]} #{hash[:date_actual_time]}"
+        @model.date_actual = Time.zone.parse "#{hash[:date_actual_date]} #{hash[:date_actual_time]}"
       when :interval
-        model.date_interval_from = Time.zone.parse hash[:date_interval_from_date]
-        model.date_interval_to = Time.zone.parse hash[:date_interval_to_date]
+        @model.date_interval_from = Time.zone.parse hash[:date_interval_from_date]
+        @model.date_interval_to = Time.zone.parse hash[:date_interval_to_date]
       end
     end
 

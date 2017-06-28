@@ -29,6 +29,7 @@ class RenderSelect extends React.Component {
         {meta.touched && meta.error &&
          <span className="error">{meta.error}</span>}
         <br />
+        <input type="hidden" name={input.name} value={input.value} />
         <ComponentName
           {...rest}
           value={input.value}

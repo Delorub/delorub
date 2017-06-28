@@ -11,6 +11,13 @@ class Entities::CreateProfileForm < Grape::Entity
     e.categories.map(&:id)
   end
 
+  expose :certificates, with: Entities::Certificate do |e|
+    e.certificates.map(&:model)
+  end
+  expose :portfolio_items, with: Entities::PortfolioItem do |e|
+    e.portfolio_items.map(&:model)
+  end
+
   expose :about
 
   expose :photo_url do |e|

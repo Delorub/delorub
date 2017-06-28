@@ -3,10 +3,28 @@ import { Field } from 'redux-form';
 
 export default class Fields extends React.Component {
   renderCategories(params) {
+    if(!params.input.value) {
+      return null;
+    }
+
     return (
       <div>
-        {params.input.value.map((category, index) => (
-          <input key={index} type="hidden" name={`${params.input.name}[][id]`} value={category} />
+        {params.input.value.map((el, index) => (
+          <input key={index} type="hidden" name={`${params.input.name}[][id]`} value={el} />
+        ))}
+      </div>
+    )
+  }
+
+  renderArray(params) {
+    if(!params.input.value) {
+      return null;
+    }
+
+    return (
+      <div>
+        {params.input.value.map((el, index) => (
+          <input key={index} type="hidden" name={`${params.input.name}[][id]`} value={el.id} />
         ))}
       </div>
     )
@@ -17,6 +35,8 @@ export default class Fields extends React.Component {
       <div>
         <Field component="input" type="hidden" name="create_profile[main_category_id]" />
         <Field component={this.renderCategories} name="create_profile[categories]" />
+        <Field component={this.renderArray} name="create_profile[certificates]" />
+        <Field component={this.renderArray} name="create_profile[portfolio_items]" />
         <Field component="input" type="hidden" name="create_profile[temporary_photo_id]" />
         <Field component="input" type="hidden" name="create_profile[about]" />
         <Field component="input" type="hidden" name="create_profile[place_id]" />

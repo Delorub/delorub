@@ -54,6 +54,7 @@ class Task < ApplicationRecord
   scope :by_user, ->(user) { where user_id: user.id }
   scope :by_category, ->(category) { where category_id: category.id }
   scope :by_category_with_descendants, ->(category) { where category_id: category.self_and_descendants_ids }
+  scope :by_category_ids, ->(category_ids) { where category_id: category_ids }
 
   after_create :increment_user_free_tasks, unless: :billable
   after_destroy :decrement_user_free_tasks, unless: :billable

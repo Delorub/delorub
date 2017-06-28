@@ -4,7 +4,7 @@ class PortfolioItemUploader < BaseUploader
     process convert: 'jpg'
 
     def full_filename for_file = model.photo.file
-      'thumb.png'
+      'thumb.jpg'
     end
   end
 
@@ -13,7 +13,7 @@ class PortfolioItemUploader < BaseUploader
     process convert: 'jpg'
 
     def full_filename for_file = model.photo.file
-      'preview.png'
+      'preview.jpg'
     end
   end
 

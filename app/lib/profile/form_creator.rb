@@ -30,13 +30,31 @@ class Profile::FormCreator
   private
 
     def assign_hash_to_profile
-      model[:profile].attributes = hash[:profile].with_indifferent_access.slice(*profile_params)
-      model[:profile].category_ids = hash[:profile]['categories'].map { |e| e[:id].to_i }
+      @model[:profile].attributes = hash[:profile].with_indifferent_access.slice(*profile_params)
+      @model[:profile].category_ids = category_ids
+      @model[:profile].portfolio_item_ids = portfolio_item_ids
+      @model[:profile].certificate_ids = certificate_ids
+      @model[:profile].working_days = []
+    end
+
+    def category_ids
+      hash[:profile]['categories'].map { |e| e[:id].to_i }
+    end
+
+    def portfolio_item_ids
+      hash[:profile]['portfolio_items'].map { |e| e[:id].to_i }
+    end
+
+    def certificate_ids
+      hash[:profile]['certificates'].map { |e| e[:id].to_i }
     end
 
     def assign_hash_to_user
-      model[:user].place_id = hash[:user]['place_id']
-      model[:user].photo = user_temporary_photo.photo.file if hash[:user]['temporary_photo_id'].present?
+      @model[:user].place_id = hash[:user]['place_id']
+      if hash[:user]['temporary_photo_id'].present?
+        @model[:user].remove_photo!
+        @model[:user].photo = user_temporary_photo.photo.file
+      end
     end
 
     def user_temporary_photo
@@ -44,15 +62,15 @@ class Profile::FormCreator
     end
 
     def assign_date
-      model.date_actual = nil
-      model.date_interval_from = nil
-      model.date_interval_to = nil
+      @model.date_actual = nil
+      @model.date_interval_from = nil
+      @model.date_interval_to = nil
       case model.date_type.to_sym
       when :actual
-        model.date_actual = Time.zone.parse "#{hash[:date_actual_date]} #{hash[:date_actual_time]}"
+        @model.date_actual = Time.zone.parse "#{hash[:date_actual_date]} #{hash[:date_actual_time]}"
       when :interval
-        model.date_interval_from = Time.zone.parse hash[:date_interval_from_date]
-        model.date_interval_to = Time.zone.parse hash[:date_interval_to_date]
+        @model.date_interval_from = Time.zone.parse hash[:date_interval_from_date]
+        @model.date_interval_to = Time.zone.parse hash[:date_interval_to_date]
       end
     end
 
