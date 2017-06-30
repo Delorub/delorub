@@ -4,12 +4,12 @@ class ProfilesController < ApplicationController
   helper_method :create_profile_form_props, :current_url
 
   def new
-    authorize Profile.new(user: current_user), :create?
+    authorize Profile, :create?
     @form = CreateProfileForm.new profile: Profile.new(user: current_user).decorate, user: current_user_or_new
   end
 
   def create
-    authorize Profile.new(user: current_user), :create?
+    authorize Profile, :create?
     @form = CreateProfileForm.new profile: Profile.new(user: current_user).decorate, user: current_user_or_new
 
     if @form.validate create_profile_params

@@ -26,6 +26,8 @@ class Reply < ApplicationRecord
   belongs_to :user
   belongs_to :billable, polymorphic: true
 
+  has_many :comments, as: :commentable, dependent: :destroy
+
   validates :user, :task, :content, presence: true
   validates :content, length: { minimum: 5, maximum: 2000 }
 

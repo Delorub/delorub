@@ -4,7 +4,7 @@ class CategoryPhotoUploader < BaseUploader
   end
 
   version :thumb do
-    process resize_to_limit: [35, 35]
+    process resize_to_limit: [70, 70]
     process convert: 'png'
 
     def full_filename for_file = model.photo.file

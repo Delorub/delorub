@@ -7,6 +7,8 @@
     </p>
   </div>
   <%= render 'replies/reply', resource: resource.replies.by_user(current_user).first %>
+  <%= render 'replies/comments', comments: resource.replies.by_user(current_user).first.comments %>
+  <%= render 'replies/comments/form', reply: resource.replies.by_user(current_user).first, resource: Comment.new %>
 <% end %>
 
 <% if policy(resource).view_replies? && resource.replies.exists? %>

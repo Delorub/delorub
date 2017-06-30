@@ -5,7 +5,7 @@ class TaskForm < BaseForm
   property :category_id
   property :main_category_id
 
-  property :date_type, default: 'actual'
+  property :date_type, default: 'interval'
   property :date_actual_date, default: -> { I18n.l(Time.zone.now + 1.day, format: :date) }
   property :date_actual_time, default: -> { I18n.l(Time.zone.now, format: :timeofday) }
   property :date_interval_from_date, default: -> { I18n.l(Time.zone.now, format: :date) }

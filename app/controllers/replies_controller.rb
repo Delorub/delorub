@@ -25,20 +25,19 @@ class RepliesController < ApplicationController
 
   def accept
     authorize resource, :accept?
+    Deal::Creator.new(resource).perform
     redirect_to task_path(resource.task), notice: 'Поздравляем! Исполнитель выбран'
   end
 
   def decline
     authorize resource, :decline?
-    resource.decline
-    resource.save
+    resource.decline!
     redirect_to task_path(resource.task), notice: 'Мастеру отказано'
   end
 
   def cancel_decline
     authorize resource, :cancel_decline?
-    resource.cancel_decline
-    resource.save
+    resource.cancel_decline!
     redirect_to task_path(resource.task), notice: 'Отказ отменен'
   end
 

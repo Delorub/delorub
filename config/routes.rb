@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
   resources :tasks, only: [:show, :edit, :update], path: 'task' do
     resources :replies, only: [:show, :create, :edit, :update, :destroy] do
+      resources :comments, only: [:create]
       member do
         get 'cancel_decline'
         get 'decline'
@@ -40,6 +41,10 @@ Rails.application.routes.draw do
       get '/suggested(/:category_id)', action: :index, as: :suggested, defaults: { scope: :suggested }
       get '/:category_id', action: :index, as: :category
     end
+  end
+
+  resources :deals, only: [:show] do
+    resources :comments, only: [:create]
   end
 
   resources :news, only: [:index, :show]

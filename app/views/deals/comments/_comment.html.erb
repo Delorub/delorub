@@ -1,0 +1,10 @@
+<div class="row row-eq-height dr-one-ticket-discussion">
+  <%= render 'shared/user/info', user: resource.user %>
+  <div class="col-md-10 padding-none">
+    <div class="dr-one-ticket-discussion-content">
+      <p class="gray-text">
+        <%= simple_format resource.text %>
+      </p>
+    </div>
+  </div>
+</div>

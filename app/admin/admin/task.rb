@@ -23,7 +23,6 @@ ActiveAdmin.register Task, namespace: :admin do
       f.input :description
       f.input :price_type
       f.input :date_type
-      f.input :visible
       f.input :price_exact
       f.input :price_from
       f.input :price_to
@@ -33,7 +32,6 @@ ActiveAdmin.register Task, namespace: :admin do
       f.input :date_actual, as: :date_time_picker
       f.input :date_interval_to, as: :date_time_picker
       f.input :notify_email
-      f.input :archive
       f.input :price_scale
       f.input :contract_type
     end
@@ -59,8 +57,6 @@ ActiveAdmin.register Task, namespace: :admin do
       row :date_interval_to
       row :description
       row :notify_email
-      row :visible
-      row :archive
       row :price_scale
       row :place
       row :place_lat

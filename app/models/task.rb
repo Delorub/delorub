@@ -19,8 +19,6 @@
 #  contract_type      :string
 #  description        :text
 #  notify_email       :boolean
-#  visible            :boolean          default(TRUE)
-#  archive            :boolean
 #  colored            :boolean          default(FALSE)
 #  billable_type      :string
 #  billable_id        :integer
@@ -29,11 +27,16 @@
 #  date_actual        :datetime
 #  date_interval_from :datetime
 #  date_interval_to   :datetime
+#  aasm_state         :string
+#
+# Indexes
+#
+#  index_tasks_on_aasm_state  (aasm_state)
 #
 
 class Task < ApplicationRecord
+  include AASM
   include Searchable::Task
-
   extend Enumerize
 
   belongs_to :user
@@ -43,6 +46,9 @@ class Task < ApplicationRecord
 
   has_many :files, class_name: 'TaskFile', dependent: :destroy
   has_many :replies, dependent: :destroy
+
+  has_one :deal
+  has_one :accepted_reply, -> { accepted }, class_name: 'Reply'
 
   enumerize :price_type, in: [:exact, :interval, :scale]
   enumerize :date_type, in: [:actual, :interval, :none]
@@ -58,6 +64,26 @@ class Task < ApplicationRecord
 
   after_create :increment_user_free_tasks, unless: :billable
   after_destroy :decrement_user_free_tasks, unless: :billable
+
+  aasm initial: :moderation do
+    state :moderation, :rejected, :active, :in_deal, :archived
+
+    event :reject do
+      transitions from: :moderation, to: :rejected
+    end
+
+    event :accept do
+      transitions from: :moderation, to: :active
+    end
+
+    event :make_deal do
+      transitions from: :active, to: :in_deal
+    end
+
+    event :archive do
+      transitions from: :active, to: :archive
+    end
+  end
 
   private
 

@@ -1,0 +1,31 @@
+<%= form_for(resource, as: :comment, url: deal_comments_path(deal.id)) do |f| %>
+  <div class="row margin-none">
+    <div class="col-md-12 padding-none">
+      <div class="dr-one-ticket-ask-master-header">
+        <div class="dr-header-span without-border">
+          <p class="dr-header-span-unmarked">
+            <% if current_user.id == deal.profile.user_id %>
+              Сообщение заказчику
+            <% else %>
+              Сообщение мастеру
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row row-eq-height margin-none">
+    <%= render 'shared/user/form_info', user: current_user %>
+    <div class="col-md-10 dr-one-ticket-ask-master-content">
+      <div class="dr-task-description dr-task-div">
+        <span class="textarea-label">Ваш комментарий</span>
+        <%= f.text_area :text, autofocus: true, class: 'form-control', cols: 6, rows: 60, placeholder: 'Введите ваш комментарий' %>
+        <div>
+          <div class="dr-one-ticket-ask-master-content-send">
+            <input type="submit" class="btn dr-button-blueFull" value="Отправить" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

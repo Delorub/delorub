@@ -37,9 +37,11 @@
     </p>
   </div>
   <div class="col-md-4 padding-none">
-    <div class="dr-one-ticket-refinement dr-all-task">
-      <button type="button" class="btn dr-button-blueFull">Предложить персональное задание</button>
-    </div>
+    <% if policy(resource).personal_task? %>
+      <div class="dr-one-ticket-refinement dr-all-task">
+        <button type="button" class="btn dr-button-blueFull">Предложить персональное задание</button>
+      </div>
+    <% end %>
     <%= render 'shared/profile/working_info', profile: resource %>
   </div>
 </div>

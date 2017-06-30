@@ -1,0 +1,10 @@
+<% if comments.count.positive? %>
+  <div class="dr-header-span">
+    <p class="dr-header-span-unmarked">
+      Обсуждение
+    </p>
+  </div>
+  <% comments.each do |comment| %>
+    <%= render 'deals/comments/comment', resource: comment %>
+  <% end %>
+<% end %>

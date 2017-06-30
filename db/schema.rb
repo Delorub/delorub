@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170622183630) do
+ActiveRecord::Schema.define(version: 20170629031303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -155,7 +155,7 @@ ActiveRecord::Schema.define(version: 20170622183630) do
 
   create_table "deals", force: :cascade do |t|
     t.integer "task_id"
-    t.integer "reply_id"
+    t.integer "profile_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -340,8 +340,6 @@ ActiveRecord::Schema.define(version: 20170622183630) do
     t.string   "contract_type"
     t.text     "description"
     t.boolean  "notify_email"
-    t.boolean  "visible",            default: true
-    t.boolean  "archive"
     t.boolean  "colored",            default: false
     t.string   "billable_type"
     t.integer  "billable_id"
@@ -350,7 +348,10 @@ ActiveRecord::Schema.define(version: 20170622183630) do
     t.datetime "date_actual"
     t.datetime "date_interval_from"
     t.datetime "date_interval_to"
+    t.string   "aasm_state"
   end
+
+  add_index "tasks", ["aasm_state"], name: "index_tasks_on_aasm_state", using: :btree
 
   create_table "user_billing_logs", force: :cascade do |t|
     t.float    "sum"

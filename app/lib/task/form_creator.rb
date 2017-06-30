@@ -13,6 +13,7 @@ class Task::FormCreator
         @hash = form_hash
         @model = form.model
         assign_hash_to_model
+        model.accept
         model.save
       end
     end

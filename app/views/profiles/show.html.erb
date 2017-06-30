@@ -9,6 +9,8 @@
   </div>
 </div>
 
+<% if policy(resource).personal_task? %>
 <div class="border-top">
   <button type="button" class="btn dr-button-blue">Предложить персональное задание</button>
 </div>
+<% end %>

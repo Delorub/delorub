@@ -11,6 +11,10 @@ class TasksController < ApplicationController
     super
   end
 
+  def show
+    return redirect_to deal_path(resource.deal) if resource.deal.present? && policy(resource.deal).show?
+  end
+
   def new
     authorize Task, :create?
     @form = TaskForm.new Task.new(user: current_user).decorate

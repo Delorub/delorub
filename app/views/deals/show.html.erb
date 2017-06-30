@@ -1,0 +1,11 @@
+<%= render 'tasks/info', resource: resource.task %>
+
+<div class="dr-header-span">
+  <p class="dr-header-span-unmarked">
+    Сделка
+  </p>
+</div>
+
+<%= render 'reply', resource: resource.task.accepted_reply %>
+<%= render 'comments', comments: resource.comments %>
+<%= render 'deals/comments/form', deal: resource, resource: Comment.new %>

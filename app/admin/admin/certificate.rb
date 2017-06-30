@@ -1,6 +1,12 @@
 ActiveAdmin.register Certificate do
   permit_params :file, :profile_id
 
+  controller do
+    def scoped_collection
+      end_of_association_chain.where.not(profile_id: nil)
+    end
+  end
+
   form do |f|
     inputs 'Основное' do
       input :file
