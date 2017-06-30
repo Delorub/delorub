@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderField as renderDatePickerField } from 'libs/delorub/redux-form-datepicker'
+import RenderDatepicker from 'libs/delorub/redux-form-datepicker'
 import { renderField } from 'libs/delorub/redux-form-input'
 import { required, time } from 'libs/delorub/redux-form-validations'
 import { normalizeTime } from 'libs/delorub/redux-form-normalizers'
@@ -17,7 +17,7 @@ export default class DateActual extends React.Component {
         <div className="row">
           <div className="col-md-6">
             <Field
-              component={renderDatePickerField}
+              component={RenderDatepicker}
               className="form-control"
               name="task[date_actual_date]"
               placeholder="Дата"

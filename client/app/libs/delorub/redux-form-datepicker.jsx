@@ -4,23 +4,36 @@ import 'react-datepicker/dist/react-datepicker.css';
 import classNames from 'classnames';
 import moment from 'moment';
 
-export const renderField = field => {
-  var divClasses = classNames(
-    { 'dr-task-div-error': field.meta.touched && field.meta.error }
-  );
+class RenderDatepicker extends React.Component {
+  clickOutside() {
+    this.refs.picker.cancelFocusInput();
+    this.refs.picker.setOpen(false);
+  }
 
-  return (
-    <div className={divClasses}>
-      <DatePicker
-        dateFormat='DD.MM.YYYY'
-        locale="ru"
-        name={field.input.name}
-        selected={field.input.value ? moment(field.input.value, 'DD.MM.YYYY') : null}
-        className={field.className}
-        onChange={field.input.onChange}
-        onFocus={field.input.onFocus}
-        onBlur={field.input.onBlur}
-      />
-    </div>
-  )
+  render() {
+    const { input, data, meta, ...rest } = this.props
+
+    var divClasses = classNames(
+      { 'dr-task-div-error': meta.touched && meta.error }
+    );
+
+    return (
+      <div className={divClasses}>
+        <DatePicker
+          dateFormat='DD.MM.YYYY'
+          locale="ru"
+          ref="picker"
+          name={input.name}
+          selected={input.value ? moment(input.value, 'DD.MM.YYYY') : null}
+          onChange={input.onChange}
+          onFocus={input.onFocus}
+          onBlur={input.onBlur}
+          onClickOutside={::this.clickOutside}
+          {...rest}
+        />
+      </div>
+    )
+  }
 }
+
+export default RenderDatepicker

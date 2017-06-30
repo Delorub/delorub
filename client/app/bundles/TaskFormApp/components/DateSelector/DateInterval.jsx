@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderField as renderDatePickerField } from 'libs/delorub/redux-form-datepicker'
+import RenderDatepicker from 'libs/delorub/redux-form-datepicker'
 import { required } from 'libs/delorub/redux-form-validations'
 import { Field } from 'redux-form';
 
@@ -12,7 +12,7 @@ export default class DateInterval extends React.Component {
         <div className="row">
           <div className="col-md-6">
             <Field
-              component={renderDatePickerField}
+              component={RenderDatepicker}
               className="form-control"
               name="task[date_interval_from_date]"
               validate={[required]}
@@ -20,7 +20,7 @@ export default class DateInterval extends React.Component {
           </div>
           <div className="col-md-6">
             <Field
-              component={renderDatePickerField}
+              component={RenderDatepicker}
               name="task[date_interval_to_date]"
               className="form-control"
               validate={[required]}

@@ -55,6 +55,9 @@ class Task < ApplicationRecord
   enumerize :contract_type, in: [:no_contract, :contract]
 
   validates :title, :description, :user_id, :category_id, :price_type, :date_type, presence: true
+  validates :date_interval_from, :date_interval_to, presence: true, if: -> { date_type.interval? }
+  validates :date_actual, presence: true, if: -> { date_type.actual? }
+  validates :price_exact, presence: true, if: -> { price_type.exact? }
   validate :ensure_user_can_create
 
   scope :by_user, ->(user) { where user_id: user.id }

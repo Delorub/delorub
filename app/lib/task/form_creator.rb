@@ -13,7 +13,8 @@ class Task::FormCreator
         @hash = form_hash
         @model = form.model
         assign_hash_to_model
-        model.accept
+        # TODO: Remove after moderation release
+        model.accept if model.moderation?
         model.save
       end
     end
