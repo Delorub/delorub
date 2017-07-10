@@ -1,549 +1,349 @@
 <!DOCTYPE html>
+
 <html>
   <head>
-    <meta charset="utf-8">
     <title>Delorub</title>
+    <meta charset="UTF-8">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta property="og:image" content="path/to/image.jpg">
-    <link rel="shortcut icon" href="/images/favicon/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/images/favicon/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-touch-icon-114x114.png">
-    <link rel="stylesheet" href="website-bundle.css">
+    <link rel="stylesheet" href="/webpack/development/website.css">
     <!-- Chrome, Firefox OS and Opera -->
     <meta name="theme-color" content="#000">
     <!-- Windows Phone -->
     <meta name="msapplication-navbutton-color" content="#000">
     <!-- iOS Safari -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="#000">    
-
+    <meta name="apple-mobile-web-app-status-bar-style" content="#000">
   </head>
   <body>
-    <div class="container">
-      <div class="row row-eq-height">
-        <div class="col-sm-11 col-sm-push-1 dr-content">
-          <main class="content">
-            <nav role="navigation" class="navbar navbar-default dr-top-nav dr-top-nav-pages navbar-static-top">
-              <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button>
-                  <a class="navbar-brand" href="#"><img src="/images/design/logo.svg" alt=""></a>
-                </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                  <ul class="nav navbar-nav">
-                    <li><a href="#">Новости</a></li>
-                    <li><a href="#">Все задания</a></li>
-                    <li><a href="#">Все мастера</a></li>
-                    <li><a href="#">Как стать мастером</a></li>
-                    <li><a href="#">Как это работает?</a></li>
-                  </ul>
-                  <ul class="nav navbar-nav right">
-                    <li><a href="#" class='dr-top-nav-icon icon-search'></a></li>
-                    <li><a href="#" class='dr-top-nav-icon icon-koll_active'></a></li>
-                    <li><a href="#">Александр Ермолаев</a></li>
-                    <li><a href="#" class='dr-top-nav-icon icon-avtoriz'></a></li>
-                  </ul>
-                </div><!-- /.navbar-collapse -->
-              </div><!-- /.container-fluid -->
-            </nav>
-            <div class="dr-container">
-              <div class="row">
-
-                <div class="col-sm-12 col-md-8">
-
-                  <div class="row">
-
-                    <div class="col-md-5">
-                      <div class="dr-header-span without-border">
-                        <p>
-                          Все <p class="dr-header-span-unmarked">&nbsp;мастера<p>                 
-                        </p>                        
-                      </div> 
-                    </div>
-
-                    <div class="col-md-7 dr-all-task-subdivision">
-
-                      <h3>Организация мероприятий</h3>
-                      <span>Оформление помещений</span>
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-
-              </div>
-
-              <div class="dr-all-masters-categories">
-
-                <div class="dr-all-masters-categories-row">
-
-                  <a class="dr-all-masters-categories-row-category">
-                    <div class="dr-all-masters-categories-row-category-content">
-                      Ремонт
-                    </div>  
-                  </a>                  
-                  <a class="dr-all-masters-categories-row-category">
-                    <div class="dr-all-masters-categories-row-category-content">
-                      Уборка
-                    </div>
-                  </a>
-                  <a class="dr-all-masters-categories-row-category">
-                    <div class="dr-all-masters-categories-row-category-content">
-                      Красота и здоровье
-                    </div>
-                  </a>
-                  <a class="dr-all-masters-categories-row-category">
-                    <div class="dr-all-masters-categories-row-category-content">
-                      Образование
-                    </div>
-                  </a>
-                  <a class="dr-all-masters-categories-row-category">
-                    <div class="dr-all-masters-categories-row-category-content">
-                      Грузоперевозки
-                    </div>
-                  </a>
-                  <a class="dr-all-masters-categories-row-category">
-                    <div class="dr-all-masters-categories-row-category-content">
-                      Тату, пирсинг и бодимодификация
-                    </div>
-                  </a>
-                  <a class="dr-all-masters-categories-row-category">
-                    <div class="dr-all-masters-categories-row-category-content">
-                      Вейпинг
-                    </div>
-                  </a>
-                  <a class="dr-all-masters-categories-row-category">
-                    <div class="dr-all-masters-categories-row-category-content">
-                      Фото- и видеосъемка
-                    </div>
-                  </a>
-                </div>
-
-                <div class="dr-all-masters-categories-row">
-
-                  <a class="dr-all-masters-categories-row-category">
-                    <div class="dr-all-masters-categories-row-category-content">
-                      Юридическая помощь
-                    </div>
-
-                  </a>
-                  <a class="dr-all-masters-categories-row-category">
-                    <div class="dr-all-masters-categories-row-category-content">
-                      Уход за животными
-                    </div>
-
-                  </a>
-                  <a class="dr-all-masters-categories-row-category category-active">
-                    <div class="dr-all-masters-categories-row-category-content">
-                      Организация мероприятий
-                    </div>
-
-                  </a>
-                  <a class="dr-all-masters-categories-row-category">
-                    <div class="dr-all-masters-categories-row-category-content">
-                      Кейтеринг и кулинария
-                    </div>
-
-                  </a>
-                  <a class="dr-all-masters-categories-row-category">
-                    <div class="dr-all-masters-categories-row-category-content">
-                      Спорт и туризм
-                    </div>
-
-                  </a>
-                  <a class="dr-all-masters-categories-row-category">
-                    <div class="dr-all-masters-categories-row-category-content">
-                      Интернет-услуги
-                    </div>
-
-                  </a>
-                  <a class="dr-all-masters-categories-row-category">
-                    <div class="dr-all-masters-categories-row-category-content">
-                      Домашний персонал
-                    </div>
-
-                  </a>
-                  <a class="dr-all-masters-categories-row-category">
-                    <div class="dr-all-masters-categories-row-category-content">
-                      Разное
-                    </div>
-
-                  </a>
-
-                </div>
-
-              </div>
-
-              <div class="profileRefinement border-top">
-                <div class="row">
-                  <div class="col-md-3">
-                    <div class="checkbox">
-                      <label><input type="checkbox" value="">Ведущие и звёзды</label>
-                    </div>
-                    <div class="checkbox marked">
-                      <label><input type="checkbox" value="">Оформление помещений</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input type="checkbox" value="">Организация детских праздников</label>
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="checkbox">
-                      <label><input type="checkbox" value="">Музыкальное сопровождение</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input type="checkbox" value="">Организация питания</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input type="checkbox" value="">Фотографы</label>
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="checkbox">
-                      <label><input type="checkbox" value="">Видеооператоры</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input type="checkbox" value="">Праздник под ключ</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input type="checkbox" value="">Другие ивент услуги</label>
-                    </div>
-                  </div>
-                </div>                
-              </div>
-
-              <div class="row margin-none border-top">
-
-                <div class="col-md-3 padding-none">
-                  <div class="dr-all-masters-input">
-                    <span class="input-label">Город</span>
-
-                    <select class="dr-task-select">
-                      <option>Москва</option>
-                      <option>Пункт 2</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-md-3 padding-none">
-                  <div class="dr-all-masters-input">
-                    <span class="input-label">Рейтинг</span>
-                    <div class="dr-all-masters-stars">
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-                    </div>
-                    <br/><br/>
-                    <span class="minValue gray-text">0</span>
-                    <span class="currentValue current-value bold-text-light">41775</span>
-                    <span class="maxValue right gray-text">300 000</span>
-                    <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="300" data-slider-step="1" data-slider-value="41"/>
-                  </div>
-                </div>
-                <div class="col-md-3 padding-none">
-                  <div class="dr-all-masters-input">
-                    <span class="input-label">Вариант оплаты</span>
-
-                    <select class="dr-task-select">
-                      <option>Цена за час</option>
-                      <option>Пункт 2</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-md-3 padding-none">
-                  <div class="dr-all-masters-input">
-                    <span class="input-label">Почасовая ставка</span>
-                    <br/>
-                    <input type="text" class="form-control" placeholder="16500"/>
-                    <input type="text" class="form-control" placeholder="16500"/>
-                  </div>
-                </div>
-
-              </div>
-
-              <div class="row row-eq-height dr-all-task-container">
-
-                <div class="col-md-2 padding-none">                  
-                  <div class="dr-one-ticket-ticket-avatar">
-                    <div class="dr-vacancy-content-avatar-roundInner">
-                      <a href="#" class='dr-top-nav-icon icon-avtoriz'></a>
-                    </div>
-                  </div>
-                  <br/>
-                  <div class="dr-one-ticket-ticket-avatar-feedback">
-                    <p>150 отзывов</p>
-                  </div>
-                  <div class="dr-all-masters-stars">
-                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-                  </div>
-                  <div class="dr-one-ticket-ticket-rating">
-                    <br/>
-                    <br/>
-                    <span class="gray-text-light">Рейтинг</span>
-                    <br/>
-                    <span class="bold-text-light">41775</span>
-                  </div>
-                </div>                
-                <div class="col-md-6 dr-one-ticket-ticket-content gray-text">
-                  <span class="dr-news-content-date">На сайте с 10.01.2015</span>
-                  <span class="content-header">Ермолаев Александр Сергеевич</span>
-                  <br/><br/>
-                  <p>
-                    Необходимо сделать перевод текстов туристической тематики. 
-                    Сроки выполнения - до завтрашней ночи/раннего утра воскресенья.
-                    Сроки выполнения - до завтрашней ночи/раннего утра воскресенья.
-                    Оплата - 120 рублей за 1000 символов... <a class="dr-news-content-show-all">Показать всё</a>
-                  </p>                 
-                  <div class="dr-all-masters-content-button">
-                    <button type="button" class="btn dr-button-blue">Откликнуться на задание</button>
-                  </div>
-                  <div class="dr-all-masters-content-more">                    
-                    <p>
-                      <span class="black-text bold-text-light">Подробнее</span>
-                    </p>
-                  </div>                  
-                </div>                
-                <div class="col-md-4 padding-none">
-                  <div class="dr-one-ticket-refinement dr-all-task">
-                    <br/>
-                    <p class="bold-text">Почасовая ставка</p>
-                    <div class="dr-all-masters-price">
-                      <span>1 650</span><span>₽/час</span>                                                         
-                    </div>                    
-                  </div>
-                  <div class="dr-one-ticket-refinement dr-all-task without-border padding-none">
-                    <div class="row dr-all-masters-days margin-none">
-                      <div class="col-md-4 border-right dr-all-masters-days-blocks">
-                        <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
-                        <br/>
-                        <span class="gray-text-light">Рабочие<br/>дни</span>
-                        <br/>
-                        <span>Пн, Ср, Пт</span>
-                      </div>
-                      <div class="col-md-4 border-right dr-all-masters-days-blocks">
-                        <span class="glyphicon glyphicon-bed" aria-hidden="true"></span>
-                        <br/>
-                        <span class="gray-text-light">Выходные<br/>дни</span>
-                        <br/>
-                        <span class="red-text">Вт, Чт, Сб, Вс</span>
-                      </div>
-                      <div class="col-md-4 dr-all-masters-days-blocks">
-                        <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
-                        <br/>
-                        <span class="gray-text-light">Рабочее<br/>время</span>
-                        <br/>
-                        <span>с 11:30 до 19:30</span>
-                      </div>
-                    </div>                  
-                  </div>                  
-                </div>                
-              </div>
-
-              <div class="row row-eq-height dr-all-task-container">
-
-                <div class="col-md-2 padding-none">                  
-                  <div class="dr-one-ticket-ticket-avatar">
-                    <div class="dr-vacancy-content-avatar-roundInner">
-                      <a href="#" class='dr-top-nav-icon icon-avtoriz'></a>
-                    </div>
-                  </div>
-                  <br/>
-                  <div class="dr-one-ticket-ticket-avatar-feedback">
-                    <p>150 отзывов</p>
-                  </div>
-                  <div class="dr-all-masters-stars">
-                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-                  </div>
-                  <div class="dr-one-ticket-ticket-rating">
-                    <br/>
-                    <br/>
-                    <span class="gray-text-light">Рейтинг</span>
-                    <br/>
-                    <span class="bold-text-light">41775</span>
-                  </div>
-                </div>                
-                <div class="col-md-6 dr-one-ticket-ticket-content gray-text">
-                  <span class="dr-news-content-date">На сайте с 10.01.2015</span>
-                  <span class="content-header">Ермолаев Александр Сергеевич</span>
-                  <br/><br/>
-                  <p>
-                    Необходимо сделать перевод текстов туристической тематики. 
-                    Сроки выполнения - до завтрашней ночи/раннего утра воскресенья.
-                    Сроки выполнения - до завтрашней ночи/раннего утра воскресенья.
-                    Оплата - 120 рублей за 1000 символов... <a class="dr-news-content-show-all">Показать всё</a>
-                  </p>                 
-                  <div class="dr-all-masters-content-button">
-                    <button type="button" class="btn dr-button-blue">Откликнуться на задание</button>
-                  </div>
-                  <div class="dr-all-masters-content-more">                    
-                    <p>
-                      <span class="black-text bold-text-light">Подробнее</span>
-                    </p>
-                  </div>                  
-                </div>                
-                <div class="col-md-4 padding-none">
-                  <div class="dr-one-ticket-refinement dr-all-task">
-                    <br/>
-                    <p class="bold-text">Почасовая ставка</p>
-                    <div class="dr-all-masters-price">
-                      <span>1 650</span><span>₽/час</span>
-                    </div>                    
-                  </div>
-                  <div class="dr-one-ticket-refinement dr-all-task without-border padding-none">
-                    <div class="row dr-all-masters-days margin-none">
-                      <div class="col-md-4 border-right dr-all-masters-days-blocks">
-                        <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
-                        <br/>
-                        <span class="gray-text-light">Рабочие<br/>дни</span>
-                        <br/>
-                        <span>Пн, Ср, Пт</span>
-                      </div>
-                      <div class="col-md-4 border-right dr-all-masters-days-blocks">
-                        <span class="glyphicon glyphicon-bed" aria-hidden="true"></span>
-                        <br/>
-                        <span class="gray-text-light">Выходные<br/>дни</span>
-                        <br/>
-                        <span class="red-text">Вт, Чт, Сб, Вс</span>
-                      </div>
-                      <div class="col-md-4 dr-all-masters-days-blocks">
-                        <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
-                        <br/>
-                        <span class="gray-text-light">Рабочее<br/>время</span>
-                        <br/>
-                        <span>с 11:30 до 19:30</span>
-                      </div>
-                    </div>                  
-                  </div>                  
-                </div>                
-              </div>
-
-              <div class="row row-eq-height dr-all-task-container">
-
-                <div class="col-md-2 padding-none">                  
-                  <div class="dr-one-ticket-ticket-avatar">
-                    <div class="dr-vacancy-content-avatar-roundInner">
-                      <a href="#" class='dr-top-nav-icon icon-avtoriz'></a>
-                    </div>
-                  </div>
-                  <br/>
-                  <div class="dr-one-ticket-ticket-avatar-feedback">
-                    <p>150 отзывов</p>
-                  </div>
-                  <div class="dr-all-masters-stars">
-                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-                  </div>
-                  <div class="dr-one-ticket-ticket-rating">
-                    <br/>
-                    <br/>
-                    <span class="gray-text-light">Рейтинг</span>
-                    <br/>
-                    <span class="bold-text-light">41775</span>
-                  </div>
-                </div>                
-                <div class="col-md-6 dr-one-ticket-ticket-content gray-text">
-                  <span class="dr-news-content-date">На сайте с 10.01.2015</span>
-                  <span class="content-header">Ермолаев Александр Сергеевич</span>
-                  <br/><br/>
-                  <p>
-                    Необходимо сделать перевод текстов туристической тематики. 
-                    Сроки выполнения - до завтрашней ночи/раннего утра воскресенья.
-                    Сроки выполнения - до завтрашней ночи/раннего утра воскресенья.
-                    Оплата - 120 рублей за 1000 символов... <a class="dr-news-content-show-all">Показать всё</a>
-                  </p>                 
-                  <div class="dr-all-masters-content-button">
-                    <button type="button" class="btn dr-button-blue">Откликнуться на задание</button>
-                  </div>
-                  <div class="dr-all-masters-content-more">                    
-                    <p>
-                      <span class="black-text bold-text-light">Подробнее</span>
-                    </p>
-                  </div>                  
-                </div>                
-                <div class="col-md-4 padding-none">
-                  <div class="dr-one-ticket-refinement dr-all-task">
-                    <br/>
-                    <p class="bold-text">Почасовая ставка</p>
-                    <div class="dr-all-masters-price">
-                      <span>1 650</span><span>₽/час</span>
-                    </div>                    
-                  </div>
-                  <div class="dr-one-ticket-refinement dr-all-task without-border padding-none">
-                    <div class="row dr-all-masters-days margin-none">
-                      <div class="col-md-4 border-right dr-all-masters-days-blocks">
-                        <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
-                        <br/>
-                        <span class="gray-text-light">Рабочие<br/>дни</span>
-                        <br/>
-                        <span>Пн, Ср, Пт</span>
-                      </div>
-                      <div class="col-md-4 border-right dr-all-masters-days-blocks">
-                        <span class="glyphicon glyphicon-bed" aria-hidden="true"></span>
-                        <br/>
-                        <span class="gray-text-light">Выходные<br/>дни</span>
-                        <br/>
-                        <span class="red-text">Вт, Чт, Сб, Вс</span>
-                      </div>
-                      <div class="col-md-4 dr-all-masters-days-blocks">
-                        <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
-                        <br/>
-                        <span class="gray-text-light">Рабочее<br/>время</span>
-                        <br/>
-                        <span>с 11:30 до 19:30</span>
-                      </div>
-                    </div>                  
-                  </div>                  
-                </div>                
-              </div>
-
-              <div class="lastRow">
-                <button type="button" class="btn dr-button-empty">Показать еще</button>
-              </div>              
-            </div>
-
-            <div class="dr-bottom-menu">
-              <nav>
-                <ul>
-                  <li><a href="#">Главная</a></li>
-                  <li><a href="#">О проекте делоруб</a></li>
-                  <li><a href="#">Как это работает?</a></li>
-                  <li><a href="#">Как стать мастером?</a></li>
-                  <li><a href="#">Это интересно</a></li>
-                  <li><a href="#">Контакты компании</a></li>
-                  <li><a href="#">О компании</a></li>
-                  <li><a href="#">Помощь</a></li>
-                </ul>
-              </nav>
-            </div>
-          </main>
-        </div>
-        <div class="col-sm-1 col-sm-pull-11 dr-side-menu">
-          <br/>
-          <br/>
-          <a href="#" class="gamburg-menu icon-gamb_menu"></a>
-          <div class="totalz">
-            <a href="#"><span class="n1">10</span><span class="txa">Мои<br/> задания</span></a>
-          </div>
-          <nav>
-            <ul class="left_menu">
-              <li><a href="#"><span class="icon_top icon-add"></span>Создать<br/> задание</a></li>
-              <li><a href="#"><span class="icon_top icon-zadacha"></span>Создать<br/> анкету</a></li>
-              <li><a href="#"><span class="icon_top icon-setups"></span>Мои<br/> настройки</a></li>
-              <li><a href="#"><span class="icon_top icon-cart"></span>Мои<br/> покупки</a></li>
-            </ul>
-          </nav>
-          <div class="year">© 2017</div>
+    <nav class="navbar navbar-toggleable-md bg-faded navbar-dr-theme">
+      <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <img src="/images/design/logo.svg" alt=""/>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Все задания</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Исполнители</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav navbar-right">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Стать исполнителем</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Создать задание</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Вход</a>
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
+    </nav> 
 
-    <script src="website-bundle.js"></script>
+    <div class="container">
+
+      <div class="dr-content-header">
+        <p class="dr-content-header__text dr-content-header__text-margin-bottom-none">
+          Исполнители в категории <a href="#" class="dr-content-header__link">ремонт техники</a>
+          в <a href="#" class="dr-content-header__link">Санкт-Петербурге</a>
+        </p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-8">
+
+          <div class="dr-block-style">
+            <div class="task-sort">
+              <div class="row justify-content-between">
+                <div class="col">
+                  <span>Сортировать по:</span>
+                </div>
+                <div class="col">
+                  <a href="#" class="task-sort__link">Рейтингу</a>
+                </div>
+                <div class="col">
+                  <a href="#" class="task-sort__link">Стоимости</a>
+                </div>
+                <div class="col">
+                  <div class="checkbox checkbox-flex">
+                    <label><input type="checkbox" value="">Новые&nbsp;мастера</label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="checkbox checkbox-flex">
+                    <label><input type="checkbox" value="">Сейчас&nbsp;на&nbsp;сайте</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dr-block-style">
+            <div class="row">
+              <div class="col-lg-2">
+                <div class="master-card-person">
+                  <img class="master-card-person__image" src="/images/search/avatar.png" alt=""/>
+                  <p class="master-card-person__status">Сейчас на сайте</p>
+                  <div class="master-card-person__rating">
+                    <div class="master-card-person__rating-container">
+
+                      <div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
+
+                      <div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
+
+                      <div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
+
+                      <div class="master-card-person__rating-star master-card-person__rating-star-empty"></div>
+
+                      <div class="master-card-person__rating-star master-card-person__rating-star-empty"></div>
+
+                    </div>
+                  </div>
+                  <div class="master-card-person__mark"></div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="master-card-description">
+                  <div class="row justify-content-space-between">
+                    <div class="col">
+                      <p class="master-card-description__header">
+                        <a href="#">
+                          Плехунов Александр Александрович
+                        </a>
+                      </p>
+                    </div>
+                    <div class="">
+                      <span class="master-card-description__price">от 2500 р/час</span>
+                    </div>
+                  </div>
+                  <p class="master-card-description__experience">6 лет на сайте</p>
+                  <p class="master-card-description__text">
+                    http://blog.youdo.com/vitaly-courier Имею среднее профессиональное юридическое образование, 
+                    высшее социологическое и высшее по гос.управлению. Действую всегда четко и бы…
+                  </p>
+                  <a class="btn btn-primary dr-btn-primary dr-btn-primary-margin-top-25" href="#" role="button">Стать исполнителем</a>
+                </div>
+              </div>              
+            </div>
+          </div>
+
+          <div class="dr-block-style">
+            <div class="row">
+              <div class="col-lg-2">
+                <div class="master-card-person">
+                  <img class="master-card-person__image" src="/images/search/avatar.png" alt=""/>
+                  <p class="master-card-person__status">Сейчас на сайте</p>
+                  <div class="master-card-person__rating">
+                    <div class="master-card-person__rating-container">
+
+                      <div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
+
+                      <div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
+
+                      <div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
+
+                      <div class="master-card-person__rating-star master-card-person__rating-star-empty"></div>
+
+                      <div class="master-card-person__rating-star master-card-person__rating-star-empty"></div>
+
+                    </div>
+                  </div>
+                  <div class="master-card-person__mark"></div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="master-card-description">
+                  <div class="row justify-content-space-between">
+                    <div class="col">
+                      <p class="master-card-description__header">
+                        <a href="#">
+                          Плехунов Александр Александрович
+                        </a>
+                      </p>
+                    </div>
+                    <div class="">
+                      <span class="master-card-description__price">от 2500 р/час</span>
+                    </div>
+                  </div>
+                  <p class="master-card-description__experience">6 лет на сайте</p>
+                  <p class="master-card-description__text">
+                    http://blog.youdo.com/vitaly-courier Имею среднее профессиональное юридическое образование, 
+                    высшее социологическое и высшее по гос.управлению. Действую всегда четко и бы…
+                  </p>
+                  <a class="btn btn-primary dr-btn-primary dr-btn-primary-margin-top-25" href="#" role="button">Стать исполнителем</a>
+                </div>
+              </div>              
+            </div>
+          </div>
+
+          <div class="dr-block-style">
+            <div class="row">
+              <div class="col-lg-2">
+                <div class="master-card-person">
+                  <img class="master-card-person__image" src="/images/search/avatar.png" alt=""/>
+                  <p class="master-card-person__status">Сейчас на сайте</p>
+                  <div class="master-card-person__rating">
+                    <div class="master-card-person__rating-container">
+
+                      <div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
+
+                      <div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
+
+                      <div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
+
+                      <div class="master-card-person__rating-star master-card-person__rating-star-empty"></div>
+
+                      <div class="master-card-person__rating-star master-card-person__rating-star-empty"></div>
+
+                    </div>
+                  </div>
+                  <div class="master-card-person__mark"></div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="master-card-description">
+                  <div class="row justify-content-space-between">
+                    <div class="col">
+                      <p class="master-card-description__header">
+                        <a href="#">
+                          Плехунов Александр Александрович
+                        </a>
+                      </p>
+                    </div>
+                    <div class="">
+                      <span class="master-card-description__price">от 2500 р/час</span>
+                    </div>
+                  </div>
+                  <p class="master-card-description__experience">6 лет на сайте</p>
+                  <p class="master-card-description__text">
+                    http://blog.youdo.com/vitaly-courier Имею среднее профессиональное юридическое образование, 
+                    высшее социологическое и высшее по гос.управлению. Действую всегда четко и бы…
+                  </p>
+                  <a class="btn btn-primary dr-btn-primary dr-btn-primary-margin-top-25" href="#" role="button">Стать исполнителем</a>
+                </div>
+              </div>              
+            </div>
+          </div>
+
+          <div class="dr-block-style">
+            <div class="row">
+              <div class="col-lg-2">
+                <div class="master-card-person">
+                  <img class="master-card-person__image" src="/images/search/avatar.png" alt=""/>
+                  <p class="master-card-person__status">Сейчас на сайте</p>
+                  <div class="master-card-person__rating">
+                    <div class="master-card-person__rating-container">
+
+                      <div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
+
+                      <div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
+
+                      <div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
+
+                      <div class="master-card-person__rating-star master-card-person__rating-star-empty"></div>
+
+                      <div class="master-card-person__rating-star master-card-person__rating-star-empty"></div>
+
+                    </div>
+                  </div>
+                  <div class="master-card-person__mark"></div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="master-card-description">
+                  <div class="row justify-content-space-between">
+                    <div class="col">
+                      <p class="master-card-description__header">
+                        <a href="#">
+                          Плехунов Александр Александрович
+                        </a>
+                      </p>
+                    </div>
+                    <div class="">
+                      <span class="master-card-description__price">от 2500 р/час</span>
+                    </div>
+                  </div>
+                  <p class="master-card-description__experience">6 лет на сайте</p>
+                  <p class="master-card-description__text">
+                    http://blog.youdo.com/vitaly-courier Имею среднее профессиональное юридическое образование, 
+                    высшее социологическое и высшее по гос.управлению. Действую всегда четко и бы…
+                  </p>
+                  <a class="btn btn-primary dr-btn-primary dr-btn-primary-margin-top-25" href="#" role="button">Стать исполнителем</a>
+                </div>
+              </div>              
+            </div>
+          </div>
+
+          <nav>
+            <ul class="pagination justify-content-center">
+              <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Назад</a>
+              </li>
+              <li class="page-item page-item-active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">Далее</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="col-lg-4">
+
+          <div class="row justify-content-end no-gutters">            
+            <a class="btn btn-primary dr-btn-primary dr-btn-primary-margin-top-25" href="#" role="button">Стать исполнителем</a>
+          </div>          
+
+          <div class="dr-block-style">
+            <div class="choose-city">
+              <p class="choose-city__header">Город</p>
+              <br/>
+              <p class="choose-city__link"><a href="#">Санкт-Петербург</a></p>              
+            </div>
+          </div>
+
+          <div class="dr-block-style">
+            <div class="subcategories">
+              <p class="subcategories__header">Подкатегории</p>
+              <br/>
+              <ul class="subcategories__list">
+                <li><a href="#">Мастер на час</a></li>
+                <li><a href="#">Ремонт под ключ</a></li>
+                <li><a href="#">Установка окон</a></li>
+                <li><a href="#">Ремонт бытовой техники</a></li>
+                <li><a href="#">Укладка плитки</a></li>
+                <li><a href="#">Курьер на день</a></li>
+                <li><a href="#">Другое</a></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <br/>
+      <hr/>
+
+      <div class="bottom-text">
+        <p>
+          Ни для кого не секрет, что стиральные машины являются незаменимыми помощниками 
+          в ведении домашнего хозяйства. Но, к сожалению, от частой эксплуатации данная 
+          бытовая техника порой ломается и дает сбои.
+          <br/>
+          Центр по ремонту стиральных машин LG, Samsung (Самсунг) и других
+        </p>
+      </div>
+    </div>
+    <script src="/webpack/development/website.js"></script>
   </body>
 </html>

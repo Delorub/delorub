@@ -7,6 +7,11 @@ import "bootstrap-slider/dist/css/bootstrap-slider.css";
 import "select2/dist/js/select2.js";
 import "select2/dist/css/select2.css";
 
+
+$("#alert").click(function () {
+    alert("Handler for .click() called.");
+});
+
 $(document).ready(function () {
     $('.owl-carousel').owlCarousel({
         loop: true,
@@ -35,24 +40,25 @@ $(document).ready(function () {
         }
     });
 });
-
 $('#ex1').slider({
     formatter: function (value) {
         return 'Current value: ' + value;
     }
 });
-
+$('#ex2').slider({
+    formatter: function (value) {
+        return 'Current value: ' + value;
+    }
+});
 $(".select2").select2({
     tags: true
 });
-
 $(document).ready(function () {
     $("a.dr-dropdown-button").click(function () {
         $("span.dr-dropdown-arrow-bottom").toggleClass("dr-dropdown-arrow-top");
         return false;
     });
 });
-
 jQuery(function ($) {
     $('#open-notification-link').click(function (e) {
         $('#open-notification').show();
@@ -66,7 +72,6 @@ jQuery(function ($) {
         }
     });
 });
-
 jQuery(function ($) {
     $('#open-search-link').click(function (e) {
         $("div.sb-search").addClass("sb-search-open");
