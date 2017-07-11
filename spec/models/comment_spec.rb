@@ -1,5 +1,5 @@
 describe Comment do
-  let(:comment) { build described_class }
+  let(:comment) { build :comment }
   subject { comment }
 
   describe 'validations' do

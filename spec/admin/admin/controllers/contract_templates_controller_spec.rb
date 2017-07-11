@@ -27,7 +27,7 @@ describe Admin::ContractTemplatesController, type: :controller do
 
   describe 'GET #show' do
     before :each do
-      get :show, id: contract_template.id
+      get :show, params: { id: contract_template.id }
     end
 
     it 'checks the status' do
@@ -48,14 +48,14 @@ describe Admin::ContractTemplatesController, type: :controller do
 
   describe 'POST #create' do
     it 'checks the redirect status' do
-      post :create, contract_template: params
+      post :create, params: { contract_template: params }
       expect(response.status).to eq 302
     end
   end
 
   describe 'GET #edit' do
     before :each do
-      get :edit, id: contract_template.id
+      get :edit, params: { id: contract_template.id }
     end
 
     it 'checks the status' do
@@ -69,7 +69,7 @@ describe Admin::ContractTemplatesController, type: :controller do
 
   describe 'PATCH #update' do
     before :each do
-      patch :update, id: contract_template.id, contract_template: params
+      patch :update, params: { id: contract_template.id, contract_template: params }
     end
 
     it 'checks the redirect status' do
@@ -79,7 +79,7 @@ describe Admin::ContractTemplatesController, type: :controller do
 
   describe 'DELETE #destroy' do
     it 'checks the status' do
-      delete :destroy, id: contract_template.id
+      delete :destroy, params: { id: contract_template.id }
       expect(response.status).to eq 302
     end
   end

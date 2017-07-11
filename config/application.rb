@@ -20,8 +20,6 @@ module Delorub
     config.i18n.default_locale = :ru
     config.encoding = 'utf-8'
 
-    config.active_record.raise_in_transactional_callbacks = true
-
     config.before_initialize do |app|
       app.config.paths.add 'app/value_objects', eager_load: true
     end

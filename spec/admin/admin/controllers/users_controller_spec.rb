@@ -21,7 +21,7 @@ describe Admin::UsersController, type: :controller do
 
   describe 'GET #show' do
     before :each do
-      get :show, id: user.id
+      get :show, params: { id: user.id }
     end
 
     it 'checks the status' do
@@ -42,14 +42,14 @@ describe Admin::UsersController, type: :controller do
 
   describe 'POST #create' do
     it 'checks the redirect status' do
-      post :create, user: params
+      post :create, params: { user: params }
       expect(response.status).to eq 302
     end
   end
 
   describe 'GET /admin/users/:id/permission' do
     def dispatch
-      get :permission, id: user.id
+      get :permission, params: { id: user.id }
     end
 
     it_behaves_like 'success response'
@@ -72,7 +72,7 @@ describe Admin::UsersController, type: :controller do
     let(:permission_attributes) { { superadmin: true } }
 
     def dispatch
-      put :permission, id: another_user.id, user_permission: permission_attributes
+      put :permission, params: { id: another_user.id, user_permission: permission_attributes }
     end
 
     subject { dispatch }

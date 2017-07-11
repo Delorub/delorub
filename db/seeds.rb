@@ -13,19 +13,21 @@ admins = User.create([
     last_name: 'Петров',
     password: 'test123123',
     email: 'admin@delorub.com',
-    permission_attributes: { superadmin: true }
+    permission_attributes: { superadmin: true },
+    place: Place.only_cities.sample
   },
   {
     first_name: 'Мария',
     last_name: 'Иванова',
     password: 'test123123',
     email: 'editor@delorub.com',
-    permission_attributes: { editor: true }
+    permission_attributes: { editor: true },
+    place: Place.only_cities.sample
   }
 ])
 
 ### Profiles
-profile = Profile.create(user_id: admins.first.id, place: Place.only_cities.sample)
+profile = Profile.create(user_id: admins.first.id)
 
 ### Categories
 categories = Category.create([

@@ -27,7 +27,8 @@ class Place < ApplicationRecord
 
   enumerize :place_type, in: { region: 1, district: 2, city: 3, locality: 4, street: 5, house: 6 }, i18n_scope: 'place_type'
 
-  scope :only_cities, -> { where { place_type == 3 } }
+  scope :only_cities, -> { where(place_type: 3) }
+  scope :region_centers, -> { where(is_region_center: true) }
 
   before_save :update_full_name
 

@@ -1,18 +1,23 @@
 /* eslint comma-dangle: ["error",
   {"functions": "never", "arrays": "only-multiline", "objects": "only-multiline"} ] */
 
-const webpack = require('webpack');
-const path = require('path');
 const autoprefixer = require('autoprefixer');
 const copyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+const webpack = require('webpack');
+const ManifestPlugin = require('webpack-manifest-plugin');
+const { resolve } = require('path');
+const webpackConfigLoader = require('react-on-rails/webpackConfigLoader');
+const configPath = resolve('..', 'config');
+const { manifest } = webpackConfigLoader(configPath);
+const { webpackOutputPath, webpackPublicOutputDir } = webpackConfigLoader(configPath);
+
 const devBuild = process.env.NODE_ENV !== 'production';
 const nodeEnv = devBuild ? 'development' : 'production';
-const sourcePath = path.join(__dirname, './app');
 
 module.exports = {
-  context: __dirname,
+  context: resolve(__dirname),
   entry: {
     /*contract_designer_app: [
       './app/bundles/ContractDesignerApp/startup/clientRegistration',
@@ -38,8 +43,9 @@ module.exports = {
     ]
   },
   output: {
-    filename: '[name]-bundle.js',
-    path: path.resolve(__dirname, '../app/assets/webpack'),
+    filename: '[name]-[hash].js',
+    publicPath: `/${webpackPublicOutputDir}/`,
+    path: webpackOutputPath
   },
   resolve: {
     extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx'],
@@ -47,8 +53,8 @@ module.exports = {
       'node_modules', 'web_modules'
     ],
     alias: {
-      libs: path.join(process.cwd(), 'app', 'libs'),
-      react: path.resolve('./node_modules/react'),
+      libs: resolve(__dirname, 'app', 'libs'),
+      react: resolve('./node_modules/react'),
     },
   },
   plugins: [
@@ -59,7 +65,7 @@ module.exports = {
     }),
     /*new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      filename: 'vendor-bundle.js',
+      filename: 'vendor.js',
       minChunks: Infinity,
       chunks: ['vendor', 'contract_designer_app', 'contract_app']
     }),*/
@@ -74,7 +80,7 @@ module.exports = {
       "window.jQuery": "jquery"
     }),
     new ExtractTextPlugin({
-      filename: '[name]-bundle.css',
+      filename: '[name]-[hash].css',
       allChunks: true,
       disable: false
     }),
@@ -91,7 +97,11 @@ module.exports = {
         unsafe: true
       }
     }),
-    new webpack.optimize.OccurrenceOrderPlugin()
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new ManifestPlugin({
+      fileName: manifest,
+      writeToFileEmit: true
+    })
   ],
   module: {
     rules: [
@@ -166,8 +176,8 @@ module.exports = {
   devtool: devBuild ? 'eval-source-map' : 'source-map',
   devServer: {
     contentBase: [
-      path.join(__dirname, 'markup'),
-      path.join(__dirname, '../public')
+      resolve(__dirname, 'markup'),
+      resolve(__dirname, '../public')
     ],
     port: 9002,
     watchContentBase: true,

@@ -2,7 +2,6 @@ import React from 'react';
 import Navigation from '../Navigation/Navigation';
 import Buttons from '../Buttons/Buttons';
 import Fields from './Fields';
-import Select2 from 'react-select2-wrapper';
 import PriceTypeInput from './PriceTypeInput'
 import PriceSelector from './PriceSelector'
 import Verification from './Verification'

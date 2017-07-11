@@ -27,7 +27,7 @@ describe Admin::TasksController, type: :controller do
 
   describe 'GET #show' do
     before :each do
-      get :show, id: task.id
+      get :show, params: { id: task.id }
     end
 
     it 'checks the status' do
@@ -48,14 +48,14 @@ describe Admin::TasksController, type: :controller do
 
   describe 'POST #create' do
     it 'checks the redirect status' do
-      post :create, task: params
+      post :create, params: { task: params }
       expect(response.status).to eq 200
     end
   end
 
   describe 'GET #edit' do
     before :each do
-      get :edit, id: task.id
+      get :edit, params: { id: task.id }
     end
 
     it 'checks the status' do
@@ -69,7 +69,7 @@ describe Admin::TasksController, type: :controller do
 
   describe 'DELETE #destroy' do
     it 'checks the status' do
-      delete :destroy, id: task.id
+      delete :destroy, params: { id: task.id }
       expect(response.status).to eq 302
     end
   end

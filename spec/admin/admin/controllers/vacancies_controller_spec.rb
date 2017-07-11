@@ -27,7 +27,7 @@ describe Admin::VacanciesController, type: :controller do
 
   describe 'GET #show' do
     before :each do
-      get :show, id: vacancy.id
+      get :show, params: { id: vacancy.id }
     end
 
     it 'checks the status' do
@@ -48,14 +48,14 @@ describe Admin::VacanciesController, type: :controller do
 
   describe 'POST #create' do
     it 'checks the redirect status' do
-      post :create, vacancy: params
+      post :create, params: { vacancy: params }
       expect(response.status).to eq(200)
     end
   end
 
   describe 'GET #edit' do
     before :each do
-      get :edit, id: vacancy.id
+      get :edit, params: { id: vacancy.id }
     end
 
     it 'checks the status' do
@@ -69,7 +69,7 @@ describe Admin::VacanciesController, type: :controller do
 
   describe 'PATCH #update' do
     before :each do
-      patch :update, id: vacancy.id, vacancy: params
+      patch :update, params: { id: vacancy.id, vacancy: params }
     end
 
     it 'checks the redirect status' do
@@ -79,7 +79,7 @@ describe Admin::VacanciesController, type: :controller do
 
   describe 'DELETE #destroy' do
     it 'checks the status' do
-      delete :destroy, id: vacancy.id
+      delete :destroy, params: { id: vacancy.id }
       expect(response.status).to eq(302)
     end
   end

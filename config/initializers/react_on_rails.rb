@@ -3,20 +3,20 @@ ReactOnRails.configure do |config|
 
   # Directory where your generated assets go. All generated assets must go to the same directory.
   # Configure this in your webpack config files. This relative to your Rails root directory.
-  config.generated_assets_dir = File.join %w[app assets webpack]
+  config.generated_assets_dir = File.join %w[public webpack], Rails.env
 
   # Define the files we need to check for webpack compilation when running tests.
-  config.webpack_generated_files = %w[website-bundle.js website-bundle.css]
-  config.webpack_generated_files = %w[admin-bundle.js admin-bundle.css]
-  config.webpack_generated_files += %w[contract_app-bundle.js contract_app-bundle.css]
-  config.webpack_generated_files += %w[contract_designer_app-bundle.js contract_designer_app-bundle.css]
-  config.webpack_generated_files += %w[server-bundle.js]
+  config.webpack_generated_files = %w[website.js website.css]
+  config.webpack_generated_files = %w[admin.js admin.css]
+  config.webpack_generated_files += %w[contract_app.js contract_app.css]
+  config.webpack_generated_files += %w[contract_designer_app.js contract_designer_app.css]
+  config.webpack_generated_files += %w[server.js]
 
   # This is the file used for server rendering of React when using `(prerender: true)`
   # If you are never using server rendering, you may set this to "".
   # If you are using the same file for client and server rendering, having this set probably does
   # not affect performance.
-  config.server_bundle_js_file = 'server-bundle.js'
+  config.server_bundle_js_file = 'server.js'
 
   # If you are using the ReactOnRails::TestHelper.configure_rspec_to_compile_assets(config)
   # with rspec then this controls what yarn command is run

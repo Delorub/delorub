@@ -2,10 +2,10 @@ ruby '2.3.1'
 source 'http://rubygems.org'
 
 # Main
-gem 'rails', '~> 4.2.0'
+gem 'rails', '~> 5.1'
 gem 'pg'
 gem 'sidekiq'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'rake', '11.3.0'
 gem 'haml'
@@ -29,7 +29,7 @@ gem 'reform-rails'
 gem 'dry-validation'
 
 # Activerecord extensions
-gem 'squeel'
+gem 'baby_squeel'
 gem 'awesome_nested_set'
 gem 'enumerize'
 gem 'aasm'
@@ -45,7 +45,7 @@ gem 'omniauth-vkontakte'
 gem 'omniauth-odnoklassniki'
 
 # Admin
-gem 'activeadmin', '1.0.0.pre4'
+gem 'activeadmin'
 gem 'activeadmin_addons'
 gem 'activeadmin_reorderable', github: 'delphist/activeadmin_reorderable', branch: 'feature/add-belongs-to-support'
 gem 'active_admin-sortable_tree'
@@ -65,8 +65,8 @@ gem 'httparty'
 # Assets
 gem 'uglifier'
 gem 'yui-compressor'
-gem 'haml-rails', '~> 0.8'
-gem 'react_on_rails', '~> 6'
+gem 'react_on_rails', '~> 8'
+gem 'webpacker_lite', '2.0.4'
 gem 'mini_racer', platforms: :ruby
 gem 'jquery-ui-rails', '~> 5'
 
@@ -93,6 +93,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-stack_explorer'
   gem 'spring'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -103,8 +104,7 @@ group :development do
   gem 'capistrano', '~> 3.7'
   gem 'capistrano-rails', '~> 1.2'
   gem 'capistrano-rvm'
-  gem 'capistrano3-unicorn'
-  gem 'web-console', '~> 2.0'
+  gem 'capistrano3-puma', github: 'seuros/capistrano-puma'
   gem 'overcommit'
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -121,5 +121,5 @@ group :test do
 end
 
 group :production do
-  gem 'unicorn'
+  gem 'puma'
 end

@@ -14,7 +14,7 @@ describe Admin::HelpAnswersController, type: :controller do
 
   describe 'GET #index' do
     before :each do
-      get :index, help_category_id: help_category_id
+      get :index, params: { help_category_id: help_category_id }
     end
 
     it 'checks the status' do
@@ -28,21 +28,21 @@ describe Admin::HelpAnswersController, type: :controller do
 
   describe 'GET #new' do
     it 'checks the status' do
-      get :new, help_category_id: help_category_id
+      get :new, params: { help_category_id: help_category_id }
       expect(response.status).to eq(200)
     end
   end
 
   describe 'POST #create' do
     it 'checks the redirect status' do
-      post :create, help_category_id: help_category_id, help_answer: params
+      post :create, params: { help_category_id: help_category_id, help_answer: params }
       expect(response.status).to eq 302
     end
   end
 
   describe 'GET #edit' do
     before :each do
-      get :edit, help_category_id: help_category_id, id: help_answer.id
+      get :edit, params: { help_category_id: help_category_id, id: help_answer.id }
     end
 
     it 'checks the status' do
@@ -56,7 +56,7 @@ describe Admin::HelpAnswersController, type: :controller do
 
   describe 'PATCH #update' do
     before :each do
-      patch :update, help_category_id: help_category_id, id: help_answer.id, help_answer: params
+      patch :update, params: { help_category_id: help_category_id, id: help_answer.id, help_answer: params }
     end
 
     it 'checks the redirect status' do
@@ -66,7 +66,7 @@ describe Admin::HelpAnswersController, type: :controller do
 
   describe 'DELETE #destroy' do
     it 'checks the status' do
-      delete :destroy, help_category_id: help_category_id, id: help_answer.id
+      delete :destroy, params: { help_category_id: help_category_id, id: help_answer.id }
       expect(response.status).to eq 302
     end
   end

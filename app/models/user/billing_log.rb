@@ -25,8 +25,8 @@ class User::BillingLog < ApplicationRecord
   after_save :update_user_amount
 
   scope :latest, -> { order{ created_at.desc } }
-  scope :packs, -> { where{ billable_type.in PACK_TYPES } }
-  scope :subscriptions, -> { where{ billable_type.in SUBSCRIPTION_TYPES } }
+  scope :packs, -> { where.has{ billable_type.in PACK_TYPES } }
+  scope :subscriptions, -> { where.has{ billable_type.in SUBSCRIPTION_TYPES } }
 
   private
 

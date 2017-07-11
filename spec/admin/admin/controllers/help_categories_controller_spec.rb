@@ -27,7 +27,7 @@ describe Admin::HelpCategoriesController, type: :controller do
 
   describe 'GET #show' do
     before :each do
-      get :show, id: help_category.id
+      get :show, params: { id: help_category.id }
     end
 
     it 'checks the redirect to help answers' do
@@ -48,14 +48,14 @@ describe Admin::HelpCategoriesController, type: :controller do
 
   describe 'POST #create' do
     it 'checks the redirect status' do
-      post :create, help_category: params
+      post :create, params: { help_category: params }
       expect(response.status).to eq 302
     end
   end
 
   describe 'GET #edit' do
     before :each do
-      get :edit, id: help_category.id
+      get :edit, params: { id: help_category.id }
     end
 
     it 'checks the status' do
@@ -69,7 +69,7 @@ describe Admin::HelpCategoriesController, type: :controller do
 
   describe 'PATCH #update' do
     before :each do
-      patch :update, id: help_category.id, help_category: params
+      patch :update, params: { id: help_category.id, help_category: params }
     end
 
     it 'checks the redirect status' do
@@ -79,7 +79,7 @@ describe Admin::HelpCategoriesController, type: :controller do
 
   describe 'DELETE #destroy' do
     it 'checks the status' do
-      delete :destroy, id: help_category.id
+      delete :destroy, params: { id: help_category.id }
       expect(response.status).to eq 302
     end
   end

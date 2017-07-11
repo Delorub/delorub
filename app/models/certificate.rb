@@ -16,7 +16,7 @@
 class Certificate < ApplicationRecord
   mount_uploader :file, CertificateUploader
 
-  belongs_to :profile
+  belongs_to :profile, optional: true
 
   validates :file, presence: true
 end

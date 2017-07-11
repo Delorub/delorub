@@ -17,6 +17,6 @@ class Place::PopularQuery
     end
 
     def all_cities
-      Place.where { is_region_center == true }.limit(100)
+      Place.region_centers.limit(100)
     end
 end

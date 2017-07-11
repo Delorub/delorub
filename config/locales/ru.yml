@@ -85,6 +85,10 @@ ru:
           attributes:
             user:
               no_available_tasks: У вас закончились бесплатные задания
+        user:
+          attributes:
+            phone:
+              phone_already_confirmed: Такой телефон уже подтвержден
     models:
       vacancy:
         one: Вакансия

@@ -27,7 +27,7 @@ describe Admin::PortfolioItemsController, type: :controller do
 
   describe 'GET #show' do
     before :each do
-      get :show, id: portfolio_item.id
+      get :show, params: { id: portfolio_item.id }
     end
 
     it 'checks the status' do
@@ -48,14 +48,14 @@ describe Admin::PortfolioItemsController, type: :controller do
 
   describe 'POST #create' do
     it 'checks the redirect status' do
-      post :create, portfolio_item: params
+      post :create, params: { portfolio_item: params }
       expect(response.status).to eq 302
     end
   end
 
   describe 'GET #edit' do
     before :each do
-      get :edit, id: portfolio_item.id
+      get :edit, params: { id: portfolio_item.id }
     end
 
     it 'checks the status' do
@@ -69,7 +69,7 @@ describe Admin::PortfolioItemsController, type: :controller do
 
   describe 'PATCH #update' do
     before :each do
-      patch :update, id: portfolio_item.id, portfolio_item: params
+      patch :update, params: { id: portfolio_item.id, portfolio_item: params }
     end
 
     it 'checks the redirect status' do
@@ -79,7 +79,7 @@ describe Admin::PortfolioItemsController, type: :controller do
 
   describe 'DELETE #destroy' do
     it 'checks the status' do
-      delete :destroy, id: portfolio_item.id
+      delete :destroy, params: { id: portfolio_item.id }
       expect(response.status).to eq 302
     end
   end

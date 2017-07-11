@@ -27,7 +27,7 @@ describe Admin::CommentsController, type: :controller do
 
   describe 'GET #show' do
     before :each do
-      get :show, id: comment.id
+      get :show, params: { id: comment.id }
     end
 
     it 'checks the status' do
@@ -48,14 +48,14 @@ describe Admin::CommentsController, type: :controller do
 
   describe 'POST #create' do
     it 'checks the redirect status' do
-      post :create, comment: params
+      post :create, params: { comment: params }
       expect(response.status).to eq 200
     end
   end
 
   describe 'GET #edit' do
     before :each do
-      get :edit, id: comment.id
+      get :edit, params: { id: comment.id }
     end
 
     it 'checks the status' do
@@ -69,7 +69,7 @@ describe Admin::CommentsController, type: :controller do
 
   describe 'PATCH #update' do
     before :each do
-      patch :update, id: comment.id, comment: params
+      patch :update, params: { id: comment.id, comment: params }
     end
 
     it 'checks the redirect status' do
@@ -79,7 +79,7 @@ describe Admin::CommentsController, type: :controller do
 
   describe 'DELETE #destroy' do
     it 'checks the status' do
-      delete :destroy, id: comment.id
+      delete :destroy, params: { id: comment.id }
       expect(response.status).to eq 302
     end
   end

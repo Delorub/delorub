@@ -27,7 +27,7 @@ describe Admin::NewsController, type: :controller do
 
   describe 'GET #show' do
     before :each do
-      get :show, id: news.id
+      get :show, params: { id: news.id }
     end
 
     it 'checks the status' do
@@ -48,14 +48,14 @@ describe Admin::NewsController, type: :controller do
 
   describe 'POST #create' do
     it 'checks the redirect status' do
-      post :create, news: params
+      post :create, params: { news: params }
       expect(response.status).to eq 302
     end
   end
 
   describe 'GET #edit' do
     before :each do
-      get :edit, id: news.id
+      get :edit, params: { id: news.id }
     end
 
     it 'checks the status' do
@@ -69,7 +69,7 @@ describe Admin::NewsController, type: :controller do
 
   describe 'PATCH #update' do
     before :each do
-      patch :update, id: news.id, news: params
+      patch :update, params: { id: news.id, news: params }
     end
 
     it 'checks the redirect status' do
@@ -79,7 +79,7 @@ describe Admin::NewsController, type: :controller do
 
   describe 'DELETE #destroy' do
     it 'checks the status' do
-      delete :destroy, id: news.id
+      delete :destroy, params: { id: news.id }
       expect(response.status).to eq 302
     end
   end

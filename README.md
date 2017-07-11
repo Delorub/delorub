@@ -1,43 +1,44 @@
+# Delorub
+
 Welcome to the Delorub!
 
 # Getting started
 
-## Setup
-### Bundler
-To install and run bundler:
+## Recommended setup (vagrant)
 
-```
-gem install bundler
-bundle
-```
+### Vagrant & Virtualbox
+First, install vagrant and virtualbox:
+https://www.vagrantup.com/
+https://www.virtualbox.org/
 
-If you've got an error with installing rmagick, try `brew install imagemagick@6 && brew link imagemagick@6 --force`
+### Run the box
 
-### Frontend
-To install packages:
-```
-brew install nodejs
-brew install yarn
-curl -L https://www.npmjs.org/install.sh | sh
-yarn install
-```
-    
-### Redis
-To install and run redis server(for sidekiq):
-```
-brew install redis
-redis-server
-```
+Run these commands to setup a new box and install the application
+`vagrant up`
 
-### Database and import
-Copy `database.yml.sample` and rename it to `database.yml`, change credentials to yours
+## Running the project
 
-Run `rake db:setup`
+First, login to the vagrant box:
+`vagrant ssh`
 
-Run `rake places:import:seed` for import a dump
-    
-### Start an application
+Then, navigate to the project folder:
+`cd /vagrant`
+
+And run foreman:
 `foreman start`
+
+And now you can open http://localhost:5000/ in your local browser
+
+## Running project manually
+
+Now you need to start the rails server:
+`rails s -b 0.0.0.0`
+Note: it's important to run webserver on 0.0.0.0
+
+Also you need to start webpack (you can run several ssh sessions or use `screen` for this):
+`yarn run build:dev:client`
+
+## Common problems and questions
 
 ### ElasticSearch
 

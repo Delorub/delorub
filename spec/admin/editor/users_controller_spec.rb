@@ -22,7 +22,7 @@ describe Editor::UsersController, type: :controller do
     let(:another_user) { create :admin }
 
     def dispatch
-      get :show, id: another_user.id
+      get :show, params: { id: another_user.id }
     end
 
     it_behaves_like 'success response'
@@ -30,7 +30,7 @@ describe Editor::UsersController, type: :controller do
 
   describe 'GET /editor/users/:id/permission' do
     def dispatch
-      get :permission, id: user.id
+      get :permission, params: { id: user.id }
     end
 
     it_behaves_like 'success response'
@@ -52,7 +52,7 @@ describe Editor::UsersController, type: :controller do
     let(:another_user) { create :user }
 
     def dispatch
-      put :permission, id: another_user.id, user_permission: permission_attributes
+      put :permission, params: { id: another_user.id, user_permission: permission_attributes }
     end
 
     subject { dispatch }

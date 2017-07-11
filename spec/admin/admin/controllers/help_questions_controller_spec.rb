@@ -27,7 +27,7 @@ describe Admin::HelpQuestionsController, type: :controller do
 
   describe 'GET #show' do
     before :each do
-      get :show, id: help_question.id
+      get :show, params: { id: help_question.id }
     end
 
     it 'checks the status redirect' do
@@ -41,7 +41,7 @@ describe Admin::HelpQuestionsController, type: :controller do
 
   describe 'DELETE #destroy' do
     it 'checks the status' do
-      delete :destroy, id: help_question.id
+      delete :destroy, params: { id: help_question.id }
       expect(response.status).to eq 302
     end
   end

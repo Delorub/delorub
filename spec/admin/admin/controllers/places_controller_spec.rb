@@ -22,7 +22,7 @@ describe Admin::PlacesController, type: :controller do
 
   describe 'GET #show' do
     before :each do
-      get :show, id: place.id
+      get :show, params: { id: place.id }
     end
 
     it 'checks the status' do

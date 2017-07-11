@@ -76,14 +76,13 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :email, presence: true
   validates :balance, numericality: { greater_than_or_equal_to: 0 }
   validates :phone, phony_plausible: true
-  validate :ensure_phone_not_confirmed, if: :phone
+  validates_with User::PhoneConfirmationValidator, if: :phone
 
-  scope :confirmed_phone, ->(n) { where{ (phone == n) & (phone_confirmed == true) } }
+  scope :confirmed_phone, ->(n) { where.has{ (phone == n) & (phone_confirmed == true) } }
 
-  before_save do
-    check_free_replies_and_tasks
-    set_access_token
-  end
+  before_save :check_free_replies_and_tasks
+
+  has_secure_token :access_token
 
   mount_uploader :photo, UserPhotoUploader
 
@@ -128,22 +127,5 @@ class User < ApplicationRecord
     def check_free_replies_and_tasks
       self.free_tasks_published = [free_tasks_published.to_i, FREE_TASKS].min
       self.free_replies_published = [free_replies_published.to_i, FREE_TASKS].min
-    end
-
-    def set_access_token
-      # TODO replace this method to 'has_secure_token' after Rails 5 update
-      self.access_token = generate_token
-    end
-
-    def generate_token
-      loop do
-        token = SecureRandom.hex(10)
-        break token unless User.where(access_token: token).exists?
-      end
-    end
-
-    def ensure_phone_not_confirmed
-      return if User.confirmed_phone(normalized_phone).where{ id != my{ id } }.empty?
-      errors.add :phone, :uniqueness
     end
 end

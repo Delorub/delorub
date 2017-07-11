@@ -2109,6 +2109,16 @@ fs-extra@^0.26.4:
     path-is-absolute "^1.0.0"
     rimraf "^2.2.8"
 
+fs-extra@^0.30.0:
+  version "0.30.0"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-0.30.0.tgz#f233ffcc08d4da7d432daa449776989db1df93f0"
+  dependencies:
+    graceful-fs "^4.1.2"
+    jsonfile "^2.1.0"
+    klaw "^1.0.0"
+    path-is-absolute "^1.0.0"
+    rimraf "^2.2.8"
+
 fs-readdir-recursive@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs-readdir-recursive/-/fs-readdir-recursive-1.0.0.tgz#8cd1745c8b4f8a29c8caec392476921ba195f560"
@@ -4031,9 +4041,9 @@ react-json-tree@^0.10.8:
     prop-types "^15.5.8"
     react-base16-styling "^0.5.1"
 
-react-on-rails@^6.2.1:
-  version "6.10.1"
-  resolved "https://registry.yarnpkg.com/react-on-rails/-/react-on-rails-6.10.1.tgz#fea46416d138b56472f1ea753c58ecfe5ebaab41"
+react-on-rails@^8.0.5:
+  version "8.0.5"
+  resolved "https://registry.yarnpkg.com/react-on-rails/-/react-on-rails-8.0.5.tgz#144b1c0be41df2ac810981a4876720fc0630cde7"
 
 react-onclickoutside@^6.1.1:
   version "6.1.1"
@@ -5130,6 +5140,19 @@ webpack-dev-server@^2.4.2:
     supports-color "^3.1.1"
     webpack-dev-middleware "^1.10.2"
     yargs "^6.0.0"
+
+webpack-manifest-plugin@^1.1.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/webpack-manifest-plugin/-/webpack-manifest-plugin-1.1.1.tgz#fd54135fc1287ca8fef05f5e6a44fe9377559dfb"
+  dependencies:
+    fs-extra "^0.30.0"
+    lodash ">=3.5 <5"
+
+webpack-merge@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/webpack-merge/-/webpack-merge-4.1.0.tgz#6ad72223b3e0b837e531e4597c199f909361511e"
+  dependencies:
+    lodash "^4.17.4"
 
 webpack-sources@^0.2.3:
   version "0.2.3"

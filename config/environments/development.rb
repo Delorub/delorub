@@ -2,7 +2,8 @@ Rails.application.configure do
   config.cache_classes = false
   config.eager_load = false
 
-  config.serve_static_files = true
+  config.public_file_server.enabled = true
+  config.assets.compile = true
 
   config.app_domain = 'localhost:3000'
 
