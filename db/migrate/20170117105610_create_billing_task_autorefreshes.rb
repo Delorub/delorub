@@ -1,4 +1,4 @@
-class CreateBillingTaskAutorefreshes < ActiveRecord::Migration
+class CreateBillingTaskAutorefreshes < ActiveRecord::Migration[4.2]
   def change
     create_table :billing_task_autorefreshes do |t|
       t.integer :user_id

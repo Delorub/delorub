@@ -1,3 +1,44 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :integer          not null, primary key
+#  provider               :string           default("email"), not null
+#  encrypted_password     :string           default(""), not null
+#  reset_password_token   :string
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#  sign_in_count          :integer          default(0), not null
+#  current_sign_in_at     :datetime
+#  last_sign_in_at        :datetime
+#  current_sign_in_ip     :string
+#  last_sign_in_ip        :string
+#  first_name             :string
+#  middle_name            :string
+#  last_name              :string
+#  phone                  :string
+#  skype                  :string
+#  website                :string
+#  email                  :string
+#  birthday               :date
+#  profile_id             :integer
+#  free_tasks_published   :integer          default(0), not null
+#  free_replies_published :integer          default(0), not null
+#  balance                :decimal(10, 2)   default(0.0), not null
+#  photo                  :string
+#  phone_confirmed        :boolean
+#  created_at             :datetime
+#  updated_at             :datetime
+#  access_token           :string
+#  place_id               :integer
+#
+# Indexes
+#
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_place_id              (place_id)
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#
+
 FactoryGirl.define do
   factory :user do
     sequence(:email) { |n| Faker::Internet.unique.email }

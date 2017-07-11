@@ -1,4 +1,4 @@
-class CreateUserBillingLogs < ActiveRecord::Migration
+class CreateUserBillingLogs < ActiveRecord::Migration[4.2]
   def change
     create_table :user_billing_logs do |t|
       t.float :sum

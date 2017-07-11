@@ -23,6 +23,7 @@
     "start": "(cd client && yarn run start --silent)"
   },
   "dependencies": {
+    "bootstrap": "v4.0.0-alpha.6",
     "moment": "^2.18.1",
     "prop-types": "^15.5.9",
     "rc-time-picker": "^2.4.0",

@@ -1,4 +1,4 @@
-class AddFieldsToProfile < ActiveRecord::Migration
+class AddFieldsToProfile < ActiveRecord::Migration[4.2]
   def change
     remove_column :profiles, :place_address, :string
     remove_column :profiles, :place_lat, :float

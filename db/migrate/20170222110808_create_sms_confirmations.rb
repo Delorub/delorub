@@ -1,4 +1,4 @@
-class CreateSmsConfirmations < ActiveRecord::Migration
+class CreateSmsConfirmations < ActiveRecord::Migration[4.2]
   def change
     create_table :sms_confirmations do |t|
       t.string :token

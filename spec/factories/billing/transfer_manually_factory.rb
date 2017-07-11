@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: billing_transfer_manually
+#
+#  id         :integer          not null, primary key
+#  user_id    :integer
+#  admin_id   :integer
+#  amount     :decimal(10, 2)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 FactoryGirl.define do
   factory :billing_transfer_manually, class: Billing::TransferManually do
     user

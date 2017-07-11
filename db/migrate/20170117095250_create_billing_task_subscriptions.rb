@@ -1,4 +1,4 @@
-class CreateBillingTaskSubscriptions < ActiveRecord::Migration
+class CreateBillingTaskSubscriptions < ActiveRecord::Migration[4.2]
   def change
     create_table :billing_task_subscriptions do |t|
       t.integer :user_id

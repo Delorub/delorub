@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: user_permissions
+#
+#  id         :integer          not null, primary key
+#  data       :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  user_id    :integer
+#
+
 describe UserPermission do
   let(:user_permission) { build :user_permission }
   subject { user_permission }

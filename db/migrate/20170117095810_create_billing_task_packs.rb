@@ -1,4 +1,4 @@
-class CreateBillingTaskPacks < ActiveRecord::Migration
+class CreateBillingTaskPacks < ActiveRecord::Migration[4.2]
   def change
     create_table :billing_task_packs do |t|
       t.integer :user_id

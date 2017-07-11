@@ -1,4 +1,4 @@
-class CreatePlaceTypeNames < ActiveRecord::Migration
+class CreatePlaceTypeNames < ActiveRecord::Migration[4.2]
   def change
     create_table :place_type_names do |t|
       t.integer :level
