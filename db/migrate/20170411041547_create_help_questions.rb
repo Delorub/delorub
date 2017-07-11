@@ -1,4 +1,4 @@
-class CreateHelpQuestions < ActiveRecord::Migration
+class CreateHelpQuestions < ActiveRecord::Migration[4.2]
   def change
     create_table :help_questions do |t|
       t.string :name

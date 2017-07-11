@@ -1,4 +1,4 @@
-class ChangeTasksColumns < ActiveRecord::Migration
+class ChangeTasksColumns < ActiveRecord::Migration[4.2]
   class Task < ActiveRecord::Base; end
 
   def up

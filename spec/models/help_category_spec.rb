@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: help_categories
+#
+#  id       :integer          not null, primary key
+#  title    :string
+#  position :integer
+#
+
 describe HelpCategory do
   let(:help_category) { build :help_category }
   subject { help_category }

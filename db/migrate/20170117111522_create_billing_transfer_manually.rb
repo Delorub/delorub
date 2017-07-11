@@ -1,4 +1,4 @@
-class CreateBillingTransferManually < ActiveRecord::Migration
+class CreateBillingTransferManually < ActiveRecord::Migration[4.2]
   def change
     create_table :billing_transfer_manually do |t|
       t.integer :user_id

@@ -1,4 +1,4 @@
-class AddNestedToCategories < ActiveRecord::Migration
+class AddNestedToCategories < ActiveRecord::Migration[4.2]
   def self.up
     add_column :categories, :lft,       :integer
     add_column :categories, :rgt,       :integer
