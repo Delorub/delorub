@@ -1,4 +1,4 @@
-class AddDateFieldsToTasks < ActiveRecord::Migration
+class AddDateFieldsToTasks < ActiveRecord::Migration[4.2]
   def change
     add_column :tasks, :date_actual_date, :datetime
     add_column :tasks, :date_actual_time, :integer

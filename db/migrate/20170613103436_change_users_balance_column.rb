@@ -1,4 +1,4 @@
-class ChangeUsersBalanceColumn < ActiveRecord::Migration
+class ChangeUsersBalanceColumn < ActiveRecord::Migration[4.2]
   # TODO delete after production release
   def change
     change_column :users, :balance, :decimal, precision: 10, scale: 2

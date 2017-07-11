@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: place_type_names
+#
+#  id               :integer          not null, primary key
+#  level            :integer
+#  code             :integer
+#  name             :string
+#  full_name        :string
+#  alt_name         :string
+#  after_place_name :boolean
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
 FactoryGirl.define do
   factory :place_type_name do
     name { Faker::Lorem.word }

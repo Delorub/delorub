@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: places
+#
+#  id                 :integer          not null, primary key
+#  fias_aoguid        :string
+#  name               :string
+#  full_name          :string
+#  level              :integer
+#  place_type         :integer
+#  place_type_name_id :integer
+#  parent_place_id    :integer
+#  region_place_id    :integer
+#  is_region_center   :boolean
+#  is_center          :boolean
+#  custom             :boolean
+#
+
 FactoryGirl.define do
   factory :place do
     name { Faker::Lorem.word }

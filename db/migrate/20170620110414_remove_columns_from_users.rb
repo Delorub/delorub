@@ -1,4 +1,4 @@
-class RemoveColumnsFromUsers < ActiveRecord::Migration
+class RemoveColumnsFromUsers < ActiveRecord::Migration[4.2]
   # TODO remove after production release
   def change
     remove_column :users, :uid

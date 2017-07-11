@@ -1,4 +1,4 @@
-class CreateContractCategories < ActiveRecord::Migration
+class CreateContractCategories < ActiveRecord::Migration[4.2]
   def change
     create_table :contract_categories do |t|
       t.string :title

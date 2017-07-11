@@ -1,4 +1,4 @@
-class CreateBillingReplySubscriptions < ActiveRecord::Migration
+class CreateBillingReplySubscriptions < ActiveRecord::Migration[4.2]
   def change
     create_table :billing_reply_subscriptions do |t|
       t.integer :user_id

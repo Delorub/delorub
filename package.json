@@ -22,14 +22,7 @@
     "hot-assets": "(cd client && yarn run hot-assets)",
     "start": "(cd client && yarn run start --silent)"
   },
-  "dependencies": {
-    "moment": "^2.18.1",
-    "prop-types": "^15.5.9",
-    "rc-time-picker": "^2.4.0",
-    "react-bootstrap-slider": "^1.1.7",
-    "react-multistep": "^2.2.10",
-    "redux-form": "^6.7.0"
-  },
+  "dependencies": {},
   "devDependencies": {},
   "cacheDirectories": [
     "node_modules",

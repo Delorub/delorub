@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: sms_confirmations
+#
+#  id           :integer          not null, primary key
+#  token        :string
+#  phone        :string
+#  code         :string
+#  accepted     :boolean          default(FALSE)
+#  attempts     :integer          default(0)
+#  last_sent_at :datetime
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
 describe SmsConfirmation do
   let(:sms_confirmation) { build :sms_confirmation }
   subject { sms_confirmation }
