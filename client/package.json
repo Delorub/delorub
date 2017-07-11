@@ -35,7 +35,7 @@
     "react-select2-wrapper": "^1.0.4-beta4",
     "react-time-input": "^0.0.16",
     "react-tinymce-input": "^1.2.1",
-    "redux-form": "^6.7.0",
+    "redux-form": "^6.8.0",
     "superagent": "^3.5.2",
     "time-input": "^1.4.0",
     "autoprefixer": "^6.5.3",
