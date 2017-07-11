@@ -28,7 +28,6 @@
     "moment": "^2.18.1",
     "owl.carousel": "^2.2.0",
     "rc-time-picker": "^2.4.0",
-    "react-bootstrap-slider": "^1.1.7",
     "react-datepicker": "^0.48.0",
     "react-dropzone": "^3.13.2",
     "react-on-rails": "^8.0.5",
@@ -38,9 +37,7 @@
     "react-tinymce-input": "^1.2.1",
     "redux-form": "^6.7.0",
     "superagent": "^3.5.2",
-    "time-input": "^1.4.0"
-  },
-  "devDependencies": {
+    "time-input": "^1.4.0",
     "autoprefixer": "^6.5.3",
     "axios": "^0.15.2",
     "babel": "^6.5.2",
