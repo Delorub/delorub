@@ -7,9 +7,7 @@ Welcome to the Delorub!
 ## Recommended setup (vagrant)
 
 ### Vagrant & Virtualbox
-First, install vagrant and virtualbox:
-https://www.vagrantup.com/
-https://www.virtualbox.org/
+First, install vagrant and virtualbox: https://www.vagrantup.com/ & https://www.virtualbox.org/
 
 ### Run the box
 
