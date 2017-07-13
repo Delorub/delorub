@@ -10,8 +10,7 @@
     <link rel="apple-touch-icon" href="/images/favicon/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-touch-icon-114x114.png">
-    <%=  stylesheet_pack_tag 'website_apps', media: 'all' %>
-    <%=  stylesheet_pack_tag 'website', media: 'all' %>
+    <%= stylesheet_pack_tag 'application' %>
     <%= csrf_meta_tags %>
     <meta name="theme-color" content="#000">
     <meta name="msapplication-navbutton-color" content="#000">
@@ -40,7 +39,5 @@
       </div>
       <%= render 'side_menu' if show_side_menu? %>
     </div>
-  <%= javascript_pack_tag 'website' %>
-  <%= javascript_pack_tag 'website_apps' %>
 </body>
 </html>
