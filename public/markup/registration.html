@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Delorub</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/packs/application.css">
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#000">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#000">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#000">
+  </head>
+  <body>
+    <nav class="navbar navbar-toggleable-md bg-faded navbar-dr-theme">
+      <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <img src="/images/design/logo.svg" alt=""/>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Все задания</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Исполнители</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav navbar-right">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Стать исполнителем</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Создать задание</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Вход</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="dr-block-style dr-block-style-registration">
+
+        <div class="registration-form">
+          <div class="registration-form__header">
+            <p>Регистрация исполнителя</p>
+          </div>
+          <div class="registration-form__content">
+            <div class="registration-form__content-header">
+              <p>Авторизация через соцсети</p>
+            </div>
+            <div class="registration-form__content-circle">
+              <div class="registration-form__content-circle__item registration-form__content-circle__item-vk">VK</div>
+              <div class="registration-form__content-circle__item registration-form__content-circle__item-fb">FB</div>
+              <div class="registration-form__content-circle__item registration-form__content-circle__item-ok">OK</div>
+            </div>
+            <hr/>
+            <div class="registration-form__content-inputs">
+              <input type="text" class="form-control form-control__item" id="email" placeholder="Как к Вам обращаться?"/>
+              <input type="text" class="form-control form-control__item" id="email" placeholder="Ваш email"/>
+              <div class="registration-form__content-inputs registration-form__content-inputs__last-input">
+                <input type="text" class="form-control form-control__item" id="email" placeholder="Номер телефона"/>
+                <a class="btn btn-primary dr-btn-primary" href="#" role="button">Подтвердить</a>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" value="">Я согласен с правилами сервиса</label>
+              </div>
+            </div>
+            <div class="registration-form__content-button-submit">
+              <a class="btn btn-primary  dr-btn-primary" href="#" role="button">Создать аккаунт</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <script src="/webpack/development/website.js"></script>
+  </body>
+</html>

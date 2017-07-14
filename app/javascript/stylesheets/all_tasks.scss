@@ -1,0 +1,92 @@
+.task-card {
+    &-person {
+        &__image {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        &__name {
+            margin-top: 10px;
+            text-align: center;
+        }
+    }
+    &-description {
+        &__header {
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin-bottom: 0;
+            a {
+                color: #4c4c4c;
+            }
+        }
+        &__adress {
+            margin-top: 1rem;            
+        }
+    }
+    &-refinement {        
+        &__price {
+            text-align: right;
+            font-size: 1.5rem;
+        }
+        &__time {
+            text-align: right;
+        }
+    }
+}
+
+.task-sort {
+    font-size: 0.5rem;
+    @media (min-width: 448px) {
+        font-size: 0.6rem;
+    }
+    @media (min-width: 768px) {
+        font-size: 0.8rem;
+    }
+    &__link {
+        color: #4c4c4c;
+    }
+    div>div {
+        padding-left: 2px;
+        padding-right: 2px;
+        &:last-child {
+            text-align: right;
+            padding-right: 10px;
+        }
+        &:first-child {
+            padding-left: 10px;
+        }
+    }
+}
+
+.bottom-text {
+    margin: 30px 10%;
+}
+
+.choose-city {
+    &__header {
+        @extend .task-card-description__header;
+    }
+    &__link {
+
+    }
+}
+
+.choose-price {
+    &__header {
+        @extend .task-card-description__header;
+    }    
+}
+
+.subcategories {
+    &__header {
+        @extend .task-card-description__header;
+    }
+    &__list {
+        li {
+            padding: 10px 0;
+            a {
+                color: #4c4c4c;
+            }
+        }
+    }
+}

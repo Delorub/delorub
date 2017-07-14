@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" href="/images/favicon/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-touch-icon-114x114.png">
-    <link rel="stylesheet" href="website-bundle.css">
+    <link rel="stylesheet" href="/packs/application.css">
     <!-- Chrome, Firefox OS and Opera -->
     <meta name="theme-color" content="#000">
     <!-- Windows Phone -->
@@ -19,10 +19,10 @@
     <!-- iOS Safari -->
     <meta name="apple-mobile-web-app-status-bar-style" content="#000">
   </head>
-  <body class="without-sidemenu">
+  <body>
     <div class="container">
       <div class="row row-eq-height">
-        <div class="col-sm-12 dr-content">
+        <div class="col-sm-11 col-sm-push-1 dr-content">
           <main class="content">
             <div class="dr-container">
               <nav role="navigation" class="navbar navbar-default dr-top-nav dr-top-nav-main navbar-static-top">
@@ -54,7 +54,7 @@
                             <input class="sb-search-submit" type="submit" value="">
                             <span class="sb-icon-search"></span>
                           </form>
-                        </div>                      
+                        </div>
                       </li>
                       <li><a id="open-search-link" class='dr-top-nav-icon icon-search dr-search-icon'></a></li>
                       <li>
@@ -76,7 +76,7 @@
                     </ul>
                   </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
-              </nav>             
+              </nav>
               <div class="dr-slider">
                 <div class="item item-shadow">
                   <img src="/images/slider/slide_1.png" class="img-responsive" alt="">
@@ -85,11 +85,11 @@
                     <div class="dr-landing-slider-caption-content-top dr-landing-slider-caption-content-bold">
                       - это сайт, где Вы найдете исполнителя для любого поручения.
                     </div>
-                    <div class="dr-landing-slider-caption-content-subcontent">                      
+                    <div class="dr-landing-slider-caption-content-subcontent">
                       <div class="dr-landing-slider-caption-content-subcontent-left">
                         <div class="dr-landing-slider-arrow-left">
                           <a class="dr-landing-slider-arrow-left-link"></a>
-                        </div>                        
+                        </div>
                         <p>ЗАКАЗЧИКАМ</p>
                         <p>
                           Наши мастера справятся с задачей в удобное для Вас
@@ -108,16 +108,16 @@
                         </p>
                       </div>
                     </div>
-                  </div>                  
+                  </div>
                 </div>
               </div>
               <div class="dr-wrap-button">
                 <div class="dr-wrap-button-left">
                   <a class="btn dr-button-blueFull">Создать задание</a>
                 </div>
-                <div class="dr-wrap-button-right">                  
+                <div class="dr-wrap-button-right">
                   <a class="btn dr-button-blueFull">Стать мастером</a>
-                </div>                               
+                </div>
               </div>
               <div class="dr-bottom-service">
                 <div class="dr-bottom-service-odd-row">
@@ -264,10 +264,10 @@
                       <img class="img-responsive" src="/images/icons/fix.png" alt="">
                       <div class="dr-bottom-service-content">
                         <span>Разное</span>
-                      </div>                      
+                      </div>
                     </a>
                   </div>
-                </div>              
+                </div>
 
               </div>
             </div>
@@ -285,7 +285,30 @@
                 </ul>
               </nav>
             </div>
+          </main>
         </div>
-        <script src="website-bundle.js"></script>
-    </body>
+        <div class="col-sm-1 col-sm-pull-11 dr-side-menu">
+          <br/>
+          <br/>
+          <a href="#" class="gamburg-menu icon-gamb_menu"></a>
+          <div class="totalz">
+            <a href="#"><span class="n1">99</span><span class="txa">Мои<br/> задания</span></a>
+          </div>
+          <nav>
+            <ul class="left_menu">
+              <li><a href="#"><span class="icon_top icon-add"></span>Создать<br/> задание</a></li>
+              <li><a href="#"><span class="icon_top icon-zadacha"></span>Создать<br/> анкету</a></li>
+              <li><a href="#"><span class="icon_top icon-setups"></span>Мои<br/> настройки</a></li>
+              <li><a href="#"><span class="icon_top icon-cart"></span>Мои<br/> покупки</a></li>
+            </ul>
+          </nav>
+          <div class="year">© 2017</div>
+        </div>
+      </div>
+    </div>
+    <script>
+
+    </script>
+    <script src="website-bundle.js"></script>
+  </body>
 </html>

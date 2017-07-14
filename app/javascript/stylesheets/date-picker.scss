@@ -1,0 +1,30 @@
+.react-datepicker {    
+    border-color: $blueColor;
+    border-radius: $borderRadius;
+    font-size: 1rem;
+    &__header {
+        border-top-left-radius: $borderRadius;
+        border-top-right-radius: $borderRadius;
+    }
+    &__month {
+        border-bottom-left-radius: $borderRadius;
+        border-bottom-right-radius: $borderRadius;
+        padding: 5px;
+    }
+    &__current-month {
+        font-size: 1.2rem;
+    }
+    &__day {
+        &--in-range, &--in-selecting-range, &--selected {
+            background-color: $blueColor;
+        }
+    }
+}
+
+.react-datepicker__tether-element-attached-top .react-datepicker__triangle:before {
+    border-bottom-color: $blueColor;
+}
+
+.react-datepicker__month-read-view--down-arrow:before, .react-datepicker__tether-element-attached-bottom .react-datepicker__triangle:before, .react-datepicker__year-read-view--down-arrow:before {
+    border-top-color: $blueColor;
+}

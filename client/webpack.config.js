@@ -43,7 +43,7 @@ module.exports = {
     ]
   },
   output: {
-    filename: '[name]-[hash].js',
+    filename: '[name].js',
     publicPath: `/${webpackPublicOutputDir}/`,
     path: webpackOutputPath
   },
@@ -80,7 +80,7 @@ module.exports = {
       "window.jQuery": "jquery"
     }),
     new ExtractTextPlugin({
-      filename: '[name]-[hash].css',
+      filename: '[name].css',
       allChunks: true,
       disable: false
     }),
@@ -182,7 +182,7 @@ module.exports = {
     port: 9002,
     watchContentBase: true,
     watchOptions: {
-      watch: true
+      poll: 11
     },
     stats: {
       assets: true,
