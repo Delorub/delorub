@@ -6,7 +6,6 @@ import { Field } from 'redux-form';
 export default class Category extends React.Component {
   onChange(e, v) {
     if(v != this.props.main_category_id) {
-          console.log(this.props.main_category_id)
       this.props.change('task[category_id]', null)
     }
   }

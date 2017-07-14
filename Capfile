@@ -11,6 +11,9 @@ install_plugin Capistrano::SCM::Git
 # Load RVM
 require 'capistrano/rvm'
 
+# Load Yarn
+require 'capistrano/yarn'
+
 # Load Rails
 require 'capistrano/bundler'
 require 'capistrano/rails/assets'

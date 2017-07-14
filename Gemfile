@@ -101,14 +101,15 @@ group :development do
   gem 'rubocop', require: false
   gem 'rubocop-rspec-focused', require: false
   gem 'ruby_parser', require: false
-  gem 'capistrano', '~> 3.7'
-  gem 'capistrano-rails', '~> 1.2'
-  gem 'capistrano-rvm'
-  gem 'capistrano3-puma', github: 'seuros/capistrano-puma'
   gem 'overcommit'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'letter_opener'
+  gem 'capistrano', '~> 3.7'
+  gem 'capistrano-rails', '~> 1.2'
+  gem 'capistrano-rvm'
+  gem 'capistrano3-puma', github: 'seuros/capistrano-puma'
+  gem 'capistrano-yarn'
 end
 
 group :test do

@@ -13,10 +13,3 @@ set :keep_releases, 5
 
 append :linked_files, 'config/database.yml'
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/uploads'
-
-after 'deploy:publishing', 'deploy:restart'
-namespace :deploy do
-  task :restart do
-    invoke 'unicorn:restart'
-  end
-end

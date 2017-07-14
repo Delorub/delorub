@@ -145,6 +145,8 @@ GEM
     capistrano-rvm (0.1.2)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
+    capistrano-yarn (2.0.2)
+      capistrano (~> 3.0)
     carrierwave (1.1.0)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
@@ -610,6 +612,7 @@ DEPENDENCIES
   capistrano (~> 3.7)
   capistrano-rails (~> 1.2)
   capistrano-rvm
+  capistrano-yarn
   capistrano3-puma!
   carrierwave (~> 1.0)
   cells
