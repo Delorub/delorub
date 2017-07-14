@@ -64,6 +64,7 @@ gem 'httparty'
 
 # Frontend
 gem 'uglifier'
+gem 'erubis'
 gem 'yui-compressor'
 gem 'webpacker'
 gem 'react-rails'

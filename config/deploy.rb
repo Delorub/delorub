@@ -1,4 +1,6 @@
-lock '3.8.0'
+lock '3.8.2'
+
+set :branch, ENV['BRANCH'] if ENV['BRANCH']
 
 set :application, 'delorub'
 set :repo_url, 'git@github.com:Delorub/delorub.git'

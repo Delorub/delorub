@@ -620,6 +620,7 @@ DEPENDENCIES
   draper
   dry-validation
   enumerize
+  erubis
   factory_girl_rails
   faker
   figaro
