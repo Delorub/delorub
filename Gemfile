@@ -87,6 +87,7 @@ gem 'ipgeobase', git: 'https://github.com/mokevnin/ipgeobase'
 gem 'meta-tags', require: 'meta_tags'
 
 group :development, :test do
+  gem 'rspec'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'pry-byebug', require: false
