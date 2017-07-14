@@ -2,15 +2,14 @@ ruby '2.3.1'
 source 'http://rubygems.org'
 
 # Main
+gem 'rake', '11.3.0'
 gem 'rails', '~> 5.1'
 gem 'pg'
 gem 'sidekiq'
 gem 'coffee-rails'
 gem 'jbuilder', '~> 2.0'
-gem 'rake', '11.3.0'
 gem 'haml'
 gem 'bcrypt-ruby', require: 'bcrypt'
-gem 'rmagick', require: false
 gem 'mini_magick'
 gem 'searchkick'
 gem 'rabl'
@@ -52,6 +51,7 @@ gem 'active_admin-sortable_tree'
 gem 'flattened_active_admin'
 
 # Attachments
+gem 'rmagick', require: false
 gem 'carrierwave', '~> 1.0'
 
 # API
@@ -62,13 +62,13 @@ gem 'grape-swagger-entity'
 gem 'hashie-forbidden_attributes'
 gem 'httparty'
 
-# Assets
+# Frontend
 gem 'uglifier'
+gem 'erubis'
 gem 'yui-compressor'
-gem 'react_on_rails', '~> 8'
-gem 'webpacker_lite', '2.0.4'
+gem 'webpacker'
+gem 'react-rails'
 gem 'mini_racer', platforms: :ruby
-gem 'jquery-ui-rails', '~> 5'
 
 # Misc
 gem 'russian', '~> 0.6.0'
@@ -87,6 +87,7 @@ gem 'ipgeobase', git: 'https://github.com/mokevnin/ipgeobase'
 gem 'meta-tags', require: 'meta_tags'
 
 group :development, :test do
+  gem 'rspec'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'pry-byebug', require: false
@@ -101,14 +102,15 @@ group :development do
   gem 'rubocop', require: false
   gem 'rubocop-rspec-focused', require: false
   gem 'ruby_parser', require: false
-  gem 'capistrano', '~> 3.7'
-  gem 'capistrano-rails', '~> 1.2'
-  gem 'capistrano-rvm'
-  gem 'capistrano3-puma', github: 'seuros/capistrano-puma'
   gem 'overcommit'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'letter_opener'
+  gem 'capistrano', '~> 3.7'
+  gem 'capistrano-rails', '~> 1.2'
+  gem 'capistrano-rvm'
+  gem 'capistrano3-puma', github: 'seuros/capistrano-puma'
+  gem 'capistrano-yarn'
 end
 
 group :test do

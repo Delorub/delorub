@@ -1,4 +1,6 @@
-lock '3.8.0'
+lock '3.8.2'
+
+set :branch, ENV['BRANCH'] if ENV['BRANCH']
 
 set :application, 'delorub'
 set :repo_url, 'git@github.com:Delorub/delorub.git'
@@ -11,10 +13,3 @@ set :keep_releases, 5
 
 append :linked_files, 'config/database.yml'
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/uploads'
-
-after 'deploy:publishing', 'deploy:restart'
-namespace :deploy do
-  task :restart do
-    invoke 'unicorn:restart'
-  end
-end

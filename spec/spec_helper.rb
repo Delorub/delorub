@@ -15,7 +15,6 @@ WebMock.disable_net_connect!(allow_localhost: true)
 RSpec.configure do |config|
   # Ensure that if we are running js tests, we are using latest webpack assets
   # This will use the defaults of :js and :server_rendering meta tags
-  ReactOnRails::TestHelper.configure_rspec_to_compile_assets(config)
   config.filter_run_excluding search: true
 
   config.include Rails.application.routes.url_helpers
@@ -36,7 +35,6 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     Place.reindex
-
     Searchkick.disable_callbacks
   end
 
