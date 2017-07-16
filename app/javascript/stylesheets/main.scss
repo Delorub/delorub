@@ -18,6 +18,10 @@ body {
     width: 100%;
 }
 
+.bg-faded {
+    background-color: #fff;
+}
+
 .checkbox {
     input[type=checkbox] {
         margin-right: 0.5rem;
@@ -80,11 +84,10 @@ body {
             margin-bottom: 0;
         } 
     }
-    &__link {
-        text-decoration: underline;
-        color: #337ab7;
+    &__link {        
+        color: $blueColor;
         &:hover {
-            color: lighten(#337ab7, 20%);
+            color: lighten($blueColor, 20%);
         }
     }
 }

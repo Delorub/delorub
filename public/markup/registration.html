@@ -61,14 +61,22 @@
               <p>Авторизация через соцсети</p>
             </div>
             <div class="registration-form__content-circle">
-              <div class="registration-form__content-circle__item registration-form__content-circle__item-vk">VK</div>
-              <div class="registration-form__content-circle__item registration-form__content-circle__item-fb">FB</div>
-              <div class="registration-form__content-circle__item registration-form__content-circle__item-ok">OK</div>
+              <div class="registration-form__content-circle__item">
+				<a href="#"><img class="task-card-person__image" src="/images/design/vk.png" alt=""/></a>
+			  </div>
+              <div class="registration-form__content-circle__item">
+				<a href="#"><img class="task-card-person__image" src="/images/design/fb.png" alt=""/></a>
+			  </div>
+              <div class="registration-form__content-circle__item">
+				<a href="#"><img class="task-card-person__image" src="/images/design/ok.png" alt=""/></a>
+			  </div>
             </div>
             <hr/>
             <div class="registration-form__content-inputs">
-              <input type="text" class="form-control form-control__item" id="email" placeholder="Как к Вам обращаться?"/>
-              <input type="text" class="form-control form-control__item" id="email" placeholder="Ваш email"/>
+			  <div class="row">
+				<div class="col"><input type="text" class="form-control form-control__item" id="email" placeholder="Как к Вам обращаться?"/></div>
+				<div class="col"><input type="text" class="form-control form-control__item" id="email" placeholder="Ваш email"/></div>
+			  </div>
               <div class="registration-form__content-inputs registration-form__content-inputs__last-input">
                 <input type="text" class="form-control form-control__item" id="email" placeholder="Номер телефона"/>
                 <a class="btn btn-primary dr-btn-primary" href="#" role="button">Подтвердить</a>
@@ -86,6 +94,6 @@
       </div>
 
     </div>
-    <script src="/webpack/development/website.js"></script>
+    <script src="/packs/application.js"></script>
   </body>
 </html>
