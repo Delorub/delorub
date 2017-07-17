@@ -1,167 +1,181 @@
 <!DOCTYPE html>
 
 <html>
-  <head>
-    <title>Delorub</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="/packs/application.css">
-    <!-- Chrome, Firefox OS and Opera -->
-    <meta name="theme-color" content="#000">
-    <!-- Windows Phone -->
-    <meta name="msapplication-navbutton-color" content="#000">
-    <!-- iOS Safari -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="#000">
-  </head>
-  <body>
-    <nav class="navbar navbar-toggleable-md bg-faded navbar-dr-theme">
-      <div class="container">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="#">
-          <img src="/images/design/logo.svg" alt=""/>
-        </a>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Все задания</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Исполнители</a>
-            </li>
-          </ul>
-          <ul class="navbar-nav navbar-right">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Стать исполнителем</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Создать задание</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Вход</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+	<head>
+		<title>Delorub</title>
+		<meta charset="UTF-8">
+		<meta name="description" content="">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" href="/packs/application.css">
+		<!-- Chrome, Firefox OS and Opera -->
+		<meta name="theme-color" content="#000">
+		<!-- Windows Phone -->
+		<meta name="msapplication-navbutton-color" content="#000">
+		<!-- iOS Safari -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="#000">
+	</head>
+	<body>
+		<div class="top-line">
+			<div class="container">
+				<div class="top-line__container">
+					<div class="top-line__left">
+						<a href="#" class="top-line__city">Санкт-Петербург</a>
+					</div>
+					<div class="top-line__right">
+						<a href="#" class="top-line__link">Вход</a>
+						<a href="#" class="top-line__link">Регистрация</a>	
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<nav class="navbar navbar-toggleable-md bg-faded navbar-dr-theme">
+			<div class="container">
+				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<a class="navbar-brand" href="#">
+					<img src="/images/design/logo.svg" alt=""/>
+				</a>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item active">
+							<a class="nav-link" href="#">Все задания</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Исполнители</a>
+						</li>
+					</ul>
+					<ul class="navbar-nav navbar-right">
+						<li class="nav-item">
+							<a class="nav-link" href="#">Стать исполнителем</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Создать задание</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Вход</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
 
-    <div class="container">
+		<div class="container">
 
-      <div class="dr-content-header">
-        <p class="dr-content-header__text dr-content-header__text-margin-bottom-none">
-          Заказать <a href="#" class="dr-content-header__link">ремонт стиральной машинки</a>
-          в <a href="#" class="dr-content-header__link">Москве</a>
-        </p>
-      </div>
+			<div class="dr-content-header">
+				<p class="dr-content-header__text dr-content-header__text-margin-bottom-none">
+					Заказать <a href="#" class="dr-content-header__link">ремонт стиральной машинки</a>
+					в <a href="#" class="dr-content-header__link">Москве</a>
+				</p>
+			</div>
 
-      <div class="dr-form">
+			<div class="dr-form">
 
-        <div class="dr-block-style">
-          <div class="form-group">
-            <label for="hdr" class="form-group__header">Заголовок</label>
-            <input type="text" class="form-control" id="hdr" placeholder="Заголовок. Например, доставить груз"/>
-          </div>
-        </div>
-
-
-        <div class="dr-block-style">
-          <div class="form-group">
-            <label for="comment" class="form-group__header">Описание задачи</label>
-            <textarea class="form-control form-group__item form-group__item-marginbottom-10" id="comment" placeholder="Опишите ваше задачу. Например, нужно доставить груз из склада на Невском пр. 8 в магазин на Литейном пр. 10" rows="6"></textarea>
-            <a href="#" class="form-group__sublink">Прикрепить изображение или текстовый файл</a>
-          </div>
-        </div>
-
-
-        <div class="dr-block-style">
-          <div class="form-group">
-            <label for="date" class="form-group__header">Дата и время</label>
-            <div class="row">
-              <div class="col-lg-4">
-                <div class="form-group">
-                  <select class="form-control form-control__item" id="sel1">
-                    <option>Начать работу</option>
-                    <option>Завершить работу</option>
-                    <option>Указать период</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="form-group">
-                  <input type="date" class="form-control form-control__item" id="date"/>
-                </div>
-                <a href="#" class="form-group__sublink">Сегодня</a>
-                <a href="#" class="form-group__sublink">Завтра</a>
-              </div>
-              <div class="col-lg-4">
-                <div class="form-group">
-                  <input type="time" class="form-control form-control__item" id="time"/>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+				<div class="dr-block-style">
+					<div class="form-group">
+						<label for="hdr" class="form-group__header">Заголовок</label>
+						<input type="text" class="form-control" id="hdr" placeholder="Заголовок. Например, доставить груз"/>
+					</div>
+				</div>
 
 
-        <div class="dr-block-style">
-          <div class="form-group">
-            <label for="adr" class="form-group__header">Адрес</label>
-            <input type="text" class="form-control" id="adr" placeholder="Санкт-Петербург, ул. Бадаева, 6"/>
-          </div>
-          <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Adf85705e8bdd20d32fbc052b21110fb7390a28d03f814cf37d90374d857c3530&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
-        </div>
-
-        <div class="dr-block-style">
-          <div class="form-group">
-            <label for="budget" class="form-group__header">На какой бюджет ориентироваться исполнителям</label>
-            <br/>
-            <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="300" data-slider-step="1" data-slider-value="240"/>
-          </div>
-
-          <div class="form-group">
-            <label for="budget">Или укажите точную стоимость</label>
-            <div class="row">
-              <div class="col-lg-3">
-                <div class="input-group">
-                  <input type="text" class="form-control" placeholder="300 000"/>
-                  <span class="input-group-addon glyphicon glyphicon-ruble input-group-addon__ruble">P</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+				<div class="dr-block-style">
+					<div class="form-group">
+						<label for="comment" class="form-group__header">Описание задачи</label>
+						<textarea class="form-control form-group__item form-group__item-marginbottom-10" id="comment" placeholder="Опишите ваше задачу. Например, нужно доставить груз из склада на Невском пр. 8 в магазин на Литейном пр. 10" rows="6"></textarea>
+						<a href="#" class="form-group__sublink">Прикрепить изображение или текстовый файл</a>
+					</div>
+				</div>
 
 
+				<div class="dr-block-style">
+					<div class="form-group">
+						<label for="date" class="form-group__header">Дата и время</label>
+						<div class="row">
+							<div class="col-lg-4">
+								<div class="form-group">
+									<select class="form-control form-control__item" id="sel1">
+										<option>Начать работу</option>
+										<option>Завершить работу</option>
+										<option>Указать период</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="form-group">
+									<input type="date" class="form-control form-control__item" id="date"/>
+								</div>
+								<a href="#" class="form-group__sublink">Сегодня</a>
+								<a href="#" class="form-group__sublink">Завтра</a>
+							</div>
+							<div class="col-lg-4">
+								<div class="form-group">
+									<input type="time" class="form-control form-control__item" id="time"/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-        <div class="dr-block-style">
-          <label for="contact" class="form-group__header">Укажите контактную информацию</label>
-          <div class="row">
-            <div class="col-lg-6">
-              <input type="text" class="form-control form-control__item" id="name" placeholder="Как к Вам обращатся?"/>
-            </div>
-            <div class="col-lg-6">
-              <input type="text" class="form-control form-control__item" id="email" placeholder="Ваш email"/>
-            </div>
-            <div class="col-lg-6">
-              <input type="text" class="form-control form-control__item" id="tel" placeholder="Номер телефона"/>
-            </div>
-            <div class="col-lg-6">
-              <a class="btn btn-primary dr-btn-primary" href="#" role="button">Подтвердить</a>
-            </div>
-          </div>
-          <div class="checkbox">
-            <label><input type="checkbox" value="">Я согласен с правилами сервиса</label>
-          </div>
-          <br/>
-          <a class="btn btn-primary dr-btn-primary" href="#" role="button">Опубликовать задание</a>
-        </div>
 
-      </div>
+				<div class="dr-block-style">
+					<div class="form-group">
+						<label for="adr" class="form-group__header">Адрес</label>
+						<input type="text" class="form-control" id="adr" placeholder="Санкт-Петербург, ул. Бадаева, 6"/>
+					</div>
+					<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Adf85705e8bdd20d32fbc052b21110fb7390a28d03f814cf37d90374d857c3530&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+				</div>
 
-    </div>
-    <script src="/packs/application.js"></script>
-  </body>
+				<div class="dr-block-style">
+					<div class="form-group">
+						<label for="budget" class="form-group__header">На какой бюджет ориентироваться исполнителям</label>
+						<br/>
+						<input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="300" data-slider-step="1" data-slider-value="240"/>
+					</div>
+
+					<div class="form-group">
+						<label for="budget">Или укажите точную стоимость</label>
+						<div class="row">
+							<div class="col-lg-3">
+								<div class="input-group">
+									<input type="text" class="form-control" placeholder="300 000"/>
+									<span class="input-group-addon glyphicon glyphicon-ruble input-group-addon__ruble">P</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+				<div class="dr-block-style">
+					<label for="contact" class="form-group__header">Укажите контактную информацию</label>
+					<div class="row">
+						<div class="col-lg-6">
+							<input type="text" class="form-control form-control__item" id="name" placeholder="Как к Вам обращатся?"/>
+						</div>
+						<div class="col-lg-6">
+							<input type="text" class="form-control form-control__item" id="email" placeholder="Ваш email"/>
+						</div>
+						<div class="col-lg-6">
+							<input type="text" class="form-control form-control__item" id="tel" placeholder="Номер телефона"/>
+						</div>
+						<div class="col-lg-6">
+							<a class="btn btn-primary dr-btn-primary" href="#" role="button">Подтвердить</a>
+						</div>
+					</div>
+					<div class="checkbox">
+						<label><input type="checkbox" value="">Я согласен с правилами сервиса</label>
+					</div>
+					<br/>
+					<a class="btn btn-primary dr-btn-primary" href="#" role="button">Опубликовать задание</a>
+				</div>
+
+			</div>
+
+		</div>
+		<script src="/packs/application.js"></script>
+	</body>
 </html>
