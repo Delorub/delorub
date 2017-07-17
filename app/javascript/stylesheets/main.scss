@@ -35,6 +35,14 @@ body {
 	}
 }
 
+.breadcrumb {
+	margin-bottom: 0;
+	background-color: inherit;
+	&-item {
+		color: $blueColor;
+	}
+}
+
 .top-line {
 	&__container {
 		display: flex;
