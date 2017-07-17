@@ -1,0 +1,139 @@
+.performer-person {
+	&__rating {
+		display: flex;
+		justify-content: space-around;
+		margin-top: 1rem;
+	}
+	&__image {
+		img {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+	}
+	&__feedback {
+		text-align: center;
+		margin-top: 20px;
+	}
+	&__price {
+		font-size: 1.3rem;
+		text-align: center;
+		margin-top: 30px;
+	}
+	&__button {
+		text-align: center;
+	}
+}
+
+.performer-description {
+	&__header {
+		font-size: 1.5rem;
+		font-weight: bold;
+	}
+	&__subcontent {
+		margin-top: 2rem;
+		span {
+			margin-right: 3rem;
+			&:last-child {
+				color: #2ecc40;
+			}
+		}
+	}
+	&-category {
+		&__header {
+			margin-top: 2rem;
+			font-size: 1.3rem;
+			a {
+				color: $blueColor;
+			}
+		}
+		&__sub {
+			margin-top: 0.5rem;
+			opacity: 0.5;
+		}
+		&__text {
+			margin-top: 0.5rem;
+		}
+	}
+	&-price, &-about {
+		&__header {
+			margin-top: 2rem;
+			font-size: 1.3rem;
+			font-weight: bold;
+		}
+		&__text {
+			margin-top: 0.5rem;
+		}
+	}
+	&-examples {
+		&__header {
+			margin-top: 2rem;
+			font-size: 1.3rem;
+			font-weight: bold;
+		}
+		&__photoes {
+			margin-top: 1rem;
+			img {
+				display: block;
+				width: 100%;
+				height: auto;				
+			}
+		}
+	}
+
+}
+
+.feedback-line {
+	font-size: 1.5rem;
+	&__header {
+		font-weight: bold;		
+	}
+	&__positive {
+		color: #2ecc40;
+		margin-left: 3rem;
+	}
+	&__negative {
+		color: #C21F39;
+		margin-left: 3rem;
+	}
+}
+
+.feedback-comment {
+	&-person {
+		&__image {
+			img {
+				display: block;
+				width: 100%;
+				height: auto;
+			}
+		}
+		&__name {
+			text-align: center;
+			margin-top: 0.5rem;
+			a {
+				color: $blueColor;
+			}
+		}
+	}
+	&-description {
+		&__header {
+			font-weight: bold;
+		}
+		&__text {
+			opacity: 0.5;
+			margin-top: 0.5rem;
+		}
+		&__rating {
+			margin-top: 0.5rem;
+		}
+	}
+	&-more {
+		&__link {
+			text-align: center;
+			margin-top: 1rem;
+			a {
+				color: $blueColor;
+			}
+		}
+	}
+}

@@ -22,6 +22,12 @@ body {
 	background-color: #fff;
 }
 
+.toggle-hr {
+	@media (min-width: 992px) {
+		display: none;
+	}
+}
+
 .checkbox {
 	input[type=checkbox] {
 		margin-right: 0.5rem;
