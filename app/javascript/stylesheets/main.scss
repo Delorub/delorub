@@ -28,7 +28,15 @@ body {
 }
 
 .navbar-toggler {
-	border-color: rgba(0,0,0,.1);
+	border-color: rgba(0, 0, 0, 0.4);
+	margin-top: 0.35rem;	
+	position: absolute;
+	@media (max-width: 575px) {
+		right: -70px;
+	}
+	.fa {
+		opacity: 0.5;
+	}
 }
 
 .navbar-dr-theme {
