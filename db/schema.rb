@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170629031303) do
+ActiveRecord::Schema.define(version: 20170715041226) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "billing_reply_packs", force: :cascade do |t|
+  create_table "billing_reply_packs", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.float "cost"
     t.integer "amount"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20170629031303) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "billing_reply_subscriptions", force: :cascade do |t|
+  create_table "billing_reply_subscriptions", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.float "cost"
     t.datetime "active_from"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20170629031303) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "billing_task_autorefreshes", force: :cascade do |t|
+  create_table "billing_task_autorefreshes", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.integer "task_id"
     t.float "cost"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20170629031303) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "billing_task_blogs", force: :cascade do |t|
+  create_table "billing_task_blogs", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.integer "task_id"
     t.float "cost"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20170629031303) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "billing_task_colors", force: :cascade do |t|
+  create_table "billing_task_colors", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.integer "task_id"
     t.float "cost"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20170629031303) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "billing_task_packs", force: :cascade do |t|
+  create_table "billing_task_packs", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.float "cost"
     t.integer "amount"
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 20170629031303) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "billing_task_subscriptions", force: :cascade do |t|
+  create_table "billing_task_subscriptions", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.float "cost"
     t.datetime "active_from"
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 20170629031303) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "billing_transfer_manually", force: :cascade do |t|
+  create_table "billing_transfer_manually", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.integer "admin_id"
     t.decimal "amount", precision: 10, scale: 2
@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 20170629031303) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "categories", force: :cascade do |t|
+  create_table "categories", id: :serial, force: :cascade do |t|
     t.string "title"
     t.integer "parent_id"
     t.datetime "created_at", null: false
@@ -97,17 +97,18 @@ ActiveRecord::Schema.define(version: 20170629031303) do
     t.string "photo"
     t.integer "position"
     t.string "slug"
+    t.text "settings"
     t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 
-  create_table "categories_profiles", force: :cascade do |t|
+  create_table "categories_profiles", id: :serial, force: :cascade do |t|
     t.integer "profile_id"
     t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "certificates", force: :cascade do |t|
+  create_table "certificates", id: :serial, force: :cascade do |t|
     t.string "file"
     t.integer "profile_id"
     t.datetime "created_at", null: false
@@ -115,7 +116,7 @@ ActiveRecord::Schema.define(version: 20170629031303) do
     t.index ["profile_id"], name: "index_certificates_on_profile_id"
   end
 
-  create_table "comments", force: :cascade do |t|
+  create_table "comments", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.integer "parent_id"
     t.integer "commentable_id"
@@ -128,13 +129,13 @@ ActiveRecord::Schema.define(version: 20170629031303) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "contract_categories", force: :cascade do |t|
+  create_table "contract_categories", id: :serial, force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "contract_templates", force: :cascade do |t|
+  create_table "contract_templates", id: :serial, force: :cascade do |t|
     t.string "title"
     t.integer "category_id"
     t.text "markup"
@@ -142,19 +143,19 @@ ActiveRecord::Schema.define(version: 20170629031303) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "contracts", force: :cascade do |t|
+  create_table "contracts", id: :serial, force: :cascade do |t|
     t.integer "template_id"
     t.text "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "deals", force: :cascade do |t|
+  create_table "deals", id: :serial, force: :cascade do |t|
     t.integer "task_id"
     t.integer "profile_id"
   end
 
-  create_table "friendly_id_slugs", force: :cascade do |t|
+  create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
     t.string "sluggable_type", limit: 50
@@ -166,7 +167,7 @@ ActiveRecord::Schema.define(version: 20170629031303) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
-  create_table "help_answers", force: :cascade do |t|
+  create_table "help_answers", id: :serial, force: :cascade do |t|
     t.integer "help_category_id"
     t.string "title"
     t.text "content"
@@ -174,12 +175,12 @@ ActiveRecord::Schema.define(version: 20170629031303) do
     t.integer "position"
   end
 
-  create_table "help_categories", force: :cascade do |t|
+  create_table "help_categories", id: :serial, force: :cascade do |t|
     t.string "title"
     t.integer "position"
   end
 
-  create_table "help_questions", force: :cascade do |t|
+  create_table "help_questions", id: :serial, force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.text "content"
@@ -190,7 +191,7 @@ ActiveRecord::Schema.define(version: 20170629031303) do
     t.datetime "replied_at"
   end
 
-  create_table "news", force: :cascade do |t|
+  create_table "news", id: :serial, force: :cascade do |t|
     t.string "title"
     t.text "content"
     t.datetime "created_at", null: false
@@ -198,7 +199,7 @@ ActiveRecord::Schema.define(version: 20170629031303) do
     t.string "photo"
   end
 
-  create_table "notifications", force: :cascade do |t|
+  create_table "notifications", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.string "message"
     t.string "state"
@@ -210,7 +211,7 @@ ActiveRecord::Schema.define(version: 20170629031303) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "pages", force: :cascade do |t|
+  create_table "pages", id: :serial, force: :cascade do |t|
     t.string "title"
     t.string "slug"
     t.text "content"
@@ -219,7 +220,7 @@ ActiveRecord::Schema.define(version: 20170629031303) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "place_type_names", force: :cascade do |t|
+  create_table "place_type_names", id: :serial, force: :cascade do |t|
     t.integer "level"
     t.integer "code"
     t.string "name"
@@ -230,7 +231,7 @@ ActiveRecord::Schema.define(version: 20170629031303) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "places", force: :cascade do |t|
+  create_table "places", id: :serial, force: :cascade do |t|
     t.string "fias_aoguid"
     t.string "name"
     t.string "full_name"
@@ -244,7 +245,7 @@ ActiveRecord::Schema.define(version: 20170629031303) do
     t.boolean "custom"
   end
 
-  create_table "portfolio_items", force: :cascade do |t|
+  create_table "portfolio_items", id: :serial, force: :cascade do |t|
     t.integer "profile_id"
     t.string "file"
     t.datetime "created_at", null: false
@@ -252,7 +253,7 @@ ActiveRecord::Schema.define(version: 20170629031303) do
     t.index ["profile_id"], name: "index_portfolio_items_on_profile_id"
   end
 
-  create_table "profiles", force: :cascade do |t|
+  create_table "profiles", id: :serial, force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "work_type"
     t.boolean "have_car"
@@ -274,7 +275,7 @@ ActiveRecord::Schema.define(version: 20170629031303) do
     t.boolean "notifications_email_enabled", default: true
   end
 
-  create_table "replies", force: :cascade do |t|
+  create_table "replies", id: :serial, force: :cascade do |t|
     t.integer "task_id"
     t.integer "user_id"
     t.string "status"
@@ -287,7 +288,7 @@ ActiveRecord::Schema.define(version: 20170629031303) do
     t.index ["aasm_state"], name: "index_replies_on_aasm_state"
   end
 
-  create_table "services", force: :cascade do |t|
+  create_table "services", id: :serial, force: :cascade do |t|
     t.integer "profile_id"
     t.string "title"
     t.integer "price"
@@ -296,7 +297,7 @@ ActiveRecord::Schema.define(version: 20170629031303) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "sms_confirmations", force: :cascade do |t|
+  create_table "sms_confirmations", id: :serial, force: :cascade do |t|
     t.string "token"
     t.string "phone"
     t.string "code"
@@ -307,7 +308,7 @@ ActiveRecord::Schema.define(version: 20170629031303) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "task_files", force: :cascade do |t|
+  create_table "task_files", id: :serial, force: :cascade do |t|
     t.string "file"
     t.integer "task_id"
     t.datetime "created_at", null: false
@@ -315,7 +316,7 @@ ActiveRecord::Schema.define(version: 20170629031303) do
     t.index ["task_id"], name: "index_task_files_on_task_id"
   end
 
-  create_table "tasks", force: :cascade do |t|
+  create_table "tasks", id: :serial, force: :cascade do |t|
     t.string "title", null: false
     t.integer "category_id", null: false
     t.integer "user_id", null: false
@@ -344,7 +345,7 @@ ActiveRecord::Schema.define(version: 20170629031303) do
     t.index ["aasm_state"], name: "index_tasks_on_aasm_state"
   end
 
-  create_table "user_billing_logs", force: :cascade do |t|
+  create_table "user_billing_logs", id: :serial, force: :cascade do |t|
     t.float "sum"
     t.integer "user_id"
     t.string "billable_type"
@@ -353,7 +354,7 @@ ActiveRecord::Schema.define(version: 20170629031303) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_omniauth_relations", force: :cascade do |t|
+  create_table "user_omniauth_relations", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.string "provider"
     t.string "external_id"
@@ -364,18 +365,18 @@ ActiveRecord::Schema.define(version: 20170629031303) do
     t.index ["user_id"], name: "index_user_omniauth_relations_on_user_id"
   end
 
-  create_table "user_permissions", force: :cascade do |t|
+  create_table "user_permissions", id: :serial, force: :cascade do |t|
     t.text "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
   end
 
-  create_table "user_temporary_photos", force: :cascade do |t|
+  create_table "user_temporary_photos", id: :serial, force: :cascade do |t|
     t.string "photo"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :serial, force: :cascade do |t|
     t.string "provider", default: "email", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -409,7 +410,7 @@ ActiveRecord::Schema.define(version: 20170629031303) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "vacancies", force: :cascade do |t|
+  create_table "vacancies", id: :serial, force: :cascade do |t|
     t.string "title"
     t.text "small_description"
     t.text "description"

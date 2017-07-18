@@ -103,7 +103,7 @@ vendor/extensions/**/spec/dummy
 
 public/geo
 
-# React on Rails
+# Yarn
 npm-debug.log*
 node_modules
 

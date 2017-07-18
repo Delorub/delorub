@@ -14,6 +14,7 @@
 #  photo          :string
 #  position       :integer
 #  slug           :string
+#  settings       :text
 #
 # Indexes
 #
@@ -23,6 +24,8 @@
 class Category < ApplicationRecord
   include FriendlyId
   include Searchable::Category
+
+  serialize :settings, OpenStruct
 
   mount_uploader :photo, CategoryPhotoUploader
   acts_as_nested_set counter_cache: :children_count
@@ -35,13 +38,5 @@ class Category < ApplicationRecord
 
   def self_and_descendants_ids
     self_and_descendants.map(&:id)
-  end
-
-  def form_count
-    0
-  end
-
-  def master_count
-    0
   end
 end
