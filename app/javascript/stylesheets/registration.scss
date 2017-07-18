@@ -1,8 +1,7 @@
 .registration-form {
 	&__header {
 		text-align: center;
-		font-weight: bold;
-		font-size: 1.5rem;
+		@extend .dr-header;
 	}
 	&__content {
 		margin-top: 30px;

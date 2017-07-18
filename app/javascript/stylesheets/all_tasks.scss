@@ -1,9 +1,7 @@
 .task-card {
 	&-person {
 		&__image {
-			display: block;
-			width: 100%;
-			height: auto;
+			@extend .dr-image;
 		}
 		&__name {
 			margin-top: 10px;

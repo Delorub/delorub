@@ -1,0 +1,27 @@
+.form-group {   
+	textarea {
+		resize: none;
+	}
+	&__sublink {
+		color: #4c4c4c;
+		text-decoration: underline;
+		margin-right: 10px;
+	}        
+	&__header {
+		font-weight: bold;
+	}
+}
+
+.form-control {
+	&__item {
+		margin-bottom: 10px;
+	}
+}
+
+.input-group {    
+	&-addon {
+		&__ruble {
+			top: 0;            
+		}
+	}    
+}

@@ -1,8 +1,7 @@
 .sign_in {
 	&-form {
 		&__header {
-			font-weight: bold;
-			font-size: 1.5rem;
+			@extend .dr-header;
 		}
 		&__content {
 			margin-top: 30px;
@@ -25,8 +24,7 @@
 
 .first-time-sign-in {
 	&__header {
-		font-weight: bold;
-		font-size: 1.5rem;		
+		@extend .dr-header;
 	}
 	&__button {
 		margin-top: 30px;
