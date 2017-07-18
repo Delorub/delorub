@@ -1,53 +1,54 @@
 *:focus, *:active {
-    outline: none;
+	outline: none;
 }
 
 input::-webkit-contacts-auto-fill-button {
-  visibility: hidden;
-  display: none !important;
-  pointer-events: none;
-  position: absolute;
-  right: 0;
+	visibility: hidden;
+	display: none !important;
+	pointer-events: none;
+	position: absolute;
+	right: 0;
 }
 
 *::-webkit-input-placeholder {
-    color: #666;
-    opacity: 1;
+	color: #666;
+	opacity: 1;
 }
 
 *:-moz-placeholder {
-    color: #666;
-    opacity: 1;
+	color: #666;
+	opacity: 1;
 }
 
 *::-moz-placeholder {
-    color: #666;
-    opacity: 1;
+	color: #666;
+	opacity: 1;
 }
 
 *:-ms-input-placeholder {
-    color: #666;
-    opacity: 1;
+	color: #666;
+	opacity: 1;
 }
 
 a {
-    &:hover, &:focus, &:visited, &:active {        
-        text-decoration: none;
-    }
+	&:hover, &:focus, &:visited, &:active {        
+		text-decoration: none;
+	}
 }
 
 ul, ol {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 
 body input:focus:required:invalid,
 body textarea:focus:required:invalid {
-    color: #666;
+	color: #666;
 }
 
 body input:required:valid,
 body textarea:required:valid {
-    color: #666;
+	color: #666;
 }
+
