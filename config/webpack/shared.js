@@ -38,6 +38,13 @@ module.exports = {
   plugins: [
     new webpack.EnvironmentPlugin(JSON.parse(JSON.stringify(env))),
     new ExtractTextPlugin(env.NODE_ENV === 'production' ? '[name].css' : '[name].css'),
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery",
+      "window.jQuery": "jquery",
+      "Tether": 'tether',
+      "window.Tether": 'tether'
+    }),
     new ManifestPlugin({
       publicPath: output.publicPath,
       writeToFileEmit: true

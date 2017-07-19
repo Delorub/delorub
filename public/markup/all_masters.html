@@ -1,349 +1,411 @@
 <!DOCTYPE html>
 
 <html>
-  <head>
-    <title>Delorub</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="/packs/application.css">
-    <!-- Chrome, Firefox OS and Opera -->
-    <meta name="theme-color" content="#000">
-    <!-- Windows Phone -->
-    <meta name="msapplication-navbutton-color" content="#000">
-    <!-- iOS Safari -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="#000">
-  </head>
-  <body>
-    <nav class="navbar navbar-toggleable-md bg-faded navbar-dr-theme">
-      <div class="container">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="#">
-          <img src="/images/design/logo.svg" alt=""/>
-        </a>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Все задания</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Исполнители</a>
-            </li>
-          </ul>
-          <ul class="navbar-nav navbar-right">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Стать исполнителем</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Создать задание</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Вход</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+	<head>
+		<title>Delorub</title>
+		<meta charset="UTF-8">
+		<meta name="description" content="">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" href="/packs/application.css">
+		<!-- Chrome, Firefox OS and Opera -->
+		<meta name="theme-color" content="#000">
+		<!-- Windows Phone -->
+		<meta name="msapplication-navbutton-color" content="#000">
+		<!-- iOS Safari -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="#000">
+	</head>
+	<body>
+		<div class="top-line">
+			<div class="container">
+				<div class="top-line__container">
+					<div class="top-line__left">
+						<a href="#" class="top-line__city">Санкт-Петербург</a>
+					</div>
+					<div class="top-line__right">
+						<a href="#" class="top-line__link">Вход</a>
+						<a href="#" class="top-line__link">Регистрация</a>	
+					</div>
+				</div>
+			</div>
+		</div>
 
-    <div class="container">
+		<nav class="navbar navbar-toggleable-md bg-faded navbar-dr-theme">
+			<div class="container">
+				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<i class="fa fa-bars" aria-hidden="true"></i>
+				</button>
+				<a class="navbar-brand" href="#">
+					<img src="/images/design/logo.svg" alt=""/>
+				</a>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item active">
+							<a class="nav-link" href="#">Все задания</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Исполнители</a>
+						</li>
+					</ul>
+					<ul class="navbar-nav navbar-right">
+						<li class="nav-item">
+							<a class="nav-link" href="#">Стать исполнителем</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Создать задание</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Вход</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
 
-      <div class="dr-content-header">
-        <p class="dr-content-header__text dr-content-header__text-margin-bottom-none">
-          Исполнители в категории <a href="#" class="dr-content-header__link">ремонт техники</a>
-          в <a href="#" class="dr-content-header__link">Санкт-Петербурге</a>
-        </p>
-      </div>
+		<div class="container">
+			<div class="dr-block-style">
+				<nav class="breadcrumb">
+					<a class="breadcrumb-item" href="#">Главная</a>
+					<a class="breadcrumb-item" href="#">Вторая</a>
+					<span class="breadcrumb-item active">Текущая</span>
+				</nav>
+			</div>
 
-      <div class="row">
+			<div class="dr-content-header">
+				<p class="dr-content-header__text dr-content-header__text-margin-bottom-none">
+					Исполнители в категории <a href="#" class="dr-content-header__link">ремонт техники</a>
+					в <a href="#" class="dr-content-header__link">Санкт-Петербурге</a>
+				</p>
+			</div>
 
-        <div class="col-lg-8">
+			<div class="row">
 
-          <div class="dr-block-style">
-            <div class="task-sort">
-              <div class="row justify-content-between">
-                <div class="col">
-                  <span>Сортировать по:</span>
-                </div>
-                <div class="col">
-                  <a href="#" class="task-sort__link">Рейтингу</a>
-                </div>
-                <div class="col">
-                  <a href="#" class="task-sort__link">Стоимости</a>
-                </div>
-                <div class="col">
-                  <div class="checkbox checkbox-flex">
-                    <label><input type="checkbox" value="">Новые&nbsp;мастера</label>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="checkbox checkbox-flex">
-                    <label><input type="checkbox" value="">Сейчас&nbsp;на&nbsp;сайте</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+				<div class="col-lg-8">
 
-          <div class="dr-block-style">
-            <div class="row">
-              <div class="col-lg-2">
-                <div class="master-card-person">
-                  <img class="master-card-person__image" src="/images/search/avatar.png" alt=""/>
-                  <p class="master-card-person__status">Сейчас на сайте</p>
-                  <div class="master-card-person__rating">
-                    <div class="master-card-person__rating-container">
+					<div class="dr-block-style">
+						<div class="task-sort">
+							<div class="row justify-content-between">
+								<div class="col">
+									<span>Сортировать по:</span>
+								</div>
+								<div class="col">
+									<a href="#" class="task-sort__link">Рейтингу</a>
+								</div>
+								<div class="col">
+									<a href="#" class="task-sort__link">Стоимости</a>
+								</div>
+								<div class="col">
+									<div class="checkbox checkbox-flex">
+										<label><input type="checkbox" value="">Новые&nbsp;мастера</label>
+									</div>
+								</div>
+								<div class="col">
+									<div class="checkbox checkbox-flex">
+										<label><input type="checkbox" value="">Сейчас&nbsp;на&nbsp;сайте</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 
-                      <div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
+					<div class="dr-block-style">
+						<div class="row">
+							<div class="col-lg-2">
+								<div class="master-card-person">
+									<img class="master-card-person__image" src="/images/search/avatar.png" alt=""/>
+									<p class="master-card-person__status">Сейчас на сайте</p>
+									<div class="master-card-person__rating">
+										<div class="master-card-person__rating-container">
 
-                      <div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
+											<div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
 
-                      <div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
+											<div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
 
-                      <div class="master-card-person__rating-star master-card-person__rating-star-empty"></div>
+											<div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
 
-                      <div class="master-card-person__rating-star master-card-person__rating-star-empty"></div>
+											<div class="master-card-person__rating-star master-card-person__rating-star-empty"></div>
 
-                    </div>
-                  </div>
-                  <div class="master-card-person__mark"></div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="master-card-description">
-                  <div class="row justify-content-space-between">
-                    <div class="col">
-                      <p class="master-card-description__header">
-                        <a href="#">
-                          Плехунов Александр Александрович
-                        </a>
-                      </p>
-                    </div>
-                    <div class="">
-                      <span class="master-card-description__price">от 2500 р/час</span>
-                    </div>
-                  </div>
-                  <p class="master-card-description__experience">6 лет на сайте</p>
-                  <p class="master-card-description__text">
-                    http://blog.youdo.com/vitaly-courier Имею среднее профессиональное юридическое образование,
-                    высшее социологическое и высшее по гос.управлению. Действую всегда четко и бы…
-                  </p>
-                  <a class="btn btn-primary dr-btn-primary dr-btn-primary-margin-top-25" href="#" role="button">Стать исполнителем</a>
-                </div>
-              </div>
-            </div>
-          </div>
+											<div class="master-card-person__rating-star master-card-person__rating-star-empty"></div>
 
-          <div class="dr-block-style">
-            <div class="row">
-              <div class="col-lg-2">
-                <div class="master-card-person">
-                  <img class="master-card-person__image" src="/images/search/avatar.png" alt=""/>
-                  <p class="master-card-person__status">Сейчас на сайте</p>
-                  <div class="master-card-person__rating">
-                    <div class="master-card-person__rating-container">
+										</div>
+									</div>
+									<div class="master-card-person__mark"></div>
+								</div>
+							</div>
+							<div class="col">
+								<div class="master-card-description">
+									<div class="row justify-content-space-between">
+										<div class="col">
+											<p class="master-card-description__header">
+												<a href="#">
+													Плехунов Александр Александрович
+												</a>
+											</p>
+										</div>
+										<div>
+											<span class="master-card-description__price">от 2500 р/час</span>
+										</div>
+									</div>
+									<p class="master-card-description__experience">6 лет на сайте</p>
+									<p class="master-card-description__text">
+										http://blog.youdo.com/vitaly-courier Имею среднее профессиональное юридическое образование,
+										высшее социологическое и высшее по гос.управлению. Действую всегда четко и бы…
+									</p>
+									<a class="btn btn-primary dr-btn-primary dr-btn-primary-margin-top-25" href="#" role="button">Стать исполнителем</a>
+								</div>
+							</div>
+						</div>
+					</div>
 
-                      <div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
+					<div class="dr-block-style">
+						<div class="row">
+							<div class="col-lg-2">
+								<div class="master-card-person">
+									<img class="master-card-person__image" src="/images/search/avatar.png" alt=""/>
+									<p class="master-card-person__status">Сейчас на сайте</p>
+									<div class="master-card-person__rating">
+										<div class="master-card-person__rating-container">
 
-                      <div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
+											<div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
 
-                      <div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
+											<div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
 
-                      <div class="master-card-person__rating-star master-card-person__rating-star-empty"></div>
+											<div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
 
-                      <div class="master-card-person__rating-star master-card-person__rating-star-empty"></div>
+											<div class="master-card-person__rating-star master-card-person__rating-star-empty"></div>
 
-                    </div>
-                  </div>
-                  <div class="master-card-person__mark"></div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="master-card-description">
-                  <div class="row justify-content-space-between">
-                    <div class="col">
-                      <p class="master-card-description__header">
-                        <a href="#">
-                          Плехунов Александр Александрович
-                        </a>
-                      </p>
-                    </div>
-                    <div class="">
-                      <span class="master-card-description__price">от 2500 р/час</span>
-                    </div>
-                  </div>
-                  <p class="master-card-description__experience">6 лет на сайте</p>
-                  <p class="master-card-description__text">
-                    http://blog.youdo.com/vitaly-courier Имею среднее профессиональное юридическое образование,
-                    высшее социологическое и высшее по гос.управлению. Действую всегда четко и бы…
-                  </p>
-                  <a class="btn btn-primary dr-btn-primary dr-btn-primary-margin-top-25" href="#" role="button">Стать исполнителем</a>
-                </div>
-              </div>
-            </div>
-          </div>
+											<div class="master-card-person__rating-star master-card-person__rating-star-empty"></div>
 
-          <div class="dr-block-style">
-            <div class="row">
-              <div class="col-lg-2">
-                <div class="master-card-person">
-                  <img class="master-card-person__image" src="/images/search/avatar.png" alt=""/>
-                  <p class="master-card-person__status">Сейчас на сайте</p>
-                  <div class="master-card-person__rating">
-                    <div class="master-card-person__rating-container">
+										</div>
+									</div>
+									<div class="master-card-person__mark"></div>
+								</div>
+							</div>
+							<div class="col">
+								<div class="master-card-description">
+									<div class="row justify-content-space-between">
+										<div class="col">
+											<p class="master-card-description__header">
+												<a href="#">
+													Плехунов Александр Александрович
+												</a>
+											</p>
+										</div>
+										<div>
+											<span class="master-card-description__price">от 2500 р/час</span>
+										</div>
+									</div>
+									<p class="master-card-description__experience">6 лет на сайте</p>
+									<p class="master-card-description__text">
+										http://blog.youdo.com/vitaly-courier Имею среднее профессиональное юридическое образование,
+										высшее социологическое и высшее по гос.управлению. Действую всегда четко и бы…
+									</p>
+									<a class="btn btn-primary dr-btn-primary dr-btn-primary-margin-top-25" href="#" role="button">Предложить задание</a>
+								</div>
+							</div>
+						</div>
+					</div>
 
-                      <div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
+					<div class="dr-block-style">
+						<div class="row">
+							<div class="col-lg-2">
+								<div class="master-card-person">
+									<img class="master-card-person__image" src="/images/search/avatar.png" alt=""/>
+									<p class="master-card-person__status">Сейчас на сайте</p>
+									<div class="master-card-person__rating">
+										<div class="master-card-person__rating-container">
 
-                      <div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
+											<div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
 
-                      <div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
+											<div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
 
-                      <div class="master-card-person__rating-star master-card-person__rating-star-empty"></div>
+											<div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
 
-                      <div class="master-card-person__rating-star master-card-person__rating-star-empty"></div>
+											<div class="master-card-person__rating-star master-card-person__rating-star-empty"></div>
 
-                    </div>
-                  </div>
-                  <div class="master-card-person__mark"></div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="master-card-description">
-                  <div class="row justify-content-space-between">
-                    <div class="col">
-                      <p class="master-card-description__header">
-                        <a href="#">
-                          Плехунов Александр Александрович
-                        </a>
-                      </p>
-                    </div>
-                    <div class="">
-                      <span class="master-card-description__price">от 2500 р/час</span>
-                    </div>
-                  </div>
-                  <p class="master-card-description__experience">6 лет на сайте</p>
-                  <p class="master-card-description__text">
-                    http://blog.youdo.com/vitaly-courier Имею среднее профессиональное юридическое образование,
-                    высшее социологическое и высшее по гос.управлению. Действую всегда четко и бы…
-                  </p>
-                  <a class="btn btn-primary dr-btn-primary dr-btn-primary-margin-top-25" href="#" role="button">Стать исполнителем</a>
-                </div>
-              </div>
-            </div>
-          </div>
+											<div class="master-card-person__rating-star master-card-person__rating-star-empty"></div>
 
-          <div class="dr-block-style">
-            <div class="row">
-              <div class="col-lg-2">
-                <div class="master-card-person">
-                  <img class="master-card-person__image" src="/images/search/avatar.png" alt=""/>
-                  <p class="master-card-person__status">Сейчас на сайте</p>
-                  <div class="master-card-person__rating">
-                    <div class="master-card-person__rating-container">
+										</div>
+									</div>
+									<div class="master-card-person__mark"></div>
+								</div>
+							</div>
+							<div class="col">
+								<div class="master-card-description">
+									<div class="row justify-content-space-between">
+										<div class="col">
+											<p class="master-card-description__header">
+												<a href="#">
+													Плехунов Александр Александрович
+												</a>
+											</p>
+										</div>
+										<div>
+											<span class="master-card-description__price">от 2500 р/час</span>
+										</div>
+									</div>
+									<p class="master-card-description__experience">6 лет на сайте</p>
+									<p class="master-card-description__text">
+										http://blog.youdo.com/vitaly-courier Имею среднее профессиональное юридическое образование,
+										высшее социологическое и высшее по гос.управлению. Действую всегда четко и бы…
+									</p>
+									<a class="btn btn-primary dr-btn-primary dr-btn-primary-margin-top-25" href="#" role="button">Стать исполнителем</a>
+								</div>
+							</div>
+						</div>
+					</div>
 
-                      <div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
+					<div class="dr-block-style">
+						<div class="row">
+							<div class="col-lg-2">
+								<div class="master-card-person">
+									<img class="master-card-person__image" src="/images/search/avatar.png" alt=""/>
+									<p class="master-card-person__status">Сейчас на сайте</p>
+									<div class="master-card-person__rating">
+										<div class="master-card-person__rating-container">
 
-                      <div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
+											<div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
 
-                      <div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
+											<div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
 
-                      <div class="master-card-person__rating-star master-card-person__rating-star-empty"></div>
+											<div class="master-card-person__rating-star master-card-person__rating-star-full"></div>
 
-                      <div class="master-card-person__rating-star master-card-person__rating-star-empty"></div>
+											<div class="master-card-person__rating-star master-card-person__rating-star-empty"></div>
 
-                    </div>
-                  </div>
-                  <div class="master-card-person__mark"></div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="master-card-description">
-                  <div class="row justify-content-space-between">
-                    <div class="col">
-                      <p class="master-card-description__header">
-                        <a href="#">
-                          Плехунов Александр Александрович
-                        </a>
-                      </p>
-                    </div>
-                    <div class="">
-                      <span class="master-card-description__price">от 2500 р/час</span>
-                    </div>
-                  </div>
-                  <p class="master-card-description__experience">6 лет на сайте</p>
-                  <p class="master-card-description__text">
-                    http://blog.youdo.com/vitaly-courier Имею среднее профессиональное юридическое образование,
-                    высшее социологическое и высшее по гос.управлению. Действую всегда четко и бы…
-                  </p>
-                  <a class="btn btn-primary dr-btn-primary dr-btn-primary-margin-top-25" href="#" role="button">Стать исполнителем</a>
-                </div>
-              </div>
-            </div>
-          </div>
+											<div class="master-card-person__rating-star master-card-person__rating-star-empty"></div>
 
-          <nav>
-            <ul class="pagination justify-content-center">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">Назад</a>
-              </li>
-              <li class="page-item page-item-active"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#">Далее</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+										</div>
+									</div>
+									<div class="master-card-person__mark"></div>
+								</div>
+							</div>
+							<div class="col">
+								<div class="master-card-description">
+									<div class="row justify-content-space-between">
+										<div class="col">
+											<p class="master-card-description__header">
+												<a href="#">
+													Плехунов Александр Александрович
+												</a>
+											</p>
+										</div>
+										<div>
+											<span class="master-card-description__price">от 2500 р/час</span>
+										</div>
+									</div>
+									<p class="master-card-description__experience">6 лет на сайте</p>
+									<p class="master-card-description__text">
+										http://blog.youdo.com/vitaly-courier Имею среднее профессиональное юридическое образование,
+										высшее социологическое и высшее по гос.управлению. Действую всегда четко и бы…
+									</p>
+									<a class="btn btn-primary dr-btn-primary dr-btn-primary-margin-top-25" href="#" role="button">Стать исполнителем</a>
+								</div>
+							</div>
+						</div>
+					</div>
 
-        <div class="col-lg-4">
+					<nav>
+						<ul class="pagination justify-content-center">
+							<li class="page-item disabled">
+								<a class="page-link" href="#" tabindex="-1">Назад</a>
+							</li>
+							<li class="page-item page-item-active"><a class="page-link" href="#">1</a></li>
+							<li class="page-item"><a class="page-link" href="#">2</a></li>
+							<li class="page-item"><a class="page-link" href="#">3</a></li>
+							<li class="page-item">
+								<a class="page-link" href="#">Далее</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
 
-          <div class="row justify-content-end no-gutters">
-            <a class="btn btn-primary dr-btn-primary dr-btn-primary-margin-top-25" href="#" role="button">Стать исполнителем</a>
-          </div>
+				<div class="col-lg-4">
 
-          <div class="dr-block-style">
-            <div class="choose-city">
-              <p class="choose-city__header">Город</p>
-              <br/>
-              <p class="choose-city__link"><a href="#">Санкт-Петербург</a></p>
-            </div>
-          </div>
+					<div class="row justify-content-end no-gutters">
+						<a class="btn btn-primary dr-btn-primary dr-btn-primary-margin-top-25" href="#" role="button">Стать исполнителем</a>
+					</div>
 
-          <div class="dr-block-style">
-            <div class="subcategories">
-              <p class="subcategories__header">Подкатегории</p>
-              <br/>
-              <ul class="subcategories__list">
-                <li><a href="#">Мастер на час</a></li>
-                <li><a href="#">Ремонт под ключ</a></li>
-                <li><a href="#">Установка окон</a></li>
-                <li><a href="#">Ремонт бытовой техники</a></li>
-                <li><a href="#">Укладка плитки</a></li>
-                <li><a href="#">Курьер на день</a></li>
-                <li><a href="#">Другое</a></li>
-              </ul>
-            </div>
-          </div>
+					<div class="dr-block-style">
+						<div class="choose-city">
+							<p class="choose-city__header">Город</p>
+							<br/>
+							<p class="choose-city__link"><a href="#">Санкт-Петербург</a></p>
+						</div>
+					</div>
 
-        </div>
+					<div class="dr-block-style">
+						<div class="subcategories">
+							<p class="subcategories__header">Подкатегории</p>
+							<br/>
+							<ul class="subcategories__list">
+								<li><a href="#">Мастер на час</a></li>
+								<li><a href="#">Ремонт под ключ</a></li>
+								<li><a href="#">Установка окон</a></li>
+								<li><a href="#">Ремонт бытовой техники</a></li>
+								<li><a href="#">Укладка плитки</a></li>
+								<li><a href="#">Курьер на день</a></li>
+								<li><a href="#">Другое</a></li>
+							</ul>
+						</div>
+					</div>
 
-      </div>
-      <br/>
-      <hr/>
+				</div>
 
-      <div class="bottom-text">
-        <p>
-          Ни для кого не секрет, что стиральные машины являются незаменимыми помощниками
-          в ведении домашнего хозяйства. Но, к сожалению, от частой эксплуатации данная
-          бытовая техника порой ломается и дает сбои.
-          <br/>
-          Центр по ремонту стиральных машин LG, Samsung (Самсунг) и других
-        </p>
-      </div>
-    </div>
-    <script src="/webpack/development/website.js"></script>
-  </body>
+			</div>
+			<br/>
+			<hr/>
+
+			<div class="dr-block-style">
+				<div class="bottom-text">
+					<div id="accordion" role="tablist" aria-multiselectable="true">
+						<div class="card">
+							<div class="card-header" role="tab" id="headingOne">
+								<h5 class="mb-0">
+									<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+										Текст #1
+									</a>
+								</h5>
+							</div>
+
+							<div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+								<div class="card-block">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								</div>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-header" role="tab" id="headingTwo">
+								<h5 class="mb-0">
+									<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+										Текст #2
+									</a>
+								</h5>
+							</div>
+							<div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+								<div class="card-block">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								</div>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-header" role="tab" id="headingThree">
+								<h5 class="mb-0">
+									<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+										Текст #3
+									</a>
+								</h5>
+							</div>
+							<div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+								<div class="card-block">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<script src="/packs/application.js"></script>
+	</body>
 </html>

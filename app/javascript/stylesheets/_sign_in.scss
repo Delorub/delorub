@@ -1,0 +1,41 @@
+.sign_in {
+	&-form {
+		&__header {
+			@extend .dr-header;
+		}
+		&__content {
+			margin-top: 30px;
+		}
+		&__inputs {
+			margin-top: 30px;
+		}
+		&__enter {
+			margin-top: 30px;	  
+			.btn {
+				width: 100%;		
+				margin-top: 10px;
+			}
+		}
+		&__remind-password {
+			color: $blueColor;
+		}
+	}
+}
+
+.first-time-sign-in {
+	&__header {
+		@extend .dr-header;
+	}
+	&__button {
+		margin-top: 30px;
+		.btn {
+			width: 70%;			
+		}
+	}
+	&__link {
+		font-size: 0.8rem;
+		margin-top: 20px;
+		color: $blueColor;
+		display: block;
+	}
+}

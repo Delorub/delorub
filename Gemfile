@@ -16,6 +16,9 @@ gem 'rabl'
 gem 'oj'
 gem 'friendly_id', '~> 5.1.0'
 
+# Font icons
+gem 'font-awesome-sass'
+
 # Rails core extensions
 gem 'cells'
 gem 'draper'
