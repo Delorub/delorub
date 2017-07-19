@@ -1,58 +1,78 @@
 .center {
-	text-align: center;
+  text-align: center;
 }
 
 .left {
-	float: left;
+  float: left;
 }
 
 .right {
-	float: right;
+  float: right;
 }
 
 .toggle-hr {
-	@media (min-width: 992px) {
-		display: none;
-	}
+  @media (min-width: 992px) {
+    display: none;
+  }
 }
 
 .checkbox {
-	input[type=checkbox] {
-		margin-right: 0.5rem;
-	}
-	&-flex {
-		label {
-			display: flex;
-			align-items: center;
-			justify-content: space-around;
-		}
-	}
+  input[type=checkbox] {
+    margin-right: 0.5rem;
+  }
+  &-flex {
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+  }
 }
 
 .breadcrumb {
-	margin-bottom: 0;
-	background-color: inherit;
-	&-item {
-		color: $blueColor;
-	}
+  margin-bottom: 0;
+  background-color: inherit;
+  &-item {
+    color: $blueColor;
+  }
 }
 
 .dr-header {
-	font-size: 1.5rem;
-	font-weight: bold;
-	&-sub {
-		font-size: 1.3rem;
-		font-weight: bold;
-		&-blue {			
-			color: $blueColor;
-			font-size: 1.3rem;
-		}
-	}
+  font-size: 1.5rem;
+  font-weight: bold;
+  &-sub {
+    font-size: 1.3rem;
+    font-weight: bold;
+    &-blue {			
+      color: $blueColor;
+      font-size: 1.3rem;
+    }
+  }
 }
 
 .dr-image {
-	display: block;
-	width: 100%;
-	height: auto;
-	border-radius: 2px;
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+}
+
+//Яндекс карты
+
+.ymaps-2-1-53-_hidden-text {
+  display: none !important;
+}
+
+.ymaps-2-1-53 {
+  &-search {
+    display: none !important;
+  }
+  &-scaleline {
+    display: none !important;
+  }  
+  &-controls {
+    &__toolbar_right {
+      display: none !important;
+    }
+  }
 }
