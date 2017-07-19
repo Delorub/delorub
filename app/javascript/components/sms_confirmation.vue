@@ -62,6 +62,7 @@ export default {
         this.requesting = false
         this.tokenRequestedAt = Date.now()
       }).catch(error => {
+        if (error) {}
         this.requesting = false
         this.token = null
         this.code = null
@@ -73,7 +74,7 @@ export default {
       this.requesting = true
       axios.put('/api/sms_confirmations', {
         token: this.token,
-        code: this.code,
+        code: this.code
       }).then(response => {
         this.accepted = response.data.accepted
         this.requesting = false
