@@ -104,7 +104,6 @@ group :development do
   gem 'rubocop', require: false
   gem 'rubocop-rspec-focused', require: false
   gem 'ruby_parser', require: false
-  gem 'overcommit'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'letter_opener'

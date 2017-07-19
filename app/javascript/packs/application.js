@@ -1,3 +1,4 @@
+import './common'
 import Vue from 'vue'
 import axios from 'axios'
 import SmsConfirmation from '../components/sms_confirmation.vue'
@@ -7,31 +8,11 @@ axios.defaults.headers.common['X-CSRF-Token'] = token
 axios.defaults.headers.common['Accept'] = 'application/json'
 
 document.addEventListener('DOMContentLoaded', () => {
-  const app = new Vue({
+  // eslint-disable-next-line no-new
+  new Vue({
     el: '#app',
     components: {
       'sms-confirmation': SmsConfirmation
     }
   })
 })
-
-
-import $ from 'jquery';
-import "bootstrap-slider/dist/bootstrap-slider.js";
-import "bootstrap-slider/dist/css/bootstrap-slider.css";
-import 'app'
-
-$("#alert").click(function () {
-    alert("Handler for .click() called.");
-});
-
-$('#ex1').slider({
-    formatter: function (value) {
-        return 'Current value: ' + value;
-    }
-});
-$('#ex2').slider({
-    formatter: function (value) {
-        return 'Current value: ' + value;
-    }
-});

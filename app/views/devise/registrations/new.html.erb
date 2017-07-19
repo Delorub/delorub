@@ -9,9 +9,9 @@
           <p>Авторизация через соцсети</p>
         </div>
         <div class="registration-form__content-circle">
-          <div class="registration-form__content-circle__item registration-form__content-circle__item-vk">VK</div>
-          <div class="registration-form__content-circle__item registration-form__content-circle__item-fb">FB</div>
-          <div class="registration-form__content-circle__item registration-form__content-circle__item-ok">OK</div>
+          <a class="registration-form__content-circle__item registration-form__content-circle__item-vk" href="<%= omniauth_authorize_path(resource_name, :vkontakte) %>">VK</a>
+          <a class="registration-form__content-circle__item registration-form__content-circle__item-fb" href="<%= omniauth_authorize_path(resource_name, :facebook) %>">FB</a>
+          <a class="registration-form__content-circle__item registration-form__content-circle__item-ok" href="<%= omniauth_authorize_path(resource_name, :odnoklassniki) %>">OK</a>
         </div>
         <hr/>
         <div class="registration-form__content-inputs">
@@ -22,7 +22,8 @@
           <% end %>
           <%= content_tag 'sms-confirmation',
             nil,
-            data: { phone: 'asd' }
+            'initial-value': f.object.phone,
+            'input-name': "#{f.object_name}[phone]"
           %>
           <div class="checkbox">
             <label><input type="checkbox" value="">Я согласен с правилами сервиса</label>
