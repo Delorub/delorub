@@ -39,9 +39,9 @@ describe SmsConfirmation do
     it { expect{ subject }.to change(sms_confirmation, :last_sent_at) }
   end
 
-  describe '#check_code' do
+  describe '#check_code!' do
     let(:sms_confirmation) { create :sms_confirmation }
-    subject { sms_confirmation.check_code code }
+    subject { sms_confirmation.check_code! code }
 
     context 'when trying to pass valid code' do
       let(:code) { sms_confirmation.code }

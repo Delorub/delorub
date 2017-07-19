@@ -8,7 +8,7 @@ gem 'pg'
 gem 'sidekiq'
 gem 'coffee-rails'
 gem 'jbuilder', '~> 2.0'
-gem 'haml'
+gem 'slim-rails'
 gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'mini_magick'
 gem 'searchkick'
@@ -26,6 +26,7 @@ gem 'inherited_resources'
 gem 'wicked'
 gem 'reform-rails'
 gem 'dry-validation'
+gem 'recursive-open-struct'
 
 # Activerecord extensions
 gem 'baby_squeel'
@@ -48,6 +49,7 @@ gem 'activeadmin'
 gem 'activeadmin_addons'
 gem 'activeadmin_reorderable', github: 'delphist/activeadmin_reorderable', branch: 'feature/add-belongs-to-support'
 gem 'active_admin-sortable_tree'
+gem 'activeadmin-reform'
 gem 'flattened_active_admin'
 
 # Attachments
@@ -102,7 +104,6 @@ group :development do
   gem 'rubocop', require: false
   gem 'rubocop-rspec-focused', require: false
   gem 'ruby_parser', require: false
-  gem 'overcommit'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'letter_opener'

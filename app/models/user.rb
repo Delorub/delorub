@@ -87,7 +87,7 @@ class User < ApplicationRecord
   mount_uploader :photo, UserPhotoUploader
 
   def name
-    "#{first_name} #{last_name}"
+    ''
   end
 
   def master?

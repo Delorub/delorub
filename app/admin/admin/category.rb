@@ -14,11 +14,38 @@ ActiveAdmin.register Category, namespace: :admin do
     actions
   end
 
+  action_item :settings, only: :show do
+    link_to 'Настройки', settings_admin_category_path(category)
+  end
+
+  member_action :settings, method: [:get, :put] do
+    @form = ActiveAdmin::CategorySettingsForm.new resource
+    @form.prepopulate!
+    if request.put?
+      if @form.validate params.require(:category).permit(settings_attributes: { price_ranges_attributes: [:title, :price] })
+        @form.save do |hash|
+          resource.settings = RecursiveOpenStruct.new(hash[:settings], recurse_over_arrays: true)
+          resource.settings.price_ranges.reject! { |e| e.title.blank? }
+          resource.settings.price_ranges.sort_by! { |e| e.price.to_i }
+          return redirect_to settings_admin_category_path(resource), notice: 'Настройки обновлены' if resource.save
+        end
+      end
+    end
+  end
+
   form do |f|
     f.inputs 'Основное' do
       input :title
       input :parent, collection: nested_set_options_for_category(category)
       input :photo
+    end
+
+    f.inputs 'Настройки' do
+      fields_for :settings do |s|
+        s.fields_for :price_ranges do |pr|
+          pr.input :ds
+        end
+      end
     end
     actions
   end

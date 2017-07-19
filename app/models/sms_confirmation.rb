@@ -19,11 +19,11 @@ class SmsConfirmation < ApplicationRecord
   before_validation :generate_code
   after_save :send_sms
 
-  def check_code value
+  def check_code! value
     raise Exception, 'SMS is not send to generate token' if new_record?
     if value == code
-      generate_token
-      true
+      self.accepted = true
+      save
     else
       increment :attempts
       false
