@@ -1,6 +1,7 @@
 import $ from 'jquery'
 import 'bootstrap-slider/dist/bootstrap-slider.js'
 import 'bootstrap-slider/dist/css/bootstrap-slider.css'
+import 'bootstrap/dist/js/bootstrap.js'
 import 'app'
 
 $('#ex1').slider({
