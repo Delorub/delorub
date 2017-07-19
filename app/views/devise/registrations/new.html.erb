@@ -1,43 +1,38 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <div class="dr-header-span">
-    <p>Регистрация</p>
-    <%= render "devise/shared/links" %>
-  </div>
-  <div class="row row-eq-height dr-task">
-    <div class="col-md-4">
-      <div class="dr-task-name dr-task-div<%= error_class_for :email %>">
-        <span>Email</span>
-        <%= error_block_for :email %>
-        <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+  <div class="dr-block-style dr-block-style-registration">
+    <div class="registration-form">
+      <div class="registration-form__header">
+        <p>Регистрация исполнителя</p>
       </div>
-      <div class="dr-task-name dr-task-div<%= error_class_for :password %>">
-        <span>Пароль</span>
-        <%= error_block_for :password %>
-        <%= f.password_field :password, autocomplete: 'off', class: 'form-control' %>
-      </div>
-      <div class="dr-task-name dr-task-div<%= error_class_for :password_confirmation %>">
-        <span>Подтвердите пароль</span>
-        <%= error_block_for :password_confirmation %>
-        <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control' %>
+      <div class="registration-form__content">
+        <div class="registration-form__content-header">
+          <p>Авторизация через соцсети</p>
+        </div>
+        <div class="registration-form__content-circle">
+          <a class="registration-form__content-circle__item registration-form__content-circle__item-vk" href="<%= omniauth_authorize_path(resource_name, :vkontakte) %>">VK</a>
+          <a class="registration-form__content-circle__item registration-form__content-circle__item-fb" href="<%= omniauth_authorize_path(resource_name, :facebook) %>">FB</a>
+          <a class="registration-form__content-circle__item registration-form__content-circle__item-ok" href="<%= omniauth_authorize_path(resource_name, :odnoklassniki) %>">OK</a>
+        </div>
+        <hr/>
+        <div class="registration-form__content-inputs">
+          <%= f.text_field :name, autofocus: true, class: 'form-control form-control__item', placeholder: 'Как к вам обращаться?' %>
+          <%= f.email_field :email, class: 'form-control form-control__item', placeholder: 'Ваш email' %>
+          <% if @omniauth %>
+            <input type="hidden" name="omniauth_id" value="<%= @omniauth.id %>" />
+          <% end %>
+          <%= content_tag 'sms-confirmation',
+            nil,
+            'initial-value': f.object.phone,
+            'input-name': "#{f.object_name}[phone]"
+          %>
+          <div class="checkbox">
+            <label><input type="checkbox" value="">Я согласен с правилами сервиса</label>
+          </div>
+        </div>
+        <div class="registration-form__content-button-submit">
+          <input type="submit" class="btn btn-primary dr-btn-primary" value="Создать аккаунт" />
+        </div>
       </div>
     </div>
-    <div class="col-md-4">
-      <div class="dr-task-name dr-task-div<%= error_class_for :first_name %>">
-        <span>Имя</span>
-        <%= error_block_for :first_name %>
-        <%= f.text_field :first_name, class: 'form-control' %>
-      </div>
-      <div class="dr-task-name dr-task-div<%= error_class_for :last_name %>">
-        <span>Фамилия</span>
-        <%= error_block_for :last_name %>
-        <%= f.text_field :last_name, class: 'form-control' %>
-      </div>
-    </div>
-    <% if @omniauth %>
-      <input type="hidden" name="omniauth_id" value="<%= @omniauth.id %>" />
-    <% end %>
-  </div>
-  <div class="row lastRow">
-    <input type="submit" class="btn dr-button-blueFull" value="Зарегистрироваться">
   </div>
 <% end %>

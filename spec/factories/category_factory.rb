@@ -14,6 +14,7 @@
 #  photo          :string
 #  position       :integer
 #  slug           :string
+#  settings       :text
 #
 # Indexes
 #

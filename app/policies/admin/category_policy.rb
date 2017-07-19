@@ -7,6 +7,10 @@ class Admin::CategoryPolicy < AdminPolicy
     granted? || user.permission.admin_category_edit?
   end
 
+  def settings?
+    update?
+  end
+
   def destroy?
     granted? || user.permission.admin_category_delete?
   end
