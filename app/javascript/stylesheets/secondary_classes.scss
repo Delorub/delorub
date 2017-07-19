@@ -57,6 +57,21 @@
   border-radius: 2px;
 }
 
+.link-default {
+  color: #70bee9;
+  font-weight: bold;
+  border-bottom: 1px dashed;
+  &:hover {
+    color: #f44336 !important;
+  }
+  &:active {
+    color: #cf3125 !important;
+  }
+  &:visited {
+    color: #70bee9;
+  }
+}
+
 //Яндекс карты
 
 .ymaps-2-1-53-_hidden-text {
