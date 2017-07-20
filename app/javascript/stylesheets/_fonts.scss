@@ -22,3 +22,11 @@
     url("../fonts/GothamProLight/GothamProLight.woff") format('woff'), 
     url("../fonts/GothamProLight/GothamProLight.ttf") format('truetype');
 }
+@font-face {
+  font-family: 'GothamProBlack';
+  src: local('GothamProBlack'), 
+    url("../fonts/GothamProBlack/GothamProBlack.eot") format('embedded-opentype');
+  src: local('GothamProBlack'),    
+    url("../fonts/GothamProBlack/GothamProBlack.woff") format('woff'), 
+    url("../fonts/GothamProBlack/GothamProBlack.ttf") format('truetype');
+}

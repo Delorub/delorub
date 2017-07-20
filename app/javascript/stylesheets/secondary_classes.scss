@@ -61,14 +61,45 @@
   color: #70bee9;
   font-weight: bold;
   border-bottom: 1px dashed;
-  &:hover {
-    color: #f44336 !important;
-  }
-  &:active {
-    color: #cf3125 !important;
-  }
   &:visited {
     color: #70bee9;
+  }
+  &:hover {
+    color: #f44336;
+  }
+  &:active {
+    color: #cf3125;
+  }
+}
+
+.link-white {
+  color: #d1d1d1;
+  font-size: 0.8rem;
+  //font-size: calc(#{$px} * 12);
+  &:hover {
+    border-bottom: 1px dashed;
+    color: #d1d1d1;
+  }
+  &:active {
+    color: #d1d1d1;
+  }
+  &:visited {
+    color: #d1d1d1;
+  }
+  &-bold {
+    font-weight: bold;
+    color: #ffffff;    
+    font-size: 1.1rem;
+    &:hover {
+      border-bottom: 1px dashed;
+      color: #ffffff;
+    }
+    &:active {
+      color: #ffffff;
+    }
+    &:visited {
+      color: #ffffff;
+    }
   }
 }
 

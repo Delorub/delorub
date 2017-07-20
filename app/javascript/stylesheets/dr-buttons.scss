@@ -1,6 +1,7 @@
 .dr-btn-primary {
   color: #fff;
   background-color: $blueColor;
+  transition: 0.1s;
   border-color: $blueColor;
   margin-bottom: 10px;
   border-radius: 4px;
@@ -17,7 +18,7 @@
 .dr-btn-default {  
   color: #9b9b9b;
   box-shadow: 0 1px 4px 0 rgba(174, 173, 173, 0.5);
-  transition: $transition;
+  transition: 0.1s;
   border-radius: 4px;
   min-width: 170px;
   text-align: center;
