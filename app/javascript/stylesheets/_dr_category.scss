@@ -1,13 +1,19 @@
 .dr-category {
   box-shadow: 0 2px 7px 0 rgba(121, 120, 120, 0.5);
   background-color: #ffffff;
+  border-radius: 3px;
+  height: 100%;
   &__header {
     color: #ffffff;
     font-weight: bold;
     font-size: 1.1rem;
-    padding: 2rem 0;
+    padding: 2rem 1rem;
     background-repeat: no-repeat;
     background-position: right top;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   &__text {
     padding: 1rem 0;    
@@ -15,26 +21,26 @@
       display: block;
       color: #4a4a4a;
       &:hover {
-        color: #519dc7;
+        color: $blueColor;
       }
     }
   }
   &--courier {
     .dr-category__header {      
       background-image: url("/images/category/courier.png");
-      background-color: #519dc7;
+      background-color: $blueColor;
     }    
   }
   &--repair {
     .dr-category__header {      
       background-image: url("/images/category/repair.png");
-      background-color: #4caf50;
+      background-color: $greenColor;
     }    
   }
   &--cleaning {
     .dr-category__header {      
       background-image: url("/images/category/cleaning.png");
-      background-color: #607d8b;
+      background-color: $grayColor;
     }    
   }
 }

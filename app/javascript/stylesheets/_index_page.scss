@@ -73,7 +73,99 @@
 
 .index-content {
   text-align: center;
+  margin-bottom: 5rem;
   &-block {
     margin: 2rem 0;
+  }
+}
+
+.how-it-works-block {
+  border-radius: 3px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 7px 0 rgba(121, 120, 120, 0.5);
+  padding: 2rem 0;
+  .dr-btn-danger {
+    position: relative;
+  }
+  &__step {
+    min-height: 250px;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    a, span {
+      font-size: 1.1rem;
+    }
+    span {
+      font-weight: bold;
+    }
+    p {
+      color: #6a676b;
+      margin-top: 0.5rem;
+    }
+    &-content {
+      z-index: 2;
+    }
+    &-1, &-2, &-3 {
+      font-size: 16rem;
+      font-family: $GothamBold;
+      position: absolute;
+      width: 100%;      
+    }
+    &-1 {
+      opacity: 0.66;
+      color: #edeef0;
+    }
+    &-2 {
+      opacity: 0.15;
+      color: $blueColor;
+    }
+    &-3 {
+      opacity: 0.15;
+      color: $greenColor;
+    }
+  }
+}
+
+.advantages-card {
+  border-radius: 3px;
+  height: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 2px 7px 0 rgba(121, 120, 120, 0.5);
+  text-align: left;  
+  display: flex;  
+  &__image {
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 89px;
+    height: 100%;
+    &--ruble {
+      background-color: $blueColor;
+      background-image: url("/images/design/0_ruble.svg");
+    }
+    &--percent {
+      background-color: $greenColor;
+      background-image: url("/images/design/0_ruble.svg");
+    }
+    &--feedback {
+      background-color: $grayColor;
+      background-image: url("/images/design/comment.png");
+    }
+  }
+  &__content {
+    width: calc(100% - 89px);
+  }
+  &__header {
+    font-weight: bold;
+    font-size: 1.1rem;
+    line-height: 1.1rem;
+    margin: 1rem;
+  }
+  &__text {
+    color: #9b9b9b;
+    margin: 0 1rem 1.5rem 1rem;
+    line-height: 1rem;
   }
 }
