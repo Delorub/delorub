@@ -1,0 +1,13 @@
+$GothamPro: "GothamProRegular", sans-serif
+$GothamBold: "GothamProBold", sans-serif
+$GothamLight: "GothamProLight", sans-serif
+$GothamBlack: "GothamProBlack", sans-serif
+$color: #4c4c4c
+$borderRadius: 25px
+$border: 1px solid rgba(128, 128, 128, 0.3)
+$shadowHover: 0 0 10px 2px rgba(0, 0, 0, 0.12)
+$shadowHeader: 4px 6px 20px 2px rgba(0, 0, 0, 0.12)
+$errorColor: #ed6161
+$blueColor: #519dc7
+$px: "(0.8px + 0.05335vmin)"
+$transition: 0.3s
