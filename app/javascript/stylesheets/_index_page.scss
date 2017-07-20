@@ -63,3 +63,17 @@
     }
   }
 }
+
+.index-header {
+  color: #4a4a4a;
+  font-size: 2.2rem;
+  font-family: $GothamBold;
+  margin-bottom: 1.5rem;
+}
+
+.index-content {
+  text-align: center;
+  &-block {
+    margin: 2rem 0;
+  }
+}

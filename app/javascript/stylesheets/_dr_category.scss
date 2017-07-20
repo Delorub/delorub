@@ -1,0 +1,41 @@
+.dr-category {
+  box-shadow: 0 2px 7px 0 rgba(121, 120, 120, 0.5);
+  background-color: #ffffff;
+  &__header {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 2rem 0;
+    background-repeat: no-repeat;
+    background-position: right top;
+  }
+  &__text {
+    padding: 1rem 0;    
+    a {
+      display: block;
+      color: #4a4a4a;
+      &:hover {
+        color: #519dc7;
+      }
+    }
+  }
+  &--courier {
+    .dr-category__header {      
+      background-image: url("/images/category/courier.png");
+      background-color: #519dc7;
+    }    
+  }
+  &--repair {
+    .dr-category__header {      
+      background-image: url("/images/category/repair.png");
+      background-color: #4caf50;
+    }    
+  }
+  &--cleaning {
+    .dr-category__header {      
+      background-image: url("/images/category/cleaning.png");
+      background-color: #607d8b;
+    }    
+  }
+}
+
