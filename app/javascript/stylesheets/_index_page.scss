@@ -8,7 +8,8 @@
       border-bottom: 1px dashed;
     }
     .top-line__left {
-      color: #fff;      
+      color: #fff;
+      display: none;
     }
     .top-line__link {
       color: #fff;
@@ -87,12 +88,14 @@
   .dr-btn-danger {
     position: relative;
   }
-  &__step {
-    min-height: 250px;
+  &__step {    
+    min-height: 100px;
     position: relative;
     display: flex;
     align-items: center;
-
+    @media (min-width: 992px) {
+        min-height: 250px;
+    }
     a, span {
       font-size: 1.1rem;
     }
@@ -105,12 +108,17 @@
     }
     &-content {
       z-index: 2;
+      width: 100%;
     }
     &-1, &-2, &-3 {
       font-size: 16rem;
       font-family: $GothamBold;
       position: absolute;
-      width: 100%;      
+      width: 100%;
+      display: none;
+      @media (min-width: 992px) {
+          display: block;
+      }
     }
     &-1 {
       opacity: 0.66;
@@ -147,11 +155,11 @@
     }
     &--percent {
       background-color: $greenColor;
-      background-image: url("/images/design/0_ruble.svg");
+      background-image: url("/images/design/0_percent.svg");
     }
     &--feedback {
       background-color: $grayColor;
-      background-image: url("/images/design/comment.png");
+      background-image: url("/images/design/chat.svg");
     }
   }
   &__content {
@@ -162,10 +170,44 @@
     font-size: 1.1rem;
     line-height: 1.1rem;
     margin: 1rem;
+    margin-top: 2rem;
   }
   &__text {
     color: #9b9b9b;
     margin: 0 1rem 1.5rem 1rem;
     line-height: 1rem;
+  }
+}
+
+.bottom-block {
+  font-size: 2.2rem;  
+  font-family: $GothamBold;
+  line-height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__left, &__middle, &__right {
+    background-image: url("/images/design/bottom-block__left.jpg");
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 314px;
+    max-width: 314px;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 2rem;
+    margin-top: 1rem;
+    box-shadow: 0 2px 7px 0 rgba(121, 120, 120, 0.5);
+    border-radius: 3px;
+    &:hover {
+        box-shadow: 0 4px 15px 0 rgba(150, 149, 149, 0.5);
+    }
+  }
+  &__middle {
+    background-image: url("/images/design/bottom-block__middle.jpg");    
+  }
+  &__right {
+    background-image: url("/images/design/bottom-block__right.jpg");    
   }
 }

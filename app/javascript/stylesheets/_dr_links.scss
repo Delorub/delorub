@@ -15,11 +15,9 @@
 
 .link-white {
   color: #d1d1d1;
-  font-size: 0.8rem;
-  //font-size: calc(#{$px} * 12);
-  &:hover {
-    border-bottom: 1px dashed;
-    color: #d1d1d1;
+  font-size: 0.8rem;  
+  &:hover {    
+    color: #70bee9 !important;
   }
   &:active {
     color: #d1d1d1;
@@ -31,9 +29,8 @@
     font-weight: bold;
     color: #ffffff;    
     font-size: 1.1rem;
-    &:hover {
-      border-bottom: 1px dashed;
-      color: #ffffff;
+    &:hover {      
+      color: #70bee9 !important;
     }
     &:active {
       color: #ffffff;
