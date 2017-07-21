@@ -103,12 +103,4 @@ class TasksController < ApplicationController
         create_after_authorization :task, data
       end
     end
-
-    def task_form_props
-      {
-        form_action: params[:id].nil? ? tasks_path : task_path(resource),
-        task: Entities::TaskForm.represent(@form),
-        categories: Entities::Category.represent(Category.all)
-      }
-    end
 end

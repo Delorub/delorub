@@ -6,7 +6,10 @@ class Api::V10::SmsConfirmations < ApplicationAPI
     end
     post do
       present :phone, params[:phone]
-      present SmsConfirmation.create(phone: params[:phone])
+      form = SmsConfirmationForm.new SmsConfirmation.new
+      form.save if form.validate params
+      return error! form.errors unless form.valid?
+      present Entities::SmsConfirmationForm.represent(form.model)
     end
 
     desc 'Confirm code'
@@ -17,7 +20,7 @@ class Api::V10::SmsConfirmations < ApplicationAPI
     put do
       sms_confirmation = SmsConfirmation.find_by! token: params[:token]
       sms_confirmation.check_code! params[:code]
-      present sms_confirmation
+      present sms_confirmation, with: Entities::SmsConfirmationForm
     end
   end
 end

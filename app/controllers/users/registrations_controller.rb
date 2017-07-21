@@ -1,4 +1,11 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+  def new
+    super do
+      @form = User::RegistrationForm.new resource
+      @form.prepopulate!
+    end
+  end
+
   def create
     super do
       add_omniauth_to_resource params[:omniauth_id] if params[:omniauth_id]

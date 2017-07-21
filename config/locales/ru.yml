@@ -1,4 +1,6 @@
 ru:
+  errors:
+     phone?: Не похоже на номер телефона
   time:
     formats:
       datepicker_date: '%d.%m.%Y'

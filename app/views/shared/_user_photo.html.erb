@@ -1,9 +1,0 @@
-<% if user.present? && user.photo.present? %>
-  <div class="dr-vacancy-content-avatar-img">
-    <a href="<%= profile_or_user_path user %>"><img src="<%= user.photo.small.url %>"></a>
-  </div>
-<% else %>
-  <div class="dr-vacancy-content-avatar-roundInner">
-    <a href="#" class='dr-top-nav-icon icon-avtoriz'></a>
-  </div>
-<% end %>
