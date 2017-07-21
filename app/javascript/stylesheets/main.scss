@@ -141,8 +141,7 @@ body {
 }
 
 .dr-footer {
-  .container {
-    padding: 0.5rem 0;
+  .container {    
     .row {
       justify-content: center;
       @media (min-width: 992px) {
@@ -154,12 +153,12 @@ body {
   box-shadow: 0 2px 7px 0 rgba(121, 120, 120, 0.5);
   &-left {
     display: flex;
-    padding: 1.5rem 0;
+    padding: 2.5rem 0;
   }
   &-right {
     display: flex;    
     text-align: right;
-    padding: 1.5rem 0;
+    padding: 2.5rem 0;
   }
   &-block {
     margin: 0 15px;
@@ -170,6 +169,8 @@ body {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding-top: 9px;
+      padding-bottom: 9px;
     }
     &__copyright {
       color: #9b9b9b;
