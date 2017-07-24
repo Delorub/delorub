@@ -10,6 +10,10 @@
   float: right;
 }
 
+.breadcrumb-item + .breadcrumb-item::before {
+  color: #f44336;
+}
+
 .toggle-hr {
   @media (min-width: 992px) {
     display: none;
@@ -59,6 +63,10 @@
   width: 100%;
   height: auto;
   border-radius: 2px;
+}
+
+select.form-control:not([size]):not([multiple]) {
+  height: 100%;
 }
 
 //Яндекс карты

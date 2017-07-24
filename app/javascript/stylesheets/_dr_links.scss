@@ -13,6 +13,21 @@
   }
 }
 
+.link-header {
+  color: $blueColor;
+  font-weight: bold;
+  border-bottom: 1px dashed;
+  &:visited {
+    color: $blueColor;
+  }
+  &:hover {
+    color: #f44336;
+  }
+  &:active {
+    color: #cf3125;
+  }
+}
+
 .link-white {
   color: #d1d1d1;
   font-size: 0.8rem;  

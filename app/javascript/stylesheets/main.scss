@@ -89,31 +89,14 @@ body {
 .dr-block-style {
   position: relative;
   background-color: #fff;
-  border-radius: 2px;
-  box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
-  padding: 15px;
+  border-radius: 3px;
+  box-shadow: 0 2px 7px 0 rgba(121, 120, 120, 0.5);
+  padding: 28px 66px;
   margin: 15px 0 0;
   >div {
     &:last-child {
       margin-bottom: 0;
     } 
-  }
-}
-
-.dr-content-header {
-  @extend .dr-block-style;
-  &__text {
-    font-size: 2rem;
-    font-weight: bold;
-    &-margin-bottom-none {
-      margin-bottom: 0;
-    } 
-  }
-  &__link {        
-    color: $blueColor;
-    &:hover {
-      color: lighten($blueColor, 20%);
-    }
   }
 }
 
@@ -162,6 +145,10 @@ body {
   }
   &-block {
     margin: 0 15px;
+    @media (max-width: 991px) {
+      text-align: center;
+      margin: 15px;
+    }
   }
   &-sub {
     background-color: #ffffff;
