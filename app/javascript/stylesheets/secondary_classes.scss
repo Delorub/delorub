@@ -16,6 +16,10 @@
   }
 }
 
+.col-margin-bottom {
+  margin-bottom: 1rem;
+}
+
 .checkbox {
   input[type=checkbox] {
     margin-right: 0.5rem;
@@ -75,4 +79,11 @@
       display: none !important;
     }
   }
+}
+
+
+//Каминг сун временная
+
+.footer-coming-soon {
+  margin-top: -16px;
 }

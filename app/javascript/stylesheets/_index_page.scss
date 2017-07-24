@@ -1,0 +1,222 @@
+.top-line {
+  &--index {
+    background-color: #335e79;
+    .top-line__city {
+      color: #fff;
+      opacity: 1;
+      text-decoration: none; 
+      border-bottom: 1px dashed;
+    }
+    .top-line__left {
+      color: #fff;
+      display: none;
+    }
+    .top-line__link {
+      color: #fff;
+      &:hover {
+        color: #70bee9 !important;
+      }
+      &:visited {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.index-image {
+  background-image: url("/images/design/index_img.jpg");
+  min-height: 534px;
+  background-repeat: no-repeat;
+  background-position: center;
+  &__header {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 2.6rem;
+    font-family: $GothamBlack;
+    padding-top: 7%;
+    line-height: 3.2rem;
+  }
+  &-content {
+    &__text {
+      color: #fff;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      p {
+        margin-bottom: 0;
+      }
+    }
+    &__input {
+      height: 56px;
+      display: flex;      
+      margin-top: 2rem;
+      input, a {
+        height: 100%;        
+      }
+      a {
+        margin: 0 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      input {
+        color: #4a4a4a;
+        @include placeholder {
+          color: #B2B2B2;
+          font-family: $GothamLight;
+        }
+      } 
+    }
+    &__sub {
+      color: #fff;
+      font-family: $GothamLight;
+      margin-top: 1rem;
+    }
+  }
+}
+
+.index-header {
+  color: #4a4a4a;
+  font-size: 2.2rem;
+  font-family: $GothamBold;
+  margin-bottom: 1.5rem;
+}
+
+.index-content {
+  text-align: center;
+  margin-bottom: 5rem;
+  &-block {
+    margin: 2rem 0;
+  }
+}
+
+.how-it-works-block {
+  border-radius: 3px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 7px 0 rgba(121, 120, 120, 0.5);
+  padding: 2rem 0;
+  .dr-btn-danger {
+    position: relative;
+  }
+  &__step {    
+    min-height: 100px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    @media (min-width: 992px) {
+      min-height: 250px;
+    }
+    a, span {
+      font-size: 1.1rem;
+    }
+    span {
+      font-weight: bold;
+    }
+    p {
+      color: #6a676b;
+      margin-top: 0.5rem;
+    }
+    &-content {
+      z-index: 2;
+      width: 100%;
+    }
+    &-1, &-2, &-3 {
+      font-size: 16rem;
+      font-family: $GothamBold;
+      position: absolute;
+      width: 100%;
+      display: none;
+      @media (min-width: 992px) {
+        display: block;
+      }
+    }
+    &-1 {
+      opacity: 0.66;
+      color: #edeef0;
+    }
+    &-2 {
+      opacity: 0.15;
+      color: $blueColor;
+    }
+    &-3 {
+      opacity: 0.15;
+      color: $greenColor;
+    }
+  }
+}
+
+.advantages-card {
+  border-radius: 3px;
+  height: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 2px 7px 0 rgba(121, 120, 120, 0.5);
+  text-align: left;  
+  display: flex;  
+  &__image {
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 89px;
+    height: 100%;
+    &--ruble {
+      background-color: $blueColor;
+      background-image: url("/images/design/0_ruble.svg");
+    }
+    &--percent {
+      background-color: $greenColor;
+      background-image: url("/images/design/0_percent.svg");
+    }
+    &--feedback {
+      background-color: $grayColor;
+      background-image: url("/images/design/chat.svg");
+    }
+  }
+  &__content {
+    width: calc(100% - 89px);
+  }
+  &__header {
+    font-weight: bold;
+    font-size: 1.1rem;
+    line-height: 1.1rem;
+    margin: 1rem;
+    margin-top: 2rem;
+  }
+  &__text {
+    color: #9b9b9b;
+    margin: 0 1rem 1.5rem 1rem;
+    line-height: 1rem;
+  }
+}
+
+.bottom-block {
+  font-size: 2.2rem;  
+  font-family: $GothamBold;
+  line-height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__left, &__middle, &__right {
+    background-image: url("/images/design/bottom-block__left.jpg");
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 314px;
+    width: 314px;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 1rem;
+    margin-top: 1rem;
+    box-shadow: 0 2px 7px 0 rgba(121, 120, 120, 0.5);
+    border-radius: 3px;
+    &:hover {
+      box-shadow: 0 4px 15px 0 rgba(150, 149, 149, 0.5);
+    }
+  }
+  &__middle {
+    background-image: url("/images/design/bottom-block__middle.jpg");    
+  }
+  &__right {
+    background-image: url("/images/design/bottom-block__right.jpg");    
+  }
+}

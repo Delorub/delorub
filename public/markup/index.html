@@ -1,314 +1,370 @@
 <!DOCTYPE html>
+
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Delorub</title>
-		<meta name="description" content="">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<meta property="og:image" content="path/to/image.jpg">
-		<link rel="shortcut icon" href="/images/favicon/favicon.ico" type="image/x-icon">
-		<link rel="apple-touch-icon" href="/images/favicon/apple-touch-icon.png">
-		<link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-touch-icon-72x72.png">
-		<link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-touch-icon-114x114.png">
-		<link rel="stylesheet" href="/packs/application.css">
-		<!-- Chrome, Firefox OS and Opera -->
-		<meta name="theme-color" content="#000">
-		<!-- Windows Phone -->
-		<meta name="msapplication-navbutton-color" content="#000">
-		<!-- iOS Safari -->
-		<meta name="apple-mobile-web-app-status-bar-style" content="#000">
-	</head>
-	<body>
-		<div class="container">
-			<div class="row row-eq-height">
-				<div class="col-sm-11 col-sm-push-1 dr-content">
-					<main class="content">
-						<div class="dr-container">
-							<nav role="navigation" class="navbar navbar-default dr-top-nav dr-top-nav-main navbar-static-top">
-								<div class="container-fluid">
-									<!-- Brand and toggle get grouped for better mobile display -->
-									<div class="navbar-header">
-										<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-											<span class="sr-only">Toggle navigation</span>
-											<span class="icon-bar"></span>
-											<span class="icon-bar"></span>
-											<span class="icon-bar"></span>
-										</button>
-										<a class="navbar-brand" href="#"><img src="/images/design/logo1.svg" alt=""></a>
-									</div>
-									<!-- Collect the nav links, forms, and other content for toggling -->
-									<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-										<ul class="nav navbar-nav" id="toggle-nav">
-											<li><a href="#">Новости</a></li>
-											<li><a href="#">Все задания</a></li>
-											<li><a href="#">Все мастера</a></li>
-											<li><a href="#">Как стать мастером</a></li>
-											<li><a href="#">Как это работает?</a></li>
-										</ul>
-										<ul class="nav navbar-nav right">
-											<li>
-												<div id="sb-search" class="sb-search">
-													<form>
-														<input class="sb-search-input" placeholder="Поиск" type="text" value="" name="search" id="search">
-														<input class="sb-search-submit" type="submit" value="">
-														<span class="sb-icon-search"></span>
-													</form>
-												</div>
-											</li>
-											<li><a id="open-search-link" class='dr-top-nav-icon icon-search dr-search-icon'></a></li>
-											<li>
-												<a id="open-notification-link" class='dr-top-nav-icon icon-koll_active'></a>
-												<div class="dropdown-contain" id="open-notification">
-													<div class="drop-out">
-														<div class="triangle"></div>
-														<ul>
-															<li>Уведомление 1</li>
-															<li><a href="#" class="dropdown-link">Ссылка 1</a></li>
-															<li>Уведомление 2</li>
-															<li><a href="#" class="dropdown-link">Ссылка 2</a></li>
-														</ul>
-													</div>
-												</div>
-											</li>
-											<li><a href="#">Александр Ермолаев</a></li>
-											<li><a href="#" class='dr-top-nav-icon icon-avtoriz'></a></li>
-										</ul>
-									</div><!-- /.navbar-collapse -->
-								</div><!-- /.container-fluid -->
-							</nav>
-							<div class="dr-slider">
-								<div class="item item-shadow">
-									<img src="/images/slider/slide_1.png" class="img-responsive" alt="">
-									<div class="dr-landing-slider-caption dr-landing-slider-caption-lowercase">
-										ДелоРуб
-										<div class="dr-landing-slider-caption-content-top dr-landing-slider-caption-content-bold">
-											- это сайт, где Вы найдете исполнителя для любого поручения.
-										</div>
-										<div class="dr-landing-slider-caption-content-subcontent">
-											<div class="dr-landing-slider-caption-content-subcontent-left">
-												<div class="dr-landing-slider-arrow-left">
-													<a class="dr-landing-slider-arrow-left-link"></a>
-												</div>
-												<p>ЗАКАЗЧИКАМ</p>
-												<p>
-													Наши мастера справятся с задачей в удобное для Вас
-													время, при этом Вы платите напрямую мастеру, без
-													комиссий и переплат.
-												</p>
-											</div>
-											<div class="dr-landing-slider-caption-content-subcontent-right">
-												<div class="dr-landing-slider-arrow-right">
-													<a class="dr-landing-slider-arrow-right-link"></a>
-												</div>
-												<p>МАСТЕРАМ</p>
-												<p>
-													Если Вы профессионал своего дела - станьте мастером
-													ДелоРуба и начните зарабатывать прямо сейчас.
-												</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="dr-wrap-button">
-								<div class="dr-wrap-button-left">
-									<a class="btn dr-button-blueFull">Создать задание</a>
-								</div>
-								<div class="dr-wrap-button-right">
-									<a class="btn dr-button-blueFull">Стать мастером</a>
-								</div>
-							</div>
-							<div class="dr-bottom-service">
-								<div class="dr-bottom-service-odd-row">
-									<div class="dr-bottom-service-odd-row-category">
-										<a href="#" class="dr-bottom-service-heading">
-											<img class="img-responsive" src="/images/icons/hammer.png" alt="">
+  <head>
+    <title>Delorub</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/packs/application.css">
 
-											<div class="dr-bottom-service-content">
-												<span>Ремонт</span>
-											</div>
-										</a>
-									</div>
-									<div class="dr-bottom-service-odd-row-category">
-										<a href="#" class="dr-bottom-service-heading">
-											<img class="img-responsive" src="/images/icons/broom.png" alt="">
+    <link rel="shortcut icon" href="/images/design/favicon.ico" type="image/x-icon">
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#000">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#000">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#000">
+  </head>
+  <body>
+    <div class="top-line top-line--index">
+      <div class="container">
+        <div class="top-line__container">
+          <div class="top-line__left">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <a href="#" class="top-line__city">Санкт-Петербург</a>
+          </div>
+          <div class="top-line__right">            
+            <a href="#" class="top-line__link"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Регистрация</a>	
+            <a href="#" class="top-line__link"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Вход</a>            
+          </div>
+        </div>
+      </div>
+    </div>
 
-											<div class="dr-bottom-service-content">
-												<span>Уборка</span>
-											</div>
-										</a>
-									</div>
-									<div class="dr-bottom-service-odd-row-category">
-										<a href="#" class="dr-bottom-service-heading">
-											<img class="img-responsive" src="/images/icons/pomade.png" alt="">
+    <nav class="navbar navbar-toggleable-md bg-faded navbar-dr-theme">
+      <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
+        <a class="navbar-brand" href="#">
+          <img src="/images/design/logo.svg" alt=""/>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Исполнители</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Все задания</a>
+            </li>						
+          </ul>
+          <ul class="navbar-nav navbar-right">
+            <li class="nav-item">
+              <a class="dr-btn-default" href="#">Стать исполнителем</a>
+            </li>
+            <li class="nav-item">
+              <a class="dr-btn-danger" href="#">Создать задание</a>
+            </li>						
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-											<div class="dr-bottom-service-content">
-												<span>Красота и здоровье</span>
-											</div>
-										</a>
-									</div>
-									<div class="dr-bottom-service-odd-row-category">
-										<a href="#" class="dr-bottom-service-heading">
-											<img class="img-responsive" src="/images/icons/student.png" alt="">
 
-											<div class="dr-bottom-service-content">
-												<span>Образование</span>
-											</div>
-										</a>
-									</div>
-									<div class="dr-bottom-service-odd-row-category">
-										<a href="#" class="dr-bottom-service-heading">
-											<img class="img-responsive" src="/images/icons/cargo.png" alt="">
+    <div class="index-image">
+      <div class="container">
+        <div class="index-image__header">
+          Найдите исполнителя для <br/> любого поручения
+        </div>
+        <div class="index-image-content">
+          <div class="index-image-content__text">
+            <p>
+              Бесплатно для <a class="link-default" href="#">заказчиков</a>
+            </p>
+            <p>
+              Без комиссий и платы за отклики для <a class="link-default" href="#">исполнителей</a>
+            </p>
+          </div>
+          <div class="row">
+            <div class="col-md-7">
+              <div class="index-image-content__input">
+                <input type="text" class="form-control" id="can_i_help" placeholder="Чем вам помочь?"/>
+                <a class="dr-btn-danger" href="#">Создать задание</a>
+              </div>
+            </div>
+          </div>
 
-											<div class="dr-bottom-service-content">
-												<span>Грузоперевозки</span>
-											</div>
-										</a>
-									</div>
-									<div class="dr-bottom-service-odd-row-category">
-										<a href="#" class="dr-bottom-service-heading">
-											<img class="img-responsive" src="/images/icons/horse.png" alt="">
+          <div class="index-image-content__sub">
+            <p>
+              Например, <a class="link-default" href="#">уборка квартиры</a> или <a class="link-default" href="#">доставка груза</a>
+            </p>
+          </div>
+        </div>
+      </div>        
+    </div>
 
-											<div class="dr-bottom-service-content">
-												<span>Тату, пирсинг и бодимодификация</span>
-											</div>
-										</a>
-									</div>
-									<div class="dr-bottom-service-odd-row-category">
-										<a href="#" class="dr-bottom-service-heading">
-											<img class="img-responsive" src="/images/icons/vape.png" alt="">
 
-											<div class="dr-bottom-service-content">
-												<span>Вейпинг</span>
-											</div>
-										</a>
-									</div>
-									<div class="dr-bottom-service-odd-row-category">
-										<a href="#" class="dr-bottom-service-heading">
-											<img class="img-responsive" src="/images/icons/photo.png" alt="">
+    <div class="container">
 
-											<div class="dr-bottom-service-content">
-												<span>Фото и видеосъемка</span>
-											</div>
-										</a>
-									</div>
-								</div>
+      <div class="index-content">
 
-								<div class="dr-bottom-service-even-row">
-									<div class="dr-bottom-service-even-row-category">
-										<a href="#" class="dr-bottom-service-heading">
-											<img class="img-responsive" src="/images/icons/law.png" alt="">
+        <div class="index-content-block">
+          <div class="index-header">
+            Категории услуг
+          </div>
+          <div class="row align-items-stretch">
+            <div class="col-md-4 col-margin-bottom">
+              <div class="dr-category dr-category--courier">
+                <a href="#">
+                  <div class="dr-category__header">
+                    Курьерская доставка
+                  </div>
+                </a>
 
-											<div class="dr-bottom-service-content">
-												<span>Юридическая помощь</span>
-											</div>
-										</a>
-									</div>
-									<div class="dr-bottom-service-even-row-category">
-										<a href="#" class="dr-bottom-service-heading">
-											<img class="img-responsive" src="/images/icons/animal.png" alt="">
+                <div class="dr-category__text">
+                  <a href="#">Услуги пешего курьера</a>
+                  <a href="#">Услуги курьера на легковом авто</a>
+                  <a href="#">Купить и доставить</a>
+                </div>
+              </div>              
+            </div>
+            <div class="col-md-4 col-margin-bottom">
+              <div class="dr-category dr-category--repair">
+                <a href="#">
+                  <div class="dr-category__header">
+                    Бытовой ремонт
+                  </div>
+                </a>
 
-											<div class="dr-bottom-service-content">
-												<span>Уход за животными</span>
-											</div>
-										</a>
-									</div>
-									<div class="dr-bottom-service-even-row-category">
-										<a href="#" class="dr-bottom-service-heading">
-											<img class="img-responsive" src="/images/icons/cocktail.png" alt="">
+                <div class="dr-category__text">
+                  <a href="#">Ремонт под ключ</a>
+                  <a href="#">Мастер на час</a>
+                  <a href="#">Сантехнические работы</a>
+                </div>
+              </div>              
+            </div>
+            <div class="col-md-4 col-margin-bottom">
+              <div class="dr-category dr-category--cleaning">
+                <a href="#">
+                  <div class="dr-category__header">
+                    Уборка
+                  </div>
+                </a>
 
-											<div class="dr-bottom-service-content">
-												<span>Организация мероприятий</span>
-											</div>
-										</a>
-									</div>
-									<div class="dr-bottom-service-even-row-category">
-										<a href="#" class="dr-bottom-service-heading">
-											<img class="img-responsive" src="/images/icons/cooking.png" alt="">
+                <div class="dr-category__text">
+                  <a href="#">Генеральная уборка</a>
+                  <a href="#">Мытье окон</a>
+                  <a href="#">Поддерживающая уборка</a>
+                </div>
+              </div>              
+            </div>
+          </div>
+          <br/>
+          <a class="dr-btn-default" href="#">Смотреть категории</a>
+        </div>
+        
+        <br/>
+        
+        <div class="index-content-block">
+          <div class="how-it-works-block">
+            <div class="index-header">
+              Как это работает
+            </div>
+            <div class="row align-items-stretch">
+              <div class="col-lg-4">
+                <div class="how-it-works-block__step">
+                  <div class="how-it-works-block__step-content">
+                    <a href="#" class="link-default">Создайте задание</a>
+                    <p>
+                      Опишите своими словами задачу, которую требуется выполнить.
+                    </p>
+                    <hr class="toggle-hr"/>
+                  </div>
+                  <div class="how-it-works-block__step-1">1</div>
+                </div>
+              </div>
+              
+              <div class="col-lg-4">
+                <div class="how-it-works-block__step">
+                  <div class="how-it-works-block__step-content">
+                    <a href="#" class="link-default">Выберите исполнителя</a>
+                    <p>
+                      Просмотрите анкеты с отзывами и отправьте заявку.
+                    </p>
+                    <hr class="toggle-hr"/>
+                  </div>
+                  <div class="how-it-works-block__step-2">2</div>
+                </div>
+              </div>
+              
+              <div class="col-lg-4">
+                <div class="how-it-works-block__step">
+                  <div class="how-it-works-block__step-content">
+                    <span>Договоритесь с ним о работах</span>
+                    <p>
+                      Связывайтесь с кандидатами и обсуждайте
+                      детали заказа.
+                    </p>
+                  </div>
+                  <div class="how-it-works-block__step-3">3</div>
+                </div>
+              </div>
+            </div>
+            
+            <a class="dr-btn-danger" href="#">Создать задание</a>
+          </div>
+        </div>
+        
+        <br/>
+        
+        <div class="index-content-block">
+          <div class="out-advantages-block">
+            <div class="index-header">
+              Преимущества нашего сервиса
+            </div>
+            <div class="row align-items-stretch">
+              <div class="col-lg-4 col-margin-bottom">
+                <div class="advantages-card">
+                  
+                    <div class="advantages-card__image advantages-card__image--ruble"></div>
+                    <div class="advantages-card__content">
+                      <div class="advantages-card__header">
+                        Бесплатное размещение  заданий
+                      </div>
+                      <div class="advantages-card__text">
+                        У частных исполнителей нет расходов на офис, рекламу, 
+                        зарплату секретарю и других затрат…
+                      </div>
+                    </div>
+                  
+                </div>
+              </div>
+              <div class="col-lg-4 col-margin-bottom">
+                <div class="advantages-card">
+                  
+                    <div class="advantages-card__image advantages-card__image--percent"></div>
+                    <div class="advantages-card__content">
+                      <div class="advantages-card__header">
+                        Нет комиссии и скрытых платежей
+                      </div>
+                      <div class="advantages-card__text">
+                        У частных исполнителей нет расходов на офис, рекламу…
+                      </div>
+                    </div>
+                  
+                </div>
+              </div>
+              <div class="col-lg-4 col-margin-bottom">
+                <div class="advantages-card">
+                  
+                    <div class="advantages-card__image advantages-card__image--feedback"></div>
+                    <div class="advantages-card__content">
+                      <div class="advantages-card__header">
+                        Честные рейтинги и реальные отзывы
+                      </div>
+                      <div class="advantages-card__text">
+                        У частных исполнителей нет расходов на офис, рекламу, 
+                        зарплату секретарю и других затрат…
+                      </div>
+                    </div>
+                  
+                </div>
+              </div>
+            </div>
+            <br/>
+            <a class="dr-btn-danger" href="#">Создать задание</a>
+          </div>
+        </div>
+        
+        <div class="index-content-block">
+           <div class="row">
+              <div class="col-lg-4">
+                 <div class="bottom-block">
+                    <a href="#">
+                       <div class="bottom-block__left">
+                       Как стать  исполнителем
+                    </div>
+                    </a>                    
+                 </div>
+              </div>
+              <div class="col-lg-4">
+                 <div class="bottom-block">
+                    <a href="#">
+                       <div class="bottom-block__middle">
+                       Вопрос-ответ
+                    </div>
+                    </a>                    
+                 </div>
+              </div>
+              <div class="col-lg-4">
+                 <div class="bottom-block">
+                    <a href="#">
+                       <div class="bottom-block__right">
+                       Безопасность  и гарантии
+                    </div>
+                    </a>                    
+                 </div>
+              </div>
+           </div>
+        </div>
+      </div>
 
-											<div class="dr-bottom-service-content">
-												<span>Кейтеринг и кулинария</span>
-											</div>
-										</a>
-									</div>
-									<div class="dr-bottom-service-even-row-category">
-										<a href="#" class="dr-bottom-service-heading">
-											<img class="img-responsive" src="/images/icons/sport.png" alt="">
+    </div>
 
-											<div class="dr-bottom-service-content">
-												<span>Спорт и туризм</span>
-											</div>
-										</a>
-									</div>
-									<div class="dr-bottom-service-even-row-category">
-										<a href="#" class="dr-bottom-service-heading">
-											<img class="img-responsive" src="/images/icons/laptop.png" alt="">
+    <footer>
+      <div class="dr-footer">
+        <div class="container">
+          <div class="row">
+            <div class="dr-footer-left">
+              <div class="dr-footer-block">
+                <ul>
+                  <li><a href="#" class="link-white-bold">Заказчикам</a></li>
+                  <li><a href="#" class="link-white">Сколько это стоит?</a></li>
+                  <li><a href="#" class="link-white">Как это работает?</a></li>
+                </ul>
+              </div>
+              <div class="dr-footer-block">
+                <ul>
+                  <li><a href="#" class="link-white-bold">Исполнителям</a></li>
+                  <li><a href="#" class="link-white">Как стать исполнителем?</a></li>
+                  <li><a href="#" class="link-white">Условия партнерского соглашения?</a></li>
+                </ul>
+              </div>
+              <div class="dr-footer-block">
+                <ul>
+                  <li><a href="#" class="link-white-bold">Помощь</a></li>
+                  <li><a href="#" class="link-white">Вопрос - ответ</a></li>
+                  <li><a href="#" class="link-white">Техподдержка</a></li>
+                  <li><a href="#" class="link-white">Конфиденциальность</a></li>
+                </ul>
+              </div>
+            </div>
 
-											<div class="dr-bottom-service-content">
-												<span>Интернет-услуги</span>
-											</div>
-										</a>
-									</div>
-									<div class="dr-bottom-service-even-row-category">
-										<a href="#" class="dr-bottom-service-heading">
-											<img class="img-responsive" src="/images/icons/cleaner.png" alt="">
-
-											<div class="dr-bottom-service-content">
-												<span>Домашний персонал</span>
-											</div>
-										</a>
-									</div>
-									<div class="dr-bottom-service-even-row-category">
-										<a href="#" class="dr-bottom-service-heading">
-											<img class="img-responsive" src="/images/icons/fix.png" alt="">
-											<div class="dr-bottom-service-content">
-												<span>Разное</span>
-											</div>
-										</a>
-									</div>
-								</div>
-
-							</div>
-						</div>
-						<div class="dr-bottom-menu">
-							<nav>
-								<ul>
-									<li><a href="#">Главная</a></li>
-									<li><a href="#">О проекте делоруб</a></li>
-									<li><a href="#">Как это работает?</a></li>
-									<li><a href="#">Как стать мастером?</a></li>
-									<li><a href="#">Это интересно</a></li>
-									<li><a href="#">Контакты компании</a></li>
-									<li><a href="#">О компании</a></li>
-									<li><a href="#">Помощь</a></li>
-								</ul>
-							</nav>
-						</div>
-					</main>
-				</div>
-				<div class="col-sm-1 col-sm-pull-11 dr-side-menu">
-					<br/>
-					<br/>
-					<a href="#" class="gamburg-menu icon-gamb_menu"></a>
-					<div class="totalz">
-						<a href="#"><span class="n1">99</span><span class="txa">Мои<br/> задания</span></a>
-					</div>
-					<nav>
-						<ul class="left_menu">
-							<li><a href="#"><span class="icon_top icon-add"></span>Создать<br/> задание</a></li>
-							<li><a href="#"><span class="icon_top icon-zadacha"></span>Создать<br/> анкету</a></li>
-							<li><a href="#"><span class="icon_top icon-setups"></span>Мои<br/> настройки</a></li>
-							<li><a href="#"><span class="icon_top icon-cart"></span>Мои<br/> покупки</a></li>
-						</ul>
-					</nav>
-					<div class="year">© 2017</div>
-				</div>
-			</div>
-		</div>
-		<script>
-
-		</script>
-		<script src="website-bundle.js"></script>
-	</body>
+            <div class="dr-footer-right">              
+              <div class="dr-footer-block">
+                <ul>
+                  <li><a href="#" class="link-white-bold">Санкт-Петербург</a></li>
+                  <li><a href="#" class="link-white-bold">Email: info@delorub.ru</a></li>                  
+                </ul>
+              </div>
+            </div>
+          </div>          
+        </div>
+        <div class="dr-footer-sub">
+          <div class="container">
+            <div class="dr-footer-sub__content">
+              <div class="dr-footer-sub__copyright">
+                <i class="fa fa-copyright" aria-hidden="true"></i>
+                2017 Delorub. Все права защищены
+              </div>
+              <div class="dr-footer-sub__social">
+                <div>
+                  <a href="#"><img src="/images/design/vk.png" alt=""/></a>
+                </div>
+                <div>
+                  <a href="#"><img src="/images/design/fb.png" alt=""/></a>
+                </div>
+                <div>
+                  <a href="#"><img src="/images/design/ok.png" alt=""/></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="/packs/application.js"></script>
+  </body>
 </html>
