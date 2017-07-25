@@ -10,6 +10,11 @@
   float: right;
 }
 
+.margin-side {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
 .breadcrumb-item + .breadcrumb-item::before {
   color: #f44336;
 }

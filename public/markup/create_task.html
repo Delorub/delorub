@@ -84,7 +84,13 @@
             <div class="dr-block-style">
               <div class="form-group">
                 <label for="hdr" class="form-group__header">Заголовок</label>
-                <input type="text" class="form-control" id="hdr" placeholder="Например, доставить груз"/>
+                <div class="row">
+                  <div class="col-lg-12 col-12">
+                    <input type="text" class="form-control" id="hdr" placeholder="Например, доставить груз"  data-toggle="popover" data-placement="right" title="Начните с заголовка. Например:" data-content="Требуется ремонт в квартире
+                           Укладка&nbsp;ламината&nbsp;в&nbsp;офисе
+                           Строительство дома в Талдоме"/>
+                  </div>
+                </div>                
               </div>
 
               <div class="form-group">
@@ -135,7 +141,11 @@
 
               <div class="form-group">
                 <label for="adr" class="form-group__header">Адрес</label>
-                <input type="text" class="form-control" id="adr" placeholder="Санкт-Петербург, ул. Бадаева, 6"/>
+                <div class="row">
+                  <div class="col-lg-8 col-12">                
+                    <input type="text" class="form-control" id="adr" placeholder="Санкт-Петербург, ул. Бадаева, 6"/>
+                  </div>
+                </div>
               </div>
               <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Adf85705e8bdd20d32fbc052b21110fb7390a28d03f814cf37d90374d857c3530&amp;width=100%25&amp;height=300&amp;lang=ru_RU&amp;scroll=false"></script>
             </div>
@@ -149,7 +159,7 @@
               <br/>
               <div class="form-group">
                 <div class="row align-items-baseline">
-                  <div class="col-lg-6">
+                  <div class="margin-side">
                     <label for="budget">Или укажите точную стоимость</label>
                   </div>
                   <div class="col-lg-6">
@@ -166,10 +176,10 @@
             <div class="dr-block-style">
               <label for="contact" class="form-group__header">Укажите контактную информацию</label>
               <div class="row">
-                <div class="col-lg-6">
+                <div class="col-xl-5  col-lg-6">
                   <input type="text" class="form-control form-control__item" id="name" placeholder="Как к Вам обращатся?"/>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-xl-5  col-lg-6">
                   <input type="text" class="form-control form-control__item" id="email" placeholder="Ваш email"/>
                 </div>
               </div>
@@ -177,10 +187,10 @@
                 <label for="phone">Укажите ваш номер телефона и подтвердите его</label>
               </div>
               <div class="row">
-                <div class="col-lg-6">
+                <div class="col-xl-5  col-lg-6">
                   <input type="text" class="form-control form-control__item" id="tel" placeholder="Ваш телефон"/>
                 </div>
-                <div class="col-lg-6 col-margin-bottom">
+                <div class="col-xl-5  col-lg-6 col-margin-bottom">
                   <input class="dr-btn-default" role="button" value="Подтвердить"/>
                 </div>
               </div>              
@@ -202,6 +212,18 @@
         </div>
 
         <div class="col-4">
+          
+          <div class="dr-popover dr-popover-left">            
+            <div class="dr-popover__header">
+              Подробно опишите работы. 
+              Обязательно укажите:
+            </div>
+            <div class="dr-popover__text">
+              Размеры, объемы, параметры<br/>
+              Необходимые материалы<br/>
+              Прочие особенности работ
+            </div>            
+          </div>
 
         </div>
       </div>

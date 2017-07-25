@@ -24,3 +24,7 @@ $('#budget_slider').ionRangeSlider(
       '200 000', '300 000'
     ]
   })
+
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
