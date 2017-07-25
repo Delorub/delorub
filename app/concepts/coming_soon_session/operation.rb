@@ -5,12 +5,12 @@ class ComingSoonSession::Create < Trailblazer::Operation
   end
 
   class Present < Trailblazer::Operation
-    step Model( ComingSoonSession, :new )
-    step Contract::Build( constant: Form )
+    step Model(ComingSoonSession, :new)
+    step Contract::Build(constant: Form)
   end
 
-  step Model( ComingSoonSession, :new )
-  step Contract::Build( constant: Form )
+  step Model(ComingSoonSession, :new)
+  step Contract::Build(constant: Form)
   step :assign_request!
   step :assign_session!
   step Contract::Validate()
