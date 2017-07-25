@@ -1,0 +1,20 @@
+.index-image
+  .container
+    = simple_form_for @form do |f|
+      .index-image__header
+        | Сайт пока не идеален и еще
+        br/
+        | не готов увидеть этот мир!
+      .index-image-content
+        .index-image-content__text
+          p
+            | Оставьте свой e-mail, и мы сообщим вам, когда сервис запустится.
+        .row
+          .col-md-7
+            .index-image-content__input
+              = f.input :email, label: false, wrapper: false, class: 'form-control', id: 'can_i_help', placeholder: 'Ваш email'
+              input.btn.dr-btn-danger href="#" type="submit" value="Жду запуска"
+        .index-image-content__sub
+          p
+            | Нажимая кнопку «Жду запуска» вы принимаете&nbsp;
+            a.link-default href="#"соглашение об обработке персональных данных

@@ -1,6 +1,7 @@
 ru:
   errors:
-     phone?: Не похоже на номер телефона
+    not_email: 'asd'
+    phone?: Не похоже на номер телефона
   time:
     formats:
       datepicker_date: '%d.%m.%Y'
@@ -79,10 +80,18 @@ ru:
     deleted_at: Удалено
     actions: Действия
     reply: Ответ
+  activemodel:
+    errors:
+      models:
+        coming_soon_session/create:
+          attributes:
+            email:
+              not_email: Не похоже на email
   activerecord:
     errors:
+      not_email: Это не email
       user_balance: "Не хватает средств на счету"
-      models:
+      errors:
         task:
           attributes:
             user:

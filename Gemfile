@@ -16,12 +16,13 @@ gem 'rabl'
 gem 'oj'
 gem 'friendly_id', '~> 5.1.0'
 
+# Trailblazer
+gem 'trailblazer'
+gem 'trailblazer-rails'
+gem 'trailblazer-cells'
+
 # Forms
 gem 'simple_form'
-
-# Trailblazer
-gem 'cells-rails'
-gem 'reform-rails'
 
 # Rails core extensions
 gem 'cells'
