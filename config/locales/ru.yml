@@ -190,7 +190,7 @@ ru:
       user:
         email: "E-mail"
         password: "Пароль"
-        first_name: "Имя"
+        name: "Имя"
         photo: "Фотография"
         last_name: "Фамилия"
         created_at: "Дата регистрации"

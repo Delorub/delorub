@@ -1,5 +1,5 @@
 describe Profile, search: true do
-  let!(:user) { create(:user, :reindex, first_name: 'Алексей', last_name: 'Иванов') }
+  let!(:user) { create(:user, :reindex, name: 'Алексей Иванов') }
   let!(:profile) { create(:profile, :reindex, user: user) }
 
   context 'search with a query param' do

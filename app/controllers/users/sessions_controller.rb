@@ -7,7 +7,7 @@ class Users::SessionsController < Devise::SessionsController
 
   def create
     run User::Authentification, permitted_params do |result|
-      return sign_in result['user']
+      return sign_in_and_redirect result['user']
     end
 
     render 'new'

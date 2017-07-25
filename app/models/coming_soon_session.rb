@@ -14,7 +14,9 @@
 #  visited_at   :datetime
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  utm_data     :text
 #
 
 class ComingSoonSession < ApplicationRecord
+  serialize :utm_data
 end

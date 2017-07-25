@@ -14,6 +14,13 @@ class ComingSoonSessionsController < ApplicationController
     render 'new'
   end
 
+  def main_search
+    session[:visitor][:form_keyword] = params[:query]
+    session[:visitor][:action_type] = :button
+
+    redirect_to new_coming_soon_session_path
+  end
+
   private
 
   def coming_soon_session_params

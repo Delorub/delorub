@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   resources :coming_soon_sessions, only: [:new, :create], path: '', path_names: {
     new: 'coming-soon',
     create: 'coming-soon'
-  }
+  } do
+    collection do
+      get 'main-search', action: :main_search
+    end
+  end
 
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',

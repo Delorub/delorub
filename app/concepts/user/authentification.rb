@@ -17,11 +17,11 @@ class User::Authentification < Trailblazer::Operation
   step :model!
   step :check_password!
 
-  def model!(options, params:, **)
-    options['user'] = User.find_by(email: params[:email])
+  def model! options, params:, **_
+    options['user'] = User.find_or_initialize_by email: params[:email]
   end
 
-  def check_password!(options, params:, **)
+  def check_password! options, params:, **_
     options['user'].valid_password? params[:password]
   end
 end

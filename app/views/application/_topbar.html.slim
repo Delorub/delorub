@@ -4,10 +4,16 @@
       .top-line__left
         i.fa.fa-map-marker aria-hidden="true"
         a.top-line__city href="#"  Санкт-Петербург
-      .top-line__right
-        a.top-line__link href=new_user_registration_path
-          i.fa.fa-pencil aria-hidden="true"
-          |  Регистрация
-        a.top-line__link href=new_user_session_path
-          i.fa.fa-sign-in aria-hidden="true"
-          |  Вход
+      - if user_signed_in?
+        .top-line__right
+          a.top-line__link href=destroy_user_session_path
+            i.fa.fa-sign-in aria-hidden="true"
+            |  Выход
+      - else
+        .top-line__right
+          a.top-line__link href=new_user_registration_path
+            i.fa.fa-pencil aria-hidden="true"
+            |  Регистрация
+          a.top-line__link href=new_user_session_path
+            i.fa.fa-sign-in aria-hidden="true"
+            |  Вход
