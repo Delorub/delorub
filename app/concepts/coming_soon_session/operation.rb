@@ -25,8 +25,10 @@ class ComingSoonSession::Create < Trailblazer::Operation
     options['model'].referer = options[:session]['referer']
     options['model'].visited_at = options[:session]['visited_at']
     options['model'].utm_data = options[:session]['utm_data']
-    options['model'].source = options['model'].utm_data.dig('utm_source')
-    options['model'].source_data = options['model'].utm_data.dig('utm_term')
+    unless options['model'].utm_data.nil?
+      options['model'].source = options['model'].utm_data.dig('utm_source')
+      options['model'].source_data = options['model'].utm_data.dig('utm_term')
+    end
     options['model'].form_keyword = options[:session].dig('form_keyword')
     options['model'].action_type = options[:session].dig('action_type')
     true
