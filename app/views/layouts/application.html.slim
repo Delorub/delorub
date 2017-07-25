@@ -20,4 +20,4 @@ html
       = yield
       = render 'footer'
     = javascript_pack_tag 'application'
-    = render 'metrics' if Rails.env.production?
+    = render 'analytics' if Rails.env.production?
