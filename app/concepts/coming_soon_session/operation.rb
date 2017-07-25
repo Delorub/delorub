@@ -9,8 +9,7 @@ class ComingSoonSession::Create < Trailblazer::Operation
     step Contract::Build(constant: Form)
   end
 
-  step Model(ComingSoonSession, :new)
-  step Contract::Build(constant: Form)
+  step Nested(Present)
   step :assign_request!
   step :assign_session!
   step Contract::Validate()

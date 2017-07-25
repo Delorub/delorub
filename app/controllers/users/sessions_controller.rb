@@ -1,10 +1,17 @@
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
-  # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+  def new
+    run User::Authentification::Present
+  end
+
+  def create
+    run User::Authentification, permitted_params do |result|
+      return sign_in result['user']
+    end
+
+    render 'new'
+  end
 
   # POST /resource/sign_in
   # def create
@@ -16,10 +23,9 @@ class Users::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  # protected
+  private
 
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_in_params
-  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
-  # end
+    def permitted_params
+      params.require(:user).permit(:email, :password).to_h
+    end
 end

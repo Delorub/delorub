@@ -86,10 +86,6 @@ class User < ApplicationRecord
 
   mount_uploader :photo, UserPhotoUploader
 
-  def name
-    ''
-  end
-
   def master?
     profile.present? && !profile.new_record?
   end
