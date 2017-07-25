@@ -24,8 +24,9 @@
 }
 
 .index-image {
-  background-image: url("/images/design/index_img.jpg");
-  min-height: 534px;
+  background-image: url("/images/design/coming_soon.png");
+  height: 70vh;
+  min-height: 536px;
   background-repeat: no-repeat;
   background-position: center;
   &__header {
@@ -37,29 +38,36 @@
     line-height: 3.2rem;
   }
   &-content {
-    &__text {
+    &__header, &__text {
       color: #fff;
-      font-size: 1.2rem;
+      font-size: 2.2rem;
       margin-top: 1rem;
+      font-family: $GothamBold;
       p {
         margin-bottom: 0;
+      }
+    }
+    &__text {
+      font-family: $GothamPro;
+      font-size: 1.2rem;
+      &--nomargin {
+        margin-top: 0;
       }
     }
     &__input {
       height: 56px;
       display: flex;      
-      margin-top: 2rem;
-      input, a {
-        height: 100%;        
-      }
-      a {
+      margin-top: 2rem;      
+      .dr-btn-danger {
         margin: 0 10px;
         display: flex;
         justify-content: center;
         align-items: center;
+        height: 100%;
       }
-      input {
+      .form-control {
         color: #4a4a4a;
+        height: 100%;
         @include placeholder {
           color: #B2B2B2;
           font-family: $GothamLight;
