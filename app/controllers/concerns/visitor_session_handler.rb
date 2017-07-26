@@ -12,7 +12,7 @@ module VisitorSessionHandler
   protected
 
     def handle_visitor_session
-      return if self.class.parent.in? [Admin, Editor]
+      return if self.class.parent.in? [Admin, Editor, Users]
       return if user_signed_in?
       @visitor_session_service = VisitorSessionService.new(request, session, cookies)
       @visitor_session_service.perform

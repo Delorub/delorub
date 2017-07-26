@@ -31,8 +31,4 @@ class ApplicationController < ActionController::Base
       return render_page_not_found if user_signed_in?
       redirect_to new_user_session_path, alert: 'Войдите в систему для просмотра этой страницы'
     end
-
-    def show_global_container
-      @global_container = true
-    end
 end
