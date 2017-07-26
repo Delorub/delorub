@@ -6,13 +6,20 @@ Rails.application.routes.draw do
   mount ApplicationAPI => '/api'
 
   root 'main#index'
+  resources :coming_soon_sessions, only: [:new, :create], path: '', path_names: {
+    new: 'coming-soon',
+    create: 'coming-soon'
+  } do
+    collection do
+      get 'main-search', action: :main_search
+    end
+  end
 
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
-
   resources :users, only: [:index, :destroy]
 
   resources :profiles, only: [:show, :edit, :update], path: 'profile'
@@ -49,12 +56,12 @@ Rails.application.routes.draw do
 
   resources :news, only: [:index, :show]
 
-  resources :vacancies, only: :index
-
   resources :help_categories, only: :index, path: 'help', as: :help do
     resources :help_answers, only: :show, path: 'answer', as: :answer
   end
   resources :help_questions, only: [:new, :create], path: 'help'
+
+  resources :vacancies, only: :index
 
   get 'how-to-master', to: 'custom_pages#how_to_master', as: 'how_to_master'
   get 'how-it-works', to: 'custom_pages#how_it_works', as: 'how_it_works'

@@ -16,8 +16,13 @@ gem 'rabl'
 gem 'oj'
 gem 'friendly_id', '~> 5.1.0'
 
-# Font icons
-gem 'font-awesome-sass'
+# Trailblazer
+gem 'trailblazer'
+gem 'trailblazer-rails'
+gem 'trailblazer-cells'
+
+# Forms
+gem 'simple_form'
 
 # Rails core extensions
 gem 'cells'
@@ -27,7 +32,6 @@ gem 'figaro'
 gem 'render_anywhere'
 gem 'inherited_resources'
 gem 'wicked'
-gem 'reform-rails'
 gem 'dry-validation'
 gem 'recursive-open-struct'
 

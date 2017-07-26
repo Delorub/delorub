@@ -1,0 +1,68 @@
+.dr-block-style
+  nav.breadcrumb
+    a.breadcrumb-item href="#" Главная
+    a.breadcrumb-item href="#" Вторая
+    span.breadcrumb-item.active Текущая
+task-form inline-template=""
+  = simple_form_for @form do |f|
+    .dr-content-header
+      p.dr-content-header__text.dr-content-header__text-margin-bottom-none
+        | &nbsp;Заказать&nbsp;
+        a.dr-content-header__link href="#" ремонт стиральной машинки
+        | &nbsp;в&nbsp;
+        a.dr-content-header__link href="#" Москве
+    .dr-form
+      .dr-block-style
+        = f.input :title, label_html: { class: 'form-group__header' }, input_html: { 'v-model': 'title' }
+      .dr-block-style
+        .form-group
+          = f.label :description, class: 'form-group__header'
+          = f.input_field :description, as: :text, class: 'form-control form-group__item form-group__item-marginbottom-10'
+          a.form-group__sublink href="#"  Прикрепить изображение или текстовый файл
+      .dr-block-style
+        .form-group
+          = f.label :date_type, class: 'form-group__header'
+          .row
+            .col-lg-4
+              = f.input :date_type, label: false
+            .col-lg-4
+              .form-group
+                input#date.form-control.form-control__item type="date" /
+              a.form-group__sublink href="#" Сегодня
+              a.form-group__sublink href="#" Завтра
+            .col-lg-4
+              .form-group
+                input#time.form-control.form-control__item type="time" /
+      .dr-block-style
+        .form-group
+          label.form-group__header for="adr" Адрес
+          input#adr.form-control placeholder="Санкт-Петербург, ул. Бадаева, 6" type="text" /
+      .dr-block-style
+        .form-group
+          label.form-group__header for="budget"  На какой бюджет ориентироваться исполнителям
+          br/
+          input#ex1 data-slider-id="ex1Slider" data-slider-max="300" data-slider-min="0" data-slider-step="1" data-slider-value="240" type="text" /
+        .form-group
+          label for="budget" Или укажите точную стоимость
+          .row
+            .col-lg-3
+              .input-group
+                input.form-control placeholder=("300 000") type="text" /
+                i.input-group-addon.fa.fa-rub aria-hidden="true"
+      .dr-block-style
+        label.form-group__header for="contact"  Укажите контактную информацию
+        .row
+          .col-lg-6
+            input#name.form-control.form-control__item placeholder=("Как к Вам обращатся?") type="text" /
+          .col-lg-6
+            input#email.form-control.form-control__item placeholder=("Ваш email") type="text" /
+          .col-lg-6
+            input#tel.form-control.form-control__item placeholder=("Номер телефона") type="text" /
+          .col-lg-6
+            a.btn.btn-primary.dr-btn-primary href="#" role="button"  Подтвердить
+        .checkbox
+          label
+            input type="checkbox" value=""
+            | Я согласен с правилами сервиса
+        br/
+        a.btn.btn-primary.dr-btn-primary href="#" role="button"  Опубликовать задание

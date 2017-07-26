@@ -13,12 +13,8 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string
 #  last_sign_in_ip        :string
-#  first_name             :string
 #  middle_name            :string
-#  last_name              :string
 #  phone                  :string
-#  skype                  :string
-#  website                :string
 #  email                  :string
 #  birthday               :date
 #  profile_id             :integer
@@ -31,6 +27,7 @@
 #  updated_at             :datetime
 #  access_token           :string
 #  place_id               :integer
+#  name                   :string
 #
 # Indexes
 #
@@ -51,8 +48,7 @@ FactoryGirl.define do
     password { generate :password }
     password_confirmation(&:password)
 
-    first_name { Faker::Name.first_name }
-    last_name  { Faker::Name.last_name }
+    name { "#{Faker::Name.first_name} #{Faker::Name.last_name}" }
 
     factory :editor do
       association :permission, factory: :editor_user_permission

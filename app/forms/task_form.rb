@@ -38,16 +38,8 @@ class TaskForm < BaseForm
     required(:category_id).filled
   end
 
-  def contract_type_options
-    Task.contract_type.options
-  end
-
-  def date_type_options
-    Task.date_type.options
-  end
-
-  def price_type_options
-    Task.price_type.options
+  def self.enumerized_attributes
+    Task.enumerized_attributes
   end
 
   def notifications_type_options

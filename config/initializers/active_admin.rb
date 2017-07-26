@@ -1,6 +1,6 @@
 ActiveAdmin.setup do |config|
   config.site_title = 'Делоруб'
-  config.site_title_image = '/images/design/logo.png'
+  config.site_title_image = '/images/design/logo.svg'
   config.register_stylesheet 'https://fonts.googleapis.com/css?family=Exo+2:100,200,300,400,500,600,700&amp;subset=cyrillic'
 
   config.authentication_method = :authenticate_user!
