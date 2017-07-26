@@ -131,5 +131,5 @@ group :test do
 end
 
 group :production do
-  gem 'puma'
+  gem 'puma', '3.8.1'
 end
