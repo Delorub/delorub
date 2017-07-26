@@ -6,12 +6,13 @@ Rails.application.routes.draw do
   mount ApplicationAPI => '/api'
 
   root 'main#index'
-  resources :coming_soon_sessions, only: [:new, :create], path: '', path_names: {
+  resources :coming_soon_requests, only: [:new, :create], path: '', path_names: {
     new: 'coming-soon',
     create: 'coming-soon'
   } do
     collection do
-      get 'main-search', action: :main_search
+      post 'main-search', action: :main_search
+      get 'coming-soon/thank-you', action: :success, as: :success
     end
   end
 

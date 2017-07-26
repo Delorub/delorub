@@ -4,7 +4,7 @@
     .top-line__city {
       color: #fff;
       opacity: 1;
-      text-decoration: none; 
+      text-decoration: none;
       border-bottom: 1px dashed;
     }
     .top-line__left {
@@ -38,6 +38,10 @@
     line-height: 3.2rem;
   }
   &-content {
+    .help-block {
+      margin-top: 5px;
+      color: white;
+    }
     &__header, &__text {
       color: #fff;
       font-size: 2.2rem;
@@ -56,8 +60,8 @@
     }
     &__input {
       height: 56px;
-      display: flex;      
-      margin-top: 2rem;      
+      display: flex;
+      margin-top: 2rem;
       .dr-btn-danger {
         margin: 0 10px;
         display: flex;
@@ -72,7 +76,7 @@
           color: #B2B2B2;
           font-family: $GothamLight;
         }
-      } 
+      }
     }
     &__sub {
       color: #fff;
@@ -105,7 +109,7 @@
   .dr-btn-danger {
     position: relative;
   }
-  &__step {    
+  &__step {
     min-height: 100px;
     position: relative;
     display: flex;
@@ -160,8 +164,8 @@
   height: 100%;
   background-color: #ffffff;
   box-shadow: 0 2px 7px 0 rgba(121, 120, 120, 0.5);
-  text-align: left;  
-  display: flex;  
+  text-align: left;
+  display: flex;
   &__image {
     border-bottom-left-radius: 3px;
     border-top-left-radius: 3px;
@@ -200,7 +204,7 @@
 }
 
 .bottom-block {
-  font-size: 2.2rem;  
+  font-size: 2.2rem;
   font-family: $GothamBold;
   line-height: 2.2rem;
   display: flex;
@@ -225,9 +229,9 @@
     }
   }
   &__middle {
-    background-image: url("/images/design/bottom-block__middle.jpg");    
+    background-image: url("/images/design/bottom-block__middle.jpg");
   }
   &__right {
-    background-image: url("/images/design/bottom-block__right.jpg");    
+    background-image: url("/images/design/bottom-block__right.jpg");
   }
 }

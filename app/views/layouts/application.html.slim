@@ -17,7 +17,8 @@ html
     #app
       = render 'topbar'
       = render 'navbar'
-      = yield
+      main
+        = yield
       = render 'footer'
     = javascript_pack_tag 'application'
     = render 'analytics' if Rails.env.production?

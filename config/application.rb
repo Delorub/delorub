@@ -13,6 +13,7 @@ module Delorub
       #{config.root}/app/controllers/concerns
       #{config.root}/app/lib
       #{config.root}/app/validators
+      #{config.root}/app/services
     ]
     config.autoload_paths += additional_paths
     config.eager_load_paths += additional_paths
@@ -21,6 +22,7 @@ module Delorub
     config.encoding = 'utf-8'
 
     config.before_initialize do |app|
+      app.config.paths.add 'app/services', eager_load: true
       app.config.paths.add 'app/value_objects', eager_load: true
     end
 

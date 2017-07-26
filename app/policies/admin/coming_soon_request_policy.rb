@@ -1,4 +1,4 @@
-class Admin::ComingSoonSessionPolicy < AdminPolicy
+class Admin::ComingSoonRequestPolicy < AdminPolicy
   private
 
   def granted?

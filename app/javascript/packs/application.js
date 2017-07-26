@@ -1,5 +1,5 @@
 import './common'
-import './coming_soon'
+import './visitor_sessions'
 import Vue from 'vue'
 import axios from 'axios'
 import SmsConfirmation from '../components/sms_confirmation.vue'

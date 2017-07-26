@@ -2,13 +2,11 @@ class ApplicationController < ActionController::Base
   include Pundit
   include RenderPageNotFound
   include RedirectComingSoon
-  include VisitorSession
+  include VisitorSessionHandler
   include Authorization
 
   rescue_from ActiveRecord::RecordNotFound, ActionController::RoutingError, with: :rescue_not_found
   rescue_from Pundit::NotAuthorizedError, with: :rescue_not_authorized
-
-  before_action :show_global_container
 
   protect_from_forgery
 

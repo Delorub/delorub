@@ -12,8 +12,9 @@
         .row
           .col-md-7
             .index-image-content__input
-              = f.input :email, label: false, wrapper: false, class: 'form-control', id: 'can_i_help', placeholder: 'Ваш email'
-              input.btn.dr-btn-danger href="#" type="submit" value="Жду запуска"
+              = f.input :email, label: false, error: false, wrapper: false, class: 'form-control', id: 'can_i_help', placeholder: 'Ваш email'
+              input.dr-btn-danger href="#" type="submit" value="Жду запуска"
+            = f.error :email
         .index-image-content__sub
           p
             | Нажимая кнопку «Жду запуска» вы принимаете&nbsp;
