@@ -32,8 +32,7 @@ class User::OmniauthCreator
     end
 
     def assign_attributes
-      @user.first_name = omniauth.data.info.first_name
-      @user.last_name = omniauth.data.info.last_name
+      @user.name = "#{omniauth.data.info.first_name} #{omniauth.data.info.last_name}".strip
       @user.password = password
     end
 

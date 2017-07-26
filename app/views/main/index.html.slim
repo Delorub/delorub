@@ -1,0 +1,143 @@
+.index-image
+  .container
+    .index-image__header
+      | Найдите исполнителя для
+      br/
+      | любого поручения
+    .index-image-content
+      .index-image-content__text
+        p
+          | Бесплатно для&nbsp;
+          a.link-default href="#" заказчиков
+        p
+          | Без комиссий и платы за отклики для&nbsp;
+          a.link-default href="#" исполнителей
+      = form_tag main_search_coming_soon_sessions_path, method: :get
+        .row
+          .col-md-7
+            .index-image-content__input
+              = text_field_tag :query, '', placeholder: 'Чем вам помочь?', id: 'can_i_help', class: 'form-control'
+              = submit_tag 'Создать задание', class: 'btn dr-btn-danger'
+      .index-image-content__sub
+        p
+          | Например,&nbsp;
+          a.link-default href="#" уборка квартиры
+          |  или&nbsp;
+          a.link-default href="#" доставка груза
+.container
+  .index-content
+    .index-content-block
+      .index-header
+        | Категории услуг
+      .row.align-items-stretch
+        .col-md-4.col-margin-bottom
+          .dr-category.dr-category--courier
+            a href="#"
+              .dr-category__header
+                | Курьерская доставка
+            .dr-category__text
+              a href="#"  Услуги пешего курьера
+              a href="#"  Услуги курьера на легковом авто
+              a href="#"  Купить и доставить
+        .col-md-4.col-margin-bottom
+          .dr-category.dr-category--repair
+            a href="#"
+              .dr-category__header
+                | Бытовой ремонт
+            .dr-category__text
+              a href="#"  Ремонт под ключ
+              a href="#"  Мастер на час
+              a href="#"  Сантехнические работы
+        .col-md-4.col-margin-bottom
+          .dr-category.dr-category--cleaning
+            a href="#"
+              .dr-category__header
+                | Уборка
+            .dr-category__text
+              a href="#"  Генеральная уборка
+              a href="#"  Мытье окон
+              a href="#"  Поддерживающая уборка
+      br/
+      a.dr-btn-default href="#"  Смотреть категории
+    br/
+    .index-content-block
+      .how-it-works-block
+        .index-header
+          | Как это работает
+        .row.align-items-stretch
+          .col-lg-4
+            .how-it-works-block__step
+              .how-it-works-block__step-content
+                a.link-default href="#"  Создайте задание
+                p
+                  | Опишите своими словами задачу, которую требуется выполнить.
+                hr.toggle-hr/
+              .how-it-works-block__step-1 1
+          .col-lg-4
+            .how-it-works-block__step
+              .how-it-works-block__step-content
+                a.link-default href="#"  Выберите исполнителя
+                p
+                  | Просмотрите анкеты с отзывами и отправьте заявку.
+                hr.toggle-hr/
+              .how-it-works-block__step-2 2
+          .col-lg-4
+            .how-it-works-block__step
+              .how-it-works-block__step-content
+                span Договоритесь с ним о работах
+                p
+                  | Связывайтесь с кандидатами и обсуждайте
+                  | детали заказа.
+              .how-it-works-block__step-3 3
+        a.dr-btn-danger href="#"  Создать задание
+    br/
+    .index-content-block
+      .out-advantages-block
+        .index-header
+          | Преимущества нашего сервиса
+        .row.align-items-stretch
+          .col-lg-4.col-margin-bottom
+            .advantages-card
+              .advantages-card__image.advantages-card__image--ruble
+              .advantages-card__content
+                .advantages-card__header
+                  | Бесплатное размещение  заданий
+                .advantages-card__text
+                  | У частных исполнителей нет расходов на офис, рекламу,
+                  | зарплату секретарю и других затрат…
+          .col-lg-4.col-margin-bottom
+            .advantages-card
+              .advantages-card__image.advantages-card__image--percent
+              .advantages-card__content
+                .advantages-card__header
+                  | Нет комиссии и скрытых платежей
+                .advantages-card__text
+                  | У частных исполнителей нет расходов на офис, рекламу…
+          .col-lg-4.col-margin-bottom
+            .advantages-card
+              .advantages-card__image.advantages-card__image--feedback
+              .advantages-card__content
+                .advantages-card__header
+                  | Честные рейтинги и реальные отзывы
+                .advantages-card__text
+                  | У частных исполнителей нет расходов на офис, рекламу,
+                  | зарплату секретарю и других затрат…
+        br/
+        a.dr-btn-danger href="#"  Создать задание
+    .index-content-block
+      .row
+        .col-lg-4
+          .bottom-block
+            a href="#"
+              .bottom-block__left
+                | Как стать исполнителем
+        .col-lg-4
+          .bottom-block
+            a href="#"
+              .bottom-block__middle
+                | Вопрос-ответ
+        .col-lg-4
+          .bottom-block
+            a href="#"
+              .bottom-block__right
+                | Безопасность и гарантии

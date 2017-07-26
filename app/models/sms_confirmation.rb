@@ -14,10 +14,10 @@
 #
 
 class SmsConfirmation < ApplicationRecord
-  validates :phone, :code, :token, presence: true
+  validates :phone, :token, presence: true
 
-  before_validation :generate_code
-  after_save :send_sms
+  before_save :generate_code
+  after_create :send_sms
 
   def check_code! value
     raise Exception, 'SMS is not send to generate token' if new_record?
@@ -42,7 +42,7 @@ class SmsConfirmation < ApplicationRecord
   private
 
     def generate_token
-      self.token = Digest::MD5.hexdigest "#{id}_#{code}"
+      self.token = SecureRandom.hex
     end
 
     def send_sms

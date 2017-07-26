@@ -1,0 +1,25 @@
+= content_tag 'sms-confirmation', 'inline-template': true, 'data': f.object.sms_confirmation.to_nested_hash do
+  div
+    .row v-if="phone && token"
+      .col
+        | {{phone}}
+      .col v-if="accepted"
+        | Подтвержден
+      .col v-else=""
+        a :disabled="requesting" href="#" v-on:click.prevent="changePhone"  Изменить
+    .row v-if="!accepted && token"
+      .col
+        input.form-control.form-control__item :disabled="requesting" placeholder=("Введите код подтверждения") type="text" v-model.trim="code" /
+      .col
+        button.btn.btn-primary.dr-btn-primary :disabled="requesting" role="button" v-on:click.prevent="checkCode"  Подтвердить
+      .col
+        a :disabled="requesting" href="#" v-on:click.prevent="requestToken"  Отправить повторно
+    .row v-else-if="!accepted"
+      .col
+        input.form-control.form-control__item :disabled="requesting" :name="inputName" placeholder=("Номер телефона") type="text" v-model.trim="phone" /
+      .col
+        button.btn.btn-primary.dr-btn-primary :disabled="requesting" role="button" v-on:click.prevent="requestToken"  Подтвердить
+    .row v-if="accepted"
+      .col
+        a :disabled="requesting" href="#" v-on:click.prevent="changePhone"  Изменить номер телефона
+    input :name="inputName" type="hidden" v-model.trim="token" /

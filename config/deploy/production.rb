@@ -7,4 +7,4 @@ server 'delorub.ru',
   }
 
 set :rails_env, 'production'
-set :deploy_to, '/var/www/delorub/application'
+set :deploy_to, '/var/www/delorub/production'

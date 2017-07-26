@@ -1,5 +1,5 @@
-smsc_login: 'delorubtest'
-smsc_password: 'delorubtest'
+smsc_login: 'delorub1'
+smsc_password: 'e&^V8GAau@Jg#AU2'
 smsc_api_url: 'https://smsc.ru/sys/send.php'
 
 odnoklassniki_app_id: '1251484160'

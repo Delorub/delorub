@@ -13,12 +13,8 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string
 #  last_sign_in_ip        :string
-#  first_name             :string
 #  middle_name            :string
-#  last_name              :string
 #  phone                  :string
-#  skype                  :string
-#  website                :string
 #  email                  :string
 #  birthday               :date
 #  profile_id             :integer
@@ -31,6 +27,7 @@
 #  updated_at             :datetime
 #  access_token           :string
 #  place_id               :integer
+#  name                   :string
 #
 # Indexes
 #
@@ -45,8 +42,7 @@ describe User do
 
   describe 'validations' do
     it { is_expected.to be_valid }
-    it { is_expected.to validate_presence_of(:first_name) }
-    it { is_expected.to validate_presence_of(:last_name) }
+    it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:email) }
     it { is_expected.to validate_presence_of(:password) }
     it { is_expected.to validate_uniqueness_of(:email) }

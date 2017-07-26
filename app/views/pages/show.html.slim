@@ -1,0 +1,9 @@
+.container
+  .dr-block-style
+    nav.breadcrumb
+      a.breadcrumb-item href=root_path  Главная
+      span.breadcrumb-item.active= @page.title
+  .dr-block-style
+    .single-task
+      .single-task__header= @page.title
+    = simple_format @page.content

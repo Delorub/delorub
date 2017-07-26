@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170715041226) do
+ActiveRecord::Schema.define(version: 20170725195651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -114,6 +114,21 @@ ActiveRecord::Schema.define(version: 20170715041226) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["profile_id"], name: "index_certificates_on_profile_id"
+  end
+
+  create_table "coming_soon_sessions", force: :cascade do |t|
+    t.string "source"
+    t.string "source_data"
+    t.string "action_type"
+    t.string "form_keyword"
+    t.string "city"
+    t.string "referer"
+    t.string "email"
+    t.string "ip"
+    t.datetime "visited_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "utm_data"
   end
 
   create_table "comments", id: :serial, force: :cascade do |t|
@@ -387,12 +402,8 @@ ActiveRecord::Schema.define(version: 20170715041226) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.string "first_name"
     t.string "middle_name"
-    t.string "last_name"
     t.string "phone"
-    t.string "skype"
-    t.string "website"
     t.string "email"
     t.date "birthday"
     t.integer "profile_id"
@@ -405,6 +416,7 @@ ActiveRecord::Schema.define(version: 20170715041226) do
     t.datetime "updated_at"
     t.string "access_token"
     t.integer "place_id"
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["place_id"], name: "index_users_on_place_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

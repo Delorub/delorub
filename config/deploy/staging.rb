@@ -6,5 +6,5 @@ server 'delorub.ru',
     auth_methods: %w[publickey]
   }
 
-set :rails_env, 'production'
+set :rails_env, 'staging'
 set :deploy_to, '/var/www/delorub/staging'

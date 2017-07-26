@@ -1,0 +1,7 @@
+en:
+  simple_form:
+    yes: 'Да'
+    no: 'Нет'
+    required:
+      text: 'обязательно'
+      mark: '*'

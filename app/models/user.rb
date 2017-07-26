@@ -13,12 +13,8 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string
 #  last_sign_in_ip        :string
-#  first_name             :string
 #  middle_name            :string
-#  last_name              :string
 #  phone                  :string
-#  skype                  :string
-#  website                :string
 #  email                  :string
 #  birthday               :date
 #  profile_id             :integer
@@ -31,6 +27,7 @@
 #  updated_at             :datetime
 #  access_token           :string
 #  place_id               :integer
+#  name                   :string
 #
 # Indexes
 #
@@ -73,7 +70,7 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :permission
 
-  validates :first_name, :last_name, :email, presence: true
+  validates :name, :email, presence: true
   validates :balance, numericality: { greater_than_or_equal_to: 0 }
   validates :phone, phony_plausible: true
   validates_with User::PhoneConfirmationValidator, if: :phone
@@ -85,10 +82,6 @@ class User < ApplicationRecord
   has_secure_token :access_token
 
   mount_uploader :photo, UserPhotoUploader
-
-  def name
-    ''
-  end
 
   def master?
     profile.present? && !profile.new_record?

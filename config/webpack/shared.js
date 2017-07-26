@@ -37,7 +37,7 @@ module.exports = {
 
   plugins: [
     new webpack.EnvironmentPlugin(JSON.parse(JSON.stringify(env))),
-    new ExtractTextPlugin(env.NODE_ENV === 'production' ? '[name].css' : '[name].css'),
+    new ExtractTextPlugin(env.NODE_ENV === 'production' ? '[name]-[chunkhash].css' : '[name].css'),
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery",
