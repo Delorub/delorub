@@ -10,7 +10,9 @@ ActiveAdmin.register VisitorSessionAction do
     column :identity
     column :keyword
     column :url do |visitor_session_action|
-      link_to visitor_session_action.url.truncate(50), visitor_session_action.url
+      if visitor_session_action.url
+        link_to visitor_session_action.url.truncate(50), visitor_session_action.url
+      end
     end
     actions
   end
