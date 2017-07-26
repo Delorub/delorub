@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170725195651) do
+ActiveRecord::Schema.define(version: 20170726203135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -116,19 +116,11 @@ ActiveRecord::Schema.define(version: 20170725195651) do
     t.index ["profile_id"], name: "index_certificates_on_profile_id"
   end
 
-  create_table "coming_soon_sessions", force: :cascade do |t|
-    t.string "source"
-    t.string "source_data"
-    t.string "action_type"
-    t.string "form_keyword"
-    t.string "city"
-    t.string "referer"
+  create_table "coming_soon_requests", force: :cascade do |t|
     t.string "email"
-    t.string "ip"
-    t.datetime "visited_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "utm_data"
+    t.integer "visitor_session_id"
   end
 
   create_table "comments", id: :serial, force: :cascade do |t|
@@ -428,6 +420,25 @@ ActiveRecord::Schema.define(version: 20170725195651) do
     t.text "description"
     t.integer "position"
     t.boolean "archive", default: false
+  end
+
+  create_table "visitor_session_actions", force: :cascade do |t|
+    t.bigint "visitor_session_id"
+    t.string "action_type"
+    t.string "identity"
+    t.string "keyword"
+    t.string "url"
+    t.text "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["visitor_session_id"], name: "index_visitor_session_actions_on_visitor_session_id"
+  end
+
+  create_table "visitor_sessions", force: :cascade do |t|
+    t.string "ip"
+    t.string "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

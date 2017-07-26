@@ -12,12 +12,14 @@
         p
           | Без комиссий и платы за отклики для&nbsp;
           a.link-default href="#" исполнителей
-      = form_tag main_search_coming_soon_sessions_path, method: :get
+      = form_tag main_search_coming_soon_requests_path, method: :post
         .row
           .col-md-7
             .index-image-content__input
+              = hidden_field_tag :form_identity, 'index_search_form'
+              = hidden_field_tag :form_keyword_field, 'query'
               = text_field_tag :query, '', placeholder: 'Чем вам помочь?', id: 'can_i_help', class: 'form-control'
-              = submit_tag 'Создать задание', class: 'btn dr-btn-danger'
+              = submit_tag 'Создать задание', class: 'dr-btn-danger'
       .index-image-content__sub
         p
           | Например,&nbsp;
@@ -89,7 +91,7 @@
                   | Связывайтесь с кандидатами и обсуждайте
                   | детали заказа.
               .how-it-works-block__step-3 3
-        a.dr-btn-danger href="#"  Создать задание
+        a.dr-btn-danger href="#" data-identity="how_btn"  Создать задание
     br/
     .index-content-block
       .out-advantages-block
@@ -123,7 +125,7 @@
                   | У частных исполнителей нет расходов на офис, рекламу,
                   | зарплату секретарю и других затрат…
         br/
-        a.dr-btn-danger href="#"  Создать задание
+        a.dr-btn-danger href="#" data-identity="star_btn"  Создать задание
     .index-content-block
       .row
         .col-lg-4

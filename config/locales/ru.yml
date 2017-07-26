@@ -1,6 +1,5 @@
 ru:
   errors:
-    not_email: 'asd'
     phone?: Не похоже на номер телефона
   time:
     formats:
@@ -83,7 +82,7 @@ ru:
   activemodel:
     errors:
       models:
-        coming_soon_session/create:
+        coming_soon_request/create:
           attributes:
             email:
               not_email: Не похоже на email
