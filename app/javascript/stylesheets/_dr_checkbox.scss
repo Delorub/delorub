@@ -1,0 +1,40 @@
+.checkbox {
+  &-custom {
+    position: relative;
+    padding: 1px 7px;
+    border: 2px solid #a1cae0;
+    border-radius: 3px;
+    margin-right: 10px;
+    &:hover {
+      border-color: #8fa1b0;
+    }
+  }
+  input[type=checkbox] {    
+    display: none;
+    &:checked + .checkbox-custom {
+      background-color: #5ca3cb;
+      border-color: #5ca3cb;
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 1px;
+        right: 1px;
+        bottom: 1px;
+        left: 1px;
+        background-color: #fff;
+        -webkit-mask-image: url("/images/design/tick_mark.svg");
+        mask-image: url("/images/design/tick_mark.svg");        
+        border-radius: 2px;
+      }
+    }
+  }
+
+  &-flex {
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+  }
+}

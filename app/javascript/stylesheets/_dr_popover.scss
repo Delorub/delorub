@@ -1,0 +1,99 @@
+.popover {
+  padding: 20px;
+  border-radius: 3px;
+  border: solid 2px #e1dfdf;  
+  font-family: $GothamPro;
+  margin-left: 14% !important;
+  min-width: 100px;
+  @media (min-width: 576px) {
+    max-width: calc(540px / 3.5);
+  }
+  @media (min-width: 768px) {
+    max-width: calc(720px / 3.5);
+    margin-left: 12% !important;
+  }
+  @media (min-width: 992px) {
+    max-width: calc(960px / 3.5);
+    margin-left: 9% !important;
+  }
+  @media (min-width: 1200px) {
+    max-width: calc(1140px / 3.5);
+  }
+}
+
+.popover-title {
+  background-color: #fff;
+  border-bottom: 0;
+  padding: 0;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.popover-content {
+  padding: 0;
+  color: #9b9b9b;
+}
+
+.popover.popover-right::after, .popover.bs-tether-element-attached-left::after {
+  left: -28px;
+  margin-top: -14px;
+  border-right-color: #fff;
+  border-width: 14px;
+}
+
+.popover.popover-right::before, .popover.bs-tether-element-attached-left::before {
+  left: -33px;
+  margin-top: -16px;
+  border-right-color: #e1dfdf;
+  border-width: 16px;
+}
+
+.dr-popover {
+  padding: 23px;
+  background-color: #fff;
+  border: solid 2px #e1dfdf;
+  margin-bottom: 9px;
+  position: relative;
+  &-left {
+    margin-left: 20px;
+    &:after {
+      position: absolute;
+      display: block;
+      width: 0;
+      height: 0;
+      border-color: transparent;
+      border-style: solid;
+      border-width: 20px;
+      left: -20px;
+      margin-top: -20px;
+      border-right-color: #fff;
+      top: 50%;
+      border-left-width: 0;
+      content: "";
+      z-index: 2;
+    }
+    &:before {
+      position: absolute;
+      display: block;
+      width: 0;
+      height: 0;
+      border-color: transparent;
+      border-style: solid;
+      border-width: 23px;
+      left: -23px;
+      margin-top: -23px;
+      border-right-color: #e1dfdf;
+      top: 50%;
+      border-left-width: 0;
+      content: "";
+      z-index: 1;
+    }
+  }
+  &__header {
+    color: #4a4a4a;
+    margin-bottom: 0.5rem;
+  }
+  &__text {
+    color: #9b9b9b;
+  }
+}

@@ -1,9 +1,24 @@
 .link-default {
-  color: #70bee9;
+  color: #5ca3cb;
   font-weight: bold;
   border-bottom: 1px dashed;
   &:visited {
-    color: #70bee9;
+    color: #5ca3cb;
+  }
+  &:hover {
+    color: #f44336;
+  }
+  &:active {
+    color: #cf3125;
+  }
+}
+
+.link-header {
+  color: $blueColor;
+  font-weight: bold;
+  border-bottom: 1px dashed;
+  &:visited {
+    color: $blueColor;
   }
   &:hover {
     color: #f44336;
