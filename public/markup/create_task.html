@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="/packs/application.css">
-    <link rel="shortcut icon" href="/images/design/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico" type="image/x-icon">
     <!-- Chrome, Firefox OS and Opera -->
     <meta name="theme-color" content="#000">
     <!-- Windows Phone -->
@@ -17,218 +17,223 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="#000">
   </head>
   <body>
-    <div class="top-line top-line--index">
-      <div class="container">
-        <div class="top-line__container">
-          <div class="top-line__left">
-            <i class="fa fa-map-marker" aria-hidden="true"></i>
-            <a href="#" class="top-line__city">Санкт-Петербург</a>
-          </div>
-          <div class="top-line__right">            
-            <a href="#" class="top-line__link"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Регистрация</a>	
-            <a href="#" class="top-line__link"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Вход</a>            
+    <div class="wrap">
+      <div class="top-line top-line--index">
+        <div class="container">
+          <div class="top-line__container">
+            <div class="top-line__left">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <a href="#" class="top-line__city">Санкт-Петербург</a>
+            </div>
+            <div class="top-line__right">            
+              <a href="#" class="top-line__link"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Регистрация</a>	
+              <a href="#" class="top-line__link"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Вход</a>            
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <nav class="navbar navbar-toggleable-md bg-faded navbar-dr-theme">
-      <div class="container">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fa fa-bars" aria-hidden="true"></i>
-        </button>
-        <a class="navbar-brand" href="#">
-          <img src="/images/design/logo.svg" alt=""/>
-        </a>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Исполнители</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Все задания</a>
-            </li>						
-          </ul>
-          <ul class="navbar-nav navbar-right">
-            <li class="nav-item">
-              <a class="dr-btn-default" href="#">Стать исполнителем</a>
-            </li>
-            <li class="nav-item">
-              <a class="dr-btn-danger" href="#">Создать задание</a>
-            </li>						
-          </ul>
+      <nav class="navbar navbar-toggleable-md bg-faded navbar-dr-theme">
+        <div class="container">
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+          </button>
+          <a class="navbar-brand" href="#">
+            <img src="/images/design/logo.svg" alt=""/>
+          </a>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Исполнители</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Все задания</a>
+              </li>						
+            </ul>
+            <ul class="navbar-nav navbar-right">
+              <li class="nav-item">
+                <a class="dr-btn-default" href="#">Стать исполнителем</a>
+              </li>
+              <li class="nav-item">
+                <a class="dr-btn-danger" href="#">Создать задание</a>
+              </li>						
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
-
-    <div class="container">
-
-      <nav class="breadcrumb">
-        <br/>
-        <a class="breadcrumb-item" href="#">Главная</a>
-        <a class="breadcrumb-item" href="#">Вторая</a>
-        <span class="breadcrumb-item active">Текущая</span>
       </nav>
 
-      <div class="dr-content-header">
-        <p class="dr-content-header__text dr-content-header__text-margin-bottom-none">
-          Заказать <a href="#" class="dr-content-header__link">ремонт стиральной машинки</a>
-          в <a href="#" class="dr-content-header__link">Москве</a>
-        </p>
-      </div>
+      <main>
+        <div class="regular-content">
+          <div class="container">
 
-      <div class="row">
-        <div class="col-8">
-          <div class="dr-form">
+            <nav class="breadcrumb">              
+              <a class="breadcrumb-item" href="#">Главная</a>
+              <a class="breadcrumb-item" href="#">Вторая</a>
+              <span class="breadcrumb-item active">Текущая</span>
+            </nav>
 
-            <div class="dr-block-style">
-              <div class="form-group">
-                <label for="hdr" class="form-group__header">Заголовок</label>
-                <div class="row">
-                  <div class="col-lg-12 col-12">
-                    <input type="text" class="form-control" id="hdr" placeholder="Например, доставить груз"  data-toggle="popover" data-placement="right" title="Начните с заголовка. Например:" data-content="Требуется ремонт в квартире
-                           Укладка&nbsp;ламината&nbsp;в&nbsp;офисе
-                           Строительство дома в Талдоме"/>
-                  </div>
-                </div>                
-              </div>
-
-              <div class="form-group">
-                <label for="comment" class="form-group__header">Описание задачи</label>
-                <textarea class="form-control form-group__item form-group__item-marginbottom-10" id="comment" placeholder="Опишите ваше задачу. Например, нужно доставить груз из склада на Невском пр. 8 в магазин на Литейном пр. 10" rows="6"></textarea>
-
-                <a href="#" class="form-group__upload">
-                  <span>Прикрепить изображение или текстовый файл</span>
-                  <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                </a>
-              </div>
+            <div class="dr-content-header">
+              <p class="dr-content-header__text dr-content-header__text-margin-bottom-none">
+                Заказать <a href="#" class="dr-content-header__link">ремонт стиральной машинки</a>
+                в <a href="#" class="dr-content-header__link">Москве</a>
+              </p>
             </div>
 
+            <div class="row">
+              <div class="col-8">
+                <div class="dr-form">
 
-            <div class="dr-block-style">
-              <div class="form-group">
-                <label for="date" class="form-group__header">Дата и время</label>
-                <div class="row">
-                  <div class="col-lg-4">
+                  <div class="dr-block-style">
                     <div class="form-group">
-                      <select class="form-control form-control__item" id="sel1">
-                        <option>Указать период</option>
-                        <option>Начать работу</option>
-                        <option>Завершить работу</option>                        
-                      </select>
+                      <label for="hdr" class="form-group__header">Заголовок</label>
+                      <div class="row">
+                        <div class="col-lg-12 col-12">
+                          <input type="text" class="form-control" id="hdr" placeholder="Например, доставить груз"  data-toggle="popover" data-placement="right" title="Начните с заголовка. Например:" data-content="Требуется ремонт в квартире
+                                 Укладка&nbsp;ламината&nbsp;в&nbsp;офисе
+                                 Строительство дома в Талдоме"/>
+                        </div>
+                      </div>                
                     </div>
-                  </div>
-                  <div class="col-lg-4">
+
                     <div class="form-group">
-                      <input type="date" class="form-control form-control__item" id="date"/>
-                    </div>
-                    <div class="form-group__sublink">
-                      <a href="#">сегодня</a>
-                      <a href="#">завтра</a>
+                      <label for="comment" class="form-group__header">Описание задачи</label>
+                      <textarea class="form-control form-group__item form-group__item-marginbottom-10" id="comment" placeholder="Опишите ваше задачу. Например, нужно доставить груз из склада на Невском пр. 8 в магазин на Литейном пр. 10" rows="6"></textarea>
+
+                      <a href="#" class="form-group__upload">
+                        <span>Прикрепить изображение или текстовый файл</span>
+                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                      </a>
                     </div>
                   </div>
-                  <div class="col-lg-4">
+
+
+                  <div class="dr-block-style">
                     <div class="form-group">
-                      <input type="date" class="form-control form-control__item" id="date"/>
+                      <label for="date" class="form-group__header">Дата и время</label>
+                      <div class="row">
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                            <select class="form-control form-control__item" id="sel1">
+                              <option>Указать период</option>
+                              <option>Начать работу</option>
+                              <option>Завершить работу</option>                        
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                            <input type="date" class="form-control form-control__item" id="date"/>
+                          </div>
+                          <div class="form-group__sublink">
+                            <a href="#">сегодня</a>
+                            <a href="#">завтра</a>
+                          </div>
+                        </div>
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                            <input type="date" class="form-control form-control__item" id="date"/>
+                          </div>
+                          <div class="form-group__sublink">
+                            <a href="#">сегодня</a>
+                            <a href="#">завтра</a>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="form-group__sublink">
-                      <a href="#">сегодня</a>
-                      <a href="#">завтра</a>
+
+                    <div class="form-group">
+                      <label for="adr" class="form-group__header">Адрес</label>
+                      <div class="row">
+                        <div class="col-lg-8 col-12">                
+                          <input type="text" class="form-control" id="adr" placeholder="Санкт-Петербург, ул. Бадаева, 6"/>
+                        </div>
+                      </div>
+                    </div>
+                    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Adf85705e8bdd20d32fbc052b21110fb7390a28d03f814cf37d90374d857c3530&amp;width=100%25&amp;height=300&amp;lang=ru_RU&amp;scroll=false"></script>
+                  </div>
+
+                  <div class="dr-block-style">
+                    <div class="form-group">
+                      <label for="budget" class="form-group__header">На какой бюджет ориентироваться исполнителям</label>
+
+                      <input type="text" id="budget_slider" name="example_name" value="" />
+                    </div>
+                    <br/>
+                    <div class="form-group">
+                      <div class="row align-items-baseline">
+                        <div class="margin-side">
+                          <label for="budget">Или укажите точную стоимость</label>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="input-group">
+                            <input type="text" class="form-control" placeholder="300 000"/>
+
+                            <i class="input-group-addon fa fa-rub" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
 
-              <div class="form-group">
-                <label for="adr" class="form-group__header">Адрес</label>
-                <div class="row">
-                  <div class="col-lg-8 col-12">                
-                    <input type="text" class="form-control" id="adr" placeholder="Санкт-Петербург, ул. Бадаева, 6"/>
-                  </div>
-                </div>
-              </div>
-              <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Adf85705e8bdd20d32fbc052b21110fb7390a28d03f814cf37d90374d857c3530&amp;width=100%25&amp;height=300&amp;lang=ru_RU&amp;scroll=false"></script>
-            </div>
-
-            <div class="dr-block-style">
-              <div class="form-group">
-                <label for="budget" class="form-group__header">На какой бюджет ориентироваться исполнителям</label>
-
-                <input type="text" id="budget_slider" name="example_name" value="" />
-              </div>
-              <br/>
-              <div class="form-group">
-                <div class="row align-items-baseline">
-                  <div class="margin-side">
-                    <label for="budget">Или укажите точную стоимость</label>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="input-group">
-                      <input type="text" class="form-control" placeholder="300 000"/>
-
-                      <i class="input-group-addon fa fa-rub" aria-hidden="true"></i>
+                  <div class="dr-block-style">
+                    <label for="contact" class="form-group__header">Укажите контактную информацию</label>
+                    <div class="row">
+                      <div class="col-xl-5  col-lg-6">
+                        <input type="text" class="form-control form-control__item" id="name" placeholder="Как к Вам обращатся?"/>
+                      </div>
+                      <div class="col-xl-5  col-lg-6">
+                        <input type="text" class="form-control form-control__item" id="email" placeholder="Ваш email"/>
+                      </div>
                     </div>
+                    <div>
+                      <label for="phone">Укажите ваш номер телефона и подтвердите его</label>
+                    </div>
+                    <div class="row">
+                      <div class="col-xl-5  col-lg-6">
+                        <input type="text" class="form-control form-control__item" id="tel" placeholder="Ваш телефон"/>
+                      </div>
+                      <div class="col-xl-5  col-lg-6 col-margin-bottom">
+                        <input class="dr-btn-default" role="button" value="Подтвердить"/>
+                      </div>
+                    </div>              
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" value=""/>
+                        <span class="checkbox-custom"></span>
+                        Я согласен с <a class="link-default" href="#">правилами сервиса</a> и 
+                        <a class="link-default" href="#">политикой обработки персональных данных</a>
+                      </label>
+                    </div>
+                    <br/>
+                    <div class="center">
+                      <a class="dr-btn-danger" href="#" role="button">Создать задание</a>
+                    </div>              
                   </div>
+
+                </div>          
+              </div>
+
+              <div class="col-4">
+
+                <div class="dr-popover dr-popover-left">            
+                  <div class="dr-popover__header">
+                    Подробно опишите работы. 
+                    Обязательно укажите:
+                  </div>
+                  <div class="dr-popover__text">
+                    Размеры, объемы, параметры<br/>
+                    Необходимые материалы<br/>
+                    Прочие особенности работ
+                  </div>            
                 </div>
+
               </div>
             </div>
-
-            <div class="dr-block-style">
-              <label for="contact" class="form-group__header">Укажите контактную информацию</label>
-              <div class="row">
-                <div class="col-xl-5  col-lg-6">
-                  <input type="text" class="form-control form-control__item" id="name" placeholder="Как к Вам обращатся?"/>
-                </div>
-                <div class="col-xl-5  col-lg-6">
-                  <input type="text" class="form-control form-control__item" id="email" placeholder="Ваш email"/>
-                </div>
-              </div>
-              <div>
-                <label for="phone">Укажите ваш номер телефона и подтвердите его</label>
-              </div>
-              <div class="row">
-                <div class="col-xl-5  col-lg-6">
-                  <input type="text" class="form-control form-control__item" id="tel" placeholder="Ваш телефон"/>
-                </div>
-                <div class="col-xl-5  col-lg-6 col-margin-bottom">
-                  <input class="dr-btn-default" role="button" value="Подтвердить"/>
-                </div>
-              </div>              
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value=""/>
-                  <span class="checkbox-custom"></span>
-                  Я согласен с <a class="link-default" href="#">правилами сервиса</a> и 
-                  <a class="link-default" href="#">политикой обработки персональных данных</a>
-                </label>
-              </div>
-              <br/>
-              <div class="center">
-                <a class="dr-btn-danger" href="#" role="button">Создать задание</a>
-              </div>              
-            </div>
-
-          </div>          
-        </div>
-
-        <div class="col-4">
-          
-          <div class="dr-popover dr-popover-left">            
-            <div class="dr-popover__header">
-              Подробно опишите работы. 
-              Обязательно укажите:
-            </div>
-            <div class="dr-popover__text">
-              Размеры, объемы, параметры<br/>
-              Необходимые материалы<br/>
-              Прочие особенности работ
-            </div>            
           </div>
-
         </div>
-      </div>
+      </main>
     </div>
-    <br/>
+
     <footer>
       <div class="dr-footer">
         <div class="container">

@@ -28,7 +28,7 @@
   height: 70vh;
   min-height: 536px;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: top center;
   &__header {
     color: #fff;
     text-transform: uppercase;
@@ -126,6 +126,9 @@
     &-content {
       z-index: 2;
       width: 100%;
+      p {
+        padding: 0 5px;
+      }
     }
     &-1, &-2, &-3 {
       font-size: 16rem;
