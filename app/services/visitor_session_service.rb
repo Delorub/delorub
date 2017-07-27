@@ -57,9 +57,22 @@ class VisitorSessionService
       )
     end
 
+    def check_yandex_direct_referer
+      return unless URI(request.referer).host == 'yabs.yandex.ru'
+      params = Rack::Utils.parse_query URI(request.referer).query
+      return if params['q'].nil?
+      add_action(
+        action_type: :yandex_direct,
+        keyword: params['q'],
+        data: params
+      )
+      true
+    end
+
     def check_referers
       return if request.referer.blank?
       return if URI(request.url).host == URI(request.referer).host
+      return if check_yandex_direct_referer
       add_action(
         action_type: :global_referer,
         keyword: request.referer
