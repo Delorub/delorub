@@ -17,7 +17,7 @@ class VisitorSessionService
     check_internal_link
     check_utm
     model.save
-    session[:visitor_session_id] = model.id
+    cookies.permanent.encrypted[:visitor_session_id] = model.id
   end
 
   def add_action attributes
@@ -25,7 +25,7 @@ class VisitorSessionService
   end
 
   def model
-    @model ||= VisitorSession.find_or_initialize_by(id: session[:visitor_session_id]) do |visitor_session|
+    @model ||= VisitorSession.find_or_initialize_by(id: cookies.permanent.encrypted[:visitor_session_id]) do |visitor_session|
       visitor_session.ip = request.ip
       visitor_session.city = Ipgeobase.lookup(request.ip).city
     end
