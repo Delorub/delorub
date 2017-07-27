@@ -30,18 +30,18 @@
   background-repeat: no-repeat;
   background-position: top center;
   .link-default {
+    color: #fff;
+    &:visited {
       color: #fff;
-      &:visited {
-          color: #fff;
-      }
+    }
   }
   .container {
-      &:first-child {
-          position: relative;
-          top: 42%;
-          -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-      }
+    &:first-child {
+      position: relative;
+      top: 42%;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
   }
   &__header {
     color: #fff;
@@ -153,6 +153,8 @@
       position: absolute;
       width: 100%;
       display: none;
+      left: 0;
+      top: -67px;
       @media (min-width: 992px) {
         display: block;
       }
