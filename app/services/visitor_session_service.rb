@@ -12,10 +12,14 @@ class VisitorSessionService
   end
 
   def perform
+    return if no_session?
+    model
+    cookies[:no_visitor_session] = true if model.city.nil?
     check_referers
     check_forms
     check_internal_link
     check_utm
+    return if model.actions.length.zero?
     model.save
     cookies.permanent.encrypted[:visitor_session_id] = model.id
   end
@@ -29,6 +33,10 @@ class VisitorSessionService
       visitor_session.ip = request.ip
       visitor_session.city = Ipgeobase.lookup(request.ip).city
     end
+  end
+
+  def no_session?
+    cookies[:no_visitor_session].present?
   end
 
   private

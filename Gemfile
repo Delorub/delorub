@@ -55,9 +55,7 @@ gem 'omniauth-odnoklassniki'
 gem 'activeadmin'
 gem 'activeadmin_addons'
 gem 'activeadmin_reorderable', github: 'delphist/activeadmin_reorderable', branch: 'feature/add-belongs-to-support'
-gem 'active_admin-sortable_tree'
-gem 'activeadmin-reform'
-gem 'flattened_active_admin'
+gem 'kaminari', github: 'kaminari/kaminari', ref: 'e95bb74'
 
 # Attachments
 gem 'rmagick', require: false
@@ -82,7 +80,6 @@ gem 'mini_racer', platforms: :ruby
 # Misc
 gem 'russian', '~> 0.6.0'
 gem 'phony_rails'
-gem 'kaminari', '~> 0.15'
 gem 'translit'
 gem 'nokogiri'
 gem 'wicked_pdf'

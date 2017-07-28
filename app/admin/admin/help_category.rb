@@ -8,7 +8,7 @@ ActiveAdmin.register HelpCategory, namespace: :admin do
   permit_params :title, :position
 
   index download_links: false, as: :reorderable_table do
-    column(:title, sortable: false) do |item|
+    column(:title) do |item|
       link_to item.title, admin_help_category_help_answers_path(item)
     end
     actions
