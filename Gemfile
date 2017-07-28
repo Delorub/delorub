@@ -104,6 +104,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'slackistrano'
   gem 'annotate'
   gem 'rubocop', require: false
   gem 'rubocop-rspec-focused', require: false
