@@ -126,29 +126,6 @@ footer {
   }
 }
 
-.pagination {
-  margin-top: 30px;
-  .page-item {
-    margin: 0 10px;
-    .page-link {
-      border-radius: 5px;
-      color: $blueColor;            
-    }        
-  }
-  .page-item-active {
-    .page-link {
-      color: #fff;
-      background-color: $blueColor;
-    }
-  }
-  .disabled {
-    .page-link {
-      color: #fff;
-      background-color: #4c4c4c;
-    }
-  }
-}
-
 .dr-footer {
   .container {    
     .row {
