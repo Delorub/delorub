@@ -7,10 +7,13 @@
     margin: 1px;
     display: inline-block;
     &-full {
-      background-image: url("/images/design/star_full.svg");                        
+      background-image: url("/images/design/star_full.svg");
     }
     &-empty {
-      background-image: url("/images/design/star_empty.svg");                        
+      background-image: url("/images/design/star_empty.svg");
+    }
+    &:hover {
+      background-image: url("/images/design/star_hover.svg");
     }
   }
   &-container {
