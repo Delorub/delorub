@@ -15,6 +15,12 @@
     <meta name="msapplication-navbutton-color" content="#000">
     <!-- iOS Safari -->
     <meta name="apple-mobile-web-app-status-bar-style" content="#000">
+    <style>
+      h2 {
+        font-family: "GothamProBold", sans-serif;
+        color: #9b9b9b;
+      }
+    </style>
   </head>
   <body>
     <div class="wrap">
@@ -66,14 +72,14 @@
           <div class="container">
 
             <div class="dr-block-style">
-              <h1>Кнопки</h1>
+              <h2>Кнопки</h2>
               <a class="dr-btn-default" href="#">Стать исполнителем</a>
               <a class="dr-btn-danger" href="#">Создать задание</a>
               <a class="dr-btn-primary" href="#">Откликнуться</a>
             </div>
 
             <div class="dr-block-style">
-              <h1>Ссылки</h1>
+              <h2>Ссылки</h2>
               <a class="link-default" href="#">Общая</a>
               <div style="background-color: #000; padding: 5px;">
                 <a class="link-default-white" href="#">На главной</a>          
@@ -91,7 +97,7 @@
             </div>
 
             <div class="dr-block-style">
-              <h1>Пагинация</h1>
+              <h2>Пагинация</h2>
               <nav>
                 <ul class="pagination">
                   <li class="page-item disabled">
@@ -109,7 +115,7 @@
             </div>
 
             <div class="dr-block-style">
-              <h1>Чекбокс</h1>
+              <h2>Чекбокс</h2>
               <div class="checkbox">
                 <label>
                   <input type="checkbox" value=""/>
@@ -127,7 +133,7 @@
             </div>
 
             <div class="dr-block-style">
-              <h1>Рейтинг</h1>
+              <h2>Рейтинг</h2>
               <div class="dr-rating">
                 <div class="dr-rating-container">
                   <div class="dr-rating-star dr-rating-star-full"></div>
@@ -138,9 +144,45 @@
                 </div>
               </div>
             </div>
+            <br/>
+            <h2>Контактная форма</h2>
+            <div class="dr-block-style">              
+              <label for="contact" class="form-group__header">Укажите контактную информацию</label>
+              <div class="row">
+                <div class="col-xl-5  col-lg-6">
+                  <input type="text" class="form-control form-control__item" id="name" placeholder="Как к Вам обращатся?"/>
+                </div>
+                <div class="col-xl-5  col-lg-6">
+                  <input type="text" class="form-control form-control__item" id="email" placeholder="Ваш email"/>
+                </div>
+              </div>
+              <div>
+                <label for="phone">Укажите ваш номер телефона и подтвердите его</label>
+              </div>
+              <div class="row">
+                <div class="col-xl-5  col-lg-6">
+                  <input type="text" class="form-control form-control__item" id="tel" placeholder="Ваш телефон"/>
+                </div>
+                <div class="col-xl-5  col-lg-6 col-margin-bottom">
+                  <input class="dr-btn-default dr-btn-default-margin-top-2" type="submit" role="button" value="Подтвердить"/>
+                </div>
+              </div>              
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" value=""/>
+                  <span class="checkbox-custom"></span>
+                  Я согласен с <a class="link-default" href="#">правилами сервиса</a> и 
+                  <a class="link-default" href="#">политикой обработки персональных данных</a>
+                </label>
+              </div>
+              <br/>
+              <div class="center">
+                <a class="dr-btn-danger" href="#" role="button">Создать задание</a>
+              </div>
+            </div>
 
             <div class="dr-block-style">
-              <h1>Категории услуг</h1>
+              <h2>Категории услуг</h2>
               <div class="row align-items-stretch">
                 <div class="col-md-4 col-margin-bottom">
                   <div class="dr-category dr-category--courier">
@@ -191,7 +233,7 @@
             </div>
 
             <div class="dr-block-style">
-              <h1>Нижний блок</h1>
+              <h2>Нижний блок</h2>
               <div class="row">
                 <div class="col-lg-4">
                   <div class="bottom-block">
