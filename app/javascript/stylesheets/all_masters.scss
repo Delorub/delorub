@@ -7,29 +7,7 @@
 			margin-top: 10px;
 			text-align: center;
 			font-size: 0.8rem;
-		}
-		&__rating {
-			&-star {
-				height: 15px;
-				width: 15px;
-				background-size: contain;
-				background-repeat: no-repeat;
-				margin: 1px;
-				display: inline-block;
-				&-full {
-					background-image: url("/images/design/star_full.svg");                        
-				}
-				&-empty {
-					background-image: url("/images/design/star_empty.svg");                        
-				}
-			}
-			&-container {
-				text-align: center;                
-				@media (min-width: 992px) {
-					display: flex;
-				}
-			}
-		}
+		}		
 	}
 	&-description {
 		&__header {
