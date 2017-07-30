@@ -1,21 +1,3 @@
-.dr-btn-primary {
-  color: #fff;
-  border: 0;
-  background-color: $blueColor;
-  transition: 0.1s;
-  border-color: $blueColor;
-  margin-bottom: 10px;
-  border-radius: 4px;
-  min-width: 170px;
-  &:hover {
-    background-color: lighten($blueColor, 20%);
-    border-color: lighten($blueColor, 20%);
-  }
-  &-margin-top-25 {
-    margin-top: 25px;
-  }
-}
-
 .dr-btn-default {  
   color: #9b9b9b;
   background-color: #ffffff;
@@ -45,6 +27,27 @@
   }
   &:visited {
     color: #9b9b9b;
+  }
+}
+
+.dr-btn-primary {
+  @extend .dr-btn-default;  
+  color: #fff;  
+  background-color: $blueColor;  
+  &:hover {
+    background-color: #70bee9;
+    color: #fff;
+    box-shadow: 0 1px 4px 0 rgba(174, 173, 173, 0.5), 0 4px 6px 0 rgba(115, 110, 110, 0.5);
+  }
+  &:active {
+    background-color: #3a84ae;
+    box-shadow: 0 1px 4px 0 rgba(174, 173, 173, 0.5);
+  }
+  &:visited {
+    color: #fff;
+  }
+  &-margin-top-25 {
+    margin-top: 25px;
   }
 }
 

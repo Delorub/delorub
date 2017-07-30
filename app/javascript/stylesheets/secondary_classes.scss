@@ -15,10 +15,6 @@
   margin-right: 15px;
 }
 
-.breadcrumb-item + .breadcrumb-item::before {
-  color: #f44336;
-}
-
 .toggle-hr {
   @media (min-width: 992px) {
     display: none;
@@ -27,14 +23,6 @@
 
 .col-margin-bottom {
   margin-bottom: 1rem;
-}
-
-.breadcrumb {
-  margin-bottom: 0;
-  background-color: inherit;
-  &-item {
-    color: $blueColor;
-  }
 }
 
 .dr-header {
