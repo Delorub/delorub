@@ -1,0 +1,25 @@
+.dr-rating {
+  &-star {
+    height: 13px;
+    width: 13px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 1px;
+    display: inline-block;
+    &-full {
+      background-image: url("/images/design/star_full.svg");
+    }
+    &-empty {
+      background-image: url("/images/design/star_empty.svg");
+    }
+    &:hover {
+      background-image: url("/images/design/star_hover.svg");
+    }
+  }
+  &-container {
+    text-align: center;                
+    @media (min-width: 992px) {
+      display: flex;
+    }
+  }
+}
