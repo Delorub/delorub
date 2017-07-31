@@ -1,9 +1,9 @@
 .link-default {
-  color: #5ca3cb;
+  color: #70bee9;
   font-weight: bold;
   border-bottom: 1px dashed;
   &:visited {
-    color: #5ca3cb;
+    color: #70bee9;
   }
   &:hover {
     color: #f44336 !important;
@@ -11,21 +11,17 @@
   &:active {
     color: #cf3125 !important;
   }
+  &-white {
+    @extend .link-default;
+    color: #fff;
+    &:visited {
+      color: #fff;
+    }
+  }
 }
 
 .link-header {
-  color: $blueColor;
-  font-weight: bold;
-  border-bottom: 1px dashed;
-  &:visited {
-    color: $blueColor;
-  }
-  &:hover {
-    color: #f44336;
-  }
-  &:active {
-    color: #cf3125;
-  }
+  @extend .link-default;  
 }
 
 .link-white {
@@ -54,4 +50,19 @@
       color: #ffffff;
     }
   }
+}
+
+.breadcrumb {
+  margin-bottom: 0;
+  background-color: inherit;
+  &-item {
+    color: $blueColor;
+    &:hover {
+      color: #2a6585;
+    }
+  }
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: #4a4a4a;
 }

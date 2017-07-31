@@ -28,13 +28,7 @@
   height: 70vh;
   min-height: 536px;
   background-repeat: no-repeat;
-  background-position: top center;
-  .link-default {
-      color: #fff;
-      &:visited {
-          color: #fff;
-      }
-  }
+  background-position: top center;  
   .container {
       &:first-child {
           position: relative;
@@ -217,6 +211,7 @@
 }
 
 .bottom-block {
+  text-align: center;
   font-size: 2.2rem;
   font-family: $GothamBold;
   line-height: 2.2rem;
