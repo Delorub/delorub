@@ -18,7 +18,7 @@
 #
 
 class VisitorSessionAction < ApplicationRecord
-  belongs_to :session, class_name: 'VisitorSession', inverse_of: :actions
+  belongs_to :session, class_name: 'VisitorSession', foreign_key: 'visitor_session_id', inverse_of: :actions
 
   serialize :data
 end

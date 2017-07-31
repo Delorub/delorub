@@ -1,9 +1,63 @@
 ActiveAdmin.register VisitorSession do
+  permit_params :ip, :city
+
+  decorate_with VisitorSessionDecorator
+
+  filter :city, as: :select
+  filter :source_and_identity,
+    as: :select,
+    collection: -> {
+      @collection_before_scope \
+        .limit(nil)
+        .reorder(nil)
+        .joins(:actions)
+        .where(visitor_session_actions: { action_type: %w[utm_source yandex_direct] })
+        .group('visitor_session_actions.action_type, visitor_session_actions.identity')
+        .order('count DESC')
+        .pluck(
+          'COUNT(DISTINCT visitor_sessions.id) as count',
+          'visitor_session_actions.action_type',
+          'visitor_session_actions.identity'
+        ).map { |e| ["#{e[1]} #{e[2]} (#{e[0]})", "#{e[1]}##{e[2]}"] }.to_h
+    }
+
+  controller do
+    helper_method :statistics
+
+    def statistics
+      @statistics ||= VisitorSession::StatisticsService.new(collection_before_scope)
+    end
+
+    def scoped_collection
+      VisitorSession::ActiveAdminQuery.new.perform
+    end
+  end
+
   index do
     selectable_column
-    column :ip
     column :city
+    column :first_source_type do |resource|
+      unless resource.first_source.nil?
+        text_node "#{resource.first_source.action_type} #{resource.first_source.identity}"
+      end
+    end
+    column :first_source_keyword do |resource|
+      text_node resource.first_source.keyword unless resource.first_source.nil?
+    end
+    column :first_form_keyword do |resource|
+      text_node resource.first_form.keyword unless resource.first_form.nil?
+    end
+    column :first_link_keyword do |resource|
+      text_node resource.first_link.keyword unless resource.first_link.nil?
+    end
+    column :coming_soon_request
     actions
+    panel 'Статистика' do
+      render 'statistics', locals: { statistics: statistics }
+    end
+    panel 'Топ действий' do
+      render 'top_links', locals: { statistics: statistics }
+    end
   end
 
   show do

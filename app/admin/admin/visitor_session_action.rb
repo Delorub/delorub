@@ -1,4 +1,6 @@
 ActiveAdmin.register VisitorSessionAction do
+  permit_params :action_type, :session_id, :identity, :keyword, :url, :data
+
   navigation_menu :default
   menu false
 

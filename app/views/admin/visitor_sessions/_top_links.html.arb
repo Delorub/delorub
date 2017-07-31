@@ -1,0 +1,15 @@
+statistics.top_links.each do |link|
+  columns do
+    column do
+      span link[0]
+    end
+
+    column do
+      span link[2]
+    end
+
+    column do
+      span link[1]
+    end
+  end
+end
