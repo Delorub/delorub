@@ -6,8 +6,7 @@
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="/packs/application.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">    
     <link rel="shortcut icon" href="/images/favicon/favicon.ico" type="image/x-icon">
     <!-- Chrome, Firefox OS and Opera -->
     <meta name="theme-color" content="#000">
@@ -16,10 +15,23 @@
     <!-- iOS Safari -->
     <meta name="apple-mobile-web-app-status-bar-style" content="#000">
     <style>
+      @font-face {
+        font-family: 'GothamProRegular';
+        src: local("GothamProRegular"), url("../fonts/GothamProRegular/GothamProRegular.eot") format("embedded-opentype");
+        src: local("GothamProRegular"), url("../fonts/GothamProRegular/GothamProRegular.woff") format("woff"), url("../fonts/GothamProRegular/GothamProRegular.ttf") format("truetype");
+      }
+      @font-face {
+        font-family: 'GothamProBlack';
+        src: local("GothamProBlack"), url("../fonts/GothamProBlack/GothamProBlack.eot") format("embedded-opentype");
+        src: local("GothamProBlack"), url("../fonts/GothamProBlack/GothamProBlack.woff") format("woff"), url("../fonts/GothamProBlack/GothamProBlack.ttf") format("truetype");
+      }
+
       body {
         background-color: #edeef0;
         height: auto;
+        font-family: "GothamProRegular", sans-serif;
       }
+
       .dr-dialog {
         width: 95%;
         max-width: 33em;
@@ -40,7 +52,64 @@
       }
       .dr-dialog a {
         margin: 30px 15px;
+        text-decoration: none;
+        font-size: 0.9rem;
       }
+
+      .dr-btn-default, .dr-btn-danger {
+        color: #9b9b9b;
+        background-color: #ffffff;
+        box-shadow: 0 1px 4px 0 rgba(174, 173, 173, 0.5);
+        transition: 0.1s;
+        border: 0;
+        border-radius: 4px;
+        min-width: 170px;
+        text-align: center;
+        padding: 12px 10px 10px 10px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        display: inline-block;
+      }
+      .dr-btn-default:hover, .dr-btn-danger:hover {
+        color: #fff !important;
+        background-color: #70bee9;
+        box-shadow: 0 1px 4px 0 rgba(174, 173, 173, 0.5), 0 1px 2px 0 rgba(102, 102, 102, 0.5);
+        cursor: pointer;
+      }
+      .dr-btn-default:active, .dr-btn-danger:active {
+        background-color: #519dc7;
+        color: #fff;
+        box-shadow: 0 3px 4px 0 rgba(174, 173, 173, 0.5);
+      }
+      .dr-btn-default:focus, .dr-btn-danger:focus {
+        color: #fff;
+      }
+      .dr-btn-default:visited, .dr-btn-danger:visited {
+        color: #9b9b9b;
+      }
+
+      .dr-btn-danger {
+        color: #fff;
+        background-color: #f44336;
+      }
+      .dr-btn-danger:hover {
+        color: #fff;
+        background-color: #f44336;
+        box-shadow: 0 1px 4px 0 rgba(174, 173, 173, 0.5), 0 4px 6px 0 rgba(115, 110, 110, 0.5);
+      }
+      .dr-btn-danger:active {
+        background-color: #cf3025;
+        color: #fff;
+        box-shadow: 0 1px 4px 0 rgba(174, 173, 173, 0.5), 0 2px 4px 0 rgba(174, 173, 173, 0.5);
+      }
+      .dr-btn-danger:focus {
+        color: #fff;
+      }
+      .dr-btn-danger:visited {
+        color: #fff;
+      }
+
+
     </style>
   </head>
   <body>
@@ -58,6 +127,5 @@
       </div>
     </div>
 
-    <script src="/packs/application.js"></script>
   </body>
 </html>
