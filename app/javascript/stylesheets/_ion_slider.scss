@@ -22,13 +22,14 @@
 .irs-single {
   padding: 12px;
   background-color: #4a4a4a;
-  top: -50px;
+  top: -70px;
+  text-align: center;
   //position: relative;
   &:after {
     content: '';
     position: absolute;
     left: calc(50% - 10px);
-    top: 42px;
+    top: 60px;
     width: 0;
     height: 0;
     border-left: 10px solid transparent;
@@ -40,23 +41,41 @@
 
 .irs-slider {
   width: 25px;
-  height: 25px;
-  //border: 1px solid #4a4a4a;
-  box-shadow: none;
-  //background: #fff;
-  //z-index: 3;
+  height: 25px;  
+  box-shadow: none;  
+  z-index: 3;
+  background: url("/images/design/slider_toddler.svg");
+  background-position: center;
+  background-size: cover;
+  border: 0;
+  &:hover {
+    background: url("/images/design/slider_toddler.svg");
+    background-position: center;
+    background-size: cover;
+    filter: invert(10%);
+    border: 0;
+  }
+}
+
+.irs-slider.state_hover {
+  background: url("/images/design/slider_toddler.svg");
+  background-position: center;
+  background-size: cover;
+  filter: invert(10%);
+  border: 0;
 }
 
 .irs-grid-text {
+  color: #fff;
   &:before {
-    /*content: '';
+    content: '';
     position: absolute;
-    width: 15px;
-    height: 15px;
+    width: 10px;
+    height: 10px;
     border-radius: 10px;
     background-color: #4a4a4a;
-    top: -31px;
+    top: -19px;
     z-index: 2;
-    left: 9px;*/
+    left: 35px;
   }
 }

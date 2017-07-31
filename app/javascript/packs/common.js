@@ -1,6 +1,8 @@
 import $ from 'jquery'
 import 'bootstrap-slider/dist/bootstrap-slider.js'
 import 'bootstrap-slider/dist/css/bootstrap-slider.css'
+import 'bootstrap-datepicker/dist/css/bootstrap-datepicker.css'
+import 'bootstrap-datepicker/dist/js/bootstrap-datepicker.js'
 import 'bootstrap/dist/js/bootstrap.js'
 import 'ion-rangeslider/js/ion.rangeSlider.js'
 import 'ion-rangeslider/css/ion.rangeSlider.css'
@@ -16,15 +18,24 @@ $('#ex2').slider({
 $('#budget_slider').ionRangeSlider(
   {
     grid: true,
-    from: 1,
+    from: 2,
     values: [
-      '500', '1 500',
-      '5 000', '15 000',
-      '50 000', '100 000',
-      '200 000', '300 000'
+      '<b>Мелкий бюджет</b> <br/> до 500',
+      '<b>Мелкий бюджет</b> <br/> до 1 500',
+      '<b>Мелкий бюджет</b> <br/> до 5 000',
+      '<b>Средний бюджет</b> <br/> до 15 000',
+      '<b>Средний бюджет</b> <br/> до 50 000',
+      '<b>Крупный бюджет</b> <br/> до 100 000',
+      '<b>Крупный бюджет</b> <br/> до 200 000',
+      '<b>Крупный бюджет</b> <br/> от 200 000'
     ]
   })
 
 $(function () {
   $('[data-toggle="popover"]').popover()
+})
+
+$('.datepicker').datepicker({
+  format: 'mm/dd/yyyy',
+  startDate: '-3d'
 })
