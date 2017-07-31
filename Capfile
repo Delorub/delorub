@@ -19,6 +19,9 @@ require 'capistrano/bundler'
 require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
 
+# Slack
+require 'slackistrano/capistrano'
+
 # Load Puma
 require 'capistrano/puma'
 install_plugin Capistrano::Puma

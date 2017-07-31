@@ -38,17 +38,17 @@ ActiveAdmin.register HelpQuestion, namespace: :admin do
     column '#' do |item|
       link_to item.display_name, admin_help_question_path(item)
     end
-    column :name, sortable: false do |item|
+    column :name do |item|
       text_node item.name
       br
       small mail_to item.email
       br
       small item.created_at
     end
-    column :content, sortable: false do |item|
+    column :content do |item|
       truncate item.content, length: 100
     end
-    column :answered, sortable: false
+    column :answered
     actions defaults: false do |help_question|
       item 'Ответить', reply_admin_help_question_path(help_question) unless help_question.answered
     end
