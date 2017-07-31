@@ -49,11 +49,22 @@
 }
 
 .dr-popover {
-  padding: 23px;
+  @media (max-width: 1200px) {
+    display: none;
+  }
+  padding: 19px 25px;
   background-color: #fff;
   border: solid 2px #e1dfdf;
-  margin-bottom: 9px;
+  margin-bottom: 14px;
   position: relative;
+  &-margin-top {
+    &-300 {
+      margin-top: 300px;
+    }
+    &-150 {
+      margin-top: 150px;
+    }
+  }
   &-left {
     margin-left: 20px;
     &:after {
@@ -95,5 +106,17 @@
   }
   &__text {
     color: #9b9b9b;
+    a {
+      color: #70bee9;
+      &:visited {
+        color: #70bee9;
+      }
+      &:hover {
+        color: #f44336 !important;
+      }
+      &:active {
+        color: #cf3125 !important;
+      }
+    }
   }
 }
