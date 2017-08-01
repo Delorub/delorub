@@ -1,39 +1,87 @@
 .master-card {
-	&-person {
-		&__image {
-			@extend .dr-image;
-		}
-		&__status {
-			margin-top: 10px;
-			text-align: center;
-			font-size: 0.8rem;
-		}		
-	}
-	&-description {
-		&__header {
-			font-weight: bold;
-			font-size: 1.2rem;
-			margin-bottom: 0;
-			a {
-				color: #4c4c4c;
-			}
-		}
-		&__price {
-			font-size: 1.3rem;
-			margin-right: 15px
-		}
-		&__experience {
-			margin-top: 1rem;
-			opacity: 0.5;
-		}
-	}
-	&-refinement {        
-		&__price {
-			text-align: right;
-			font-size: 1.5rem;
-		}
-		&__time {
-			text-align: right;
-		}
-	}
+  &-vip {
+    background-color: #fff8eb;
+    border-right: 13px solid #dd8900;
+    padding-right: 16px;
+  }
+  &-person {
+    &__image {
+      position: relative;
+      max-width: 94px;
+      margin: 0 auto;
+      img {
+        @extend .dr-image;
+        border-radius: 50%;
+        max-width: 94px;
+        margin: 0 auto;
+      }
+      &--online::after {        
+        bottom: 7%;
+        right: 7%;
+        border: 2px solid #fff;
+        height: 12px;
+        width: 12px;
+        content: '';
+        position: absolute;
+        background-color: #8ac176;
+        border-radius: 50%;        
+      }
+    }
+    &__status {
+      margin-top: 1rem;
+      text-align: center;
+      font-size: 0.7rem;
+      color: #bbcadb;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+      i {
+        font-size: 0.9rem;
+      }
+      span + span {
+        margin-left: 7.5px;
+      }
+    }		
+  }
+  &-description {
+    &__header {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-bottom: 0;
+      a {
+        @extend .link-default;
+      }
+    }
+    &__offline {
+      color: #9b9b9b;
+      font-size: 0.62rem;
+      margin-bottom: 0.5rem;
+      &--hide {
+        opacity: 0;
+      }
+    }
+    &__price {
+      font-size: 1.3rem;
+      margin-right: 15px;
+      font-weight: bold;
+    }    
+    &__text {
+
+    }
+    &__phone {
+      margin-left: 2rem;
+      font-weight: bold;
+      &--hide {
+        display: none;
+      }
+    }
+  }
+  &-refinement {        
+    &__price {
+      text-align: right;
+      font-size: 1.5rem;
+    }
+    &__time {
+      text-align: right;
+    }
+  }
 }

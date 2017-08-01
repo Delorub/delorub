@@ -119,6 +119,20 @@ footer {
   box-shadow: 0 2px 7px 0 rgba(121, 120, 120, 0.5);
   padding: 28px 66px;
   margin: 2px 0 0;
+  &--card {
+    margin-top: 6px;
+    padding-right: 29px;
+    padding-left: 29px;
+    &:hover {
+      box-shadow: 0 4px 15px 0 rgba(150, 149, 149, 0.5);
+    }
+  }
+  &--sort-padding {
+    padding: 22px 66px;
+  }
+  &--category {
+    padding: 0;
+  }
   >div {
     &:last-child {
       margin-bottom: 0;

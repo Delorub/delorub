@@ -1,5 +1,9 @@
 .checkbox {
+  label {
+    margin-bottom: 0;
+  }
   &-custom {
+    transition: 0.1s;
     position: relative;
     padding: 1px 7px;
     border: 2px solid #a1cae0;

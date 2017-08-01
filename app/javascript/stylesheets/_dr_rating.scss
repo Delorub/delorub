@@ -1,5 +1,6 @@
 .dr-rating {
   &-star {
+    transition: 0.3s;
     height: 13px;
     width: 13px;
     background-size: contain;
@@ -20,6 +21,7 @@
     text-align: center;                
     @media (min-width: 992px) {
       display: flex;
+      justify-content: center;
     }
   }
 }

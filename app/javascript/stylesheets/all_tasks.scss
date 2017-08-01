@@ -34,37 +34,38 @@
 }
 
 .task-sort {
-  font-size: 0.5rem;
-  @media (min-width: 448px) {
+  font-size: 0.9rem;
+  /*@media (min-width: 448px) {
     font-size: 0.6rem;
   }
   @media (min-width: 768px) {
     font-size: 0.8rem;
-  }
+  }*/
   &__link {
     color: #4c4c4c;
   }
+  .checkbox-custom {
+    padding: 0px 6px;
+  }
   div>div {
+    text-align: center;
     padding-left: 2px;
-    padding-right: 2px;
-    &:last-child {
-      text-align: right;
-      padding-right: 10px;
-    }
+    padding-right: 2px;    
     &:first-child {
       padding-left: 10px;
+      text-align: left;
+    }
+    .checkbox {
+      &:last-child {
+        text-align: right;
+        padding-right: 10px;
+      }
     }
   }
 }
 
 .bottom-text {
-  margin: 0px 10%;
-  a {
-    color: $blueColor;
-    display: block;
-    text-align: center;
-    margin-top: 2rem;
-  }
+  margin: 0px 10%;  
 }
 
 .card {
@@ -96,8 +97,40 @@
 .subcategories {
   &__header {
     @extend .task-card-description__header;
+    font-size: 1.1rem;
+    padding: 25px;
+    border-bottom: 1px solid #d1d1d1;
+  }
+  &-list {    
+    padding: 25px 30px;    
+    &__sup {
+      font-weight: bold;
+      font-size: 0.9rem;
+      li {
+        padding: 7.5px 0px;
+        a {
+          transition: 0.3s;
+          color: #4c4c4c;
+        }
+      }      
+    }
+    &__sub {
+      padding: 15px 30px 0 30px;
+      li {
+        padding: 7.5px 0px;
+        font-weight: normal;
+        a {
+          transition: 0.3s;
+          color: #4c4c4c;          
+          &:hover {
+            color: $blueColor;
+          }
+        }
+      }
+    }
   }
   &__list {
+
     li {
       padding: 10px 0;
       a {
