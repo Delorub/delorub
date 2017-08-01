@@ -133,6 +133,10 @@ footer {
   &--category {
     padding: 0;
   }
+  &--price {
+    padding: 25px;
+    margin-bottom: 6px;
+  }
   >div {
     &:last-child {
       margin-bottom: 0;

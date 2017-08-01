@@ -1,10 +1,18 @@
 .task-card {
   &-person {
     &__image {
-      @extend .dr-image;
+      position: relative;
+      max-width: 94px;
+      margin: 0 auto;
+      img {
+        @extend .dr-image;
+        border-radius: 50%;
+        max-width: 94px;
+        margin: 0 auto;
+      }      
     }
     &__name {
-      margin-top: 10px;
+      margin-top: 1rem;
       text-align: center;
     }
   }
@@ -14,23 +22,37 @@
       font-size: 1.3rem;
       margin-bottom: 0;
       a {
-        color: #4c4c4c;
+        @extend .link-default;
       }
     }
     &__adress {
-      margin-top: 1rem;            
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      i {
+        font-size: 1.3rem;
+        color: #f44336;
+        margin-right: 5px;
+      }
     }
   }
-  &-refinement {
+  &-refinement, &-button {
     margin: 0 15px;
     &__price {
       text-align: right;
       font-size: 1.5rem;
+      font-weight: bold;
     }
     &__time {
       text-align: right;
+      font-size: 0.9rem;
+      i {
+        font-size: 1rem;
+      }
+      &--quickly {
+        color: #f44336;
+      }
     }
-  }
+  }  
 }
 
 .task-sort {
@@ -79,19 +101,11 @@
   }
 }
 
-.choose-city {
-  &__header {
-    @extend .task-card-description__header;
-  }
-  &__link {
-
-  }
-}
-
 .choose-price {
   &__header {
     @extend .task-card-description__header;
-  }    
+    font-size: 1.1rem;
+  }
 }
 
 .subcategories {

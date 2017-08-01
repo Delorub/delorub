@@ -25,6 +25,16 @@ $('#budget_slider').ionRangeSlider(
     ]
   })
 
+$('#budget_slider_tasks').ionRangeSlider(
+  {
+    type: 'double',
+    min: 500,
+    max: 10000,
+    step: 500,
+    grid: true,
+    grid_snap: true
+  })
+
 $(function () {
   $('[data-toggle="popover"]').popover()
 })
