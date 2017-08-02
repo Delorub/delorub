@@ -19,7 +19,7 @@ ActiveAdmin.register VisitorSession do
           'COUNT(DISTINCT visitor_sessions.id) as count',
           'visitor_session_actions.action_type',
           'visitor_session_actions.identity'
-        ).map { |e| ["#{e[1]} #{e[2]} (#{e[0]})", "#{e[1]}##{e[2]}"] }.to_h
+        ).map { |e| [ "#{I18n.t("enumerize.visitor_session_action.action_type.#{e[1]}")} #{e[2]} (#{e[0]})", "#{e[1]}##{e[2]}"] }.to_h
     }
 
   controller do
