@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   include Pundit
   include RenderPageNotFound
-  include RedirectComingSoon
   include VisitorSessionHandler
   include Authorization
 

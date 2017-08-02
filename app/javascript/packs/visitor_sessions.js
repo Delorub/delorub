@@ -24,9 +24,4 @@ $(document).ready(function () {
     var formId = $('input[name=form_identity]', this).val()
     reachGoal(formId)
   })
-
-  $('a[href="#"]').on('click', function (e) {
-    e.preventDefault()
-    window.location = '/coming-soon'
-  })
 })
