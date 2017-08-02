@@ -7,6 +7,13 @@ body {
   color: #4a4a4a;
 }
 
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+    max-width: 100%;
+  }
+}
+
 .wrap {
   height: auto; 
   min-height: 100%;
@@ -117,18 +124,17 @@ footer {
   background-color: #fff;
   border-radius: 3px;
   box-shadow: 0 2px 7px 0 rgba(121, 120, 120, 0.5);
-  padding: 28px 66px;
+  padding: 28px 40px;
   margin: 2px 0 0;
   &--card {
     margin-top: 6px;
-    padding-right: 29px;
-    padding-left: 29px;
+    padding: 40px 40px;    
     &:hover {
       box-shadow: 0 4px 15px 0 rgba(150, 149, 149, 0.5);
     }
   }
   &--sort-padding {
-    padding: 22px 66px;
+    padding: 22px 40px;
   }
   &--category {
     padding: 0;

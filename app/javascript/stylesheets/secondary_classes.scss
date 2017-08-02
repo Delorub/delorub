@@ -21,6 +21,12 @@
   }
 }
 
+.lg-hide {
+  @media (max-width: 991px) {
+    display: none;
+  }
+}
+
 .col-margin-bottom {
   margin-bottom: 1rem;
 }

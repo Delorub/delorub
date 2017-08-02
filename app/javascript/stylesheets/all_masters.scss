@@ -7,13 +7,14 @@
   &-person {
     &__image {
       position: relative;
-      max-width: 94px;
+      max-width: 90px;
       margin: 0 auto;
       img {
         @extend .dr-image;
         border-radius: 50%;
-        max-width: 94px;
+        max-width: 90px;
         margin: 0 auto;
+        margin-top: 5px;
       }
       &--online::after {        
         bottom: 7%;
@@ -38,11 +39,14 @@
         font-size: 0.9rem;
       }
       span + span {
-        margin-left: 7.5px;
+        margin-left: 5px;
       }
     }		
   }
   &-description {
+    @media (min-width: 992px) {
+      padding-left: 10px;
+    }
     &__header {
       font-weight: bold;
       font-size: 1.2rem;
