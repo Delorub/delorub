@@ -17,7 +17,7 @@ class VisitorSession < ApplicationRecord
   scope :source_and_identity, ->(q) {
     action_type, identity = q.split('#')
     return_scope = joins(:actions).where(visitor_session_actions: { action_type: action_type }).distinct
-    return_scope = return_scope.where(visitor_session_actions: { identity: identity.to_s }) unless identity.blank?
+    return_scope = return_scope.where(visitor_session_actions: { identity: identity.to_s }) if identity.present?
     return_scope
   }
 
