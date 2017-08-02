@@ -23,8 +23,7 @@
   .irs-single {
     padding: 12px;
     background-color: #4a4a4a;
-    top: -50px;
-    //position: relative;
+    top: -50px;    
     &:after {
       content: '';
       position: absolute;
@@ -41,11 +40,8 @@
 
   .irs-slider {
     width: 25px;
-    height: 25px;
-    //border: 1px solid #4a4a4a;
-    box-shadow: none;
-    //background: #fff;
-    //z-index: 3;
+    height: 25px;    
+    box-shadow: none;    
   }
 
   .irs-grid-text {
