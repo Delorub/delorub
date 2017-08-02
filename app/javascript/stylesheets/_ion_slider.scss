@@ -23,12 +23,12 @@
   .irs-single {
     padding: 12px;
     background-color: #4a4a4a;
-    top: -50px;    
+    top: -70px;    
     &:after {
       content: '';
       position: absolute;
       left: calc(50% - 10px);
-      top: 42px;
+      top: 60px;
       width: 0;
       height: 0;
       border-left: 10px solid transparent;
@@ -37,33 +37,54 @@
       clear: both;
     }
   }
-
   .irs-slider {
     width: 25px;
-    height: 25px;    
-    box-shadow: none;    
+    height: 25px;  
+    box-shadow: none;  
+    z-index: 3;
+    background: url("/images/design/slider_toddler.svg");
+    background-position: center;
+    background-size: cover;
+    border: 0;
+    &:hover {
+      background: url("/images/design/slider_toddler.svg");
+      background-position: center;
+      background-size: cover;
+      filter: invert(10%);
+      border: 0;
+    }
+  }
+
+  .irs-slider.state_hover {
+    background: url("/images/design/slider_toddler.svg");
+    background-position: center;
+    background-size: cover;
+    filter: invert(10%);
+    border: 0;
   }
 
   .irs-grid-text {
+    color: #fff;
     &:before {
-      /*content: '';
+      content: '';
       position: absolute;
-      width: 15px;
-      height: 15px;
+      width: 10px;
+      height: 10px;
       border-radius: 10px;
       background-color: #4a4a4a;
-      top: -31px;
+      top: -19px;
       z-index: 2;
-      left: 9px;*/
+      left: 35px;  
     }
   }
 }
+
 
 .choose-price__slider {
   .irs-grid-text, .irs-grid-pol {
     visibility: hidden !important;
   }
-  
+
   .irs-slider {
     width: 15px;
     height: 15px;    
@@ -76,6 +97,10 @@
     }
   }
   
+  .irs-slider.state_hover {
+    background-color: darken(#a0ccdb, 20%);    
+  }
+
   .irs-bar, .irs-bar-edge {
     background: #a0ccdb;
     border-top: 1px solid #a0ccdb;
@@ -90,11 +115,11 @@
     border-bottom: 1px solid #d2e7ef;
     height: 7px;
   }
-  
-  .irs-from, .irs-to {
+
+  .irs-from, .irs-to, .irs-single {
     display: none;
   }
-  
+
   .irs-min, .irs-max {
     visibility: visible !important;
     background: 0;

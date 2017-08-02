@@ -80,24 +80,22 @@
             </div>
 
             <div class="row">
-              <div class="col-8">
+              <div class="col-xl-8">
                 <div class="dr-form">
 
                   <div class="dr-block-style">
                     <div class="form-group">
                       <label for="hdr" class="form-group__header">Заголовок</label>
                       <div class="row">
-                        <div class="col-lg-12 col-12">
-                          <input type="text" class="form-control" id="hdr" placeholder="Например, доставить груз"  data-toggle="popover" data-placement="right" title="Начните с заголовка. Например:" data-content="Требуется ремонт в квартире
-                                 Укладка&nbsp;ламината&nbsp;в&nbsp;офисе
-                                 Строительство дома в Талдоме"/>
+                        <div class="col-lg-8 col-12">
+                          <input type="text" class="form-control" id="hdr" placeholder="Например, доставить груз"/>
                         </div>
                       </div>                
                     </div>
 
                     <div class="form-group">
                       <label for="comment" class="form-group__header">Описание задачи</label>
-                      <textarea class="form-control form-group__item form-group__item-marginbottom-10" id="comment" placeholder="Опишите ваше задачу. Например, нужно доставить груз из склада на Невском пр. 8 в магазин на Литейном пр. 10" rows="6"></textarea>
+                      <textarea class="form-control form-group__item form-group__item-marginbottom-10" id="comment" placeholder="Опишите ваше задачу. Например, нужно доставить груз из склада на Невском пр. 8 в магазин на Литейном пр. 10" rows="10"></textarea>
 
                       <a href="#" class="form-group__upload">
                         <span>Прикрепить изображение или текстовый файл</span>
@@ -105,7 +103,6 @@
                       </a>
                     </div>
                   </div>
-
 
                   <div class="dr-block-style">
                     <div class="form-group">
@@ -121,8 +118,13 @@
                           </div>
                         </div>
                         <div class="col-lg-4">
-                          <div class="form-group">
-                            <input type="date" class="form-control form-control__item" id="date"/>
+                          <div class="form-group">                            
+                            <div class="input-group date" data-provide="datepicker">
+                              <input type="text" class="datepicker form-control form-control__item" data-provide="datepicker"/>
+                              <div class="input-group-addon">
+                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                              </div>
+                            </div>
                           </div>
                           <div class="form-group__sublink">
                             <a href="#">сегодня</a>
@@ -130,8 +132,13 @@
                           </div>
                         </div>
                         <div class="col-lg-4">
-                          <div class="form-group">
-                            <input type="date" class="form-control form-control__item" id="date"/>
+                          <div class="form-group">                            
+                            <div class="input-group date" data-provide="datepicker">
+                              <input type="text" class="datepicker form-control form-control__item" data-provide="datepicker"/>
+                              <div class="input-group-addon">
+                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                              </div>
+                            </div>
                           </div>
                           <div class="form-group__sublink">
                             <a href="#">сегодня</a>
@@ -179,22 +186,38 @@
                   <div class="dr-block-style">
                     <label for="contact" class="form-group__header">Укажите контактную информацию</label>
                     <div class="row">
-                      <div class="col-xl-5  col-lg-6">
-                        <input type="text" class="form-control form-control__item" id="name" placeholder="Как к Вам обращатся?"/>
+                      <div class="col-lg-4  col-md-6">
+                        <input type="text" class="form-control form-control__item" id="name" placeholder="Ваше имя"/>
                       </div>
-                      <div class="col-xl-5  col-lg-6">
+                      <div class="col-lg-4  col-md-6">
                         <input type="text" class="form-control form-control__item" id="email" placeholder="Ваш email"/>
                       </div>
+                      <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-6 error-display-hide">
+                        <div class="contact-form__error-message">
+                          <span>Неправильный Email адрес</span>
+                        </div>                        
+                      </div>
                     </div>
-                    <div>
-                      <label for="phone">Укажите ваш номер телефона и подтвердите его</label>
+                    <div class="contact-form__phone">
+                      <span>Укажите ваш номер телефона и подтвердите его</span>
                     </div>
                     <div class="row">
-                      <div class="col-xl-5  col-lg-6">
+                      <div class="col-lg-4  col-md-6">
                         <input type="text" class="form-control form-control__item" id="tel" placeholder="Ваш телефон"/>
                       </div>
-                      <div class="col-xl-5  col-lg-6 col-margin-bottom">
+                      <div class="col-lg-auto  col-md-6 col-margin-bottom">
                         <input class="dr-btn-default dr-btn-default-margin-top-2" type="submit" role="button" value="Подтвердить"/>
+                      </div>
+                      <div class="col-lg-4 col-md-6 offset-lg-0 offset-md-6 phone-display-hide">
+                        <div class="contact-form__repeat">
+                          <a class="link-default" href="#">
+                            Отправить повторно
+                          </a>
+                          <br/>
+                          <span>
+                            (доступно через 0:20)
+                          </span>
+                        </div>                  
                       </div>
                     </div>              
                     <div class="checkbox">
@@ -214,17 +237,93 @@
                 </div>          
               </div>
 
-              <div class="col-4">
+              <div class="col-xl-4">
 
-                <div class="dr-popover dr-popover-left">            
+                <div class="dr-popover dr-popover-left">
                   <div class="dr-popover__header">
-                    Подробно опишите работы. 
-                    Обязательно укажите:
+                    Придумайте заголовок, например:
                   </div>
                   <div class="dr-popover__text">
-                    Размеры, объемы, параметры<br/>
-                    Необходимые материалы<br/>
-                    Прочие особенности работ
+                    Убрать квартиру – 54 м2<br/>
+                    Сделать свадебный маникюр<br/>
+                    Доставить документы
+                  </div>            
+                </div>
+
+                <div class="dr-popover dr-popover-left">
+                  <div class="dr-popover__header">
+                    Уточните детали:
+                  </div>
+                  <div class="dr-popover__text">
+                    Размер и/или объем<br/>
+                    Материалы<br/>
+                    Личные пожелания к работе
+                  </div>            
+                </div>
+
+                <div class="dr-popover dr-popover-left">
+                  <div class="dr-popover__header">
+                    Загрузите фаил
+                  </div>
+                  <div class="dr-popover__text">
+                    Поддерживаемые форматы файлов:<br/>
+                    <b>png, jpg, jpeg, bmp, ttf, doc, pdf, rar,
+                      zip, xls </b><br/>
+                    Максимальный размер файла - <b>7мб</b><br/>
+                    Суммарный размер не более - <b>28 мб</b><br/>
+                    Максимальное кол-во файлов - <b>4 </b>
+                  </div>            
+                </div>
+
+                <div class="dr-popover dr-popover-left">
+                  <div class="dr-popover__header">
+                    Укажите сроки
+                  </div>
+                  <div class="dr-popover__text">
+                    Это нужно для того, чтобы <br/>
+                    исполнители понимали, когда им <br/>
+                    нужно начать и закончить задание. 
+                  </div>            
+                </div>
+
+                <div class="dr-popover dr-popover-left">
+                  <div class="dr-popover__header">
+                    Введите адрес
+                  </div>
+                  <div class="dr-popover__text">
+                    На карте отметьте место, где будет <br/>
+                    выполняться задание. На него могут <br/>
+                    откликнуться исполнители, которые <br/>
+                    находятся поблизости.
+                  </div>            
+                </div>
+
+                <div class="dr-popover dr-popover-left dr-popover-margin-top-300">
+                  <div class="dr-popover__header">
+                    Укажите бюджет
+                  </div>
+                  <div class="dr-popover__text">
+                    На задание откликнутся <br/>
+                    исполнители, чьи услуги <br/>
+                    не превышают ваш бюджет. <br/>
+                    Если вы не определились с оплатой, <br/>
+                    не заполняйте это поле.
+                  </div>            
+                </div>
+
+                <div class="dr-popover dr-popover-left dr-popover-margin-top-150">
+                  <div class="dr-popover__header">
+                    Ваши контактные данные
+                  </div>
+                  <div class="dr-popover__text">
+                    Напишите свой номер телефона, <br/>
+                    и вам придет смс с кодом <br/>
+                    подтверждения.<br/>
+                    <br/>
+                    Согласно <a href="#">«Политике <br/>
+                      конфиденциальности»</a> контактные <br/>
+                    данные сохраняются в базе сайта<br/>
+                    и не передаются третьим лица.
                   </div>            
                 </div>
 
