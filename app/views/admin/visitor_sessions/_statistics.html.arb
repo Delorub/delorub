@@ -1,7 +1,7 @@
 statistics.perform.each do |statistics|
   columns do
     column do
-      span statistics[0]
+      span I18n.t "visitor_session_statistics.#{statistics[0]}"
     end
 
     column span: 3 do

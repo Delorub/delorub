@@ -8,6 +8,10 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
+# Indexes
+#
+#  index_visitor_sessions_on_city  (city)
+#
 
 class VisitorSession < ApplicationRecord
   scope :source_and_identity, ->(q) {

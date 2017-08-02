@@ -4,6 +4,7 @@ ActiveAdmin.register VisitorSession do
   decorate_with VisitorSessionDecorator
 
   filter :city, as: :select
+  filter :created_at
   filter :source_and_identity,
     as: :select,
     collection: -> {
@@ -38,7 +39,8 @@ ActiveAdmin.register VisitorSession do
     column :city
     column :first_source_type do |resource|
       unless resource.first_source.nil?
-        text_node "#{resource.first_source.action_type} #{resource.first_source.identity}"
+        b resource.first_source.action_type.text
+        text_node resource.first_source.identity
       end
     end
     column :first_source_keyword do |resource|
@@ -71,7 +73,7 @@ ActiveAdmin.register VisitorSession do
       column :created_at do |visitor_session_action|
         link_to l(visitor_session_action.created_at, format: :long), admin_visitor_session_action_path(visitor_session_action)
       end
-      column :action_type
+      tag_column :action_type
       column :identity
       column :keyword
       column :url do |visitor_session_action|

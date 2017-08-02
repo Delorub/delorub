@@ -4,11 +4,22 @@ ActiveAdmin.register VisitorSessionAction do
   navigation_menu :default
   menu false
 
+  show do
+    attributes_table do
+      tag_row :action_type
+      row :identity
+      row :keyword
+      row :url
+      row :data
+      row :created_at
+    end
+  end
+
   index do
     column :created_at do |visitor_session_action|
       link_to l(visitor_session_action.created_at, format: :long), admin_visitor_session_action_path(visitor_session_action)
     end
-    column :action_type
+    tag_column :action_type
     column :identity
     column :keyword
     column :url do |visitor_session_action|
