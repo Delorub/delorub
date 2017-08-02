@@ -14,7 +14,7 @@ set :keep_releases, 5
 append :linked_files, 'config/database.yml'
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/uploads'
 
-set :slackistrano, {
+set :slackistrano,
+  klass: Slackistrano::CustomMessaging,
   channel: '#deploy',
   webhook: 'https://hooks.slack.com/services/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'
-}

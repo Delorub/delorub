@@ -1,0 +1,15 @@
+statistics.top_links.each do |link|
+  columns do
+    column do
+      span I18n.t("enumerize.visitor_session_action.action_type.#{link[0]}"), class: "status_tag #{link[0]}"
+    end
+
+    column do
+      span link[2]
+    end
+
+    column do
+      span link[1]
+    end
+  end
+end
