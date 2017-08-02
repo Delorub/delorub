@@ -186,22 +186,38 @@
                   <div class="dr-block-style">
                     <label for="contact" class="form-group__header">Укажите контактную информацию</label>
                     <div class="row">
-                      <div class="col-xl-5  col-lg-6">
-                        <input type="text" class="form-control form-control__item" id="name" placeholder="Как к Вам обращатся?"/>
+                      <div class="col-lg-4  col-md-6">
+                        <input type="text" class="form-control form-control__item" id="name" placeholder="Ваше имя"/>
                       </div>
-                      <div class="col-xl-5  col-lg-6">
+                      <div class="col-lg-4  col-md-6">
                         <input type="text" class="form-control form-control__item" id="email" placeholder="Ваш email"/>
                       </div>
+                      <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-6 error-display-hide">
+                        <div class="contact-form__error-message">
+                          <span>Неправильный Email адрес</span>
+                        </div>                        
+                      </div>
                     </div>
-                    <div>
-                      <label for="phone">Укажите ваш номер телефона и подтвердите его</label>
+                    <div class="contact-form__phone">
+                      <span>Укажите ваш номер телефона и подтвердите его</span>
                     </div>
                     <div class="row">
-                      <div class="col-xl-5  col-lg-6">
+                      <div class="col-lg-4  col-md-6">
                         <input type="text" class="form-control form-control__item" id="tel" placeholder="Ваш телефон"/>
                       </div>
-                      <div class="col-xl-5  col-lg-6 col-margin-bottom">
+                      <div class="col-lg-auto  col-md-6 col-margin-bottom">
                         <input class="dr-btn-default dr-btn-default-margin-top-2" type="submit" role="button" value="Подтвердить"/>
+                      </div>
+                      <div class="col-lg-4 col-md-6 offset-lg-0 offset-md-6 phone-display-hide">
+                        <div class="contact-form__repeat">
+                          <a class="link-default" href="#">
+                            Отправить повторно
+                          </a>
+                          <br/>
+                          <span>
+                            (доступно через 0:20)
+                          </span>
+                        </div>                  
                       </div>
                     </div>              
                     <div class="checkbox">

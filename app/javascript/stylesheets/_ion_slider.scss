@@ -96,6 +96,10 @@
       background-color: darken(#a0ccdb, 20%);
     }
   }
+  
+  .irs-slider.state_hover {
+    background-color: darken(#a0ccdb, 20%);    
+  }
 
   .irs-bar, .irs-bar-edge {
     background: #a0ccdb;
@@ -112,7 +116,7 @@
     height: 7px;
   }
 
-  .irs-from, .irs-to {
+  .irs-from, .irs-to, .irs-single {
     display: none;
   }
 
