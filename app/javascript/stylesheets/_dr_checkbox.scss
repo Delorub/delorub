@@ -1,7 +1,11 @@
 .checkbox {
+  label {
+    margin-bottom: 0;
+  }
   &-custom {
+    transition: 0.1s;
     position: relative;
-    padding: 1px 7px;
+    padding: 0.1rem 0.45rem;
     border: 2px solid #a1cae0;
     border-radius: 3px;
     margin-right: 10px;
@@ -24,8 +28,11 @@
         left: 1px;
         background-color: #fff;
         -webkit-mask-image: url("/images/design/tick_mark.svg");
-        mask-image: url("/images/design/tick_mark.svg");        
-        border-radius: 2px;
+        mask-image: url("/images/design/tick_mark.svg");
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;        
       }
     }
   }

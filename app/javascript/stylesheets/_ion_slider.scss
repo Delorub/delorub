@@ -1,62 +1,103 @@
-.irs {
-  margin-top: 80px;
-}
+.budget-slider {
+  .irs {
+    margin-top: 80px;
+  }
 
-.irs-min, .irs-max, .irs-grid-pol {
-  display: none;
-}
+  .irs-min, .irs-max, .irs-grid-pol {
+    display: none;
+  }
 
-.irs-bar, .irs-bar-edge {
-  background: #a0ccdb;
-  border-top: 1px solid #a0ccdb;
-  border-bottom: 1px solid #a0ccdb;
-  border: #a0ccdb;
-}
+  .irs-bar, .irs-bar-edge {
+    background: #a0ccdb;
+    border-top: 1px solid #a0ccdb;
+    border-bottom: 1px solid #a0ccdb;
+    border: #a0ccdb;
+  }
 
-.irs-line {
-  background: #d2e7ef;
-  border-top: 1px solid #d2e7ef;
-  border-bottom: 1px solid #d2e7ef;
-}
+  .irs-line {
+    background: #d2e7ef;
+    border-top: 1px solid #d2e7ef;
+    border-bottom: 1px solid #d2e7ef;
+  }
 
-.irs-single {
-  padding: 12px;
-  background-color: #4a4a4a;
-  top: -50px;
-  //position: relative;
-  &:after {
-    content: '';
-    position: absolute;
-    left: calc(50% - 10px);
-    top: 42px;
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 10px solid #4a4a4a;
-    clear: both;
+  .irs-single {
+    padding: 12px;
+    background-color: #4a4a4a;
+    top: -50px;    
+    &:after {
+      content: '';
+      position: absolute;
+      left: calc(50% - 10px);
+      top: 42px;
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid #4a4a4a;
+      clear: both;
+    }
+  }
+
+  .irs-slider {
+    width: 25px;
+    height: 25px;    
+    box-shadow: none;    
+  }
+
+  .irs-grid-text {
+    &:before {
+      /*content: '';
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      border-radius: 10px;
+      background-color: #4a4a4a;
+      top: -31px;
+      z-index: 2;
+      left: 9px;*/
+    }
   }
 }
 
-.irs-slider {
-  width: 25px;
-  height: 25px;
-  //border: 1px solid #4a4a4a;
-  box-shadow: none;
-  //background: #fff;
-  //z-index: 3;
-}
-
-.irs-grid-text {
-  &:before {
-    /*content: '';
-    position: absolute;
+.choose-price__slider {
+  .irs-grid-text, .irs-grid-pol {
+    visibility: hidden !important;
+  }
+  
+  .irs-slider {
     width: 15px;
-    height: 15px;
-    border-radius: 10px;
-    background-color: #4a4a4a;
-    top: -31px;
-    z-index: 2;
-    left: 9px;*/
+    height: 15px;    
+    box-shadow: none;
+    border: 0;    
+    background: #a0ccdb;
+    top: 29px;
+    &:hover {
+      background-color: darken(#a0ccdb, 20%);
+    }
+  }
+  
+  .irs-bar, .irs-bar-edge {
+    background: #a0ccdb;
+    border-top: 1px solid #a0ccdb;
+    border-bottom: 1px solid #a0ccdb;
+    border: #a0ccdb;
+    height: 7px;
+  }
+
+  .irs-line {
+    background: #d2e7ef;
+    border-top: 1px solid #d2e7ef;
+    border-bottom: 1px solid #d2e7ef;
+    height: 7px;
+  }
+  
+  .irs-from, .irs-to {
+    display: none;
+  }
+  
+  .irs-min, .irs-max {
+    visibility: visible !important;
+    background: 0;
+    color: #9b9b9b;
   }
 }

@@ -1,70 +1,95 @@
 .task-card {
   &-person {
     &__image {
-      @extend .dr-image;
+      position: relative;
+      max-width: 90px;
+      margin: 0 auto;
+      img {
+        @extend .dr-image;
+        border-radius: 50%;
+        max-width: 90px;
+        margin: 0 auto;
+        margin-top: 5px;
+      }      
     }
     &__name {
-      margin-top: 10px;
+      margin-top: 1rem;
       text-align: center;
     }
   }
   &-description {
+    @media (min-width: 992px) {
+      padding-left: 10px;
+    }    
     &__header {
       font-weight: bold;
       font-size: 1.3rem;
       margin-bottom: 0;
       a {
-        color: #4c4c4c;
+        @extend .link-default;
       }
     }
     &__adress {
-      margin-top: 1rem;            
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      i {
+        font-size: 1.3rem;
+        color: #f44336;
+        margin-right: 5px;
+      }
     }
   }
-  &-refinement {
+  &-refinement, &-button {
     margin: 0 15px;
     &__price {
       text-align: right;
       font-size: 1.5rem;
-    }
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }    
     &__time {
       text-align: right;
+      font-size: 0.9rem;
+      i {
+        font-size: 1rem;
+      }
+      &--quickly {
+        color: #f44336;
+      }
     }
+  }
+  &-refinement {
+    margin-bottom: 1.5rem;
   }
 }
 
 .task-sort {
-  font-size: 0.5rem;
-  @media (min-width: 448px) {
+  font-size: 0.9rem;
+  /*@media (min-width: 448px) {
     font-size: 0.6rem;
   }
   @media (min-width: 768px) {
     font-size: 0.8rem;
-  }
+  }*/
   &__link {
     color: #4c4c4c;
   }
+  .checkbox-custom {
+    padding: 0rem 0.4rem;
+  }
   div>div {
-    padding-left: 2px;
-    padding-right: 2px;
-    &:last-child {
-      text-align: right;
-      padding-right: 10px;
-    }
-    &:first-child {
-      padding-left: 10px;
+    .checkbox {
+      &:last-child {
+        @media (min-width: 1200px) {
+          text-align: right;
+        }             
+      }
     }
   }
 }
 
 .bottom-text {
-  margin: 0px 10%;
-  a {
-    color: $blueColor;
-    display: block;
-    text-align: center;
-    margin-top: 2rem;
-  }
+  margin: 0px 10%;  
 }
 
 .card {
@@ -78,26 +103,69 @@
   }
 }
 
-.choose-city {
-  &__header {
-    @extend .task-card-description__header;
-  }
-  &__link {
-
-  }
-}
-
 .choose-price {
   &__header {
     @extend .task-card-description__header;
-  }    
+    font-size: 1.1rem;
+    padding-left: 15px;
+  }
+  &__link {
+    padding-left: 15px;
+    @media (min-width: 1200px) {
+      padding-right: 15px;
+      padding-top: 3px;
+      padding-left: 0px;
+    }
+  }
+  &__line {
+    border-top: 1px solid #ccc9c9;
+    margin-top: 23px;
+  }
+  &__rub {
+    color: #a5a3a3;
+    font-size: 1.5rem;
+    margin-top: 5px;
+    margin-right: 15px;
+  }
 }
 
 .subcategories {
   &__header {
     @extend .task-card-description__header;
+    font-size: 1.1rem;
+    padding: 25px 40px;
+    border-bottom: 1px solid #d1d1d1;
+  }
+  &-list {    
+    padding: 25px 40px;
+    &__sup {
+      font-weight: bold;
+      font-size: 0.9rem;
+      li {
+        padding: 7.5px 0px;
+        a {
+          transition: 0.3s;
+          color: #4c4c4c;
+        }
+      }      
+    }
+    &__sub {
+      padding: 15px 30px 0 30px;
+      li {
+        padding: 7.5px 0px;
+        font-weight: normal;
+        a {
+          transition: 0.3s;
+          color: #4c4c4c;          
+          &:hover {
+            color: $blueColor;
+          }
+        }
+      }
+    }
   }
   &__list {
+
     li {
       padding: 10px 0;
       a {

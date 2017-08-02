@@ -2,6 +2,7 @@
   color: #70bee9;
   font-weight: bold;
   border-bottom: 1px dashed;
+  transition: 0.3s;
   &:visited {
     color: #70bee9;
   }
@@ -25,6 +26,7 @@
 }
 
 .link-white {
+  transition: 0.3s;
   color: #d1d1d1;
   font-size: 0.8rem;  
   &:hover {    
@@ -37,6 +39,7 @@
     color: #d1d1d1;
   }
   &-bold {
+    transition: 0.3s;
     font-weight: bold;
     color: #ffffff;    
     font-size: 1.1rem;
@@ -53,6 +56,7 @@
 }
 
 .breadcrumb {
+  transition: 0.3s;
   margin-bottom: 0;
   background-color: inherit;
   &-item {

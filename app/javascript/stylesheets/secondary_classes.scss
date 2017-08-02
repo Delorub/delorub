@@ -21,6 +21,18 @@
   }
 }
 
+.lg-hide {
+  @media (max-width: 991px) {
+    display: none;
+  }
+}
+
+.xl-hide {
+  @media (max-width: 1199px) {
+    display: none;
+  }
+}
+
 .col-margin-bottom {
   margin-bottom: 1rem;
 }
