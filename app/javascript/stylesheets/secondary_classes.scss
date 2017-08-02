@@ -27,6 +27,12 @@
   }
 }
 
+.xl-hide {
+  @media (max-width: 1199px) {
+    display: none;
+  }
+}
+
 .col-margin-bottom {
   margin-bottom: 1rem;
 }

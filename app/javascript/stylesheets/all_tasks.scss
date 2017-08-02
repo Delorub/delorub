@@ -107,6 +107,19 @@
   &__header {
     @extend .task-card-description__header;
     font-size: 1.1rem;
+    padding-left: 15px;
+  }
+  &__link {
+    padding-left: 15px;
+    @media (min-width: 1200px) {
+      padding-right: 15px;
+      padding-top: 3px;
+      padding-left: 0px;
+    }
+  }
+  &__line {
+    border-top: 1px solid #ccc9c9;
+    margin-top: 23px;
   }
 }
 
