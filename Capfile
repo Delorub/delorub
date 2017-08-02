@@ -21,6 +21,7 @@ require 'capistrano/rails/migrations'
 
 # Slack
 require 'slackistrano/capistrano'
+require_relative 'lib/slackistrano/custom_messaging'
 
 # Load Puma
 require 'capistrano/puma'

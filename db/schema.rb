@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170726203135) do
+ActiveRecord::Schema.define(version: 20170802063101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -431,6 +431,9 @@ ActiveRecord::Schema.define(version: 20170726203135) do
     t.text "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["action_type"], name: "index_visitor_session_actions_on_action_type"
+    t.index ["identity", "action_type"], name: "index_visitor_session_actions_on_identity_and_action_type"
+    t.index ["keyword", "identity", "action_type"], name: "index_vsa_on_keyword_and_identity_and_action_type"
     t.index ["visitor_session_id"], name: "index_visitor_session_actions_on_visitor_session_id"
   end
 
@@ -439,6 +442,7 @@ ActiveRecord::Schema.define(version: 20170726203135) do
     t.string "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["city"], name: "index_visitor_sessions_on_city"
   end
 
 end

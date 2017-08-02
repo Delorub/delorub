@@ -1,6 +1,4 @@
 import $ from 'jquery'
-import 'bootstrap-slider/dist/bootstrap-slider.js'
-import 'bootstrap-slider/dist/css/bootstrap-slider.css'
 import 'bootstrap-datepicker/dist/css/bootstrap-datepicker.css'
 import 'bootstrap-datepicker/dist/js/bootstrap-datepicker.js'
 import 'bootstrap/dist/js/bootstrap.js'
@@ -8,12 +6,6 @@ import 'ion-rangeslider/js/ion.rangeSlider.js'
 import 'ion-rangeslider/css/ion.rangeSlider.css'
 import 'ion-rangeslider/css/ion.rangeSlider.skinHTML5.css'
 import 'app'
-
-$('#ex2').slider({
-  formatter: function (value) {
-    return 'Current value: ' + value
-  }
-})
 
 $('#budget_slider').ionRangeSlider(
   {
@@ -29,6 +21,16 @@ $('#budget_slider').ionRangeSlider(
       '<b>Крупный бюджет</b> <br/> до 200 000',
       '<b>Крупный бюджет</b> <br/> от 200 000'
     ]
+  })
+
+$('#budget_slider_tasks').ionRangeSlider(
+  {
+    type: 'double',
+    min: 500,
+    max: 10000,
+    step: 500,
+    grid: true,
+    grid_snap: true
   })
 
 $(function () {

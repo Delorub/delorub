@@ -1,6 +1,8 @@
 .index-image
   .container
     = simple_form_for @form do |f|
+      = hidden_field_tag :form_identity, 'coming_form'
+      = hidden_field_tag :form_keyword_field, 'query'
       .index-image__header
         | Сайт пока не идеален и еще
         br/

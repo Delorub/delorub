@@ -1,0 +1,11 @@
+statistics.perform.each do |statistics|
+  columns do
+    column do
+      span I18n.t "visitor_session_statistics.#{statistics[0]}"
+    end
+
+    column span: 3 do
+      span statistics[1]
+    end
+  end
+end
