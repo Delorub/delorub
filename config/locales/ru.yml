@@ -7,6 +7,12 @@ ru:
       date: '%d.%m.%Y'
       timeofday: '%H:%M'
   user_sms_confirmation: "Проверочный код: %{code}. Делоруб"
+  visitor_session_statistics:
+    count: Количество сессий
+    coming_soon_pages: Переходов на coming soon
+    coming_soon_pages_rate: Процент переходов на coming soon
+    coming_soon_requests: Заполнений coming soon
+    coming_soon_requests_rate: Процент заполнений coming soon
   place_type:
     region: "1 - Регион / край"
     district: "2 - Район"
@@ -15,6 +21,13 @@ ru:
     street: "5 - Улица"
     house: "6 - Дом"
   enumerize:
+    visitor_session_action:
+      action_type:
+        internal_link: Переход по ссылке
+        post_form: Заполнение формы
+        global_referer: Внешний реферер
+        yandex_direct: Переход с ЯД
+        utm_source: UTM метка
     profile:
       price_type:
         hourly: "Почасовая ставка"
@@ -61,6 +74,10 @@ ru:
       one_page: "<b>%{n}</b> %{model}"
       multiple: "%{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>%{total}</b>"
       multiple_without_total: "Результат: %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b>"
+    filters:
+      predicates:
+        from: От
+        to: До
     sidebars:
       filters: "Поиск"
       search_status: "Как искали?"
@@ -79,273 +96,3 @@ ru:
     deleted_at: Удалено
     actions: Действия
     reply: Ответ
-  activemodel:
-    errors:
-      models:
-        coming_soon_request/create:
-          attributes:
-            email:
-              not_email: Не похоже на email
-  activerecord:
-    errors:
-      not_email: Это не email
-      user_balance: "Не хватает средств на счету"
-      errors:
-        task:
-          attributes:
-            user:
-              no_available_tasks: У вас закончились бесплатные задания
-        user:
-          attributes:
-            phone:
-              phone_already_confirmed: Такой телефон уже подтвержден
-    models:
-      vacancy:
-        one: Вакансия
-        few: Вакансии
-        many: Вакансий
-        other: Вакансии
-      contract_template:
-        one: Шаблон
-        few: Шаблона
-        many: Шаблонов
-        other: Шаблоны договоров
-      help_question:
-        one: Тикет
-        few: Тикета
-        many: Тикетов
-        other: Поддержка
-      help_category:
-        one: Раздел помощи
-        few: Раздела помощи
-        many: Разделов помощи
-        other: Разделы помощи
-      help_answer:
-        one: Ответ
-        few: Ответа
-        many: Ответов
-        other: Ответы
-      user:
-        one: Пользователь
-        few: Пользователя
-        many: Пользователей
-        other: Пользователи
-      profile:
-        one: Профиль
-        few: Профиля
-        many: Профилей
-        other: Профили
-      category:
-        one: Категория
-        few: Категории
-        many: Категорий
-        other: Категории
-      page:
-        one: Страница
-        few: Страницы
-        many: Страниц
-        other: Страницы
-      news:
-        one: Новость
-        few: Новости
-        many: Новостей
-        other: Новости
-      task:
-        one: Задание
-        few: Задания
-        many: Заданий
-        other: Задания
-      place:
-        one: "Адрес"
-        few: "Адреса"
-        many: "Адресов"
-        other: "Адреса"
-      portfolio_item:
-        one: "Пример работы"
-        few: "Примеры работ"
-        many: "Примеры работ"
-        other: "Примеры работ"
-      comment:
-        one: "Комментарий"
-        few: "Комментария"
-        many: "Комментариев"
-        other: "Комментарии"
-      certificate:
-        one: "Сертификат"
-        few: "Сертификата"
-        many: "Сертификатов"
-        other: "Сертификаты"
-      billing/task_pack: "Пакет заданий"
-      billing/reply_pack: "Пакет ответов"
-      billing/task_subscription: "Абонемент на задания"
-      billing/reply_subscription: "Абонемент на ответы"
-      billing/transfer_manually: "Ручное зачисление"
-      user/billing_log:
-        one: Финансовые отчет
-        few: Финансовых отчета
-        many: Финансовых отчетов
-        other: Финансовые отчеты
-    attributes:
-      user:
-        email: "E-mail"
-        password: "Пароль"
-        name: "Имя"
-        photo: "Фотография"
-        last_name: "Фамилия"
-        created_at: "Дата регистрации"
-        last_sign_in_at: "Последний вход"
-        current_sign_in_ip: "Текущий IP"
-        last_sign_in_ip: "Последний IP"
-        phone: "Телефон"
-        name: "Имя"
-        free_replies_available_sum: "Бесплатные ответы"
-        reply_packs_available_sum: "Оплаченные ответы"
-        free_tasks_available_sum: "Бесплатные задания"
-        task_packs_available_sum: "Оплаченные задания"
-      help_question:
-        answered: "Отвечено"
-        replied_at: "Дата ответа"
-      task:
-        title: "Название"
-        user_id: Пользователь
-        category_id: Категория
-        price_type: "Тип цены"
-        price_exact: "Точная цена"
-        price_from: "Цена от"
-        price_to: "Цена до"
-        geo_lat: "Географическая ширина"
-        geo_long: "Географическая долгота"
-        geo_address: "Адрес"
-        date_type: "Тип сроков"
-        date_actual_date: "Дни актуальности"
-        date_from: "Актуально с"
-        date_to: "Актуально до"
-        description: "Описание"
-        notify_email: "Уведомлять на email"
-        visible: "Доступно на сайте"
-        archive: "Находится в архиве"
-        created_at: "Дата создания"
-        price_scale: "Ценовая шкала"
-        place: "Место"
-        place_lat: "Место(широта)"
-        place_long: "Место(долгота)"
-        place_address: "Адрес"
-        contract_type: "Тип контракта"
-        colored:  "Выделенный"
-      place:
-        name: "Название"
-        place_type_name: "Тип адреса"
-        fias_aoguid: "Идентификатор ФИАС"
-        parent_place: "Родительский адрес"
-        region_place: "Принадлежит региону"
-        place_type_text: "Общий тип адреса"
-        full_name: "Полное название"
-        level: "Уровень вложенности"
-        search_string: "Поисковые синонимы"
-      category:
-        parent: "Родительская категория"
-        title: "Название"
-        master_count: "Количество мастеров"
-        form_count: "Количество анкет"
-        photo: "Изображение"
-      news:
-        title: "Заголовок"
-        text: "Содержание"
-        photo: "Изображение"
-        created_at: "Дата публикации"
-        updated_at: "Последнее изменение"
-      page:
-        title: "Название"
-        slug: "Адрес страницы"
-        content: "Содержание"
-        draft: "Черновик"
-      billing/task_pack:
-        amount: "Количество заданий"
-        cost: "Стоимость"
-      billing/reply_pack:
-        amount: "Количество ответов"
-        cost: "Стоимость"
-      billing/reply_subscription:
-        active_from: "Действительна с"
-        active_to: "Действительна до"
-        cost: "Стоимость"
-      billing/task_subscription:
-        active_from: "Действительна с"
-        active_to: "Действительна до"
-        cost: "Стоимость"
-      billing/transfer_manually:
-        amount: "Сумма"
-      user/billing_log:
-        created_at: "Дата"
-        sum: "Сумма"
-        billable_type: "Тип операции"
-        billable: "Операция"
-        user: "Пользователь"
-      help_answer:
-        help_category: "Раздел"
-      user_permission:
-        superadmin: "Супер администратор"
-        superadmin_description: "Доступ ко всем возможным функциям, а так же невозможность блокирования и изменения профиля другими администраторами"
-        admin: "Панель администратора"
-        admin_dashboard: "Доступ к панели администрирования"
-        admin_search: "Поиск по панели администрирования"
-        admin_place: "Адреса"
-        admin_user_billing_log: "Просмотр финансовых операций"
-        admin_task: "Задания"
-        admin_task_view: "Просмотр заданий"
-        admin_task_edit: "Создание и редактирование заданий"
-        admin_task_delete: "Удаление заданий"
-        admin_category: "Категории"
-        admin_category_view: "Просмотр категорий"
-        admin_category_edit: "Создание и редактирование категорий"
-        admin_category_delete: "Удаление категорий"
-        admin_news: "Новости"
-        admin_news_view: "Просмотр новостей"
-        admin_news_edit: "Создание и редактирование новостей"
-        admin_news_delete: "Удаление новостей"
-        admin_page: "Управление страницами"
-        admin_page_view: "Просмотр страниц"
-        admin_page_edit: "Редактирование страниц"
-        admin_user: "Управление пользователями"
-        admin_user_view: "Просмотр пользователей"
-        admin_user_edit: "Создание и редактирование пользователей"
-        admin_user_delete: "Удаление пользователей"
-        admin_user_permissions: "Управление доступами пользователей"
-        admin_user_permissions_description: "Внимание! С этим доступом пользователь сможет выставить себе роль суперадминистратора"
-        admin_user_billing: "Управление балансом и платными функциями пользователя"
-        admin_reply: "Управление ответами"
-        editor: "Панель редактора"
-        editor_dashboard: "Доступ к панели редактора"
-        editor_user: "Управление пользователями"
-        editor_user_view: "Просмотр пользователей"
-        editor_user_permissions: "Управление доступами пользователей"
-        editor_user_permissions_description: "Позволяет управлять доступами только в рамках панели редактора"
-        editor_user_block: "Блокировка пользователей"
-        editor_user_billing: "Управление балансом и платными функциями пользователя"
-        editor_news: "Управление новостями"
-        editor_task: "Управление заданиями"
-        editor_reply: "Управление ответами"
-      profile:
-        work_type: 'Тип работы'
-        have_car: 'Есть машина'
-        about: 'О себе'
-        user_id: 'Пользователь'
-        place_id: 'ID места'
-        price_type: 'Тип ставки'
-        price_hourly: 'Часовая ставка'
-        price_project: 'Ставка за проект'
-        have_instrument: 'Есть инструменты'
-        can_departure: 'Выезд'
-        working_all_time: 'Круглосуточно'
-        working_days: 'Рабочие дни'
-        working_hours_from: 'с'
-        working_hours_to: 'по'
-        rating_votes_count: 'Кол-во оценок'
-        rating_votes_sum: 'Рейтинг'
-        notifications_email_enabled: 'Уведомение по email'
-      portfolio_item:
-        profile: 'Пользователь'
-      comment:
-        user: 'Пользователь'
-        text: 'Комментарий'
-        parent: 'Родитель'
