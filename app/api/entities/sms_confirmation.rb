@@ -1,5 +1,4 @@
-class Entities::SmsConfirmationForm < Grape::Entity
-  expose :id
+class Entities::SmsConfirmation < Grape::Entity
   expose :token
   expose :phone
   expose :accepted

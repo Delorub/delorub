@@ -1,6 +1,11 @@
 ru:
   errors:
+    filled?: Не может быть пустым
+    str?: Пожалуйста, заполните
     phone?: Не похоже на номер телефона
+    rules:
+      phone:
+        accepted?: Подтвердите номер мобильного телефона
   time:
     formats:
       datepicker_date: '%d.%m.%Y'

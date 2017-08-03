@@ -14,46 +14,5 @@
 #
 
 class SmsConfirmation < ApplicationRecord
-  validates :phone, :token, presence: true
-
-  before_save :generate_code
-  after_create :send_sms
-
-  def check_code! value
-    raise Exception, 'SMS is not send to generate token' if new_record?
-    if value == code
-      self.accepted = true
-      save
-    else
-      increment :attempts
-      false
-    end
-  end
-
-  def token
-    super || generate_token
-  end
-
-  def resend_code
-    generate_code
-    send_sms
-  end
-
-  private
-
-    def generate_token
-      self.token = SecureRandom.hex
-    end
-
-    def send_sms
-      self.last_sent_at = Time.zone.now
-      SmsSender.new(
-        phone: phone,
-        message: I18n.t('user_sms_confirmation', code: code)
-      ).perform
-    end
-
-    def generate_code
-      self.code = [1, 1, 1, 1].map! { |x| (0..9).to_a.sample }.join
-    end
+  validates :phone, :token, :code, presence: true
 end

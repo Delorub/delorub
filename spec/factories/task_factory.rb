@@ -40,7 +40,7 @@ FactoryGirl.define do
     sequence(:description) { |n| Faker::Lorem.paragraph }
 
     price_type :exact
-    date_type :actual
+    date_type :start_at
 
     user
     category

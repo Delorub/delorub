@@ -16,26 +16,12 @@ class TasksController < ApplicationController
   end
 
   def new
-    authorize Task, :create?
-    @form = TaskForm.new Task.new(user: current_user).decorate
-    form_from_session
+    run Task::Operation::Present
   end
 
   def create
-    authorize Task, :create?
-    @form = TaskForm.new Task.new(user: current_user).decorate
-
-    if @form.validate task_params
-      unless user_signed_in?
-        store_form_to_session
-        return redirect_to new_user_session_path, notice: 'Отлично! Для завершения нужно войти либо зарегистрироваться'
-      end
-      creator = Task::FormCreator.new(@form)
-      creator.perform
-      return redirect_to task_path(creator.model), notice: 'Задание добавлено' if creator.model.persisted?
-      flash.now.alert = creator.last_error
-    else
-      flash.now.alert = @form.errors
+    run Task::Operation, task_params do |result|
+      return redirect_to task_path(result['model']), notice: 'Задание добавлено'
     end
 
     render 'new'
@@ -77,9 +63,7 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:title, :description, :main_category_id, :category_id, :price_type, :price_exact,
-        :price_from, :price_to, :date_type, :date_actual_date, :date_actual_time, :contract_type, :paid_functions,
-        :notifications_type, :place_id, :place_address, :date_interval_from_date, :date_interval_to_date, files: [:id])
+      params.require(:task).permit!
     end
 
     def current_url category:

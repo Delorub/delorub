@@ -1,7 +1,7 @@
 .popover {
   padding: 20px;
   border-radius: 3px;
-  border: solid 2px #e1dfdf;  
+  border: solid 2px #e1dfdf;
   font-family: $GothamPro;
   margin-left: 14% !important;
   min-width: 100px;
@@ -48,15 +48,19 @@
   border-width: 16px;
 }
 
-.dr-popover {
+#taskPopoverArea {
   @media (max-width: 1200px) {
     display: none;
   }
+}
+
+.dr-popover {
   padding: 19px 25px;
   background-color: #fff;
   border: solid 2px #e1dfdf;
   margin-bottom: 14px;
   position: relative;
+  width: auto;
   &-margin-top {
     &-300 {
       margin-top: 300px;
