@@ -14,7 +14,10 @@ class VisitorSessionService
   def perform
     return if no_session?
     model
-    cookies[:no_visitor_session] = true if model.city.nil?
+    if model.city.nil?
+      cookies[:no_visitor_session] = true
+      return
+    end
     check_referers
     check_forms
     check_internal_link
