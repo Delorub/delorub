@@ -35,7 +35,7 @@ class VisitorSession < ApplicationRecord
     [:source_and_identity, :custom_city]
   end
 
-  has_many :actions, class_name: 'VisitorSessionAction'
+  has_many :actions, class_name: 'VisitorSessionAction', dependent: :destroy
   has_many :coming_soon_requests
   has_one :coming_soon_request
 end
