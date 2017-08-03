@@ -14,6 +14,16 @@
 #
 
 class VisitorSession < ApplicationRecord
+  MAIN_CITY_NAMES = ['Москва', 'Санкт-Петербург', 'Екатеринбург', 'Новосибирск'].freeze
+
+  scope :custom_city, ->(city) {
+    if city == '#other#'
+      where.not(city: MAIN_CITY_NAMES).or(where(city: nil))
+    else
+      where(city: city)
+    end
+  }
+
   scope :source_and_identity, ->(q) {
     action_type, identity = q.split('#')
     return_scope = joins(:actions).where(visitor_session_actions: { action_type: action_type }).distinct
@@ -22,7 +32,7 @@ class VisitorSession < ApplicationRecord
   }
 
   def self.ransackable_scopes auth_object = nil
-    [:source_and_identity]
+    [:source_and_identity, :custom_city]
   end
 
   has_many :actions, class_name: 'VisitorSessionAction'

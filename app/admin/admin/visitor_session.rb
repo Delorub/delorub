@@ -3,7 +3,39 @@ ActiveAdmin.register VisitorSession do
 
   decorate_with VisitorSessionDecorator
 
-  filter :city, as: :select
+  filter :custom_city,
+    as: :select,
+    collection: -> {
+      result =  collection \
+                .object
+                .limit(nil)
+                .reorder(nil)
+                .group(:city)
+                .pluck(
+                  'COUNT(DISTINCT visitor_sessions.id) as count',
+                  'visitor_sessions.city'
+                )
+
+      other_cities_count =  result \
+                            .reject { |e| VisitorSession::MAIN_CITY_NAMES.include? e[1] }
+                            .map { |e| e[0].to_i }
+                            .inject(0, :+)
+
+      result.select! do |e|
+        VisitorSession::MAIN_CITY_NAMES.include? e[1]
+      end
+
+      result.map! do |e|
+        [
+          "#{e[1]} (#{e[0]})",
+          e[1]
+        ]
+      end
+
+      result << ["Другие города (#{other_cities_count})", '#other#'] if other_cities_count.positive?
+
+      result.to_h
+    }
   filter :created_at
   filter :source_and_identity,
     as: :select,
