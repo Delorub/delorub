@@ -80,23 +80,31 @@
                         <div class="row">
                           <div class="col-xl-6">
                             <div class="form-check">
-                              <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                                <b>Как заказчик</b>
-                              </label>
+
+                              <div class="dr-radio">
+                                <input type="radio" id="a-option" name="optionsRadios" checked>
+                                <label for="a-option">Как заказчик</label>
+
+                                <div class="check"></div>
+                              </div>
+
                             </div>
                           </div>
                           <div class="col-xl-6 xl-right">
                             <div class="form-check">
-                              <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-                                <b>Как исполнитель</b>
-                              </label>
+
+                              <div class="dr-radio">
+                                <input type="radio" id="b-option" name="optionsRadios">
+                                <label for="b-option">Как исполнитель</label>
+
+                                <div class="check"></div>
+                              </div>
+
                             </div>
                           </div>
                         </div>
                       </fieldset>
-
+                      
                       <div class="sign_in-form__inputs">
                         <input type="text" class="form-control form-control__item" id="email" placeholder="Ваш email"/>
                         <input type="password" class="form-control form-control__item" id="password" placeholder="Пароль"/>
@@ -148,9 +156,9 @@
                     <div class="first-time-sign-in__button">
                       <a class="dr-btn-danger" href="#">Разместите заказ</a>
                     </div>
-                    
+
                     <p class="first-time-sign-in__else">ИЛИ</p>
-                    
+
                     <div class="first-time-sign-in__button">
                       <a class="dr-btn-primary" href="#">Станьте исполнителем</a>
                     </div>
