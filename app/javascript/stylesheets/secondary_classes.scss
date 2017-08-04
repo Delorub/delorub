@@ -8,6 +8,9 @@
 
 .right {
   float: right;
+  &-align {
+    text-align: right;
+  }
 }
 
 .margin-side {
@@ -30,6 +33,12 @@
 .xl-hide {
   @media (max-width: 1199px) {
     display: none;
+  }
+}
+
+.xl-right {
+  @media (min-width: 1200px) {
+    text-align: right;
   }
 }
 

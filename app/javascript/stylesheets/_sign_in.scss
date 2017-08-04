@@ -2,40 +2,44 @@
 	&-form {
 		&__header {
 			@extend .dr-header;
+      font-family: $GothamBold;
 		}
 		&__content {
-			margin-top: 30px;
+			margin-top: 1rem;
+      hr {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+      }
 		}
 		&__inputs {
-			margin-top: 30px;
+			margin-top: 2.5rem;
 		}
+    &__remind {
+      margin-top: 1rem;
+    }
 		&__enter {
-			margin-top: 30px;	  
-			.btn {
+			text-align: center;
+      margin-top: 2rem;
+			.dr-btn-primary {
 				width: 100%;		
-				margin-top: 10px;
-			}
-		}
-		&__remind-password {
-			color: $blueColor;
-		}
+				margin-top: 1rem;
+			}      
+		}		
 	}
 }
 
 .first-time-sign-in {
 	&__header {
 		@extend .dr-header;
+    font-family: $GothamBold;
 	}
 	&__button {
-		margin-top: 30px;
-		.btn {
+		margin-top: 2rem;
+		.dr-btn-danger, .dr-btn-primary {
 			width: 70%;			
 		}
 	}
-	&__link {
-		font-size: 0.8rem;
-		margin-top: 20px;
-		color: $blueColor;
-		display: block;
-	}
+	&__link, &__else {		
+		margin-top: 2rem;		
+	}   
 }
