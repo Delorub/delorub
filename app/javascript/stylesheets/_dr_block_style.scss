@@ -1,0 +1,40 @@
+.dr-block-style {
+  position: relative;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 2px 7px 0 rgba(121, 120, 120, 0.5);
+  padding: 28px 40px;
+  margin: 2px 0 0;
+  &--card {
+    margin-top: 6px;
+    padding: 40px 40px;
+    &:hover {
+      box-shadow: 0 4px 15px 0 rgba(150, 149, 149, 0.5);
+    }
+  }
+  &--profile {    
+    padding: 40px 40px;
+    &-left {
+      margin-bottom: 6px;
+      padding: 40px 40px;
+    }
+  }
+  &--sort-padding {
+    padding: 22px 40px;
+  }
+  &--category {
+    padding: 0;
+  }
+  &--price {
+    padding: 25px 40px;
+    margin-bottom: 6px;
+  }
+  &--sign-in {
+    padding: 36px 50px;
+  }  
+  >div {
+    &:last-child {
+      margin-bottom: 0;
+    } 
+  }
+}
