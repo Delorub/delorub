@@ -1,0 +1,27 @@
+.task-sort {
+  font-size: 0.9rem;  
+  &__link {
+    color: #4c4c4c;
+    &:hover {
+      color: #3583ae;
+    }
+    &-active {
+      color: #519dc7;
+      &:hover {
+        color: #3583ae;
+      }
+    }
+  }
+  .checkbox-custom {
+    padding: 0rem 0.4rem;
+  }
+  div>div {
+    .checkbox {
+      &:last-child {
+        @media (min-width: 1200px) {
+          text-align: right;
+        }             
+      }
+    }
+  }
+}
