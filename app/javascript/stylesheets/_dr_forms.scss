@@ -1,0 +1,20 @@
+.contact-form {
+  &__error-message {    
+    color: #f44336;
+    font-weight: bold;
+    margin-bottom: 1rem;    
+  }
+  &__phone {
+    margin-bottom: 0.5rem;
+    span + a {
+      margin-left: 20px;
+    }
+    &-number {
+      font-weight: bold;
+    }    
+  }
+  &__repeat {
+    margin-bottom: 1rem;
+    padding-top: 5px;
+  }
+}
