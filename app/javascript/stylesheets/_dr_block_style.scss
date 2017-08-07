@@ -7,7 +7,7 @@
   margin: 2px 0 0;
   &--card {
     margin-top: 6px;
-    padding: 40px 40px;
+    padding: 40px;
     &:hover {
       box-shadow: 0 4px 15px 0 rgba(150, 149, 149, 0.5);
     }
@@ -31,7 +31,10 @@
   }
   &--sign-in {
     padding: 36px 50px;
-  }  
+  }
+  &--feedline {
+    padding: 40px 30px 30px 40px;
+  }
   >div {
     &:last-child {
       margin-bottom: 0;
