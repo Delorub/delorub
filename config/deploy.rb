@@ -1,4 +1,4 @@
-lock '3.8.2'
+lock '3.9.0'
 
 set :branch, ENV['BRANCH'] if ENV['BRANCH']
 
