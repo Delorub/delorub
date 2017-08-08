@@ -4,7 +4,32 @@ body {
   background-color: #edeef0;
   font-family: $GothamPro;
   font-size: 14px;
-  color: #4a4a4a;
+  line-height: 1.3rem;
+  color: $color;
+}
+
+h1 {
+  font-size: 24px;
+  font-family: $GothamBold;
+  color: $color;
+}
+
+h2 {
+  font-size: 20px;
+  font-family: $GothamMedium;
+  color: $color;
+}
+
+h3 {
+  font-size: 18px;
+  font-family: $GothamMedium;
+  color: $color;
+}
+
+h4 {
+  font-size: 14px;
+  font-family: $GothamMedium;
+  color: $color;
 }
 
 @media (min-width: 1200px) {
@@ -92,7 +117,7 @@ footer {
         padding: 10px;		
         margin-top: 5px;
         margin-bottom: 5px;
-        color: #4a4a4a;	
+        color: $color;	
         display: inline-block;
         transition: $transition;
         &:hover {
@@ -113,4 +138,15 @@ footer {
       }
     }
   }
+}
+
+.dr-list {
+  color: #9b9b9b;
+}
+
+.UI-header {
+  font-family: "GothamProBold", sans-serif;
+  color: #9b9b9b;
+  font-size: 32px;
+  margin-bottom: 1.5rem;
 }
