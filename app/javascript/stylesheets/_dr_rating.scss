@@ -8,13 +8,13 @@
     margin: 2px 1px -1px 1px;
     display: inline-block;
     &-full {
-      background-image: url("/images/design/star_full.svg");
+      background-image: url("/images/rating/star_full.svg");
     }
     &-empty {
-      background-image: url("/images/design/star_empty.svg");
+      background-image: url("/images/rating/star_empty.svg");
     }
     &:hover {
-      background-image: url("/images/design/star_hover.svg");
+      background-image: url("/images/rating/star_hover.svg");
     }
   }
   &-container {

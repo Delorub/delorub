@@ -11,7 +11,10 @@
       min-height: 40px;
       display: flex;
       align-items: center;
-      justify-content: center;      
+      justify-content: center;
+      &:hover {
+        background-color: #fcf1f1;
+      }
     }
     &:first-child {
       margin-right: 14px;
@@ -25,7 +28,11 @@
   .page-item-active {
     .page-link {
       color: #fff;
-      background-color: #70bee9;;
+      background-color: #70bee9;
+      &:hover {
+        color: #9b9b9b;
+        background-color: #e9e0e0;
+      }
     }
   }
   .disabled {

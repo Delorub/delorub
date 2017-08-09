@@ -1,8 +1,4 @@
-.registration-form {
-  &__header {    
-    @extend .dr-header;
-    font-family: $GothamBold;
-  }
+.registration-form {  
   &__content {
     margin-top: 2rem;
     &-circle {
@@ -21,5 +17,5 @@
     &-button-submit {      
       margin-top: 2rem;
     }
-  }
+  }  
 }

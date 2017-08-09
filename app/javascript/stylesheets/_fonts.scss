@@ -30,3 +30,11 @@
     url("../fonts/GothamProBlack/GothamProBlack.woff") format('woff'), 
     url("../fonts/GothamProBlack/GothamProBlack.ttf") format('truetype');
 }
+@font-face {
+  font-family: 'GothamProMedium';
+  src: local('GothamProMedium'), 
+    url("../fonts/GothamProMedium/GothamProMedium.eot") format('embedded-opentype');
+  src: local('GothamProMedium'),    
+    url("../fonts/GothamProMedium/GothamProMedium.woff") format('woff'), 
+    url("../fonts/GothamProMedium/GothamProMedium.ttf") format('truetype');
+}

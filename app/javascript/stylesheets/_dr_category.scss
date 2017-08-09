@@ -23,7 +23,7 @@
     padding: 1rem 0;    
     a {
       display: block;
-      color: #4a4a4a;
+      color: $color;
       &:hover {
         color: $blueColor;
       }
@@ -46,5 +46,44 @@
       background-image: url("/images/category/cleaning.png");
       background-color: $grayColor;
     }    
+  }
+}
+
+.subcategories {
+  &__header {
+    @extend .task-card-description__header;
+    font-size: 1.1rem;
+    padding: 25px 40px;
+    border-bottom: 1px solid #d1d1d1;
+  }
+  &-list {    
+    padding: 25px 40px;
+    &__sub, &__sup {
+      font-weight: bold;
+      font-size: 0.9rem;
+      li {
+        padding: 7.5px 0px;
+        a {
+          transition: 0.3s;
+          color: #4c4c4c;
+          &:hover {
+            color: $blueColor;
+          }
+        }
+      }      
+    }
+    &__sub {
+      font-weight: normal;
+      padding: 15px 30px 0 30px;      
+    }    
+  }
+  &__list {
+
+    li {
+      padding: 10px 0;
+      a {
+        color: #4c4c4c;
+      }
+    }
   }
 }
