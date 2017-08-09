@@ -1,10 +1,11 @@
 import $ from 'jquery'
-import 'bootstrap-datepicker/dist/css/bootstrap-datepicker.css'
-import 'bootstrap-datepicker/dist/js/bootstrap-datepicker.js'
 import 'bootstrap/dist/js/bootstrap.js'
 import 'ion-rangeslider/js/ion.rangeSlider.js'
 import 'ion-rangeslider/css/ion.rangeSlider.css'
 import 'ion-rangeslider/css/ion.rangeSlider.skinHTML5.css'
+import 'eonasdan-bootstrap-datetimepicker'
+// import 'eonasdan-bootstrap-datetimepicker/src/sass/bootstrap-datetimepicker-build.scss'
+import 'selectize'
 import 'app'
 
 $('#budget_slider').ionRangeSlider(
@@ -37,7 +38,6 @@ $(function () {
   $('[data-toggle="popover"]').popover()
 })
 
-$('.datepicker').datepicker({
-  format: 'mm/dd/yyyy',
-  startDate: '-3d'
-})
+$('.markup-select').selectize()
+
+$('.markup-datepicker').datetimepicker()
