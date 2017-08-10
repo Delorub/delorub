@@ -43,7 +43,7 @@ module Task::Contract
       required(:description).filled
       required(:category_id).filled
 
-      required(:price_exact).filled
+      required(:price_exact).filled(:int?)
     end
 
     def notifications_type_options

@@ -1,5 +1,7 @@
 <script>
 import Tether from 'tether'
+import 'selectize'
+import $ from 'jquery'
 
 export default {
   props: [
@@ -27,6 +29,8 @@ export default {
         this.initializeMap()
       }
     })
+    $(this.$refs.dateTypeSelect).selectize()
+    $('.dpicker').datetimepicker()
     this.showTooltip('task_title')
   },
   methods: {

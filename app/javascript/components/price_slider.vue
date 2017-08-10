@@ -38,7 +38,7 @@ export default {
             let currentStep = _.find(this.steps, (step) => (
               step.step === value
             ))
-            return currentStep.title + ' (до ' + currentStep.step + ' рублей)'
+            return currentStep.title
           }
         }
       }

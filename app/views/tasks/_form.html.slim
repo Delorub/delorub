@@ -44,12 +44,13 @@
                     .row
                       .col-lg-4
                         .form-group id="task_dates"
-                          = f.input :date_type, label: false,
+                          = f.input_field :date_type, label: false, wrapper: false,
                             collection: f.object.model.class.enumerized_attributes[:date_type].options,
-                            input_html: { \
-                              'v-model': 'model.date_type',
-                              'v-on:click': %(showTooltip('task_dates')),
-                            }
+                            class: nil,
+                            'ref': 'dateTypeSelect',
+                            'v-model': 'model.date_type',
+                            'v-on:click': %(showTooltip('task_dates'))
+
                       template v-if="model.date_type == 'interval'"
                         .col-lg-4
                           .form-group
@@ -110,9 +111,15 @@
                       label.form-group__header for="contact"  Укажите контактную информацию
                       .row
                         .col-lg-4.col-md-6
-                          = rf.input :name, label: false, error: false
+                          = rf.input :name, label: false, error: false,
+                            input_html: { \
+                              'v-on:focus': %(showTooltip('task_contacts')),
+                            }
                         .col-lg-4.col-md-6
-                          = rf.input :email, label: false, error: false
+                          = rf.input :email, label: false, error: false,
+                            input_html: { \
+                              'v-on:focus': %(showTooltip('task_contacts')),
+                            }
                         .col-lg-4.offset-lg-0.col-md-6.offset-md-6 class=('error-display-hide' if (rf.object.errors.keys & [:name, :email]).count.zero?)
                           .contact-form__error-message
                             span = rf.error (rf.object.errors.keys & [:name, :email]).first
