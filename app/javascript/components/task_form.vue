@@ -35,11 +35,12 @@ export default {
   },
   methods: {
     initializeMap () {
-      document.getElementById('task_form_map').classList.remove('hidden')
-      this.map = new this.ymaps.Map('task_form_map', {
+      this.$refs.placeMap.classList.remove('hidden')
+      this.map = new this.ymaps.Map(this.$refs.placeMap, {
         center: [59.94, 30.32],
-        zoom: 10
+        zoom: 12
       })
+      this.positionPopover()
       this.map.events.add('click', (event) => {
         this.showTooltip('task_place_address')
         this.placeByCoords(event.get('coords'))
@@ -82,6 +83,8 @@ export default {
       this.map.geoObjects.add(placemark)
       this.placemark = placemark
 
+      this.map.setCenter(coordinates)
+
       if (changeAddress) {
         this.model.place_address = name
       }
@@ -115,6 +118,11 @@ export default {
         })
       } else {
         this.popoverTether.target = target
+        this.popoverTether.position()
+      }
+    },
+    positionPopover () {
+      if (this.popoverTether !== null) {
         this.popoverTether.position()
       }
     }

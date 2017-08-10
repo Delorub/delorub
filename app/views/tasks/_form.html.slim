@@ -54,7 +54,7 @@
                       template v-if="model.date_type == 'interval'"
                         .col-lg-4
                           .form-group
-                            .input-group.date
+                            .input-group
                               input.dpicker.form-control.form-control__item type="text" /
                               .input-group-addon
                                 i.fa.fa-calendar aria-hidden="true"
@@ -63,8 +63,8 @@
                             a href="#"  завтра
                         .col-lg-4
                           .form-group
-                            .input-group.date
-                              input.dpicker.form-control.form-control__item type="text" /
+                            .input-group.dpicker
+                              input.form-control.form-control__item type="text" /
                               .input-group-addon
                                 i.fa.fa-calendar aria-hidden="true"
                           .form-group__sublink
@@ -80,12 +80,13 @@
                             'v-model': 'model.place_address',
                             'v-on:focus': %(showTooltip('task_place_address')),
                             'v-on:change': %(placeByAddress(model.place_address)),
+                            '@keydown.enter.prevent': '',
                           }
-                  #task_form_map
+                  div.hidden ref="placeMap"
                 .dr-block-style id="task_prices" v-on:click="showTooltip('task_prices')"
                   .form-group
                     label.form-group__header for="task_price_exact"  На какой бюджет ориентироваться исполнителям
-                    .budget-slider
+                    .budget-slider.hidden
                       price-slider
                         = f.input :price_scale, as: :hidden,
                           input_html: { \

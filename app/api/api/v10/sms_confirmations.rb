@@ -1,4 +1,10 @@
 class Api::V10::SmsConfirmations < ApplicationAPI
+  helpers do
+    def operation_error! result
+      return error! result['contract.default'].errors unless result['contract.default'].nil?
+    end
+  end
+
   namespace :sms_confirmations do
     desc 'Send code and get token'
     params do
@@ -6,7 +12,7 @@ class Api::V10::SmsConfirmations < ApplicationAPI
     end
     post do
       result = SmsConfirmation::Operation::Create.call(params)
-      return error! result['contract.default'].errors if result.failure?
+      return operation_error! result if result.failure?
       present result['model'], with: Entities::SmsConfirmation
     end
 
@@ -17,7 +23,7 @@ class Api::V10::SmsConfirmations < ApplicationAPI
     end
     put do
       result = SmsConfirmation::Operation::Check.call(params)
-      return error! result['contract.default'].errors if result.failure?
+      return operation_error! result if result.failure?
       present result['model'], with: Entities::SmsConfirmation
     end
   end
