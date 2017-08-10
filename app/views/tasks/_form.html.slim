@@ -107,35 +107,36 @@
                         = f.error :price_exact
                 .dr-block-style
                   = f.simple_fields_for :new_user do |rf|
-                    div id="task_contacts" v-on:click="showTooltip('task_contacts')"
-                      label.form-group__header for="contact"  Укажите контактную информацию
-                      .row
-                        .col-lg-4.col-md-6
-                          = rf.input :name, label: false, error: false,
-                            input_html: { \
-                              'v-on:focus': %(showTooltip('task_contacts')),
-                            }
-                        .col-lg-4.col-md-6
-                          = rf.input :email, label: false, error: false,
-                            input_html: { \
-                              'v-on:focus': %(showTooltip('task_contacts')),
-                            }
-                        .col-lg-4.offset-lg-0.col-md-6.offset-md-6 class=('error-display-hide' if (rf.object.errors.keys & [:name, :email]).count.zero?)
-                          .contact-form__error-message
-                            span = rf.error (rf.object.errors.keys & [:name, :email]).first
-                      .contact-form__phone
-                        span Укажите ваш номер телефона и подтвердите его
-                      = rf.simple_fields_for :sms_confirmation do |sf|
-                        = render 'shared/phone_confirmation', f: sf
-                      .checkbox
-                        label
-                          input type="checkbox" value="" /
-                          span.checkbox-custom
-                          | Я согласен с&nbsp;
-                          a.link-default href="#" правилами сервиса
-                          |  и&nbsp;
-                          a.link-default href="#" политикой обработки персональных данных
-                        = rf.error :accept_terms
+                    - unless rf.object.nil?
+                      div id="task_contacts" v-on:click="showTooltip('task_contacts')"
+                        label.form-group__header for="contact"  Укажите контактную информацию
+                        .row
+                          .col-lg-4.col-md-6
+                            = rf.input :name, label: false, error: false,
+                              input_html: { \
+                                'v-on:focus': %(showTooltip('task_contacts')),
+                              }
+                          .col-lg-4.col-md-6
+                            = rf.input :email, label: false, error: false,
+                              input_html: { \
+                                'v-on:focus': %(showTooltip('task_contacts')),
+                              }
+                          .col-lg-4.offset-lg-0.col-md-6.offset-md-6 class=('error-display-hide' if (rf.object.errors.keys & [:name, :email]).count.zero?)
+                            .contact-form__error-message
+                              span = rf.error (rf.object.errors.keys & [:name, :email]).first
+                        .contact-form__phone
+                          span Укажите ваш номер телефона и подтвердите его
+                        = rf.simple_fields_for :sms_confirmation do |sf|
+                          = render 'shared/phone_confirmation', f: sf
+                        .checkbox
+                          label
+                            input type="checkbox" value="" /
+                            span.checkbox-custom
+                            | Я согласен с&nbsp;
+                            a.link-default href="#" правилами сервиса
+                            |  и&nbsp;
+                            a.link-default href="#" политикой обработки персональных данных
+                          = rf.error :accept_terms
                   br/
                   .center
                     = f.submit 'Создать задание', class: 'dr-btn-danger'
