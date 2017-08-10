@@ -41,6 +41,14 @@ $('.markup-select').selectize({
   sortField: 'text'
 })
 
-$.datetimepicker.setLocale('ru')
+// $.datetimepicker.setLocale('ru')
 
-// $('.markup-datepicker').datetimepicker()
+$('.markup-datepicker').datetimepicker({
+  locale: 'ru',
+  icons: {
+    time: 'fa fa-clock-o',
+    date: 'fa fa-calendar',
+    up: 'fa fa-arrow-up',
+    down: 'fa fa-arrow-down'
+  }
+})
