@@ -15,8 +15,8 @@
 
 FactoryGirl.define do
   factory :sms_confirmation do
-    token { "test123" }
+    token { 'test123' }
     sequence(:phone) { |n| Phony.format("7999#{1_234_567 + n}") }
-    code { "1234" }
+    code { '1234' }
   end
 end
