@@ -1,7 +1,18 @@
-en:
+ru:
   simple_form:
     yes: 'Да'
     no: 'Нет'
     required:
       text: 'обязательно'
       mark: '*'
+    placeholders:
+      new_user:
+        name: Ваше имя
+        email: Ваш email
+      sms_confirmation:
+        phone: Ваш телефон
+      task:
+        title: 'Например, доставить груз'
+        description: 'Опишите вашу задачу. Например, нужно доставить груз из склада на Невском пр. 8 в магазин на Литейном пр. 10'
+        price_exact: '300 000'
+        place_address: 'Санкт-Петербург, ул. Бадаева, 6'

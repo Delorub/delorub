@@ -1,68 +1,224 @@
-.dr-block-style
-  nav.breadcrumb
-    a.breadcrumb-item href="#" Главная
-    a.breadcrumb-item href="#" Вторая
-    span.breadcrumb-item.active Текущая
-task-form inline-template=""
-  = simple_form_for @form do |f|
-    .dr-content-header
-      p.dr-content-header__text.dr-content-header__text-margin-bottom-none
-        | &nbsp;Заказать&nbsp;
-        a.dr-content-header__link href="#" ремонт стиральной машинки
-        | &nbsp;в&nbsp;
-        a.dr-content-header__link href="#" Москве
-    .dr-form
-      .dr-block-style
-        = f.input :title, label_html: { class: 'form-group__header' }, input_html: { 'v-model': 'title' }
-      .dr-block-style
-        .form-group
-          = f.label :description, class: 'form-group__header'
-          = f.input_field :description, as: :text, class: 'form-control form-group__item form-group__item-marginbottom-10'
-          a.form-group__sublink href="#"  Прикрепить изображение или текстовый файл
-      .dr-block-style
-        .form-group
-          = f.label :date_type, class: 'form-group__header'
-          .row
-            .col-lg-4
-              = f.input :date_type, label: false
-            .col-lg-4
-              .form-group
-                input#date.form-control.form-control__item type="date" /
-              a.form-group__sublink href="#" Сегодня
-              a.form-group__sublink href="#" Завтра
-            .col-lg-4
-              .form-group
-                input#time.form-control.form-control__item type="time" /
-      .dr-block-style
-        .form-group
-          label.form-group__header for="adr" Адрес
-          input#adr.form-control placeholder="Санкт-Петербург, ул. Бадаева, 6" type="text" /
-      .dr-block-style
-        .form-group
-          label.form-group__header for="budget"  На какой бюджет ориентироваться исполнителям
-          br/
-          input#ex1 data-slider-id="ex1Slider" data-slider-max="300" data-slider-min="0" data-slider-step="1" data-slider-value="240" type="text" /
-        .form-group
-          label for="budget" Или укажите точную стоимость
-          .row
-            .col-lg-3
-              .input-group
-                input.form-control placeholder=("300 000") type="text" /
-                i.input-group-addon.fa.fa-rub aria-hidden="true"
-      .dr-block-style
-        label.form-group__header for="contact"  Укажите контактную информацию
+= simple_form_for @form do |f|
+  = content_tag 'task-form', 'inline-template': true, ':initial-model': f.object.to_nested_hash.to_json do
+    .regular-content
+      .container
+        nav.breadcrumb
+          a.breadcrumb-item href=root_path  Главная
+          span.breadcrumb-item.active Создать задание
+        .dr-content-header
+          p.dr-content-header__text.dr-content-header__text-margin-bottom-none
+            | Создать задание
         .row
-          .col-lg-6
-            input#name.form-control.form-control__item placeholder=("Как к Вам обращатся?") type="text" /
-          .col-lg-6
-            input#email.form-control.form-control__item placeholder=("Ваш email") type="text" /
-          .col-lg-6
-            input#tel.form-control.form-control__item placeholder=("Номер телефона") type="text" /
-          .col-lg-6
-            a.btn.btn-primary.dr-btn-primary href="#" role="button"  Подтвердить
-        .checkbox
-          label
-            input type="checkbox" value=""
-            | Я согласен с правилами сервиса
-        br/
-        a.btn.btn-primary.dr-btn-primary href="#" role="button"  Опубликовать задание
+            .col-xl-8
+              .dr-form
+                .dr-block-style
+                  .form-group v-on:click="showTooltip('task_title')"
+                    label.form-group__header for="hdr"  Заголовок
+                    .row
+                      .col-lg-8.col-12
+                        = f.input :title, label: false,
+                          input_html: { \
+                            'v-model': 'model.title',
+                            'v-on:focus': %(showTooltip('task_title')),
+                          }
+                  .form-group v-on:click="showTooltip('task_description')"
+                    label.form-group__header for="comment"  Описание задачи
+                    = f.input :description, as: :text, label: false,
+                      input_html: { \
+                        'v-model': 'model.description',
+                        'v-on:focus': %(showTooltip('task_description')),
+                        rows: 10,
+                      }
+                  .form-group id="task_files"
+                    = content_tag 'upload-form',
+                      class: 'dropzone',
+                      'v-on:change': %(showTooltip('task_files')),
+                      id: 'taskFilesUpload',
+                      url: '/api/tasks/files' do
+                      .dz-message data-dz-message="asd"
+                        i.upload-icon.fa.fa-plus-circle aria-hidden="true"
+                        span.upload-span Перетащите сюда файлы
+                .dr-block-style
+                  .form-group v-on:click="showTooltip('task_dates')"
+                    label.form-group__header for="date"  Дата и время
+                    .row
+                      .col-lg-4
+                        .form-group id="task_dates"
+                          = f.input :date_type, label: false,
+                            collection: f.object.model.class.enumerized_attributes[:date_type].options,
+                            input_html: { \
+                              'v-model': 'model.date_type',
+                              'v-on:click': %(showTooltip('task_dates')),
+                            }
+                      template v-if="model.date_type == 'interval'"
+                        .col-lg-4
+                          .form-group
+                            .input-group.date
+                              input.dpicker.form-control.form-control__item type="text" /
+                              .input-group-addon
+                                i.fa.fa-calendar aria-hidden="true"
+                          .form-group__sublink
+                            a href="#"  сегодня
+                            a href="#"  завтра
+                        .col-lg-4
+                          .form-group
+                            .input-group.date
+                              input.dpicker.form-control.form-control__item type="text" /
+                              .input-group-addon
+                                i.fa.fa-calendar aria-hidden="true"
+                          .form-group__sublink
+                            a href="#"  сегодня
+                            a href="#"  завтра
+                  .form-group v-on:click="showTooltip('task_place_address')"
+                    label.form-group__header for="adr"  Адрес
+                    .row
+                      .col-lg-8.col-12
+                        = f.input :place_address, label: false,
+                          input_html: { \
+                            'ref': 'suggestAddress',
+                            'v-model': 'model.place_address',
+                            'v-on:focus': %(showTooltip('task_place_address')),
+                            'v-on:change': %(placeByAddress(model.place_address)),
+                          }
+                  #task_form_map
+                .dr-block-style id="task_prices" v-on:click="showTooltip('task_prices')"
+                  .form-group
+                    label.form-group__header for="task_price_exact"  На какой бюджет ориентироваться исполнителям
+                    .budget-slider
+                      price-slider
+                        = f.input :price_scale, as: :hidden,
+                          input_html: { \
+                            'v-model': 'model.price_scale',
+                          }
+                  br/
+                  .form-group
+                    .row.align-items-baseline
+                      .margin-side
+                        label for="budget"  Или укажите точную стоимость
+                      .col-lg-6
+                        .input-group
+                          = f.input :price_exact, label: false, wrapper: false, error: false,
+                            input_html: { \
+                              'v-model': 'model.price_exact',
+                              'v-on:focus': %(showTooltip('task_prices')),
+                            }
+                          i.input-group-addon.fa.fa-rub aria-hidden="true"
+                        = f.error :price_exact
+                .dr-block-style
+                  = f.simple_fields_for :new_user do |rf|
+                    div id="task_contacts" v-on:click="showTooltip('task_contacts')"
+                      label.form-group__header for="contact"  Укажите контактную информацию
+                      .row
+                        .col-lg-4.col-md-6
+                          = rf.input :name, label: false, error: false
+                        .col-lg-4.col-md-6
+                          = rf.input :email, label: false, error: false
+                        .col-lg-4.offset-lg-0.col-md-6.offset-md-6 class=('error-display-hide' if (rf.object.errors.keys & [:name, :email]).count.zero?)
+                          .contact-form__error-message
+                            span = rf.error (rf.object.errors.keys & [:name, :email]).first
+                      .contact-form__phone
+                        span Укажите ваш номер телефона и подтвердите его
+                      = rf.simple_fields_for :sms_confirmation do |sf|
+                        = render 'shared/phone_confirmation', f: sf
+                      .checkbox
+                        label
+                          input type="checkbox" value="" /
+                          span.checkbox-custom
+                          | Я согласен с&nbsp;
+                          a.link-default href="#" правилами сервиса
+                          |  и&nbsp;
+                          a.link-default href="#" политикой обработки персональных данных
+                        = rf.error :accept_terms
+                  br/
+                  .center
+                    = f.submit 'Создать задание', class: 'dr-btn-danger'
+            .col-xl-4 ref="taskPopoverArea"
+              .dr-popover.dr-popover-left.hidden
+              .dr-popover-data.hidden data-for="task_title"
+                .dr-popover__header
+                  | Придумайте заголовок, например:
+                .dr-popover__text
+                  | Убрать квартиру – 54 м2
+                  br/
+                  | Сделать свадебный маникюр
+                  br/
+                  | Доставить документы
+              .dr-popover-data.hidden data-for="task_description"
+                .dr-popover__header
+                  | Уточните детали:
+                .dr-popover__text
+                  | Размер и/или объем
+                  br/
+                  | Материалы
+                  br/
+                  | Личные пожелания к работе
+              .dr-popover-data.hidden data-for="task_files"
+                .dr-popover__header
+                  | Загрузите фаил
+                .dr-popover__text
+                  | Поддерживаемые форматы файлов:
+                  br/
+                  b
+                    | png, jpg, jpeg, bmp, ttf, doc, pdf, rar,
+                    | zip, xls
+                  br/
+                  | Максимальный размер файла -
+                  b 7мб
+                  br/
+                  | Суммарный размер не более -
+                  b 28 мб
+                  br/
+                  | Максимальное кол-во файлов -
+                  b 4 
+              .dr-popover-data.hidden data-for="task_dates"
+                .dr-popover__header
+                  | Укажите сроки
+                .dr-popover__text
+                  | Это нужно для того, чтобы
+                  br/
+                  | исполнители понимали, когда им
+                  br/
+                  | нужно начать и закончить задание.
+              .dr-popover-data.hidden data-for="task_place_address"
+                .dr-popover__header
+                  | Введите адрес
+                .dr-popover__text
+                  | На карте отметьте место, где будет
+                  br/
+                  | выполняться задание. На него могут
+                  br/
+                  | откликнуться исполнители, которые
+                  br/
+                  | находятся поблизости.
+              .dr-popover-data.hidden data-for="task_prices"
+                .dr-popover__header
+                  | Укажите бюджет
+                .dr-popover__text
+                  | На задание откликнутся
+                  br/
+                  | исполнители, чьи услуги
+                  br/
+                  | не превышают ваш бюджет.
+                  br/
+                  | Если вы не определились с оплатой,
+                  br/
+                  | не заполняйте это поле.
+              .dr-popover-data.hidden data-for="task_contacts"
+                .dr-popover__header
+                  | Ваши контактные данные
+                .dr-popover__text
+                  | Напишите свой номер телефона,
+                  br/
+                  | и вам придет смс с кодом
+                  br/
+                  | подтверждения.
+                  br/
+                  br/
+                  | Согласно&nbsp;
+                  a href="/terms"
+                    | «Политике конфиденциальности»
+                  |  контактные
+                  br/
+                  | данные сохраняются в базе сайта
+                  br/
+                  | и не передаются третьим лица.

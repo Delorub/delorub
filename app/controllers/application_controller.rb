@@ -36,4 +36,8 @@ class ApplicationController < ActionController::Base
     def allow_iframe
       response.headers.except! 'X-Frame-Options'
     end
+
+    def _run_options options
+      options.merge current_user: current_user
+    end
 end

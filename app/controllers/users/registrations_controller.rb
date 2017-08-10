@@ -1,15 +1,14 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   def new
-    super do
-      @form = User::RegistrationForm.new resource
-      @form.prepopulate!
-    end
+    run User::Registration::Present
   end
 
   def create
-    super do
-      add_omniauth_to_resource params[:omniauth_id] if params[:omniauth_id]
+    run User::Registration, sign_up_params do |result|
+      return sign_in_and_redirect result['user']
     end
+
+    render 'new'
   end
 
   private
@@ -23,6 +22,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
 
     def sign_up_params
-      params.require(:user).permit(:name, :phone, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :accept_terms, sms_confirmation_attributes: [:phone])
     end
 end

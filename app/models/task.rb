@@ -51,7 +51,7 @@ class Task < ApplicationRecord
   has_one :accepted_reply, -> { accepted }, class_name: 'Reply'
 
   enumerize :price_type, in: [:exact, :interval, :scale]
-  enumerize :date_type, in: [:actual, :interval, :none]
+  enumerize :date_type, in: [:end_at, :start_at, :interval, :none]
   enumerize :contract_type, in: [:no_contract, :contract]
 
   validates :title, :description, :user_id, :category_id, :price_type, :date_type, presence: true

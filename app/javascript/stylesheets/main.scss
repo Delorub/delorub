@@ -40,8 +40,12 @@ h4 {
 }
 
 .wrap {
-  height: auto; 
+  height: auto;
   min-height: 100%;
+}
+
+.hidden {
+  display: none;
 }
 
 main {
@@ -50,7 +54,7 @@ main {
   }
 }
 
-footer { 
+footer {
   @media (min-width: 992px) {
     position: relative;
     margin-top: -221px;
@@ -70,7 +74,7 @@ footer {
 .top-line {
   &__container {
     display: flex;
-    justify-content: flex-end;;		
+    justify-content: flex-end;;
     padding: 5px 0;
   }
   &__link {
@@ -82,12 +86,12 @@ footer {
     color: #4c4c4c;
     opacity: 0.5;
     margin-left: 0.2rem;
-  }  
+  }
 }
 
 .navbar-toggler {
   border-color: rgba(0, 0, 0, 0.4);
-  margin-top: 0.35rem;	
+  margin-top: 0.35rem;
   position: absolute;
   @media (max-width: 575px) {
     right: -70px;
@@ -114,10 +118,10 @@ footer {
     > .nav-item {
       margin: 0 1rem;
       > .nav-link {
-        padding: 10px;		
+        padding: 10px;
         margin-top: 5px;
         margin-bottom: 5px;
-        color: $color;	
+        color: $color;
         display: inline-block;
         transition: $transition;
         &:hover {
@@ -149,4 +153,8 @@ footer {
   color: #9b9b9b;
   font-size: 32px;
   margin-bottom: 1.5rem;
+}
+
+#task_form_map {
+  height: 300px;
 }
