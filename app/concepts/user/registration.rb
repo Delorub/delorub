@@ -15,6 +15,7 @@ class User::Registration < Trailblazer::Operation
     property :accept_terms, virtual: true, default: false
 
     validates :name, :email, :sms_confirmation, :accept_terms, presence: true
+    validates :accept_terms, inclusion: { in: ['1'], message: 'Вы должны согласиться с правилами сервиса' }
     validates :email, email: true
   end
 
@@ -29,5 +30,11 @@ class User::Registration < Trailblazer::Operation
   end
 
   step Nested(Present)
+  step :generate_password!
   step Contract::Validate()
+  step Contract::Persist()
+
+  def generate_password! options, model:, **_
+    model.password = 'test123'
+  end
 end

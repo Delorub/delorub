@@ -7,10 +7,9 @@ module Task::Contract
     property :main_category_id, virtual: true
 
     property :date_type, default: 'interval'
-    property :date_actual_date, default: -> { I18n.l(Time.zone.now + 1.day, format: :date) }, virtual: true
-    property :date_actual_time, default: -> { I18n.l(Time.zone.now, format: :timeofday) }, virtual: true
-    property :date_interval_from_date, default: -> { I18n.l(Time.zone.now, format: :date) }, virtual: true
-    property :date_interval_to_date, default: -> { I18n.l(Time.zone.now + 1.day, format: :date) }, virtual: true
+    property :date_actual, default: -> { I18n.l(Time.zone.now + 1.day, format: :datepicker) }
+    property :date_interval_from, default: -> { I18n.l(Time.zone.now, format: :datepicker) }
+    property :date_interval_to, default: -> { I18n.l(Time.zone.now + 1.day, format: :datepicker) }
 
     property :price_type, default: 'exact'
     property :price_exact
@@ -41,23 +40,16 @@ module Task::Contract
 
       required(:title).filled
       required(:description).filled
+      required(:main_category_id).filled
       required(:category_id).filled
-
-      required(:price_exact).filled(:int?)
     end
 
-    def notifications_type_options
-      [
-        ['На email и в уведомлениях', 'notifications-email'],
-        ['Только уведомления', 'notifications']
-      ]
+    def main_category_collection
+      Category.roots
     end
 
-    def paid_functions_options
-      [
-        ['Выделить цветом', 'color'],
-        ['Поднять вверх', 'stick']
-      ]
+    def categories_list
+      Category.all.map { |e| { label: e.title, value: e.id, parent_id: e.parent_id } }
     end
   end
 

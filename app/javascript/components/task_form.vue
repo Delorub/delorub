@@ -1,11 +1,10 @@
 <script>
 import Tether from 'tether'
-import 'selectize'
-import $ from 'jquery'
+import _ from 'lodash'
 
 export default {
   props: [
-    'initialModel'
+    'initialModel', 'categoriesList'
   ],
   data: function () {
     return {
@@ -14,7 +13,14 @@ export default {
       map: null,
       ymaps: null,
       placemark: null,
-      suggestView: null
+      suggestView: null,
+      subcategories: [],
+      datepickerConfig: {
+        enableTime: true,
+        dateFormat: 'd.m.Y H:i',
+        time_24hr: true,
+        wrap: true
+      }
     }
   },
   metaInfo: {
@@ -29,8 +35,7 @@ export default {
         this.initializeMap()
       }
     })
-    $(this.$refs.dateTypeSelect).selectize()
-    $('.dpicker').datetimepicker()
+    this.populateSubcategories({ value: this.model.main_category_id })
     this.showTooltip('task_title')
   },
   methods: {
@@ -50,8 +55,12 @@ export default {
       })
 
       this.suggestView = new this.ymaps.SuggestView(this.$refs.suggestAddress)
+      this.suggestView.events.add('select', (e) => {
+        this.placeByAddress(e.get('item').value)
+      })
     },
     placeByAddress (request) {
+      if (!this.ymaps) return
       if (!request) {
         this.placeGeoObject(null)
       }
@@ -60,6 +69,7 @@ export default {
       )
     },
     placeByCoords (request) {
+      if (!this.ymaps) return
       if (!request) {
         this.placeGeoObject(null)
       }
@@ -125,6 +135,15 @@ export default {
       if (this.popoverTether !== null) {
         this.popoverTether.position()
       }
+    },
+    populateSubcategories (selected) {
+      if (selected.value !== this.model.main_category_id) {
+        this.model.category_id = null
+      }
+
+      this.subcategories = _.filter(this.categoriesList, (e) => {
+        return e.parent_id === selected.value
+      })
     }
   }
 }

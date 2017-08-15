@@ -12,17 +12,17 @@
       background: url("/images/checkbox/primary_hover.svg") 0px center no-repeat;
     }
   }
-  input[type=checkbox] {    
+  input[type=checkbox] {
     display: none;
     &:checked + .checkbox-custom {
       background: url("/images/checkbox/primary_clicked.svg") 0px center no-repeat;
     }
-  }  
+  }
   &-danger {
     .checkbox-custom {
       background: url("/images/checkbox/danger.svg") 0px center no-repeat;
     }
-    input[type=checkbox] {      
+    input[type=checkbox] {
       &:checked + .checkbox-custom {
         background: url("/images/checkbox/danger_clicked.svg") 0px center no-repeat;
       }

@@ -6,16 +6,26 @@ import axios from 'axios'
 import Vue from 'vue'
 import VueMeta from 'vue-meta'
 
+import flatPickr from 'vue-flatpickr-component'
+import 'flatpickr/dist/flatpickr.css'
+
+import CustomSelect from '../components/custom-select.vue'
+
 import SmsConfirmation from '../components/sms_confirmation.vue'
 import TaskForm from '../components/task_form.vue'
 import PriceSlider from '../components/price_slider.vue'
 import UploadForm from '../components/upload_form.vue'
+
+import 'selectize'
 
 let token = document.getElementsByName('csrf-token')[0].getAttribute('content')
 axios.defaults.headers.common['X-CSRF-Token'] = token
 axios.defaults.headers.common['Accept'] = 'application/json'
 
 Vue.use(VueMeta)
+Vue.component('custom-select', CustomSelect)
+Vue.component('flat-pickr', flatPickr)
+
 Vue.component('upload-form', UploadForm)
 Vue.component('sms-confirmation', SmsConfirmation)
 Vue.component('price-slider', PriceSlider)
