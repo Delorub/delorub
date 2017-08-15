@@ -1,10 +1,13 @@
 import 'app'
 import $ from 'jquery'
+import 'eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css'
+import 'eonasdan-bootstrap-datetimepicker'
 import 'bootstrap/dist/js/bootstrap.js'
 import 'ion-rangeslider/js/ion.rangeSlider.js'
 import 'ion-rangeslider/css/ion.rangeSlider.css'
 import 'ion-rangeslider/css/ion.rangeSlider.skinHTML5.css'
-import 'eonasdan-bootstrap-datetimepicker'
+// import 'tz-datetimepicker/build/jquery.datetimepicker.full.js'
+// import 'tz-datetimepicker/jquery.datetimepicker.css'
 import 'selectize'
 
 $(function () {
@@ -33,6 +36,19 @@ $(function () {
   $('[data-toggle="popover"]').popover()
 })
 
-$('.markup-select').selectize()
+$('.markup-select').selectize({
+  create: true,
+  sortField: 'text'
+})
 
-$('.markup-datepicker').datetimepicker()
+// $.datetimepicker.setLocale('ru')
+
+$('.markup-datepicker').datetimepicker({
+  locale: 'ru',
+  icons: {
+    time: 'fa fa-clock-o',
+    date: 'fa fa-calendar',
+    up: 'fa fa-arrow-up',
+    down: 'fa fa-arrow-down'
+  }
+})
