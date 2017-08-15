@@ -1,11 +1,13 @@
-.performer-description {
-  &__header {
-    font-family: $GothamBold;
-    padding: 35px 40px 25px 40px;
-    border-bottom: solid 1px #d1d1d1;
-  }
+.performer-description {  
   &__subcontent {
     padding: 40px 20px 30px 40px;
+    margin-bottom: 3px;
+    b {
+      margin-right: 5px;
+    }
+    i.fa-map-marker {
+      color: #bbcadb;
+    }
   }
   &__smalltext {
     font-size: 0.75rem;
@@ -127,5 +129,20 @@
   }
   &__button {
     margin-top: 1rem;    
+  }
+  &__contacts {
+    margin-top: 1rem;
+    p {
+      display: flex;
+      justify-content: center;
+    }
+    i.fa {
+      font-size: 1.4rem;
+      margin-right: 10px;
+      color: black;
+    }
+    i.fa-envelope-o {
+      font-size: 1.1rem;
+    }
   }
 }

@@ -5,6 +5,7 @@
   font-family: $GothamPro;
   margin-left: 14% !important;
   min-width: 100px;
+  transition: 0.2s;
   @media (min-width: 576px) {
     max-width: calc(540px / 3.5);
   }

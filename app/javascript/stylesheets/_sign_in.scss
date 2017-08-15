@@ -2,7 +2,6 @@
 	&-form {
 		&__header {
 			@extend .dr-header;
-      font-family: $GothamBold;
 		}
 		&__content {
 			margin-top: 1rem;
@@ -30,8 +29,7 @@
 
 .first-time-sign-in {
 	&__header {
-		@extend .dr-header;
-    font-family: $GothamBold;
+		@extend .dr-header;    
 	}
 	&__button {
 		margin-top: 2rem;
