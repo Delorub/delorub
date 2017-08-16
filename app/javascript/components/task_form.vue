@@ -43,7 +43,7 @@ export default {
       this.$refs.placeMap.classList.remove('hidden')
       this.map = new this.ymaps.Map(this.$refs.placeMap, {
         center: [59.94, 30.32],
-        zoom: 12
+        zoom: 10
       })
       this.positionPopover()
       this.map.events.add('click', (event) => {
@@ -93,7 +93,7 @@ export default {
       this.map.geoObjects.add(placemark)
       this.placemark = placemark
 
-      this.map.setCenter(coordinates)
+      this.map.setCenter(coordinates, 13)
 
       if (changeAddress) {
         this.model.place_address = name
