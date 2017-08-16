@@ -19,5 +19,17 @@ class Task::Operation < Trailblazer::Operation
 
   step Nested(Present)
   step Contract::Validate()
-  # step Contract::Persist()
+  step :register_new_user!
+  step Contract::Persist()
+
+  def register_new_user! options, params:, model:, **_
+    unless options[:current_user].nil?
+      model.user = options[:current_user]
+      return true
+    end
+    result = User::Registration.call(params['new_user'].to_hash)
+    return false if result.failure?
+    model.user = result['model']
+    options['sign_in_new_user'] = result['model']
+  end
 end

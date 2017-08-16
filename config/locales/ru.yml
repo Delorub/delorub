@@ -9,7 +9,7 @@ ru:
         accepted?: Подтвердите номер мобильного телефона
   time:
     formats:
-      datepicker_date: '%d.%m.%Y'
+      datepicker: '%d.%m.%Y %H:%M'
       date: '%d.%m.%Y'
       timeofday: '%H:%M'
   user_sms_confirmation: "Проверочный код: %{code}. Делоруб"

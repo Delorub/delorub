@@ -1,13 +1,16 @@
 = simple_form_for @form do |f|
-  = content_tag 'task-form', 'inline-template': true, ':initial-model': f.object.to_nested_hash.to_json do
+  = content_tag 'task-form',
+    'inline-template': true,
+    ':categories-list': f.object.categories_list.to_json,
+    ':initial-model': f.object.to_nested_hash.to_json \
+    do
     .regular-content
       .container
         nav.breadcrumb
           a.breadcrumb-item href=root_path  Главная
           span.breadcrumb-item.active Создать задание
         .dr-content-header
-          p.dr-content-header__text.dr-content-header__text-margin-bottom-none
-            | Создать задание
+          h1 Создать задание
         .row
             .col-xl-8
               .dr-form
@@ -38,38 +41,90 @@
                       .dz-message data-dz-message="asd"
                         i.upload-icon.fa.fa-plus-circle aria-hidden="true"
                         span.upload-span Перетащите сюда файлы
+                .dr-block-style id="task_category"
+                  .form-group v-on:click="showTooltip('task_category')"
+                    label.form-group__header Специализация
+                    br/
+                    br/
+                    .row
+                      .col-lg-6
+                        .form-group
+                          = f.input_field :main_category_id, as: :hidden, 'v-model': 'model.main_category_id'
+                          = content_tag 'custom-select', '',
+                            'v-model': 'model.main_category_id',
+                            'v-on:change': %(showTooltip('task_category')),
+                            'track-by': 'value',
+                            'return': 'value',
+                            'label': 'label',
+                            'placeholder': 'Выберите категорию',
+                            ':options': f.object.main_category_collection.map { |e| { label: e.title, value: e.id } }.to_json,
+                            '@select': 'populateSubcategories'
+                          = f.error :main_category_id
+                      .col-lg-6
+                        .form-group
+                          = f.input_field :category_id, as: :hidden, 'v-model': 'model.category_id'
+                          = content_tag 'custom-select', '',
+                            'v-model': 'model.category_id',
+                            'v-on:change': %(showTooltip('task_category')),
+                            'track-by': 'value',
+                            'return': 'value',
+                            'label': 'label',
+                            ':disabled': '!model.main_category_id',
+                            'placeholder': 'Выберите подкатегорию',
+                            ':options': 'subcategories'
+                          = f.error :category_id
                 .dr-block-style
                   .form-group v-on:click="showTooltip('task_dates')"
                     label.form-group__header for="date"  Дата и время
                     .row
                       .col-lg-4
                         .form-group id="task_dates"
-                          = f.input_field :date_type, label: false, wrapper: false,
-                            collection: f.object.model.class.enumerized_attributes[:date_type].options,
-                            class: nil,
-                            'ref': 'dateTypeSelect',
+                          = content_tag 'custom-select', '',
                             'v-model': 'model.date_type',
-                            'v-on:click': %(showTooltip('task_dates'))
-
-                      template v-if="model.date_type == 'interval'"
-                        .col-lg-4
-                          .form-group
-                            .input-group
-                              input.dpicker.form-control.form-control__item type="text" /
-                              .input-group-addon
-                                i.fa.fa-calendar aria-hidden="true"
-                          .form-group__sublink
-                            a href="#"  сегодня
-                            a href="#"  завтра
-                        .col-lg-4
-                          .form-group
-                            .input-group.dpicker
-                              input.form-control.form-control__item type="text" /
-                              .input-group-addon
-                                i.fa.fa-calendar aria-hidden="true"
-                          .form-group__sublink
-                            a href="#"  сегодня
-                            a href="#"  завтра
+                            'v-on:change': %(showTooltip('task_dates')),
+                            'track-by': 'value',
+                            'return': 'value',
+                            'label': 'label',
+                            ':options': f.object.model.class.enumerized_attributes[:date_type].options.map { |e| { label: e[0], value: e[1] } }.to_json
+                      .col-lg-4 :class="{ hidden: (model.date_type != 'end_at' && model.date_type != 'start_at') }"
+                        .form-group
+                          .input-group
+                            = f.input_field :date_actual, as: :hidden, 'v-model': 'model.date_actual'
+                            = content_tag 'flat-pickr', '',
+                              'v-model': 'model.date_actual',
+                              'v-on:change': %(showTooltip('task_dates')),
+                              ':config': 'datepickerConfig'
+                            .input-group-addon
+                              i.fa.fa-calendar aria-hidden="true"
+                        .form-group__sublink
+                          a href="#"  сегодня
+                          a href="#"  завтра
+                      .col-lg-4 :class="{ hidden: model.date_type != 'interval' }"
+                        .form-group
+                          .input-group
+                            = f.input_field :date_interval_from, as: :hidden, 'v-model': 'model.date_interval_from'
+                            = content_tag 'flat-pickr', '',
+                              'v-model': 'model.date_interval_from',
+                              'v-on:change': %(showTooltip('task_dates')),
+                              ':config': 'datepickerConfig'
+                            .input-group-addon
+                              i.fa.fa-calendar aria-hidden="true"
+                        .form-group__sublink
+                          a href="#"  сегодня
+                          a href="#"  завтра
+                      .col-lg-4 :class="{ hidden: model.date_type != 'interval' }"
+                        .form-group
+                          .input-group
+                            = f.input_field :date_interval_to, as: :hidden, 'v-model': 'model.date_interval_to'
+                            = content_tag 'flat-pickr', '',
+                              'v-model': 'model.date_interval_to',
+                              'v-on:change': %(showTooltip('task_dates')),
+                              ':config': 'datepickerConfig'
+                            .input-group-addon
+                              i.fa.fa-calendar aria-hidden="true"
+                        .form-group__sublink
+                          a href="#"  сегодня
+                          a href="#"  завтра
                   .form-group v-on:click="showTooltip('task_place_address')"
                     label.form-group__header for="adr"  Адрес
                     .row
@@ -80,9 +135,10 @@
                             'v-model': 'model.place_address',
                             'v-on:focus': %(showTooltip('task_place_address')),
                             'v-on:change': %(placeByAddress(model.place_address)),
+                            'v-on:blur': %(placeByAddress(model.place_address)),
                             '@keydown.enter.prevent': '',
                           }
-                  div.hidden ref="placeMap"
+                  div.hidden ref="placeMap" style="height: 300px"
                 .dr-block-style id="task_prices" v-on:click="showTooltip('task_prices')"
                   .form-group
                     label.form-group__header for="task_price_exact"  На какой бюджет ориентироваться исполнителям
@@ -129,15 +185,17 @@
                           span Укажите ваш номер телефона и подтвердите его
                         = rf.simple_fields_for :sms_confirmation do |sf|
                           = render 'shared/phone_confirmation', f: sf
+                        end
                         .checkbox
                           label
-                            input type="checkbox" value="" /
+                            = rf.check_box :accept_terms
                             span.checkbox-custom
                             | Я согласен с&nbsp;
                             a.link-default href="#" правилами сервиса
                             |  и&nbsp;
                             a.link-default href="#" политикой обработки персональных данных
                           = rf.error :accept_terms
+
                   br/
                   .center
                     = f.submit 'Создать задание', class: 'dr-btn-danger'
@@ -152,6 +210,11 @@
                   | Сделать свадебный маникюр
                   br/
                   | Доставить документы
+              .dr-popover-data.hidden data-for="task_category"
+                .dr-popover__header
+                  | Выберите специализацию
+                .dr-popover__text
+                  | Выберите желаемую специализацию
               .dr-popover-data.hidden data-for="task_description"
                 .dr-popover__header
                   | Уточните детали:

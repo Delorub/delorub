@@ -21,6 +21,7 @@ class TasksController < ApplicationController
 
   def create
     run Task::Operation, task_params do |result|
+      sign_in result['sign_in_new_user'] if result['sign_in_new_user']
       return redirect_to task_path(result['model']), notice: 'Задание добавлено'
     end
 

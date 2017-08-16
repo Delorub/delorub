@@ -1,50 +1,61 @@
-.selectize-control {  
-  input[type=text] {
-    display: none;
+.multiselect {
+  &__select {
+    background-color: transparent !important;
+    margin-top: 3px;
+    padding: 0px;
+    width: 20px;
   }
-}
 
-.selectize-input {
-  padding: 16px 20px 14px 20px;
-  color: #8b8a8a;
-  background-color: #fbfbfb;
-  border-radius: 3px;    
-  font-size: 0.9rem;    
-  color: #8b8a8a;
-  &:hover {
-    cursor: default;
-    box-shadow: inset 0 3px 3px 0 rgba(229, 226, 226, 0.5);
-    border: solid 1px #b9b6b6;
-  }
-}
-
-.selectize-dropdown {
-  background-color: #fbfbfb;
-  border: solid 1px;
-  border-color: #70bee9 !important;
-  border-radius: 3px;  
-  border-top: none;
-  border-top-right-radius: 0;
-  border-top-left-radius: 0;
-}
-
-.selectize-input.dropdown-active {
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-  border-color: #70bee9 !important;
-  margin-bottom: 0;
-  &:hover {
-    cursor: default !important;
-  }
-}
-
-.selectize-dropdown-content {
-  .option {
-    padding: 15px 20px;
-    color: #8b8a8a;
-    &:hover {
-      background-color: #c1e5f9;
-      cursor: default;
+  &--active {
+    .multiselect__tags {
+      border-color: #70bee9 !important;
+      border-top-width: 1px;
+      border-bottom-width: 0;
     }
   }
+
+  &--above {
+    .multiselect__tags {
+      border-top-width: 0;
+      border-bottom-width: 1px;
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+    }
+  }
+
+  &__tags {
+    background-color: #fbfbfb;
+    padding: 0 20px 0 0;
+  }
+
+  &__input {
+    background-color: #fbfbfb;
+    padding: 16px 0px 14px 20px;
+    border-color: #70bee9 !important;
+    border-radius: 3px;
+    margin: 0;
+  }
+
+  &__option {
+    color: #8b8a8a;
+
+    &--highlight, &--selected {
+      background-color: #c1e5f9 !important;
+    }
+
+    &:after {
+      display: none;
+    }
+  }
+
+  &__content {
+    &-wrapper {
+      z-index: 300 !important;
+      border-color: #70bee9 !important;
+    }
+  }
+}
+
+.input-group .form-control {
+  z-index: 0 !important;
 }
