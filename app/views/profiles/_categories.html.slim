@@ -1,0 +1,16 @@
+.col-lg-4.lg-hide
+  .dr-block-style.dr-block-style--category
+    .subcategories
+      p.subcategories__header
+        | Категории
+      .subcategories-list
+        ul.subcategories-list__sup
+          - @categories.each do |category|
+            li
+              = link_to category.title, category_profiles_path(category)
+              - child = category.children
+              - if @category and (@category.id == category.id or @category.parent.present?) and child.present?
+                ul.subcategories-list__sub
+                  - child.each do |sub_category|
+                    li
+                      = link_to sub_category.title, category_profiles_path(sub_category)

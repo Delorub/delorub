@@ -1,0 +1,29 @@
+= content_for :head do @category.settings_value('seo_title') end if @category
+.regular-content
+  .container
+    = render 'breadcrumb'
+    .row
+      .col-lg-8
+        .dr-block-style.dr-block-style--sort-padding
+          .task-sort
+            .row
+              .col-xl-auto.col-lg-6
+                span
+                  b
+                    | Сортировать по:
+              .col-xl-3.col-lg-6
+                - new_order = (params[:order].present? and params[:order] == 'asc') ? 'desc' : 'asc'
+                = link_to @category.present? ? category_tasks_path(@category, order: new_order) : tasks_path(:order => new_order), class: 'task-sort__link' do
+                  ' Дате размещения
+                  |
+                  = content_tag(:i, '', class: "fa fa-caret-#{new_order == 'asc' ? 'down' : 'up'}")
+        = render 'tasks'
+      .col-lg-4.lg-hide
+        = render 'categories'
+    br/
+    - if @category and @category.description.present?
+      .dr-block-style
+        .bottom-text.center
+          = @category.description
+          a.link-default href="#"
+            | Развернуть

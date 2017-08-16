@@ -3,7 +3,7 @@ ActiveAdmin.register Category, namespace: :admin do
   config.sort_order = 'position_asc'
   config.paginate = false
 
-  permit_params :title, :parent_id, :photo
+  permit_params :title, :parent_id, :photo, :description#, :position
 
   filter :by_search_in, label: 'Поиск', as: :string
   filter :category_id
@@ -11,14 +11,10 @@ ActiveAdmin.register Category, namespace: :admin do
   index download_links: false do
     column :title
     column :slug
-    column :settings do |cat|
+    #column :position
+    column '' do |cat|
       link_to 'Настройки', settings_admin_category_path(cat)
     end
-=begin
-    column 'test' do |cat|
-      cat.settings.price rescue ''
-    end
-=end
     actions
   end
 
@@ -30,7 +26,7 @@ ActiveAdmin.register Category, namespace: :admin do
     @form = ActiveAdmin::CategorySettingsForm.new resource
     @form.prepopulate!
     if request.put?
-      if @form.validate params.require(:category).permit(settings_attributes: { price_ranges_attributes: [:title, :price, :header, :meta_keys] })
+      if @form.validate params.require(:category).permit(settings_attributes: { price_ranges_attributes: [:title, :price, :h1, :seo_title, :seo_description, :seo_key_words] })
         @form.save do |hash|
           resource.settings = RecursiveOpenStruct.new(hash[:settings], recurse_over_arrays: true)
           resource.settings.price_ranges.reject! { |e| e.title.blank? }
@@ -47,6 +43,7 @@ ActiveAdmin.register Category, namespace: :admin do
       input :position
       input :parent, as: :select, collection: Category.have_not_parent.map{|a| [a.title, a.id]} #nested_set_options_for_category(category)
       input :photo
+      input :description
     end
 =begin
     f.inputs 'Настройки' do

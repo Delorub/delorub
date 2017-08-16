@@ -5,14 +5,20 @@ class TasksController < ApplicationController
 
   before_action :category_present?, :only => [:index]
   before_action :get_categories,    :only => [:index]
+  before_action :task_present?,     :only => [:show]
+
   #helper_method :task_form_props, :current_url
 
   def index
-    @tasks = @category.present? ? @category.tasks : Task.all
+    tasks = @category.present? ? @category.tasks : Task.all
+    @tasks = tasks.includes(:user)
+                  .order(:created_at => (params[:order].present? and params[:order] == 'asc') ? 'asc' : 'desc')
+                  .page(params[:page].to_i > 0 ? params[:page] : params[:page])
+                  .per(4)
   end
 
   def show
-    return redirect_to deal_path(resource.deal) if resource.deal.present? && policy(resource.deal).show?
+    #return redirect_to deal_path(resource.deal) if resource.deal.present? && policy(resource.deal).show?
   end
 
   def new
@@ -73,19 +79,21 @@ class TasksController < ApplicationController
     end
     # конец todo
 
+    def task_present?
+      @task = Task.find(params[:id]) rescue render_page_not_found
+    end
+
     def category_present?
       @category = Category.friendly.find(params[:category_id]) rescue render_page_not_found if params[:category_id]
     end
 
     def get_categories
-      @categories = Category.roots.includes(:children)
+      @categories = Category.roots.includes(:children).order(:position)
     end
 
     def task_params
       params.require(:task).permit!
     end
-
-
 
     def form_from_session
       @form.validate create_data_after_authorization(:task) if create_after_authorization? :task
