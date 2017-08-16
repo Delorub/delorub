@@ -1,15 +1,63 @@
-<% if heading_categories.count > 0 %>
-  <div class="profileRefinement dr-all-task">
-    <div class="row">
-      <% heading_categories.in_groups(4, false) do |chunk| %>
-        <div class="col-md-3">
-        <% chunk.each do |category| %>
-          <div class="checkbox<%= ' marked' if @category and category.id == @category.id %>">
-            <label><a href="<%= current_url(category: category) %>"><%= category.title %></a></label>
+<% if false %>
+    <div class="dr-block-style dr-block-style--price">
+      <div class="choose-price">
+        <div class="row justify-content-between">
+          <div class="col-md-auto">
+            <p class="choose-price__header">Стоимость</p>
           </div>
-        <% end %>
+          <div class="col-md-auto">
+            <div class="choose-price__link">
+              <a href="#" class="link-default">Сбросить фильтр</a>
+            </div>
+          </div>
         </div>
-      <% end %>
+        <br/>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col-6 col-xl-5">
+                <input type="text" class="form-control" placeholder="500" />
+              </div>
+              <div class="col-xl-2 xl-hide choose-price__line">
+              </div>
+              <div class="col-6 col-xl-5">
+                <input type="text" class="form-control" placeholder="10000" />
+              </div>
+            </div>
+          </div>
+          <div class="choose-price__rub">
+            <i class="fa fa-rub" aria-hidden="true"></i>
+          </div>
+        </div>
+
+        <div class="choose-price__slider">
+          <input type="text" id="budget_slider_tasks" name="example_name" value="" />
+        </div>
+      </div>
+    </div>
+<% end %>
+
+<div class="dr-block-style dr-block-style--category">
+  <div class="subcategories">
+    <p class="subcategories__header">Категории</p>
+    <div class="subcategories-list">
+      <ul class="subcategories-list__sup">
+        <% @categories.each do |category| %>
+            <li>
+              <%= link_to category.title, category_tasks_path(category)%>
+              <% child = category.children %>
+              <% if @category and (@category.id == category.id or @category.parent.present?) and child.present? %>
+                  <ul class="subcategories-list__sub">
+                    <% child.each do |sub_category|%>
+                        <li>
+                          <%= link_to sub_category.title, category_tasks_path(sub_category) %>
+                        </li>
+                    <% end %>
+                  </ul>
+              <% end %>
+            </li>
+        <% end %>
+      </ul>
     </div>
   </div>
-<% end %>
+</div>

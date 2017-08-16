@@ -3,12 +3,12 @@ class TasksController < ApplicationController
   inherit_resources
   decorates_assigned :tasks
 
-  helper_method :task_form_props, :current_url
+  before_action :category_present?, :only => [:index]
+  before_action :get_categories,    :only => [:index]
+  #helper_method :task_form_props, :current_url
 
   def index
-    fetch_category
-    fetch_scope
-    super
+    @tasks = @category.present? ? @category.tasks : Task.all
   end
 
   def show
@@ -53,18 +53,11 @@ class TasksController < ApplicationController
       TaskQuery.new(collection: super, scope: @scope, category: @category, current_user: current_user).perform
     end
 
+    # TODO если данные две ф-ии не используются надо их удалить, видимо старое осталось
     def fetch_scope
       @scope = :all
       @scope = params[:scope].to_sym if params[:scope]
       not_found unless @scope.in? [:all, :my, :suggested]
-    end
-
-    def fetch_category
-      @category = Category.friendly.find params[:category_id] if params[:category_id]
-    end
-
-    def task_params
-      params.require(:task).permit!
     end
 
     def current_url category:
@@ -78,6 +71,21 @@ class TasksController < ApplicationController
         category_tasks_path(params)
       end
     end
+    # конец todo
+
+    def category_present?
+      @category = Category.friendly.find(params[:category_id]) rescue render_page_not_found if params[:category_id]
+    end
+
+    def get_categories
+      @categories = Category.roots.includes(:children)
+    end
+
+    def task_params
+      params.require(:task).permit!
+    end
+
+
 
     def form_from_session
       @form.validate create_data_after_authorization(:task) if create_after_authorization? :task
