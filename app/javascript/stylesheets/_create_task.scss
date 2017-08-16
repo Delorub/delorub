@@ -1,6 +1,6 @@
 .dr-content-header {
-  padding: 0 0 15px;
-  &__link {        
+  padding: 1rem 0 1rem;
+    &__link {        
     @extend .link-header;
   }
 }
