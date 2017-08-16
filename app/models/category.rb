@@ -31,12 +31,19 @@ class Category < ApplicationRecord
   acts_as_nested_set counter_cache: :children_count
   acts_as_list scope: [:parent_id], top_of_list: 0
 
-  validates :title, :slug, presence: true
+  validates :title, :slug, presence: true, length: {maximum: 250}
   validates :slug, uniqueness: true
+  validates :position, numericality: {only_integer: true}, allow_blank: true
 
   friendly_id :title, use: :slugged
+
+  belongs_to :parent, class_name: 'Category'
+  has_many :tasks
+
+  scope :have_not_parent, -> {where(parent_id: nil)}
 
   def self_and_descendants_ids
     self_and_descendants.map(&:id)
   end
+
 end

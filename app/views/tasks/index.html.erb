@@ -1,49 +1,244 @@
-<div class="row">
-  <div class="col-sm-12 col-md-8">
+<% if false %>
     <div class="row">
-      <div class="col-md-5">
-        <div class="dr-header-span without-border">
-          <% if @scope == :my %>
-            <p>Мои <span class="dr-header-span-unmarked">задания</span></p>
-          <% elsif @scope == :suggested %>
-            <p>Подходящие <span class="dr-header-span-unmarked">задания</span></p>
-          <% elsif @scope == :all %>
-            <p>Все <span class="dr-header-span-unmarked">задания</span></p>
-          <% end %>
+      <div class="col-sm-12 col-md-8">
+        <div class="row">
+          <div class="col-md-5">
+            <div class="dr-header-span without-border">
+              <% if false %>
+                  <% if @scope == :my %>
+                    <p>Мои <span class="dr-header-span-unmarked">задания</span></p>
+                  <% elsif @scope == :suggested %>
+                    <p>Подходящие <span class="dr-header-span-unmarked">задания</span></p>
+                  <% elsif @scope == :all %>
+                    <p>Все <span class="dr-header-span-unmarked">задания</span></p>
+                  <% end %>
+              <% end %>
+            </div>
+          </div>
+          <%#= render 'category_heading' %>
         </div>
       </div>
-      <%= render 'category_heading' %>
+      <div class="col-sm-12 col-md-4 dr-all-task-categories">
+        <a href="#openModal">
+          <button type="button" class="btn dr-button-empty">Категории заданий</button>
+        </a>
+      </div>
     </div>
-  </div>
-  <div class="col-sm-12 col-md-4 dr-all-task-categories">
-    <a href="#openModal">
-      <button type="button" class="btn dr-button-empty">Категории заданий</button>
-    </a>
-  </div>
-</div>
+    <div id="openDropdown" class="dr-dropdown">
+      <div class="row">
+        <div class="col-md-12">
+          <a href="#close" title="Закрыть" class="close">X</a>
+          <div class="dr-dropdown-content">
+            <a href="#">Мои задания</a>
+            <a href="#" class="lastRow">Подходящие задания</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= render 'categories_popup' %>
+    <%= render 'categories' %>
+    <% tasks.each do |task| %>
+      <%= render partial: 'task', locals: { task: task } %>
+    <% end %>
+<% end %>
 
-<div id="openDropdown" class="dr-dropdown">
-  <div class="row">
-    <div class="col-md-12">
-      <a href="#close" title="Закрыть" class="close">X</a>
-      <div class="dr-dropdown-content">
-        <a href="#">Мои задания</a>
-        <a href="#" class="lastRow">Подходящие задания</a>
+<div class="regular-content">
+  <div class="container">
+
+    <%= render 'breadcrumb' %>
+
+    <div class="row">
+
+      <div class="col-lg-8">
+
+        <div class="dr-block-style dr-block-style--sort-padding">
+          <div class="task-sort">
+            <div class="row">
+              <div class="col-xl-auto col-lg-6">
+                <span><b>Сортировать по:</b></span>
+              </div>
+              <div class="col-xl-3 col-lg-6">
+                <a href="#" class="task-sort__link">Дате размещения <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+              </div>
+              <div class="col-lg-6 offset-lg-6 col-xl-3 offset-xl-0">
+                <a href="#" class="task-sort__link">Стоимости <i class="fa fa-align-left" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dr-block-style dr-block-style--card">
+          <div class="row">
+            <div class="col-lg-2">
+              <div class="task-card-person">
+                <div class="task-card-person__image">
+                  <img src="/images/search/avatar.png" alt=""/>
+                </div>
+                <p class="task-card-person__name">Евгений П.</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row">
+                <div class="col">
+                  <div class="task-card-description">
+                    <p class="task-card-description__header"><a href="#">
+                      Заменить душевой шланг, починить слив в унитазе</a>
+                    </p>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="task-card-refinement">
+                    <p class="task-card-refinement__price">2500 руб.</p>
+                    <p class="task-card-refinement__time">C 8 августа</p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="task-card-description">
+                    <p class="task-card-description__adress">
+                      <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      ул. Покрышкина 8, стр. 2, парадная 7
+                    </p>
+                  </div>
+                </div>
+                <div class="task-card-button">
+                  <a class="btn btn-primary dr-btn-primary" href="#" role="button">Откликнуться</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dr-block-style dr-block-style--card">
+          <div class="row">
+            <div class="col-lg-2">
+              <div class="task-card-person">
+                <div class="task-card-person__image">
+                  <img src="/images/search/avatar.png" alt=""/>
+                </div>
+                <p class="task-card-person__name">Евгений П.</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row">
+                <div class="col">
+                  <div class="task-card-description">
+                    <p class="task-card-description__header">
+                      <a href="#">
+                        Собрать шкаф икеа пакс
+                      </a>
+                    </p>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="task-card-refinement">
+                    <p class="task-card-refinement__price">3500 руб.</p>
+                    <p class="task-card-refinement__time task-card-refinement__time--quickly">
+                      <i class="fa fa-clock-o" aria-hidden="true"></i>
+                      2:59:38
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="task-card-description">
+                    <p class="task-card-description__adress">
+                      <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      ул. Покрышкина 8, стр. 2, парадная 7
+                    </p>
+                  </div>
+                </div>
+                <div class="task-card-button">
+                  <a class="btn btn-primary dr-btn-primary" href="#" role="button">Откликнуться</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dr-block-style dr-block-style--card master-card-vip">
+          <div class="row">
+            <div class="col-lg-2">
+              <div class="task-card-person">
+                <div class="task-card-person__image">
+                  <img src="/images/search/avatar.png" alt=""/>
+                </div>
+                <p class="task-card-person__name">Евгений П.</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row">
+                <div class="col">
+                  <div class="task-card-description">
+                    <p class="task-card-description__header">
+                      <a href="#">
+                        Собрать шкаф-купе, кровать,
+                        повесить люстру и две гардины...
+                      </a>
+                    </p>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="task-card-refinement">
+                    <p class="task-card-refinement__price">2500 руб.</p>
+                    <p class="task-card-refinement__time">20 июля - 4 августа</p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="task-card-description">
+                    <p class="task-card-description__adress">
+                      <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      ул. Покрышкина 8, стр. 2, парадная 7
+                    </p>
+                  </div>
+                </div>
+                <div class="task-card-button">
+                  <a class="btn btn-primary dr-btn-primary" href="#" role="button">Откликнуться</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <nav>
+          <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1">Назад</a>
+            </li>
+            <li class="page-item page-item-active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">Далее</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="col-lg-4 lg-hide">
+        <%= render 'categories' %>
+      </div>
+
+    </div>
+    <br/>
+
+    <div class="dr-block-style">
+      <div class="bottom-text center">
+        <p>Ни для кого не секрет, что стиральные машины являются незаменимыми
+          помощниками в ведении домашнего хозяйства. Но, к сожалению, от частой
+          эксплуатации данная бытовая техника порой ломается и дает сбои.</p>
+        <p>
+          Центр по ремонту стиральных машин LG, Samsung (Самсунг) и других
+        </p>
+        <a href="#" class="link-default">Развернуть</a>
       </div>
     </div>
   </div>
 </div>
-
-<%= render 'categories_popup' %>
-
-<%= render 'categories' %>
-
-<% tasks.each do |task| %>
-  <%= render partial: 'task', locals: { task: task } %>
-<% end %>
-
-<%= render 'no_records' if collection.length == 0 %>
-
-<!--<div class="lastRow">
-  <button type="button" class="btn dr-button-empty">Показать еще</button>
-</div> -->

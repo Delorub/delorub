@@ -1,4 +1,5 @@
 module TaskHelper
+
   def heading_categories
     if @category
       @category.children
@@ -6,4 +7,5 @@ module TaskHelper
       Category.roots
     end
   end
+
 end

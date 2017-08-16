@@ -26,7 +26,7 @@ admins = User.create([
 
 ### Profiles
 profile = Profile.create(user_id: admins.first.id)
-
+=begin
 ### Categories
 categories = Category.create([
   { title: 'Ремонт', photo: File.open('public/images/icons/hammer.png') },
@@ -45,6 +45,26 @@ categories = Category.create([
   { title: 'Организация мероприятий', photo: File.open('public/images/icons/cocktail.png') },
   { title: 'Тату, пирсинг и бодимодификации', photo: File.open('public/images/icons/horse.png') },
   { title: 'Разное', photo: File.open('public/images/icons/fix.png') }
+])
+=end
+
+categories = Category.create([
+  { title: 'Ремонт' },
+  { title: 'Уборка' },
+  { title: 'Образование' },
+  { title: 'Грузоперевозки' },
+  { title: 'Красота и здоровье'},
+  { title: 'Вейпинг' },
+  { title: 'Кейтеринг и кулинария' },
+  { title: 'Спорт и туризм'},
+  { title: 'Интернет-услуги' },
+  { title: 'Домашний персонал' },
+  { title: 'Фото и видеосъемка' },
+  { title: 'Юридическая помощь' },
+  { title: 'Уход за животными' },
+  { title: 'Организация мероприятий' },
+  { title: 'Тату, пирсинг и бодимодификации' },
+  { title: 'Разное'}
 ])
 
 Category.create([
