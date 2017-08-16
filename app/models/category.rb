@@ -15,6 +15,7 @@
 #  position       :integer
 #  slug           :string
 #  settings       :text
+#  description    :text
 #
 # Indexes
 #
@@ -39,11 +40,16 @@ class Category < ApplicationRecord
 
   belongs_to :parent, class_name: 'Category'
   has_many :tasks
+  has_and_belongs_to_many :profiles
 
   scope :have_not_parent, -> {where(parent_id: nil)}
 
   def self_and_descendants_ids
     self_and_descendants.map(&:id)
+  end
+
+  def settings_value(params)
+    (settings.price_ranges.present? and settings.price_ranges[0].present?) ? settings.price_ranges[0][params] : ''
   end
 
 end

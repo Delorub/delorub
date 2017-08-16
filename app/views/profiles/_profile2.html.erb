@@ -1,0 +1,41 @@
+<div class="row row-eq-height dr-all-task-container">
+
+  <div class="col-md-2 padding-none">
+    <div class="dr-one-ticket-ticket-avatar">
+      <%= render 'shared/user_photo', user: profile.user %>
+    </div>
+    <br/>
+    <div>
+      <p>0 отзывов</p>
+    </div>
+    <div class="dr-all-masters-stars">
+      <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+      <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+      <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+      <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+      <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+    </div>
+    <div class="dr-one-ticket-ticket-rating">
+      <br/>
+      <br/>
+      <span class="gray-text-light">Рейтинг</span>
+      <br/>
+      <span>0</span>
+    </div>
+  </div>
+  <div class="col-md-6 dr-one-ticket-ticket-content gray-text">
+    <span class="dr-news-content-date">На сайте с <%= l profile.user.created_at, format: :date %></span>
+    <span class="content-header"><a href="<%= profile_path(profile) %>"><%= profile.user.name %></a></span>
+    <br/><br/>
+    <p>
+      <%= simple_format profile.about.truncate(150, separator: /\s/) %>
+    </p>
+  </div>
+  <div class="col-md-4 padding-none">
+    <div class="dr-one-ticket-refinement dr-all-task">
+      <br/>
+      <%= render 'shared/profile/price_type', profile: profile %>
+    </div>
+    <%= render 'shared/profile/working_info', profile: profile %>
+  </div>
+</div>

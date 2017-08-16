@@ -1,4 +1,11 @@
 ru:
+  views:
+    pagination:
+      first: ""
+      last: ""
+      previous: "&lsaquo; Назад"
+      next: "Далее &rsaquo;"
+      truncate: "&hellip;"
   errors:
     filled?: Не может быть пустым
     str?: Пожалуйста, заполните

@@ -5,18 +5,20 @@ class ActiveAdmin::CategorySettingsForm < BaseForm
 
   property :settings,
     prepopulator: ->(options) {
-      #if settings.price_ranges.nil?
+      if settings.price_ranges.nil?
         settings.price_ranges = [] if settings.price_ranges.nil?
-        settings.price_ranges << OpenStruct.new(title: '', price: '', header: '', meta_keys: '')
-      #end
+        settings.price_ranges << OpenStruct.new(title: '', price: '', h1: '', seo_title: '', seo_description: '', seo_key_words: '')
+      end
     } do
     include Struct
     collection :price_ranges do
       include Struct
+      property :h1
+      property :seo_title
+      property :seo_description
+      property :seo_key_words
       property :title
       property :price
-      property :header
-      property :meta_keys
     end
   end
 end
