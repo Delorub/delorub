@@ -1,4 +1,7 @@
-.registration-form {  
+.registration-form {
+  &__header {
+    @extend .dr-header;
+  }
   &__content {
     margin-top: 2rem;
     &-circle {
@@ -17,5 +20,8 @@
     &-button-submit {      
       margin-top: 2rem;
     }
-  }  
+  }
+  &-container {
+    padding: 20px 50px;
+  }
 }

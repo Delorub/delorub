@@ -1,8 +1,8 @@
 .master-card {
   &-vip {
-    background-color: #fff8eb;
+    background-color: #fff8eb !important;
     border-right: 13px solid #dd8900;
-    padding-right: 16px;
+    padding-right: 27px !important;
   }
   &-person {
     &__image {

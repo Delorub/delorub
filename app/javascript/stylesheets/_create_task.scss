@@ -1,14 +1,5 @@
 .dr-content-header {
   padding: 0 0 15px;
-  margin-bottom: 10px;
-  &__text {
-    font-family: $GothamBold;
-    font-size: 1.5rem;
-    font-weight: bold;
-    &-margin-bottom-none {
-      margin-bottom: 0;
-    } 
-  }
   &__link {        
     @extend .link-header;
   }
