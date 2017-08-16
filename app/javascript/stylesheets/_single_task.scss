@@ -1,75 +1,75 @@
-.single-task {
-  &__header {
-    @extend .dr-header;
-    margin-bottom: 2rem;
-  }
-  &-head-block {
-    p {			
-      &:first-child {
-        @extend .dr-header-sub;
-        margin-top: 2rem;
-      }
-    }
-    img {
-      @extend .dr-image;
-      width: 65%;
-    }
-    &__link {
-      display: block;
-      color: $blueColor;
-    }
-    .btn {
-      margin-top: 3rem;
-    }
-    &--right {
-      @media (min-width: 768px) {
-        float: right;
-      }
-    }
-  }
-  &-description {
-    &__header {
-      @extend .dr-header-sub-blue;
-      margin-bottom: 2rem;
-    }
-  }
+.task-description {
   &-about {
-    &__header {
-      @extend .dr-header-sub;
-      margin: 2rem 0;
+    &__text {
+      margin-top: 2rem;
     }
   }
   &-adress {
-    &__header {
-      @extend .dr-header-sub;
-      margin-bottom: 2rem;
+    &__input {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      .fa-map-marker {
+        font-size: 1.3rem;
+        color: #f44336;
+        margin-right: 5px;
+      }    
     }
-    &__inputs {
-      margin-bottom: 1rem;
-      span {
-        @extend .dr-header-sub;
-        margin-left: 2rem;
-      }
-      p {
-        margin-bottom: 0;
+    &__map {
+      img {
+        width: 100%;
+        height: auto;
       }
     }
   }
+}
+
+.task-profile {
   &-documents {
     &__header {
-      @extend .dr-header-sub;
-      margin: 2rem 0;
+      padding: 25px 40px;
+      border-bottom: 1px solid #d1d1d1;
     }
-    &__content {
-      i {
-        font-size: 2rem;
-      }
-      a {
-        color: #4c4c4c;
+    &-list {
+      padding: 25px 40px;
+      &__link {
+        color: $blueColor;
+        margin-bottom: 10px;
         font-size: 0.8rem;
+        a.link-default-thin {
+          border-bottom: none;
+          span {
+            border-bottom: 1px dashed;
+          }
+        }
       }
-      .row {
-        margin-bottom: 1rem;
+    }
+  }
+  &-card {
+    &-person {
+      padding: 25px 40px;
+      border-bottom: 1px solid #d1d1d1;
+      &__name {
+        text-align: center;
+        @media (min-width: 992px) {
+          text-align: left;
+        }
+        h4 {
+          margin-top: 1rem;
+          line-height: 18px;
+        }        
+      }
+    }
+    &__price {
+      padding: 25px 40px;
+      p {
+        margin-top: 1rem;
+      }
+    }
+    &__time {
+      padding: 25px 40px 15px;
+      border-bottom: 1px solid #d1d1d1;
+      a {
+        margin-top: 1rem;
       }
     }
   }
