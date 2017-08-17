@@ -59,6 +59,12 @@
         }        
       }
     }
+    &__contacts {
+      @extend .performer-profile-main__contacts;
+      p {
+        justify-content: flex-start;
+      }
+    }
     &__price {
       padding: 25px 40px;
       p {
