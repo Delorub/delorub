@@ -47,11 +47,16 @@ class Task < ApplicationRecord
   has_many :files, class_name: 'TaskFile', dependent: :destroy
   has_many :replies, dependent: :destroy
 
+  has_and_belongs_to_many :subcategories,
+    class_name: 'Category',
+    association_foreign_key: 'subcategory_id',
+    join_table: 'subcategories_tasks'
+
   has_one :deal
   has_one :accepted_reply, -> { accepted }, class_name: 'Reply'
 
   enumerize :price_type, in: [:exact, :interval, :scale]
-  enumerize :date_type, in: [:end_at, :start_at, :interval, :none]
+  enumerize :date_type, in: [:end_at, :start_at, :interval]
   enumerize :contract_type, in: [:no_contract, :contract]
 
   validates :title, :description, :user_id, :category_id, :price_type, :date_type, presence: true

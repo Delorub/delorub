@@ -1,20 +1,21 @@
 <script>
-import Tether from 'tether'
-import _ from 'lodash'
+import formTooltips from 'mixins/form_tooltips'
 
 export default {
+  mixins: [formTooltips],
   props: [
-    'initialModel', 'categoriesList'
+    'initialModel', 'categoriesList', 'dateTypesList'
   ],
   data: function () {
     return {
       model: this.initialModel,
-      popoverTether: null,
       map: null,
       ymaps: null,
       placemark: null,
       suggestView: null,
       subcategories: [],
+      placeSuggestions: [],
+      placeLoading: false,
       datepickerConfig: {
         enableTime: true,
         dateFormat: 'd.m.Y H:i',
@@ -35,7 +36,7 @@ export default {
         this.initializeMap()
       }
     })
-    this.populateSubcategories({ value: this.model.main_category_id })
+    this.populateSubcategories(this.model.category_id)
     this.showTooltip('task_title')
   },
   methods: {
@@ -53,18 +54,13 @@ export default {
       this.map.events.add(['actionbegin', 'contextmenu'], (event) => {
         this.showTooltip('task_place_address')
       })
-
-      this.suggestView = new this.ymaps.SuggestView(this.$refs.suggestAddress)
-      this.suggestView.events.add('select', (e) => {
-        this.placeByAddress(e.get('item').value)
-      })
     },
-    placeByAddress (request) {
+    placeBySelect (element) {
       if (!this.ymaps) return
-      if (!request) {
+      if (!element) {
         this.placeGeoObject(null)
       }
-      this.ymaps.geocode(request).then(
+      this.ymaps.geocode(element).then(
         (result) => { this.placeGeoObject(result.geoObjects.get(0), false) }
       )
     },
@@ -74,10 +70,10 @@ export default {
         this.placeGeoObject(null)
       }
       this.ymaps.geocode(request).then(
-        (result) => { this.placeGeoObject(result.geoObjects.get(0)) }
+        (result) => { this.placeGeoObject(result.geoObjects.get(0), true, false) }
       )
     },
-    placeGeoObject (geoObject, changeAddress = true) {
+    placeGeoObject (geoObject, changeAddress = true, changeCenter = true) {
       if (!geoObject) {
         this.model.place_lat = null
         this.model.place_long = null
@@ -93,7 +89,9 @@ export default {
       this.map.geoObjects.add(placemark)
       this.placemark = placemark
 
-      this.map.setCenter(coordinates, 13)
+      if (changeCenter) {
+        this.map.setCenter(coordinates, 13)
+      }
 
       if (changeAddress) {
         this.model.place_address = name
@@ -101,49 +99,44 @@ export default {
       this.model.place_lat = coordinates[0]
       this.model.place_long = coordinates[1]
     },
-    showTooltip (elementId) {
-      let content = document.querySelector('.dr-popover-data[data-for=' + elementId + ']')
-      if (!content) return
-      let popover = document.querySelector('.dr-popover')
-      let area = content.parentElement
-      let target = document.getElementById(elementId)
-
-      if (!popover || !target || area.offsetParent === null) {
-        return
-      }
-
-      popover.classList.remove('hidden')
-      popover.style.width = (area.offsetWidth - 34) + 'px'
-      popover.innerHTML = content.innerHTML
-      if (this.popoverTether === null) {
-        this.popoverTether = new Tether({
-          element: popover,
-          target: target,
-          attachment: 'middle left',
-          targetAttachment: 'middle right',
-          constraints: [{
-            to: area,
-            pin: true
-          }]
-        })
-      } else {
-        this.popoverTether.target = target
-        this.popoverTether.position()
-      }
-    },
-    positionPopover () {
-      if (this.popoverTether !== null) {
-        this.popoverTether.position()
-      }
+    populatePlaces (text) {
+      if (!this.ymaps) return
+      this.placeLoading = true
+      this.ymaps.suggest(text).then((items) => {
+        this.placeSuggestions = items.map((e) => e.displayName)
+        this.placeLoading = false
+      })
     },
     populateSubcategories (selected) {
-      if (selected.value !== this.model.main_category_id) {
-        this.model.category_id = null
+      if (selected !== this.model.category_id) {
+        this.model.subcategory_ids = []
       }
-
-      this.subcategories = _.filter(this.categoriesList, (e) => {
-        return e.parent_id === selected.value
+      this.subcategories = this.categoriesList.filter(e => e.parent_id === parseInt(selected)).map(e => e.value)
+    },
+    categoryLabel (id) {
+      var result
+      this.categoriesList.every((e) => {
+        if (parseInt(e.value) === parseInt(id)) {
+          result = e
+          return false
+        }
+        return true
       })
+      return result.label
+    },
+    dateTypeLabel (id) {
+      var result
+      this.dateTypesList.every((e) => {
+        if (String(e.value) === String(id)) {
+          result = e
+          return false
+        }
+        return true
+      })
+      return result.label
+    },
+    limitSubcategoriesText (count) {
+      return `Выбрано ${count} подкатегорий`
     }
   }
 }
