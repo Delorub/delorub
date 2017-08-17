@@ -1,11 +1,12 @@
 = semantic_form_for @form, url: settings_admin_category_path, method: :put do |f|
   = f.fields_for :settings do |s|
+    = f.inputs :price_ranges, title: 'Настраиваемые поля'
+      = s.input :h1
+      = s.input :seo_title
+      = s.input :seo_description
+      = s.input :seo_keywords
     = f.inputs :price_ranges, title: 'Диапазоны цен'
       = s.fields_for :price_ranges do |pr|
-        = pr.input :h1
-        = pr.input :seo_title
-        = pr.input :seo_description
-        = pr.input :seo_key_words
         = pr.input :title
         = pr.input :price
   = f.actions

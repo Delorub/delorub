@@ -3,22 +3,18 @@ class TasksController < ApplicationController
   inherit_resources
   decorates_assigned :tasks
 
-  before_action :category_present?, :only => [:index]
-  before_action :get_categories,    :only => [:index]
-  before_action :task_present?,     :only => [:show]
+  before_action :category_present?, only: [:index]
+  before_action :get_categories, only: [:index]
+  before_action :task_present?, only: [:show]
 
-  #helper_method :task_form_props, :current_url
+  helper_method :task_form_props, :current_url
 
   def index
-    tasks = @category.present? ? @category.tasks : Task.all
-    @tasks = tasks.includes(:user)
-                  .order(:created_at => (params[:order].present? and params[:order] == 'asc') ? 'asc' : 'desc')
-                  .page(params[:page].to_i > 0 ? params[:page] : params[:page])
-                  .per(4)
+    @tasks = TaskQuery.new(category: @category, current_user: current_user).all(params[:page], params[:order])
   end
 
   def show
-    #return redirect_to deal_path(resource.deal) if resource.deal.present? && policy(resource.deal).show?
+    return redirect_to deal_path(resource.deal) if resource.deal.present? && policy(resource.deal).show?
   end
 
   def new
@@ -59,7 +55,6 @@ class TasksController < ApplicationController
       TaskQuery.new(collection: super, scope: @scope, category: @category, current_user: current_user).perform
     end
 
-    # TODO если данные две ф-ии не используются надо их удалить, видимо старое осталось
     def fetch_scope
       @scope = :all
       @scope = params[:scope].to_sym if params[:scope]
@@ -77,14 +72,18 @@ class TasksController < ApplicationController
         category_tasks_path(params)
       end
     end
-    # конец todo
 
     def task_present?
-      @task = Task.find(params[:id]) rescue render_page_not_found
+      @task = Task.where(id: params[:id]).first
+      render_page_not_found if @task.blank?
     end
 
     def category_present?
-      @category = Category.friendly.find(params[:category_id]) rescue render_page_not_found if params[:category_id]
+      if params[:category_id]
+        category = Category.friendly.where(slug: params[:category_id]).first.decorate
+        render_page_not_found if category.blank?
+        @category = category.decorate
+      end
     end
 
     def get_categories

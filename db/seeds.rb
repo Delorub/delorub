@@ -95,3 +95,13 @@ portfolio_item.comments.create(user: admins.sample, text: Faker::Lorem.sentence(
 
 ### Certificates
 profile.certificates.create(file: File.open(File.join(Rails.root, 'spec', 'support', 'certificate', 'files', 'image.png')))
+
+
+Category.all.each do |category|
+  array_title = ['ванну', 'туалет', 'что-то']
+  category.tasks.create(
+    title: "Сделать #{array_title.sample}",
+    description: 'СБ ООН принял 5 августа новую резолюцию, предусматривающую ограничения импорта угля, железной руды и морепродуктов из КНДР, после двух испытаний в июле баллистических ракет, которые, как утверждают в Пхеньяне, могут долететь до территории США. По подсчетам американцев, полное выполнение санкций против КНДР позволит сократить ежегодные валютные доходы Пхеньяна, составляющие сейчас около 3 миллиардов долларов, на треть.',
+    user_id: [7, 8].sample, price_type: 'exact', date_type: 'end_at'
+  )
+end

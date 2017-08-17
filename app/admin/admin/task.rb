@@ -1,5 +1,4 @@
 ActiveAdmin.register Task, namespace: :admin do
-
   permit_params :user_id, :category_id, :title, :price_type, :date_type, :description, :visible, :price_exact, :price_from,
     :price_to, :place_lat, :place_long, :place_address, :date_actual_date, :date_interval_from, :date_interval_to,
     :notify_email, :archive, :price_scale, :contract_type
@@ -21,22 +20,18 @@ ActiveAdmin.register Task, namespace: :admin do
   form do |f|
     inputs do
       f.input :title
-      #f.input :category_id, as: :ransack_select, url: '/admin/categories', display_name: 'title'
-      #f.input :user_id,     as: :ransack_select, url: '/admin/users', display_name: 'name'
-      f.input :category_id,  as: :select, collection: Category.roots.map{|a| [a.title, a.id]}
-      f.input :user_id,      as: :select, collection: User.all.map{|a| [a.name, a.id]}
+      f.input :category_id, as: :ransack_select, url: '/admin/categories', display_name: 'title'
+      f.input :user_id,     as: :ransack_select, url: '/admin/users', display_name: 'name'
       f.input :description
       f.input :price_type
       f.input :date_type
       f.input :price_exact
       f.input :price_from
       f.input :price_to
-      #f.input :place_lat
-      #f.input :place_long
       f.input :place_address
-      f.input :date_actual,        as: :datepicker #as: :date_time_picker
-      f.input :date_interval_from, as: :datepicker #as: :date_time_picker
-      f.input :date_interval_to,   as: :datepicker #as: :date_time_picker
+      f.input :date_actual,        as: :datepicker
+      f.input :date_interval_from, as: :datepicker
+      f.input :date_interval_to,   as: :datepicker
       f.input :notify_email
       f.input :price_scale
       f.input :contract_type

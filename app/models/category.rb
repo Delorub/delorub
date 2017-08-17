@@ -32,9 +32,9 @@ class Category < ApplicationRecord
   acts_as_nested_set counter_cache: :children_count
   acts_as_list scope: [:parent_id], top_of_list: 0
 
-  validates :title, :slug, presence: true, length: {maximum: 250}
+  validates :title, :slug, presence: true, length: { maximum: 250 }
   validates :slug, uniqueness: true
-  validates :position, numericality: {only_integer: true}, allow_blank: true
+  validates :position, numericality: { only_integer: true }, allow_blank: true
 
   friendly_id :title, use: :slugged
 
@@ -42,14 +42,10 @@ class Category < ApplicationRecord
   has_many :tasks
   has_and_belongs_to_many :profiles
 
-  scope :have_not_parent, -> {where(parent_id: nil)}
+  scope :have_not_parent, -> { where(parent_id: nil) }
 
   def self_and_descendants_ids
     self_and_descendants.map(&:id)
   end
-
-  def settings_value(params)
-    (settings.price_ranges.present? and settings.price_ranges[0].present?) ? settings.price_ranges[0][params] : ''
-  end
-
+  
 end

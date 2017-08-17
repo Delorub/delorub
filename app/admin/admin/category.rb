@@ -1,9 +1,8 @@
 ActiveAdmin.register Category, namespace: :admin do
-
   config.sort_order = 'position_asc'
   config.paginate = false
 
-  permit_params :title, :parent_id, :photo, :description#, :position
+  permit_params :title, :parent_id, :photo, :description
 
   filter :by_search_in, label: 'Поиск', as: :string
   filter :category_id
@@ -11,7 +10,6 @@ ActiveAdmin.register Category, namespace: :admin do
   index download_links: false do
     column :title
     column :slug
-    #column :position
     column '' do |cat|
       link_to 'Настройки', settings_admin_category_path(cat)
     end
@@ -26,7 +24,8 @@ ActiveAdmin.register Category, namespace: :admin do
     @form = ActiveAdmin::CategorySettingsForm.new resource
     @form.prepopulate!
     if request.put?
-      if @form.validate params.require(:category).permit(settings_attributes: { price_ranges_attributes: [:title, :price, :h1, :seo_title, :seo_description, :seo_key_words] })
+      setting_params = params.require(:category).permit(settings_attributes: [:h1, :seo_title, :seo_description, :seo_keywords, price_ranges_attributes: [:title, :price]])
+      if @form.validate setting_params
         @form.save do |hash|
           resource.settings = RecursiveOpenStruct.new(hash[:settings], recurse_over_arrays: true)
           resource.settings.price_ranges.reject! { |e| e.title.blank? }
@@ -41,11 +40,10 @@ ActiveAdmin.register Category, namespace: :admin do
     f.inputs 'Основное' do
       input :title
       input :position
-      input :parent, as: :select, collection: Category.have_not_parent.map{|a| [a.title, a.id]} #nested_set_options_for_category(category)
+      input :parent, as: :select, collection: Category.have_not_parent.map{ |a| [a.title, a.id] }
       input :photo
       input :description
     end
-=begin
     f.inputs 'Настройки' do
       fields_for :settings do |s|
         s.fields_for :price_ranges do |pr|
@@ -53,19 +51,8 @@ ActiveAdmin.register Category, namespace: :admin do
         end
       end
     end
-=end
     actions
   end
-
-=begin
-  show do
-    h3 category.title
-    attributes_table_for category do
-      row :title
-      row :parent
-    end
-  end
-=end
 
   sidebar 'Изображение', only: :show, if: proc{ !category.photo.file.nil? } do
     img src: category.photo.thumb.url
@@ -79,7 +66,6 @@ ActiveAdmin.register Category, namespace: :admin do
   end
 
   controller do
-
     def update
       super do |format|
         format.html { redirect_to collection_path } if resource.valid?
@@ -91,7 +77,5 @@ ActiveAdmin.register Category, namespace: :admin do
         format.html { redirect_to collection_path } if resource.valid?
       end
     end
-
   end
-
 end

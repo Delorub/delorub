@@ -1,7 +1,7 @@
 class TaskQuery
   attr_accessor :scope, :category, :current_user, :collection
 
-  def initialize collection:, scope:, category:, current_user:
+  def initialize collection: nil, scope: nil, category:, current_user:
     @collection = collection
     @scope = scope
     @category = category
@@ -15,6 +15,13 @@ class TaskQuery
     apply_category if category
     apply_order
     collection
+  end
+
+  def all(page, param_order)
+    @tasks = @category.blank? ? Task.all : @category.tasks
+    @tasks.includes(:user)
+          .order(created_at: param_order.present? && param_order == 'asc' ? 'asc' : 'desc')
+          .page(page.to_i.positive? ? page : 1).per(4)
   end
 
   private
