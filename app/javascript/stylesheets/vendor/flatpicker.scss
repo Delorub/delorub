@@ -1,0 +1,51 @@
+.flatpickr-input {
+  border-bottom-left-radius: 3px !important;
+  border-top-left-radius: 3px !important;
+  background-color: #fefbfb !important;
+}
+
+.flatpickr-day:hover, .flatpickr-day:focus {
+  border-color: #c1e5f9;
+  background: #c1e5f9;
+  cursor: pointer;
+  outline: 0;
+}
+
+.flatpickr-day {
+  max-width: 25px;
+  height: 25px;
+  line-height: 25px;
+  margin: 2px 9px;
+}
+
+.flatpickr-day.selected {
+  background: $blueColor;
+  box-shadow: none;
+  color: #fff;
+  border-color: $blueColor;
+}
+
+.flatpickr-calendar {
+  font-size: 12px;
+  font-family: $GothamPro;
+  border-radius: 3px;
+  border: 1px solid #70bee9 !important;
+  &:before {
+    display: none;
+  }
+}
+
+.flatpickr-current-month span.cur-month {
+  font-weight: normal;
+}
+
+span.flatpickr-weekday {
+  color: #4a4a4a;
+}
+
+.flatpickr-prev-month:hover svg, .flatpickr-next-month:hover svg {
+  fill: #000000;
+  padding: 2px;
+  border: 1px solid #70bee9;
+  border-radius: 3px;
+}

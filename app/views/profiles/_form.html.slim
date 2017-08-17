@@ -1,0 +1,110 @@
+= simple_form_for @form do |f|
+  = content_tag 'profile-form',
+    'inline-template': true,
+    ':categories-list': f.object.categories_list.to_json,
+    ':initial-model': f.object.to_nested_hash.to_json \
+    do
+    .regular-content
+      .container
+        nav.breadcrumb
+          a.breadcrumb-item href=root_path  Главная
+          span.breadcrumb-item.active Создать профиль
+        .dr-content-header
+          h1 Стать исполнителем
+        .row
+          .col-xl-8
+            .dr-form
+              .dr-block-style id="profile_category"
+                .form-group v-on:click="showTooltip('profile_category')"
+                  label.form-group__header Специализация
+                  br/
+                  br/
+                  .row
+                    .col-lg-6
+                      .form-group
+                        = content_tag 'custom-select', '',
+                          'v-model': 'model.category_ids',
+                          ':searchable': 'false',
+                          ':allow-empty': 'false',
+                          'placeholder': 'Выберите категорию',
+                          ':options': f.object.main_category_collection.pluck(:id).to_json,
+                          ':custom-label': 'categoryLabel'
+                        = f.error :category_id
+                    .col-lg-6
+                      .form-group
+              .dr-block-style
+                .form-group v-on:click="showTooltip('profile_about')"
+                  label.form-group__header for="comment"  Обо мне
+                  = f.input :about, as: :text, label: false,
+                    input_html: { \
+                      'v-model': 'model.description',
+                      'v-on:focus': %(showTooltip('profile_about')),
+                      rows: 10,
+                    }
+              .dr-block-style
+                = f.simple_fields_for :new_user do |rf|
+                  - unless rf.object.nil?
+                    div id="profile_contacts" v-on:click="showTooltip('profile_contacts')"
+                      label.form-group__header for="contact"  Укажите контактную информацию
+                      .row
+                        .col-lg-4.col-md-6
+                          = rf.input :name, label: false, error: false,
+                            input_html: { \
+                              'v-on:focus': %(showTooltip('profile_contacts')),
+                            }
+                        .col-lg-4.col-md-6
+                          = rf.input :email, label: false, error: false,
+                            input_html: { \
+                              'v-on:focus': %(showTooltip('profile_contacts')),
+                            }
+                        .col-lg-4.offset-lg-0.col-md-6.offset-md-6 class=('error-display-hide' if (rf.object.errors.keys & [:name, :email]).count.zero?)
+                          .contact-form__error-message
+                            span = rf.error (rf.object.errors.keys & [:name, :email]).first
+                      .contact-form__phone
+                        span Укажите ваш номер телефона и подтвердите его
+                      = rf.simple_fields_for :sms_confirmation do |sf|
+                        = render 'shared/phone_confirmation', f: sf
+                      .checkbox
+                        label
+                          = rf.check_box :accept_terms
+                          span.checkbox-custom
+                          | Я согласен с&nbsp;
+                          a.link-default href="#" правилами сервиса
+                          |  и&nbsp;
+                          a.link-default href="#" политикой обработки персональных данных
+                        = rf.error :accept_terms
+
+                br/
+                .center
+                  = f.submit 'Сохранить', class: 'dr-btn-danger'
+          .col-xl-4 ref="popoverArea"
+            .dr-popover.dr-popover-left.hidden
+            .dr-popover-data.hidden data-for="profile_about"
+              .dr-popover__header
+                | Обо мне
+              .dr-popover__text
+                | Напишите о своих компетенциях, опыте работы, навыках и другую необходимую информацию, по которой заказчики смогут понять кто вы такой
+            .dr-popover-data.hidden data-for="profile_category"
+              .dr-popover__header
+                | Выберите категории, в которых вы хотите получать заказы
+              .dr-popover__text
+                | Доступно категорий: { categories }
+            .dr-popover-data.hidden data-for="profile_contacts"
+              .dr-popover__header
+                | Ваши контактные данные
+              .dr-popover__text
+                | Напишите свой номер телефона,
+                br/
+                | и вам придет смс с кодом
+                br/
+                | подтверждения.
+                br/
+                br/
+                | Согласно&nbsp;
+                a href="/terms"
+                  | «Политике конфиденциальности»
+                |  контактные
+                br/
+                | данные сохраняются в базе сайта
+                br/
+                | и не передаются третьим лица.

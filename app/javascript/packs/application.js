@@ -13,6 +13,7 @@ import CustomSelect from '../components/custom-select.vue'
 
 import SmsConfirmation from '../components/sms_confirmation.vue'
 import TaskForm from '../components/task_form.vue'
+import ProfileForm from '../components/profile_form.vue'
 import UploadForm from '../components/upload_form.vue'
 
 import 'selectize'
@@ -27,6 +28,8 @@ Vue.component('flat-pickr', flatPickr)
 
 Vue.component('upload-form', UploadForm)
 Vue.component('sms-confirmation', SmsConfirmation)
+
+Vue.component('profile-form', ProfileForm)
 
 document.addEventListener('DOMContentLoaded', () => {
   // eslint-disable-next-line no-new
