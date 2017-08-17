@@ -41,6 +41,6 @@ export default {
       if (this.popoverTether !== null) {
         this.popoverTether.position()
       }
-    },
+    }
   }
 }
