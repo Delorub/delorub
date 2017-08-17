@@ -40,6 +40,8 @@ class Category < ApplicationRecord
 
   belongs_to :parent, class_name: 'Category'
   has_many :tasks
+  has_many :children_tasks, class_name: 'Task', through: :children
+
   has_and_belongs_to_many :profiles
 
   scope :have_not_parent, -> { where(parent_id: nil) }
@@ -47,5 +49,4 @@ class Category < ApplicationRecord
   def self_and_descendants_ids
     self_and_descendants.map(&:id)
   end
-  
 end

@@ -80,7 +80,7 @@ class TasksController < ApplicationController
 
     def category_present?
       if params[:category_id]
-        category = Category.friendly.where(slug: params[:category_id]).first.decorate
+        category = Category.friendly.where(slug: params[:category_id]).first
         render_page_not_found if category.blank?
         @category = category.decorate
       end

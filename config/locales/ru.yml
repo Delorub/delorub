@@ -21,6 +21,9 @@ ru:
       date: '%d.%m.%Y'
       timeofday: '%H:%M'
   user_sms_confirmation: "Проверочный код: %{code}. Делоруб"
+  profile_price_project: "%{price} руб/проект"
+  profile_price_hourly: "%{price} руб/час"
+  not_specified: "не указан"
   visitor_session_statistics:
     count: Количество сессий
     coming_soon_pages: Переходов на coming soon

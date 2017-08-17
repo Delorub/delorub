@@ -3,13 +3,14 @@ ActiveAdmin.register User, namespace: :admin do
   include ActiveAdminShared::UserPermission
   include ActiveAdminShared::UserBilling
 
-  permit_params :email, :name, :phone, :password, :photo
+  permit_params :email, :name, :phone, :password, :photo, :birthday
 
   form do |f|
     inputs 'Основное' do
       input :email
       input :password if f.object.new_record?
       input :name
+      input :birthday
       input :photo
     end
     actions

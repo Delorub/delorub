@@ -1,0 +1,28 @@
+.regular-content
+  .container
+    = render 'breadcrumb'
+    .row
+      .col-lg-8
+        .dr-block-style.dr-block-style--sort-padding
+          .task-sort
+            .row
+              .col-xl-3.col-lg-6
+                .checkbox
+                  label
+                    input type="checkbox" value=""/
+                    span.checkbox-custom
+                    |Новые&nbsp;исполнители
+              .col-xl-3.col-lg-6
+                .checkbox
+                  label
+                    input type="checkbox" value=""/
+                    span.checkbox-custom
+                    | Онлайн
+        = render 'profile'
+      = render 'categories'
+    - if @category and @category.description.present?
+      .dr-block-style
+        .bottom-text.center
+          = @category.description
+          a.link-default href="#"
+            | Развернуть

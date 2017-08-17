@@ -1,181 +1,36 @@
-<div class="dr-block-style dr-block-style--card master-card-vip">
-  <div class="row">
-    <div class="col-lg-2">
-      <div class="master-card-person">
-        <div class="master-card-person__image master-card-person__image--online">
-          <img class="" src="/images/search/avatar.png" alt=""/>
-        </div>
-        <p class="master-card-person__status">
-                          <span>
-                            <i class="fa fa-heart"></i> 23
-                          </span>
-                          <span>
-                            <i class="fa fa-heartbeat"></i> 3
-                          </span>
-        </p>
-        <div class="dr-rating">
-          <div class="dr-rating-container">
-            <div class="dr-rating-star dr-rating-star-full"></div>
-            <div class="dr-rating-star dr-rating-star-full"></div>
-            <div class="dr-rating-star dr-rating-star-full"></div>
-            <div class="dr-rating-star dr-rating-star-empty"></div>
-            <div class="dr-rating-star dr-rating-star-empty"></div>
+<% @profiles.each do |profile| %>
+    <div class="dr-block-style dr-block-style--card">
+      <div class="row">
+        <div class="col-lg-2">
+          <div class="master-card-person">
+            <div class="master-card-person__image master-card-person__image--online">
+              <%= image_tag profile.user.photo.url %>
+            </div>
+            <div class="master-card-person__mark"></div>
           </div>
         </div>
-        <div class="master-card-person__mark"></div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="master-card-description">
-        <div class="row justify-content-space-between">
-          <div class="col">
-            <p class="master-card-description__header">
-              <a href="#">
-                Ромакова Светлана Анатольевна
-              </a>
+        <div class="col">
+          <div class="master-card-description">
+            <div class="row justify-content-space-between">
+              <div class="col">
+                <p class="master-card-description__header">
+                    <%= link_to profile.user.name, profile_path(profile) %>
+                </p>
+              </div>
+              <div>
+                <span class="master-card-description__price"><%= profile.decorate.show_price %></span>
+              </div>
+            </div>
+            <p class="master-card-description__offline master-card-description__offline--hide">
+              Был на сайте 6 ч. 9 мин. назад
             </p>
-          </div>
-          <div>
-            <span class="master-card-description__price">300 р/час</span>
-          </div>
-        </div>
-        <p class="master-card-description__offline master-card-description__offline--hide">
-          Был на сайте 6 ч. 9 мин. назад
-        </p>
-        <p class="master-card-description__text">
-          Добрый день! Меня зовут Светлана, мне 24 года, имеется опыт в сферы
-          ремонта техники более 4-х лет, на сайте ДелоРуб не так давно,
-          поэтому нет отзывов, работаю быстро и качественно, тр…
-        </p>
-        <a class="dr-btn-primary" href="#" role="button">Стать исполнителем</a>
-        <span class="master-card-description__phone"><a href="#" class="link-default">Показать номер телефона</a></span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="dr-block-style dr-block-style--card">
-  <div class="row">
-    <div class="col-lg-2">
-      <div class="master-card-person">
-        <div class="master-card-person__image master-card-person__image--online">
-          <img class="" src="/images/search/avatar.png" alt=""/>
-        </div>
-        <p class="master-card-person__status">
-                          <span>
-                            <i class="fa fa-heart"></i> 23
-                          </span>
-                          <span>
-                            <i class="fa fa-heartbeat"></i> 3
-                          </span>
-        </p>
-        <div class="dr-rating">
-          <div class="dr-rating-container">
-            <div class="dr-rating-star dr-rating-star-full"></div>
-            <div class="dr-rating-star dr-rating-star-full"></div>
-            <div class="dr-rating-star dr-rating-star-full"></div>
-            <div class="dr-rating-star dr-rating-star-empty"></div>
-            <div class="dr-rating-star dr-rating-star-empty"></div>
-          </div>
-        </div>
-        <div class="master-card-person__mark"></div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="master-card-description">
-        <div class="row justify-content-space-between">
-          <div class="col">
-            <p class="master-card-description__header">
-              <a href="#">
-                Лужко Виктор Константинович
-              </a>
+            <p class="master-card-description__text">
+              <%= profile.about.truncate(180) unless profile.about.blank? %>
             </p>
-          </div>
-          <div>
-            <span class="master-card-description__price">499 р/час</span>
+            <a class="link-default" href="#" role="button">Показать номер телефона</a>
           </div>
         </div>
-        <p class="master-card-description__offline master-card-description__offline--hide">
-          Был на сайте 6 ч. 9 мин. назад
-        </p>
-        <p class="master-card-description__text">
-          Всем доброго времени суток!) Образование высшее-техническое, по
-          специальности инженер. Также имею специальность слесаря-сантехника
-          и электрогазосварщика. Вашему вниманию…
-        </p>
-        <a class="dr-btn-primary" href="#" role="button">Стать исполнителем</a>
-        <span class="master-card-description__phone master-card-description__phone--hide">+7-921-781-87-36</span>
       </div>
     </div>
-  </div>
-</div>
-
-<div class="dr-block-style dr-block-style--card">
-  <div class="row">
-    <div class="col-lg-2">
-      <div class="master-card-person">
-        <div class="master-card-person__image">
-          <img class="" src="/images/search/avatar.png" alt=""/>
-        </div>
-        <p class="master-card-person__status">
-                          <span>
-                            <i class="fa fa-heart"></i> 23
-                          </span>
-                          <span>
-                            <i class="fa fa-heartbeat"></i> 3
-                          </span>
-        </p>
-        <div class="dr-rating">
-          <div class="dr-rating-container">
-            <div class="dr-rating-star dr-rating-star-full"></div>
-            <div class="dr-rating-star dr-rating-star-full"></div>
-            <div class="dr-rating-star dr-rating-star-full"></div>
-            <div class="dr-rating-star dr-rating-star-empty"></div>
-            <div class="dr-rating-star dr-rating-star-empty"></div>
-          </div>
-        </div>
-        <div class="master-card-person__mark"></div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="master-card-description">
-        <div class="row justify-content-space-between">
-          <div class="col">
-            <p class="master-card-description__header">
-              <a href="#">
-                Голубицкий Эдуард Игоревич
-              </a>
-            </p>
-          </div>
-          <div>
-            <span class="master-card-description__price">От 2500 руб.</span>
-          </div>
-        </div>
-        <p class="master-card-description__offline">
-          Был на сайте 6 ч. 9 мин. назад
-        </p>
-        <p class="master-card-description__text">
-          Здравствуйте! У меня высшее техническое образование.
-          Профессиональнозанимаюсь системами видеонаблюдения, системами
-          контроля доступа, электромонтажем, системами "Умный до…
-        </p>
-        <a class="dr-btn-primary" href="#" role="button">Стать исполнителем</a>
-        <span class="master-card-description__phone">+7-921-781-87-36</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<nav>
-  <ul class="pagination justify-content-center">
-    <li class="page-item disabled">
-      <a class="page-link" href="#" tabindex="-1">Назад</a>
-    </li>
-    <li class="page-item page-item-active"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">Далее</a>
-    </li>
-  </ul>
-</nav>
+<% end %>
+<%= paginate @profiles %>

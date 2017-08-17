@@ -12,7 +12,6 @@ ActiveAdmin.register Profile, namespace: :admin do
       input :work_type
       input :have_car
       input :about
-      input :place_id
       input :price_type
       input :price_hourly
       input :price_project

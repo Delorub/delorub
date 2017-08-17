@@ -27,5 +27,4 @@ class TaskDecorator < Draper::Decorator
     return if object.date_interval_to.blank?
     I18n.l object.date_interval_to, format: :date
   end
-
 end

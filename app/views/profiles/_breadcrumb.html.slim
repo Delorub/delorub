@@ -4,13 +4,13 @@ nav.breadcrumb
   - if @category
     span.breadcrumb-item.active
       = h1.blank? ? @category.title : h1
-  - elsif @task
-    = link_to 'Все задания', tasks_path, class: 'breadcrumb-item'
+  - elsif @profile
+    = link_to 'Все исполнители', profiles_path, class: 'breadcrumb-item'
     span.breadcrumb-item.active
-      = @task.title
+      = @profile.user.name
   - else
     span.breadcrumb-item.active
-      | Все задания
+      | Все исполнители
 
 - if @category
   .dr-content-header

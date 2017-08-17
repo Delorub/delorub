@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
 
   helper_method :create_profile_form_props, :current_url
   before_action :get_categories, only: [:index]
+  before_action :category_present?, only: [:index]
 
   def index
     @profiles = ProfileQuery.new(category: @category, current_user: current_user).all(params[:page])
@@ -48,6 +49,14 @@ class ProfilesController < ApplicationController
 
     def get_categories
       @categories = Category.roots.includes(:children).order(:position)
+    end
+
+    def category_present?
+      if params[:category_id]
+        category = Category.friendly.where(slug: params[:category_id]).first
+        render_page_not_found if category.blank?
+        @category = category.decorate
+      end
     end
 
     def current_user_or_new

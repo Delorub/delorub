@@ -7,4 +7,8 @@ class ProfileDecorator < Draper::Decorator
     return object.categories.first.parent_id if object.categories.first.parent
     object.categories.first.id
   end
+
+  def show_price
+    object.price_type.hourly? ? I18n.t(:profile_price_hourly, price: object.price_hourly) : I18n.t(:profile_price_project, price: object.price_project)
+  end
 end
