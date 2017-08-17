@@ -4,7 +4,11 @@ module Task::Contract
     property :description
 
     property :category_id
-    property :main_category_id, virtual: true
+    property :subcategory_ids,
+      default: [],
+      populator: ->(fragment:, **) {
+        self.subcategory_ids = Category.where(id: fragment).pluck(:id)
+      }
 
     property :date_type, default: 'interval'
     property :date_actual, default: -> { I18n.l(Time.zone.now + 1.day, format: :datepicker) }
@@ -40,8 +44,12 @@ module Task::Contract
 
       required(:title).filled
       required(:description).filled
-      required(:main_category_id).filled
       required(:category_id).filled
+      required(:subcategories_ids)
+    end
+
+    def category
+      Category.find_by id: category_id
     end
 
     def main_category_collection

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170802063101) do
+ActiveRecord::Schema.define(version: 20170817061718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -313,6 +313,12 @@ ActiveRecord::Schema.define(version: 20170802063101) do
     t.datetime "last_sent_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "subcategories_tasks", force: :cascade do |t|
+    t.integer "subcategory_id"
+    t.integer "task_id"
+    t.index ["subcategory_id", "task_id"], name: "index_subcategories_tasks_on_subcategory_id_and_task_id", unique: true
   end
 
   create_table "task_files", id: :serial, force: :cascade do |t|
