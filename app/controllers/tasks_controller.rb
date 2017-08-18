@@ -4,14 +4,10 @@ class TasksController < ApplicationController
   decorates_assigned :tasks
 
   before_action :category_present?, only: [:index]
-  before_action :get_categories, only: [:index]
+  before_action :all_categories, only: [:index]
   before_action :task_present?, only: [:show]
 
   helper_method :task_form_props, :current_url
-
-  def index
-    @tasks = TaskQuery.new(category: @category, current_user: current_user).all(params[:page], params[:order])
-  end
 
   def show
     return redirect_to deal_path(resource.deal) if resource.deal.present? && policy(resource.deal).show?
@@ -52,7 +48,8 @@ class TasksController < ApplicationController
   private
 
     def end_of_association_chain
-      TaskQuery.new(collection: super, scope: @scope, category: @category, current_user: current_user).perform
+      TaskQuery.new(collection: super, scope: @scope, category: @category,
+                    current_user: current_user, page: params[:page], param_order: params[:order]).perform
     end
 
     def fetch_scope
@@ -86,7 +83,7 @@ class TasksController < ApplicationController
       end
     end
 
-    def get_categories
+    def all_categories
       @categories = Category.roots.includes(:children).order(:position)
     end
 

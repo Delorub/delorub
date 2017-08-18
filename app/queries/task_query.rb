@@ -1,11 +1,13 @@
 class TaskQuery
-  attr_accessor :scope, :category, :current_user, :collection
+  attr_accessor :scope, :category, :current_user, :collection, :param_order, :page
 
-  def initialize collection: nil, scope: nil, category:, current_user:
-    @collection = collection
+  def initialize collection:, scope: nil, category:, current_user:, page:, param_order:
+    @collection = collection.includes(:user)
     @scope = scope
     @category = category
     @current_user = current_user
+    @page = page
+    @param_order = param_order
   end
 
   def perform
@@ -14,21 +16,15 @@ class TaskQuery
     apply_suggested if scope == :suggested
     apply_category if category
     apply_order
+    apply_paginate
     collection
-  end
-
-  def all(page, param_order)
-    @tasks = @category.blank? ? Task.all : @category.tasks
-    @tasks.includes(:user)
-          .order(created_at: param_order.present? && param_order == 'asc' ? 'asc' : 'desc')
-          .page(page.to_i.positive? ? page : 1).per(4)
   end
 
   private
 
     def apply_visibility
-      return @collection = guest_visibility if current_user.blank?
-      return @collection = master_visibility if current_user.master?
+      return guest_visibility if current_user.blank?
+      return master_visibility if current_user.master?
       user_visibility
     end
 
@@ -66,6 +62,10 @@ class TaskQuery
     end
 
     def apply_order
-      @collection = collection.order('tasks.id DESC')
+      @collection = collection.order(created_at: param_order.present? && param_order == 'asc' ? 'asc' : 'desc')
+    end
+
+    def apply_paginate
+      @collection = collection.page(page.to_i.positive? ? page : 1).per(3)
     end
 end

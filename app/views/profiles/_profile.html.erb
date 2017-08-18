@@ -1,4 +1,4 @@
-<% @profiles.each do |profile| %>
+<% collection.each do |profile| %>
     <div class="dr-block-style dr-block-style--card">
       <div class="row">
         <div class="col-lg-2">
@@ -33,4 +33,4 @@
       </div>
     </div>
 <% end %>
-<%= paginate @profiles %>
+<%= paginate collection %>

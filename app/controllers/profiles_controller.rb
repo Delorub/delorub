@@ -2,12 +2,8 @@ class ProfilesController < ApplicationController
   inherit_resources
 
   helper_method :create_profile_form_props, :current_url
-  before_action :get_categories, only: [:index]
+  before_action :all_categories, only: [:index]
   before_action :category_present?, only: [:index]
-
-  def index
-    @profiles = ProfileQuery.new(category: @category, current_user: current_user).all(params[:page])
-  end
 
   def new
     run Profile::Operation::Present
@@ -47,7 +43,7 @@ class ProfilesController < ApplicationController
 
   private
 
-    def get_categories
+    def all_categories
       @categories = Category.roots.includes(:children).order(:position)
     end
 
@@ -64,7 +60,7 @@ class ProfilesController < ApplicationController
     end
 
     def end_of_association_chain
-      ProfileQuery.new(collection: super, category: @category, current_user: current_user).perform
+      ProfileQuery.new(collection: super, category: @category, current_user: current_user, page: params[:page]).perform
     end
 
     def profile_params

@@ -1,4 +1,4 @@
-- @tasks.each do |task|
+- collection.each do |task|
   .dr-block-style.dr-block-style--card
     .row
       .col-lg-2
@@ -27,4 +27,4 @@
                 = task.place_address
           .task-card-button
             //= link_to 'Посмотреть', task_path(task)
-= paginate @tasks
+= paginate collection
