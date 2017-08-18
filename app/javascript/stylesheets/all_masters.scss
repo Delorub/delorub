@@ -17,11 +17,11 @@
         margin-top: 5px;
       }
       &--online::after {        
-        bottom: 7%;
-        right: 7%;
+        bottom: 5%;
+        right: 10%;
         border: 2px solid #fff;
-        height: 12px;
-        width: 12px;
+        height: 14px;
+        width: 14px;
         content: '';
         position: absolute;
         background-color: #8ac176;
