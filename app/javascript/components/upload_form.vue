@@ -45,9 +45,10 @@ export default {
     i.upload-icon {
       display: none;
       font-size: 1.2rem;
+      color: #8bc4e3;
     }
     &:hover {
-      //border: dashed 2px $blueColor;
+      border: dashed 2px #519dc7;
       span.upload-span {
         display: none;
       }
@@ -67,4 +68,19 @@ export default {
     }
   }
 
-</style>
+  .dropzone.dz-drag-hover {
+    background-color: #fcf6f6;
+    border: dashed 2px #519dc7;
+    span.upload-span {
+      display: none;
+    }
+    i.upload-icon {
+      display: block;
+    }
+  }
+
+  .dropzone.dz-started {
+    border: dashed 3px #e8f5fd;
+  }  
+
+  </style>
