@@ -1,9 +1,15 @@
 class ProfilesController < ApplicationController
   inherit_resources
 
-  helper_method :create_profile_form_props, :current_url
+  helper_method :task_form_props, :create_profile_form_props, :current_url
   before_action :all_categories, only: [:index]
   before_action :category_present?, only: [:index]
+  before_action :profile_present?, only: [:show]
+
+  def index
+    super
+    p params
+  end
 
   def new
     run Profile::Operation::Present
@@ -48,11 +54,15 @@ class ProfilesController < ApplicationController
     end
 
     def category_present?
-      if params[:category_id]
-        category = Category.friendly.where(slug: params[:category_id]).first
-        render_page_not_found if category.blank?
-        @category = category.decorate
-      end
+      return unless params[:category_id]
+      category = Category.friendly.where(slug: params[:category_id]).first
+      render_page_not_found if category.blank?
+      @category = category.decorate
+    end
+
+    def profile_present?
+      @profile = Profile.where(id: params[:id]).first
+      render_page_not_found if @profile.blank?
     end
 
     def current_user_or_new

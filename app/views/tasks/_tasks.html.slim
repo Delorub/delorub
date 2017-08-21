@@ -1,30 +1,45 @@
-- collection.each do |task|
+- if collection.blank?
   .dr-block-style.dr-block-style--card
-    .row
-      .col-lg-2
-        .task-card-person
-          .task-card-person__image
-            = image_tag task.user.photo
-          p.task-card-person__name
-            = task.user.name
-      .col
-        .row
-          .col
-            .task-card-description
-              p.task-card-description__header
-                = link_to task.title.truncate(70), task_path(task)
-            .task-card-refinement
-              p.task-card-refinement__price
-                = task.price_exact
-                | руб.
-              p.task-card-refinement__time
-                = task.date_actual
-        .row
-          .col
-            .task-card-description
-              .task-card-description__adress
-                i.fa.fa-map-marker aria-hidden="true"
-                = task.place_address
-          .task-card-button
-            //= link_to 'Посмотреть', task_path(task)
-= paginate collection
+    p В данной категории пока не создано ни одного задания
+    p
+      b Станьте первым!
+    = link_to 'Создать задание', new_task_path, class: 'dr-btn-danger'
+- else
+  - collection.each do |task|
+    .dr-block-style.dr-block-style--card
+      .row
+        .col-lg-2
+          .task-card-person
+            .task-card-person__image
+              = image_tag task.user.photo
+            p.task-card-person__name
+              = task.user.name
+        .col
+          .row
+            .col
+              .task-card-description
+                p.task-card-description__header
+                  = link_to task.title.truncate(70), task_path(task)
+              .task-card-refinement
+                p.task-card-refinement__price
+                  = task.price_exact
+                  | руб.
+                - if task.date_type.end_at?
+                  - unless task.decorate.date_actual_date(:date).blank?
+                    p.task-card-refinement__time.task-card-refinement__time--quickly
+                      i.fa.fa-clock-o aria-hidden="true"
+                      '
+                      = task.decorate.left_date_end
+                - else
+                  p.task-card-refinement__time
+                    = 'С ' if task.date_type.start_at?
+                    = task.decorate.date_of_execution(:date_without_year)
+          .row
+            .col
+              .task-card-description
+                .task-card-description__adress
+                  i.fa.fa-map-marker aria-hidden="true"
+                  = task.place_address
+            .task-card-button
+              //= link_to 'Посмотреть', task_path(task)
+  = paginate collection

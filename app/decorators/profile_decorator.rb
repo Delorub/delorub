@@ -8,7 +8,11 @@ class ProfileDecorator < Draper::Decorator
     object.categories.first.id
   end
 
-  def show_price
-    object.price_type.hourly? ? I18n.t(:profile_price_hourly, price: object.price_hourly) : I18n.t(:profile_price_project, price: object.price_project)
+  def price
+    if object.price_type.hourly?
+      I18n.t(:profile_price_hourly, price: object.price_hourly)
+    else
+      I18n.t(:profile_price_project, price: object.price_project)
+    end
   end
 end

@@ -12,7 +12,7 @@ nav.breadcrumb
     span.breadcrumb-item.active
       | Все задания
 
-- if @category
+- if @category || @task
   .dr-content-header
     h1
-      = h1.blank? ? @category.title : h1
+      = @task.present? ? @task.title : h1.blank? ? @category.title : h1

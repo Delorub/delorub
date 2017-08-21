@@ -19,6 +19,8 @@ ru:
     formats:
       datepicker: '%d.%m.%Y %H:%M'
       date: '%d.%m.%Y'
+      date_with_words: '%d %B %Y'
+      date_without_year: '%d %B'
       timeofday: '%H:%M'
   user_sms_confirmation: "Проверочный код: %{code}. Делоруб"
   profile_price_project: "%{price} руб/проект"

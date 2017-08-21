@@ -1,0 +1,12 @@
+.dr-block-style.dr-block-style--category
+  .task-profile-documents
+    .task-profile-documents__header
+      h2 Документы
+    .task-profile-documents-list
+      - @task.files.each do |file|
+        .task-profile-documents-list__link
+          = link_to file.file.url, class: 'link-default link-default-thin', target: '_blank' do
+            i.fa.fa-file aria-hidden="true"
+            |  
+            span Название документа
+            i.fa.fa-download aria-hidden="true"

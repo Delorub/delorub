@@ -1,0 +1,29 @@
+- if collection.blank?
+  .dr-block-style.dr-block-style--card
+    p В данной категории пока нет ни одного исполнителя
+    p
+      b Станьте первым!
+    = link_to 'Стать исполнителем', new_profile_path, class: 'dr-btn-danger'
+- else
+  - collection.each do |profile|
+    .dr-block-style.dr-block-style--card
+      .row
+        .col-lg-2
+          .master-card-person
+            .master-card-person__image.master-card-person__image--online
+              = image_tag profile.user.photo.url
+            .master-card-person__mark
+        .col
+          .master-card-description
+            .row.justify-content-space-between
+              .col
+                p.master-card-description__header
+                  = link_to profile.user.name, profile_path(profile)
+              div
+                span.master-card-description__price= profile.decorate.price
+            p.master-card-description__offline.master-card-description__offline--hide
+              | Был на сайте 6 ч. 9 мин. назад
+            p.master-card-description__text
+              = profile.about.truncate(180) unless profile.about.blank?
+            a.link-default href="#" role="button"  Показать номер телефона
+  = paginate collection

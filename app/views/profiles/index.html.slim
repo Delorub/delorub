@@ -5,19 +5,20 @@
       .col-lg-8
         .dr-block-style.dr-block-style--sort-padding
           .task-sort
-            .row
-              .col-xl-3.col-lg-6
-                .checkbox
-                  label
-                    input type="checkbox" value=""/
-                    span.checkbox-custom
-                    |Новые&nbsp;исполнители
-              .col-xl-3.col-lg-6
-                .checkbox
-                  label
-                    input type="checkbox" value=""/
-                    span.checkbox-custom
-                    | Онлайн
+            = form_for :data, url: profiles_path, method: :get, html: {class: 'profile_form_sorting'} do |f|
+              .row
+                .col-xl-3.col-lg-6
+                  .checkbox
+                    label
+                      = check_box_tag 'new_profiles', 1, (params[:new_profiles].present? and params[:new_profiles].to_i == 1 ? true : false)
+                      span.checkbox-custom
+                      |Новые&nbsp;исполнители
+                .col-xl-3.col-lg-6
+                  .checkbox
+                    label
+                      = check_box_tag 'online_profiles', 1, (params[:online_profiles].present? and params[:online_profiles].to_i == 1 ? true : false)
+                      span.checkbox-custom
+                      | Онлайн
         = render 'profile'
       = render 'categories'
     - if @category and @category.description.present?
