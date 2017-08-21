@@ -4,39 +4,16 @@
   background-color: #fefbfb !important;
 }
 
-.flatpickr-day:hover, .flatpickr-day:focus {
-  border-color: #c1e5f9;
-  background: #c1e5f9;
-  cursor: pointer;
-  outline: 0;
-}
-
-.flatpickr-day {
-  max-width: 25px;
-  height: 25px;
-  line-height: 25px;
-  margin: 2px 9px;
-}
-
-.flatpickr-day.selected {
-  background: $blueColor;
-  box-shadow: none;
-  color: #fff;
-  border-color: $blueColor;
-}
-
 .flatpickr-calendar {
-  font-size: 12px;
+  font-size: 12px !important;
+  width: 263px !important;
   font-family: $GothamPro;
   border-radius: 3px;
   border: 1px solid #70bee9 !important;
+  margin-top: 3px;
   &:before {
-    display: none;
+    border-bottom-color: #70bee9 !important;
   }
-}
-
-.flatpickr-current-month span.cur-month {
-  font-weight: normal;
 }
 
 span.flatpickr-weekday {
@@ -48,4 +25,99 @@ span.flatpickr-weekday {
   padding: 2px;
   border: 1px solid #70bee9;
   border-radius: 3px;
+}
+
+//
+
+.flatpickr-days {
+  .dayContainer {
+    width: 263px;
+    min-width: 263px;
+    max-width: 263px;
+    .flatpickr-day.selected {
+      background: $blueColor;
+      border-color: $blueColor;
+    }
+    .flatpickr-day {
+      border-radius: 50% !important;
+      transition: 0.3s;
+      max-width: 29px;
+      height: 29px;
+      line-height: 29px;
+      margin: 5px;
+      &:hover {
+        background: #c1e5f9;
+        border-color: #c1e5f9;
+      }
+      &:active {
+        background: #c1e5f9;
+        border-color: #c1e5f9;
+      }
+    }
+  }
+}
+
+.flatpickr-rContainer {
+  width: 100%;
+  span.flatpickr-weekday {
+    color: #4a4a4a;
+  }
+}
+
+.flatpickr-month {
+  .flatpickr-current-month {
+    .numInputWrapper {
+      width: 30%;
+    }
+    span.cur-month {
+      font-weight: normal;
+    }
+  }
+}
+
+label.date-addon {
+  position: absolute;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  left: 15px;
+  margin-top: -8px;
+  background-position: 0 0;
+  z-index: 3;
+  background: url(/images/icons/calendar.svg) 0 0 no-repeat;
+}
+
+.input-group.date {
+  border-radius: 3px;
+  border: solid 1px #ccc9c9;
+  input[type=text] {
+    padding-left: 40px;
+    border: 0;
+    box-shadow: none;
+  }
+  .date-time {
+    border: none !important;
+    padding: 16px 10px 14px 10px !important;
+    text-align: center;
+    max-width: 70px;
+    box-shadow: none;
+    &:focus {
+      background-color: #fefbfb;
+    }
+  }
+  .vertical-hr {
+    min-width: 1px;
+    height: 60%;
+    background-color: #e9dddd;
+    position: absolute;
+    right: 70px;
+    top: 20%;
+  }  
+}
+
+.input-group.date.focus {
+  border-color: #70bee9;
+  .date-addon {
+    background: url(/images/icons/calendar_blue.svg) 0 0 no-repeat;
+  }
 }
