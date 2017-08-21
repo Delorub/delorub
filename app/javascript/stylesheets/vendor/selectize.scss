@@ -1,5 +1,5 @@
 .multiselect {
-  
+
   margin-bottom: 1.5rem !important;
   color: #4a4a4a;
   &__single {
@@ -17,7 +17,7 @@
   &--active {
     .multiselect__tags {
       border-color: #70bee9 !important;
-      border-top-width: 1px;      
+      border-top-width: 1px;
     }
   }
 
@@ -52,7 +52,7 @@
       background-color: #e5f6ff;
     }
     &--selected {
-      background-color: #c1e5f9 !important;      
+      background-color: #c1e5f9 !important;
     }
 
     &:after {
@@ -63,7 +63,8 @@
   &__content {
     &-wrapper {
       z-index: 300 !important;
-      border-color: #70bee9 !important;      
+      border-color: #70bee9 !important;
+      position: relative;
     }
   }
 }
