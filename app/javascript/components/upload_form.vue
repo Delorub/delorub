@@ -14,7 +14,12 @@ export default {
   mounted () {
     this.dropzone = new Dropzone(this.$refs.dropzone, {
       url: this.url,
-      autoDiscover: false
+      maxFiles: 4,
+      acceptedFiles: 'image/*',
+      maxFilesize: 0,
+      autoDiscover: false,
+      addRemoveLinks: true,
+      dictRemoveFile: 'Удалить'
     })
 
     this.dropzone.on('drop', (file) => { this.$emit('change') })
@@ -81,6 +86,6 @@ export default {
 
   .dropzone.dz-started {
     border: dashed 3px #e8f5fd;
-  }  
+  }
 
   </style>
