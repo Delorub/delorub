@@ -95,40 +95,45 @@
                           ':options': f.object.model.class.enumerized_attributes[:date_type].options.map { |e| e[1] }.to_json
                     .col-lg-4 :class="{ hidden: (model.date_type != 'end_at' && model.date_type != 'start_at') }"
                       .form-group
-                        .input-group
+                        .input-group.date
+                          label.date-addon
                           = f.input_field :date_actual, as: :hidden, 'v-model': 'model.date_actual'
                           = content_tag 'flat-pickr', '',
                             'v-model': 'model.date_actual',
                             'v-on:change': %(showTooltip('task_dates')),
-                            ':config': 'datepickerConfig'
-                          .input-group-addon
-                            i.fa.fa-calendar aria-hidden="true"
+                            ':config': 'datepickerConfig' 
+                          .vertical-hr
+                          input type="tel" tabindex="4" maxlength="4" placeholder="Время" class="form-control date-time"
                       .form-group__sublink
                         a href="#"  сегодня
                         a href="#"  завтра
+
                     .col-lg-4 :class="{ hidden: model.date_type != 'interval' }"
                       .form-group
-                        .input-group
+                        .input-group.date
+                          label.date-addon
                           = f.input_field :date_interval_from, as: :hidden, 'v-model': 'model.date_interval_from'
                           = content_tag 'flat-pickr', '',
                             'v-model': 'model.date_interval_from',
                             'v-on:change': %(showTooltip('task_dates')),
                             ':config': 'datepickerConfig'
-                          .input-group-addon
-                            i.fa.fa-calendar aria-hidden="true"
+                          .vertical-hr
+                          input type="tel" tabindex="4" maxlength="4" placeholder="Время" class="form-control date-time"
                       .form-group__sublink
                         a href="#"  сегодня
                         a href="#"  завтра
+
                     .col-lg-4 :class="{ hidden: model.date_type != 'interval' }"
                       .form-group
-                        .input-group
+                        .input-group.date
+                          label.date-addon
                           = f.input_field :date_interval_to, as: :hidden, 'v-model': 'model.date_interval_to'
                           = content_tag 'flat-pickr', '',
                             'v-model': 'model.date_interval_to',
                             'v-on:change': %(showTooltip('task_dates')),
                             ':config': 'datepickerConfig'
-                          .input-group-addon
-                            i.fa.fa-calendar aria-hidden="true"
+                          .vertical-hr
+                          input type="tel" tabindex="4" maxlength="4" placeholder="Время" class="form-control date-time"
                       .form-group__sublink
                         a href="#"  сегодня
                         a href="#"  завтра
@@ -136,6 +141,7 @@
                   label.form-group__header for="adr"  Адрес
                   .row
                     .col-lg-8.col-12
+                      .adress-arrow-hide
                       = content_tag 'custom-select', '',
                         'v-model': 'model.place_address',
                         ':allow-empty': 'false',

@@ -101,3 +101,9 @@
     display: none;
   }
 }
+
+.adress-arrow-hide + .multiselect{ //прячем стрелочку
+  .multiselect__select {
+    display: none;
+  }
+}
