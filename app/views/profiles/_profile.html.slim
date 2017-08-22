@@ -20,10 +20,15 @@
                 p.master-card-description__header
                   = link_to profile.user.name, profile_path(profile)
               div
-                span.master-card-description__price= profile.decorate.price
+                span.master-card-description__price
+                  = profile.decorate.formatted_price
             p.master-card-description__text
               = profile.about.truncate(180) unless profile.about.blank?
             a.link-default.show_contacts href="#" role="button"  Показать номер телефона
-            span.master-card-description__phone style="display: none"
-              = profile.user.phone
-  = paginate collection
+            .performer-profile-main__contacts style="display: none"
+              p
+                i.fa.fa-mobile aria-hidden="true"
+                = profile.user.phone
+                i.fa.fa-envelope-o aria-hidden="true"
+                = profile.user.email
+  = paginate collection, theme: 'custom_theme'

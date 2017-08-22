@@ -19,6 +19,6 @@
     - if @category and @category.description.present?
       .dr-block-style
         .bottom-text.center
-          = @category.description
+          = simple_format @category.description.truncate(200)
           a.link-default href="#"
             | Развернуть

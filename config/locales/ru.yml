@@ -26,6 +26,7 @@ ru:
   profile_price_project: "%{price} руб/проект"
   profile_price_hourly: "%{price} руб/час"
   profile_price: "От %{price} руб."
+  price_unknown: "Не указана"
   not_specified: "не указан"
   visitor_session_statistics:
     count: Количество сессий

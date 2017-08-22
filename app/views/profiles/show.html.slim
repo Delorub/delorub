@@ -6,10 +6,8 @@
           .performer-profile-main.center
             .performer-profile-main__image
               = image_tag @profile.user.photo.url
-            .performer-profile-main__status
-              span.status-online Online
             .performer-profile-main__price
-              = @profile.decorate.price
+              = @profile.decorate.formatted_price
             .performer-profile-main__button
               a.dr-btn-primary.dr-btn-220.show_contacts href="#"  Показать контакты
             .performer-profile-main__contacts style="display: none"
@@ -34,7 +32,7 @@
                     b
                       ' Возраст:
                     span.gray-text
-                      = @profile.user.decorate.formatted_age
+                      = @profile.decorate.formatted_age
                 .col-md
                   p
                     b
@@ -42,7 +40,7 @@
                     span.gray-text
                       i.fa.fa-map-marker aria-hidden="true"
                       '
-                      = @profile.user.decorate.city_name
+                      = @profile.decorate.formatted_city_name
         .dr-block-style.dr-block-style--profile-left
           .performer-description-about
             .performer-description-about__header
