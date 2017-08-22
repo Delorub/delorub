@@ -44,6 +44,7 @@
                             ':limit-text': 'limitSubcategoriesText',
                             ':disabled': "model.main_categories[index]['main_category_id'] == null",
                             'placeholder': 'Выберите подкатегорию',
+                            ':clear-on-select': 'true',
                             ':options': "categoriesListFor(model.main_categories[index]['main_category_id'])",
                             ':custom-label': 'categoryLabel'
                     .row
@@ -73,6 +74,7 @@
                                 input_html: { \
                                   'v-model': 'model.price_project',
                                   'v-on:focus': %(showTooltip('profile_price_project')),
+                                  'placeholder': '30 000',
                                 }
                               i.input-group-addon.fa.fa-rub aria-hidden="true"
                             = f.error :price_exact                            
@@ -84,6 +86,7 @@
                       = f.input :city_name, label: false, error: false,
                         input_html: { \
                           'v-model': 'model.city_name',
+                          'placeholder': 'Санкт-Петербург',
                         }
                     .col-lg-6
                       .form-group
@@ -93,6 +96,7 @@
                           = f.input_field :birthday, as: :hidden, 'v-model': 'model.birthday'
                           = content_tag 'flat-pickr', '',
                             'v-model': 'model.birthday',
+                            'placeholder': 'Дата',
                             ':config': 'datepickerConfig'
               .dr-block-style
                 .form-group v-on:click="showTooltip('profile_about')"
@@ -101,7 +105,8 @@
                   = f.input :about, as: :text, label: false,
                     input_html: { \
                       'v-model': 'model.description',
-                      'v-on:focus': %(showTooltip('profile_about')),                      
+                      'v-on:focus': %(showTooltip('profile_about')),
+                      'placeholder': 'Напишите о себе',
                       rows: 10,
                     }
               .dr-block-style

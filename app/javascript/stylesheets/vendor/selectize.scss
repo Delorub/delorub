@@ -14,7 +14,11 @@
     padding: 0px;
     width: 20px;
   }
-
+  &__strong {
+    margin-bottom: 0;
+    font-weight: normal;
+    padding: 14px 5px 12px 20px;
+  }
   &--active {
     .multiselect__tags {
       border-color: #70bee9 !important;
