@@ -49,6 +49,11 @@
                     .row
                       .col-lg-12
                         textarea rows="10" name="profile[main_categories][][description]" class="form-control" placeholder="Опишите ваши тарифы и условия" v-model="model.main_categories[index]['description']"
+                    .row v-if="model.main_categories.length > 1"
+                      .col-lg-6
+                        a.link-default href='#' v-on:click.prevent='removeMainCategoryByIndex(index)' Удалить
+                        br/
+                        br/
                   .row v-if="availableCategories > 0"
                     .col-lg-6
                       a.link-default href='#' v-on:click.prevent='addMainCategory' Добавить
