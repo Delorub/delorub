@@ -9,10 +9,9 @@ class ProfileDecorator < Draper::Decorator
   end
 
   def price
-    if object.price_type.hourly?
-      I18n.t(:profile_price_hourly, price: object.price_hourly)
-    else
-      I18n.t(:profile_price_project, price: object.price_project)
+    case object.price_type
+      when 'hourly' then I18n.t(:profile_price, price: object.price_hourly)
+      when 'project' then I18n.t(:profile_price, price: object.price_project)
     end
   end
 end

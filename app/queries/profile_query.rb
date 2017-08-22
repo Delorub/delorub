@@ -1,14 +1,16 @@
 class ProfileQuery
-  attr_accessor :category, :current_user, :collection, :page
+  attr_accessor :category, :current_user, :collection, :page, :direction
 
-  def initialize collection:, category:, current_user:, page:
-    @collection = collection.includes(:user)
+  def initialize collection:, category:, current_user:, page:, direction:
+    @collection = collection
     @category = category
     @current_user = current_user
     @page = page
+    @direction = direction.present? && direction == 1 ? true : false
   end
 
   def perform
+    apply_collection
     apply_category if category
     apply_order
     apply_paginate
@@ -16,6 +18,10 @@ class ProfileQuery
   end
 
   private
+
+    def apply_collection
+      @collection = collection.includes(:user)
+    end
 
     def apply_user
       @collection = collection.by_user current_user
@@ -26,7 +32,7 @@ class ProfileQuery
     end
 
     def apply_order
-      @collection = collection.order('id DESC')
+      @collection = direction ? collection.order(created_at: :asc) : collection.order('id DESC')
     end
 
     def apply_paginate

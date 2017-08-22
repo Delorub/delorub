@@ -4,7 +4,7 @@
       | Категории
     .subcategories-list
       ul.subcategories-list__sup
-        - @categories.each do |category|
+        - all_categories.each do |category|
           li
             = link_to category.title, category_tasks_path(category)
             - child = category.children

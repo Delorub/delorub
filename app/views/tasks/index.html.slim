@@ -1,4 +1,4 @@
-= content_for :head do @category.settings_value('seo_title') end if @category
+= content_for :seo_title do @category.settings.dig(:seo_title).present? ? @category.settings.dig(:seo_title) : @category.title end if @category
 .regular-content
   .container
     = render 'breadcrumb'

@@ -11,7 +11,14 @@
             .performer-profile-main__price
               = @profile.decorate.price
             .performer-profile-main__button
-              a.dr-btn-primary.dr-btn-220 href="#"  Показать контакты
+              a.dr-btn-primary.dr-btn-220.show_contacts href="#"  Показать контакты
+            .performer-profile-main__contacts style="display: none"
+              p
+                i.fa.fa-mobile aria-hidden="true"
+                = @profile.user.phone
+              p
+                i.fa.fa-envelope-o aria-hidden="true"
+                = @profile.user.email
         = render 'specializations'
       .col-lg-8
         = render 'breadcrumb'
@@ -27,7 +34,7 @@
                     b
                       ' Возраст:
                     span.gray-text
-                      = @profile.user.decorate.age
+                      = @profile.user.decorate.formatted_age
                 .col-md
                   p
                     b

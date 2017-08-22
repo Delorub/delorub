@@ -4,10 +4,7 @@ class TasksController < ApplicationController
   decorates_assigned :tasks
 
   before_action :category_present?, only: [:index]
-  before_action :all_categories, only: [:index]
-  before_action :task_present?, only: [:show]
-
-  helper_method :task_form_props, :current_url
+  helper_method :all_categories
 
   def show
     return redirect_to deal_path(resource.deal) if resource.deal.present? && policy(resource.deal).show?
@@ -49,7 +46,7 @@ class TasksController < ApplicationController
 
     def end_of_association_chain
       TaskQuery.new(collection: super, scope: @scope, category: @category,
-                    current_user: current_user, page: params[:page], param_order: params[:order]).perform
+                    current_user: current_user, page: params[:page], order_direction: params[:order]).perform
     end
 
     def fetch_scope
@@ -70,20 +67,14 @@ class TasksController < ApplicationController
       end
     end
 
-    def task_present?
-      @task = Task.where(id: params[:id]).first
-      render_page_not_found if @task.blank?
-    end
-
     def category_present?
       return unless params[:category_id]
-      category = Category.friendly.where(slug: params[:category_id]).first
-      render_page_not_found if category.blank?
-      @category = category.decorate
+      @category = Category.friendly.where(slug: params[:category_id]).first
+      render_page_not_found if @category.blank?
     end
 
     def all_categories
-      @categories = Category.roots.includes(:children).order(:position)
+      @all_categories = Category.roots.includes(:children).order(:position)
     end
 
     def task_params

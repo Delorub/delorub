@@ -1,4 +1,4 @@
-- h1 = @category.settings_value('h1') if @category
+- h1 = @category.settings.dig(:h1) if @category
 nav.breadcrumb
   = link_to 'Главная', root_path, class: 'breadcrumb-item'
   - if @category

@@ -19,11 +19,16 @@
             .col
               .task-card-description
                 p.task-card-description__header
-                  = link_to task.title.truncate(70), task_path(task)
+                  = link_to task.title.truncate(60), task_path(task)
+            div
               .task-card-refinement
                 p.task-card-refinement__price
-                  = task.price_exact
-                  | руб.
+                  - if task.price_exact.blank?
+                    | Не указана
+                  - else
+                    = task.price_exact
+                    '
+                    | руб.
                 - if task.date_type.end_at?
                   - unless task.decorate.date_actual_date(:date).blank?
                     p.task-card-refinement__time.task-card-refinement__time--quickly
@@ -37,9 +42,8 @@
           .row
             .col
               .task-card-description
-                .task-card-description__adress
+                p.task-card-description__adress
                   i.fa.fa-map-marker aria-hidden="true"
                   = task.place_address
             .task-card-button
-              //= link_to 'Посмотреть', task_path(task)
   = paginate collection

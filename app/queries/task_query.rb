@@ -1,13 +1,13 @@
 class TaskQuery
-  attr_accessor :scope, :category, :current_user, :collection, :param_order, :page
+  attr_accessor :scope, :category, :current_user, :collection, :order_direction, :page
 
-  def initialize collection:, scope: nil, category:, current_user:, page:, param_order:
+  def initialize collection:, scope: nil, category:, current_user:, page:, order_direction:
     @collection = collection.includes(:user)
     @scope = scope
     @category = category
     @current_user = current_user
     @page = page
-    @param_order = param_order
+    @order_direction = order_direction.present? && order_direction == 'asc' ? 'asc' : 'desc'
   end
 
   def perform
@@ -62,7 +62,7 @@ class TaskQuery
     end
 
     def apply_order
-      @collection = collection.order(created_at: param_order.present? && param_order == 'asc' ? 'asc' : 'desc')
+      @collection = collection.order(created_at: order_direction)
     end
 
     def apply_paginate

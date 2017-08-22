@@ -10,6 +10,7 @@ ActiveAdmin.register User, namespace: :admin do
       input :email
       input :password if f.object.new_record?
       input :name
+      input :phone
       input :birthday
       input :photo
     end

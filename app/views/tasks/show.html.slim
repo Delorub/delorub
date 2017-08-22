@@ -23,10 +23,20 @@
               p= @task.decorate.date_of_execution
             .task-profile-card__price
               h2
-                = @task.price_exact
-                '
-                | руб.
-              a.dr-btn-primary.dr-btn-190 href="#"  Показать контакты
+                - if @task.price_exact.blank?
+                  | Не указана
+                - else
+                  = @task.price_exact
+                  '
+                  | руб.
+              a.dr-btn-primary.dr-btn-190.show_contacts href="#"  Показать контакты
+              .task-profile-card__contacts style="display: none"
+                p
+                  i.fa.fa-mobile aria-hidden="true"
+                  = @task.user.phone
+                p
+                  i.fa.fa-envelope-o aria-hidden="true"
+                  = @task.user.email
         = render 'files' unless @task.files.blank?
         br/
       .col-lg-8

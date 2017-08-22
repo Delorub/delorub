@@ -1,3 +1,4 @@
+= content_for :seo_title do @category.settings.dig(:seo_title).present? ? @category.settings.dig(:seo_title) : @category.title end if @category
 .regular-content
   .container
     = render 'breadcrumb'
@@ -10,15 +11,9 @@
                 .col-xl-3.col-lg-6
                   .checkbox
                     label
-                      = check_box_tag 'new_profiles', 1, (params[:new_profiles].present? and params[:new_profiles].to_i == 1 ? true : false)
+                      = check_box_tag 'direction_created', 1, (params[:direction_created].present? and params[:direction_created].to_i == 1 ? true : false)
                       span.checkbox-custom
                       |Новые&nbsp;исполнители
-                .col-xl-3.col-lg-6
-                  .checkbox
-                    label
-                      = check_box_tag 'online_profiles', 1, (params[:online_profiles].present? and params[:online_profiles].to_i == 1 ? true : false)
-                      span.checkbox-custom
-                      | Онлайн
         = render 'profile'
       = render 'categories'
     - if @category and @category.description.present?

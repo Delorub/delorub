@@ -5,7 +5,7 @@
         | Категории
       .subcategories-list
         ul.subcategories-list__sup
-          - @categories.each do |category|
+          - all_categories.each do |category|
             li
               = link_to category.title, category_profiles_path(category)
               - child = category.children
