@@ -95,48 +95,27 @@
                           ':options': f.object.model.class.enumerized_attributes[:date_type].options.map { |e| e[1] }.to_json
                     .col-lg-4 :class="{ hidden: (model.date_type != 'end_at' && model.date_type != 'start_at') }"
                       .form-group
-                        .input-group.date
-                          label.date-addon
-                          = f.input_field :date_actual, as: :hidden, 'v-model': 'model.date_actual'
-                          = content_tag 'flat-pickr', '',
-                            'v-model': 'model.date_actual',
-                            'v-on:change': %(showTooltip('task_dates')),
-                            ':config': 'datepickerConfig' 
-                          .vertical-hr
-                          input type="tel" tabindex="4" maxlength="4" placeholder="Время" class="form-control date-time"
+                        = f.input_field :date_actual, as: :hidden, 'v-model': 'model.date_actual'
+                        custom-datetimepicker ref="dateActualComponent" v-model="model.date_actual"
                       .form-group__sublink
-                        a href="#"  сегодня
-                        a href="#"  завтра
+                        a href="#" @click.prevent="$refs.dateActualComponent.setToday()"  сегодня
+                        a href="#" @click.prevent="$refs.dateActualComponent.setTomorrow()" завтра
 
                     .col-lg-4 :class="{ hidden: model.date_type != 'interval' }"
                       .form-group
-                        .input-group.date
-                          label.date-addon
-                          = f.input_field :date_interval_from, as: :hidden, 'v-model': 'model.date_interval_from'
-                          = content_tag 'flat-pickr', '',
-                            'v-model': 'model.date_interval_from',
-                            'v-on:change': %(showTooltip('task_dates')),
-                            ':config': 'datepickerConfig'
-                          .vertical-hr
-                          input type="tel" tabindex="4" maxlength="4" placeholder="Время" class="form-control date-time"
+                        = f.input_field :date_interval_from, as: :hidden, 'v-model': 'model.date_interval_from'
+                        custom-datetimepicker ref="dateIntervalFromComponent" v-model="model.date_interval_from"
                       .form-group__sublink
-                        a href="#"  сегодня
-                        a href="#"  завтра
+                        a href="#" @click.prevent="$refs.dateIntervalFromComponent.setToday()"  сегодня
+                        a href="#" @click.prevent="$refs.dateIntervalFromComponent.setTomorrow()" завтра
 
                     .col-lg-4 :class="{ hidden: model.date_type != 'interval' }"
                       .form-group
-                        .input-group.date
-                          label.date-addon
-                          = f.input_field :date_interval_to, as: :hidden, 'v-model': 'model.date_interval_to'
-                          = content_tag 'flat-pickr', '',
-                            'v-model': 'model.date_interval_to',
-                            'v-on:change': %(showTooltip('task_dates')),
-                            ':config': 'datepickerConfig'
-                          .vertical-hr
-                          input type="tel" tabindex="4" maxlength="4" placeholder="Время" class="form-control date-time"
+                        = f.input_field :date_interval_to, as: :hidden, 'v-model': 'model.date_interval_to'
+                        custom-datetimepicker ref="dateIntervalToComponent" v-model="model.date_interval_to"
                       .form-group__sublink
-                        a href="#"  сегодня
-                        a href="#"  завтра
+                        a href="#" @click.prevent="$refs.dateIntervalToComponent.setToday()"  сегодня
+                        a href="#" @click.prevent="$refs.dateIntervalToComponent.setTomorrow()" завтра
                 .form-group v-on:click="showTooltip('task_place_address')"
                   label.form-group__header for="adr"  Адрес
                   .row
@@ -184,8 +163,8 @@
                             input_html: { \
                               'v-on:focus': %(showTooltip('task_contacts')),
                             }
-                            .form__error-message
-                              span = rf.error (rf.object.errors.keys & [:name, :email]).first
+                          .form__error-message
+                            span = rf.error (rf.object.errors.keys & [:name, :email]).first
                       .form__phone
                         span Укажите ваш номер телефона и подтвердите его
                       = rf.simple_fields_for :sms_confirmation do |sf|
