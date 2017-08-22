@@ -93,6 +93,12 @@
   }  
 }
 
+.form-group.black-content {
+  .multiselect__single {
+    color: $color;
+  }
+}
+
 .error-display, .phone-display {
   &--show {
     display: block;

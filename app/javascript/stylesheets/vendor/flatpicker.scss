@@ -10,10 +10,7 @@
   font-family: $GothamPro;
   border-radius: 3px;
   border: 1px solid #70bee9 !important;
-  margin-top: 3px;
-  &:before {
-    border-bottom-color: #70bee9 !important;
-  }
+  margin-top: 3px;  
 }
 
 span.flatpickr-weekday {
@@ -118,4 +115,12 @@ label.date-addon {
   .date-addon {
     background: url(/images/icons/calendar_blue.svg) 0 0 no-repeat;
   }
+}
+
+.flatpickr-calendar.arrowTop::before {
+  border-bottom-color: #70bee9 !important;
+}
+
+.flatpickr-calendar.arrowBottom::before {
+  border-top-color: #70bee9 !important;
 }
