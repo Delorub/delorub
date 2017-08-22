@@ -19,19 +19,73 @@
                   label.form-group__header Специализация
                   br/
                   br/
-                  .row
+                  template v-for="(mainCategory, index) in model.main_categories"
+                    .row
+                      .col-lg-6
+                        .form-group
+                          input type="hidden" name="profile[main_categories][][main_category_id]" v-model="model.main_categories[index]['main_category_id']"
+                          = content_tag 'custom-select', '',
+                            'v-model': "model.main_categories[index]['main_category_id']",
+                            ':searchable': 'false',
+                            ':allow-empty': 'false',
+                            'placeholder': 'Выберите категорию',
+                            ':options': "mainCategoriesListFor(model.main_categories[index]['main_category_id'])",
+                            ':custom-label': 'categoryLabel',
+                            '@select': "resetCategoriesValueForIndex(index)"
+                      .col-lg-6
+                        .form-group
+                          input type="hidden" name="profile[main_categories][][category_ids][]" v-for="value in model.main_categories[index]['category_ids']" v-bind:value="value"
+                          = content_tag 'custom-select', '',
+                            'v-model': "model.main_categories[index]['category_ids']",
+                            ':searchable': 'false',
+                            ':allow-empty': 'false',
+                            ':multiple': 'true',
+                            ':limit': '0',
+                            ':limit-text': 'limitSubcategoriesText',
+                            ':disabled': "model.main_categories[index]['main_category_id'] == null",
+                            'placeholder': 'Выберите подкатегорию',
+                            ':options': "categoriesListFor(model.main_categories[index]['main_category_id'])",
+                            ':custom-label': 'categoryLabel'
+                    .row
+                      .col-lg-12
+                        textarea rows="10" name="profile[main_categories][][description]" class="form-control" placeholder="Опишите ваши тарифы и условия" v-model="model.main_categories[index]['description']"
+                  .row v-if="availableCategories > 0"
                     .col-lg-6
-                      .form-group
-                        = content_tag 'custom-select', '',
-                          'v-model': 'model.category_ids',
-                          ':searchable': 'false',
-                          ':allow-empty': 'false',
-                          'placeholder': 'Выберите категорию',
-                          ':options': f.object.main_category_collection.pluck(:id).to_json,
-                          ':custom-label': 'categoryLabel'
-                        = f.error :category_id
-                    .col-lg-6
-                      .form-group
+                      a.link-default href='#' v-on:click.prevent='addMainCategory' Добавить
+              .dr-block-style
+                .row
+                  .col-lg-12
+                    .form-group
+                      label.form-group__header for="profile_price_project" Укажите минимальную цену за свою работу
+                      .row.align-items-baseline
+                        .margin-side
+                          label for="profile_price_project" От
+                        .col-lg-6
+                          .input-group
+                            = f.input :price_project, label: false, wrapper: false, error: false,
+                              input_html: { \
+                                'v-model': 'model.price_project',
+                                'v-on:focus': %(showTooltip('profile_price_project')),
+                              }
+                            i.input-group-addon.fa.fa-rub aria-hidden="true"
+                          = f.error :price_exact
+                          br
+                .row
+                  .col-lg-6
+                    label Выберите город
+                    = f.input :city_name, label: false, error: false,
+                      input_html: { \
+                        'v-model': 'model.city_name',
+                      }
+                  .col-lg-6
+                    .form-group
+                      label Укажите дату рождения
+                      .input-group.date
+                        label.date-addon
+                        = f.input_field :birthday, as: :hidden, 'v-model': 'model.birthday'
+                        = content_tag 'flat-pickr', '',
+                          'v-model': 'model.birthday',
+                          ':config': 'datepickerConfig'
               .dr-block-style
                 .form-group v-on:click="showTooltip('profile_about')"
                   label.form-group__header for="comment"  Обо мне
@@ -88,7 +142,7 @@
               .dr-popover__header
                 | Выберите категории, в которых вы хотите получать заказы
               .dr-popover__text
-                | Доступно категорий: { categories }
+                | Доступно категорий: {{ availableCategories }}
             .dr-popover-data.hidden data-for="profile_contacts"
               .dr-popover__header
                 | Ваши контактные данные

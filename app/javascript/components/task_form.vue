@@ -17,6 +17,7 @@ export default {
       placeSuggestions: [],
       placeLoading: false,
       datepickerConfig: {
+        allowInput: true,
         enableTime: false,
         dateFormat: 'd.m.Y',
         wrap: true
