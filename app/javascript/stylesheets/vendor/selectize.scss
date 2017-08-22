@@ -40,6 +40,8 @@
     padding: 0 20px 0 0;
     border: solid 1px #ccc9c9;
     border-radius: 3px;
+    max-height: 49px;
+    overflow-y: hidden;
   }
 
   &__input {
@@ -73,7 +75,10 @@
     &-wrapper {
       z-index: 300 !important;
       border-color: #70bee9 !important;
-      position: relative;
+      position: absolute;
+      @if height == 1 {
+        border: none !important;
+      }
     }
   }
 }
