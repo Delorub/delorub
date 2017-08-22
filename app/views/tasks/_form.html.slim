@@ -133,10 +133,9 @@
                 div.hidden ref="placeMap" style="height: 300px"
               .dr-block-style id="task_prices" v-on:click="showTooltip('task_prices')"
                 .form-group
-                  label.form-group__header for="task_price_exact"  На какой бюджет ориентироваться исполнителям
-                  .row.align-items-baseline
-                    .margin-side
-                      label for="budget"  Укажите точную стоимость
+                  h2  На какой бюджет ориентироваться исполнителям
+                  br/
+                  .row.align-items-baseline                    
                     .col-lg-6
                       .input-group
                         = f.input :price_exact, label: false, wrapper: false, error: false,
