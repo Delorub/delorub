@@ -1,22 +1,26 @@
 module Profile::Contract
   class Form < Reform::Form
-    property :category_ids,
-      default: [],
+    collection :main_categories,
       populator: ->(fragment:, **) {
-        self.category_ids = Category.where(id: fragment).pluck(:id)
-      }
-
-    collection :portfolio_items,
-      populator: ->(fragment:, **) {
-        item = portfolio_items.find { |portfolio_item| portfolio_item.id == fragment['id'].to_i }
-        item ? item : portfolio_items.append(PortfolioItem.find_by(id: fragment['id'], profile_id: nil))
+        item = main_categories.find { |main_category| main_category.id == fragment['id'].to_i }
+        item ? item : main_categories.append(MainCategoriesProfile.new(main_category_id: fragment['id']))
       } do
-      property :id
+      property :main_category_id
+      property :description
+      property :category_ids,
+        virtual: true,
+        default: [],
+        populator: ->(fragment:, **) {
+          self.category_ids = Category.where(id: fragment, parent_id: main_category_id).pluck(:id)
+        }
     end
 
     property :about
+    property :price_project
+    property :birthday
+    property :city_name
 
-    validates :category_ids, :about, presence: true
+    validates :about, presence: true
 
     def main_category_collection
       Category.roots

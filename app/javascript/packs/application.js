@@ -11,6 +11,7 @@ import flatPickr from 'vue-flatpickr-component'
 import 'flatpickr/dist/flatpickr.css'
 
 import CustomSelect from '../components/custom-select.vue'
+import CustimDatetimePicker from '../components/custom-datetimepicker.vue'
 
 import SmsConfirmation from '../components/sms_confirmation.vue'
 import TaskForm from '../components/task_form.vue'
@@ -26,6 +27,7 @@ axios.defaults.headers.common['Accept'] = 'application/json'
 Vue.use(VueMeta)
 Vue.component('custom-select', CustomSelect)
 Vue.component('flat-pickr', flatPickr)
+Vue.component('custom-datetimepicker', CustimDatetimePicker)
 
 Vue.component('upload-form', UploadForm)
 Vue.component('sms-confirmation', SmsConfirmation)

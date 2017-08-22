@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170817061718) do
+ActiveRecord::Schema.define(version: 20170822063136) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -201,6 +201,13 @@ ActiveRecord::Schema.define(version: 20170817061718) do
     t.datetime "replied_at"
   end
 
+  create_table "main_categories_profiles", force: :cascade do |t|
+    t.integer "main_category_id"
+    t.integer "profile_id"
+    t.text "description"
+    t.index ["main_category_id", "profile_id"], name: "main_categories_profiles_category_and_profile", unique: true
+  end
+
   create_table "news", id: :serial, force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -265,24 +272,15 @@ ActiveRecord::Schema.define(version: 20170817061718) do
 
   create_table "profiles", id: :serial, force: :cascade do |t|
     t.integer "user_id", null: false
-    t.string "work_type"
-    t.boolean "have_car"
     t.text "about"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "price_type"
-    t.integer "price_hourly"
     t.integer "price_project"
-    t.boolean "have_instrument", default: false
-    t.boolean "can_departure", default: false
-    t.boolean "working_all_time", default: false
-    t.string "working_days"
-    t.integer "working_hours_from"
-    t.integer "working_hours_to"
     t.integer "rating_votes_count"
     t.integer "rating_votes_sum"
     t.float "rating"
-    t.boolean "notifications_email_enabled", default: true
+    t.date "birthday"
+    t.string "city_name"
   end
 
   create_table "replies", id: :serial, force: :cascade do |t|

@@ -8,10 +8,45 @@ export default {
   ],
   data: function () {
     return {
-      model: this.initialModel
+      model: this.initialModel,
+      maxMainCategories: 2,
+      datepickerConfig: {
+        allowInput: true,
+        enableTime: false,
+        dateFormat: 'd.m.Y'
+      }
+    }
+  },
+  mounted () {
+    if (this.model.main_categories.length === 0) {
+      this.addMainCategory()
+    }
+  },
+  computed: {
+    availableCategories () {
+      return this.maxMainCategories - this.model.main_categories.length
     }
   },
   methods: {
+    addMainCategory () {
+      this.model.main_categories.push({
+        main_category_id: null,
+        description: null,
+        category_ids: []
+      })
+    },
+    categoriesListFor (selected) {
+      return this.categoriesList.filter(e => parseInt(e.parent_id) === parseInt(selected)).map(e => e.value)
+    },
+    mainCategoriesListFor (selected) {
+      return this.categoriesList.filter((e) => {
+        if (parseInt(e.value) === parseInt(selected)) return true
+        return !this.model.main_categories.map(d => parseInt(d.main_category_id)).includes(parseInt(e.value))
+      }).map(e => e.value)
+    },
+    resetCategoriesValueForIndex (index) {
+      this.model.main_categories[index].category_ids = []
+    },
     categoryLabel (id) {
       var result
       this.categoriesList.every((e) => {
@@ -22,6 +57,9 @@ export default {
         return true
       })
       return result.label
+    },
+    limitSubcategoriesText (count) {
+      return `Выбрано ${count} подкатегорий`
     }
   }
 }
