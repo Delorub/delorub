@@ -35,11 +35,15 @@ export default {
         category_ids: []
       })
     },
+    removeMainCategoryByIndex (index) {
+      this.model.main_categories.splice(index, 1)
+    },
     categoriesListFor (selected) {
       return this.categoriesList.filter(e => parseInt(e.parent_id) === parseInt(selected)).map(e => e.value)
     },
     mainCategoriesListFor (selected) {
       return this.categoriesList.filter((e) => {
+        if (e.parent_id !== null) return false
         if (parseInt(e.value) === parseInt(selected)) return true
         return !this.model.main_categories.map(d => parseInt(d.main_category_id)).includes(parseInt(e.value))
       }).map(e => e.value)
