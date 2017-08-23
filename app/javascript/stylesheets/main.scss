@@ -132,10 +132,7 @@ footer {
         }        
       }
       > .nav-link.active {
-          color: $blueColor;
-          &:hover {
-            color: #2a6485;
-          }
+          @extend .link-secondary;
         }
     }    
   }

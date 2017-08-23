@@ -71,10 +71,7 @@
           }
         }
         a.active {
-          color: $blueColor;
-          &:hover {
-            color: #2a6585;
-          }
+          @extend .link-secondary;
         }
       }      
     }
