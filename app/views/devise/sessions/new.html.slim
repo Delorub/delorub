@@ -1,59 +1,65 @@
 = simple_form_for @form, url: new_user_session_path do |f|
-  .container
-    .dr-block-style
+  .regular-content
+    .container
       .row
-        .col-md-6
-          .sign_in-form
-            .sign_in-form__header
-              | Войти
-            .sign_in-form__content
-              fieldset.form-group
-                .row
-                  .col
-                    .form-check
-                      label.form-check-label
-                        input#optionsRadios1.form-check-input checked="" name="optionsRadios" type="radio" value="option1" /
-                        |&nbsp;Как заказчик
-                  .col.center
-                    .form-check
-                      label.form-check-label
-                        input#optionsRadios2.form-check-input name="optionsRadios" type="radio" value="option2" /
-                        |&nbsp;Как исполнитель
-              .sign_in-form__inputs
-                = f.input :email, autofocus: true, label: false,
-                  input_html: { class: 'form-control form-control__item' },
-                  wrapper: false, placeholder: 'Ваш email'
-                = f.input :password, label: false,
-                  input_html: { class: 'form-control form-control__item' },
-                  wrapper: false, placeholder: 'Пароль'
-              .sign_in-form__enter
-                .row.align-items-center.center
-                  .col
-                    input.btn.btn-primary.dr-btn-primary type="submit" value="Войти"
-                  .col
-                    a.sign_in-form__remind-password href=new_password_path(resource_name) Забыли пароль?
-              hr/
-              .registration-form__content-circle
-                .registration-form__content-circle.registration-form__content-circle__header
-                  | Или войти через
-                .registration-form__content-circle__item
-                  a href=omniauth_authorize_path(resource_name, :vkontakte)
-                    img.task-card-person__image alt="" src="/images/design/vk.png" /
-                .registration-form__content-circle__item
-                  a href=omniauth_authorize_path(resource_name, :facebook)
-                    img.task-card-person__image alt="" src="/images/design/fb.png" /
-                .registration-form__content-circle__item
-                  a href=omniauth_authorize_path(resource_name, :odnoklassniki)
-                    img.task-card-person__image alt="" src="/images/design/ok.png" /
-        .col-md-6
-          .first-time-sign-in.center
-            .first-time-sign-in__header
-              | Впервые на ДелоРубе?
-            .first-time-sign-in__button
-              a.btn.btn-primary.dr-btn-primary href="#" role="button"  Разместите заказ
-            br/
-            span или
-            br/
-            .first-time-sign-in__button
-              a.btn.btn-secondary href="#" role="button"  Станьте исполнителем
-            a.first-time-sign-in__link href="#"  Ознакомиться с условиями сервиса
+        .col-lg-5.offset-lg-1.col-md-6.offset-md-0
+          .dr-block-style.dr-block-style--sign-in
+            .sign_in-form
+              .sign_in-form__header
+                | Войти
+              .sign_in-form__content
+                fieldset.form-group
+                  .row
+                    .col-xl-6
+                      .form-check
+                        .dr-radio
+                          input#optionsRadios1.form-check-input checked="" type="radio" name="optionsRadios" value="option1" /
+                          label for="optionsRadios1" Как заказчик
+                          .check
+                    .col-xl-6.xl-right
+                      .form-check
+                        .dr-radio
+                          input#optionsRadios2.form-check-input type="radio" name="optionsRadios" value="option2" /
+                          label for="optionsRadios2" Как исполнитель
+                          .check
+                      
+                .sign_in-form__inputs
+                  = f.input :email, autofocus: true, label: false,
+                    input_html: { class: 'form-control form-control__item' },
+                    wrapper: false, placeholder: 'Ваш email'
+                  = f.input :password, label: false,
+                    input_html: { class: 'form-control form-control__item' },
+                    wrapper: false, placeholder: 'Пароль'
+                .sign_in-form__sms
+                  a.link-default.right href="#" Войти через СМС                      
+                .sign_in-form__enter
+                  input.dr-btn-primary type="submit" Войти
+                  .sign_in-form__remind
+                    a.link-default href=new_password_path(resource_name) Забыли пароль?                    
+                hr/
+                .registration-form__content-circle
+                  .registration-form__content-circle.registration-form__content-circle__header
+                    | Или войти через
+                  .registration-form__content-circle__item
+                    a href=omniauth_authorize_path(resource_name, :vkontakte)
+                      img.task-card-person__image alt="" src="/images/design/vk.png" /
+                  .registration-form__content-circle__item
+                    a href=omniauth_authorize_path(resource_name, :facebook)
+                      img.task-card-person__image alt="" src="/images/design/fb.png" /
+                  .registration-form__content-circle__item
+                    a href=omniauth_authorize_path(resource_name, :odnoklassniki)
+                      img.task-card-person__image alt="" src="/images/design/ok.png" /
+
+        .col-lg-5.col-md-6
+          .dr-block-style.dr-block-style--sign-in
+            .first-time-sign-in.center
+              .first-time-sign-in__header
+                | Впервые на ДелоРубе?
+              .first-time-sign-in__button
+                a.dr-btn-danger href="#" role="button"  Разместите заказ
+              p.first-time-sign-in__else
+                | ИЛИ              
+              .first-time-sign-in__button
+                a.dr-btn-primary href="#" role="button"  Станьте исполнителем
+              .first-time-sign-in__link
+                a.link-default href="#"  Ознакомиться с условиями сервиса
