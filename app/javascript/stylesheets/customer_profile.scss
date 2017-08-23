@@ -1,0 +1,20 @@
+.customer-profile-card {
+  &__image {
+    margin-top: 1.8rem;
+    text-align: center;
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      max-width: 90px;
+      margin: 0 auto;
+    }
+    &-link {
+      margin-top: 0.5rem;
+    }
+  }
+  &__inputs {
+    margin: 2rem 0 0 2rem;
+  }
+}

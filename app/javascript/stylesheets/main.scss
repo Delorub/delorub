@@ -129,14 +129,15 @@ footer {
         transition: $transition;
         &:hover {
           color: $blueColor;
+        }        
+      }
+      > .nav-link.active {
+          color: $blueColor;
+          &:hover {
+            color: #2a6485;
+          }
         }
-      }
-    }
-    > li.active {
-      > a {
-        color: $blueColor;
-      }
-    }
+    }    
   }
   .navbar-right {
     li {
