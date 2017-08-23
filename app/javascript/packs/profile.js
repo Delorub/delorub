@@ -10,4 +10,10 @@ $(document).ready(function () {
     $(this).hide()
     $('.performer-profile-main__contacts, .master-card-description__phone, .task-profile-card__contacts').show()
   })
+
+  $('.category_desc_accordion').on('click', function (e) {
+    e.preventDefault()
+    var bottomText = $(this).closest('.bottom-text')
+    bottomText.empty().append(bottomText.attr('data-text'))
+  })
 })

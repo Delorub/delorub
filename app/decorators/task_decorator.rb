@@ -29,7 +29,7 @@ class TaskDecorator < Draper::Decorator
     I18n.l object.date_interval_to, format: format
   end
 
-  def date_of_execution format = :date_with_words
+  def human_date format = :date_with_words
     case object.date_type
       when 'end_at', 'start_at' then date_actual_date(format)
       when 'interval' then "#{date_interval_from_date(format)} - #{date_interval_to_date(format)}"

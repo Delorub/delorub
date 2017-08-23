@@ -20,7 +20,7 @@
                       | заданий
             .task-profile-card__time
               h2= @task.date_type.text
-              p= @task.decorate.date_of_execution
+              p= @task.decorate.human_date
             .task-profile-card__price
               h2
                 - if @task.price_exact.blank?

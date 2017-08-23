@@ -24,8 +24,7 @@ ActiveAdmin.register Category, namespace: :admin do
     @form = ActiveAdmin::CategorySettingsForm.new resource
     @form.prepopulate!
     if request.put?
-      setting_params = params.require(:category).permit!
-      if @form.validate setting_params
+      if @form.validate params.require(:category).permit!
         @form.save do |hash|
           resource.settings = RecursiveOpenStruct.new(hash[:settings], recurse_over_arrays: true)
           resource.settings.price_ranges.reject! { |e| e.title.blank? }
