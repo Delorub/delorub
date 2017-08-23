@@ -16,7 +16,7 @@ export default {
       url: this.url,
       maxFiles: 4,
       acceptedFiles: 'image/*',
-      maxFilesize: 0,
+      maxFilesize: 7,
       autoDiscover: false,
       addRemoveLinks: true,
       dictRemoveFile: 'Удалить'
