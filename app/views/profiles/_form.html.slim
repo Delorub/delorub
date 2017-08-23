@@ -10,19 +10,18 @@
           a.breadcrumb-item href=root_path  Главная
           span.breadcrumb-item.active Создать профиль
         .dr-content-header
-          h1 Стать исполнителем
+          h1 Анкета исполнителя
         .row
           .col-xl-8
             .dr-form
               .dr-block-style id="profile_category"
                 .form-group v-on:click="showTooltip('profile_category')"
-                  label.form-group__header Специализация
-                  br/
+                  h2 Специализация                  
                   br/
                   template v-for="(mainCategory, index) in model.main_categories"
                     .row
                       .col-lg-6
-                        .form-group
+                        .form-group.black-content
                           input type="hidden" name="profile[main_categories][][main_category_id]" v-model="model.main_categories[index]['main_category_id']"
                           = content_tag 'custom-select', '',
                             'v-model': "model.main_categories[index]['main_category_id']",
@@ -44,6 +43,7 @@
                             ':limit-text': 'limitSubcategoriesText',
                             ':disabled': "model.main_categories[index]['main_category_id'] == null",
                             'placeholder': 'Выберите подкатегорию',
+                            ':clear-on-select': 'true',
                             ':options': "categoriesListFor(model.main_categories[index]['main_category_id'])",
                             ':custom-label': 'categoryLabel'
                     .row
@@ -57,54 +57,63 @@
                   .row v-if="availableCategories > 0"
                     .col-lg-6
                       a.link-default href='#' v-on:click.prevent='addMainCategory' Добавить
-              .dr-block-style
+              .dr-block-style.dr-block-style--category
                 .row
                   .col-lg-12
-                    .form-group
-                      label.form-group__header for="profile_price_project" Укажите минимальную цену за свою работу
-                      .row.align-items-baseline
-                        .margin-side
-                          label for="profile_price_project" От
-                        .col-lg-6
-                          .input-group
-                            = f.input :price_project, label: false, wrapper: false, error: false,
-                              input_html: { \
-                                'v-model': 'model.price_project',
-                                'v-on:focus': %(showTooltip('profile_price_project')),
-                              }
-                            i.input-group-addon.fa.fa-rub aria-hidden="true"
-                          = f.error :price_exact
-                          br
-                .row
-                  .col-lg-6
-                    label Выберите город
-                    = f.input :city_name, label: false, error: false,
-                      input_html: { \
-                        'v-model': 'model.city_name',
-                      }
-                  .col-lg-6
-                    .form-group
-                      label Укажите дату рождения
-                      .input-group.date
-                        label.date-addon
-                        = f.input_field :birthday, as: :hidden, 'v-model': 'model.birthday'
-                        = content_tag 'flat-pickr', '',
-                          'v-model': 'model.birthday',
-                          ':config': 'datepickerConfig'
+                    .create-profile__budget
+                      .form-group
+                        h2 Укажите минимальную цену за свою работу
+                        br/
+                        .row.align-items-baseline
+                          .margin-side
+                            label for="profile_price_project" От
+                          .col-lg-6
+                            .input-group
+                              = f.input :price_project, label: false, wrapper: false, error: false,
+                                input_html: { \
+                                  'v-model': 'model.price_project',
+                                  'v-on:focus': %(showTooltip('profile_price_project')),
+                                  'placeholder': '30 000',
+                                }
+                              i.input-group-addon.fa.fa-rub aria-hidden="true"
+                            = f.error :price_exact                            
+                hr/ 
+                .create-profile__budget
+                  .row
+                    .col-lg-6
+                      label Выберите город
+                      = f.input :city_name, label: false, error: false,
+                        input_html: { \
+                          'v-model': 'model.city_name',
+                          'placeholder': 'Санкт-Петербург',
+                        }
+                    .col-lg-6
+                      .form-group
+                        label Укажите дату рождения
+                        .input-group.date
+                          label.date-addon
+                          = f.input_field :birthday, as: :hidden, 'v-model': 'model.birthday'
+                          = content_tag 'flat-pickr', '',
+                            'v-model': 'model.birthday',
+                            'placeholder': 'Дата',
+                            ':config': 'datepickerConfig'
               .dr-block-style
                 .form-group v-on:click="showTooltip('profile_about')"
-                  label.form-group__header for="comment"  Обо мне
+                  h2  Обо мне
+                  br/
                   = f.input :about, as: :text, label: false,
                     input_html: { \
                       'v-model': 'model.description',
                       'v-on:focus': %(showTooltip('profile_about')),
+                      'placeholder': 'Напишите о себе',
                       rows: 10,
                     }
               .dr-block-style
                 = f.simple_fields_for :new_user do |rf|
                   - unless rf.object.nil?
                     div id="profile_contacts" v-on:click="showTooltip('profile_contacts')"
-                      label.form-group__header for="contact"  Укажите контактную информацию
+                      h2 Укажите контактную информацию
+                      br/
                       .row
                         .col-lg-4.col-md-6
                           = rf.input :name, label: false, error: false,
@@ -117,9 +126,9 @@
                               'v-on:focus': %(showTooltip('profile_contacts')),
                             }
                         .col-lg-4.offset-lg-0.col-md-6.offset-md-6 class=('error-display-hide' if (rf.object.errors.keys & [:name, :email]).count.zero?)
-                          .contact-form__error-message
+                          .form__error-message
                             span = rf.error (rf.object.errors.keys & [:name, :email]).first
-                      .contact-form__phone
+                      .form__phone
                         span Укажите ваш номер телефона и подтвердите его
                       = rf.simple_fields_for :sms_confirmation do |sf|
                         = render 'shared/phone_confirmation', f: sf
