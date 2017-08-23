@@ -1,0 +1,25 @@
+.dr-authorized-user {
+  display: flex;
+  &__name {
+    text-align: right;    
+    margin-top: 5px;
+    span {
+      color: $color;
+    }
+    a {
+      cursor: pointer;
+    }
+  }
+  &__image {
+    margin-left: 1rem;
+    img {
+      width: 54px;
+      display: block;
+      height: auto;
+      border-radius: 50%;
+    }
+    a {
+      cursor: pointer;
+    }
+  }
+}

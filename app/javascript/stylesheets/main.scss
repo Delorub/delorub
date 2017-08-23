@@ -75,21 +75,31 @@ footer {
 }
 
 .top-line {
+  background-color: #335e79;
   &__container {
     display: flex;
-    justify-content: flex-end;;
+    justify-content: space-between;
     padding: 5px 0;
   }
-  &__link {
-    color: $blueColor;
+  &__link {    
     margin-left: 30px;
+    color: #fff;
+    &:hover {
+      color: #70bee9 !important;
+    }
+    &:visited {
+      color: #fff;
+    }
   }
-  &__city {
-    text-decoration: underline;
-    color: #4c4c4c;
-    opacity: 0.5;
+  &__city {    
+    color: #fff;
+    opacity: 1;
     margin-left: 0.2rem;
+    border-bottom: 1px dashed;    
   }
+  &__left {
+    color: #fff;      
+  }  
 }
 
 .navbar-toggler {
@@ -132,8 +142,8 @@ footer {
         }        
       }
       > .nav-link.active {
-          @extend .link-secondary;
-        }
+        @extend .link-secondary;
+      }
     }    
   }
   .navbar-right {
