@@ -17,7 +17,8 @@
             .dr-form
               .dr-block-style
                 .form-group v-on:click="showTooltip('task_title')"
-                  label.form-group__header for="hdr"  Заголовок
+                  h2 Заголовок
+                  br/
                   .row
                     .col-lg-8.col-12
                       = f.input :title, label: false,
@@ -26,7 +27,8 @@
                           'v-on:focus': %(showTooltip('task_title')),
                         }
                 .form-group v-on:click="showTooltip('task_description')"
-                  label.form-group__header for="comment"  Описание задачи
+                  h2 Описание задачи
+                  br/
                   = f.input :description, as: :text, label: false,
                     input_html: { \
                       'v-model': 'model.description',
@@ -44,12 +46,11 @@
                       span.upload-span Перетащите сюда файлы
               .dr-block-style id="task_category"
                 .form-group v-on:click="showTooltip('task_category')"
-                  label.form-group__header Специализация
-                  br/
+                  h2 Специализация                  
                   br/
                   .row
                     .col-lg-6
-                      .form-group.black-content
+                      .form-group.black-content.multiselect-position
                         = f.input_field :category_id, as: :hidden, 'v-model': 'model.category_id'
                         = content_tag 'custom-select', '',
                           'v-model': 'model.category_id',
@@ -61,7 +62,7 @@
                           '@select': 'populateSubcategories'
                         = f.error :category_id
                     .col-lg-6
-                      .form-group
+                      .form-group.multiselect-position
                         = f.input_field :subcategory_ids,
                           as: :hidden,
                           'v-for': 'item in model.subcategory_ids',
@@ -82,7 +83,8 @@
                         = f.error :subcategory_ids
               .dr-block-style
                 .form-group v-on:click="showTooltip('task_dates')"
-                  label.form-group__header for="date"  Дата и время
+                  h2 Дата и время
+                  br/
                   .row
                     .col-lg-4
                       .form-group id="task_dates"
@@ -117,7 +119,8 @@
                         a href="#" @click.prevent="$refs.dateIntervalToComponent.setToday()"  сегодня
                         a href="#" @click.prevent="$refs.dateIntervalToComponent.setTomorrow()" завтра
                 .form-group v-on:click="showTooltip('task_place_address')"
-                  label.form-group__header for="adr"  Адрес
+                  h2 Адрес
+                  br/
                   .row
                     .col-lg-8.col-12
                       .adress-arrow-hide

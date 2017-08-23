@@ -4,7 +4,7 @@
     <flat-pickr v-model="dateValue" :config="datepickerConfig">
     </flat-pickr>
     <div class="vertical-hr"></div>
-    <input type="time" ref="timeInput" v-model="timeValue" maxlength="5" placeholder="Время" class="form-control date-time">
+    <input type="text" ref="timeInput" v-model="timeValue" maxlength="5" placeholder="Время" class="form-control date-time">
   </div>
 </template>
 
