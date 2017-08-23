@@ -10,7 +10,7 @@ class ProfileDecorator < Draper::Decorator
   end
 
   def age
-    object.birthday.present? ? distance_of_time_in_words(object.birthday, DateTime.current) : nil
+    object.birthday.present? ? distance_of_time_in_words(object.birthday, DateTime.current, only: :years) : nil
   end
 
   def formatted_age

@@ -6,7 +6,7 @@ class ProfileQuery
     @category = category
     @current_user = current_user
     @page = page
-    @direction = direction.present? && direction == 1 ? true : false
+    @direction = direction.present? && direction.to_i == 1 ? true : false
   end
 
   def perform

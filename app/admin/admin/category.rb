@@ -39,7 +39,7 @@ ActiveAdmin.register Category, namespace: :admin do
     f.inputs 'Основное' do
       input :title
       input :position
-      input :parent, collection: nested_set_options_for_category(category)
+      input :parent, collection: Category.all.map{ |a| [a.title, a.id] }
       input :photo
       input :description
     end

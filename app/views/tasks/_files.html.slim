@@ -3,10 +3,12 @@
     .task-profile-documents__header
       h2 Документы
     .task-profile-documents-list
-      - @task.files.each do |file|
+      - @task.files.each do |task_file|
         .task-profile-documents-list__link
-          = link_to file.file.url, class: 'link-default link-default-thin', target: '_blank' do
+          = link_to task_file.file.url, class: 'link-default link-default-thin', target: '_blank' do
             i.fa.fa-file aria-hidden="true"
-            |  
-            span Название документа
+            '
+            span
+              = task_file.file.filename.blank? ? 'Документ' : task_file.file.filename
+              '
             i.fa.fa-download aria-hidden="true"

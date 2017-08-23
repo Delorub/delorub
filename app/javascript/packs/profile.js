@@ -8,7 +8,13 @@ $(document).ready(function () {
   $('.show_contacts').on('click', function (e) {
     e.preventDefault()
     $(this).hide()
-    $('.performer-profile-main__contacts, .master-card-description__phone, .task-profile-card__contacts').show()
+    $('.performer-profile-main__contacts, .task-profile-card__contacts').show()
+  })
+
+  $('.show_contacts_all').on('click', function (e) {
+    e.preventDefault()
+    $(this).hide()
+    $(this).closest('div').find('.performer-profile-main__contacts').show()
   })
 
   $('.category_desc_accordion').on('click', function (e) {

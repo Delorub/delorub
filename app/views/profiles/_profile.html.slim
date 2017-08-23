@@ -11,7 +11,7 @@
         .col-lg-2
           .master-card-person
             .master-card-person__image
-              = image_tag profile.user.photo.url
+              = image_tag profile.user.photo.url(:upload_preview)
             .master-card-person__mark
         .col
           .master-card-description
@@ -24,11 +24,13 @@
                   = profile.decorate.formatted_price
             p.master-card-description__text
               = profile.about.truncate(180) unless profile.about.blank?
-            a.link-default.show_contacts href="#" role="button"  Показать номер телефона
+            a.link-default.show_contacts_all href="#" role="button"  Показать номер телефона
             .performer-profile-main__contacts style="display: none"
               p
-                i.fa.fa-mobile aria-hidden="true"
-                = profile.user.phone
-                i.fa.fa-envelope-o aria-hidden="true"
-                = profile.user.email
+                - unless profile.user.phone.blank?
+                  i.fa.fa-mobile aria-hidden="true"
+                  = profile.user.phone
+                - unless profile.user.email.blank?
+                  i.fa.fa-envelope-o aria-hidden="true"
+                  = profile.user.email
   = paginate collection, theme: 'custom_theme'

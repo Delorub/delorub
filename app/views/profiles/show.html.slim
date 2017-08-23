@@ -5,18 +5,20 @@
         .dr-block-style.dr-block-style--profile-left
           .performer-profile-main.center
             .performer-profile-main__image
-              = image_tag @profile.user.photo.url
+              = image_tag @profile.user.photo.url(:upload_preview)
             .performer-profile-main__price
               = @profile.decorate.formatted_price
             .performer-profile-main__button
               a.dr-btn-primary.dr-btn-220.show_contacts href="#"  Показать контакты
             .performer-profile-main__contacts style="display: none"
-              p
-                i.fa.fa-mobile aria-hidden="true"
-                = @profile.user.phone
-              p
-                i.fa.fa-envelope-o aria-hidden="true"
-                = @profile.user.email
+              - unless @profile.user.phone.blank?
+                p
+                  i.fa.fa-mobile aria-hidden="true"
+                  = @profile.user.phone
+              - unless @profile.user.email.blank?
+                p
+                  i.fa.fa-envelope-o aria-hidden="true"
+                  = @profile.user.email
         = render 'specializations'
       .col-lg-8
         = render 'breadcrumb'

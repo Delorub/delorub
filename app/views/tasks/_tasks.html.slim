@@ -11,7 +11,7 @@
         .col-lg-2
           .task-card-person
             .task-card-person__image
-              = image_tag task.user.photo
+              = image_tag task.user.photo.url(:upload_preview)
             p.task-card-person__name
               = task.user.name
         .col
@@ -23,22 +23,17 @@
             div
               .task-card-refinement
                 p.task-card-refinement__price
-                  - if task.price_exact.blank?
-                    | Не указана
-                  - else
-                    = task.price_exact
-                    '
-                    | руб.
-                - if task.date_type.end_at?
-                  - unless task.decorate.date_actual_date(:date).blank?
+                  = task.price_exact.blank? ? 'Не указана' : "#{task.price_exact} руб."
+                - unless task.date_type.blank?
+                  - if time_expires_before_tomorrow?(task.date_type.end_at?, task.date_actual) || time_expires_before_tomorrow?(task.date_type.interval?, task.date_interval_to)
                     p.task-card-refinement__time.task-card-refinement__time--quickly
                       i.fa.fa-clock-o aria-hidden="true"
-                      '
-                      = task.decorate.left_date_end
-                - else
-                  p.task-card-refinement__time
-                    = 'С ' if task.date_type.start_at?
-                    = task.decorate.human_date(:date_without_year)
+                      = " #{task.decorate.date_time_left}"
+                  - else
+                    p.task-card-refinement__time
+                      = 'С ' if task.date_type.start_at? && task.date_actual.present?
+                      = 'До ' if task.date_type.end_at? && task.date_actual.present?
+                      = task.decorate.human_date(:date_without_year)
           .row
             .col
               .task-card-description

@@ -36,8 +36,21 @@ class TaskDecorator < Draper::Decorator
     end
   end
 
-  def left_date_end
-    return if object.date_actual.blank?
-    distance_of_time_in_words(object.date_actual, DateTime.current, include_seconds: true)
+  def date_time_left
+    case object.date_type
+      when 'end_at'
+        return if object.date_actual.blank?
+        formatted_duration object.date_actual.to_i - DateTime.current.to_i
+      when 'interval'
+        return if object.date_interval_to.blank?
+        formatted_duration object.date_interval_to.to_i - DateTime.current.to_i
+    end
+  end
+
+  def formatted_duration total_seconds
+    hours = total_seconds / (60 * 60)
+    minutes = (total_seconds / 60) % 60
+    seconds = total_seconds % 60
+    sprintf '%02d:%02d:%02d', hours, minutes, seconds
   end
 end

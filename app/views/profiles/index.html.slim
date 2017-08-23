@@ -2,6 +2,9 @@
 .regular-content
   .container
     = render 'breadcrumb'
+    .dr-content-header
+      h1
+        = @category ? sprintf('Исполнители в категории "%s"', formatted_header_category(@category)) : 'Все исполнители'
     .row
       .col-lg-8
         .dr-block-style.dr-block-style--sort-padding

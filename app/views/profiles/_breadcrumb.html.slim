@@ -1,9 +1,8 @@
-- h1 = @category.settings.dig(:h1) if @category
 nav.breadcrumb
   = link_to 'Главная', root_path, class: 'breadcrumb-item'
   - if @category
     span.breadcrumb-item.active
-      = h1.blank? ? @category.title : h1
+      = sprintf('Исполнители в категории "%s"', formatted_header_category(@category))
   - elsif @profile
     = link_to 'Все исполнители', profiles_path, class: 'breadcrumb-item'
     span.breadcrumb-item.active
@@ -11,8 +10,3 @@ nav.breadcrumb
   - else
     span.breadcrumb-item.active
       | Все исполнители
-
-- if @category
-  .dr-content-header
-    h1
-      = h1.blank? ? @category.title : h1

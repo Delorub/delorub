@@ -8,8 +8,8 @@
             .task-profile-card-person
               .row
                 .col-lg-5
-                  .master-card-person__image.master-card-person__image--online
-                    = image_tag @task.user.photo.url
+                  .master-card-person__image
+                    = image_tag @task.user.photo.url(:upload_preview)
                 .col-lg-7
                   .task-profile-card-person__name
                     h4
@@ -31,12 +31,14 @@
                   | руб.
               a.dr-btn-primary.dr-btn-190.show_contacts href="#"  Показать контакты
               .task-profile-card__contacts style="display: none"
-                p
-                  i.fa.fa-mobile aria-hidden="true"
-                  = @task.user.phone
-                p
-                  i.fa.fa-envelope-o aria-hidden="true"
-                  = @task.user.email
+                - unless @task.user.phone.blank?
+                  p
+                    i.fa.fa-mobile aria-hidden="true"
+                    = @task.user.phone
+                - unless @task.user.email.blank?
+                  p
+                    i.fa.fa-envelope-o aria-hidden="true"
+                    = @task.user.email
         = render 'files' unless @task.files.blank?
         br/
       .col-lg-8

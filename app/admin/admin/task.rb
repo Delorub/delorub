@@ -1,6 +1,6 @@
 ActiveAdmin.register Task, namespace: :admin do
   permit_params :user_id, :category_id, :title, :price_type, :date_type, :description, :visible, :price_exact, :price_from,
-    :price_to, :place_lat, :place_long, :place_address, :date_actual_date, :date_interval_from, :date_interval_to,
+    :price_to, :place_lat, :place_long, :place_address, :date_actual, :date_interval_from, :date_interval_to,
     :notify_email, :archive, :price_scale, :contract_type
 
   filter :by_search_in, label: 'Поиск', as: :string

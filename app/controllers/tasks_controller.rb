@@ -6,10 +6,6 @@ class TasksController < ApplicationController
   before_action :category_present?, only: [:index]
   helper_method :all_categories
 
-  def show
-    return redirect_to deal_path(resource.deal) if resource.deal.present? && policy(resource.deal).show?
-  end
-
   def new
     run Task::Operation::Present
   end
