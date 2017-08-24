@@ -1,24 +1,10 @@
 .top-line {
-  &--index {
-    background-color: #335e79;
-    .top-line__city {
-      color: #fff;
-      opacity: 1;
-      text-decoration: none;
-      border-bottom: 1px dashed;
-    }
-    .top-line__left {
-      color: #fff;
+  &--index {    
+    .top-line__left {      
       display: none;
     }
-    .top-line__link {
-      color: #fff;
-      &:hover {
-        color: #70bee9 !important;
-      }
-      &:visited {
-        color: #fff;
-      }
+    .top-line__container {
+      justify-content: flex-end;
     }
   }
 }

@@ -57,18 +57,21 @@
     border-bottom: 1px solid #d1d1d1;
   }
   &-list {    
-    padding: 25px 40px;
+    padding: 25px 20px 25px 40px;
     &__sub, &__sup {
       font-weight: bold;
       font-size: 0.9rem;
       li {
-        padding: 7.5px 0px;
+        padding: 5px 0px;
         a {
           transition: 0.3s;
           color: #4c4c4c;
           &:hover {
             color: $blueColor;
           }
+        }
+        a.active {
+          @extend .link-secondary;
         }
       }      
     }
