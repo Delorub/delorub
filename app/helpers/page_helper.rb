@@ -15,8 +15,12 @@ module PageHelper
     page_path 'how-to-master'
   end
 
-  def intresting_path
-    page_path 'intresting'
+  def terms_path
+    page_path 'terms'
+  end
+
+  def policy_path
+    page_path 'policy'
   end
 
   def page_path name

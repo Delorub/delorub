@@ -46,13 +46,13 @@
                       span.upload-span Перетащите сюда файлы
               .dr-block-style id="task_category"
                 .form-group v-on:click="showTooltip('task_category')"
-                  h2 Специализация                  
+                  h2 Специализация
                   br/
                   .row
                     .col-lg-6
                       .form-group.black-content.multiselect-position
                         = f.input_field :category_id, as: :hidden, 'v-model': 'model.category_id'
-                        = content_tag 'custom-select', '',
+                        = content_tag 'custom-multiselect', '',
                           'v-model': 'model.category_id',
                           ':searchable': 'false',
                           ':allow-empty': 'false',
@@ -69,10 +69,11 @@
                           'v-bind:value': 'item',
                           'name': "#{f.object_name}[subcategory_ids][]"
 
-                        = content_tag 'custom-select', '',
+                        = content_tag 'custom-multiselect', '',
                           'v-model': 'model.subcategory_ids',
                           ':searchable': 'false',
                           ':allow-empty': 'false',
+                          ':show-reset': 'true',
                           ':limit': '0',
                           ':limit-text': 'limitSubcategoriesText',
                           ':disabled': '!model.category_id',
@@ -138,7 +139,7 @@
                 .form-group
                   h2  На какой бюджет ориентироваться исполнителям
                   br/
-                  .row.align-items-baseline                    
+                  .row.align-items-baseline
                     .col-lg-6
                       .input-group
                         = f.input :price_exact, label: false, wrapper: false, error: false,
@@ -148,134 +149,11 @@
                           }
                         i.input-group-addon.fa.fa-rub aria-hidden="true"
                       = f.error :price_exact
-              .dr-block-style
-                = f.simple_fields_for :new_user do |rf|
-                  - unless rf.object.nil?
-                    div id="task_contacts" v-on:click="showTooltip('task_contacts')"
-                      h2 Укажите контактную информацию
-                      br/
-                      .row
-                        .col-lg-4.col-md-6
-                          = rf.input :name, label: false, error: false,
-                            input_html: { \
-                              'v-on:focus': %(showTooltip('task_contacts')),
-                            }
-                        .col-lg-4.col-md-6
-                          = rf.input :email, label: false, error: false,
-                            input_html: { \
-                              'v-on:focus': %(showTooltip('task_contacts')),
-                            }
-                          .form__error-message
-                            span = rf.error (rf.object.errors.keys & [:name, :email]).first
-                      .form__phone
-                        span Укажите ваш номер телефона и подтвердите его
-                      = rf.simple_fields_for :sms_confirmation do |sf|
-                        = render 'shared/phone_confirmation', f: sf
-                      .checkbox
-                        label
-                          = rf.check_box :accept_terms
-                          span.checkbox-custom
-                          | Я согласен с&nbsp;
-                          a.link-default href="#" правилами сервиса
-                          |  и&nbsp;
-                          a.link-default href="#" политикой обработки персональных данных
-                        = rf.error :accept_terms
-
+              = f.simple_fields_for :new_user do |rf|
+                - unless rf.object.nil?
+                  .dr-block-style
+                    = render 'shared/user/new_user_form', f: rf
                 br/
                 .center
                   = f.submit 'Создать задание', class: 'dr-btn-danger'
-          .col-xl-4 ref="taskPopoverArea"
-            .dr-popover.dr-popover-left.hidden
-            .dr-popover-data.hidden data-for="task_title"
-              .dr-popover__header
-                | Придумайте заголовок, например:
-              .dr-popover__text
-                | Убрать квартиру – 54 м2
-                br/
-                | Сделать свадебный маникюр
-                br/
-                | Доставить документы
-            .dr-popover-data.hidden data-for="task_category"
-              .dr-popover__header
-                | Выберите специализацию
-              .dr-popover__text
-                | Выберите желаемую специализацию
-            .dr-popover-data.hidden data-for="task_description"
-              .dr-popover__header
-                | Уточните детали:
-              .dr-popover__text
-                | Размер и/или объем
-                br/
-                | Материалы
-                br/
-                | Личные пожелания к работе
-            .dr-popover-data.hidden data-for="task_files"
-              .dr-popover__header
-                | Загрузите фаил
-              .dr-popover__text
-                | Поддерживаемые форматы файлов:
-                br/
-                b
-                  | png, jpg, jpeg, bmp, ttf, doc, pdf, rar,
-                  | zip, xls
-                br/
-                | Максимальный размер файла -
-                b 7мб
-                br/
-                | Суммарный размер не более -
-                b 28 мб
-                br/
-                | Максимальное кол-во файлов -
-                b 4 
-            .dr-popover-data.hidden data-for="task_dates"
-              .dr-popover__header
-                | Укажите сроки
-              .dr-popover__text
-                | Это нужно для того, чтобы
-                br/
-                | исполнители понимали, когда им
-                br/
-                | нужно начать и закончить задание.
-            .dr-popover-data.hidden data-for="task_place_address"
-              .dr-popover__header
-                | Введите адрес
-              .dr-popover__text
-                | На карте отметьте место, где будет
-                br/
-                | выполняться задание. На него могут
-                br/
-                | откликнуться исполнители, которые
-                br/
-                | находятся поблизости.
-            .dr-popover-data.hidden data-for="task_prices"
-              .dr-popover__header
-                | Укажите бюджет
-              .dr-popover__text
-                | На задание откликнутся
-                br/
-                | исполнители, чьи услуги
-                br/
-                | не превышают ваш бюджет.
-                br/
-                | Если вы не определились с оплатой,
-                br/
-                | не заполняйте это поле.
-            .dr-popover-data.hidden data-for="task_contacts"
-              .dr-popover__header
-                | Ваши контактные данные
-              .dr-popover__text
-                | Напишите свой номер телефона,
-                br/
-                | и вам придет смс с кодом
-                br/
-                | подтверждения.
-                br/
-                br/
-                | Согласно&nbsp;
-                a href="/terms"
-                  | «Политике конфиденциальности»
-                |  контактные
-                br/
-                | данные сохраняются в базе сайта
-                br/
-                | и не передаются третьим лица.
+          = render 'tasks/form/popovers'

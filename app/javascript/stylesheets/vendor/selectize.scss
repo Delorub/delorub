@@ -1,5 +1,4 @@
 .multiselect {
-
   margin-bottom: 1.5rem !important;
   color: #4a4a4a;
   &__single {
@@ -24,6 +23,15 @@
       border-color: #70bee9 !important;
       border-top-width: 1px;
     }
+  }
+  &__clear {
+    position: absolute;
+    right: 41px;
+    height: 40px;
+    width: 40px;
+    display: block;
+    cursor: pointer;
+    z-index: 2
   }
 
   &--above {

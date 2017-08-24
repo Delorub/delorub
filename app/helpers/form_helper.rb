@@ -12,4 +12,11 @@ module FormHelper
   def split_collection_to_columns collection
     collection.each_slice(4).to_a
   end
+
+  def policy_checkbox_text
+    ('Я согласен с ' +
+      link_to('правилами сервиса', terms_path, class: 'link-default') +
+      ' и ' +
+      link_to('политикой обработки персональных данных', policy_path, class: 'link-default')).html_safe
+  end
 end
