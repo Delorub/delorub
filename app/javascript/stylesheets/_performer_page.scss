@@ -1,4 +1,4 @@
-.performer-description {  
+.performer-description {
   &__subcontent {
     padding: 40px 20px 30px 40px;
     margin-bottom: 3px;
@@ -12,7 +12,7 @@
   &__smalltext {
     font-size: 0.75rem;
   }
-  &-category {		
+  &-category {
     &__sub {
       margin-top: 1rem;
       color: #9b9b9b;
@@ -21,12 +21,12 @@
       margin-top: 1rem;
     }
   }
-  &-about {		
+  &-about {
     &__text {
       margin-top: 2rem;
     }
   }
-  &-examples {		
+  &-examples {
     &__photoes {
       margin-top: 1rem;
       img {
@@ -37,7 +37,7 @@
 
 }
 
-.feedback-line {	
+.feedback-line {
   &__header {
     @extend .dr-header;
     font-size: 1.3rem;
@@ -50,7 +50,7 @@
   &__negative {
     font-size: 1.5rem;
     color: #f44336;
-    margin-left: 2rem;    
+    margin-left: 2rem;
   }
 }
 
@@ -66,7 +66,7 @@
     }
     &__name {
       text-align: center;
-      margin-top: 1rem;			
+      margin-top: 1rem;
     }
     &__date {
       font-size: 0.75rem;
@@ -93,20 +93,21 @@
       color: #bbcadb;
       font-size: 1.5rem;
     }
-  }	
+  }
 }
 
 .performer-profile-main {
   &__image {
     width: 193px;
-    margin: 0 auto 1rem;
+    margin: 0 auto;
     img {
       border-radius: 50%;
       width: 100%;
     }
   }
   &__status {
-    color: #9b9b9b;    
+    color: #9b9b9b;
+    margin-top: 1rem;
     .status-online {
       position: relative;
       &:after {
@@ -128,7 +129,7 @@
     font-size: 1.2rem;
   }
   &__button {
-    margin-top: 1rem;    
+    margin-top: 1rem;
   }
   &__contacts {
     margin-top: 1rem;

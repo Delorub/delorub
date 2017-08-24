@@ -10,7 +10,7 @@
         max-width: 90px;
         margin: 0 auto;
         margin-top: 5px;
-      }      
+      }
     }
     &__name {
       margin-top: 1rem;
@@ -20,7 +20,7 @@
   &-description {
     @media (min-width: 992px) {
       padding-left: 10px;
-    }    
+    }
     &__header {
       font-weight: bold;
       font-size: 1.3rem;
@@ -46,7 +46,7 @@
       font-size: 1.5rem;
       font-weight: bold;
       margin-bottom: 0.5rem;
-    }    
+    }
     &__time {
       text-align: right;
       font-size: 0.9rem;
@@ -58,13 +58,22 @@
       }
     }
   }
+  &-link {
+    padding: 5px 0 0 0;
+    a + a {
+      margin-left: 2rem;
+    }
+  }
   &-refinement {
     margin-bottom: 1.5rem;
+  }
+  &-container {
+    padding: 0 40px;
   }
 }
 
 .bottom-text {
-  margin: 0px 10%;  
+  margin: 0px 10%;
 }
 
 .card {

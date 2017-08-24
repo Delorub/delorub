@@ -1,6 +1,5 @@
 .customer-profile-card {
   &__image {
-    margin-top: 1.8rem;
     text-align: center;
     img {
       display: block;
@@ -13,9 +12,26 @@
     &-link {
       margin-top: 0.5rem;
     }
+    &--margin-top {
+      margin-top: 1rem;
+    }
   }
   &__inputs {
-    margin: 2rem 0 0 2rem;
+    margin: 1rem 0 0 2rem;
+  }
+  &__description {
+    padding: 5px 0 0 0;
+  }
+  &__name {
+    margin-bottom: 1rem;
+  }
+  &__contacts {
+    &-header {
+      font-family: $GothamMedium;
+    }
+  }
+  hr {
+    margin: 1.5rem 0;
   }
 }
 
@@ -30,7 +46,12 @@
 
 .customer-anketa {
   &-social {
-    margin-bottom: 2rem;
+    overflow: hidden;
+    display: flex;
+    align-items: baseline;
+    &--margin-bottom {
+      margin-bottom: 2rem;
+    }
     img {
       width: 42px;
     }

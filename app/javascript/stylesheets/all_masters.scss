@@ -80,6 +80,7 @@
     }
     .performer-profile-main__contacts {
       p {
+        display: inline-flex;
         justify-content: flex-start;
         margin-bottom: 0;
       }
