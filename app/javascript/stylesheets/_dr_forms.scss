@@ -93,6 +93,19 @@
   }  
 }
 
+.form-group.black-content {
+  .multiselect__single {
+    color: $color;
+  }
+}
+
+.form-group.multiselect-position {
+  .multiselect {
+    position: relative;
+    z-index: 5;
+  }
+}
+
 .error-display, .phone-display {
   &--show {
     display: block;

@@ -4,7 +4,7 @@
     <flat-pickr v-model="dateValue" :config="datepickerConfig">
     </flat-pickr>
     <div class="vertical-hr"></div>
-    <input type="time" ref="timeInput" v-model="timeValue" maxlength="5" placeholder="Время" class="form-control date-time">
+    <input type="text" ref="timeInput" v-model="timeValue" maxlength="5" placeholder="Время" class="form-control date-time">
   </div>
 </template>
 
@@ -29,7 +29,18 @@
         datepickerConfig: {
           allowInput: true,
           enableTime: false,
-          dateFormat: 'd.m.Y'
+          dateFormat: 'd.m.Y',
+          locale: {
+            firstDayOfWeek: 1,
+            weekdays: {
+              shorthand: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+              longhand: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота']
+            },
+            months: {
+              shorthand: ['Янв', 'Фев', 'Март', 'Апр', 'Май', 'Июнь', 'Июль', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+              longhand: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']
+            }
+          }
         }
       }
     },

@@ -4,8 +4,9 @@
   color: #4a4a4a;
   &__single {
     margin-bottom: 0px;
-    padding: 14px 5px 12px 15px;
-    background-color: #fefbfb;    
+    padding: 14px 5px 12px 20px;
+    background-color: #fefbfb;
+    color: #a5a3a3;
   }
   &__select {
     background-color: transparent !important;
@@ -13,7 +14,11 @@
     padding: 0px;
     width: 20px;
   }
-
+  &__strong {
+    margin-bottom: 0;
+    font-weight: normal;
+    padding: 14px 5px 12px 20px;
+  }
   &--active {
     .multiselect__tags {
       border-color: #70bee9 !important;
@@ -35,6 +40,8 @@
     padding: 0 20px 0 0;
     border: solid 1px #ccc9c9;
     border-radius: 3px;
+    max-height: 49px;
+    overflow-y: hidden;
   }
 
   &__input {
@@ -42,7 +49,11 @@
     padding: 16px 0px 14px 20px;
     border-color: #70bee9 !important;
     border-radius: 3px;
+    color: #a5a3a3;
     margin: 0;
+    @include placeholder {
+      color: #a5a3a3;
+    }
   }
 
   &__option {
@@ -64,7 +75,10 @@
     &-wrapper {
       z-index: 300 !important;
       border-color: #70bee9 !important;
-      position: relative;
+      position: absolute;
+      @if height == 1 {
+        border: none !important;
+      }
     }
   }
 }
