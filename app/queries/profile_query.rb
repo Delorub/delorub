@@ -6,7 +6,7 @@ class ProfileQuery
     @category = category
     @current_user = current_user
     @page = page
-    @direction = direction.present? && direction.to_i == 1 ? true : false
+    @direction = direction.present? && direction.to_i == 1 ? 'asc' : 'desc'
   end
 
   def perform
@@ -32,7 +32,7 @@ class ProfileQuery
     end
 
     def apply_order
-      @collection = direction ? collection.order(created_at: :asc) : collection.order('id DESC')
+      @collection = collection.order(created_at: direction)
     end
 
     def apply_paginate

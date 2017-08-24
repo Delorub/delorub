@@ -29,4 +29,13 @@ class UserPhotoUploader < BaseUploader
       'upload_preview.png'
     end
   end
+
+  version :upload_medium do
+    process resize_to_fill: [200, 200]
+    process convert: 'png'
+
+    def full_filename for_file = model.photo.file
+      'upload_medium.png'
+    end
+  end
 end

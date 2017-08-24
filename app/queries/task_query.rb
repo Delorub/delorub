@@ -6,7 +6,7 @@ class TaskQuery
     @scope = scope
     @category = category
     @current_user = current_user
-    @page = page
+    @page = page.to_i.positive? ? page : 1
     @order_direction = order_direction.present? && order_direction == 'asc' ? 'asc' : 'desc'
   end
 
@@ -66,6 +66,6 @@ class TaskQuery
     end
 
     def apply_paginate
-      @collection = collection.page(page.to_i.positive? ? page : 1).per(3)
+      @collection = collection.page(page).per(3)
     end
 end

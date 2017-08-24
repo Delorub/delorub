@@ -23,10 +23,13 @@ ru:
       date_without_year: '%d %B'
       timeofday: '%H:%M'
   user_sms_confirmation: "Проверочный код: %{code}. Делоруб"
-  profile_price_project: "%{price} руб/проект"
-  profile_price_hourly: "%{price} руб/час"
-  profile_price: "От %{price} руб."
-  price_unknown: "Не указана"
+  profile:
+    price_project: "%{price} руб/проект"
+    price_not_specified: "Не указана"
+    price_hourly: "%{price} руб/час"
+    price_from: "От %{price} руб."
+  task:
+    time_is_over: истекло
   not_specified: "не указан"
   visitor_session_statistics:
     count: Количество сессий

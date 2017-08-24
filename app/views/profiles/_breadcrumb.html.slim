@@ -2,7 +2,7 @@ nav.breadcrumb
   = link_to 'Главная', root_path, class: 'breadcrumb-item'
   - if @category
     span.breadcrumb-item.active
-      = sprintf('Исполнители в категории "%s"', formatted_header_category(@category))
+      = format('Исполнители в категории "%s"', formatted_header_category(@category))
   - elsif @profile
     = link_to 'Все исполнители', profiles_path, class: 'breadcrumb-item'
     span.breadcrumb-item.active

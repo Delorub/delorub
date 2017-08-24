@@ -9,12 +9,8 @@ class ProfileDecorator < Draper::Decorator
     object.categories.first.id
   end
 
-  def age
-    object.birthday.present? ? distance_of_time_in_words(object.birthday, DateTime.current, only: :years) : nil
-  end
-
   def formatted_age
-    age.present? ? age : I18n.t(:not_specified)
+    object.birthday.present? ? distance_of_time_in_words(object.birthday, DateTime.current, only: :years) : I18n.t(:not_specified)
   end
 
   def formatted_city_name
@@ -22,6 +18,6 @@ class ProfileDecorator < Draper::Decorator
   end
 
   def formatted_price
-    object.price_project.present? ? I18n.t(:profile_price, price: object.price_project) : I18n.t(:price_unknown)
+    price_project.present? ? I18n.t('profile.price_from', price: price_project) : I18n.t('profile.price_not_specified')
   end
 end

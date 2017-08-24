@@ -14,6 +14,6 @@ nav.breadcrumb
 .dr-content-header
   h1
     - if @category || @task
-      = @task.present? ? @task.title : sprintf('Задания в категории "%s"', formatted_header_category(@category))
+      = @task.present? ? @task.title : format('Задания в категории "%s"', formatted_header_category(@category))
     - else
       | Все задания
