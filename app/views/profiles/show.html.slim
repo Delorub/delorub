@@ -5,7 +5,7 @@
         .dr-block-style.dr-block-style--profile-left
           .performer-profile-main.center
             .performer-profile-main__image
-              = image_tag @profile.user.photo.url(:upload_medium)
+              = image_tag @profile.user.photo.url(:upload_medium) unless @profile.user.photo.blank?
             .performer-profile-main__price
               = @profile.decorate.formatted_price
             .performer-profile-main__button

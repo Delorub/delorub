@@ -11,7 +11,7 @@
         .col-lg-2
           .master-card-person
             .master-card-person__image
-              = image_tag profile.user.photo.url(:upload_preview)
+              = image_tag profile.user.photo.url(:upload_preview) unless profile.user.photo.blank?
             .master-card-person__mark
         .col
           .master-card-description
