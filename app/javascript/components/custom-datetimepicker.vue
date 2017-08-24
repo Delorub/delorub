@@ -17,9 +17,10 @@
   export default {
     props: ['value'],
     data () {
+      let datetime = this.value.split(' ')
       return {
-        dateValue: moment(this.value, 'DD-MM-YYYY hh:mm').format('DD.MM.YYYY'),
-        timeValue: moment(this.value, 'DD-MM-YYYY hh:mm').format('hh:mm'),
+        dateValue: datetime[0],
+        timeValue: datetime[1],
         timeCleave: null,
         timeCleaveConfig: {
           numericOnly: true,

@@ -11,7 +11,8 @@ nav.navbar.navbar-toggleable-md.bg-faded.navbar-dr-theme
         li.nav-item
           a.nav-link href=tasks_path data-identity="header_tasks_index"  Все задания
       ul.navbar-nav.navbar-right
+        - if policy(Profile).new?
+          li.nav-item
+            a.dr-btn-primary.dr-btn-165 href=new_profile_path data-identity="header_btn_master_sign_up"  Стать исполнителем
         li.nav-item
-          a.dr-btn-primary href=new_profile_path data-identity="header_btn_master_sign_up"  Стать исполнителем
-        li.nav-item
-          a.dr-btn-danger href=new_task_path data-identity="header_btn_create_task"  Создать задание
+          a.dr-btn-danger.dr-btn-165 href=new_task_path data-identity="header_btn_create_task"  Создать задание

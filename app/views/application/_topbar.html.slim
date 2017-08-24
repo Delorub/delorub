@@ -1,9 +1,10 @@
 .top-line.top-line--index
   .container
     .top-line__container
-      .top-line__left
-        i.fa.fa-map-marker aria-hidden="true"
-        a.top-line__city href="#"  Санкт-Петербург
+      .top-line__left        
+        a.top-line__city.top-line__link href="#"
+          i.fa.fa-map-marker aria-hidden="true"
+          | &nbsp;Санкт-Петербург
       - if user_signed_in?
         .top-line__right
           a.top-line__link href=destroy_user_session_path

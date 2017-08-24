@@ -1,7 +1,7 @@
 = simple_form_for(@form, url: registration_path(resource_name)) do |f|
   - if @omniauth
     input name="omniauth_id" type="hidden" value="#{@omniauth.id}" /
-  .regular-content    
+  .regular-content
     .container
       .row
         .col-lg-8.offset-lg-2
@@ -13,7 +13,7 @@
                 .registration-form__content
                   .registration-form__content-inputs
                     .row
-                      .col-lg-8                        
+                      .col-lg-8
                         = f.input :name, label: false, autofocus: true, placeholder: 'Ваше имя'
                       .col-lg-8
                         = f.input :email, label: false, placeholder: 'Ваш email'
@@ -22,12 +22,10 @@
                       = render 'shared/phone_confirmation', f: sf
                     .checkbox
                       label
-                        input type="checkbox" value=""/
+                        = f.check_box :accept_terms
                         span.checkbox-custom
-                        | Я согласен с 
-                        a.link-default href="#" правилами сервиса
-                        |  и 
-                        a.link-default href="#" политикой обработки персональных данных
+                        = policy_checkbox_text
+                      = f.error :accept_terms
                   .registration-form__content-button-submit
                     input.dr-btn-primary type="submit" value=("Создать аккаунт") /
               hr/
@@ -35,12 +33,4 @@
                 .registration-form__content-circle
                   .registration-form__content-circle.registration-form__content-circle__header
                     | Или зарегистрируйтесь через
-                  .registration-form__content-circle__item
-                    a href="#"
-                      img src="/images/design/vk.png" alt=""/
-                  .registration-form__content-circle__item  
-                    a href="#"
-                      img src="/images/design/fb.png" alt=""/
-                  .registration-form__content-circle__item  
-                    a href="#"
-                      img src="/images/design/ok.png" alt=""/                
+                  = render 'devise/shared/omniauth'

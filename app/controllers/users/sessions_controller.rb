@@ -1,31 +1,20 @@
 class Users::SessionsController < Devise::SessionsController
-  # before_action :configure_sign_in_params, only: [:create]
-
   def new
     run User::Authentification::Present
   end
 
   def create
-    run User::Authentification, permitted_params do |result|
+    run User::Authentification, params.require(:user).permit! do |result|
       return sign_in_and_redirect result['user']
     end
 
     render 'new'
   end
 
-  # POST /resource/sign_in
-  # def create
-  #  super
-  # end
-
-  # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
-
   private
 
-    def permitted_params
-      params.require(:user).permit(:email, :password).to_h
+    def after_sign_in_path_for resource
+      session[:sign_in_as] = @form.sign_in_as
+      super
     end
 end

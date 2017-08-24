@@ -11,6 +11,7 @@ import flatPickr from 'vue-flatpickr-component'
 import 'flatpickr/dist/flatpickr.css'
 
 import CustomSelect from '../components/custom-select.vue'
+import CustomMultiSelect from '../components/custom-multiselect.vue'
 import CustimDatetimePicker from '../components/custom-datetimepicker.vue'
 
 import SmsConfirmation from '../components/sms_confirmation.vue'
@@ -26,6 +27,7 @@ axios.defaults.headers.common['Accept'] = 'application/json'
 
 Vue.use(VueMeta)
 Vue.component('custom-select', CustomSelect)
+Vue.component('custom-multiselect', CustomMultiSelect)
 Vue.component('flat-pickr', flatPickr)
 Vue.component('custom-datetimepicker', CustimDatetimePicker)
 

@@ -13,16 +13,16 @@
                     .col-xl-6
                       .form-check
                         .dr-radio
-                          input#optionsRadios1.form-check-input checked="" type="radio" name="optionsRadios" value="option1" /
-                          label for="optionsRadios1" Как заказчик
+                          = f.radio_button :sign_in_as, 'user'
+                          label for="user_sign_in_as_user" Как заказчик
                           .check
                     .col-xl-6.xl-right
                       .form-check
                         .dr-radio
-                          input#optionsRadios2.form-check-input type="radio" name="optionsRadios" value="option2" /
-                          label for="optionsRadios2" Как исполнитель
+                          = f.radio_button :sign_in_as, 'master'
+                          label for="user_sign_in_as_master" Как исполнитель
                           .check
-                      
+
                 .sign_in-form__inputs
                   = f.input :email, autofocus: true, label: false,
                     input_html: { class: 'form-control form-control__item' },
@@ -31,24 +31,16 @@
                     input_html: { class: 'form-control form-control__item' },
                     wrapper: false, placeholder: 'Пароль'
                 .sign_in-form__sms
-                  a.link-default.right href="#" Войти через СМС                      
+                  a.link-default.right href="#" Войти через СМС
                 .sign_in-form__enter
-                  input.dr-btn-primary type="submit" Войти
+                  input.dr-btn-primary type="submit" value="Войти"
                   .sign_in-form__remind
-                    a.link-default href=new_password_path(resource_name) Забыли пароль?                    
+                    a.link-default href=new_password_path(resource_name) Забыли пароль?
                 hr/
                 .registration-form__content-circle
                   .registration-form__content-circle.registration-form__content-circle__header
                     | Или войти через
-                  .registration-form__content-circle__item
-                    a href=omniauth_authorize_path(resource_name, :vkontakte)
-                      img.task-card-person__image alt="" src="/images/design/vk.png" /
-                  .registration-form__content-circle__item
-                    a href=omniauth_authorize_path(resource_name, :facebook)
-                      img.task-card-person__image alt="" src="/images/design/fb.png" /
-                  .registration-form__content-circle__item
-                    a href=omniauth_authorize_path(resource_name, :odnoklassniki)
-                      img.task-card-person__image alt="" src="/images/design/ok.png" /
+                  = render 'devise/shared/omniauth'
 
         .col-lg-5.col-md-6
           .dr-block-style.dr-block-style--sign-in
@@ -56,10 +48,10 @@
               .first-time-sign-in__header
                 | Впервые на ДелоРубе?
               .first-time-sign-in__button
-                a.dr-btn-danger href="#" role="button"  Разместите заказ
+                a.dr-btn-danger href=new_task_path role="button"  Разместите заказ
               p.first-time-sign-in__else
-                | ИЛИ              
+                | ИЛИ
               .first-time-sign-in__button
-                a.dr-btn-primary href="#" role="button"  Станьте исполнителем
+                a.dr-btn-primary href=new_profile_path role="button"  Станьте исполнителем
               .first-time-sign-in__link
-                a.link-default href="#"  Ознакомиться с условиями сервиса
+                a.link-default href=terms_path  Ознакомиться с условиями сервиса

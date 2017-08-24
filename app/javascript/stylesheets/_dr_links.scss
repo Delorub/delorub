@@ -58,6 +58,14 @@
   }
 }
 
+.link-secondary {
+  color: $blueColor;
+  transition: 0.3s;
+  &:hover {
+    color: #2a6585;
+  }
+}
+
 .breadcrumb {
   padding: 0;
   transition: 0.3s;

@@ -1,0 +1,41 @@
+.customer-profile-card {
+  &__image {
+    margin-top: 1.8rem;
+    text-align: center;
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      max-width: 90px;
+      margin: 0 auto;
+    }
+    &-link {
+      margin-top: 0.5rem;
+    }
+  }
+  &__inputs {
+    margin: 2rem 0 0 2rem;
+  }
+}
+
+.customer-welcome {
+  &__content {
+    padding: 25px 40px;
+    h2 {
+      color: #9b9b9b;
+    }
+  }
+}
+
+.customer-anketa {
+  &-social {
+    margin-bottom: 2rem;
+    img {
+      width: 42px;
+    }
+    a.link-secondary {
+      margin-left: 1rem;
+    }
+  }
+}

@@ -16,40 +16,41 @@
             .dr-form
               .dr-block-style id="profile_category"
                 .form-group v-on:click="showTooltip('profile_category')"
-                  h2 Специализация                  
+                  h2 Специализация
                   br/
-                  template v-for="(mainCategory, index) in model.main_categories"
+                  template v-for="(mainCategory, index) in model.main_categories_profiles"
                     .row
                       .col-lg-6
                         .form-group.black-content
-                          input type="hidden" name="profile[main_categories][][main_category_id]" v-model="model.main_categories[index]['main_category_id']"
-                          = content_tag 'custom-select', '',
-                            'v-model': "model.main_categories[index]['main_category_id']",
+                          input type="hidden" name="profile[main_categories_profiles][][main_category_id]" v-model="model.main_categories_profiles[index]['main_category_id']"
+                          = content_tag 'custom-multiselect', '',
+                            'v-model': "model.main_categories_profiles[index]['main_category_id']",
                             ':searchable': 'false',
                             ':allow-empty': 'false',
                             'placeholder': 'Выберите категорию',
-                            ':options': "mainCategoriesListFor(model.main_categories[index]['main_category_id'])",
+                            ':options': "mainCategoriesListFor(model.main_categories_profiles[index]['main_category_id'])",
                             ':custom-label': 'categoryLabel',
                             '@select': "resetCategoriesValueForIndex(index)"
                       .col-lg-6
                         .form-group
-                          input type="hidden" name="profile[main_categories][][category_ids][]" v-for="value in model.main_categories[index]['category_ids']" v-bind:value="value"
-                          = content_tag 'custom-select', '',
-                            'v-model': "model.main_categories[index]['category_ids']",
+                          input type="hidden" name="profile[main_categories_profiles][][category_ids][]" v-for="value in model.main_categories_profiles[index]['category_ids']" v-bind:value="value"
+                          = content_tag 'custom-multiselect', '',
+                            'v-model': "model.main_categories_profiles[index]['category_ids']",
                             ':searchable': 'false',
-                            ':allow-empty': 'false',
+                            ':allow-empty': 'true',
+                            ':show-reset': 'true',
                             ':multiple': 'true',
                             ':limit': '0',
                             ':limit-text': 'limitSubcategoriesText',
-                            ':disabled': "model.main_categories[index]['main_category_id'] == null",
+                            ':disabled': "model.main_categories_profiles[index]['main_category_id'] == null",
                             'placeholder': 'Выберите подкатегорию',
                             ':clear-on-select': 'true',
-                            ':options': "categoriesListFor(model.main_categories[index]['main_category_id'])",
+                            ':options': "categoriesListFor(model.main_categories_profiles[index]['main_category_id'])",
                             ':custom-label': 'categoryLabel'
                     .row
                       .col-lg-12
-                        textarea rows="10" name="profile[main_categories][][description]" class="form-control" placeholder="Опишите ваши тарифы и условия" v-model="model.main_categories[index]['description']"
-                    .row v-if="model.main_categories.length > 1"
+                        textarea rows="10" name="profile[main_categories_profiles][][description]" class="form-control" placeholder="Опишите ваши тарифы и условия" v-model="model.main_categories_profiles[index]['description']"
+                    .row v-if="model.main_categories_profiles.length > 1"
                       .col-lg-6
                         a.link-default href='#' v-on:click.prevent='removeMainCategoryByIndex(index)' Удалить
                         br/
@@ -76,8 +77,8 @@
                                   'placeholder': '30 000',
                                 }
                               i.input-group-addon.fa.fa-rub aria-hidden="true"
-                            = f.error :price_exact                            
-                hr/ 
+                            = f.error :price_exact
+                hr/
                 .create-profile__budget
                   .row
                     .col-lg-6
@@ -108,71 +109,11 @@
                       'placeholder': 'Напишите о себе',
                       rows: 10,
                     }
-              .dr-block-style
-                = f.simple_fields_for :new_user do |rf|
-                  - unless rf.object.nil?
-                    div id="profile_contacts" v-on:click="showTooltip('profile_contacts')"
-                      h2 Укажите контактную информацию
-                      br/
-                      .row
-                        .col-lg-4.col-md-6
-                          = rf.input :name, label: false, error: false,
-                            input_html: { \
-                              'v-on:focus': %(showTooltip('profile_contacts')),
-                            }
-                        .col-lg-4.col-md-6
-                          = rf.input :email, label: false, error: false,
-                            input_html: { \
-                              'v-on:focus': %(showTooltip('profile_contacts')),
-                            }
-                        .col-lg-4.offset-lg-0.col-md-6.offset-md-6 class=('error-display-hide' if (rf.object.errors.keys & [:name, :email]).count.zero?)
-                          .form__error-message
-                            span = rf.error (rf.object.errors.keys & [:name, :email]).first
-                      .form__phone
-                        span Укажите ваш номер телефона и подтвердите его
-                      = rf.simple_fields_for :sms_confirmation do |sf|
-                        = render 'shared/phone_confirmation', f: sf
-                      .checkbox
-                        label
-                          = rf.check_box :accept_terms
-                          span.checkbox-custom
-                          | Я согласен с&nbsp;
-                          a.link-default href="#" правилами сервиса
-                          |  и&nbsp;
-                          a.link-default href="#" политикой обработки персональных данных
-                        = rf.error :accept_terms
-
+              = f.simple_fields_for :new_user do |rf|
+                - unless rf.object.nil?
+                  .dr-block-style
+                    = render 'shared/user/new_user_form', f: rf
                 br/
                 .center
                   = f.submit 'Сохранить', class: 'dr-btn-danger'
-          .col-xl-4 ref="popoverArea"
-            .dr-popover.dr-popover-left.hidden
-            .dr-popover-data.hidden data-for="profile_about"
-              .dr-popover__header
-                | Обо мне
-              .dr-popover__text
-                | Напишите о своих компетенциях, опыте работы, навыках и другую необходимую информацию, по которой заказчики смогут понять кто вы такой
-            .dr-popover-data.hidden data-for="profile_category"
-              .dr-popover__header
-                | Выберите категории, в которых вы хотите получать заказы
-              .dr-popover__text
-                | Доступно категорий: {{ availableCategories }}
-            .dr-popover-data.hidden data-for="profile_contacts"
-              .dr-popover__header
-                | Ваши контактные данные
-              .dr-popover__text
-                | Напишите свой номер телефона,
-                br/
-                | и вам придет смс с кодом
-                br/
-                | подтверждения.
-                br/
-                br/
-                | Согласно&nbsp;
-                a href="/terms"
-                  | «Политике конфиденциальности»
-                |  контактные
-                br/
-                | данные сохраняются в базе сайта
-                br/
-                | и не передаются третьим лица.
+          = render 'profiles/form/popovers'

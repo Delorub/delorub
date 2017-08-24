@@ -5,10 +5,10 @@ class Task::Operation < Trailblazer::Operation
     step :prepopulate!
 
     def default_contract! options, model:, **_
-      if self[:current_user]
-        Task::Contract::UserForm.new(model, current_user: self[:current_user])
+      if options['current_user']
+        Task::Contract::UserForm.new(model, current_user: options['current_user'])
       else
-        Task::Contract::GuestForm.new(model, current_user: self[:current_user])
+        Task::Contract::GuestForm.new(model, current_user: options['current_user'])
       end
     end
 
@@ -18,13 +18,14 @@ class Task::Operation < Trailblazer::Operation
   end
 
   step Nested(Present)
+  step Policy::Pundit(TaskPolicy, :create?)
   step Contract::Validate()
   step :register_new_user!
   step Contract::Persist()
 
   def register_new_user! options, params:, model:, **_
-    unless options[:current_user].nil?
-      model.user = options[:current_user]
+    unless options['current_user'].nil?
+      model.user = options['current_user']
       return true
     end
     result = User::Registration.call(params['new_user'].to_hash)
