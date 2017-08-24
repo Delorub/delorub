@@ -22,7 +22,7 @@ import CustomSelect from 'components/custom-select'
 export default {
   props: {
     value: {
-      default: [],
+      default: []
     },
     showReset: {
       default: false,
@@ -51,14 +51,13 @@ export default {
     },
     internalValue () {
       this.$emit('input', this.internalValue)
-    },
+    }
   },
   computed: {
     showResetSlot () {
       return (this.showReset && (
-          (Array.isArray(this.value) && this.value.length)
-        )
-      )
+        (Array.isArray(this.value) && this.value.length)
+      ))
     }
   },
   components: {

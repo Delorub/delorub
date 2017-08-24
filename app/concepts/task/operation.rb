@@ -18,7 +18,7 @@ class Task::Operation < Trailblazer::Operation
   end
 
   step Nested(Present)
-  step Policy::Pundit( TaskPolicy, :create? )
+  step Policy::Pundit(TaskPolicy, :create?)
   step Contract::Validate()
   step :register_new_user!
   step Contract::Persist()
