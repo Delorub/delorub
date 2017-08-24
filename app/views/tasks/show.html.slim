@@ -9,7 +9,7 @@
               .row
                 .col-lg-5
                   .master-card-person__image
-                    = image_tag @task.user.photo.url(:upload_preview) unless task.user.photo.blank?
+                    = image_tag @task.user.photo.url(:upload_preview) unless @task.user.photo.blank?
                 .col-lg-7
                   .task-profile-card-person__name
                     h4
