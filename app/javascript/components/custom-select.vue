@@ -22,10 +22,6 @@ export default {
     deselectLabel: {
       type: String,
       default: 'Нажмите enter для отмены'
-    },
-    return: {
-      type: String,
-      default: ''
     }
   }
 }

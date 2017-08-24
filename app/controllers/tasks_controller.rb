@@ -16,35 +16,18 @@ class TasksController < ApplicationController
   end
 
   def new
+    authorize Task
     run Task::Operation::Present
   end
 
   def create
+    authorize Task
     run Task::Operation, task_params do |result|
       sign_in result['sign_in_new_user'] if result['sign_in_new_user']
       return redirect_to task_path(result['model']), notice: 'Задание добавлено'
     end
 
     render 'new'
-  end
-
-  def edit
-    authorize resource, :edit?
-    @form = TaskForm.new resource.decorate
-  end
-
-  def update
-    authorize resource, :edit?
-    @form = TaskForm.new resource.decorate
-
-    if @form.validate task_params
-      creator = Task::FormCreator.new(@form)
-      creator.perform
-      return redirect_to task_path(creator.model), notice: 'Задание отредактировано' if creator.model.persisted?
-      flash.now.alert = creator.last_error
-    else
-      flash.now.alert = @form.errors
-    end
   end
 
   private

@@ -1,9 +1,9 @@
 module Profile::Contract
   class Form < Reform::Form
-    collection :main_categories,
+    collection :main_categories_profiles,
       populator: ->(fragment:, **) {
-        item = main_categories.find { |main_category| main_category.id == fragment['id'].to_i }
-        item ? item : main_categories.append(MainCategoriesProfile.new(main_category_id: fragment['id']))
+        item = main_categories_profiles.find { |e| e.id == fragment['id'].to_i }
+        item ? item : main_categories_profiles.append(MainCategoriesProfile.new(main_category_id: fragment['id']))
       } do
       property :main_category_id
       property :description

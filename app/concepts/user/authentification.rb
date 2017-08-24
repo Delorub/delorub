@@ -1,6 +1,6 @@
 class User::Authentification < Trailblazer::Operation
   class Form < Reform::Form
-    property :sign_in_as, virtual: true
+    property :sign_in_as, virtual: true, default: 'user'
     property :email
     property :password
 

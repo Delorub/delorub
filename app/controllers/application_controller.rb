@@ -11,6 +11,13 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
+  def run *args
+    super
+    if result['result.policy.default'].present? && result['result.policy.default'].failure?
+      raise Pundit::NotAuthorizedError.new(record: result['model'], policy: result['result.policy'])
+    end
+  end
+
   private
 
     def rescue_not_found exception
@@ -38,6 +45,6 @@ class ApplicationController < ActionController::Base
     end
 
     def _run_options options
-      options.merge current_user: current_user
+      options.merge ({ 'current_user' => current_user })
     end
 end

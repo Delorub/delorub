@@ -1,0 +1,31 @@
+.col-xl-4 ref="popoverArea"
+  .dr-popover.dr-popover-left.hidden
+  .dr-popover-data.hidden data-for="profile_about"
+    .dr-popover__header
+      | Обо мне
+    .dr-popover__text
+      | Напишите о своих компетенциях, опыте работы, навыках и другую необходимую информацию, по которой заказчики смогут понять кто вы такой
+  .dr-popover-data.hidden data-for="profile_category"
+    .dr-popover__header
+      | Выберите категории, в которых вы хотите получать заказы
+    .dr-popover__text
+      | Доступно категорий: {{ availableCategories }}
+  .dr-popover-data.hidden data-for="form_contacts"
+    .dr-popover__header
+      | Ваши контактные данные
+    .dr-popover__text
+      | Напишите свой номер телефона,
+      br/
+      | и вам придет смс с кодом
+      br/
+      | подтверждения.
+      br/
+      br/
+      | Согласно&nbsp;
+      a href="/terms"
+        | «Политике конфиденциальности»
+      |  контактные
+      br/
+      | данные сохраняются в базе сайта
+      br/
+      | и не передаются третьим лица.
