@@ -2,12 +2,12 @@
   div
     = f.input_field :token, as: :hidden, 'v-model' => 'model.token'
     = f.input_field :phone, as: :hidden, 'v-model' => 'model.phone'
-    .contact-form__phone v-if="model.phone && model.token"
-      span.contact-form__phone-number
+    .form__phone v-if="model.phone && model.token"
+      span.form__phone-number
         | {{model.phone}}&nbsp;
-      span v-if="model.accepted"
+      span.form__approved v-if="model.accepted"
         | Подтвержден&nbsp;
-      span v-else=""
+      span.form__phone-link v-else=""
         a.link-default :disabled="requesting" href="#" v-on:click.prevent="changePhone" Изменить
     .row v-if="!model.accepted && model.token"
       .col-lg-4.col-md-6
@@ -29,5 +29,5 @@
       .col-xl-4.col-lg-6.col-margin-bottom
         input.dr-btn-default.dr-btn-default-margin-top-2 type="button" :disabled="requesting" role="button" v-on:click.prevent="requestToken" value="Подтвердить"
     .row v-if="model.accepted"
-      .col
-        a :disabled="requesting" href="#" v-on:click.prevent="changePhone"  Изменить номер телефона
+      .col.form__phone-change
+        a.link-default :disabled="requesting" href="#" v-on:click.prevent="changePhone"  Изменить номер телефона
