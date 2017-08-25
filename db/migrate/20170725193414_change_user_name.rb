@@ -1,4 +1,6 @@
 class ChangeUserName < ActiveRecord::Migration[5.1]
+  class User < ActiveRecord::Base; end
+
   def change
     add_column :users, :name, :string
     User.find_each do |user|

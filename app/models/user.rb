@@ -3,15 +3,8 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  email                  :string           default(""), not null
+#  provider               :string           default("email"), not null
 #  encrypted_password     :string           default(""), not null
-#  middle_name            :string
-#  phone                  :string
-#  birthday               :date
-#  profile_id             :integer
-#  free_tasks_published   :integer          default(0), not null
-#  free_replies_published :integer          default(0), not null
-#  balance                :decimal(10, 2)   default(0.0), not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
@@ -20,13 +13,22 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string
 #  last_sign_in_ip        :string
-#  created_at             :datetime         not null
-#  updated_at             :datetime         not null
+#  middle_name            :string
+#  phone                  :string
+#  email                  :string
+#  birthday               :date
+#  profile_id             :integer
+#  free_tasks_published   :integer          default(0), not null
+#  free_replies_published :integer          default(0), not null
+#  balance                :decimal(10, 2)   default(0.0), not null
 #  photo                  :string
 #  phone_confirmed        :boolean
+#  created_at             :datetime
+#  updated_at             :datetime
 #  access_token           :string
 #  place_id               :integer
-#  name                   :string
+#  first_name             :string
+#  last_name              :string
 #
 # Indexes
 #
@@ -36,7 +38,7 @@
 #
 
 class User < ApplicationRecord
-  FREE_TASKS = 3
+  FREE_TASKS = 5
   FREE_REPLIES = 3
 
   phony_normalize :phone
@@ -69,14 +71,9 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :permission
 
-  validates :name, :email, presence: true
+  validates :first_name, :email, presence: true
   validates :balance, numericality: { greater_than_or_equal_to: 0 }
   validates :phone, phony_plausible: true
-  validates_with User::PhoneConfirmationValidator, if: :phone
-
-  scope :confirmed_phone, ->(n) { where.has{ (phone == n) & (phone_confirmed == true) } }
-
-  before_save :check_free_replies_and_tasks
 
   has_secure_token :access_token
 
@@ -113,11 +110,4 @@ class User < ApplicationRecord
   def permission
     super || build_permission
   end
-
-  private
-
-    def check_free_replies_and_tasks
-      self.free_tasks_published = [free_tasks_published.to_i, FREE_TASKS].min
-      self.free_replies_published = [free_replies_published.to_i, FREE_TASKS].min
-    end
 end

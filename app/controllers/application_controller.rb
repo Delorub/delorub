@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
+  def current_user
+    super&.decorate
+  end
+
   private
 
     def rescue_not_found exception

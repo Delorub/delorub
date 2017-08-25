@@ -1,5 +1,6 @@
 class ProfileDecorator < Draper::Decorator
   include ActionView::Helpers::DateHelper
+  decorates_association :user
   decorates Profile
   delegate_all
 

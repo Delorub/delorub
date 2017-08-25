@@ -7,13 +7,13 @@ nav.breadcrumb
   - elsif @task
     = link_to 'Все задания', tasks_path, class: 'breadcrumb-item'
     span.breadcrumb-item.active
-      = @task.title
+      = task.title
   - else
     span.breadcrumb-item.active
       | Все задания
 .dr-content-header
   h1
-    - if @category || @task
-      = @task.present? ? @task.title : format('Задания в категории "%s"', formatted_header_category(@category))
+    - if @category || task
+      = task.present? ? task.title : format('Задания в категории "%s"', formatted_header_category(@category))
     - else
       | Все задания

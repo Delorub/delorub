@@ -6,7 +6,7 @@ nav.breadcrumb
   - elsif @profile
     = link_to 'Все исполнители', profiles_path, class: 'breadcrumb-item'
     span.breadcrumb-item.active
-      = @profile.user.name
+      = profile.user.name
   - else
     span.breadcrumb-item.active
       | Все исполнители

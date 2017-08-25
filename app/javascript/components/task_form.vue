@@ -1,8 +1,9 @@
 <script>
 import formTooltips from 'mixins/form_tooltips'
+import yandexMap from 'mixins/yandex_map'
 
 export default {
-  mixins: [formTooltips],
+  mixins: [formTooltips, yandexMap],
   props: [
     'initialModel', 'categoriesList', 'dateTypesList'
   ],
@@ -10,7 +11,6 @@ export default {
     return {
       model: this.initialModel,
       map: null,
-      ymaps: null,
       placemark: null,
       suggestView: null,
       subcategories: [],
@@ -24,18 +24,7 @@ export default {
       }
     }
   },
-  metaInfo: {
-    script: [
-      { src: 'https://api-maps.yandex.ru/2.1/?lang=ru_RU&onload=ymapscallback' }
-    ]
-  },
   mounted () {
-    document.addEventListener('ymapsLoaded', (e) => {
-      if (global.ymaps !== undefined) {
-        this.ymaps = global.ymaps
-        this.initializeMap()
-      }
-    })
     this.populateSubcategories(this.model.category_id)
     this.showTooltip('task_title')
   },
@@ -43,7 +32,7 @@ export default {
     initializeMap () {
       this.$refs.placeMap.classList.remove('hidden')
       this.map = new this.ymaps.Map(this.$refs.placeMap, {
-        center: [59.94, 30.32],
+        center: this.yandexMap.defaultCenter,
         zoom: 10
       })
       this.positionPopover()
@@ -54,6 +43,12 @@ export default {
       this.map.events.add(['actionbegin', 'contextmenu'], (event) => {
         this.showTooltip('task_place_address')
       })
+      if(this.model.place_lat && this.model.place_long) {
+        let coordinates = [this.model.place_lat, this.model.place_long]
+        this.placemark = new this.ymaps.Placemark(coordinates)
+        this.map.geoObjects.add(this.placemark)
+        this.map.setCenter(coordinates, 13)
+      }
     },
     placeBySelect (element) {
       if (!this.ymaps) return
