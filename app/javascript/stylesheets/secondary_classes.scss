@@ -60,11 +60,15 @@
   &-sub {
     font-size: 1.3rem;
     font-weight: bold;
-    &-blue {			
+    &-blue {
       color: $blueColor;
       font-size: 1.3rem;
     }
   }
+}
+
+.dr-block-hr {
+  margin: 2rem -40px;
 }
 
 .dr-image {
@@ -90,7 +94,7 @@ select.form-control:not([size]):not([multiple]) {
   }
   &-scaleline {
     display: none !important;
-  }  
+  }
   &-controls {
     &__toolbar_right {
       display: none !important;
