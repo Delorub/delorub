@@ -1,7 +1,7 @@
 <script>
 import axios from 'axios'
 import Cleave from 'cleave.js'
-import * as cl from 'cleave.js/dist/addons/cleave-phone.ru'
+import 'cleave.js/dist/addons/cleave-phone.ru'
 
 export default {
   props: [
@@ -20,7 +20,7 @@ export default {
     this.phoneCleave = new Cleave(this.$refs.phoneInput, {
       phone: true,
       phoneRegionCode: 'RU'
-    });
+    })
   },
   methods: {
     changePhone: function () {

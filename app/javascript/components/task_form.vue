@@ -43,7 +43,7 @@ export default {
       this.map.events.add(['actionbegin', 'contextmenu'], (event) => {
         this.showTooltip('task_place_address')
       })
-      if(this.model.place_lat && this.model.place_long) {
+      if (this.model.place_lat && this.model.place_long) {
         let coordinates = [this.model.place_lat, this.model.place_long]
         this.placemark = new this.ymaps.Placemark(coordinates)
         this.map.geoObjects.add(this.placemark)
