@@ -12,7 +12,14 @@
       box-shadow: 0 4px 15px 0 rgba(150, 149, 149, 0.5);
     }
   }
-  &--profile {    
+  &--profile-card {
+    margin-top: 6px;
+    padding: 25px 0;
+    &:hover {
+      box-shadow: 0 4px 15px 0 rgba(150, 149, 149, 0.5);
+    }
+  }
+  &--profile {
     padding: 40px 40px;
     &-left {
       margin-bottom: 6px;
@@ -45,6 +52,6 @@
   >div {
     &:last-child {
       margin-bottom: 0;
-    } 
+    }
   }
 }

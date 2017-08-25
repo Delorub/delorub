@@ -64,20 +64,20 @@
 
       <main>
         <div class="regular-content">
-          <div class="container">            
+          <div class="container">
 
             <div class="row">
 
               <div class="col-lg-3 lg-hide">
 
                 <div class="dr-block-style dr-block-style--category">
-                  <div class="subcategories">                    
+                  <div class="subcategories">
                     <div class="subcategories-list">
                       <ul class="subcategories-list__sup">
-                        <li><a href="#">Профиль</a></li>
+                        <li><a class="active" href="#">Профиль</a></li>
                         <li><a href="#">Тарифы и Услуги</a></li>
                         <li><a href="#">Кошелек</a></li>
-                        <li><a class="active" href="#">Настройки профиля</a></li>
+                        <li><a href="#">Настройки профиля</a></li>
                         <li><a href="#">Настройки учетной записи</a></li>
                       </ul>
                     </div>
@@ -89,40 +89,288 @@
 
                 <div class="dr-content-header">
                   <h1>
-                    Настройки профиля заказчика
+                    Ваш профиль заказчика
                   </h1>
+                  <a class="dr-btn-primary" href="#">Редактировать</a>
                 </div>
 
                 <div class="dr-block-style">
                   <div class="customer-profile-card">
                     <div class="row">
-                      <div class="col-xl-2 col-md-2">
+                      <div class="col-md-2">
                         <div class="customer-profile-card__image">
                           <img class="" src="/images/search/avatar.png" alt=""/>
-                          <div class="customer-profile-card__image-link">
-                            <a href="#" class="link-default">Изменить</a>
+                          <div class="performer-profile-main__status">
+                            <span class="status-online">Online</span>
                           </div>
                         </div>
                       </div>
 
-                      <div class="col-xl-7 col-md-10">
-                        <div class="customer-profile-card__inputs">
-                          <div class="form-group">
-                            <input type="text" class="form-control" id="name" placeholder="Имя"/>
+                      <div class="col-md-10">
+                        <div class="customer-profile-card__description">
+                          <div class="customer-profile-card__name">
+                            <h2>Константин Константинович Константинопольский</h2>                            
                           </div>
-                          <div class="form-group">
-                            <input type="text" class="form-control" id="name" placeholder="Фамилия"/>
+                          <div class="customer-profile-card__contacts">
+                            <div class="row">
+                              <div class="col-md-5">
+                                <span class="customer-profile-card__contacts-header">Телефон:</span>
+                                <span>+7 904 6449583</span>
+                              </div>
+                              <div class="col-md-7">
+                                <span class="customer-profile-card__contacts-header">Почта:</span>
+                                <span>kostya_gennadiev@stroitelya_ishu.ya</span>
+                              </div>                              
+                            </div>
                           </div>
-                          <div class="form-group">
-                            <input type="text" class="form-control" id="name" placeholder="Отчество"/>
+                          <hr/>                          
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="customer-anketa-social">
+                                <a href="#"><img src="/images/design/vk.png" alt=""/></a>
+                                <a href="#" class="link-secondary">vk.com/kostya_genadiev</a>
+                              </div>
+                            </div>                            
+                            <div class="col-md-4">
+                              <div class="customer-anketa-social">
+                                <a href="#"><img src="/images/design/ok.png" alt=""/></a>
+                                <a href="#" class="link-secondary">Привязать</a>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="customer-anketa-social">
+                                <a href="#"><img src="/images/design/fb.png" alt=""/></a>
+                                <a href="#" class="link-secondary">fb.com/kostya_genadiev</a>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+
                 <br/>
-                <input type="submit" class="dr-btn-primary" value="Сохранить"/>
+                <div class="dr-content-header">
+                  <h2>
+                    Мои задания
+                  </h2>
+                  <a class="dr-btn-danger" href="#">Добавить задание</a>
+                </div>
+
+                <div class="dr-block-style dr-block-style--profile-card">
+                  <div class="task-card-container">
+                    <div class="row">
+                      <div class="col-lg-2">
+                        <div class="task-card-person">
+                          <div class="task-card-person__image">
+                            <img src="/images/search/avatar.png" alt=""/>
+                          </div>
+                          <p class="task-card-person__name">Евгений П.</p>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="row">
+                          <div class="col">
+                            <div class="task-card-description">
+                              <p class="task-card-description__header"><a href="#">
+                                  Заменить душевой шланг, починить слив в унитазе</a>
+                              </p>
+                            </div>
+                          </div>
+
+                          <div>
+                            <div class="task-card-refinement">
+                              <p class="task-card-refinement__price">2500 руб.</p>
+                              <p class="task-card-refinement__time">C 8 августа</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="task-card-description">
+                              <p class="task-card-description__adress">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                ул. Покрышкина 8, стр. 2, парадная 7
+                              </p>
+                            </div>
+                          </div>                        
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <hr/>
+                  <div class="task-card-container">
+                    <div class="task-card-link">
+                      <a class="link-default" href="#">Отменить задание</a>
+                      <a class="link-default" href="#">Редактировать</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="dr-block-style dr-block-style--profile-card">
+                  <div class="task-card-container">
+                    <div class="row">
+                      <div class="col-lg-2">
+                        <div class="task-card-person">
+                          <div class="task-card-person__image">
+                            <img src="/images/search/avatar.png" alt=""/>
+                          </div>
+                          <p class="task-card-person__name">Евгений П.</p>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="row">
+                          <div class="col">
+                            <div class="task-card-description">
+                              <p class="task-card-description__header"><a href="#">
+                                  Заменить душевой шланг, починить слив в унитазе</a>
+                              </p>
+                            </div>
+                          </div>
+
+                          <div>
+                            <div class="task-card-refinement">
+                              <p class="task-card-refinement__price">2500 руб.</p>
+                              <p class="task-card-refinement__time">C 8 августа</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="task-card-description">
+                              <p class="task-card-description__adress">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                ул. Покрышкина 8, стр. 2, парадная 7
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <hr/>
+                  <div class="task-card-container">
+                    <div class="task-card-link">
+                      <a class="link-default" href="#">Отменить задание</a>
+                      <a class="link-default" href="#">Редактировать</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="dr-block-style dr-block-style--profile-card">
+                  <div class="task-card-container">
+                    <div class="row">
+                      <div class="col-lg-2">
+                        <div class="task-card-person">
+                          <div class="task-card-person__image">
+                            <img src="/images/search/avatar.png" alt=""/>
+                          </div>
+                          <p class="task-card-person__name">Евгений П.</p>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="row">
+                          <div class="col">
+                            <div class="task-card-description">
+                              <p class="task-card-description__header"><a href="#">
+                                  Заменить душевой шланг, починить слив в унитазе</a>
+                              </p>
+                            </div>
+                          </div>
+
+                          <div>
+                            <div class="task-card-refinement">
+                              <p class="task-card-refinement__price">2500 руб.</p>
+                              <p class="task-card-refinement__time">C 8 августа</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="task-card-description">
+                              <p class="task-card-description__adress">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                ул. Покрышкина 8, стр. 2, парадная 7
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <hr/>
+                  <div class="task-card-container">
+                    <div class="task-card-link">
+                      <a class="link-default" href="#">Отменить задание</a>
+                      <a class="link-default" href="#">Редактировать</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="dr-block-style dr-block-style--profile-card">
+                  <div class="task-card-container">
+                    <div class="row">
+                      <div class="col-lg-2">
+                        <div class="task-card-person">
+                          <div class="task-card-person__image">
+                            <img src="/images/search/avatar.png" alt=""/>
+                          </div>
+                          <p class="task-card-person__name">Евгений П.</p>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="row">
+                          <div class="col">
+                            <div class="task-card-description">
+                              <p class="task-card-description__header"><a href="#">
+                                  Заменить душевой шланг, починить слив в унитазе</a>
+                              </p>
+                            </div>
+                          </div>
+
+                          <div>
+                            <div class="task-card-refinement">
+                              <p class="task-card-refinement__price">2500 руб.</p>
+                              <p class="task-card-refinement__time">C 8 августа</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="task-card-description">
+                              <p class="task-card-description__adress">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                ул. Покрышкина 8, стр. 2, парадная 7
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <hr/>
+                  <div class="task-card-container">
+                    <div class="task-card-link">
+                      <a class="link-default" href="#">Отменить задание</a>
+                      <a class="link-default" href="#">Редактировать</a>
+                    </div>
+                  </div>
+                </div>
+
+                <nav role="navigation" aria-label="pager" class="pagination">
+                  <span class="prev disabled"><a href="#">Назад</a></span>
+                  <span class="page current"><a href="#">1</a></span>
+                  <span class="page"><a href="#" rel="next" data-remote="true" href="/tasks?page=2">2</a></span>
+                  <span class="page"><a href="#" rel="next" data-remote="true" href="/tasks?page=2">3</a></span>
+                  <span class="page"><a href="#" rel="next" data-remote="true" href="/tasks?page=2">4</a></span>
+                  <span class="next"><a href="#" data-remote="true" href="/tasks?page=2">Далее</a></span>
+                </nav>
+
               </div>
             </div>
           </div>

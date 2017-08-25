@@ -24,12 +24,16 @@
       &:active {
         background-color: #e9e0e0;
       }
-    }
-    &:first-child {
+    }    
+  }
+  .prev {
+    a {
       margin-right: 14px;
       min-width: 95px;
-    }
-    &:last-child {
+    }      
+  }
+  .next {
+    a {
       margin-left: 14px;
       min-width: 95px;
     }

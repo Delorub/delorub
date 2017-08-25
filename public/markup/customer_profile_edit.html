@@ -14,7 +14,7 @@
     <!-- Windows Phone -->
     <meta name="msapplication-navbutton-color" content="#000">
     <!-- iOS Safari -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="#000">    
+    <meta name="apple-mobile-web-app-status-bar-style" content="#000">
   </head>
   <body>
     <div class="wrap">
@@ -25,9 +25,9 @@
               <i class="fa fa-map-marker" aria-hidden="true"></i>
               <a href="#" class="top-line__city">Санкт-Петербург</a>
             </div>
-            <div class="top-line__right">            
-              <a href="#" class="top-line__link"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Регистрация</a>	
-              <a href="#" class="top-line__link"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Вход</a>            
+            <div class="top-line__right">
+              <a href="#" class="top-line__link"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Регистрация</a>
+              <a href="#" class="top-line__link"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Вход</a>
             </div>
           </div>
         </div>
@@ -44,11 +44,11 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="#">Исполнители</a>
+                <a class="nav-link active" href="#">Исполнители</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Все задания</a>
-              </li>						
+              </li>
             </ul>
             <ul class="navbar-nav navbar-right">
               <li class="nav-item">
@@ -56,60 +56,80 @@
               </li>
               <li class="nav-item">
                 <a class="dr-btn-danger" href="#">Создать задание</a>
-              </li>						
+              </li>
             </ul>
           </div>
         </div>
       </nav>
+
       <main>
         <div class="regular-content">
-          <div class="container">
+          <div class="container">            
 
+            <div class="row">
 
-            <div class="dr-block-style">
-              <p class="UI-header">Пагинация</p>              
+              <div class="col-lg-3 lg-hide">
 
-              <nav role="navigation" aria-label="pager" class="pagination">
-                <span class="prev disabled"><a href="#">Назад</a></span>
-                <span class="page current"><a href="#">1</a></span> 
-                <span class="page"><a href="#" rel="next" data-remote="true" href="/tasks?page=2">2</a></span>
-                <span class="page"><a href="#" rel="next" data-remote="true" href="/tasks?page=2">3</a></span>
-                <span class="page"><a href="#" rel="next" data-remote="true" href="/tasks?page=2">4</a></span>
-                <span class="next"><a href="#" data-remote="true" href="/tasks?page=2">Далее</a></span>
-              </nav>
-              
-              <br/>
-                            
-              <nav role="navigation" aria-label="pager" class="pagination">
-                <span class="prev disabled"><a href="#">Назад</a></span>
-                <span class="page current"><a href="#">1</a></span> 
-                <span class="page"><a href="#" rel="next" data-remote="true" href="/tasks?page=2">2</a></span>
-                <span class="page"><a href="#" rel="next" data-remote="true" href="/tasks?page=2">3</a></span>
-                <span class="page"><a href="#" rel="next" data-remote="true" href="/tasks?page=2">4</a></span>
-                <span class="page"><a href="#" rel="next" data-remote="true" href="/tasks?page=2">...</a></span>
-                <span class="page"><a href="#" rel="next" data-remote="true" href="/tasks?page=2">567</a></span>
-                <span class="next"><a href="#" data-remote="true" href="/tasks?page=2">Далее</a></span>
-              </nav>
-              <br/>              
-              
-              <nav role="navigation" aria-label="pager" class="pagination">
-                <span class="prev disabled"><a href="#">Назад</a></span>
-                <span class="page"><a href="#">1</a></span>
-                <span class="page"><a href="#" rel="next" data-remote="true" href="/tasks?page=2">...</a></span>
-                <span class="page"><a href="#" rel="next" data-remote="true" href="/tasks?page=2">63</a></span>
-                <span class="page current"><a href="#" rel="next" data-remote="true" href="/tasks?page=2">64</a></span>
-                <span class="page"><a href="#" rel="next" data-remote="true" href="/tasks?page=2">65</a></span>
-                <span class="page"><a href="#" rel="next" data-remote="true" href="/tasks?page=2">...</a></span>
-                <span class="page"><a href="#" rel="next" data-remote="true" href="/tasks?page=2">567</a></span>
-                <span class="next"><a href="#" data-remote="true" href="/tasks?page=2">Далее</a></span>
-              </nav>
+                <div class="dr-block-style dr-block-style--category">
+                  <div class="subcategories">                    
+                    <div class="subcategories-list">
+                      <ul class="subcategories-list__sup">
+                        <li><a href="#">Профиль</a></li>
+                        <li><a href="#">Тарифы и Услуги</a></li>
+                        <li><a href="#">Кошелек</a></li>
+                        <li><a class="active" href="#">Настройки профиля</a></li>
+                        <li><a href="#">Настройки учетной записи</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-8">
+
+                <div class="dr-content-header">
+                  <h1>
+                    Настройки профиля заказчика
+                  </h1>
+                </div>
+
+                <div class="dr-block-style">
+                  <div class="customer-profile-card">
+                    <div class="row">
+                      <div class="col-xl-2 col-md-2">
+                        <div class="customer-profile-card__image customer-profile-card__image--margin-top">
+                          <img class="" src="/images/search/avatar.png" alt=""/>
+                          <div class="customer-profile-card__image-link">
+                            <a href="#" class="link-default">Изменить</a>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-xl-7 col-md-10">
+                        <div class="customer-profile-card__inputs">
+                          <div class="form-group">
+                            <input type="text" class="form-control" id="name" placeholder="Имя"/>
+                          </div>
+                          <div class="form-group">
+                            <input type="text" class="form-control" id="name" placeholder="Фамилия"/>
+                          </div>
+                          <div class="form-group">
+                            <input type="text" class="form-control" id="name" placeholder="Отчество"/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br/>
+                <input type="submit" class="dr-btn-primary" value="Сохранить"/>
+              </div>
             </div>
-
-
           </div>
         </div>
       </main>
     </div>
+
     <footer>
       <div class="dr-footer">
         <div class="container">
@@ -148,15 +168,15 @@
 
             </div>
 
-            <div class="dr-footer-right">              
+            <div class="dr-footer-right">
               <div class="dr-footer-block">
                 <ul>
                   <li><a href="#" class="link-white-bold">Санкт-Петербург</a></li>
-                  <li><a href="#" class="link-white-bold">Email: info@delorub.ru</a></li>                  
+                  <li><a href="#" class="link-white-bold">Email: info@delorub.ru</a></li>
                 </ul>
               </div>
             </div>
-          </div>          
+          </div>
         </div>
         <div class="dr-footer-sub">
           <div class="container">
@@ -180,7 +200,6 @@
           </div>
         </div>
       </div>
-
     </footer>
     <script src="/packs/application.js"></script>
   </body>

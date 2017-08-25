@@ -1,0 +1,63 @@
+.dropzone {
+  color: #9b9b9b;
+  text-align: center;
+  padding: 20px;
+  display: block;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border: 2px dashed !important;
+  margin-bottom: 25px;
+  min-height: 80px !important;
+
+  .dz-remove {
+    @extend .link-default;
+    margin-top: 1rem;
+    &:hover {
+      text-decoration: none !important;
+    }
+  }
+  .dz-message {
+    margin: 0 !important;
+  }
+  .upload-span {
+    display: block;
+        padding: 8px 0 9px;
+  }
+  img.dz-plus {
+    display: none;
+    margin: 0 auto;
+  }
+  &:hover {
+    border: dashed 2px #519dc7;
+    span.upload-span {
+      display: none;
+    }
+    img.dz-plus {
+      display: block;
+    }
+  }
+  &:active {
+    background-color: #fcf6f6;
+    span.upload-span {
+      display: none;
+    }
+    img.dz-plus {
+      display: block;
+    }
+  }
+}
+
+.dropzone.dz-drag-hover {
+  background-color: #fcf6f6;
+  border: dashed 2px #519dc7;
+  span.upload-span {
+    display: none;
+  }
+  i.upload-icon {
+    display: block;
+  }
+}
+
+.dropzone.dz-started {
+  border: dashed 3px #e8f5fd;
+}
