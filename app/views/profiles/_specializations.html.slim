@@ -1,0 +1,14 @@
+- @profile.main_categories_profiles.each do |main_category_profile|
+  - next if main_category_profile.main_category.blank?
+  .dr-block-style.dr-block-style--profile-left
+    .performer-description-category
+      .performer-description-category__header
+        h5
+          a.link-default href="#"
+          = main_category_profile.main_category.title
+      .performer-description-category__text
+        p
+          b Цены
+        p
+          = simple_format main_category_profile.description
+  br/

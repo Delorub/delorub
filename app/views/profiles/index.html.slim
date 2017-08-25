@@ -1,0 +1,23 @@
+= content_for :seo_title do @category.settings.dig(:seo_title).present? ? @category.settings.dig(:seo_title) : @category.title end if @category
+.regular-content
+  .container
+    = render 'breadcrumb'
+    .dr-content-header
+      h1
+        = @category ? sprintf('Исполнители в категории "%s"', formatted_header_category(@category)) : 'Все исполнители'
+    .row
+      .col-lg-8
+        .dr-block-style.dr-block-style--sort-padding
+          .task-sort
+            = form_for :data, url: @category.present? ? category_profiles_path(@category) : profiles_path, method: :get, html: {class: 'profile_form_sorting'} do |f|
+              .row
+                .col-xl-3.col-lg-6
+                  .checkbox
+                    label
+                      = check_box_tag 'direction_created', 1, order_direction_boolean(params[:direction_created])
+                      span.checkbox-custom
+                      |Новые&nbsp;исполнители
+        = render 'profile'
+      = render 'categories'
+    br/
+    = render 'categories/description'

@@ -3,17 +3,8 @@ class TasksController < ApplicationController
   inherit_resources
   decorates_assigned :tasks
 
-  helper_method :task_form_props, :current_url
-
-  def index
-    fetch_category
-    fetch_scope
-    super
-  end
-
-  def show
-    return redirect_to deal_path(resource.deal) if resource.deal.present? && policy(resource.deal).show?
-  end
+  before_action :category_present?, only: [:index]
+  helper_method :all_categories
 
   def new
     authorize Task
@@ -33,21 +24,14 @@ class TasksController < ApplicationController
   private
 
     def end_of_association_chain
-      TaskQuery.new(collection: super, scope: @scope, category: @category, current_user: current_user).perform
+      TaskQuery.new(collection: super, scope: @scope, category: @category,
+                    current_user: current_user, page: params[:page], order_direction: params[:order]).perform
     end
 
     def fetch_scope
       @scope = :all
       @scope = params[:scope].to_sym if params[:scope]
       not_found unless @scope.in? [:all, :my, :suggested]
-    end
-
-    def fetch_category
-      @category = Category.friendly.find params[:category_id] if params[:category_id]
-    end
-
-    def task_params
-      params.require(:task).permit!
     end
 
     def current_url category:
@@ -60,6 +44,20 @@ class TasksController < ApplicationController
       else
         category_tasks_path(params)
       end
+    end
+
+    def category_present?
+      return unless params[:category_id]
+      @category = Category.friendly.where(slug: params[:category_id]).first
+      render_page_not_found if @category.blank?
+    end
+
+    def all_categories
+      @all_categories = Category.roots.includes(:children).order(:position)
+    end
+
+    def task_params
+      params.require(:task).permit!
     end
 
     def form_from_session

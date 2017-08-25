@@ -1,0 +1,59 @@
+.regular-content
+  .container
+    = render 'breadcrumb'
+    .row
+      .col-lg-4
+        .dr-block-style.dr-block-style--task-person
+          .task-profile-card
+            .task-profile-card-person
+              .row
+                .col-lg-5
+                  .master-card-person__image
+                    = image_tag @task.user.photo.url(:upload_preview) unless @task.user.photo.blank?
+                .col-lg-7
+                  .task-profile-card-person__name
+                    h4
+                      = @task.user.name
+                    p
+                      = @task.user.tasks.count
+                      '
+                      | заданий
+            .task-profile-card__time
+              h2= @task.date_type.text
+              p= @task.decorate.human_date
+            .task-profile-card__price
+              h2
+                - if @task.price_exact.blank?
+                  | Не указана
+                - else
+                  = @task.price_exact
+                  '
+                  | руб.
+              a.dr-btn-primary.dr-btn-190.show_contacts href="#"  Показать контакты
+              .task-profile-card__contacts style="display: none"
+                - unless @task.user.phone.blank?
+                  p
+                    i.fa.fa-mobile aria-hidden="true"
+                    = @task.user.phone
+                - unless @task.user.email.blank?
+                  p
+                    i.fa.fa-envelope-o aria-hidden="true"
+                    = @task.user.email
+        = render 'files' unless @task.files.blank?
+        br/
+      .col-lg-8
+        .dr-block-style.dr-block-style--profile
+          .task-description-about
+            .task-description-about__header
+              h2 Описание задачи
+            .task-description-about__text
+              = @task.description
+        .dr-block-style.dr-block-style--profile
+          .task-description-adress
+            h2 Адрес
+            .task-description-adress__input
+              p
+                span
+                  i.fa.fa-map-marker aria-hidden="true"
+                  = @task.place_address
+            .task-description-adress__map

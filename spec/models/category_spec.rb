@@ -15,6 +15,7 @@
 #  position       :integer
 #  slug           :string
 #  settings       :text
+#  description    :text
 #
 # Indexes
 #

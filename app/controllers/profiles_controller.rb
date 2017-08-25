@@ -1,6 +1,9 @@
 class ProfilesController < ApplicationController
   inherit_resources
 
+  helper_method :task_form_props, :create_profile_form_props, :current_url, :all_categories
+  before_action :category_present?, only: [:index]
+
   def new
     authorize Profile
     run Profile::Operation::Present
@@ -16,14 +19,21 @@ class ProfilesController < ApplicationController
     render 'new'
   end
 
-  def index
-    fetch_category
-  end
-
   private
 
+    def all_categories
+      @all_categories = Category.roots.includes(:children).order(:position)
+    end
+
+    def category_present?
+      return unless params[:category_id]
+      @category = Category.friendly.where(slug: params[:category_id]).first
+      render_page_not_found if @category.blank?
+    end
+
     def end_of_association_chain
-      ProfileQuery.new(collection: super, category: @category, current_user: current_user).perform
+      ProfileQuery.new(collection: super, category: @category, current_user: current_user, page: params[:page],
+                       direction: params[:direction_created]).perform
     end
 
     def profile_params

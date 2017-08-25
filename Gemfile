@@ -85,6 +85,7 @@ gem 'nokogiri'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'foreman'
+gem 'dotiw'
 
 # CHECK
 gem 'petrovich', '~> 1.0'

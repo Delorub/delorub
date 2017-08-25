@@ -1,4 +1,11 @@
 ru:
+  views:
+    pagination:
+      first: ""
+      last: ""
+      previous: "&lsaquo; Назад"
+      next: "Далее &rsaquo;"
+      truncate: "&hellip;"
   errors:
     filled?: Не может быть пустым
     str?: Пожалуйста, заполните
@@ -12,8 +19,18 @@ ru:
     formats:
       datepicker: '%d.%m.%Y %H:%M'
       date: '%d.%m.%Y'
+      date_with_words: '%d %B %Y'
+      date_without_year: '%d %B'
       timeofday: '%H:%M'
   user_sms_confirmation: "Проверочный код: %{code}. Делоруб"
+  profile:
+    price_project: "%{price} руб/проект"
+    price_not_specified: "Не указана"
+    price_hourly: "%{price} руб/час"
+    price_from: "От %{price} руб."
+  task:
+    time_is_over: истекло
+  not_specified: "не указан"
   visitor_session_statistics:
     count: Количество сессий
     coming_soon_pages: Переходов на coming soon

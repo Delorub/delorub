@@ -1,5 +1,6 @@
 import './common'
 import './visitor_sessions'
+import './profile'
 
 import axios from 'axios'
 
