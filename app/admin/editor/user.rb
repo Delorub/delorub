@@ -1,4 +1,6 @@
 ActiveAdmin.register User, namespace: :editor do
+  decorate_with UserDecorator
+
   include ActiveAdminShared::User
   include ActiveAdminShared::UserPermission
   include ActiveAdminShared::UserBilling
