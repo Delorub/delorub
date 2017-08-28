@@ -49,14 +49,19 @@
     overflow: hidden;
     display: flex;
     align-items: baseline;
-    &--margin-bottom {
-      margin-bottom: 2rem;
-    }
     img {
       width: 42px;
     }
     a.link-secondary {
       margin-left: 1rem;
+    }
+    &--margin-bottom {
+      margin-bottom: 2rem;
+    }
+    &--md-margin {
+      @media (max-width: 767px) {
+        margin-bottom: 1rem;
+      }
     }
   }
 }
