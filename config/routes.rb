@@ -51,6 +51,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :categories, only: [:index] do
+    collection do
+      post '/search', action: :search
+    end
+  end
+
   resources :deals, only: [:show] do
     resources :comments, only: [:create]
   end

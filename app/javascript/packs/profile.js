@@ -22,4 +22,38 @@ $(document).ready(function () {
     var bottomText = $(this).closest('.bottom-text')
     bottomText.empty().append(bottomText.attr('data-text'))
   })
+
+  $('.search_category').selectize({
+    maxItems: 1,
+    valueField: 'id',
+    labelField: 'title',
+    searchField: 'title',
+    options: [],
+    create: false,
+    onDropdownClose: function () {
+      if (this.items.length === 0) {
+        this.clearOptions()
+      }
+    },
+    onChange: function () {
+      $('.form_search_categories').submit()
+    },
+    load: function (query, callback) {
+      console.log('222');
+      if (!query.length) {
+        console.log(query.length)
+        this.clearOptions()
+        return
+      }
+      $.ajax({
+        url: $('.search_category').attr('data_url'),
+        type: 'POST',
+        data: {search: query},
+        success: function (res) {
+          console.log(res)
+          callback(res.categories)
+        }
+      })
+    }
+  })
 })

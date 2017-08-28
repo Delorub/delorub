@@ -12,13 +12,14 @@
         p
           | Без комиссий и платы за отклики для&nbsp;
           a.link-default href="#" исполнителей
-      = form_tag main_search_coming_soon_requests_path, method: :post
-        = hidden_field_tag :form_identity, 'main_form'
-        = hidden_field_tag :form_keyword_field, 'query'
+      = form_tag new_task_path, method: :get, class: 'form_search_categories'
+        //= hidden_field_tag :form_identity, 'main_form'
+        //= hidden_field_tag :form_keyword_field, 'query'
+        = hidden_field_tag 'task[category_id]'
         .row
           .col-md-7
             .index-image-content__input
-              = text_field_tag :query, '', placeholder: 'Чем вам помочь?', id: 'can_i_help', class: 'form-control'
+              = select_tag :search, [], {class: 'form-control search_category', data_url: search_categories_path}
               = submit_tag 'Создать задание', class: 'dr-btn-danger'
       .index-image-content__sub
         p
