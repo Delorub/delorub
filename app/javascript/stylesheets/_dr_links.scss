@@ -74,6 +74,16 @@
   }
 }
 
+.link-error {
+  font-family: $GothamMedium;
+  color: #f44336;
+  font-size: 20px;
+  transition: .3s;
+  &:hover {
+    color: #2a6585;
+  }
+}
+
 .breadcrumb {
   padding: 0;
   transition: 0.3s;
