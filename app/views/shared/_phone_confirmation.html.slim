@@ -24,6 +24,7 @@
         = f.input :phone, label: false, placeholder: 'Номер телефона', input_html: { \
           'name': nil, id: nil,
           ':disabled': 'requesting',
+          'ref': 'phoneInput',
           'v-model.trim': 'model.phone' \
         }
       .col-xl-4.col-lg-6.col-margin-bottom

@@ -1,4 +1,6 @@
 ActiveAdmin.register User, namespace: :admin do
+  decorate_with UserDecorator
+
   include ActiveAdminShared::User
   include ActiveAdminShared::UserPermission
   include ActiveAdminShared::UserBilling
@@ -9,7 +11,8 @@ ActiveAdmin.register User, namespace: :admin do
     inputs 'Основное' do
       input :email
       input :password if f.object.new_record?
-      input :name
+      input :first_name
+      input :last_name
       input :phone
       input :photo
     end

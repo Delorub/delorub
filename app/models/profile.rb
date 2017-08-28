@@ -30,8 +30,6 @@ class Profile < ApplicationRecord
 
   validates :user_id, presence: true
 
-  delegate :name, to: :user
-
   scope :by_category,
     ->(category) { joins(:categories).where(categories: { id: category.id }) }
   scope :by_category_with_descendants,

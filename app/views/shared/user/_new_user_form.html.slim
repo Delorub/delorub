@@ -3,7 +3,7 @@ div id="form_contacts" v-on:click="showTooltip('form_contacts')"
   br/
   .row
     .col-lg-4.col-md-6
-      = f.input :name, label: false, error: false,
+      = f.input :first_name, label: false, error: false,
         input_html: { \
           'v-on:focus': %(showTooltip('form_contacts')),
         }

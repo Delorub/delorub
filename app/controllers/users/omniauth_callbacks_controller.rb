@@ -26,17 +26,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       @omniauth.data = omniauth_data
       @omniauth.save
 
-      return success_sign_in @omniauth.user if @omniauth.user
+      return sign_in_and_redirect @omniauth.user if @omniauth.user
 
       @user = User::OmniauthCreator.new(@omniauth).perform
+      return success_sign_in @user if @user
 
-      if @user.valid?
-        @user.save
-        return success_sign_in @user
-      end
-
-      flash.now.notice = 'Поздравляем! Осталось указать немного информации о себе'
-      render 'devise/registrations/new'
+      failure
     end
 
     def omniauth_data
@@ -44,18 +39,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
 
     def success_sign_in user
-      sign_in_and_redirect user
-    end
-
-    def resource
-      @user
-    end
-
-    def resource_name
-      :user
-    end
-
-    def devise_mapping
-      @devise_mapping ||= request.env['devise.mapping']
+      sign_in user
+      redirect_to my_welcome_index_path
     end
 end

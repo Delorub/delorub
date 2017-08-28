@@ -15,7 +15,7 @@ ActiveAdmin.register PortfolioItem do
       image_tag item.file.preview.url
     end
     column :profile do |item|
-      link_to item.profile.name, admin_profile_path(item.profile)
+      link_to item.profile.user.decorate.name, admin_profile_path(item.profile)
     end
     actions
   end
@@ -23,7 +23,7 @@ ActiveAdmin.register PortfolioItem do
   show do
     attributes_table_for portfolio_item do
       row :profile do |item|
-        link_to item.profile.name, admin_profile_path(item.profile)
+        link_to item.profile.user.decorate.name, admin_profile_path(item.profile)
       end
       row :thumb do |item|
         image_tag item.file.thumb.url
@@ -34,7 +34,7 @@ ActiveAdmin.register PortfolioItem do
           link_to comment.id, admin_comment_path(comment)
         end
         column :user do |comment|
-          link_to comment.user.name, admin_user_path(comment.user)
+          link_to comment.user.decorate.name, admin_user_path(comment.user)
         end
         column :text
       end

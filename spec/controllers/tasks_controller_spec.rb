@@ -8,6 +8,13 @@ RSpec.describe TasksController, type: :controller do
     end
   end
 
+  describe 'GET /new' do
+    it 'returns a success response' do
+      get :new
+      expect(response.status).to eq 200
+    end
+  end
+
   describe 'GET #show' do
     let(:task) { FactoryGirl.create :task }
 

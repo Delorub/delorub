@@ -27,7 +27,8 @@
 #  updated_at             :datetime
 #  access_token           :string
 #  place_id               :integer
-#  name                   :string
+#  first_name             :string
+#  last_name              :string
 #
 # Indexes
 #
@@ -37,7 +38,7 @@
 #
 
 class User < ApplicationRecord
-  FREE_TASKS = 3
+  FREE_TASKS = 5
   FREE_REPLIES = 3
 
   phony_normalize :phone
@@ -70,14 +71,9 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :permission
 
-  validates :name, :email, presence: true
+  validates :first_name, :email, presence: true
   validates :balance, numericality: { greater_than_or_equal_to: 0 }
   validates :phone, phony_plausible: true
-  validates_with User::PhoneConfirmationValidator, if: :phone
-
-  scope :confirmed_phone, ->(n) { where.has{ (phone == n) & (phone_confirmed == true) } }
-
-  before_save :check_free_replies_and_tasks
 
   has_secure_token :access_token
 
@@ -114,11 +110,4 @@ class User < ApplicationRecord
   def permission
     super || build_permission
   end
-
-  private
-
-    def check_free_replies_and_tasks
-      self.free_tasks_published = [free_tasks_published.to_i, FREE_TASKS].min
-      self.free_replies_published = [free_replies_published.to_i, FREE_TASKS].min
-    end
 end
