@@ -107,12 +107,11 @@
     position: relative;
     img {
       width: 42px;
-      filter: brightness(0);
       position: absolute;
       top: calc(50% - 20px);
     }
     h3 {
-      margin-left: 50px;
+      margin-left: 55px;
     }
   }
   &__content {

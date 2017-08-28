@@ -50,6 +50,12 @@
   }
 }
 
+.spacer-lg {
+  @media (min-width: 992px) {
+    margin-bottom: 2rem;
+  }
+}
+
 .col-margin-bottom {
   margin-bottom: 1rem;
 }

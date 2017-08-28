@@ -34,8 +34,11 @@
   }
   &--card-category {
     padding: 0;
-    height: 100%;
     margin-bottom: 1rem;
+    @media (min-width: 992px) {
+      height: 100%;
+      margin-bottom: 0;
+    }
   }
   &--task-person {
     padding: 0;
