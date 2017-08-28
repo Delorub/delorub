@@ -7,7 +7,7 @@ ru:
       mark: '*'
     placeholders:
       new_user:
-        name: Ваше имя
+        first_name: Ваше имя
         email: Ваш email
       sms_confirmation:
         phone: Ваш телефон

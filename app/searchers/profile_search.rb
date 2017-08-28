@@ -4,7 +4,7 @@ class ProfileSearch < BaseSearch
   def searchkick_search
     Searchkick.search query,
       index_name: Profile,
-      fields: [:name],
+      fields: [:user_name],
       match: :word_start,
       page: page,
       per_page: per_page
