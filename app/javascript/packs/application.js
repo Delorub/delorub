@@ -16,6 +16,7 @@ import CustimDatetimePicker from '../components/custom-datetimepicker.vue'
 
 import SmsConfirmation from '../components/sms_confirmation.vue'
 import TaskForm from '../components/task_form.vue'
+import TaskMap from '../components/task_map.vue'
 import ProfileForm from '../components/profile_form.vue'
 import UploadForm from '../components/upload_form.vue'
 
@@ -35,14 +36,13 @@ Vue.component('upload-form', UploadForm)
 Vue.component('sms-confirmation', SmsConfirmation)
 
 Vue.component('profile-form', ProfileForm)
+Vue.component('task-form', TaskForm)
+Vue.component('task-map', TaskMap)
 
 document.addEventListener('DOMContentLoaded', () => {
   // eslint-disable-next-line no-new
   new Vue({
-    el: '#app',
-    components: {
-      TaskForm
-    }
+    el: '#app'
   })
 })
 

@@ -31,5 +31,4 @@ export default {
 <style lang="scss">
   @import '../stylesheets/_vars.sass';
   @import "dropzone/dist/dropzone.css";
-  
-  </style>
+</style>

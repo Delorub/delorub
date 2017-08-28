@@ -21,6 +21,7 @@ class Task::Operation < Trailblazer::Operation
   step Policy::Pundit(TaskPolicy, :create?)
   step Contract::Validate()
   step :register_new_user!
+  step :skip_moderation!
   step Contract::Persist()
 
   def register_new_user! options, params:, model:, **_
@@ -32,5 +33,10 @@ class Task::Operation < Trailblazer::Operation
     return false if result.failure?
     model.user = result['model']
     options['sign_in_new_user'] = result['model']
+  end
+
+  def skip_moderation! model:, **_
+    model.accept!
+    true
   end
 end

@@ -23,6 +23,10 @@ Rails.application.routes.draw do
   }
   resources :users, only: [:index, :destroy]
 
+  namespace :my do
+    resources :welcome, only: :index
+  end
+
   resources :profiles, only: [:show, :edit, :update], path: 'profile'
   resources :profiles, only: [:new, :create]
   resources :profiles, only: [:index] do
@@ -63,9 +67,6 @@ Rails.application.routes.draw do
   resources :help_questions, only: [:new, :create], path: 'help'
 
   resources :vacancies, only: :index
-
-  get 'how-to-master', to: 'custom_pages#how_to_master', as: 'how_to_master'
-  get 'how-it-works', to: 'custom_pages#how_it_works', as: 'how_it_works'
 
   get 'contract_designer/:template_id', to: 'contracts#new', as: :contract_designer
 
