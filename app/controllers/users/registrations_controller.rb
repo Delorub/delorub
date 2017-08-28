@@ -5,7 +5,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     run User::Registration, params.require(:user).permit! do |result|
-      return sign_in_and_redirect result['user']
+      sign_in result['model']
+      return redirect_to my_welcome_index_path
     end
 
     render 'new'

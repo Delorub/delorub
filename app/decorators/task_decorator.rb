@@ -1,6 +1,7 @@
 class TaskDecorator < Draper::Decorator
   include ActionView::Helpers::DateHelper
   decorates Task
+  decorates_association :user
   delegate_all
 
   def main_category_id
@@ -54,5 +55,9 @@ class TaskDecorator < Draper::Decorator
     minutes = (total_seconds / 60) % 60
     seconds = total_seconds % 60
     format('%02d:%02d:%02d', hours, minutes, seconds)
+  end
+
+  def place_coordinates
+    [place_lat, place_long]
   end
 end

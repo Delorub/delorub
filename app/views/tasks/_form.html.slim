@@ -119,12 +119,15 @@
                       .form-group__sublink
                         a href="#" @click.prevent="$refs.dateIntervalToComponent.setToday()"  сегодня
                         a href="#" @click.prevent="$refs.dateIntervalToComponent.setTomorrow()" завтра
-                .form-group v-on:click="showTooltip('task_place_address')"
+                .form-group id="task_place" v-on:click="showTooltip('task_place')"
                   h2 Адрес
                   br/
                   .row
                     .col-lg-8.col-12
                       .adress-arrow-hide
+                      = f.input_field :place_lat, as: :hidden, 'v-model': 'model.place_lat'
+                      = f.input_field :place_long, as: :hidden, 'v-model': 'model.place_long'
+                      = f.input_field :place_address, as: :hidden, 'v-model': 'model.place_address'
                       = content_tag 'custom-select', '',
                         'v-model': 'model.place_address',
                         ':allow-empty': 'false',

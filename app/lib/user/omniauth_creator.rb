@@ -8,12 +8,8 @@ class User::OmniauthCreator
   end
 
   def perform
-    @user = User.new
-    assign_email
-    assign_attributes
-    assign_photo
-    @user.omniauth_relations << omniauth
-    @user
+    return user if check_user_with_same_email
+    create_new_user
   end
 
   def password
@@ -22,17 +18,43 @@ class User::OmniauthCreator
 
   private
 
+    def create_new_user
+      @user = User.new
+      assign_email
+      assign_attributes
+      assign_photo
+      add_omniauth_relation
+      return false unless user.save
+      user
+    end
+
+    def check_user_with_same_email
+      @user = User.find_by(email: fetch_email)
+      add_omniauth_relation
+      user.save
+      user
+    end
+
+    def add_omniauth_relation
+      user.omniauth_relations << omniauth
+    end
+
     def assign_email
-      @user.email = case omniauth.provider.to_sym
-                    when :odnoklassniki
-                      omniauth.data.dig(:extra, :raw_info, :email)
-                    else
-                      omniauth.data.info.email
-                    end
+      @user.email = fetch_email
+    end
+
+    def fetch_email
+      case omniauth.provider.to_sym
+      when :odnoklassniki
+        omniauth.data.dig(:extra, :raw_info, :email)
+      else
+        omniauth.data.info.email
+      end
     end
 
     def assign_attributes
-      @user.name = "#{omniauth.data.info.first_name} #{omniauth.data.info.last_name}".strip
+      @user.first_name = omniauth.data.info.first_name.strip
+      @user.last_name = omniauth.data.info.last_name.strip
       @user.password = password
     end
 

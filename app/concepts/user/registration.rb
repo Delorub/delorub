@@ -1,6 +1,6 @@
 class User::Registration < Trailblazer::Operation
   class Form < Reform::Form
-    property :name
+    property :first_name
     property :email
     property :sms_confirmation,
       prepopulator: ->(options) { self.sms_confirmation = SmsConfirmation.new },
@@ -14,9 +14,10 @@ class User::Registration < Trailblazer::Operation
       virtual: true
     property :accept_terms, virtual: true, default: false
 
-    validates :name, :email, :sms_confirmation, :accept_terms, presence: true
+    validates :first_name, :email, :sms_confirmation, :accept_terms, presence: true
     validates :accept_terms, inclusion: { in: ['1'], message: 'Вы должны согласиться с правилами сервиса' }
     validates :email, email: true
+    validates_uniqueness_of :email
   end
 
   class Present < Trailblazer::Operation
@@ -30,11 +31,11 @@ class User::Registration < Trailblazer::Operation
   end
 
   step Nested(Present)
-  step :generate_password!
+  step :generate_and_send_password!
   step Contract::Validate()
   step Contract::Persist()
 
-  def generate_password! options, model:, **_
+  def generate_and_send_password! options, model:, **_
     model.password = 'test123'
   end
 end

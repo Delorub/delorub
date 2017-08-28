@@ -1,8 +1,10 @@
 class ProfilesController < ApplicationController
   inherit_resources
 
-  helper_method :task_form_props, :create_profile_form_props, :current_url, :all_categories
+  helper_method :all_categories
   before_action :category_present?, only: [:index]
+
+  decorates_assigned :profiles, :profile
 
   def new
     authorize Profile

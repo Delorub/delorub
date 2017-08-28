@@ -7,24 +7,24 @@
             .performer-profile-main__image
               = image_tag @profile.user.photo.url(:upload_medium) unless @profile.user.photo.blank?
             .performer-profile-main__price
-              = @profile.decorate.formatted_price
+              = profile.formatted_price
             .performer-profile-main__button
               a.dr-btn-primary.dr-btn-220.show_contacts href="#"  Показать контакты
             .performer-profile-main__contacts style="display: none"
-              - unless @profile.user.phone.blank?
+              - unless profile.user.phone.blank?
                 p
                   i.fa.fa-mobile aria-hidden="true"
-                  = @profile.user.phone
-              - unless @profile.user.email.blank?
+                  = profile.user.phone
+              - unless profile.user.email.blank?
                 p
                   i.fa.fa-envelope-o aria-hidden="true"
-                  = @profile.user.email
+                  = profile.user.email
         = render 'specializations'
       .col-lg-8
         = render 'breadcrumb'
         .dr-content-header
           h1
-            = @profile.user.name
+            = profile.user.name
         .dr-block-style.dr-block-style--category
           .performer-description
             .performer-description__subcontent
@@ -34,7 +34,7 @@
                     b
                       ' Возраст:
                     span.gray-text
-                      = @profile.decorate.formatted_age
+                      = profile.formatted_age
                 .col-md
                   p
                     b
@@ -42,11 +42,11 @@
                     span.gray-text
                       i.fa.fa-map-marker aria-hidden="true"
                       '
-                      = @profile.decorate.formatted_city_name
+                      = profile.formatted_city_name
         .dr-block-style.dr-block-style--profile-left
           .performer-description-about
             .performer-description-about__header
               h5
                 b Об исполнителе
             .performer-description-about__text
-              = @profile.about
+              = profile.about
