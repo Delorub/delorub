@@ -96,8 +96,8 @@
     li {
       padding: 3px 0;
       a {
+        @extend .link-black;
         font-size: 15px;
-        color: $color;
       }
     }
   }
@@ -112,6 +112,9 @@
     }
     h3 {
       margin-left: 55px;
+      a {
+        @extend .link-black;
+      }
     }
   }
   &__content {
