@@ -25,8 +25,12 @@
               <a href="#" class="top-line__city top-line__link"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;Санкт-Петербург</a>
             </div>
             <div class="top-line__right">
-              <a href="#" class="top-line__link"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Регистрация</a>
-              <a href="#" class="top-line__link"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Вход</a>
+              <a href="#" class="top-line__link active">Исполнитель</a>
+              <label class="rs-switch">
+                <input type="checkbox">
+                <span class="rs-slider round"></span>
+              </label>
+              <a href="#" class="top-line__link">Заказчик</a>
             </div>
           </div>
         </div>
@@ -49,17 +53,26 @@
                 <a class="nav-link" href="#">Все задания</a>
               </li>
             </ul>
-            <div class="dr-authorized-user">              
-                <div class="dr-authorized-user__name">
-                  <a href="#">
-                    <span>Константин</span><br/><span>Константинопольский</span>
-                  </a>
-                </div>
-                <div class="dr-authorized-user__image">
-                  <a href="#">
-                    <img src="/images/masters/artem.jpg" alt=""/>
-                  </a>
-                </div>              
+            <div class="dr-authorized-user" data-toggle="dropdown">
+              <div class="dr-authorized-user__name">
+                <a href="#">
+                  <span>Константин</span><br/><span>Константинопольский</span>
+                </a>
+              </div>
+              <div class="dr-authorized-user__image">
+                <a href="#">
+                  <img src="/images/masters/artem.jpg" alt=""/>
+                </a>
+              </div>
+              <div class="dr-authorized-user__dropdown">
+                <ul>
+                  <li><a href="#">Мои задания</a></li>
+                  <li><a href="#">Мой профиль</a></li>
+                  <li><a href="#">Настройки</a></li>
+                  <li><a href="#">Кошелек</a></li>
+                  <li><a href="#">Выход</a></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

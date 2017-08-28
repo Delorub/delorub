@@ -1,7 +1,8 @@
 .dr-authorized-user {
+  position: relative;
   display: flex;
   &__name {
-    text-align: right;    
+    text-align: right;
     margin-top: 5px;
     span {
       color: $color;
@@ -22,4 +23,30 @@
       cursor: pointer;
     }
   }
+  &__dropdown {
+    width: 167px;
+    display: none;
+    background-color: #fff;
+    border: solid 1px #d1d1d1;
+    position: absolute;
+    top: 62px;
+    right: 0;
+    ul {
+      text-align: right;
+      li {
+        padding: 10px 35px 10px 0;
+        border-bottom: solid 1px #f3f0f0;
+        a {
+          @extend .link-secondary;
+        }
+        &:last-child {
+          border-bottom: 0;
+          a {
+            color: #f44336;
+          }
+        }
+      }
+    }
+  }
+  
 }
