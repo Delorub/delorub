@@ -3,15 +3,8 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  email                  :string           default(""), not null
+#  provider               :string           default("email"), not null
 #  encrypted_password     :string           default(""), not null
-#  middle_name            :string
-#  phone                  :string
-#  birthday               :date
-#  profile_id             :integer
-#  free_tasks_published   :integer          default(0), not null
-#  free_replies_published :integer          default(0), not null
-#  balance                :decimal(10, 2)   default(0.0), not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
@@ -20,13 +13,22 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string
 #  last_sign_in_ip        :string
-#  created_at             :datetime         not null
-#  updated_at             :datetime         not null
+#  middle_name            :string
+#  phone                  :string
+#  email                  :string
+#  birthday               :date
+#  profile_id             :integer
+#  free_tasks_published   :integer          default(0), not null
+#  free_replies_published :integer          default(0), not null
+#  balance                :decimal(10, 2)   default(0.0), not null
 #  photo                  :string
 #  phone_confirmed        :boolean
+#  created_at             :datetime
+#  updated_at             :datetime
 #  access_token           :string
 #  place_id               :integer
-#  name                   :string
+#  first_name             :string
+#  last_name              :string
 #
 # Indexes
 #
@@ -47,7 +49,8 @@ FactoryGirl.define do
     password { generate :password }
     password_confirmation(&:password)
 
-    name { "#{Faker::Name.first_name} #{Faker::Name.last_name}" }
+    first_name { Faker::Name.first_name }
+    last_name { Faker::Name.last_name }
 
     factory :editor do
       association :permission, factory: :editor_user_permission

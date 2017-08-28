@@ -9,18 +9,18 @@
               .row
                 .col-lg-5
                   .master-card-person__image
-                    = image_tag @task.user.photo.url(:upload_preview) unless @task.user.photo.blank?
+                    = image_tag task.user.photo.url(:upload_preview) unless task.user.photo.blank?
                 .col-lg-7
                   .task-profile-card-person__name
                     h4
-                      = @task.user.name
+                      = task.user.name
                     p
-                      = @task.user.tasks.count
+                      = task.user.tasks.count
                       '
                       | заданий
             .task-profile-card__time
-              h2= @task.date_type.text
-              p= @task.decorate.human_date
+              h2= task.date_type.text
+              p= task.human_date
             .task-profile-card__price
               h2
                 - if @task.price_exact.blank?
@@ -31,15 +31,15 @@
                   | руб.
               a.dr-btn-primary.dr-btn-190.show_contacts href="#"  Показать контакты
               .task-profile-card__contacts style="display: none"
-                - unless @task.user.phone.blank?
+                - unless task.user.phone.blank?
                   p
                     i.fa.fa-mobile aria-hidden="true"
-                    = @task.user.phone
-                - unless @task.user.email.blank?
+                    = task.user.phone
+                - unless task.user.email.blank?
                   p
                     i.fa.fa-envelope-o aria-hidden="true"
-                    = @task.user.email
-        = render 'files' unless @task.files.blank?
+                    = task.user.email
+        = render 'files' unless task.files.blank?
         br/
       .col-lg-8
         .dr-block-style.dr-block-style--profile
@@ -47,7 +47,7 @@
             .task-description-about__header
               h2 Описание задачи
             .task-description-about__text
-              = @task.description
+              = task.description
         .dr-block-style.dr-block-style--profile
           .task-description-adress
             h2 Адрес
@@ -55,5 +55,6 @@
               p
                 span
                   i.fa.fa-map-marker aria-hidden="true"
-                  = @task.place_address
+                  = task.place_address
             .task-description-adress__map
+              = content_tag 'task-map', '', ':value': task.place_coordinates.to_json

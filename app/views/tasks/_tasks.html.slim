@@ -5,7 +5,7 @@
       b Станьте первым!
     = link_to 'Создать задание', new_task_path, class: 'dr-btn-danger'
 - else
-  - collection.each do |task|
+  - tasks.each do |task|
     .dr-block-style.dr-block-style--card
       .row
         .col-lg-2
@@ -28,12 +28,12 @@
                   - if time_expires_before_tomorrow?(task.date_type.end_at?, task.date_actual) || time_expires_before_tomorrow?(task.date_type.interval?, task.date_interval_to)
                     p.task-card-refinement__time.task-card-refinement__time--quickly
                       i.fa.fa-clock-o aria-hidden="true"
-                      = " #{task.decorate.date_time_left}"
+                      = " #{task.date_time_left}"
                   - else
                     p.task-card-refinement__time
                       = 'С ' if task.date_type.start_at? && task.date_actual.present?
                       = 'До ' if task.date_type.end_at? && task.date_actual.present?
-                      = task.decorate.human_date(:date_without_year)
+                      = task.human_date(:date_without_year)
           .row
             .col
               .task-card-description

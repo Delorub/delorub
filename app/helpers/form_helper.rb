@@ -15,8 +15,8 @@ module FormHelper
 
   def policy_checkbox_text
     ('Я согласен с ' +
-      link_to('правилами сервиса', terms_path, class: 'link-default') +
+      link_to('правилами сервиса', terms_path, class: 'link-default', target: 'blank') +
       ' и ' +
-      link_to('политикой обработки персональных данных', policy_path, class: 'link-default')).html_safe
+      link_to('политикой обработки персональных данных', policy_path, class: 'link-default', target: 'blank')).html_safe
   end
 end

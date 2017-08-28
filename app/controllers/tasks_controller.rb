@@ -1,10 +1,11 @@
 class TasksController < ApplicationController
   include Pundit
   inherit_resources
-  decorates_assigned :tasks
 
   before_action :category_present?, only: [:index]
   helper_method :all_categories
+
+  decorates_assigned :tasks, :task
 
   def new
     authorize Task
@@ -58,15 +59,5 @@ class TasksController < ApplicationController
 
     def task_params
       params.require(:task).permit!
-    end
-
-    def form_from_session
-      @form.validate create_data_after_authorization(:task) if create_after_authorization? :task
-    end
-
-    def store_form_to_session
-      @form.save do |data|
-        create_after_authorization :task, data
-      end
     end
 end
