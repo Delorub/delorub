@@ -1,23 +1,17 @@
 class CategoryQuery
-  attr_accessor :collection, :search_params
+  attr_accessor :collection
 
-  def initialize collection: nil, search_params:
+  def initialize collection:
     @collection = collection
-    @search_params = search_params
   end
 
-  def search
-    search_by_categories
-    parse_collection
+  def perform
+    apply_categories
   end
 
   private
 
-    def search_by_categories
-      @collection = Category.by_search_in(search_params)
-    end
-
-    def parse_collection
-      @collection = @collection.map{ |a| { id: a.id, title: a.title } }
+    def apply_categories
+      @collection = @collection.roots.includes(:children).order(:position)
     end
 end

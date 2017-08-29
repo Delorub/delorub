@@ -3,7 +3,7 @@ class CategorySearch < BaseSearch
 
     def searchkick_search
       Searchkick.search query,
-        fields: [:title, :tasks_title],
+        fields: [:title],
         index_name: Category,
         match: :word_start,
         page: page,

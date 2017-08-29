@@ -1,8 +1,10 @@
 class CategoriesController < ApplicationController
   include Pundit
+  inherit_resources
 
-  def search
-    data_search = CategoryQuery.new(search_params: params[:search]).search
-    render json: { result: true, categories: data_search }
+  private
+
+  def end_of_association_chain
+    CategoryQuery.new(collection: super).perform
   end
 end

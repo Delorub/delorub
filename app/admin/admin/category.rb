@@ -2,7 +2,7 @@ ActiveAdmin.register Category, namespace: :admin do
   config.sort_order = 'position_asc'
   config.paginate = false
 
-  permit_params :title, :parent_id, :photo, :description
+  permit_params :title, :parent_id, :photo, :description, :main
 
   filter :by_search_in, label: 'Поиск', as: :string
   filter :category_id
@@ -10,6 +10,7 @@ ActiveAdmin.register Category, namespace: :admin do
   index download_links: false do
     column :title
     column :slug
+    column :main
     column '' do |cat|
       link_to 'Настройки', settings_admin_category_path(cat)
     end
@@ -36,12 +37,13 @@ ActiveAdmin.register Category, namespace: :admin do
   end
 
   form do |f|
-    f.inputs 'Основное' do
-      input :title
-      input :position
-      input :parent, collection: Category.all.map{ |a| [a.title, a.id] }
-      input :photo
-      input :description
+    inputs 'Основное' do
+      f.input :title
+      f.input :position
+      f.input :parent, collection: Category.all.map{ |a| [a.title, a.id] }
+      f.input :photo
+      f.input :main
+      f.input :description
     end
     f.inputs 'Настройки' do
       fields_for :settings do |s|

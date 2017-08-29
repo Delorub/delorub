@@ -5,7 +5,7 @@
         .dr-block-style.dr-block-style--profile-left
           .performer-profile-main.center
             .performer-profile-main__image
-              = image_tag @profile.user.photo.url(:upload_medium) unless @profile.user.photo.blank?
+              = displaying_avatar(@profile.user.photo, :upload_medium)
             .performer-profile-main__price
               = profile.formatted_price
             .performer-profile-main__button
@@ -49,4 +49,4 @@
               h5
                 b Об исполнителе
             .performer-description-about__text
-              = profile.about
+              = simple_format profile.about

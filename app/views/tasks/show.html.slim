@@ -9,7 +9,7 @@
               .row
                 .col-lg-5
                   .master-card-person__image
-                    = image_tag task.user.photo.url(:upload_preview) unless task.user.photo.blank?
+                    = displaying_avatar(task.user.photo, :upload_preview)
                 .col-lg-7
                   .task-profile-card-person__name
                     h4
@@ -47,7 +47,7 @@
             .task-description-about__header
               h2 Описание задачи
             .task-description-about__text
-              = task.description
+              = simple_format task.description
         .dr-block-style.dr-block-style--profile
           .task-description-adress
             h2 Адрес
