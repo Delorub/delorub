@@ -2,7 +2,7 @@ module Searchable::Profile
   extend ActiveSupport::Concern
 
   included do
-    searchkick word_start: [:name], language: :russian
+    searchkick word_start: [:user_name], language: :russian
 
     scope :by_search_in, ->(q) {
       search_by_ids ProfileSearch.new(query: q, page: 1, per_page: 100).all.map(&:id)
@@ -15,7 +15,7 @@ module Searchable::Profile
 
   def search_data
     {
-      name: name
+      user_name: user.decorate.name
     }
   end
 end

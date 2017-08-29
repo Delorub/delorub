@@ -15,8 +15,7 @@ module Searchable::User
 
   def search_data
     {
-      first_name: first_name,
-      last_name: last_name,
+      name: decorate.name,
       email: email
     }
   end
