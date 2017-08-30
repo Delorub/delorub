@@ -3,11 +3,11 @@ html, body, .wrap {height: 100%;}
 body {
   background-color: #edeef0;
   font-family: $GothamPro;
-  font-size: 14px;  
+  font-size: 14px;
   color: $color;
 }
 
-h1 {  
+h1 {
   font-size: 24px;
   font-family: $GothamBold;
   color: $color;
@@ -81,7 +81,7 @@ footer {
     justify-content: space-between;
     padding: 5px 0;
   }
-  &__link {    
+  &__link {
     margin-left: 30px;
     color: #fff;
     &:hover {
@@ -91,15 +91,18 @@ footer {
       color: #fff;
     }
   }
-  &__city {    
+  &__link.active {
+    color: $blueColor;
+  }
+  &__city {
     color: #fff;
     opacity: 1;
     margin-left: 0.2rem;
-    border-bottom: 1px dashed;    
+    border-bottom: 1px dashed;
   }
   &__left {
-    color: #fff;      
-  }  
+    color: #fff;
+  }
 }
 
 .navbar-toggler {
@@ -139,12 +142,12 @@ footer {
         transition: $transition;
         &:hover {
           color: $blueColor;
-        }        
+        }
       }
       > .nav-link.active {
         @extend .link-secondary;
       }
-    }    
+    }
   }
   .navbar-right {
     li {
