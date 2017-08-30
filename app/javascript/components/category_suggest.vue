@@ -21,6 +21,14 @@ export default {
       categoriesList: []
     }
   },
+  mounted: function () {
+    var refs = this.$children[0].$refs
+    refs.search.addEventListener('keyup', function (event) {
+      if ((event.which === 13) && refs.list.getElementsByTagName('li').length <= 1) {
+        window.location.href = '/categories'
+      }
+    })
+  },
   methods: {
     populateCategories (text) {
       axios.post('/api/categories', {

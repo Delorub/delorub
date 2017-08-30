@@ -8,9 +8,9 @@ module Searchable::Task
       search_by_ids TaskSearch.new(query: q, page: 1, per_page: 100).all.map(&:id)
     }
 
-    scope :search_include_categories, ->(q) {
+    def self.search_include_categories q
       TaskCategoriesSearch.new(query: q, page: 1, per_page: 100).categories_ids
-    }
+    end
 
     def self.ransackable_scopes auth_object = nil
       [:by_search_in]

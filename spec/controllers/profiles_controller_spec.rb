@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 RSpec.describe ProfilesController, type: :controller do
   describe 'GET index' do
     it 'renders the index template' do

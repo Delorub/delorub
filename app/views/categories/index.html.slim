@@ -10,9 +10,9 @@
               .category-card
                 .category-card__header
                   = image_tag category.photo.url(:thumb)
-                  h3= link_to category.title, new_category_tasks_path(category)
+                  h3= link_to category.title, new_task_path(category)
                 .category-card__content
                   ul.category-card__list
                     - category.children.each do |child|
                       li
-                        = link_to child.title, new_category_tasks_path(child)
+                        = link_to child.title, new_task_path(child)

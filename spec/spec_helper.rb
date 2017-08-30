@@ -35,6 +35,8 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     Place.reindex
+    Category.reindex
+    Task.reindex
     Searchkick.disable_callbacks
   end
 
