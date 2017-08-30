@@ -1,20 +1,22 @@
 .top-line.top-line--index
   .container
     .top-line__container
-      .top-line__left        
+      .top-line__left
         a.top-line__city.top-line__link href="#"
           i.fa.fa-map-marker aria-hidden="true"
           | &nbsp;Санкт-Петербург
       - if user_signed_in?
         .top-line__right
-          a.top-line__link href=destroy_user_session_path
-            i.fa.fa-sign-in aria-hidden="true"
-            |  Выход
+          a.top-line__link class=('active' if signed_in_as_master?) href=sign_in_as_path(:master) Исполнитель
+          label.rs-switch data-navigate-to=(sign_in_as_path(signed_in_as_master? ? :user : :master))
+            input type="checkbox" checked=(!signed_in_as_master?)
+            span.rs-slider.round
+          a.top-line__link class=('active' unless signed_in_as_master?) href=sign_in_as_path(:user) Заказчик
       - else
         .top-line__right
-          a.top-line__link href=new_user_registration_path data-identity="header_sign_up"
+          a.top-line__link href=new_user_registration_path id="header_sign_up" data-identity="header_sign_up"
             i.fa.fa-pencil aria-hidden="true"
             | &nbsp;Регистрация
-          a.top-line__link href=new_user_session_path
+          a.top-line__link href=new_user_session_path id="header_sign_in"
             i.fa.fa-sign-in aria-hidden="true"
             | &nbsp;Вход

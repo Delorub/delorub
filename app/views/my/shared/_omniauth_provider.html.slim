@@ -1,0 +1,11 @@
+- relation = current_user.omniauth_relations.find_by(provider: provider)&.decorate
+.col-md-4
+  .customer-anketa-social.customer-anketa-social--md-margin
+    - if relation.present?
+      a target="blank" href=relation.provider_url
+        img alt="" src=image_path /
+      a.link-secondary target="blank" href=relation.provider_url = relation.provider_url_without_http
+    - else
+      a href=omniauth_authorize_path(User, provider)
+        img alt="" src=image_path /
+      a.link-secondary href=omniauth_authorize_path(User, provider) Привязать

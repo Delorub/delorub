@@ -48,6 +48,9 @@ module.exports = {
     new ManifestPlugin({
       publicPath: output.publicPath,
       writeToFileEmit: true
+    }),
+    new webpack.ProvidePlugin({
+      Promise: 'es6-promise-promise'
     })
   ],
 

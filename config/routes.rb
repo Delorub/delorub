@@ -21,10 +21,14 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
+  devise_scope :user do
+    get 'users/sign_in_as/:type', to: 'users/sessions#sign_in_as', as: :sign_in_as
+  end
   resources :users, only: [:index, :destroy]
 
   namespace :my do
     resources :welcome, only: :index
+    resources :index, only: :index
   end
 
   resources :profiles, only: [:show, :edit, :update], path: 'profile'
