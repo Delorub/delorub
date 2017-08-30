@@ -59,9 +59,31 @@
     }
   }
   &-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 5px 0 0 0;
     a + a {
       margin-left: 2rem;
+    }
+  }
+  &-error-message {
+    color: #f44336;
+    border-top: solid 1px #e6e3e3;
+    margin-top: 1rem;
+    padding-top: 1rem !important;
+    p {
+      font-family: $GothamMedium;
+    }
+    ul {
+      margin-top: -1rem;
+      li {
+        &:before {
+          content:  "- ";
+          position: relative;
+          left: 0;
+        }
+      }
     }
   }
   &-refinement {

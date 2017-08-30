@@ -73,6 +73,31 @@
   }
 }
 
+.change_succes {
+  color: #fff;
+  font-family: $GothamMedium;
+  font-size: 15px;
+  background-color: #60ad12;
+  padding: 20px 40px;
+  position: relative;
+  margin-bottom: 5px;
+  border-radius: 3px;
+  &__content {
+    margin-left: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    a {
+      color: #fff;
+    }
+  }
+  .fa-check {
+    position: absolute;
+    font-size: 50px;
+    top: 5px;
+  }
+}
+
 .dr-block-hr {
   margin: 2rem -40px;
 }
