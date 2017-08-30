@@ -21,7 +21,7 @@
       <div class="top-line">
         <div class="container">
           <div class="top-line__container">
-            <div class="top-line__left">              
+            <div class="top-line__left">
               <a href="#" class="top-line__city top-line__link"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;Санкт-Петербург</a>
             </div>
             <div class="top-line__right">
@@ -103,9 +103,17 @@
 
               <div class="col-lg-8">
 
+                <div class="change_succes">
+                  <i class="fa fa-check" aria-hidden="true"></i>
+                  <div class="change_succes__content">
+                    Ваш пароль успешно изменен.
+                    <a href="#"><i class="fa fa-close" aria-hidden="true"></i></a>
+                  </div>
+                </div>
+
                 <div class="dr-content-header">
                   <h1>
-                    Настройки учетной записи заказчика
+                    Настройки учетной записи исполнителя
                   </h1>
                 </div>
 
@@ -126,7 +134,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="dr-block-style">                  
+                <div class="dr-block-style">
                   <div class="row">
                     <div class="col-md-6">
                       <div class="customer-anketa-social customer-anketa-social--margin-bottom">
@@ -150,19 +158,37 @@
                 </div>
                 <div class="dr-block-style">
                   <div class="row">
-                    <div class="col-md">
+                    <div class="col-lg-4  col-md-6">
                       <div class="form-group">
-                        <input type="password" class="form-control" id="password" placeholder="Новый пароль"/>
+                        <input type="text" class="form-control form-control__item" id="name" placeholder="Ваше имя"/>
                       </div>
                     </div>
-                    <div class="col-md">
+                    <div class="col-lg-4  col-md-6">
                       <div class="form-group">
-                        <input type="password" class="form-control" id="repeat_password" placeholder="Повторить пароль"/>
+                        <input type="text" class="form-control form-control__item" id="email" placeholder="Ваш email"/>
                       </div>
                     </div>
-                    <div class="col-md">
+                  </div>
+                  <div class="row form__bottom-inputs">
+                    <div class="col-lg-4  col-md-6">
                       <div class="form-group">
-                        <input class="dr-btn-default dr-btn-long dr-btn-default-margin-top-2" type="submit" role="button" value="Подтвердить"/>
+                        <input type="text" class="form-control form-control__item" id="tel" placeholder="Ваш телефон"/>
+                      </div>
+                    </div>
+                    <div class="col-lg-auto  col-md-6 col-margin-bottom">
+                      <div class="form-group">
+                        <input class="dr-btn-default dr-btn-default-margin-top-2" type="submit" role="button" value="Подтвердить"/>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 offset-lg-0 offset-md-6 phone-display--show">
+                      <div class="form__repeat">
+                        <a class="link-default" href="#">
+                          Отправить повторно
+                        </a>
+                        <br/>
+                        <span>
+                          (доступно через 0:20)
+                        </span>
                       </div>
                     </div>
                   </div>
