@@ -1,4 +1,4 @@
-.customer-profile-card {
+.dr-profile-card {
   &__image {
     text-align: center;
     img {
@@ -18,6 +18,9 @@
   }
   &__inputs {
     margin: 1rem 0 0 2rem;
+  }
+  &__price {
+    font-size: 18px;
   }
   &__description {
     padding: 5px 0 0 0;

@@ -17,6 +17,14 @@
   color: #9b9b9b;
 }
 
+.expand-block {
+  &--hide {
+    max-height: 100px;
+    overflow-y: hidden;
+    margin-bottom: 2rem;
+  }
+}
+
 .display-inline {
   display: inline-block;
 }
