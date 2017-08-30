@@ -4,7 +4,8 @@
     :options="categoriesOptions"
     placeholder="Что вас интересует?"
     @search-change= "populateCategories"
-    @select= "categoryBySelect">
+    :internal-search="false"
+    @select="categoryBySelect">
     <span slot="noResult">
       <p> Не найдено совпадений </p>
     </span>
@@ -25,15 +26,14 @@ export default {
       axios.post('/api/categories', {
         query: text
       }).then(response => {
-        console.log(response.data)
         this.categoriesList = response.data
         this.categoriesOptions = response.data.map((e) => e.title)
       })
     },
     categoryBySelect (element) {
-      window.location.href = '/tasks/new?category_id=' + this.categoryId(element)
+      window.location.href = '/tasks/new/' + this.categorySlug(element)
     },
-    categoryId (category) {
+    categorySlug (category) {
       var result
       this.categoriesList.every((e) => {
         if (e.title === category) {
@@ -42,7 +42,7 @@ export default {
         }
         return true
       })
-      return result.id
+      return result.slug
     }
   }
 }

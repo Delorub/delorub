@@ -1,11 +1,10 @@
 class BaseSearch
-  attr_reader :query, :page, :per_page, :aggs
+  attr_reader :query, :page, :per_page
 
-  def initialize query:, page: 1, per_page: 20, aggs: []
+  def initialize query:, page: 1, per_page: 20
     @page = page
     @query = query
     @per_page = per_page
-    @aggs = aggs
   end
 
   def all

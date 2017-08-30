@@ -9,7 +9,7 @@ module Searchable::Task
     }
 
     scope :search_include_categories, ->(q) {
-      TaskCategoriesSearch.new(query: q, page: 1, per_page: 100, aggs: [:category_id]).all
+      TaskCategoriesSearch.new(query: q, page: 1, per_page: 100).categories_ids
     }
 
     def self.ransackable_scopes auth_object = nil

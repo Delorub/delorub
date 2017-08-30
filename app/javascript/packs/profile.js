@@ -22,4 +22,10 @@ $(document).ready(function () {
     var bottomText = $(this).closest('.bottom-text')
     bottomText.empty().append(bottomText.attr('data-text'))
   })
+
+  $('.search_categories input').on('keydown', function (e) {
+    if ((e.which === 13) && $('.search_categories ul.multiselect__content li').length <= 1) {
+      $(this).closest('form').submit()
+    }
+  })
 })

@@ -49,6 +49,7 @@ Rails.application.routes.draw do
   resources :tasks, only: [:new, :create]
   resources :tasks, only: [:index] do
     collection do
+      get '/new/:category_id',          action: :new,   as: :new_category
       get '/my(/:category_id)',         action: :index, as: :my,        defaults: { scope: :my }
       get '/suggested(/:category_id)',  action: :index, as: :suggested, defaults: { scope: :suggested }
       get '/:category_id',              action: :index, as: :category
