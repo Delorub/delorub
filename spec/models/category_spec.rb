@@ -16,7 +16,7 @@
 #  slug           :string
 #  settings       :text
 #  description    :text
-#  main           :boolean          default(FALSE)
+#  is_main        :boolean          default(FALSE)
 #
 # Indexes
 #

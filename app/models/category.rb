@@ -16,7 +16,7 @@
 #  slug           :string
 #  settings       :text
 #  description    :text
-#  main           :boolean          default(FALSE)
+#  is_main        :boolean          default(FALSE)
 #
 # Indexes
 #
@@ -44,7 +44,7 @@ class Category < ApplicationRecord
 
   has_and_belongs_to_many :profiles
 
-  scope :main, -> { where(main: true) }
+  scope :main, -> { where(is_main: true) }
 
   def self_and_descendants_ids
     self_and_descendants.map(&:id)

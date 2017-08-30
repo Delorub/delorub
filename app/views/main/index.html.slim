@@ -18,16 +18,7 @@
         .row
           .col-md-7
             .index-image-content__input
-              = content_tag 'category-suggest', '', 'inline-template': true \
-                do
-                = content_tag 'custom-select', '',
-                  'v-model': 'searchCategory',
-                  ':options': 'categoriesOptions',
-                  'placeholder': 'Что вас интересует?',
-                  '@search-change': 'populateCategories',
-                  '@select': 'categoryBySelect'
-                  span slot="noResult"
-                    p Не найдено совпадений
+              = content_tag 'category-suggest', ''
               = submit_tag 'Создать задание', class: 'dr-btn-danger'
       .index-image-content__sub
         p

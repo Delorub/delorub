@@ -1,23 +1,23 @@
 class SearchCategoriesService
-  attr_reader :search_params, :collection
+  attr_reader :query, :collection
 
-  def initialize params:
-    @search_params = params[:search]
+  def initialize query:
+    @query = query
   end
 
   def perform
     search_by_categories
-    search_by_tasks if @collection.blank?
-    @collection
+    search_by_tasks if collection.blank?
+    collection
   end
 
   private
 
     def search_by_categories
-      @collection = Category.by_search_in(search_params)
+      @collection = Category.by_search_in(query)
     end
 
     def search_by_tasks
-      @collection = Category.by_search_in_tasks(search_params)
+      @collection = Category.by_search_in_tasks(query)
     end
 end

@@ -9,8 +9,7 @@ module Searchable::Task
     }
 
     scope :search_include_categories, ->(q) {
-      TaskSearch.new(query: q, page: 1,
-                     per_page: 100, aggs: [:category_id]).all.aggs['category_id']['buckets'].map { |a| a['key'] }
+      TaskCategoriesSearch.new(query: q, page: 1, per_page: 100, aggs: [:category_id]).all
     }
 
     def self.ransackable_scopes auth_object = nil

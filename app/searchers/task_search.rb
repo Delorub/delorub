@@ -7,7 +7,6 @@ class TaskSearch < BaseSearch
       index_name: Task,
       match: :word_start,
       page: page,
-      per_page: per_page,
-      aggs: aggs
+      per_page: per_page
   end
 end

@@ -1,3 +1,15 @@
+<template>
+  <custom-select
+    v-model="searchCategory"
+    :options="categoriesOptions"
+    placeholder="Что вас интересует?"
+    @search-change= "populateCategories"
+    @select= "categoryBySelect">
+    <span slot="noResult">
+      <p> Не найдено совпадений </p>
+    </span>
+  </custom-select>
+</template>
 <script>
 import axios from 'axios'
 export default {
@@ -11,8 +23,9 @@ export default {
   methods: {
     populateCategories (text) {
       axios.post('/api/categories', {
-        search: text
+        query: text
       }).then(response => {
+        console.log(response.data)
         this.categoriesList = response.data
         this.categoriesOptions = response.data.map((e) => e.title)
       })

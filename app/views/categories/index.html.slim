@@ -1,7 +1,7 @@
 .regular-content
   .container
     = render 'breadcrumb'
-    - collection.each_slice(3).to_a.each_with_index do |category_array, index|
+    - @categories.each_slice(3).to_a.each_with_index do |category_array, index|
       = content_tag(:div, '', class: 'spacer-lg') if index > 0
       .row.align-items-stretch
         - category_array.each do |category|
@@ -9,7 +9,7 @@
             .dr-block-style.dr-block-style--card-category
               .category-card
                 .category-card__header
-                  = image_tag category.photo.url(:thumb) if category.photo.present?
+                  = image_tag category.photo.url(:thumb)
                   h3= link_to category.title, new_task_path(category_id: category.id)
                 .category-card__content
                   ul.category-card__list

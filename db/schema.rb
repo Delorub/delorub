@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 20170829151011) do
     t.string "slug"
     t.text "settings"
     t.text "description"
-    t.boolean "main", default: false
+    t.boolean "is_main", default: false
     t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 

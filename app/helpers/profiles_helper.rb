@@ -17,8 +17,4 @@ module ProfilesHelper
   def formatted_header_category category
     category.settings.dig(:h1).blank? ? category.title : category.settings.dig(:h1)
   end
-
-  def displaying_avatar photo, type_preview
-    image_tag photo.present? ? photo.url(type_preview) : '/images/avatars/missing.png'
-  end
 end

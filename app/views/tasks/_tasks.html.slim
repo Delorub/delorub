@@ -11,8 +11,7 @@
         .col-lg-2
           .task-card-person
             .task-card-person__image
-              //= image_tag task.user.photo.url(:upload_preview) unless task.user.photo.blank?
-              = displaying_avatar(task.user.photo, :upload_preview)
+              = image_tag task.user.photo.url(:upload_preview)
             p.task-card-person__name
               = task.user.name
         .col
