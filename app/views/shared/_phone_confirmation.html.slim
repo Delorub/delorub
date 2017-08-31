@@ -19,7 +19,7 @@
         br
         span
          | Доступно через 00:20
-    .row v-else-if="!model.accepted"
+    .row.margin-bottom-05 v-else-if="!model.accepted"
       .col-xl-4.col-lg-6
         = f.input :phone, label: false, placeholder: 'Номер телефона', input_html: { \
           'name': nil, id: nil,

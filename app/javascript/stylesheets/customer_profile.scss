@@ -40,9 +40,11 @@
 
 .customer-welcome {
   &__content {
-    padding: 25px 40px;
     h2 {
       color: #9b9b9b;
+    }
+    p {
+      font-size: 15px;
     }
   }
 }

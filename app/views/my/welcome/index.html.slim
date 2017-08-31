@@ -6,7 +6,7 @@
         .dr-content-header
           h1
             | Ваш профиль заказчика
-        .dr-block-style.dr-block-style--category
+        .dr-block-style.dr-block-style--profile
           .customer-welcome__content
             h2 Здравствуйте, #{current_user.name}!
             br/
@@ -24,7 +24,8 @@
               | Бесплатно вы можете разместить не более #{User::FREE_TASKS} заданий в месяц.
             br/
             a.dr-btn-danger href=new_task_path  Создать задание
-          hr/
+          hr.dr-block-hr/
+          br/
           .customer-welcome__content
             p
               | Если вы хотите стать Исполнителем и начать зарабатывать, нажмите на кнопку
