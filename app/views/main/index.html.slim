@@ -12,55 +12,40 @@
         p
           | Без комиссий и платы за отклики для&nbsp;
           a.link-default href="#" исполнителей
-      = form_tag main_search_coming_soon_requests_path, method: :post
+      = form_tag categories_path, method: :get, class: 'search_categories'
         = hidden_field_tag :form_identity, 'main_form'
         = hidden_field_tag :form_keyword_field, 'query'
         .row
           .col-md-7
             .index-image-content__input
-              = text_field_tag :query, '', placeholder: 'Чем вам помочь?', id: 'can_i_help', class: 'form-control'
+              = content_tag 'category-suggest', ''
               = submit_tag 'Создать задание', class: 'dr-btn-danger'
       .index-image-content__sub
         p
           | Например,&nbsp;
-          a.link-default href="#" уборка квартиры
-          |  или&nbsp;
-          a.link-default href="#" доставка груза
+          - random_categories.each_with_index do |category, index|
+            - if index > 0
+              |  или&nbsp;
+            a.link-default href=new_task_path(category)
+              = category.title
 .container
   .index-content
     .index-content-block
       .index-header
         | Категории услуг
       .row.align-items-stretch
-        .col-md-4.col-margin-bottom
-          .dr-category.dr-category--courier
-            a href="#"
-              .dr-category__header
-                | Курьерская доставка
-            .dr-category__text
-              a href="#"  Услуги пешего курьера
-              a href="#"  Услуги курьера на легковом авто
-              a href="#"  Купить и доставить
-        .col-md-4.col-margin-bottom
-          .dr-category.dr-category--repair
-            a href="#"
-              .dr-category__header
-                | Бытовой ремонт
-            .dr-category__text
-              a href="#"  Ремонт под ключ
-              a href="#"  Мастер на час
-              a href="#"  Сантехнические работы
-        .col-md-4.col-margin-bottom
-          .dr-category.dr-category--cleaning
-            a href="#"
-              .dr-category__header
-                | Уборка
-            .dr-category__text
-              a href="#"  Генеральная уборка
-              a href="#"  Мытье окон
-              a href="#"  Поддерживающая уборка
+        - main_categories.each do |category|
+          .col-md-4.col-margin-bottom
+            .dr-category.dr-category--courier
+              a href=new_task_path(category)
+                .dr-category__header
+                  = category.title
+              .dr-category__text
+                - category.children.each do |child|
+                  a href=new_task_path(child)
+                    = child.title
       br/
-      a.dr-btn-default href="#"  Смотреть категории
+      a.dr-btn-default href=categories_path  Смотреть категории
     br/
     .index-content-block
       .how-it-works-block
