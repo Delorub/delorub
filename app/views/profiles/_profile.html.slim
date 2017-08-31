@@ -1,9 +1,10 @@
 - if collection.blank?
   .dr-block-style.dr-block-style--card
     p В данной категории пока нет ни одного исполнителя
-    p
-      b Станьте первым!
-    = link_to 'Стать исполнителем', new_profile_path, class: 'dr-btn-danger'
+    - if policy(Profile).new?
+      p
+        b Станьте первым!
+      = link_to 'Стать исполнителем', new_profile_path, class: 'dr-btn-danger'
 - else
   - profiles.each do |profile|
     .dr-block-style.dr-block-style--card

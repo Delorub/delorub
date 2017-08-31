@@ -38,15 +38,16 @@ class TaskDecorator < Draper::Decorator
   end
 
   def date_time_left
+    date_now = DateTime.now.getlocal.to_s(:db).to_datetime
     case object.date_type
       when 'end_at'
         return if object.date_actual.blank?
-        return I18n.t('task.time_is_over') if object.date_actual < DateTime.current
-        formatted_time_left object.date_actual.to_i - DateTime.current.to_i
+        return I18n.t('task.time_is_over') if object.date_actual < date_now
+        formatted_time_left object.date_actual.to_i - date_now.to_i
       when 'interval'
         return if object.date_interval_to.blank?
-        return I18n.t('task.time_is_over') if object.date_interval_to < DateTime.current
-        formatted_time_left object.date_interval_to.to_i - DateTime.current.to_i
+        return I18n.t('task.time_is_over') if object.date_interval_to < date_now
+        formatted_time_left object.date_interval_to.to_i - date_now.to_i
     end
   end
 

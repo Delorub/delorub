@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   include Pundit
   inherit_resources
 
-  before_action :category_present?, only: [:index]
+  before_action :category_present?, only: [:index, :new]
   helper_method :all_categories
 
   decorates_assigned :tasks, :task
