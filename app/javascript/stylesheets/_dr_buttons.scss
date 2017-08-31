@@ -1,4 +1,4 @@
-.dr-btn-default {  
+.dr-btn-default {
   color: #9b9b9b;
   background-color: #ffffff;
   box-shadow: 0 1px 4px 0 rgba(174, 173, 173, 0.5);
@@ -34,9 +34,9 @@
 }
 
 .dr-btn-primary {
-  @extend .dr-btn-default;  
-  color: #fff;  
-  background-color: $blueColor;  
+  @extend .dr-btn-default;
+  color: #fff;
+  background-color: $blueColor;
   &:hover {
     background-color: #70bee9;
     color: #fff;
@@ -48,7 +48,7 @@
   }
   &:visited {
     color: #fff;
-  }  
+  }
 }
 
 .dr-btn-danger {
@@ -78,10 +78,10 @@
   min-width: 190px;
 }
 
-.dr-btn-long {  
+.dr-btn-long {
   width: 100%;
 }
-  
+
 .dr-btn-190 {
   min-width: 190px;
 }
