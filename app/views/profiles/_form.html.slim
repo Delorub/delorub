@@ -68,7 +68,7 @@
                         .row.align-items-baseline
                           .margin-side
                             label for="profile_price_project" От
-                          .col-lg-6
+                          .col-lg-5
                             .input-group
                               = f.input :price_project, label: false, wrapper: false, error: false,
                                 input_html: { \
@@ -114,6 +114,5 @@
                   .dr-block-style
                     = render 'shared/user/new_user_form', f: rf
                 br/
-                .center
-                  = f.submit 'Сохранить', class: 'dr-btn-danger'
+                = f.submit 'Сохранить', class: 'dr-btn-primary'
           = render 'profiles/form/popovers'

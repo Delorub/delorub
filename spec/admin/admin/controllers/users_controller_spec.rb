@@ -43,7 +43,7 @@ describe Admin::UsersController, type: :controller do
   describe 'POST #create' do
     it 'checks the redirect status' do
       post :create, params: { user: params }
-      expect(response.status).to eq 200
+      expect(response.status).to eq 302
     end
   end
 

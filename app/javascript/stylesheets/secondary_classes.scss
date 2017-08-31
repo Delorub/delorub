@@ -17,6 +17,14 @@
   color: #9b9b9b;
 }
 
+.expand-block {
+  &--hide {
+    max-height: 100px;
+    overflow-y: hidden;
+    margin-bottom: 2rem;
+  }
+}
+
 .display-inline {
   display: inline-block;
 }
@@ -24,6 +32,18 @@
 .margin-side {
   margin-left: 15px;
   margin-right: 15px;
+}
+
+.margin-bottom-0 {
+  margin-bottom: 0;
+}
+
+.margin-bottom-05 {
+  margin-bottom: 0.5rem;
+}
+
+.margin-bottom-10 {
+  margin-bottom: 1rem;
 }
 
 .toggle-hr {

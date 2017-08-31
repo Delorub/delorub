@@ -4,11 +4,10 @@
     .performer-description-category
       .performer-description-category__header
         h5
-          a.link-default href="#"
-          = main_category_profile.main_category.title
+          a.link-default href=new_task_path(main_category_profile.main_category)
+            = main_category_profile.main_category.title
       .performer-description-category__text
         p
           b Цены
         p
           = simple_format main_category_profile.description
-  br/

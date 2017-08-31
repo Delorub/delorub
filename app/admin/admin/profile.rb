@@ -23,7 +23,7 @@ ActiveAdmin.register Profile, namespace: :admin do
   index do
     selectable_column
     column :name do |profile|
-      link_to profile.name, admin_profile_path(profile)
+      link_to profile.user.decorate.name, admin_profile_path(profile)
     end
     actions
   end

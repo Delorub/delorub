@@ -5,7 +5,7 @@ ActiveAdmin.register User, namespace: :admin do
   include ActiveAdminShared::UserPermission
   include ActiveAdminShared::UserBilling
 
-  permit_params :email, :name, :password, :photo, :phone
+  permit_params :email, :first_name, :last_name, :password, :photo, :phone
 
   form do |f|
     inputs 'Основное' do

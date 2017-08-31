@@ -46,7 +46,7 @@ Rails.application.routes.draw do
       end
     end
   end
-  resources :tasks, only: [:new, :create]
+  resources :tasks, only: [:new, :create], path_names: { new: 'new(/:category_id)' }
   resources :tasks, only: [:index] do
     collection do
       get '/my(/:category_id)',         action: :index, as: :my,        defaults: { scope: :my }
@@ -55,6 +55,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :categories, only: [:index]
   resources :deals, only: [:show] do
     resources :comments, only: [:create]
   end
