@@ -1,10 +1,10 @@
 .link-default {
-  color: #70bee9;
+  color: #519dc7;
   font-weight: bold;
   border-bottom: 1px dashed;
   transition: 0.3s;
   &:visited {
-    color: #70bee9;
+    color: #519dc7;
   }
   &:hover {
     color: #f44336 !important;
@@ -85,7 +85,7 @@
 }
 
 .link-font-light {
-  font-family: $GothamLight;
+  font-weight: normal;
 }
 
 .breadcrumb {
