@@ -1,6 +1,5 @@
 .link-default {
   color: #519dc7;
-  font-weight: bold;
   border-bottom: 1px dashed;
   transition: 0.3s;
   &:visited {
@@ -84,8 +83,8 @@
   }
 }
 
-.link-font-light {
-  font-weight: normal;
+.link-bold {
+  font-weight: bold;
 }
 
 .breadcrumb {

@@ -38,6 +38,9 @@
       }
     }
   }
+  &-refinement {
+    min-height: 68px;
+  }
   &-refinement, &-button {
     margin: 0 15px;
     &__price {
