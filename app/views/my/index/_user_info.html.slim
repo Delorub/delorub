@@ -1,0 +1,27 @@
+.dr-block-style
+  .dr-profile-card
+    .row
+      .col-md-2
+        .dr-profile-card__image
+          = image_tag current_user.photo.url(:upload_preview)
+          .performer-profile-main__status
+            = online_status current_user.online?
+      .col-md-10
+        .dr-profile-card__description
+          .dr-profile-card__name
+            h2 #{current_user.name}
+          .dr-profile-card__contacts
+            .row
+              - if current_user.phone.present?
+                .col-md-5
+                  span.dr-profile-card__contacts-header
+                    ' Телефон:
+                  span #{current_user.phone}
+              - if current_user.email.present?
+                .col-md-7
+                  span.dr-profile-card__contacts-header
+                    ' Почта:
+                  span #{current_user.email}
+          hr/
+          .row
+            = render 'my/shared/omniauth'
