@@ -4,17 +4,17 @@ module Task::Contract
     property :description
 
     property :category_id,
-      prepopulator: -> (options) {
+      prepopulator: ->(options) {
         return if options[:category].nil?
-        if options[:category].parent_id.nil?
-          self.category_id = options[:category].id
-        else
-          self.category_id = options[:category].parent_id
-        end
+        self.category_id = if options[:category].parent_id.nil?
+                             options[:category].id
+                           else
+                             options[:category].parent_id
+                           end
       }
     property :subcategory_ids,
       default: [],
-      prepopulator: -> (options) {
+      prepopulator: ->(options) {
         return if options[:category].nil?
         self.subcategory_ids = [options[:category].id] unless options[:category].parent_id.nil?
       },
