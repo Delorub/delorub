@@ -7,6 +7,10 @@ class UserDecorator < Draper::Decorator
     "#{first_name} #{last_name}".strip
   end
 
+  def formatted_name
+    "#{first_name} #{last_name.present? ? format('%s.', last_name[0]) : ''}".strip
+  end
+
   def online?
     User::OnlineService.new(self).online?
   end
