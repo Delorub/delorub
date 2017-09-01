@@ -102,6 +102,31 @@
   }
 }
 
+.index-block {
+  background-color: #fff;
+  padding: 50px 0;
+  box-shadow: 0 1px 3px 0 rgba(121, 120, 120, 0.5);
+}
+
+.index-category-links {
+  text-align: center;
+  a {
+    @extend .link-black;
+    font-size: 15px;
+    display: block;
+    padding: 5px 0;
+    &:first-child {
+      font-family: $GothamMedium;
+      font-size: 24px;
+    }
+    &:last-child {
+      @extend .link-default;
+      display: inline-block;
+      padding-bottom: 0;
+    }
+  }
+}
+
 .index-header {
   color: $color;
   font-size: 2.2rem;
