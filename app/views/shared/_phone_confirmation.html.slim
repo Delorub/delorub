@@ -11,9 +11,9 @@
         a.link-default :disabled="requesting" href="#" v-on:click.prevent="changePhone" Изменить
     .row v-if="!model.accepted && model.token"
       .col-lg-4.col-md-6
-        input.form-control.form-control__item :disabled="requesting" placeholder=("Введите код подтверждения") type="text" v-model.trim="code" /
+        input.form-control.form-control__item :disabled="requesting" placeholder=("Введите код подтверждения") id="sms_confirmation_code" type="text" v-model.trim="code" /
       .col-lg-4.col-md-6
-        input.dr-btn-default.dr-btn-default-margin-top-2 type="button" :disabled="requesting" role="button" v-on:click.prevent="checkCode" value="Подтвердить"
+        input.dr-btn-default.dr-btn-default-margin-top-2 type="button" :disabled="requesting" role="button" id="sms_confirm_phone" v-on:click.prevent="checkCode" value="Подтвердить"
       .col-lg-4.col-md-6.offset-lg-0.offset-md-6.phone-display-show
         a.link-default :disabled="requesting" href="#" v-on:click.prevent="requestToken"  Отправить повторно
         br
@@ -22,13 +22,13 @@
     .row.margin-bottom-05 v-else-if="!model.accepted"
       .col-xl-4.col-lg-6
         = f.input :phone, label: false, placeholder: 'Номер телефона', input_html: { \
-          'name': nil, id: nil,
+          'name': nil,
           ':disabled': 'requesting',
           'ref': 'phoneInput',
           'v-model.trim': 'model.phone' \
         }
       .col-xl-4.col-lg-6.col-margin-bottom
-        input.dr-btn-default.dr-btn-default-margin-top-2 type="button" :disabled="requesting" role="button" v-on:click.prevent="requestToken" value="Подтвердить"
+        input.dr-btn-default.dr-btn-default-margin-top-2 type="button" :disabled="requesting" role="button" id="sms_send_confirm_phone" v-on:click.prevent="requestToken" value="Подтвердить"
     .row v-if="model.accepted"
       .col.form__phone-change
         a.link-default :disabled="requesting" href="#" v-on:click.prevent="changePhone"  Изменить номер телефона

@@ -109,6 +109,7 @@ node_modules
 
 # Generated js bundles
 /public/packs
+/public/packs-test
 /node_modules
 
 Microsoft/*

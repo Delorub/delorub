@@ -5,7 +5,6 @@
       max-width: 90px;
       margin: 0 auto;
       img {
-        @extend .dr-image;
         border-radius: 50%;
         max-width: 90px;
         margin: 0 auto;
@@ -38,6 +37,9 @@
         margin-right: 5px;
       }
     }
+  }
+  &-refinement {
+    min-height: 68px;
   }
   &-refinement, &-button {
     margin: 0 15px;

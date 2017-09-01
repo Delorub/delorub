@@ -1,15 +1,16 @@
-.dr-radio {  
+.dr-radio {
   display: block;
   position: relative;
   float: left;
   input[type=radio] {
     position: absolute;
-    visibility: hidden;    
+    visibility: hidden;
   }
   label {
+    font-family: $GothamMedium;
     display: block;
     position: relative;
-    padding: 0 0 0 30px;  
+    padding: 0 0 0 30px;
     height: 30px;
     z-index: 9;
     cursor: pointer;
@@ -44,7 +45,7 @@
   &:hover .check {
     border: 2px solid $blueColor;
   }
-  &:active .check {  
+  &:active .check {
     box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.5);
   }
 }
@@ -58,7 +59,7 @@ input[type=radio] {
       border: 2px solid $blueColor;
       &:before {
         background: $blueColor;
-      }     
-    }    
+      }
+    }
   }
 }

@@ -24,8 +24,10 @@ import TimerCountdown from '../components/timer_countdown.vue'
 
 import 'selectize'
 
-let token = document.getElementsByName('csrf-token')[0].getAttribute('content')
-axios.defaults.headers.common['X-CSRF-Token'] = token
+let token = document.getElementsByName('csrf-token')[0]
+if (token !== undefined) {
+  axios.defaults.headers.common['X-CSRF-Token'] = token.getAttribute('content')
+}
 axios.defaults.headers.common['Accept'] = 'application/json'
 
 Vue.use(VueMeta)

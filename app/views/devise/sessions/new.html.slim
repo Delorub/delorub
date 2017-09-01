@@ -13,14 +13,14 @@
                     .col-xl-6
                       .form-check
                         .dr-radio
-                          = f.radio_button :sign_in_as, 'user'
-                          label for="user_sign_in_as_user" Как заказчик
+                          = f.radio_button :signed_in_as, 'user'
+                          label for="user_signed_in_as_user" Как заказчик
                           .check
                     .col-xl-6.xl-right
                       .form-check
                         .dr-radio
-                          = f.radio_button :sign_in_as, 'master'
-                          label for="user_sign_in_as_master" Как исполнитель
+                          = f.radio_button :signed_in_as, 'master'
+                          label for="user_signed_in_as_master" Как исполнитель
                           .check
 
                 .sign_in-form__inputs
