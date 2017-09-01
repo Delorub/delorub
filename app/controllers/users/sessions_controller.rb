@@ -9,7 +9,7 @@ class Users::SessionsController < Devise::SessionsController
     run User::Authentification, params.require(:user).permit! do |result|
       sign_in result['user']
 
-      if @form.signed_in_as == 'master' && !result['user'].profile.present?
+      if @form.signed_in_as == 'master' && result['user'].profile.blank?
         return redirect_to new_profile_path
       end
       session[:signed_in_as] = @form.signed_in_as
