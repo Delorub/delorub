@@ -3,19 +3,26 @@ class ApplicationController < ActionController::Base
   include RenderPageNotFound
   include VisitorSessionHandler
   include Authorization
+  include SignedInAs
 
   rescue_from ActiveRecord::RecordNotFound, ActionController::RoutingError, with: :rescue_not_found
   rescue_from Pundit::NotAuthorizedError, with: :rescue_not_authorized
 
+  before_action :current_user_update_online
   after_action :allow_iframe
 
   protect_from_forgery
 
-  def current_user
-    super&.decorate
-  end
-
   private
+
+    def current_user
+      super&.decorate
+    end
+
+    def current_user_update_online
+      return unless user_signed_in?
+      User::OnlineService.new(current_user).update_online
+    end
 
     def rescue_not_found exception
       raise exception if Rails.env.development?

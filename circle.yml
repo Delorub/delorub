@@ -13,6 +13,7 @@ database:
 machine:
   services:
     - elasticsearch
+    - redis
   node:
     version: 7.1.0
   ruby:

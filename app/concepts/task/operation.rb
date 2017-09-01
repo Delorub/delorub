@@ -13,7 +13,7 @@ class Task::Operation < Trailblazer::Operation
     end
 
     def prepopulate! options, params:, **_
-      options['contract.default'].prepopulate!
+      options['contract.default'].prepopulate! params
     end
   end
 

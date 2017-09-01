@@ -94,6 +94,12 @@ gem 'ipgeobase', git: 'https://github.com/mokevnin/ipgeobase'
 gem 'meta-tags', require: 'meta_tags'
 
 group :development, :test do
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'capybara-webkit'
+  gem 'capybara-screenshot'
+  gem 'capybara-vue'
+
   gem 'rspec'
   gem 'factory_girl_rails'
   gem 'faker'

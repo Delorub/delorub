@@ -2,14 +2,14 @@ class TasksController < ApplicationController
   include Pundit
   inherit_resources
 
-  before_action :category_present?, only: [:index]
+  before_action :category_present?, only: [:index, :new]
   helper_method :all_categories
 
   decorates_assigned :tasks, :task
 
   def new
     authorize Task
-    run Task::Operation::Present
+    run Task::Operation::Present, category: @category
   end
 
   def create
@@ -50,7 +50,7 @@ class TasksController < ApplicationController
     def category_present?
       return unless params[:category_id]
       @category = Category.friendly.where(slug: params[:category_id]).first
-      render_page_not_found if @category.blank?
+      not_found if @category.blank?
     end
 
     def all_categories

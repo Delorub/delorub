@@ -2,9 +2,10 @@ html, body, .wrap {height: 100%;}
 
 body {
   background-color: #edeef0;
-  font-family: $GothamPro;
+  font-family: $GothamLight;
   font-size: 14px;
   color: $color;
+  font-weight: 100;
 }
 
 h1 {
@@ -119,7 +120,7 @@ footer {
 
 .navbar-dr-theme {
   padding: 8px 10px;
-  box-shadow: 0 2px 10px 0 rgba(121, 120, 120, 0.5);
+  box-shadow: 0 1px 3px 0 rgba(121, 120, 120, 0.5);
   position: relative;
   z-index: 1;
   .navbar-collapse {
