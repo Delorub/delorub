@@ -23,7 +23,7 @@ class Users::SessionsController < Devise::SessionsController
   def sign_in_as
     not_found unless user_signed_in?
     not_found unless params[:type].in? %w[master user]
-    if params[:type] == 'master' && !current_user.profile.present?
+    if params[:type] == 'master' && current_user.profile.blank?
       return redirect_to new_profile_path
     end
     session[:signed_in_as] = params[:type]
