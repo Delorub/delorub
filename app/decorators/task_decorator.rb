@@ -38,7 +38,7 @@ class TaskDecorator < Draper::Decorator
   end
 
   def date_time_left
-    date_now = DateTime.now.getlocal.to_s(:db).to_datetime
+    date_now = DateTime.now.utc
     case object.date_type
       when 'end_at'
         return if object.date_actual.blank?
