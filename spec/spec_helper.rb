@@ -12,10 +12,34 @@ ActiveRecord::Migration.maintain_test_schema!
 
 WebMock.disable_net_connect!(allow_localhost: true)
 
+WebMock \
+  .stub_request(:get, 'https://smsc.ru/sys/send.php')
+  .with(query: WebMock.hash_including('fmt': '3'))
+  .to_return(
+    status: 200,
+    body: {
+      'id': '1',
+      'cnt': '1'
+    }.to_json
+  )
+
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, browser: :firefox)
+end
+
+Capybara::Webkit.configure do |config|
+  config.allow_unknown_urls
+  config.raise_javascript_errors = true
+end
+
 RSpec.configure do |config|
+  config.include Capybara::Vue::DSL
+
   # Ensure that if we are running js tests, we are using latest webpack assets
   # This will use the defaults of :js and :server_rendering meta tags
   config.filter_run_excluding search: true
+
+  Capybara.javascript_driver = :webkit
 
   config.include Rails.application.routes.url_helpers
 
@@ -35,6 +59,8 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     Place.reindex
+    Category.reindex
+    Task.reindex
     Searchkick.disable_callbacks
   end
 

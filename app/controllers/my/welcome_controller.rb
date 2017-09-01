@@ -1,3 +1,3 @@
-class My::WelcomeController < ApplicationController
+class My::WelcomeController < My::ApplicationController
   def index; end
 end

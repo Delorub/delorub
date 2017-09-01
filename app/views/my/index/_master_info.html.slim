@@ -1,0 +1,29 @@
+.dr-block-style
+  .dr-profile-card
+    .row
+      .col-md-2
+        .dr-profile-card__image
+          = image_tag current_user.photo.url(:upload_preview)
+          .performer-profile-main__status
+            = online_status current_user.online?
+      .col-md-10
+        .dr-profile-card__description
+          .dr-profile-card__name
+            h2 #{current_user.name}
+          .dr-profile-card__price
+            = current_user.profile.formatted_price
+          hr/
+          .row
+            .col-md
+              p
+                b
+                  ' Возраст:
+                span.gray-text = current_user.profile.formatted_age
+            .col-md
+              p
+                b
+                  ' Город:
+                span.gray-text
+                  i.fa.fa-map-marker aria-hidden="true"
+                  '
+                  = current_user.profile.formatted_city_name

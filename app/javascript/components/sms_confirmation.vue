@@ -17,10 +17,12 @@ export default {
     }
   },
   mounted () {
-    this.phoneCleave = new Cleave(this.$refs.phoneInput, {
-      phone: true,
-      phoneRegionCode: 'RU'
-    })
+    if (this.$refs.phoneInput !== undefined) {
+      this.phoneCleave = new Cleave(this.$refs.phoneInput, {
+        phone: true,
+        phoneRegionCode: 'RU'
+      })
+    }
   },
   methods: {
     changePhone: function () {

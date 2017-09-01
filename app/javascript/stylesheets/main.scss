@@ -2,12 +2,13 @@ html, body, .wrap {height: 100%;}
 
 body {
   background-color: #edeef0;
-  font-family: $GothamPro;
-  font-size: 14px;  
+  font-family: $GothamLight;
+  font-size: 14px;
   color: $color;
+  font-weight: 100;
 }
 
-h1 {  
+h1 {
   font-size: 24px;
   font-family: $GothamBold;
   color: $color;
@@ -81,7 +82,7 @@ footer {
     justify-content: space-between;
     padding: 5px 0;
   }
-  &__link {    
+  &__link {
     margin-left: 30px;
     color: #fff;
     &:hover {
@@ -91,15 +92,18 @@ footer {
       color: #fff;
     }
   }
-  &__city {    
+  &__link.active {
+    color: $blueColor;
+  }
+  &__city {
     color: #fff;
     opacity: 1;
     margin-left: 0.2rem;
-    border-bottom: 1px dashed;    
+    border-bottom: 1px dashed;
   }
   &__left {
-    color: #fff;      
-  }  
+    color: #fff;
+  }
 }
 
 .navbar-toggler {
@@ -116,7 +120,7 @@ footer {
 
 .navbar-dr-theme {
   padding: 8px 10px;
-  box-shadow: 0 2px 10px 0 rgba(121, 120, 120, 0.5);
+  box-shadow: 0 1px 3px 0 rgba(121, 120, 120, 0.5);
   position: relative;
   z-index: 1;
   .navbar-collapse {
@@ -139,12 +143,12 @@ footer {
         transition: $transition;
         &:hover {
           color: $blueColor;
-        }        
+        }
       }
       > .nav-link.active {
         @extend .link-secondary;
       }
-    }    
+    }
   }
   .navbar-right {
     li {

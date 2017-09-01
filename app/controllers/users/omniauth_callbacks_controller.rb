@@ -15,11 +15,25 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     redirect_to new_user_session_path, alert: 'Не удалось войти через социальные сети'
   end
 
-  helper_method :resource, :resource_name, :devise_mapping
-
   private
 
-    def authorize_omniauth
+    def authorize_omniauth_to_current_user
+      @omniauth = User::OmniauthRelation.find_or_initialize_by \
+        provider: omniauth_data.provider,
+        external_id: omniauth_data.uid
+
+      if @omniauth.user.present?
+        return redirect_to my_index_index_path, alert: 'Этот аккаунт уже привязан к другому профилю'
+      end
+
+      @omniauth.data = omniauth_data
+      @omniauth.user = current_user
+      @omniauth.save
+
+      redirect_to my_index_index_path
+    end
+
+    def authorize_omniauth_to_new_user
       @omniauth = User::OmniauthRelation.find_or_initialize_by \
         provider: omniauth_data.provider,
         external_id: omniauth_data.uid
@@ -32,6 +46,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       return success_sign_in @user if @user
 
       failure
+    end
+
+    def authorize_omniauth
+      return authorize_omniauth_to_current_user if user_signed_in?
+      authorize_omniauth_to_new_user
     end
 
     def omniauth_data

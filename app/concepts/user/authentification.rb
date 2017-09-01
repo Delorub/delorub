@@ -1,10 +1,11 @@
 class User::Authentification < Trailblazer::Operation
   class Form < Reform::Form
-    property :sign_in_as, virtual: true, default: 'user'
+    property :signed_in_as, virtual: true, default: 'user'
     property :email
     property :password
 
-    validates :email, :password, presence: true
+    validates :email, :password, :signed_in_as, presence: true
+    validates :signed_in_as, inclusion: { in: %w[user master] }
   end
 
   class Present < Trailblazer::Operation

@@ -3,9 +3,21 @@ module Task::Contract
     property :title
     property :description
 
-    property :category_id
+    property :category_id,
+      prepopulator: ->(options) {
+        return if options[:category].nil?
+        self.category_id = if options[:category].parent_id.nil?
+                             options[:category].id
+                           else
+                             options[:category].parent_id
+                           end
+      }
     property :subcategory_ids,
       default: [],
+      prepopulator: ->(options) {
+        return if options[:category].nil?
+        self.subcategory_ids = [options[:category].id] unless options[:category].parent_id.nil?
+      },
       populator: ->(fragment:, **) {
         self.subcategory_ids = Category.where(id: fragment).pluck(:id)
       }

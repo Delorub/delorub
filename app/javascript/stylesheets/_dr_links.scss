@@ -1,10 +1,9 @@
 .link-default {
-  color: #70bee9;
-  font-weight: bold;
+  color: #519dc7;
   border-bottom: 1px dashed;
   transition: 0.3s;
   &:visited {
-    color: #70bee9;
+    color: #519dc7;
   }
   &:hover {
     color: #f44336 !important;
@@ -25,14 +24,14 @@
 }
 
 .link-header {
-  @extend .link-default;  
+  @extend .link-default;
 }
 
 .link-white {
   transition: 0.3s;
   color: #d1d1d1;
-  font-size: 0.8rem;  
-  &:hover {    
+  font-size: 0.8rem;
+  &:hover {
     color: #70bee9 !important;
   }
   &:active {
@@ -44,9 +43,9 @@
   &-bold {
     transition: 0.3s;
     font-weight: bold;
-    color: #ffffff;    
+    color: #ffffff;
     font-size: 1.1rem;
-    &:hover {      
+    &:hover {
       color: #70bee9 !important;
     }
     &:active {
@@ -58,12 +57,34 @@
   }
 }
 
+.link-black {
+  color: $color;
+  transition: 0.3s;
+  &:hover {
+    color: $blueColor;
+  }
+}
+
 .link-secondary {
   color: $blueColor;
   transition: 0.3s;
   &:hover {
     color: #2a6585;
   }
+}
+
+.link-error {
+  font-family: $GothamMedium;
+  color: #f44336;
+  font-size: 20px;
+  transition: .3s;
+  &:hover {
+    color: #2a6585;
+  }
+}
+
+.link-bold {
+  font-weight: bold;
 }
 
 .breadcrumb {
@@ -73,10 +94,7 @@
   background-color: inherit;
   margin-bottom: 10px;
   &-item {
-    color: $blueColor;
-    &:hover {
-      color: #2a6585;
-    }
+    @extend .link-secondary;
   }
 }
 

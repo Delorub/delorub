@@ -1,4 +1,8 @@
 class CategoryPhotoUploader < BaseUploader
+  def default_url
+    '/images/category/missing.png'
+  end
+
   def filename
     "original.#{model.photo.file.extension}" if original_filename
   end

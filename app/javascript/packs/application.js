@@ -19,11 +19,14 @@ import TaskForm from '../components/task_form.vue'
 import TaskMap from '../components/task_map.vue'
 import ProfileForm from '../components/profile_form.vue'
 import UploadForm from '../components/upload_form.vue'
+import CategorySuggest from '../components/category_suggest.vue'
 
 import 'selectize'
 
-let token = document.getElementsByName('csrf-token')[0].getAttribute('content')
-axios.defaults.headers.common['X-CSRF-Token'] = token
+let token = document.getElementsByName('csrf-token')[0]
+if (token !== undefined) {
+  axios.defaults.headers.common['X-CSRF-Token'] = token.getAttribute('content')
+}
 axios.defaults.headers.common['Accept'] = 'application/json'
 
 Vue.use(VueMeta)
@@ -38,6 +41,7 @@ Vue.component('sms-confirmation', SmsConfirmation)
 Vue.component('profile-form', ProfileForm)
 Vue.component('task-form', TaskForm)
 Vue.component('task-map', TaskMap)
+Vue.component('category-suggest', CategorySuggest)
 
 document.addEventListener('DOMContentLoaded', () => {
   // eslint-disable-next-line no-new

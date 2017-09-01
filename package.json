@@ -20,6 +20,7 @@
     "compression-webpack-plugin": "^0.4.0",
     "css-loader": "^0.28.4",
     "dropzone": "^5.1.1",
+    "es6-promise-promise": "^1.0.0",
     "eslint": "^4.2.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-loader": "^1.9.0",

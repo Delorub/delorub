@@ -10,14 +10,13 @@
       max-width: 90px;
       margin: 0 auto;
       img {
-        @extend .dr-image;
         border-radius: 50%;
         max-width: 90px;
         margin: 0 auto;
         margin-top: 5px;
       }
       &--online::after {
-        bottom: 5%;
+        bottom: 0;
         right: 10%;
         border: 2px solid #fff;
         height: 14px;
