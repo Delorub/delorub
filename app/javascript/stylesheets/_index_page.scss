@@ -105,6 +105,51 @@
   background-color: #fff;
   padding: 50px 0;
   box-shadow: 0 1px 3px 0 rgba(121, 120, 120, 0.5);
+  &__header {
+    font-family: $GothamBold;
+    font-size: 36px;
+    text-align: center;
+  }
+  &__footer {
+    font-size: 24px;
+    font-family: $GothamMedium;
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 30px;
+  }
+}
+
+.index-step {
+  @media (min-width: 1200px) {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+  }
+  margin-top: 70px;
+  display: flex;
+  line-height: 28px;
+  box-shadow: 0 1px 3px 0 rgba(121, 120, 120, 0.5);
+  &__text {
+    padding: 40px 60px 30px 60px;
+    a {
+      font-family: $GothamMedium;
+      font-size: 32px;
+    }
+    p {
+      margin-top: 10px;
+      line-height: 28px;
+      font-size: 24px;
+      color: #6a676b;
+    }
+    span {
+      font-family: $GothamMedium;
+      font-size: 32px;
+    }
+  }
+  &__image {
+    @media (max-width: 1199px) {
+      display: none;
+    }
+  }
 }
 
 .index-category-links {
