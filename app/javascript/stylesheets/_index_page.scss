@@ -119,6 +119,40 @@
   }
 }
 
+.index-reference {
+  padding: 110px 20% 110px 27%;
+  color: #fff;
+  display: flex;
+  //justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  &__text {
+    span {
+      font-family: $GothamMedium;
+      font-size: 30px;
+      line-height: 25px;
+    }
+    p {
+      font-size: 15px;
+      line-height: 18px;
+      margin-top: 10px;
+    }
+  }
+  &--first {
+    background-image: url('/images/design/bottom_block_1.jpg');
+    margin-top: 70px;
+  }
+  &--second {
+    background-image: url('/images/design/bottom_block_2.jpg');
+    margin-top: 20px;
+  }
+  &--third {
+    background-image: url('/images/design/bottom_block_3.jpg');
+    margin-top: 20px;
+  }
+}
+
 .index-step {
   @media (min-width: 1200px) {
     border-bottom-left-radius: 5px;
