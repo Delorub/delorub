@@ -120,6 +120,16 @@ ru:
         few: Финансовых отчета
         many: Финансовых отчетов
         other: Финансовые отчеты
+      city:
+        one: Город
+        few: Города
+        many: Городов
+        other: Города
+      city_category:
+        one: Настройки города
+        few: Настройки городов
+        many: Настройки городов
+        other: Настройки городов
     attributes:
       user:
         email: "E-mail"
@@ -301,3 +311,6 @@ ru:
         first_form_keyword: Заполненная форма
         first_link_keyword: Переход по ссылке
         source_and_identity: Источник
+      city:
+        code: Код
+        active: Активный
