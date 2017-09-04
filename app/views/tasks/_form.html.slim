@@ -11,7 +11,8 @@
           a.breadcrumb-item href=root_path  Главная
           span.breadcrumb-item.active Создать задание
         .dr-content-header
-          h1 Создать задание
+          h1
+            = "Создать задание #{@category.present? ? format('| %s', @category.title) : ''}"
         .row
           .col-xl-8
             .dr-form
