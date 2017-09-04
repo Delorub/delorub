@@ -12,6 +12,6 @@ module TaskHelper
   end
 
   def time_expires_before_tomorrow? type_date, time
-    type_date && time.present? && time <= DateTime.current + 1.day
+    type_date && time.present? && time <= DateTime.now.utc + 1.day
   end
 end

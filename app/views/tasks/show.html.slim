@@ -8,7 +8,7 @@
             .task-profile-card-person
               .row
                 .col-lg-5
-                  .master-card-person__image
+                  .master-card-person__image *{class: task.user.online? ? 'master-card-person__image--online' : '' }
                     = image_tag task.user.photo.url(:upload_preview)
                 .col-lg-7
                   .task-profile-card-person__name
