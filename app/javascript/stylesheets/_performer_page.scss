@@ -138,6 +138,7 @@
     p {
       display: flex;
       justify-content: center;
+      align-items: center;
     }
     i.fa {
       font-size: 1.4rem;
@@ -146,6 +147,9 @@
     }
     i.fa-envelope-o {
       font-size: 1.1rem;
+    }
+    i+i {
+      margin-left: 2rem;
     }
   }
 }
