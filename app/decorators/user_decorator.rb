@@ -14,4 +14,8 @@ class UserDecorator < Draper::Decorator
   def online?
     User::OnlineService.new(self).online?
   end
+
+  def login_credentials_text
+    [phone, email].compact.join(' или ')
+  end
 end

@@ -21,6 +21,7 @@ import ProfileForm from '../components/profile_form.vue'
 import UploadForm from '../components/upload_form.vue'
 import CategorySuggest from '../components/category_suggest.vue'
 import TimerCountdown from '../components/timer_countdown.vue'
+import SignInForm from '../components/sign_in_form.vue'
 
 import 'selectize'
 
@@ -44,6 +45,7 @@ Vue.component('task-form', TaskForm)
 Vue.component('task-map', TaskMap)
 Vue.component('category-suggest', CategorySuggest)
 Vue.component('timer-countdown', TimerCountdown)
+Vue.component('sign-in-form', SignInForm)
 
 document.addEventListener('DOMContentLoaded', () => {
   // eslint-disable-next-line no-new

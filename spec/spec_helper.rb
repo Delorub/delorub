@@ -12,17 +12,6 @@ ActiveRecord::Migration.maintain_test_schema!
 
 WebMock.disable_net_connect!(allow_localhost: true)
 
-WebMock \
-  .stub_request(:get, 'https://smsc.ru/sys/send.php')
-  .with(query: WebMock.hash_including('fmt': '3'))
-  .to_return(
-    status: 200,
-    body: {
-      'id': '1',
-      'cnt': '1'
-    }.to_json
-  )
-
 Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, browser: :firefox)
 end
@@ -56,6 +45,19 @@ RSpec.configure do |config|
   end
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
+
+  config.before :each do
+    WebMock \
+      .stub_request(:get, 'https://smsc.ru/sys/send.php')
+      .with(query: WebMock.hash_including('fmt': '3'))
+      .to_return(
+        status: 200,
+        body: {
+          'id': '1',
+          'cnt': '1'
+        }.to_json
+      )
+  end
 
   config.before(:suite) do
     Place.reindex
