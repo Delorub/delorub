@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170904083737) do
+ActiveRecord::Schema.define(version: 20170905143509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -302,6 +302,8 @@ ActiveRecord::Schema.define(version: 20170904083737) do
     t.float "rating"
     t.date "birthday"
     t.string "city_name"
+    t.bigint "city_id"
+    t.index ["city_id"], name: "index_profiles_on_city_id"
   end
 
   create_table "replies", id: :serial, force: :cascade do |t|
@@ -377,7 +379,9 @@ ActiveRecord::Schema.define(version: 20170904083737) do
     t.datetime "date_interval_from"
     t.datetime "date_interval_to"
     t.string "aasm_state"
+    t.bigint "city_id"
     t.index ["aasm_state"], name: "index_tasks_on_aasm_state"
+    t.index ["city_id"], name: "index_tasks_on_city_id"
   end
 
   create_table "user_billing_logs", id: :serial, force: :cascade do |t|

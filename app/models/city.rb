@@ -18,6 +18,9 @@ class City < ApplicationRecord
   has_many :city_categories
   has_many :categories, through: :city_categories
 
+  has_many :profiles
+  has_many :tasks
+
   validates :name, :code, presence: true, length: { maximum: 250 }
   validates :code, uniqueness: true
 

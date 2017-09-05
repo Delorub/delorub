@@ -13,12 +13,18 @@
 #  rating             :float
 #  birthday           :date
 #  city_name          :string
+#  city_id            :integer
+#
+# Indexes
+#
+#  index_profiles_on_city_id  (city_id)
 #
 
 class Profile < ApplicationRecord
   include Searchable::Profile
 
   belongs_to :user
+  belongs_to :city
 
   has_and_belongs_to_many :categories
 

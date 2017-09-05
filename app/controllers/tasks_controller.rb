@@ -3,7 +3,9 @@ class TasksController < ApplicationController
   inherit_resources
 
   before_action :category_present?, only: [:index, :new]
-  helper_method :all_categories
+  before_action :city_present?, only: [:index]
+  before_action :city_settings, only: [:index]
+  helper_method :all_categories, :active_cities
 
   decorates_assigned :tasks, :task
 
@@ -53,8 +55,23 @@ class TasksController < ApplicationController
       not_found if @category.blank?
     end
 
+    def city_present?
+      return if params[:city_code].blank?
+      @city = City.where(code: params[:city_code]).first
+      not_found if @city.blank?
+    end
+
+    def city_settings
+      return unless @city && @category
+      @city_settings = @city.city_categories.with_settings_type(:task).where(category_id: @category.id).first
+    end
+
     def all_categories
       @all_categories = Category.roots.includes(:children).order(:position)
+    end
+
+    def active_cities
+      @active_cities = City.active
     end
 
     def task_params

@@ -1,19 +1,12 @@
-- h1 = @category.settings.dig(:h1) if @category
 nav.breadcrumb
   = link_to 'Главная', root_path, class: 'breadcrumb-item'
   - if @category
     span.breadcrumb-item.active
-      = h1.blank? ? @category.title : h1
+      = h1
   - elsif @task
     = link_to 'Все задания', tasks_path, class: 'breadcrumb-item'
     span.breadcrumb-item.active
       = task.title
   - else
     span.breadcrumb-item.active
-      | Все задания
-.dr-content-header
-  h1
-    - if @category || task
-      = task.present? ? task.title : format('Задания в категории "%s"', formatted_header_category(@category))
-    - else
-      | Все задания
+      = h1.present? ? h1 : 'Все задания'

@@ -15,7 +15,7 @@ class ProfileDecorator < Draper::Decorator
   end
 
   def formatted_city_name
-    object.city_name.present? ? object.city_name : I18n.t(:not_specified)
+    object.city.present? ? object.city.name : I18n.t(:not_specified)
   end
 
   def formatted_price

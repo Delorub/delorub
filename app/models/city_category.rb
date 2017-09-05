@@ -23,5 +23,5 @@ class CityCategory < ApplicationRecord
   belongs_to :category
 
   serialize :settings, OpenStruct
-  enumerize :settings_type, in: [:task, :profile]
+  enumerize :settings_type, in: [:task, :profile], scope: true
 end

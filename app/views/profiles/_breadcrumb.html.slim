@@ -2,11 +2,11 @@ nav.breadcrumb
   = link_to 'Главная', root_path, class: 'breadcrumb-item'
   - if @category
     span.breadcrumb-item.active
-      = format('Исполнители в категории "%s"', formatted_header_category(@category))
+      = h1
   - elsif @profile
     = link_to 'Все исполнители', profiles_path, class: 'breadcrumb-item'
     span.breadcrumb-item.active
       = profile.user.name
   - else
     span.breadcrumb-item.active
-      | Все исполнители
+      = h1.present? ? h1 : 'Все исполнители'

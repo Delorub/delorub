@@ -1,0 +1,18 @@
+.dr-block-style.dr-block-style--category
+  .subcategories
+    p.subcategories__header
+      | Город
+    .subcategories-list
+      = content_tag 'city-select', '',
+        ':cities-list': active_cities.map{ |a| { name: a.name, code: a.code }}.to_json,
+        'city-selected': @city.present? ? @city.name : '',
+        'redirect-url': url,
+        'inline-template':true \
+        do
+        = content_tag 'custom-multiselect', '',
+          'v-model': 'cityValue',
+          ':searchable': 'false',
+          ':allow-empty': 'false',
+          'placeholder': 'Выберите город',
+          ':options': active_cities.pluck(:name).to_json,
+          '@select': 'populateCities'
