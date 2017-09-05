@@ -7,10 +7,10 @@ class User::Registration < Trailblazer::Operation
       populator: ->(model:, fragment:, **) {
         self.sms_confirmation = SmsConfirmation.find_by(
           token: fragment['token'],
-          phone: fragment['phone']
+          phone: PhonyRails.normalize_number(fragment['phone'])
         ) || SmsConfirmation.new
       },
-      form: SmsConfirmation::Contract::Form,
+      form: SmsConfirmation::Contract::UserRegistrationForm,
       virtual: true
     property :accept_terms, virtual: true, default: false
 
@@ -31,11 +31,25 @@ class User::Registration < Trailblazer::Operation
   end
 
   step Nested(Present)
-  step :generate_and_send_password!
   step Contract::Validate()
+  step :set_phone!
+  step :generate_password!
   step Contract::Persist()
+  step :send_welcome_email!
 
-  def generate_and_send_password! options, model:, **_
-    model.password = 'test123'
+  def set_phone! options, model:, **_
+    model.phone = options['contract.default'].sms_confirmation.phone
+    true
+  end
+
+  def generate_password! options, model:, **_
+    options['generated_password'] = Devise.friendly_token 6
+    model.password = options['generated_password']
+    true
+  end
+
+  def send_welcome_email! generated_password:, model:, **_
+    UserMailer.welcome(user: model, password: generated_password).deliver
+    true
   end
 end

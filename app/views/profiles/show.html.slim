@@ -6,6 +6,8 @@
           .performer-profile-main.center
             .performer-profile-main__image
               = image_tag profile.user.photo.url(:upload_medium)
+              .performer-profile-main__status
+                = online_status profile.user.online?
             .performer-profile-main__price
               = profile.formatted_price
             .performer-profile-main__button

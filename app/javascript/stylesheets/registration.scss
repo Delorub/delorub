@@ -5,23 +5,30 @@
   &__content {
     margin-top: 2rem;
     &-circle {
-      text-align: center;      
+      text-align: center;
       &__header {
         margin-bottom: 1rem;
       }
       &__item {
-        display: inline-block;		
+        display: inline-block;
         margin: 0 11px;
         img {
           width: 42px;
-        }        
+        }
       }
-    }    
-    &-button-submit {      
+    }
+    &-button-submit {
       margin-top: 2rem;
     }
   }
   &-container {
     padding: 20px 50px;
+  }
+  &__links {
+    margin-bottom: 3rem;
+    margin-top: -1rem;
+    a+a {
+      margin-left: 2rem;
+    }
   }
 }

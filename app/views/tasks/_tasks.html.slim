@@ -10,7 +10,7 @@
       .row
         .col-lg-2
           .task-card-person
-            .task-card-person__image
+            .task-card-person__image *{class: task.user.online? ? 'master-card-person__image--online' : '' }
               = image_tag task.user.photo.url(:upload_preview)
             p.task-card-person__name
               = task.user.name
@@ -28,7 +28,7 @@
                   - if time_expires_before_tomorrow?(task.date_type.end_at?, task.date_actual) || time_expires_before_tomorrow?(task.date_type.interval?, task.date_interval_to)
                     p.task-card-refinement__time.task-card-refinement__time--quickly
                       i.fa.fa-clock-o aria-hidden="true"
-                      = " #{task.date_time_left}"
+                      = content_tag 'timer-countdown', '', 'expire_date': task.date_type.end_at? ? task.date_actual.to_s(:db) : task.date_interval_to.to_s(:db)
                   - else
                     p.task-card-refinement__time
                       = 'С ' if task.date_type.start_at? && task.date_actual.present?

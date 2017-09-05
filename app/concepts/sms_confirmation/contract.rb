@@ -16,6 +16,10 @@ module SmsConfirmation::Contract
         def accepted? value
           value
         end
+
+        def user_unique? value
+          User.by_phone(value).empty?
+        end
       end
 
       required(:phone).filled(:str?, :phone?)
@@ -31,6 +35,12 @@ module SmsConfirmation::Contract
       rule(phone: [:phone, :accepted]) do |phone, accepted|
         phone.filled? & accepted.accepted?
       end
+    end
+  end
+
+  class UserRegistrationForm < Form
+    validation :default, inherit: true do
+      required(:phone).filled(user_unique?: :phone)
     end
   end
 end
