@@ -49,26 +49,28 @@
     &__header {
       font-weight: bold;
       font-size: 1.2rem;
-      margin-bottom: 0;
+      margin-bottom: 1.5rem;
       a {
         @extend .link-default;
       }
     }
     &__offline {
       color: #9b9b9b;
+      position: absolute;
       font-size: 0.62rem;
-      margin-bottom: 0.5rem;
+      top: 4rem;
+      @media (min-width: 1200px) {
+        top: 2rem;
+      }
+
       &--hide {
-        opacity: 0;
+        display: none;
       }
     }
     &__price {
       font-size: 1.3rem;
       margin-right: 15px;
       font-weight: bold;
-    }
-    &__text {
-
     }
     &__phone {
       margin-left: 2rem;
