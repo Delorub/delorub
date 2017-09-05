@@ -12,6 +12,28 @@ feature 'User signs up' do
     expect(page).not_to have_css('#header_sign_in')
   end
 
+  scenario 'with existing phone', js: true do
+    create(:user, email: 'someone2@example.tld', phone: '+79991234567', password: 'somepassword')
+
+    visit new_user_registration_path
+
+    register 'Alex', 'someone@example.tld', '+79991234567'
+
+    expect(current_path).to eq user_registration_path
+    expect(page).to have_css('#header_sign_up')
+  end
+
+  scenario 'with existing email', js: true do
+    create(:user, email: 'someone@example.tld', phone: '+79991234567', password: 'somepassword')
+
+    visit new_user_registration_path
+
+    register 'Alex', 'someone@example.tld', '+79991111111'
+
+    expect(current_path).to eq user_registration_path
+    expect(page).to have_css('#header_sign_up')
+  end
+
   private
 
     def register first_name, email, phone

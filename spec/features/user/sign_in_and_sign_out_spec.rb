@@ -1,6 +1,6 @@
-feature 'User logs in and logs out' do
+feature 'User signs in and signs out' do
   scenario 'with correct details', js: true do
-    create(:user, email: 'someone@example.tld', password: 'somepassword')
+    create(:user, email: 'someone@example.tld', phone: '+79991234567', password: 'somepassword')
 
     visit '/'
 
@@ -18,6 +18,12 @@ feature 'User logs in and logs out' do
 
     expect(current_path).to eq '/'
     expect(page).to have_css('#header_sign_in')
+
+    click_link 'header_sign_in'
+    login '+79991234567', 'somepassword'
+
+    expect(current_path).to eq '/'
+    expect(page).not_to have_css('#header_sign_in')
   end
 
   scenario 'with incorrect details', js: true do
@@ -34,7 +40,7 @@ feature 'User logs in and logs out' do
   private
 
     def login email, password
-      fill_in 'user_email', with: email
+      fill_in 'user_email_or_phone', with: email
       fill_in 'user_password', with: password
       click_button 'Войти'
     end

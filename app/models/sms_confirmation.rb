@@ -14,5 +14,8 @@
 #
 
 class SmsConfirmation < ApplicationRecord
+  phony_normalize :phone
+  phony_normalized_method :phone
+
   validates :phone, :token, :code, presence: true
 end
