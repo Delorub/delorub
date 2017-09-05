@@ -8,12 +8,6 @@
   - tasks.each do |task|
     .dr-block-style.dr-block-style--card
       .row
-        .col-lg-2
-          .task-card-person
-            .task-card-person__image *{class: task.user.online? ? 'master-card-person__image--online' : '' }
-              = image_tag task.user.photo.url(:upload_preview)
-            p.task-card-person__name
-              = task.user.name
         .col
           .row
             .col
@@ -24,6 +18,11 @@
               .task-card-refinement
                 p.task-card-refinement__price
                   = task.price_exact.blank? ? 'Не указана' : "#{task.price_exact} руб."
+                p.task-card-refinement__date
+                  | Дата размещения
+                  br/
+                  span
+                    17.12.2017
                 - unless task.date_type.blank?
                   - if time_expires_before_tomorrow?(task.date_type.end_at?, task.date_actual) || time_expires_before_tomorrow?(task.date_type.interval?, task.date_interval_to)
                     p.task-card-refinement__time.task-card-refinement__time--quickly
@@ -40,5 +39,4 @@
                 p.task-card-description__adress
                   i.fa.fa-map-marker aria-hidden="true"
                   = task.place_address
-            .task-card-button
   = paginate collection, theme: 'custom_theme'
