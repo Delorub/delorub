@@ -74,6 +74,8 @@ class User < ApplicationRecord
   validates :balance, numericality: { greater_than_or_equal_to: 0 }
   validates :phone, phony_plausible: true
 
+  scope :by_phone, ->(phone) { where(phone: PhonyRails.normalize_number(phone)) }
+
   has_secure_token :access_token
 
   mount_uploader :photo, UserPhotoUploader

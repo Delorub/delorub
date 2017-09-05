@@ -4,43 +4,59 @@
       .row
         .col-lg-5.offset-lg-1.col-md-6.offset-md-0
           .dr-block-style.dr-block-style--sign-in
-            .sign_in-form
-              .sign_in-form__header
-                | Войти
-              .sign_in-form__content
-                fieldset.form-group
-                  .row
-                    .col-xl-6
-                      .form-check
-                        .dr-radio
-                          = f.radio_button :signed_in_as, 'user'
-                          label for="user_signed_in_as_user" Как заказчик
-                          .check
-                    .col-xl-6.xl-right
-                      .form-check
-                        .dr-radio
-                          = f.radio_button :signed_in_as, 'master'
-                          label for="user_signed_in_as_master" Как исполнитель
-                          .check
-
-                .sign_in-form__inputs
-                  = f.input :email, autofocus: true, label: false,
-                    input_html: { class: 'form-control form-control__item' },
-                    wrapper: false, placeholder: 'Ваш email'
-                  = f.input :password, label: false,
-                    input_html: { class: 'form-control form-control__item' },
-                    wrapper: false, placeholder: 'Пароль'
-                .sign_in-form__sms
-                  a.link-default.right.margin-bottom-05 href="#" Войти через СМС
-                .sign_in-form__enter
-                  input.dr-btn-primary type="submit" value="Войти"
-                  .sign_in-form__remind
-                    a.link-default href=new_password_path(resource_name) Забыли пароль?
-                hr/
-                .registration-form__content-circle
-                  .registration-form__content-circle.registration-form__content-circle__header
-                    | Или войти через
-                  = render 'devise/shared/omniauth'
+            = content_tag 'sign-in-form', 'inline-template': true, ':initial-model': f.object.to_nested_hash.to_json do
+              .sign_in-form
+                .sign_in-form__header
+                  | Войти
+                .sign_in-form__content
+                  fieldset.form-group
+                    .row
+                      .col-xl-6
+                        .form-check
+                          .dr-radio
+                            = f.radio_button :sign_in_as, 'user'
+                            label for="user_sign_in_as_user" Как заказчик
+                            .check
+                      .col-xl-6.xl-right
+                        .form-check
+                          .dr-radio
+                            = f.radio_button :sign_in_as, 'master'
+                            label for="user_sign_in_as_master" Как исполнитель
+                            .check
+                  template v-if=%(sign_in_by == 'sms')
+                    .form__phone
+                      span.form__phone-number
+                        | {{model.email_or_phone}}&nbsp;
+                    .row
+                      .col-lg-6
+                        = f.input_field :email_or_phone, as: :hidden, 'v-model.trim': 'model.email_or_phone'
+                        input type="hidden" name="user[sms_confirmation][token]" v-model="model.sms_confirmation.token" /
+                        input.form-control.form-control__item :disabled="requesting" name="user[sms_confirmation][code]" placeholder=("Код из СМС") id="sms_confirmation_code" type="text" v-model.trim="model.code" /
+                      .col-lg-6
+                        a.link-default :disabled="requesting" href="#" v-on:click.prevent="requestToken"  Отправить повторно
+                        br
+                        span
+                         | Доступно через 00:20
+                  template v-else=""
+                    .sign_in-form__inputs
+                      = f.input :email_or_phone, autofocus: true, label: false,
+                        input_html: { class: 'form-control form-control__item', 'v-model.trim': 'model.email_or_phone' },
+                        wrapper: false, placeholder: 'Ваш email или номер телефона'
+                      = f.input :password, label: false,
+                        input_html: { class: 'form-control form-control__item' },
+                        wrapper: false, placeholder: 'Пароль'
+                  .sign_in-form__sms
+                    template v-if=%(sign_in_by != 'sms')
+                      a.link-default.right.margin-bottom-05 href="#" @click.prevent=%(requestToken) id="sign_in_by_sms" :disabled="requesting" Войти через СМС
+                  .sign_in-form__enter
+                    input.dr-btn-primary type="submit" :disabled="requesting" value="Войти"
+                    .sign_in-form__remind
+                      a.link-default href=new_password_path(resource_name) Забыли пароль?
+                  hr/
+                  .registration-form__content-circle
+                    .registration-form__content-circle.registration-form__content-circle__header
+                      | Или войти через
+                    = render 'devise/shared/omniauth'
 
         .col-lg-5.col-md-6
           .dr-block-style.dr-block-style--sign-in
