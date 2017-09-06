@@ -18,9 +18,9 @@ module TaskHelper
   def category_task_link_url category, city, direction_order
     new_order = order_direction_inverse(direction_order)
     if category.present?
-      city.present? ? category_tasks_path(city_code: city.code, order: new_order) : category_tasks_path(order: new_order)
+      city.present? ? category_tasks_path(city_code: city.slug, order: new_order) : category_tasks_path(order: new_order)
     else
-      city.present? ? tasks_path(city_code: city.code, order: new_order) : tasks_path(order: new_order)
+      city.present? ? tasks_path(city_code: city.slug, order: new_order) : tasks_path(order: new_order)
     end
   end
 

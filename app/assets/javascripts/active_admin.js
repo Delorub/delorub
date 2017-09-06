@@ -5,7 +5,7 @@
 //= require ckeditor/init.js
 
 $(document).ready(function () {
-    $('.admin_citycategory select#data_city_id, .admin_citycategory select#data_settings_type').on('change', function (e) {
+    $('.category_settings_select_cities, .category_settings_type').on('change', function (e) {
         $(this).closest('form').submit()
     })
 

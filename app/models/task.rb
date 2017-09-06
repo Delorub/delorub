@@ -28,12 +28,10 @@
 #  date_interval_from :datetime
 #  date_interval_to   :datetime
 #  aasm_state         :string
-#  city_id            :integer
 #
 # Indexes
 #
 #  index_tasks_on_aasm_state  (aasm_state)
-#  index_tasks_on_city_id     (city_id)
 #
 
 class Task < ApplicationRecord

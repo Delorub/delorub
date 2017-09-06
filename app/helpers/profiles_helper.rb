@@ -25,9 +25,9 @@ module ProfilesHelper
 
   def category_profile_link_url category, city
     if category.present?
-      city.present? ? category_profiles_path(city_code: city.code) : category_profiles_path
+      city.present? ? category_profiles_path(city_code: city.slug) : category_profiles_path
     else
-      city.present? ? profiles_path(city_code: city.code) : profiles_path
+      city.present? ? profiles_path(city_code: city.slug) : profiles_path
     end
   end
 end

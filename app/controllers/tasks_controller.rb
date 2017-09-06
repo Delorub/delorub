@@ -3,9 +3,9 @@ class TasksController < ApplicationController
   inherit_resources
 
   before_action :category_present?, only: [:index, :new]
-  before_action :city_present?, only: [:index]
-  before_action :city_settings, only: [:index]
-  helper_method :all_categories, :active_cities
+  before_action :place_present?, only: [:index]
+  before_action :place_settings, only: [:index]
+  helper_method :all_categories, :all_cities, :all_regions
 
   decorates_assigned :tasks, :task
 
@@ -27,8 +27,8 @@ class TasksController < ApplicationController
   private
 
     def end_of_association_chain
-      TaskQuery.new(collection: super, scope: @scope, category: @category,
-                    current_user: current_user, page: params[:page], order_direction: params[:order]).perform
+      TaskQuery.new(collection: super, scope: @scope, category: @category, current_user: current_user,
+                    page: params[:page], order_direction: params[:order], place: @place).perform
     end
 
     def fetch_scope
@@ -55,23 +55,26 @@ class TasksController < ApplicationController
       not_found if @category.blank?
     end
 
-    def city_present?
-      return if params[:city_code].blank?
-      @city = City.where(code: params[:city_code]).first
-      not_found if @city.blank?
+    def place_present?
+      return unless params[:city_code]
+      @place = Place.only_cities.friendly.find(params[:city_code])
     end
 
-    def city_settings
-      return unless @city && @category
-      @city_settings = @city.city_categories.with_settings_type(:task).where(category_id: @category.id).first
+    def place_settings
+      return unless @place && @category
+      @place_settings = @place.categories_settings.with_settings_type(:task).where(category_id: @category.id).first
     end
 
     def all_categories
       @all_categories = Category.roots.includes(:children).order(:position)
     end
 
-    def active_cities
-      @active_cities = City.active
+    def all_cities
+      @all_cities = Place.only_cities
+    end
+
+    def all_regions
+      @all_regions = Place.only_regions
     end
 
     def task_params

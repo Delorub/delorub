@@ -13,11 +13,11 @@
 #  rating             :float
 #  birthday           :date
 #  city_name          :string
-#  city_id            :integer
+#  place_id           :integer
 #
 # Indexes
 #
-#  index_profiles_on_city_id  (city_id)
+#  index_profiles_on_place_id  (place_id)
 #
 
 describe Profile do

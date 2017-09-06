@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170905143509) do
+ActiveRecord::Schema.define(version: 20170906113014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -118,26 +118,6 @@ ActiveRecord::Schema.define(version: 20170905143509) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["profile_id"], name: "index_certificates_on_profile_id"
-  end
-
-  create_table "cities", force: :cascade do |t|
-    t.string "code"
-    t.string "name"
-    t.boolean "active", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["code"], name: "index_cities_on_code"
-  end
-
-  create_table "city_categories", force: :cascade do |t|
-    t.bigint "city_id"
-    t.bigint "category_id"
-    t.text "settings"
-    t.string "settings_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_city_categories_on_category_id"
-    t.index ["city_id"], name: "index_city_categories_on_city_id"
   end
 
   create_table "coming_soon_requests", force: :cascade do |t|
@@ -258,6 +238,17 @@ ActiveRecord::Schema.define(version: 20170905143509) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "place_categories_settings", force: :cascade do |t|
+    t.bigint "place_id"
+    t.bigint "category_id"
+    t.text "settings"
+    t.string "settings_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_place_categories_settings_on_category_id"
+    t.index ["place_id"], name: "index_place_categories_settings_on_place_id"
+  end
+
   create_table "place_type_names", id: :serial, force: :cascade do |t|
     t.integer "level"
     t.integer "code"
@@ -281,6 +272,8 @@ ActiveRecord::Schema.define(version: 20170905143509) do
     t.boolean "is_region_center"
     t.boolean "is_center"
     t.boolean "custom"
+    t.string "slug"
+    t.index ["slug"], name: "index_places_on_slug"
   end
 
   create_table "portfolio_items", id: :serial, force: :cascade do |t|
@@ -302,8 +295,8 @@ ActiveRecord::Schema.define(version: 20170905143509) do
     t.float "rating"
     t.date "birthday"
     t.string "city_name"
-    t.bigint "city_id"
-    t.index ["city_id"], name: "index_profiles_on_city_id"
+    t.bigint "place_id"
+    t.index ["place_id"], name: "index_profiles_on_place_id"
   end
 
   create_table "replies", id: :serial, force: :cascade do |t|
@@ -379,9 +372,7 @@ ActiveRecord::Schema.define(version: 20170905143509) do
     t.datetime "date_interval_from"
     t.datetime "date_interval_to"
     t.string "aasm_state"
-    t.bigint "city_id"
     t.index ["aasm_state"], name: "index_tasks_on_aasm_state"
-    t.index ["city_id"], name: "index_tasks_on_city_id"
   end
 
   create_table "user_billing_logs", id: :serial, force: :cascade do |t|

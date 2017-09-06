@@ -25,8 +25,7 @@ class UserPermission < ApplicationRecord
       reply: [],
       contract_template: [],
       help: [],
-      vacancy: [],
-      city: []
+      vacancy: []
     },
 
     editor:

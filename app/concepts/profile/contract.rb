@@ -18,7 +18,7 @@ module Profile::Contract
     property :about
     property :price_project
     property :birthday
-    property :city_id
+    property :place_id
 
     validates :about, presence: true
 
@@ -31,7 +31,7 @@ module Profile::Contract
     end
 
     def cities_list
-      City.active.map { |a| { label: a.name, value: a.id } }
+      Place.only_cities.map { |a| { label: a.full_name, value: a.id } }
     end
   end
 

@@ -13,18 +13,18 @@
 #  rating             :float
 #  birthday           :date
 #  city_name          :string
-#  city_id            :integer
+#  place_id           :integer
 #
 # Indexes
 #
-#  index_profiles_on_city_id  (city_id)
+#  index_profiles_on_place_id  (place_id)
 #
 
 class Profile < ApplicationRecord
   include Searchable::Profile
 
   belongs_to :user
-  belongs_to :city
+  belongs_to :place
 
   has_and_belongs_to_many :categories
 
@@ -37,7 +37,7 @@ class Profile < ApplicationRecord
   validates :user_id, presence: true
 
   scope :by_category,
-    ->(category) { joins(:categories).where(categories: { id: category.id }) }
+    ->(category) { joins(:main_categories).where(categories: { id: category.id }) }
   scope :by_category_with_descendants,
-    ->(category) { joins(:categories).where(categories: { id: category.self_and_descendants_ids }) }
+    ->(category) { joins(:main_categories).where(categories: { id: category.self_and_descendants_ids }) }
 end

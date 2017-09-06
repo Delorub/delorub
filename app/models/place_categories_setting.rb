@@ -1,9 +1,9 @@
 # == Schema Information
 #
-# Table name: city_categories
+# Table name: place_categories_settings
 #
 #  id            :integer          not null, primary key
-#  city_id       :integer
+#  place_id      :integer
 #  category_id   :integer
 #  settings      :text
 #  settings_type :string
@@ -12,14 +12,14 @@
 #
 # Indexes
 #
-#  index_city_categories_on_category_id  (category_id)
-#  index_city_categories_on_city_id      (city_id)
+#  index_place_categories_settings_on_category_id  (category_id)
+#  index_place_categories_settings_on_place_id     (place_id)
 #
 
-class CityCategory < ApplicationRecord
+class PlaceCategoriesSetting < ApplicationRecord
   extend Enumerize
 
-  belongs_to :city
+  belongs_to :place
   belongs_to :category
 
   serialize :settings, OpenStruct

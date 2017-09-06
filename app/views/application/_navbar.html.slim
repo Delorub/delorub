@@ -20,7 +20,7 @@ nav.navbar.navbar-toggleable-md.bg-faded.navbar-dr-theme
           - if current_user.photo
             .dr-authorized-user__image
               a href=""
-                .img src=current_user.photo.url alt=""
+                img src=current_user.photo.url(:upload_preview) alt=""
           .dr-authorized-user__dropdown
             ul
               li
