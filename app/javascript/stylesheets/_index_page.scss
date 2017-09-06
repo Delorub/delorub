@@ -173,6 +173,7 @@
   box-shadow: 0 1px 3px 0 rgba(121, 120, 120, 0.5);
   &__text {
     padding: 40px 60px 30px 60px;
+    text-align: left;
     a {
       font-family: $GothamMedium;
       font-size: 32px;
@@ -218,24 +219,29 @@
 }
 
 .index-category-card {
-  font-size: 18px;
-  display: flex;
-  text-align: left;
-  align-items: center;
-  border-radius: 3px;
-  background-color: #ffffff;
-  box-shadow: 0 1px 3px 0 rgba(121, 120, 120, 0.5);
-  margin-bottom: 22px;
-  min-height: 108px;
-  padding: 0 20px;
-  a {
-    @extend .link-black;
-    line-height: 20px;
-    margin-left: 60px;
+  &__content {
+    font-size: 18px;
+    display: flex;
+    text-align: left;
+    align-items: center;
+    border-radius: 3px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px 0 rgba(121, 120, 120, 0.5);
+    margin-bottom: 22px;
+    min-height: 108px;
+    padding: 0 20px;
+    a {
+      @extend .link-black;
+      line-height: 20px;
+      margin-left: 60px;
+    }
+    img {
+      width: 42px;
+      position: absolute;
+    }
   }
-  img {
-    width: 42px;
-    position: absolute;
+  &:hover {
+    box-shadow: 0 4px 15px 0 rgba(150, 149, 149, 0.5);
   }
 }
 
