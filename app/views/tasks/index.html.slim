@@ -7,11 +7,11 @@
         .dr-block-style.dr-block-style--sort-padding
           .task-sort
             .row
-              .col-xl-auto.col-lg-6
+              .col-md-6.col-xl-auto
                 span
                   b
                     | Сортировать по:
-              .col-xl-3.col-lg-6
+              .col-md-6.col-xl-auto
                 - new_order = order_direction_inverse(params[:order])
                 = link_to @category.present? ? category_tasks_path(@category, order: new_order) : tasks_path(order: new_order), class: 'task-sort__link' do
                   ' Дате размещения
