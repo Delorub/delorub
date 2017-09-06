@@ -33,7 +33,7 @@
 
       body {        
         font-family: "GothamProLight", sans-serif;
-        background-color: #519dc7;
+        background-color: #04acdd;
       }
 
       .wrap {
@@ -133,7 +133,7 @@
       }
 
       .index-image {
-        background-image: url("/images/design/coming_soon.png");
+        background-image: url("/images/design/404.jpg");
         height: 70vh;
         min-height: 536px;
         background-repeat: no-repeat;
@@ -143,6 +143,14 @@
       @media (max-width: 448px) {
         .index-image {
           height: 140vh;
+        }
+      }
+      @media (min-width: 1600px) {
+        .index-image {
+          height: 100%;
+        }
+        .index-image .container:first-child {
+          margin-top: 210px;
         }
       }
       .index-image .container:first-child {
