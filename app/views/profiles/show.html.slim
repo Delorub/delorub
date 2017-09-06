@@ -1,5 +1,7 @@
 .regular-content
   .container
+    = render 'breadcrumb'
+    br/
     .row
       .col-lg-4
         .dr-block-style.dr-block-style--profile-left
@@ -23,32 +25,31 @@
                   = profile.user.email
         = render 'specializations'
       .col-lg-8
-        = render 'breadcrumb'
-        .dr-content-header
-          h1
-            = profile.user.name
         .dr-block-style.dr-block-style--category
           .performer-description
+            .performer-description__header
+              .dr-content-header
+                h1
+                  = profile.user.name
+            hr/
             .performer-description__subcontent
               .row
                 .col-md
-                  p
-                    b
-                      ' Возраст:
-                    span.gray-text
-                      = profile.formatted_age
+                  span.dr-h5
+                    ' Возраст:
+                  span.gray-text
+                    = profile.formatted_age
                 .col-md
-                  p
-                    b
-                      ' Город:
-                    span.gray-text
-                      i.fa.fa-map-marker aria-hidden="true"
-                      '
-                      = profile.formatted_city_name
+                  span.dr-h5
+                    ' Город:
+                  span.gray-text
+                    i.fa.fa-map-marker aria-hidden="true"
+                    '
+                    = profile.formatted_city_name
         .dr-block-style.dr-block-style--profile-left
           .performer-description-about
             .performer-description-about__header
-              h5
-                b Об исполнителе
+              h2
+                ' Об исполнителе
             .performer-description-about__text
               = simple_format profile.about
