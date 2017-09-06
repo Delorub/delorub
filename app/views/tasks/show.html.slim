@@ -2,6 +2,23 @@
   .container
     = render 'breadcrumb'
     .row
+      .col-lg-8
+        .dr-block-style.dr-block-style--profile
+          .task-description-about
+            .task-description-about__header
+              h2 Описание задачи
+            .task-description-about__text
+              = simple_format task.description
+        .dr-block-style.dr-block-style--profile
+          .task-description-adress
+            h2 Адрес
+            .task-description-adress__input
+              p
+                span
+                  i.fa.fa-map-marker aria-hidden="true"
+                  = task.place_address
+            .task-description-adress__map
+              = content_tag 'task-map', '', ':value': task.place_coordinates.to_json
       .col-lg-4
         .dr-block-style.dr-block-style--task-person
           .task-profile-card
@@ -41,20 +58,4 @@
                     = task.user.email
         = render 'files' unless task.files.blank?
         br/
-      .col-lg-8
-        .dr-block-style.dr-block-style--profile
-          .task-description-about
-            .task-description-about__header
-              h2 Описание задачи
-            .task-description-about__text
-              = simple_format task.description
-        .dr-block-style.dr-block-style--profile
-          .task-description-adress
-            h2 Адрес
-            .task-description-adress__input
-              p
-                span
-                  i.fa.fa-map-marker aria-hidden="true"
-                  = task.place_address
-            .task-description-adress__map
-              = content_tag 'task-map', '', ':value': task.place_coordinates.to_json
+
