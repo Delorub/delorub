@@ -13,6 +13,11 @@
 #  rating             :float
 #  birthday           :date
 #  city_name          :string
+#  place_id           :integer
+#
+# Indexes
+#
+#  index_profiles_on_place_id  (place_id)
 #
 
 FactoryGirl.define do

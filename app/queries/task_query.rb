@@ -1,13 +1,14 @@
 class TaskQuery
-  attr_accessor :scope, :category, :current_user, :collection, :order_direction, :page
+  attr_accessor :scope, :category, :current_user, :collection, :order_direction, :page, :place
 
-  def initialize collection:, scope: nil, category:, current_user:, page:, order_direction:
+  def initialize collection:, scope: nil, category:, current_user:, page:, order_direction:, place: nil
     @collection = collection.includes(:user)
     @scope = scope
     @category = category
     @current_user = current_user
     @page = page.to_i.positive? ? page : 1
     @order_direction = order_direction.present? && order_direction == 'asc' ? 'asc' : 'desc'
+    @place = place
   end
 
   def perform
@@ -15,6 +16,7 @@ class TaskQuery
     apply_user if scope == :my
     apply_suggested if scope == :suggested
     apply_category if category
+    apply_place if place
     apply_order
     apply_paginate
     collection
@@ -47,6 +49,10 @@ class TaskQuery
         (aasm_state == 'active') |
           (user_id == my{ current_user.id })
       end
+    end
+
+    def apply_place
+      @collection = collection.where(place_id: place.id)
     end
 
     def apply_user

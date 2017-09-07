@@ -1,23 +1,30 @@
-= content_for :seo_title do @category.settings.dig(:seo_title).present? ? @category.settings.dig(:seo_title) : @category.title end if @category
+- if @category
+  - seo_title parse_city_settings(@place_settings, :seo_title, @category.title)
+  - meta_tag :description, parse_city_settings(@place_settings, :seo_description)
+  - meta_tag :keywords, parse_city_settings(@place_settings, :seo_keywords)
 .regular-content
   .container
-    = render 'breadcrumb'
+    - h1 = "Исполнители #{formatted_header_category_or_city @category, @place, @place_settings}" if @category || @place
+    = render partial: 'breadcrumb', locals: { h1: h1 }
     .dr-content-header
       h1
-        = @category ? sprintf('Исполнители в категории "%s"', formatted_header_category(@category)) : 'Все исполнители'
+        = h1.present? ? h1 : 'Все исполнители'
     .row
       .col-lg-8
         .dr-block-style.dr-block-style--sort-padding
           .task-sort
-            = form_for :data, url: @category.present? ? category_profiles_path(@category) : profiles_path, method: :get, html: {class: 'profile_form_sorting'} do |f|
+            = form_for :data, url: category_city_profile_link_url(@category, @place), method: :get, html: {class: 'profile_form_sorting'} do |f|
               .row
                 .col-xl-3.col-lg-6
                   .checkbox
                     label
+                      = hidden_field_tag 'city_code', @place.slug if @place
                       = check_box_tag 'direction_created', 1, order_direction_boolean(params[:direction_created])
                       span.checkbox-custom
                       |Новые&nbsp;исполнители
         = render 'profile'
-      = render 'categories'
+      .col-lg-4.lg-hide
+        = render partial: 'cities/select_cities', locals: {url: category_profile_link_url(@category)}
+        = render 'categories'
     br/
     = render 'categories/description'

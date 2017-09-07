@@ -157,7 +157,7 @@
                 - unless rf.object.nil?
                   .dr-block-style
                     = render 'shared/user/new_user_form', f: rf
-                    br/
-                    .center
-                      = f.submit 'Создать задание', class: 'dr-btn-danger'
+              br/
+              .center
+                = f.submit 'Создать задание', class: 'dr-btn-danger'
           = render 'tasks/form/popovers'

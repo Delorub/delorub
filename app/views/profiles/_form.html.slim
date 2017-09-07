@@ -2,6 +2,7 @@
   = content_tag 'profile-form',
     'inline-template': true,
     ':categories-list': f.object.categories_list.to_json,
+    ':cities-list': f.object.cities_list.to_json,
     ':initial-model': f.object.to_nested_hash.to_json \
     do
     .regular-content
@@ -83,11 +84,14 @@
                   .row
                     .col-lg-6
                       label Выберите город
-                      = f.input :city_name, label: false, error: false,
-                        input_html: { \
-                          'v-model': 'model.city_name',
-                          'placeholder': 'Санкт-Петербург',
-                        }
+                      = f.input_field :place_id, as: :hidden, 'v-model': 'model.place_id'
+                      = content_tag 'custom-multiselect', '',
+                        'v-model': 'model.place_id',
+                        ':searchable': 'true',
+                        ':allow-empty': 'false',
+                        'placeholder': 'Выберите город',
+                        ':options': f.object.cities_list.pluck(:value).to_json,
+                        ':custom-label': 'cityLabel'
                     .col-lg-6
                       .form-group
                         label Укажите дату рождения

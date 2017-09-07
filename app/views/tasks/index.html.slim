@@ -1,7 +1,14 @@
-= content_for :seo_title do @category.settings.dig(:seo_title).present? ? @category.settings.dig(:seo_title) : @category.title end if @category
+- if @category
+  - seo_title parse_city_settings(@place_settings, :seo_title, @category.title)
+  - meta_tag :description, parse_city_settings(@place_settings, :seo_description)
+  - meta_tag :keywords, parse_city_settings(@place_settings, :seo_keywords)
 .regular-content
   .container
-    = render 'breadcrumb'
+    - h1 = "Задания #{formatted_header_category_or_city @category, @place, @place_settings}" if @category || @place
+    = render partial: 'breadcrumb', locals: { h1: h1 }
+    .dr-content-header
+      h1
+        = h1.present? ? h1 : 'Все задания'
     .row
       .col-lg-8
         .dr-block-style.dr-block-style--sort-padding
@@ -11,14 +18,15 @@
                 span
                   b
                     | Сортировать по:
-              .col-md-6.col-xl-auto
-                - new_order = order_direction_inverse(params[:order])
-                = link_to @category.present? ? category_tasks_path(@category, order: new_order) : tasks_path(order: new_order), class: 'task-sort__link' do
+              .col-xl-3.col-lg-6
+                = link_to category_tasks_direction_link_url(@category, @place, params[:order]),
+                  class: 'task-sort__link' do
                   ' Дате размещения
                   |
-                  = content_tag(:i, '', class: "fa fa-caret-#{new_order == 'asc' ? 'down' : 'up'}")
+                  = content_tag(:i, '', class: "fa fa-caret-#{fa_class_by_direction_order(params[:order])}")
         = render 'tasks'
       .col-lg-4.lg-hide
+        = render partial: 'cities/select_cities', locals: { url: @category.present? ? category_tasks_path(@category) : tasks_path }
         = render 'categories'
     br/
     = render 'categories/description'

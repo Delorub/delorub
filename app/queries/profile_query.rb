@@ -1,17 +1,22 @@
 class ProfileQuery
-  attr_accessor :category, :current_user, :collection, :page, :direction
+  attr_accessor :category, :current_user, :collection, :page, :direction, :place
 
-  def initialize collection:, category:, current_user:, page:, direction:
+  def initialize collection:, category:, current_user:, page:, direction:, place: nil
     @collection = collection
     @category = category
     @current_user = current_user
     @page = page
     @direction = direction.present? && direction.to_i == 1 ? 'asc' : 'desc'
+    @place = place
   end
 
   def perform
     apply_collection
-    apply_category if category
+    if category
+      apply_main_category if category.root?
+      apply_category if category.child?
+    end
+    apply_place if place
     apply_order
     apply_paginate
     collection
@@ -27,8 +32,16 @@ class ProfileQuery
       @collection = collection.by_user current_user
     end
 
+    def apply_main_category
+      @collection = collection.by_main_category category
+    end
+
     def apply_category
-      @collection = collection.by_category_with_descendants category
+      @collection = collection.by_category category
+    end
+
+    def apply_place
+      @collection = collection.where(place_id: place.id)
     end
 
     def apply_order

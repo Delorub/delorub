@@ -70,3 +70,18 @@
     }
   }
 }
+
+.profile-switcher {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__links {
+    a + a {
+      margin-left: 45px;
+    }
+    .link-default.active {
+      @extend .link-black;
+      border-bottom: none;
+    }
+  }
+}

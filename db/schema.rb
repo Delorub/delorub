@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170829151011) do
+ActiveRecord::Schema.define(version: 20170906113014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,11 +103,13 @@ ActiveRecord::Schema.define(version: 20170829151011) do
     t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 
-  create_table "categories_profiles", id: :serial, force: :cascade do |t|
+  create_table "categories_profiles", id: false, force: :cascade do |t|
     t.integer "profile_id"
     t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_categories_profiles_on_category_id"
+    t.index ["profile_id"], name: "index_categories_profiles_on_profile_id"
   end
 
   create_table "certificates", id: :serial, force: :cascade do |t|
@@ -128,8 +130,8 @@ ActiveRecord::Schema.define(version: 20170829151011) do
   create_table "comments", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.integer "parent_id"
-    t.integer "commentable_id"
     t.string "commentable_type"
+    t.integer "commentable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "text"
@@ -236,6 +238,17 @@ ActiveRecord::Schema.define(version: 20170829151011) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "place_categories_settings", force: :cascade do |t|
+    t.bigint "place_id"
+    t.bigint "category_id"
+    t.text "settings"
+    t.string "settings_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_place_categories_settings_on_category_id"
+    t.index ["place_id"], name: "index_place_categories_settings_on_place_id"
+  end
+
   create_table "place_type_names", id: :serial, force: :cascade do |t|
     t.integer "level"
     t.integer "code"
@@ -259,6 +272,8 @@ ActiveRecord::Schema.define(version: 20170829151011) do
     t.boolean "is_region_center"
     t.boolean "is_center"
     t.boolean "custom"
+    t.string "slug"
+    t.index ["slug"], name: "index_places_on_slug"
   end
 
   create_table "portfolio_items", id: :serial, force: :cascade do |t|
@@ -280,6 +295,8 @@ ActiveRecord::Schema.define(version: 20170829151011) do
     t.float "rating"
     t.date "birthday"
     t.string "city_name"
+    t.bigint "place_id"
+    t.index ["place_id"], name: "index_profiles_on_place_id"
   end
 
   create_table "replies", id: :serial, force: :cascade do |t|
@@ -390,8 +407,15 @@ ActiveRecord::Schema.define(version: 20170829151011) do
   end
 
   create_table "users", id: :serial, force: :cascade do |t|
-    t.string "provider", default: "email", null: false
+    t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "middle_name"
+    t.string "phone"
+    t.date "birthday"
+    t.integer "profile_id"
+    t.integer "free_tasks_published", default: 0, null: false
+    t.integer "free_replies_published", default: 0, null: false
+    t.decimal "balance", precision: 10, scale: 2, default: "0.0", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -400,18 +424,10 @@ ActiveRecord::Schema.define(version: 20170829151011) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.string "middle_name"
-    t.string "phone"
-    t.string "email"
-    t.date "birthday"
-    t.integer "profile_id"
-    t.integer "free_tasks_published", default: 0, null: false
-    t.integer "free_replies_published", default: 0, null: false
-    t.decimal "balance", precision: 10, scale: 2, default: "0.0", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "photo"
     t.boolean "phone_confirmed"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string "access_token"
     t.integer "place_id"
     t.string "first_name"

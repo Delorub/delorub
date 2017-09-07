@@ -10,6 +10,6 @@ class MainController < ApplicationController
     end
 
     def main_categories
-      Category.main.includes(:children)
+      Category.main.includes(:children).order(:position)
     end
 end
