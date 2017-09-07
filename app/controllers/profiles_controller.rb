@@ -25,7 +25,7 @@ class ProfilesController < ApplicationController
   private
 
     def all_categories
-      @all_categories = Category.roots.includes(:children).order(:position)
+      @all_categories = Category.roots.includes(:children).except(:order).order(:position)
     end
 
     def all_cities
@@ -50,9 +50,6 @@ class ProfilesController < ApplicationController
     def place_settings
       return unless @place && @category
       @place_settings = @place.categories_settings.with_settings_type(:profile).where(category_id: @category.id).first
-      p '@@@@@@@@@@@@@@@@@@@@@'
-      p @place_settings
-      p '#######################'
     end
 
     def end_of_association_chain

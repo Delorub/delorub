@@ -23,11 +23,15 @@ module ProfilesHelper
      #{city.present? ? format(' в городе %s', city.name) : ''}"
   end
 
-  def category_profile_link_url category, city
+  def category_city_profile_link_url category, city
     if category.present?
-      city.present? ? category_profiles_path(city_code: city.slug) : category_profiles_path
+      city.present? ? category_profiles_path(category, city_code: city.slug) : category_profiles_path(category)
     else
       city.present? ? profiles_path(city_code: city.slug) : profiles_path
     end
+  end
+
+  def category_profile_link_url category
+    category.present? ? category_profiles_path(category) : profiles_path
   end
 end

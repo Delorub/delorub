@@ -19,8 +19,8 @@ nav.navbar.navbar-toggleable-md.bg-faded.navbar-dr-theme
               span #{current_user.last_name}
           - if current_user.photo
             .dr-authorized-user__image
-              a href=""
-                img src=current_user.photo.url(:upload_preview) alt=""
+              a href=my_index_index_path
+                img src=current_user.photo.url(:small) alt=""
           .dr-authorized-user__dropdown
             ul
               li

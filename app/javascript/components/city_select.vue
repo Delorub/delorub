@@ -35,7 +35,6 @@ export default {
     }
   },
   mounted () {
-    console.log(this.citySelected)
     this.cityValue = this.citySelected
     if (this.citySelected !== '') {
       this.regionValue = this.getRegionName(this.getCity(this.citySelected).region_id)

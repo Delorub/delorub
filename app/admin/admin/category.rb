@@ -11,6 +11,7 @@ ActiveAdmin.register Category, namespace: :admin do
     column :title
     column :slug
     column :is_main
+    column :position
     column '' do |cat|
       link_to 'Настройки', settings_admin_category_path(cat)
     end

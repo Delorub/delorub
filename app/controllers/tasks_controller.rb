@@ -66,7 +66,7 @@ class TasksController < ApplicationController
     end
 
     def all_categories
-      @all_categories = Category.roots.includes(:children).order(:position)
+      @all_categories = Category.roots.includes(:children).except(:order).order(:position)
     end
 
     def all_cities

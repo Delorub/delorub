@@ -13,7 +13,7 @@
       .col-lg-8
         .dr-block-style.dr-block-style--sort-padding
           .task-sort
-            = form_for :data, url: category_profile_link_url(@category, @place), method: :get, html: {class: 'profile_form_sorting'} do |f|
+            = form_for :data, url: category_city_profile_link_url(@category, @place), method: :get, html: {class: 'profile_form_sorting'} do |f|
               .row
                 .col-xl-3.col-lg-6
                   .checkbox
@@ -24,7 +24,7 @@
                       |Новые&nbsp;исполнители
         = render 'profile'
       .col-lg-4.lg-hide
-        = render partial: 'cities/select_cities', locals: {url: @category.present? ? category_profiles_path(@category) : profiles_path}
+        = render partial: 'cities/select_cities', locals: {url: category_profile_link_url(@category)}
         = render 'categories'
     br/
     = render 'categories/description'

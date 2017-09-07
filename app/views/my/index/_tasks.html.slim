@@ -2,7 +2,7 @@
   .dr-block-style.dr-block-style--card
     p Список заданий пуст
 - else
-  - @tasks.each do |task|
+  - tasks.each do |task|
     .dr-block-style.dr-block-style--profile-card
       .task-card-container
         .row
@@ -30,7 +30,7 @@
                       p.task-card-refinement__time
                         = 'С ' if task.date_type.start_at? && task.date_actual.present?
                         = 'До ' if task.date_type.end_at? && task.date_actual.present?
-                        = task.decorate.human_date(:date_without_year)
+                        = task.human_date(:date_without_year)
             .row
               .col
                 .task-card-description
