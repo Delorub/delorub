@@ -12,7 +12,10 @@ class ProfileQuery
 
   def perform
     apply_collection
-    apply_category if category
+    if category
+      apply_main_category if category.root?
+      apply_category if category.child?
+    end
     apply_place if place
     apply_order
     apply_paginate
@@ -29,8 +32,12 @@ class ProfileQuery
       @collection = collection.by_user current_user
     end
 
+    def apply_main_category
+      @collection = collection.by_main_category category
+    end
+
     def apply_category
-      @collection = collection.by_category_with_descendants category
+      @collection = collection.by_category category
     end
 
     def apply_place

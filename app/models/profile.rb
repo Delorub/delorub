@@ -37,7 +37,11 @@ class Profile < ApplicationRecord
   validates :user_id, presence: true
 
   scope :by_category,
+    ->(category) { joins(:categories).where(categories: { id: category.id }) }
+
+  scope :by_main_category,
     ->(category) { joins(:main_categories).where(categories: { id: category.id }) }
+
   scope :by_category_with_descendants,
-    ->(category) { joins(:main_categories).where(categories: { id: category.self_and_descendants_ids }) }
+    ->(category) { joins(:categories).where(categories: { id: category.self_and_descendants_ids }) }
 end

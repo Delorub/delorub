@@ -16,7 +16,7 @@
 #  index_place_categories_settings_on_place_id     (place_id)
 #
 
-class PlaceCategoriesSetting < ApplicationRecord
+class PlaceCategoriesSettings < ApplicationRecord
   extend Enumerize
 
   belongs_to :place

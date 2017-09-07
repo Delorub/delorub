@@ -1,8 +1,8 @@
-active_admin_form_for :data, url: :admin_categoriessetting, method: :get do |ff|
+active_admin_form_for :data, url: :admin_categoriessettings, method: :get do |ff|
   ff.inputs 'Список городов' do
     ff.input :city_id, as: :select, collection: Place.only_cities.map{|a| [a.name, a.id]},
       selected: selected_city.id, label: 'Города', include_blank: false, input_html: { class: 'category_settings_select_cities' }
-    ff.input :settings_type, as: :select, collection: PlaceCategoriesSetting.settings_type.options,
+    ff.input :settings_type, as: :select, collection: PlaceCategoriesSettings.settings_type.options,
       selected: settings_type, label: 'Тип', include_blank: false, input_html: { class: 'category_settings_type' }
   end
 end
