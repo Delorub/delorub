@@ -1,0 +1,28 @@
+= simple_form_for @form do |f|
+  = content_tag 'task-form',
+    'inline-template': true,
+    ':categories-list': f.object.categories_list.to_json,
+    ':date-types-list': f.object.model.class.enumerized_attributes[:date_type].options.map { |e| { label: e[0], value: e[1] } }.to_json,
+    ':initial-model': f.object.to_nested_hash.to_json \
+    do
+    .regular-content
+      .container
+        nav.breadcrumb
+          a.breadcrumb-item href=root_path  Главная
+          span.breadcrumb-item.active Создать задание
+        .dr-content-header
+          h1
+            = "Создать задание #{@category.present? ? format('| %s', @category.title) : ''}"
+        .row
+          .col-xl-8
+            .dr-form
+              = render 'form', f: f
+            - if f.object.try(:new_user)
+              = f.simple_fields_for :new_user do |rf|
+                - unless rf.object.nil?
+                  .dr-block-style
+                    = render 'shared/user/new_user_form', f: rf
+            br/
+            .center
+              = f.submit 'Создать задание', class: 'dr-btn-danger'
+          = render 'tasks/form/popovers'

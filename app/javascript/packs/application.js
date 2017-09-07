@@ -10,21 +10,25 @@ import VueMeta from 'vue-meta'
 import flatPickr from 'vue-flatpickr-component'
 import 'flatpickr/dist/flatpickr.css'
 
-import CustomSelect from '../components/custom-select.vue'
-import CustomMultiSelect from '../components/custom-multiselect.vue'
-import CustimDatetimePicker from '../components/custom-datetimepicker.vue'
+import CustomSelect from '../components/fields/custom-select.vue'
+import SelectBox from '../components/fields/selectbox.vue'
+import DatetimePicker from '../components/fields/datetimepicker.vue'
+import DatePicker from '../components/fields/datepicker.vue'
 
-import SmsConfirmation from '../components/sms_confirmation.vue'
-import TaskForm from '../components/task_form.vue'
+import ProfileSpecializationsForm from '../components/forms/profile/specializations_form.vue'
+import NewProfileForm from '../components/forms/profile/new_form.vue'
+import EditProfileForm from '../components/forms/profile/edit_form.vue'
+import EditUserForm from '../components/forms/user/edit_form.vue'
+import TaskForm from '../components/forms/task/edit_form.vue'
+import SignInForm from '../components/forms/user/sign_in_form.vue'
+
 import TaskMap from '../components/task_map.vue'
-import ProfileForm from '../components/profile_form.vue'
-import UploadForm from '../components/upload_form.vue'
-import CategorySuggest from '../components/category_suggest.vue'
+import UploadForm from '../components/fields/upload_form.vue'
+import SmsConfirmation from '../components/sms_confirmation.vue'
+import CategorySuggest from '../components/fields/category_suggest.vue'
 import TimerCountdown from '../components/timer_countdown.vue'
-import CitySelect from '../components/city_select.vue'
-import SignInForm from '../components/sign_in_form.vue'
 
-import 'selectize'
+import CitySelect from '../components/city_select.vue'
 
 let token = document.getElementsByName('csrf-token')[0]
 if (token !== undefined) {
@@ -33,15 +37,23 @@ if (token !== undefined) {
 axios.defaults.headers.common['Accept'] = 'application/json'
 
 Vue.use(VueMeta)
+
+// Fields
+Vue.component('datetimepicker', DatetimePicker)
+Vue.component('datepicker', DatePicker)
+Vue.component('selectbox', SelectBox)
+
 Vue.component('custom-select', CustomSelect)
-Vue.component('custom-multiselect', CustomMultiSelect)
 Vue.component('flat-pickr', flatPickr)
-Vue.component('custom-datetimepicker', CustimDatetimePicker)
 
 Vue.component('upload-form', UploadForm)
 Vue.component('sms-confirmation', SmsConfirmation)
 
-Vue.component('profile-form', ProfileForm)
+Vue.component('new-profile-form', NewProfileForm)
+Vue.component('edit-profile-form', EditProfileForm)
+Vue.component('edit-user-form', EditUserForm)
+Vue.component('profile-specializations-form', ProfileSpecializationsForm)
+
 Vue.component('task-form', TaskForm)
 Vue.component('task-map', TaskMap)
 Vue.component('category-suggest', CategorySuggest)

@@ -16,6 +16,9 @@ ru:
     rules:
       phone:
         accepted?: Подтвердите номер мобильного телефона
+  date:
+    formats:
+      datepicker: '%d.%m.%Y'
   time:
     formats:
       datepicker: '%d.%m.%Y %H:%M'

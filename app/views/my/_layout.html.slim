@@ -1,0 +1,8 @@
+-
+.regular-content
+  .container
+    .row
+      = render 'my/shared/sidebar'
+      div class=("col-lg-#{width ||= 8}")
+        = render 'shared/flash'
+        = yield

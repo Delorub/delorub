@@ -1,0 +1,12 @@
+.dr-profile-card
+  .row
+    .col-xl-2.col-md-2
+      .dr-profile-card__image.dr-profile-card__image--margin-top
+        img alt="" src=f.object.model.photo_url /
+        .dr-profile-card__image-link
+          a.link-default href="#"  Изменить
+    .col-xl-7.col-md-10
+      .dr-profile-card__inputs
+        = f.input :first_name, label: false
+        = f.input :last_name, label: false
+        = f.input :middle_name, label: false

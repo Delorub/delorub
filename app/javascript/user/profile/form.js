@@ -1,8 +1,4 @@
-<script>
-import formTooltips from 'mixins/form_tooltips'
-
 export default {
-  mixins: [formTooltips],
   props: [
     'initialModel', 'categoriesList', 'citiesList'
   ],
@@ -78,4 +74,3 @@ export default {
     }
   }
 }
-</script>

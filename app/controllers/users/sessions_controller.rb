@@ -2,11 +2,11 @@ class Users::SessionsController < Devise::SessionsController
   protect_from_forgery prepend: true
 
   def new
-    run User::Authentification::Present
+    run User::Operation::Authentification::Present
   end
 
   def create
-    run User::Authentification, params.require(:user).permit! do |result|
+    run User::Operation::Authentification, params.require(:user).permit! do |result|
       sign_in result['user']
 
       if @form.sign_in_as == 'master' && result['user'].profile.blank?

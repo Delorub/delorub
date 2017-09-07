@@ -1,0 +1,26 @@
+profile-specializations-form(
+  :categories-list=(Category.all.map { |e| { label: e.title, value: e.id, parent_id: e.parent_id } }.to_json)
+  *props
+)
+  template slot="eachCategory" scope="props"
+    input(
+      type="hidden"
+      name=("#{f.object_name}[main_categories_profiles][][id]")
+      :value="props.mainCategory.id"
+    )
+    input(
+      type="hidden"
+      name=("#{f.object_name}[main_categories_profiles][][main_category_id]")
+      :value="props.mainCategory.main_category_id"
+    )
+    input(
+      type="hidden"
+      name=("#{f.object_name}[main_categories_profiles][][description]")
+      :value="props.mainCategory.description"
+    )
+    input(
+      type="hidden"
+      name=("#{f.object_name}[main_categories_profiles][][category_ids][]")
+      v-for="value in props.mainCategory.category_ids"
+      v-bind:value="value"
+    )

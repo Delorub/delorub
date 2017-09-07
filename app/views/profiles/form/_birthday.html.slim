@@ -1,0 +1,10 @@
+
+    .form-group
+      label Укажите дату рождения
+      .input-group.date
+        label.date-addon
+        = f.input_field :birthday, as: :hidden, 'v-model': 'model.birthday'
+        = content_tag 'flat-pickr', '',
+          'v-model': 'model.birthday',
+          'placeholder': 'Дата',
+          ':config': 'datepickerConfig'

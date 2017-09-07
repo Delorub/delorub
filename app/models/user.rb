@@ -57,7 +57,7 @@ class User < ApplicationRecord
   has_many :tasks, dependent: :destroy
   has_many :replies, dependent: :destroy
   has_one :permission, class_name: 'UserPermission', dependent: :destroy
-  has_one :profile, dependent: :destroy
+  has_one :profile, class_name: '::Profile', dependent: :destroy
 
   has_many :task_packs, class_name: 'Billing::TaskPack', dependent: :destroy
   has_many :task_subscriptions, class_name: 'Billing::TaskSubscription', dependent: :destroy

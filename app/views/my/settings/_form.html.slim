@@ -1,0 +1,15 @@
+.dr-block-style
+  .row.margin-bottom-10
+    .col-lg-4.col-md-6
+      .form-group
+        = f.input :email, label: false
+  = f.simple_fields_for :sms_confirmation do |sf|
+    = render 'shared/phone_confirmation', f: sf
+.dr-block-style
+  .row
+    = render 'my/shared/omniauth'
+.dr-block-style
+  .row
+    .col-md-4
+      .form-group
+        = f.input :new_password, label: false, placeholder: 'Новый пароль', input_html: { class: 'margin-bottom-0' }
