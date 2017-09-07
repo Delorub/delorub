@@ -1,135 +1,130 @@
 .index-image
   .container
     .index-image__header
-      | Найдите исполнителя для
+      | Сервис поиска специалистов
       br/
-      | любого поручения
+      | для любых поручений
     .index-image-content
       .index-image-content__text
         p
-          | Бесплатно для&nbsp;
-          a.link-default href="#" заказчиков
+          | Бесплатно для
+          a.link-default-white href="#"  заказчиков
         p
-          | Без комиссий и платы за отклики для&nbsp;
-          a.link-default href="#" исполнителей
-      = form_tag categories_path, method: :get, class: 'search_categories'
-        = hidden_field_tag :form_identity, 'main_form'
-        = hidden_field_tag :form_keyword_field, 'query'
-        .row
-          .col-md-7
+          | Без комиссий и платы за отклики для
+          a.link-default-white href="#"  исполнителей
+      .row
+        .col-md-8.offset-md-2.col-lg-6.offset-lg-3
+          = form_tag categories_path, method: :get, class: 'search_categories'
             .index-image-content__input
               = content_tag 'category-suggest', ''
-              = submit_tag 'Создать задание', class: 'dr-btn-danger'
+              = button_tag(type: 'submit', class: 'dr-btn-danger') do
+                | Найти  
+                i.fa.fa-search aria-hidden="true"
       .index-image-content__sub
         p
-          | Например,&nbsp;
+          | Например,
           - random_categories.each_with_index do |category, index|
             - if index > 0
-              |  или&nbsp;
-            a.link-default href=new_task_path(category)
+              | или
+            a.link-default-white href=new_task_path(category)
+              = " #{category.title} "
+.index-block
+  .container
+    .row
+      - main_categories.first(3).each do |category|
+        .col-lg-4
+          .index-category-links
+            a href=new_task_path(category)
               = category.title
+            - category.children.first(4).each do |child|
+              a href=new_task_path(child)
+                = child.title
+            - if category.children.count > 0
+              a href=categories_path
+                |Показать еще
 .container
-  .index-content
-    .index-content-block
-      .index-header
-        | Категории услуг
-      .row.align-items-stretch
-        - main_categories.each do |category|
-          .col-md-4.col-margin-bottom
-            .dr-category.dr-category--courier
+  .index-category-container
+    .row
+      - main_categories.offset(3).each do |category|
+        .col-xl-3.col-lg-6
+          .index-category-card
+            .index-category-card__content
+              = image_tag category.photo.url(:thumb)
               a href=new_task_path(category)
-                .dr-category__header
-                  = category.title
-              .dr-category__text
-                - category.children.each do |child|
-                  a href=new_task_path(child)
-                    = child.title
+                = category.title
+    a.dr-btn-primary.dr-btn-big href=categories_path
+      | Все категории
+br/
+br/
+.index-block
+  .container
+    .index-block__header
+      | Оформив заказ на Делорубе,
       br/
-      a.dr-btn-default href=categories_path  Смотреть категории
+      | Вы экономите до 50% стоимости.
+    .index-step
+      .index-step__image
+        img alt="" src="/images/design/step_1.jpg" /
+      .index-step__text
+        a.link-default href=new_task_path
+          | Создайте задание
+        p
+          ' Опишите задачу, которую нужно выполнить.
+          ' Уведомление о вашем задании получат все
+          ' подходящие мастера.
+    .index-step
+      .index-step__image
+        img alt="" src="/images/design/step_2.jpg" /
+      .index-step__text
+        a.link-default href=profiles_path
+          | Ознакомьтесь с предложениями
+        p
+          ' Предложения соискателей появятся прямо
+          ' под заданием. Просмотрите их анкеты с
+          ' отзывами, сравните условия работы
+          ' и стоимость.
+    .index-step
+      .index-step__image
+        img alt="" src="/images/design/step_3.jpg" /
+      .index-step__text
+        span Выберите исполнителя
+        p
+          ' Обсудите с кандидатами детали заказа
+          ' и назначьте исполнителя с самым выгодным
+          ' для вас предложением.
+    .index-block__footer
+      a.link-default href=new_task_path
+        | Бесплатно создайте свое первое задание на ДелоРубе
+.container
+  .index-reference.index-reference--first
+    .index-reference__text
+      span Бесплатное размещение заданий
+      p
+        ' Для того, чтобы разместить задание достаточно зарегистрироваться.
+        ' Создавайте задания где и когда хотите бесплатно.
+  .index-reference.index-reference--second
+    .index-reference__text
+      span Нет комиссии и скрытых платежей
+      p
+        ' Вы оплачиваете работу исполнителя напрямую. При этом цены у частных
+        ' мастеров в 2 раза ниже, ведь у них нет расходов на аренду, рекламу
+        ' и зарплату сотрудникам.
+  .index-reference.index-reference--third
+    .index-reference__text
+      span Честные рейтинги и реальные отзывы
+      p
+        ' Отзывы об исполнителях могут писать только реальные пользователи,
+        ' а рейтинг нельзянакрутить. Наши модераторы следят за достоверностью
+        ' любых данных на сайте.
+br/
+br/
+.index-block
+  .index-block__header
+    | Оформив заказ на Делорубе,
     br/
-    .index-content-block
-      .how-it-works-block
-        .index-header
-          | Как это работает
-        .row.align-items-stretch
-          .col-lg-4
-            .how-it-works-block__step
-              .how-it-works-block__step-content
-                a.link-default href="#"  Создайте задание
-                p
-                  | Опишите задачу, которую нужно выполнить.
-                  | Уведомление о вашем задании получат все подходящие мастера.
-                hr.toggle-hr/
-              .how-it-works-block__step-1 1
-          .col-lg-4
-            .how-it-works-block__step
-              .how-it-works-block__step-content
-                a.link-default href="#"  Ознакомьтесь с предложениями
-                p
-                  | Предложения соискателей появятся прямо под заданием.
-                  | Просмотрите их анкеты с отзывами, сравните условия работы и стоимость.
-                hr.toggle-hr/
-              .how-it-works-block__step-2 2
-          .col-lg-4
-            .how-it-works-block__step
-              .how-it-works-block__step-content
-                span Выберите исполнителя
-                p
-                  | Обсудите с кандидатами детали заказа и назначьте исполнителя
-                  | с самым выгодным для вас предложением.
-              .how-it-works-block__step-3 3
-        a.dr-btn-danger href="#" data-identity="how_btn" Создать задание
-    br/
-    .index-content-block
-      .out-advantages-block
-        .index-header
-          | Преимущества нашего сервиса
-        .row.align-items-stretch
-          .col-lg-4.col-margin-bottom
-            .advantages-card
-              .advantages-card__image.advantages-card__image--ruble
-              .advantages-card__content
-                .advantages-card__header
-                  | Бесплатное размещение  заданий
-                .advantages-card__text
-                  | Для того, чтобы разместить задание достаточно зарегистрироваться.
-                  | Создавайте задания где и когда хотите бесплатно.
-          .col-lg-4.col-margin-bottom
-            .advantages-card
-              .advantages-card__image.advantages-card__image--percent
-              .advantages-card__content
-                .advantages-card__header
-                  | Нет комиссии и скрытых платежей
-                .advantages-card__text
-                  | Вы оплачиваете работу исполнителя напрямую. При этом цены
-                  | у частных мастеров в 2 раза ниже, ведь у них нет расходов
-                  | на аренду, рекламу и зарплату сотрудникам.
-          .col-lg-4.col-margin-bottom
-            .advantages-card
-              .advantages-card__image.advantages-card__image--feedback
-              .advantages-card__content
-                .advantages-card__header
-                  | Честные рейтинги и реальные отзывы
-                .advantages-card__text
-                  | Отзывы об исполнителях могут писать только реальные пользователи,
-                  | а рейтинг нельзя накрутить. Наши модераторы следят за
-                  | достоверностью любых данных на сайте.
-        br/
-        a.dr-btn-danger href="#" data-identity="star_btn" Создать задание
-    .index-content-block
-      .row
-        .col-lg-4
-          .bottom-block
-            a href="#"
-              .bottom-block__left
-                | Как стать исполнителем
-        .col-lg-4
-          .bottom-block
-            a href="#"
-              .bottom-block__middle
-                | Вопрос-ответ
-        .col-lg-4
-          .bottom-block
-            a href="#"
-              .bottom-block__right
-                | Безопасность и гарантии
+    | Вы экономите до 50% стоимости.
+  a.dr-btn-danger href=new_task_path
+    | Разместить задание бесплатно
+  - if policy(Profile).new?
+    a.link-default.link-default-font-15 href=new_profile_path
+      | Стать исполнителем и начать зарабатывать

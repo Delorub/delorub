@@ -8,7 +8,7 @@ gem 'pg'
 gem 'sidekiq'
 gem 'coffee-rails'
 gem 'jbuilder', '~> 2.0'
-gem 'slim-rails'
+gem 'slim-rails', '3.1.1'
 gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'mini_magick'
 gem 'searchkick'
@@ -56,6 +56,7 @@ gem 'activeadmin'
 gem 'activeadmin_addons'
 gem 'activeadmin_reorderable', github: 'delphist/activeadmin_reorderable', branch: 'feature/add-belongs-to-support'
 gem 'kaminari', github: 'kaminari/kaminari', ref: 'e95bb74'
+gem 'ckeditor'
 
 # Attachments
 gem 'rmagick', require: false

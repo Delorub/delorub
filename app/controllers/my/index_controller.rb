@@ -1,4 +1,6 @@
 class My::IndexController < My::ApplicationController
+  decorates_assigned :tasks
+
   def index
     if signed_in_as_master?
       master

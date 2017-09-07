@@ -14,6 +14,11 @@
 #  is_region_center   :boolean
 #  is_center          :boolean
 #  custom             :boolean
+#  slug               :string
+#
+# Indexes
+#
+#  index_places_on_slug  (slug)
 #
 
 FactoryGirl.define do

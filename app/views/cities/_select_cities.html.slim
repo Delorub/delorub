@@ -1,0 +1,11 @@
+.dr-block-style.dr-block-style--category
+  .subcategories
+    span
+      p.subcategories__header
+        | Город
+      .subcategories-list
+        = content_tag 'city-select', '',
+          ':cities-list': all_cities.map { |a| {name: a.name, code: a.slug, region_id: a.region_place_id} }.to_json,
+          ':regions-list': all_regions.map { |a| {name: a.full_name, id: a.id} }.to_json,
+          'city-selected': @place.present? ? @place.name : '',
+          'redirect-url': url

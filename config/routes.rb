@@ -33,11 +33,6 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [:show, :edit, :update], path: 'profile'
   resources :profiles, only: [:new, :create]
-  resources :profiles, only: [:index] do
-    collection do
-      get '/:category_id', action: :index, as: :category
-    end
-  end
 
   resources :tasks, only: [:show, :edit, :update], path: 'task' do
     resources :replies, only: [:show, :create, :edit, :update, :destroy] do
@@ -51,11 +46,19 @@ Rails.application.routes.draw do
     end
   end
   resources :tasks, only: [:new, :create], path_names: { new: 'new(/:category_id)' }
-  resources :tasks, only: [:index] do
-    collection do
-      get '/my(/:category_id)',         action: :index, as: :my,        defaults: { scope: :my }
-      get '/suggested(/:category_id)',  action: :index, as: :suggested, defaults: { scope: :suggested }
-      get '/:category_id',              action: :index, as: :category
+
+  scope '(/:city_code)' do
+    resources :tasks, only: [:index] do
+      collection do
+        get '/my(/:category_id)',         action: :index, as: :my,        defaults: { scope: :my }
+        get '/suggested(/:category_id)',  action: :index, as: :suggested, defaults: { scope: :suggested }
+        get '/:category_id',              action: :index, as: :category
+      end
+    end
+    resources :profiles, only: [:index] do
+      collection do
+        get '/:category_id', action: :index, as: :category
+      end
     end
   end
 

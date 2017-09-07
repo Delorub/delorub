@@ -1,6 +1,9 @@
 .regular-content
   .container
     = render 'breadcrumb'
+    .dr-content-header
+      h1
+        = task.title
     .row
       .col-lg-8
         .dr-block-style.dr-block-style--profile
@@ -58,4 +61,3 @@
                     = task.user.email
         = render 'files' unless task.files.blank?
         br/
-

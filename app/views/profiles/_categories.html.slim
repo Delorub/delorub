@@ -1,15 +1,16 @@
-.col-lg-4.lg-hide
-  .dr-block-style.dr-block-style--category
-    .subcategories
-      p.subcategories__header
-        | Категории
-      .subcategories-list
-        ul.subcategories-list__sup
-          - all_categories.each do |category|
-            li
-              = link_to category.title, category_profiles_path(category), class: @category && @category.id == category.id ? 'active' : ''
-              - if @category and (@category.id == category.id or @category.parent.present?) and category.children.present?
-                ul.subcategories-list__sub
-                  - category.children.each do |sub_category|
-                    li
-                      = link_to sub_category.title, category_profiles_path(sub_category), class: @category && @category.id == sub_category.id ? 'active' : ''
+.dr-block-style.dr-block-style--category
+  .subcategories
+    p.subcategories__header
+      | Категории
+    .subcategories-list
+      ul.subcategories-list__sup
+        - all_categories.each do |category|
+          li
+            = link_to category.title, category_city_profile_link_url(category, @place),
+              class: @category && @category.id == category.id ? 'active' : ''
+            - if @category and (@category.id == category.id or @category.parent.present?) and category.children.present?
+              ul.subcategories-list__sub
+                - category.children.each do |sub_category|
+                  li
+                    = link_to sub_category.title, category_city_profile_link_url(sub_category, @place),
+                      class: @category && @category.id == sub_category.id ? 'active' : ''
