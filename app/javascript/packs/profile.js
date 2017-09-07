@@ -20,6 +20,7 @@ $(document).ready(function () {
   $('.category_desc_accordion').on('click', function (e) {
     e.preventDefault()
     var bottomText = $(this).closest('.bottom-text')
-    bottomText.empty().append(bottomText.attr('data-text'))
+    bottomText.find('.all_text').show()
+    bottomText.find('.short_text').empty()
   })
 })

@@ -1,8 +1,11 @@
 - description = parse_city_settings(@place_settings, :description)
 - if @category and description.present?
   .dr-block-style
-    .bottom-text.center data-text="#{simple_format description}"
-      = simple_format description.truncate(150)
-      - if description.length > 150
-        a.link-default.category_desc_accordion href="#"
-          | Развернуть
+    .bottom-text.center
+      span.all_text style="display:none"
+        = simple_format description.html_safe
+      span.short_text
+        = simple_format description.truncate(150).html_safe
+        - if description.length > 150
+          a.link-default.category_desc_accordion href="#"
+            | Развернуть
