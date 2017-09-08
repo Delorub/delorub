@@ -7,7 +7,7 @@
         .dr-block-style.dr-block-style--profile-left
           .performer-profile-main.center
             .performer-profile-main__image
-              = image_tag profile.user.photo.url(:upload_medium)
+              = image_tag profile.user.photo.url(:medium)
               .performer-profile-main__status
                 = online_status profile.user.online?
             .performer-profile-main__price
@@ -17,11 +17,11 @@
             .performer-profile-main__contacts style="display: none"
               - unless profile.user.phone.blank?
                 p
-                  i.fa.fa-mobile aria-hidden="true"
+                  img src="/images/icons/phone.svg" alt="" /
                   = profile.user.phone
               - unless profile.user.email.blank?
                 p
-                  i.fa.fa-envelope-o aria-hidden="true"
+                  img src="/images/icons/mail.svg" alt="" /
                   = profile.user.email
         = render 'specializations'
       .col-lg-8
@@ -43,7 +43,7 @@
                   span.dr-h5
                     ' Город:
                   span.gray-text
-                    i.fa.fa-map-marker aria-hidden="true"
+                    img src="/images/icons/place_gray.svg" alt="" /
                     '
                     = profile.formatted_city_name
         .dr-block-style.dr-block-style--profile-left

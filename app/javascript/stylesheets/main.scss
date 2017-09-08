@@ -87,6 +87,9 @@ footer {
     color: #fff;
     &:hover {
       color: #70bee9 !important;
+      svg {
+        fill: #ffb600;
+      }
     }
     &:visited {
       color: #fff;

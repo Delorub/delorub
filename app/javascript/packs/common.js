@@ -12,4 +12,11 @@ $(function () {
   $('.rs-switch').on('click', function () {
     window.location = $(this).data('navigate-to')
   })
+
+  $('.flash').each(function () {
+    var flashElement = $(this)
+    $('.flash-close', this).on('click', function () {
+      flashElement.remove()
+    })
+  })
 })

@@ -49,6 +49,6 @@ class ApplicationController < ActionController::Base
     end
 
     def _run_options options
-      options.merge 'current_user' => current_user
+      options.merge 'current_user' => current_user&.object
     end
 end

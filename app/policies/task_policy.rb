@@ -3,7 +3,7 @@ class TaskPolicy < ApplicationPolicy
     true
   end
 
-  def edit?
+  def update?
     return false if user.blank?
     record.user.id == user.id
   end
