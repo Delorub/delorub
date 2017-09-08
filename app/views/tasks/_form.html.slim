@@ -1,165 +1,124 @@
-= simple_form_for @form do |f|
-  = content_tag 'task-form',
-    'inline-template': true,
-    ':categories-list': f.object.categories_list.to_json,
-    ':date-types-list': f.object.model.class.enumerized_attributes[:date_type].options.map { |e| { label: e[0], value: e[1] } }.to_json,
-    ':initial-model': f.object.to_nested_hash.to_json \
-    do
-    .regular-content
-      .container
-        nav.breadcrumb
-          a.breadcrumb-item href=root_path  Главная
-          span.breadcrumb-item.active Создать задание
-        .dr-content-header
-          h1
-            = "Создать задание #{@category.present? ? format('| %s', @category.title) : ''}"
-        .row
-          .col-xl-8
-            .dr-form
-              .dr-block-style
-                .form-group v-on:click="showTooltip('task_title')"
-                  h2 Заголовок
-                  br/
-                  .row
-                    .col-lg-8.col-12
-                      = f.input :title, label: false,
-                        input_html: { \
-                          'v-model': 'model.title',
-                          'v-on:focus': %(showTooltip('task_title')),
-                        }
-                .form-group v-on:click="showTooltip('task_description')"
-                  h2 Описание задачи
-                  br/
-                  = f.input :description, as: :text, label: false,
-                    input_html: { \
-                      'v-model': 'model.description',
-                      'v-on:focus': %(showTooltip('task_description')),
-                      rows: 10,
-                    }
-                .form-group id="task_files"
-                  = content_tag 'upload-form',
-                    class: 'dropzone',
-                    'v-on:change': %(showTooltip('task_files')),
-                    id: 'taskFilesUpload',
-                    url: '/api/tasks/files' do
-                    .dz-message data-dz-message="asd"
-                      img.dz-plus src="/images/design/dz-plus.svg" alt="" /
-                      span.upload-span Перетащите сюда файлы
-              .dr-block-style id="task_category"
-                .form-group v-on:click="showTooltip('task_category')"
-                  h2 Специализация
-                  br/
-                  .row
-                    .col-lg-6
-                      .form-group.black-content.multiselect-position
-                        = f.input_field :category_id, as: :hidden, 'v-model': 'model.category_id'
-                        = content_tag 'custom-multiselect', '',
-                          'v-model': 'model.category_id',
-                          ':searchable': 'false',
-                          ':allow-empty': 'false',
-                          'placeholder': 'Выберите категорию',
-                          ':options': f.object.main_category_collection.pluck(:id).to_json,
-                          ':custom-label': 'categoryLabel',
-                          '@select': 'populateSubcategories'
-                        = f.error :category_id
-                    .col-lg-6
-                      .form-group.multiselect-position
-                        = f.input_field :subcategory_ids,
-                          as: :hidden,
-                          'v-for': 'item in model.subcategory_ids',
-                          'v-bind:value': 'item',
-                          'name': "#{f.object_name}[subcategory_ids][]"
-
-                        = content_tag 'custom-multiselect', '',
-                          'v-model': 'model.subcategory_ids',
-                          ':searchable': 'false',
-                          ':allow-empty': 'false',
-                          ':show-reset': 'true',
-                          ':limit': '0',
-                          ':limit-text': 'limitSubcategoriesText',
-                          ':disabled': '!model.category_id',
-                          'placeholder': 'Выберите подкатегорию',
-                          ':multiple': 'true',
-                          ':custom-label': 'categoryLabel',
-                          ':options': 'subcategories'
-                        = f.error :subcategory_ids
-              .dr-block-style
-                .form-group v-on:click="showTooltip('task_dates')"
-                  h2 Дата и время
-                  br/
-                  .row
-                    .col-lg-4
-                      .form-group id="task_dates"
-                        = content_tag 'custom-select', '',
-                          'v-model': 'model.date_type',
-                          ':searchable': 'false',
-                          ':allow-empty': 'false',
-                          'v-on:change': %(showTooltip('task_dates')),
-                          ':custom-label': 'dateTypeLabel',
-                          ':options': f.object.model.class.enumerized_attributes[:date_type].options.map { |e| e[1] }.to_json
-                    .col-lg-4 :class="{ hidden: (model.date_type != 'end_at' && model.date_type != 'start_at') }"
-                      .form-group
-                        = f.input_field :date_actual, as: :hidden, 'v-model': 'model.date_actual'
-                        custom-datetimepicker ref="dateActualComponent" v-model="model.date_actual"
-                      .form-group__sublink
-                        a href="#" @click.prevent="$refs.dateActualComponent.setToday()"  сегодня
-                        a href="#" @click.prevent="$refs.dateActualComponent.setTomorrow()" завтра
-
-                    .col-lg-4 :class="{ hidden: model.date_type != 'interval' }"
-                      .form-group
-                        = f.input_field :date_interval_from, as: :hidden, 'v-model': 'model.date_interval_from'
-                        custom-datetimepicker ref="dateIntervalFromComponent" v-model="model.date_interval_from"
-                      .form-group__sublink
-                        a href="#" @click.prevent="$refs.dateIntervalFromComponent.setToday()"  сегодня
-                        a href="#" @click.prevent="$refs.dateIntervalFromComponent.setTomorrow()" завтра
-
-                    .col-lg-4 :class="{ hidden: model.date_type != 'interval' }"
-                      .form-group
-                        = f.input_field :date_interval_to, as: :hidden, 'v-model': 'model.date_interval_to'
-                        custom-datetimepicker ref="dateIntervalToComponent" v-model="model.date_interval_to"
-                      .form-group__sublink
-                        a href="#" @click.prevent="$refs.dateIntervalToComponent.setToday()"  сегодня
-                        a href="#" @click.prevent="$refs.dateIntervalToComponent.setTomorrow()" завтра
-                .form-group id="task_place" v-on:click="showTooltip('task_place')"
-                  h2 Адрес
-                  br/
-                  .row
-                    .col-lg-8.col-12
-                      .adress-arrow-hide
-                      = f.input_field :place_id, as: :hidden, 'v-model': 'model.place_id'
-                      = f.input_field :place_lat, as: :hidden, 'v-model': 'model.place_lat'
-                      = f.input_field :place_long, as: :hidden, 'v-model': 'model.place_long'
-                      = f.input_field :place_address, as: :hidden, 'v-model': 'model.place_address'
-                      = content_tag 'custom-select', '',
-                        'v-model': 'model.place_address',
-                        ':allow-empty': 'false',
-                        ':options': 'placeSuggestions',
-                        ':internal-search': 'false',
-                        ':loading': 'placeLoading',
-                        'placeholder': 'Введите адрес...',
-                        '@search-change': 'populatePlaces',
-                        '@select': 'placeBySelect'
-                      .form__error-message.error-display-show id='map_error'
-                div.hidden ref="placeMap" style="height: 300px"
-              .dr-block-style id="task_prices" v-on:click="showTooltip('task_prices')"
-                .form-group
-                  h2  На какой бюджет ориентироваться исполнителям
-                  br/
-                  .row.align-items-baseline
-                    .col-lg-5
-                      .input-group
-                        = f.input :price_exact, label: false, wrapper: false, error: false,
-                          input_html: { \
-                            'v-model': 'model.price_exact',
-                            'v-on:focus': %(showTooltip('task_prices')),
-                          }
-                        i.input-group-addon.fa.fa-rub aria-hidden="true"
-                      = f.error :price_exact
-              = f.simple_fields_for :new_user do |rf|
-                - unless rf.object.nil?
-                  .dr-block-style
-                    = render 'shared/user/new_user_form', f: rf
-              br/
-              .center
-                = f.submit 'Создать задание', class: 'dr-btn-danger'
-          = render 'tasks/form/popovers'
+.dr-block-style
+  .form-group v-on:click="showTooltip('task_title')"
+    h2 Заголовок
+    br/
+    .row
+      .col-lg-8.col-12
+        = f.input :title, label: false,
+          input_html: { \
+            'v-model': 'model.title',
+            'v-on:focus': %(showTooltip('task_title')),
+          }
+  .form-group v-on:click="showTooltip('task_description')"
+    h2 Описание задачи
+    br/
+    = f.input :description, as: :text, label: false,
+      input_html: { \
+        'v-model': 'model.description',
+        'v-on:focus': %(showTooltip('task_description')),
+        rows: 10,
+      }
+  .form-group id="task_files"
+    = content_tag 'upload-form',
+      class: 'dropzone',
+      'v-on:change': %(showTooltip('task_files')),
+      id: 'taskFilesUpload',
+      url: '/api/tasks/files' do
+      .dz-message data-dz-message="asd"
+        img.dz-plus src="/images/design/dz-plus.svg" alt="" /
+        span.upload-span Перетащите сюда файлы
+.dr-block-style id="task_category"
+  .form-group v-on:click="showTooltip('task_category')"
+    h2 Специализация
+    br/
+    .row
+      .col-lg-6
+        .form-group.black-content.multiselect-position
+          = f.input_field :category_id, as: :hidden, 'v-model': 'model.category_id'
+          = content_tag 'selectbox', '',
+            'v-model': 'model.category_id',
+            ':searchable': 'false',
+            ':allow-empty': 'false',
+            'placeholder': 'Выберите категорию',
+            ':options': f.object.main_category_collection.pluck(:id).to_json,
+            ':custom-label': 'categoryLabel',
+            '@select': 'populateSubcategories'
+          = f.error :category_id
+      .col-lg-6
+        .form-group.multiselect-position
+          = f.input_field :subcategory_ids,
+            as: :hidden,
+            'v-for': 'item in model.subcategory_ids',
+            'v-bind:value': 'item',
+            'name': "#{f.object_name}[subcategory_ids][]"
+          = content_tag 'selectbox', '',
+            'v-model': 'model.subcategory_ids',
+            ':searchable': 'false',
+            ':allow-empty': 'false',
+            ':show-reset': 'true',
+            ':limit': '0',
+            ':limit-text': 'limitSubcategoriesText',
+            ':disabled': '!model.category_id',
+            'placeholder': 'Выберите подкатегорию',
+            ':multiple': 'true',
+            ':custom-label': 'categoryLabel',
+            ':options': 'subcategories'
+          = f.error :subcategory_ids
+.dr-block-style
+  .form-group v-on:click="showTooltip('task_dates')"
+    h2 Дата и время
+    br/
+    .row
+      .col-lg-4
+        .form-group id="task_dates"
+          = f.input_field :date_type,
+            as: :vue_select_collection,
+            component: { \
+              'v-model': 'model.date_type',
+              '@change': %(showTooltip('task_dates')),
+            }
+      .col-lg-4 :class="{ hidden: (model.date_type != 'end_at' && model.date_type != 'start_at') }"
+        datetimepicker v-model="model.date_actual"
+          template slot="input" scope="props"
+            = f.input_field :date_actual, as: :hidden, ':value': 'props.value'
+      .col-lg-4 :class="{ hidden: model.date_type != 'interval' }"
+        datetimepicker v-model="model.date_interval_from"
+          template slot="input" scope="props"
+            = f.input_field :date_interval_from, as: :hidden, ':value': 'props.value'
+      .col-lg-4 :class="{ hidden: model.date_type != 'interval' }"
+        datetimepicker v-model="model.date_interval_to"
+          template slot="input" scope="props"
+            = f.input_field :date_interval_to, as: :hidden, ':value': 'props.value'
+  .form-group id="task_place" v-on:click="showTooltip('task_place')"
+    h2 Адрес
+    br/
+    .row
+      .col-lg-8.col-12
+        .adress-arrow-hide
+        = f.input_field :place_lat, as: :hidden, 'v-model': 'model.place_lat'
+        = f.input_field :place_long, as: :hidden, 'v-model': 'model.place_long'
+        = f.input_field :place_address, as: :hidden, 'v-model': 'model.place_address'
+        selectbox(
+          v-model="model.place_address"
+          :options="placeSuggestions"
+          :searchable="true"
+          :internal-search="false"
+          :loading="placeLoading"
+          placeholder="Введите адрес..."
+          @search-change="populatePlaces"
+          @select="placeBySelect"
+        )
+  div.hidden ref="placeMap" style="height: 300px"
+.dr-block-style id="task_prices" @click="showTooltip('task_prices')"
+  .form-group
+    h2  На какой бюджет ориентироваться исполнителям
+    br/
+    .row.align-items-baseline
+      .col-lg-5
+        .input-group
+          = f.input :price_exact, label: false, wrapper: false, error: false,
+            input_html: { \
+              '@focus': %(showTooltip('task_prices')),
+            }
+          i.input-group-addon.fa.fa-rub aria-hidden="true"
+        = f.error :price_exact

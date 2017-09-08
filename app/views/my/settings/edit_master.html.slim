@@ -1,0 +1,8 @@
+= render layout: 'my/layout'
+  .dr-content-header
+    h1
+      | Настройки учетной записи исполнителя
+  = simple_form_for(@form, url: my_settings_path) do |f|
+    = render 'form', f: f
+    br/
+    input.dr-btn-primary type="submit" value="Сохранить" /

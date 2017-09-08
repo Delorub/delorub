@@ -1,5 +1,5 @@
 = simple_form_for @form do |f|
-  = content_tag 'profile-form',
+  = content_tag 'new-profile-form',
     'inline-template': true,
     ':categories-list': f.object.categories_list.to_json,
     ':cities-list': f.object.cities_list.to_json,
@@ -19,46 +19,13 @@
                 .form-group v-on:click="showTooltip('profile_category')"
                   h2 Специализация
                   br/
-                  template v-for="(mainCategory, index) in model.main_categories_profiles"
-                    .row
-                      .col-lg-6
-                        .form-group.black-content
-                          input type="hidden" name="profile[main_categories_profiles][][main_category_id]" v-model="model.main_categories_profiles[index]['main_category_id']"
-                          = content_tag 'custom-multiselect', '',
-                            'v-model': "model.main_categories_profiles[index]['main_category_id']",
-                            ':searchable': 'false',
-                            ':allow-empty': 'false',
-                            'placeholder': 'Выберите категорию',
-                            ':options': "mainCategoriesListFor(model.main_categories_profiles[index]['main_category_id'])",
-                            ':custom-label': 'categoryLabel',
-                            '@select': "resetCategoriesValueForIndex(index)"
-                      .col-lg-6
-                        .form-group
-                          input type="hidden" name="profile[main_categories_profiles][][category_ids][]" v-for="value in model.main_categories_profiles[index]['category_ids']" v-bind:value="value"
-                          = content_tag 'custom-multiselect', '',
-                            'v-model': "model.main_categories_profiles[index]['category_ids']",
-                            ':searchable': 'false',
-                            ':allow-empty': 'true',
-                            ':show-reset': 'true',
-                            ':multiple': 'true',
-                            ':limit': '0',
-                            ':limit-text': 'limitSubcategoriesText',
-                            ':disabled': "model.main_categories_profiles[index]['main_category_id'] == null",
-                            'placeholder': 'Выберите подкатегорию',
-                            ':clear-on-select': 'true',
-                            ':options': "categoriesListFor(model.main_categories_profiles[index]['main_category_id'])",
-                            ':custom-label': 'categoryLabel'
-                    .row
-                      .col-lg-12
-                        textarea rows="10" name="profile[main_categories_profiles][][description]" class="form-control" placeholder="Опишите ваши тарифы и условия" v-model="model.main_categories_profiles[index]['description']"
-                    .row v-if="model.main_categories_profiles.length > 1"
-                      .col-lg-6
-                        a.link-default href='#' v-on:click.prevent='removeMainCategoryByIndex(index)' Удалить
-                        br/
-                        br/
-                  .row v-if="availableCategories > 0"
-                    .col-lg-6
-                      a.link-default href='#' v-on:click.prevent='addMainCategory' Добавить
+                = render 'profiles/form/specializations', \
+                  f: f,
+                  props: { \
+                    'v-model': 'model.main_categories_profiles',
+                    '@available': 'updateAvailable',
+                    '@focus': "showTooltip('profile_category')",
+                  }
               .dr-block-style.dr-block-style--category
                 .row
                   .col-lg-12
@@ -85,7 +52,7 @@
                     .col-lg-6
                       label Выберите город
                       = f.input_field :place_id, as: :hidden, 'v-model': 'model.place_id'
-                      = content_tag 'custom-multiselect', '',
+                      = content_tag 'selectbox', '',
                         'v-model': 'model.place_id',
                         ':searchable': 'true',
                         ':allow-empty': 'false',
@@ -95,28 +62,17 @@
                     .col-lg-6
                       .form-group
                         label Укажите дату рождения
-                        .input-group.date
-                          label.date-addon
-                          = f.input_field :birthday, as: :hidden, 'v-model': 'model.birthday'
-                          = content_tag 'flat-pickr', '',
-                            'v-model': 'model.birthday',
-                            'placeholder': 'Дата',
-                            ':config': 'datepickerConfig'
-              .dr-block-style
-                .form-group v-on:click="showTooltip('profile_about')"
-                  h2  Обо мне
-                  br/
-                  = f.input :about, as: :text, label: false,
-                    input_html: { \
-                      'v-model': 'model.description',
-                      'v-on:focus': %(showTooltip('profile_about')),
-                      'placeholder': 'Напишите о себе',
-                      rows: 10,
-                    }
+                        datepicker(
+                          placeholder="Дата"
+                          value=(f.object.birthday)
+                        )
+                          template scope="props"
+                            = f.input_field :birthday, as: :hidden, 'v-bind:value': 'props.value'
+              = render 'profiles/form/about', f: f
               = f.simple_fields_for :new_user do |rf|
                 - unless rf.object.nil?
                   .dr-block-style
                     = render 'shared/user/new_user_form', f: rf
                 br/
-                = f.submit 'Сохранить', class: 'dr-btn-primary'
+              = f.submit 'Сохранить', class: 'dr-btn-primary'
           = render 'profiles/form/popovers'

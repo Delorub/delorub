@@ -19,7 +19,7 @@
                 p.task-card-refinement__price
                   = task.price_exact.blank? ? 'Не указана' : "#{task.price_exact} руб."
                 p.task-card-refinement__date
-                  | Дата размещения
+                  | Размещено
                   br/
                   span
                     = task.date_created_at

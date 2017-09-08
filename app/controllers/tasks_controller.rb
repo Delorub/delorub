@@ -11,17 +11,32 @@ class TasksController < ApplicationController
 
   def new
     authorize Task
-    run Task::Operation::Present, category: @category
+    run Task::Operation::Create::Present, category: @category
   end
 
   def create
     authorize Task
-    run Task::Operation, task_params do |result|
+    run Task::Operation::Create, task_params do |result|
       sign_in result['sign_in_new_user'] if result['sign_in_new_user']
       return redirect_to task_path(result['model']), notice: 'Задание добавлено'
     end
 
     render 'new'
+  end
+
+  def edit
+    authorize resource
+    run Task::Operation::Update::Present, id: resource.id
+  end
+
+  def update
+    authorize resource
+
+    run Task::Operation::Update, task_params.merge(id: resource.id) do |result|
+      return redirect_to task_path(result['model']), notice: 'Задание отредактировано'
+    end
+
+    render 'edit'
   end
 
   private

@@ -3,7 +3,7 @@
     .row
       .col-md-2
         .dr-profile-card__image
-          = image_tag current_user.photo.url(:upload_preview)
+          = image_tag current_user.photo.url(:medium)
           .performer-profile-main__status
             = online_status current_user.online?
       .col-md-10

@@ -3,7 +3,7 @@ class ReplyPolicy < ApplicationPolicy
     TaskPolicy.new(user, record.task).reply?
   end
 
-  def edit?
+  def update?
     return false if user.blank?
     user.id == record.user_id
   end
