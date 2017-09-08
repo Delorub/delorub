@@ -4,7 +4,7 @@ class ProfilePolicy < ApplicationPolicy
     true
   end
 
-  def edit?
+  def update?
     return false if user.blank?
     user.id == record.user_id
   end

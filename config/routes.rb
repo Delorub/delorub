@@ -29,6 +29,8 @@ Rails.application.routes.draw do
   namespace :my do
     resources :welcome, only: :index
     resources :index, only: :index
+    resource :user, only: [:edit, :update]
+    resource :settings, only: [:edit, :update]
   end
 
   resources :profiles, only: [:show, :edit, :update], path: 'profile'

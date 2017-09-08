@@ -1,0 +1,10 @@
+.dr-block-style
+  .form-group v-on:click="showTooltip('profile_about')"
+    h2  Обо мне
+    br/
+    = f.input :about, as: :text, label: false,
+      input_html: { \
+        'v-on:focus': %(showTooltip('profile_about')),
+        'placeholder': 'Напишите о себе',
+        rows: 10,
+      }

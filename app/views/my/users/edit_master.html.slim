@@ -1,0 +1,56 @@
+= render layout: 'my/layout'
+  = simple_form_for(@form, url: my_user_path) do |f|
+    = content_tag 'edit-user-form',
+      'inline-template': true,
+      ':initial-model': f.object.to_nested_hash.to_json \
+      do
+      div
+        .dr-content-header
+          h1
+            | Настройки профиля исполнителя
+        .dr-block-style
+          = render 'my/users/form/main', f: f
+          hr.dr-block-hr/
+          .row
+            .col-lg-6
+              label Выберите город
+              .form-group.string.required.profile_city_name
+                input#profile_city_name.form-control.string.required name="profile[city_name]" placeholder="Санкт-Петербург" type="text" /
+            .col-lg-6
+              .form-group
+                label Укажите дату рождения
+              = f.simple_fields_for :profile do |pf|
+                datepicker(
+                  placeholder="Дата"
+                  value=(pf.object.birthday)
+                )
+                  template scope="props"
+                    = pf.input_field :birthday, as: :hidden, 'v-bind:value': 'props.value'
+        .dr-block-style
+          .form-group
+            h2 Специализация
+            br/
+            = f.simple_fields_for :profile do |pf|
+              = render 'profiles/form/specializations', \
+                f: pf,
+                props: { ':value': (pf.object.main_categories_profiles.map(&:to_nested_hash).to_json) }
+        = f.simple_fields_for :profile do |pf|
+          .dr-block-style
+            .row
+              .col-lg-12
+                .form-group
+                  h2 Укажите минимальную цену за свою работу
+                  br/
+                  .row.align-items-baseline
+                    .margin-side
+                      label for="profile_price_project"  От
+                    .col-lg-5
+                      .input-group
+                        = pf.input :price_project, label: false, wrapper: false, error: false,
+                          input_html: { \
+                            'placeholder': '30 000',
+                          }
+                        i.input-group-addon.fa.fa-rub aria-hidden="true"
+          = render 'profiles/form/about', f: pf
+        br/
+        input.dr-btn-primary type="submit" value="Сохранить" /

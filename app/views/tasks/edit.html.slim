@@ -1,0 +1,22 @@
+= simple_form_for @form do |f|
+  = content_tag 'task-form',
+    'inline-template': true,
+    ':categories-list': f.object.categories_list.to_json,
+    ':date-types-list': f.object.model.class.enumerized_attributes[:date_type].options.map { |e| { label: e[0], value: e[1] } }.to_json,
+    ':initial-model': f.object.to_nested_hash.to_json \
+    do
+    .regular-content
+      .container
+        nav.breadcrumb
+          a.breadcrumb-item href=root_path  Главная
+          span.breadcrumb-item.active Редактировать задание
+        .dr-content-header
+          h1 Редактировать задание
+        .row
+          .col-xl-8
+            .dr-form
+              = render 'form', f: f
+            br/
+            .center
+              = f.submit 'Редактировать задание', class: 'dr-btn-danger'
+          = render 'tasks/form/popovers'

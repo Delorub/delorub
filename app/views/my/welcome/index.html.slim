@@ -1,35 +1,31 @@
-.regular-content
-  .container
-    .row
-      = render 'my/shared/sidebar'
-      .col-lg-8
-        .dr-content-header
-          h1
-            | Ваш профиль заказчика
-        .dr-block-style.dr-block-style--profile
-          .customer-welcome__content
-            h2 Здравствуйте, #{current_user.name}!
-            br/
-            p
-              | Вы находитесь в вашем Профиле Заказчика.
-              br/
-              | Как Заказчик, вы можете разместить свое задание. После модерации оно
-              br/
-              | появится в списке заданий по выбранной вами категории.
-            p
-              | Чтобы перейти к форме создания задания, нажмите на кнопку
-              br/
-              | «Создать задание».
-            p
-              | Бесплатно вы можете разместить не более #{User::FREE_TASKS} заданий в месяц.
-            br/
-            a.dr-btn-danger href=new_task_path  Создать задание
-          hr.dr-block-hr/
-          br/
-          .customer-welcome__content
-            p
-              | Если вы хотите стать Исполнителем и начать зарабатывать, нажмите на кнопку
-              br/
-              | «Стать исполнителем»
-            br/
-            a.dr-btn-primary href=new_profile_path  Стать исполнителем
+= render layout: 'my/layout'
+  .dr-content-header
+    h1
+      | Ваш профиль заказчика
+  .dr-block-style.dr-block-style--profile
+    .customer-welcome__content
+      h2 Здравствуйте, #{current_user.name}!
+      br/
+      p
+        | Вы находитесь в вашем Профиле Заказчика.
+        br/
+        | Как Заказчик, вы можете разместить свое задание. После модерации оно
+        br/
+        | появится в списке заданий по выбранной вами категории.
+      p
+        | Чтобы перейти к форме создания задания, нажмите на кнопку
+        br/
+        | «Создать задание».
+      p
+        | Бесплатно вы можете разместить не более #{User::FREE_TASKS} заданий в месяц.
+      br/
+      a.dr-btn-danger href=new_task_path  Создать задание
+    hr.dr-block-hr/
+    br/
+    .customer-welcome__content
+      p
+        | Если вы хотите стать Исполнителем и начать зарабатывать, нажмите на кнопку
+        br/
+        | «Стать исполнителем»
+      br/
+      a.dr-btn-primary href=new_profile_path  Стать исполнителем

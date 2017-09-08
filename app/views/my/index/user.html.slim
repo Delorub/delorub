@@ -1,16 +1,12 @@
-.regular-content
-  .container
-    .row
-      = render 'my/shared/sidebar'
-      .col-lg-9
-        .dr-content-header
-          h1
-            | Ваш профиль заказчика
-          a.dr-btn-primary href="#"  Редактировать
-        = render 'user_info'
-        br/
-        .dr-content-header
-          h2
-            | Мои задания
-          a.dr-btn-danger href=new_task_path  Добавить задание
-        = render 'tasks'
+= render layout: 'my/layout', locals: { width: 9 }
+  .dr-content-header
+    h1
+      | Ваш профиль заказчика
+    a.dr-btn-primary href=edit_my_user_path Редактировать
+  = render 'user_info'
+  br/
+  .dr-content-header
+    h2
+      | Мои задания
+    a.dr-btn-danger href=new_task_path Добавить задание
+  = render 'tasks'

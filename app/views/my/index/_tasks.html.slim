@@ -42,5 +42,5 @@
         .task-card-link
           div
             a.link-default href="#"  Отменить задание
-            a.link-default href="#"  Редактировать
+            a.link-default href=edit_task_path(task)  Редактировать
   = paginate @tasks, theme: 'custom_theme'

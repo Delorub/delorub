@@ -5,9 +5,11 @@ module SmsConfirmation::Contract
     property :accepted, writeable: false
     property :created_at, writeable: false
 
-    validation :default do
+    validation :default, with: { form: true } do
       configure do
         config.messages = :i18n
+
+        option :form
 
         def phone? value
           Phony.plausible? value

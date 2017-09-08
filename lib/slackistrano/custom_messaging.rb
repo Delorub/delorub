@@ -16,7 +16,7 @@ module Slackistrano
       {
         attachments: [{
           color: 'good',
-          title: 'Задача успешно декомпилирована! :boom::bangbang:',
+          title: 'Кракен успешно выпущен! :boom::bangbang: :facepalm:',
           fields: [{
             title: 'Сервер',
             value: stage,

@@ -1,50 +1,43 @@
-.regular-content
-  .container
+= render layout: 'my/layout', locals: { width: 9 }
+  .dr-content-header
+    h1
+      | Ваш профиль исполнителя
+    a.dr-btn-primary href=edit_my_user_path Редактировать
+  = render 'master_info'
+  .dr-block-style
+    .dr-profile-card__contacts
+      .row
+        - if current_user.phone.present?
+          .col-md-5
+            span.dr-profile-card__contacts-header
+             ' Телефон:
+            span = current_user.phone
+        - if current_user.email.present?
+          .col-md-7
+            span.dr-profile-card__contacts-header
+              ' Почта:
+            span = current_user.email
+    hr.dr-block-hr/
     .row
-      = render 'my/shared/sidebar'
-      .col-lg-9
-        .dr-content-header
-          h1
-            | Ваш профиль исполнителя
-          - if current_user.profile.present?
-            a.dr-btn-primary href="#" Редактировать
-          - else
-            a.dr-btn-primary href=new_profile_path Редактировать
-        = render 'master_info'
-        .dr-block-style
-          .dr-profile-card__contacts
-            .row
-              - if current_user.phone.present?
-                .col-md-5
-                  span.dr-profile-card__contacts-header
-                   ' Телефон:
-                  span = current_user.phone
-              - if current_user.email.present?
-                .col-md-7
-                  span.dr-profile-card__contacts-header
-                    ' Почта:
-                  span = current_user.email
-          hr.dr-block-hr/
-          .row
-            = render 'my/shared/omniauth'
-        - if current_user.profile.present?
-          .dr-block-style.dr-block-style--profile
-            - current_user.profile.main_categories_profiles.each do |main_category_profile|
-              .performer-description-category
-                .performer-description-category__header
-                  h5
-                    a.link-default href=category_tasks_path(main_category_profile.main_category)
-                      = main_category_profile.main_category.title
-                .performer-description-category__text
-                  p
-                    b Тарифы и условия
-                  p
-                    = simple_format main_category_profile.description
-          .dr-block-style.dr-block-style--profile
-            .performer-description-about
-              .performer-description-about__header
-                h5
-                  b Об исполнителе
-              .performer-description-about__text
-                .expand-block.expand-block--hide
-                  = simple_format current_user.profile.about
+      = render 'my/shared/omniauth'
+  - if current_user.profile.present?
+    .dr-block-style.dr-block-style--profile
+      - current_user.profile.main_categories_profiles.each do |main_category_profile|
+        .performer-description-category
+          .performer-description-category__header
+            h5
+              a.link-default href=category_tasks_path(main_category_profile.main_category)
+                = main_category_profile.main_category.title
+          .performer-description-category__text
+            p
+              b Тарифы и условия
+            p
+              = simple_format main_category_profile.description
+    .dr-block-style.dr-block-style--profile
+      .performer-description-about
+        .performer-description-about__header
+          h5
+            b Об исполнителе
+        .performer-description-about__text
+          .expand-block.expand-block--hide
+            = simple_format current_user.profile.about

@@ -1,10 +1,10 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   def new
-    run User::Registration::Present
+    run User::Operation::Registration::Present
   end
 
   def create
-    run User::Registration, params.require(:user).permit! do |result|
+    run User::Operation::Registration, params.require(:user).permit! do |result|
       sign_in result['model']
       return redirect_to my_welcome_index_path
     end
