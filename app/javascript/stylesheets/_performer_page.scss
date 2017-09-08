@@ -143,6 +143,9 @@
       justify-content: center;
       align-items: center;
     }
+    p + p {
+      margin-bottom: 0;
+    }
     img {
       margin-right: 10px;
     }
