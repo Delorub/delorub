@@ -1,4 +1,4 @@
-input + .form__error-message {
+input + .form__error-message, div + .form__error-message, textarea + .form__error-message {
   margin-top: -1rem;
 }
 
