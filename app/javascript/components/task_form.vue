@@ -1,6 +1,7 @@
 <script>
 import formTooltips from 'mixins/form_tooltips'
 import yandexMap from 'mixins/yandex_map'
+import axios from 'axios'
 
 export default {
   mixins: [formTooltips, yandexMap],
@@ -15,6 +16,7 @@ export default {
       suggestView: null,
       subcategories: [],
       placeSuggestions: [],
+      citiesList: [],
       placeLoading: false,
       datepickerConfig: {
         allowInput: true,
@@ -93,6 +95,25 @@ export default {
       }
       this.model.place_lat = coordinates[0]
       this.model.place_long = coordinates[1]
+
+      var region = geoObject.properties.get('metaDataProperty.GeocoderMetaData.AddressDetails.Country.AdministrativeArea.AdministrativeAreaName')
+      var city = geoObject.properties.getAll().name
+
+      this.model.place_id = ''
+      if (city === region) {
+        axios.post('/api/cities', {
+          query: region
+        }).then(response => {
+          this.recognitionCity(response.data, city)
+        })
+      } else {
+        axios.post('/api/regions', {
+          query: region
+        }).then(response => {
+          var arrayCities = response.data.length > 0 ? response.data[0].cities : []
+          this.recognitionCity(arrayCities, city)
+        })
+      }
     },
     populatePlaces (text) {
       if (!this.ymaps) return
@@ -101,6 +122,15 @@ export default {
         this.placeSuggestions = items.map((e) => e.displayName)
         this.placeLoading = false
       })
+    },
+    recognitionCity (arrayCities, city) {
+      this.citiesList = arrayCities
+      this.model.place_id = this.getCityId(city)
+      var errorEl = document.getElementById('map_error')
+      errorEl.innerHTML = ''
+      if (this.model.place_id === '') {
+        errorEl.innerHTML = 'На данный момент города нет в нашей базе'
+      }
     },
     populateSubcategories (selected) {
       if (selected !== this.model.category_id) {
@@ -129,6 +159,17 @@ export default {
         return true
       })
       return result.label
+    },
+    getCityId (cityName) {
+      var result
+      this.citiesList.every((e) => {
+        if (e.name === cityName) {
+          result = e
+          return false
+        }
+        return true
+      })
+      return result === undefined ? '' : result.id
     },
     limitSubcategoriesText (count) {
       return `Выбрано ${count} подкатегорий`

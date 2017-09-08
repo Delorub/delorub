@@ -1,0 +1,22 @@
+.regular-content
+  .container
+    .row
+      .col-lg-6.offset-lg-3
+        .registration-form
+          .dr-block-style.dr-block-style--registration
+            .registration-form-container
+              .registration-form__header
+                p Новый пароль
+              .registration-form__content
+                = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+                  = f.hidden_field :reset_password_token
+                  .row
+                    .col-xl-8.col-lg-10
+                      .form__error-message
+                        = error_block_for :password
+                      = f.password_field :password, autofocus: true, autocomplete: 'off', class: 'form-control', placeholder: 'Новый пароль'
+                    .col-xl-8.col-lg-10
+                      .form__error-message
+                        = error_block_for :password_confirmation
+                      = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control', placeholder: 'Подтвердите пароль'
+                  input.dr-btn-primary type="submit" value="Сохранить" /

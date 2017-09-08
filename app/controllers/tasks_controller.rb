@@ -70,7 +70,7 @@ class TasksController < ApplicationController
     end
 
     def all_cities
-      @all_cities = Place.only_cities
+      @all_cities = Place.only_cities.order(:name)
     end
 
     def all_regions
