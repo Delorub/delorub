@@ -19,8 +19,7 @@
                 p.task-card-refinement__price
                   = task.price_exact.blank? ? 'Не указана' : "#{task.price_exact} руб."
                 p.task-card-refinement__date
-                  | Размещено
-                  br/
+                  | Размещено&nbsp;
                   span
                     = task.date_created_at
                 - unless task.date_type.blank?
@@ -37,6 +36,6 @@
             .col
               .task-card-description
                 p.task-card-description__adress
-                  i.fa.fa-map-marker aria-hidden="true"
+                  img src="/images/icons/place_gray.svg" alt="" /
                   = task.place_address
   = paginate collection, theme: 'custom_theme'
