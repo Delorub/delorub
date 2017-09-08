@@ -54,10 +54,10 @@
                 - unless task.user.phone.blank?
                   p
                     img src="/images/icons/phone.svg" alt="" /
-                    = profile.user.phone
+                    = task.user.phone
                 - unless task.user.email.blank?
                   p
                     img src="/images/icons/mail.svg" alt="" /
-                    = profile.user.email
+                    = task.user.email
         = render 'files' unless task.files.blank?
         br/
