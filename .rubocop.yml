@@ -11,6 +11,7 @@ AllCops:
     - db/schema.rb
     - db/seeds.rb
     - db/migrate/*
+    - config/initializers/enumerize_monkey_patch.rb
 
 Rails:
   Enabled: true

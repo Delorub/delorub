@@ -15,7 +15,7 @@ export default {
     this.dropzone = new Dropzone(this.$refs.dropzone, {
       url: this.url,
       maxFiles: 4,
-      acceptedFiles: 'image/*',
+      acceptedFiles: 'image/*,application/pdf,.doc,.xls,.xlsx',
       maxFilesize: 7,
       autoDiscover: false,
       addRemoveLinks: true,

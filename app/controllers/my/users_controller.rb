@@ -1,5 +1,7 @@
 class My::UsersController < My::ApplicationController
   def edit
+    authorize current_user
+
     if signed_in_as_master?
       edit_master
     else
@@ -8,6 +10,8 @@ class My::UsersController < My::ApplicationController
   end
 
   def update
+    authorize current_user
+
     if signed_in_as_master?
       update_master
     else
@@ -18,13 +22,13 @@ class My::UsersController < My::ApplicationController
   private
 
     def edit_master
-      run User::Operation::Edit::Master::Present
+      run User::Operation::Update::Master::Present
 
       render 'edit_master'
     end
 
     def update_master
-      run User::Operation::Edit::Master, user_params do |result|
+      run User::Operation::Update::Master, user_params do |result|
         return redirect_to edit_my_user_path, notice: 'Профиль отредактирован'
       end
 
@@ -32,14 +36,13 @@ class My::UsersController < My::ApplicationController
     end
 
     def edit_user
-      # authorize current_user, :edit
-      run User::Operation::Edit::User::Present
+      run User::Operation::Update::User::Present
 
       render 'edit_user'
     end
 
     def update_user
-      run User::Operation::Edit::User, user_params do |result|
+      run User::Operation::Update::User, user_params do |result|
         return redirect_to edit_my_user_path, notice: 'Профиль отредактирован'
       end
 

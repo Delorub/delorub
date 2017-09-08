@@ -12,7 +12,7 @@
         .col-lg-2
           .master-card-person
             .master-card-person__image *{class: profile.user.online? ? 'master-card-person__image--online' : '' }
-              = image_tag profile.user.photo.url(:upload_preview)
+              = image_tag profile.user.photo.url(:medium)
             .master-card-person__mark
         .col
           .master-card-description

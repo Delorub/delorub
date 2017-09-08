@@ -1,8 +1,8 @@
-class User::Operation::Edit
+class User::Operation::Update
   class User < Trailblazer::Operation
     class Present < Trailblazer::Operation
       step :model!
-      step Contract::Build(constant: ::User::Contract::Edit::User)
+      step Contract::Build(constant: ::User::Contract::Update::User)
       step :prepopulate!
 
       def model! options, params:, **_
@@ -17,12 +17,18 @@ class User::Operation::Edit
     step Nested(Present)
     step Contract::Validate()
     step Contract::Persist()
+    step :update_photo!
+
+    def update_photo! options, model:, params:, **_
+      model.photo = options['contract.default'].temporary_photo.model.photo
+      model.save
+    end
   end
 
   class Master < Trailblazer::Operation
     class Present < Trailblazer::Operation
       step :model!
-      step Contract::Build(constant: ::User::Contract::Edit::Master)
+      step Contract::Build(constant: ::User::Contract::Update::Master)
       step :prepopulate!
 
       def model! options, params:, **_
@@ -37,5 +43,11 @@ class User::Operation::Edit
     step Nested(Present)
     step Contract::Validate()
     step Contract::Persist()
+    step :update_photo!
+
+    def update_photo! options, model:, params:, **_
+      model.photo = options['contract.default'].temporary_photo.model.photo
+      model.save
+    end
   end
 end

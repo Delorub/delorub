@@ -19,6 +19,7 @@ import ProfileSpecializationsForm from '../components/forms/profile/specializati
 import NewProfileForm from '../components/forms/profile/new_form.vue'
 import EditProfileForm from '../components/forms/profile/edit_form.vue'
 import EditUserForm from '../components/forms/user/edit_form.vue'
+import UserPhotoUpload from '../components/forms/user/photo_upload.vue'
 import TaskForm from '../components/forms/task/edit_form.vue'
 import SignInForm from '../components/forms/user/sign_in_form.vue'
 
@@ -52,6 +53,7 @@ Vue.component('sms-confirmation', SmsConfirmation)
 Vue.component('new-profile-form', NewProfileForm)
 Vue.component('edit-profile-form', EditProfileForm)
 Vue.component('edit-user-form', EditUserForm)
+Vue.component('user-photo-upload', UserPhotoUpload)
 Vue.component('profile-specializations-form', ProfileSpecializationsForm)
 
 Vue.component('task-form', TaskForm)

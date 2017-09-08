@@ -1,10 +1,14 @@
 .dr-profile-card
   .row
     .col-xl-2.col-md-2
-      .dr-profile-card__image.dr-profile-card__image--margin-top
-        img alt="" src=f.object.model.photo_url /
-        .dr-profile-card__image-link
-          a.link-default href="#"  Изменить
+      = f.simple_fields_for :temporary_photo do |tpf|
+        user-photo-upload(
+          url="/api/users/temporary_photos"
+          image=tpf.object.uploaded_or_real_photo.url(:medium)
+          id=tpf.object.id
+        )
+          template slot="input" scope="props"
+            = tpf.input_field :id, as: :hidden, ':value': 'props.id'
     .col-xl-7.col-md-10
       .dr-profile-card__inputs
         = f.input :first_name, label: false
