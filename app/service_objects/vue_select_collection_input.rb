@@ -14,8 +14,8 @@ class VueSelectCollectionInput < SimpleForm::Inputs::CollectionInput
     def hidden_field_slot merged_input_options
       binded_attributes = { ':value': 'props.value' }
       '<template slot="input" scope="props">'.html_safe +
-      @builder.hidden_field(attribute_name, merged_input_options.merge(binded_attributes)) +
-      '</template>'.html_safe
+        @builder.hidden_field(attribute_name, merged_input_options.merge(binded_attributes)) +
+        '</template>'.html_safe
     end
 
     def default_component_props
@@ -27,7 +27,7 @@ class VueSelectCollectionInput < SimpleForm::Inputs::CollectionInput
     end
 
     def collection_to_options
-      label_method, value_method = detect_collection_methods
+      _, value_method = detect_collection_methods
 
       collection.map { |e| e.send(value_method) }
     end

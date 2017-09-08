@@ -7,7 +7,7 @@ class User::Contract::Update
     property :temporary_photo,
       prepopulator: ->(options) {
         self.temporary_photo = ::User::TemporaryPhoto.new(photo: 'real')
-        self.temporary_photo.user_model = model
+        temporary_photo.user_model = model
       },
       populator: ->(fragment:, **) {
         item = ::User::TemporaryPhoto.find_by(id: fragment['id'].to_i)
@@ -18,7 +18,7 @@ class User::Contract::Update
       property :user_model, parse: false, virtual: true
 
       def uploaded_or_real_photo
-        return user_model.photo unless model.photo.present?
+        return user_model.photo if model.photo.blank? && user_model.present?
         model.photo
       end
     end
