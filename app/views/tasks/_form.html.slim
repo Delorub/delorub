@@ -95,6 +95,7 @@
     .row
       .col-lg-8.col-12
         .adress-arrow-hide
+        = f.input_field :place_id, as: :hidden, 'v-model': 'model.place_id'
         = f.input_field :place_lat, as: :hidden, 'v-model': 'model.place_lat'
         = f.input_field :place_long, as: :hidden, 'v-model': 'model.place_long'
         = f.input_field :place_address, as: :hidden, 'v-model': 'model.place_address'
@@ -108,6 +109,7 @@
           @search-change="populatePlaces"
           @select="placeBySelect"
         )
+        .form__error-message.error-display-show id='map_error'
   div.hidden ref="placeMap" style="height: 300px"
 .dr-block-style id="task_prices" @click="showTooltip('task_prices')"
   .form-group

@@ -47,7 +47,7 @@ Rails.application.routes.draw do
       end
     end
   end
-  resources :tasks, only: [:new, :create], path_names: { new: 'new(/:category_id)' }
+  resources :tasks, only: [:new, :create, :destroy], path_names: { new: 'new(/:category_id)' }
 
   scope '(/:city_code)' do
     resources :tasks, only: [:index] do

@@ -39,6 +39,12 @@ class TasksController < ApplicationController
     render 'edit'
   end
 
+  def destroy
+    authorize resource
+    resource.destroy
+    redirect_to :back
+  end
+
   private
 
     def end_of_association_chain
