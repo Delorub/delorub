@@ -30,14 +30,20 @@
                 = main_category_profile.main_category.title
           .performer-description-category__text
             p.dr-h5
-              Тарифы и условия
+              | Тарифы и условия
             p
               = simple_format main_category_profile.description
     .dr-block-style.dr-block-style--profile
       .performer-description-about
         .performer-description-about__header
           h2
-            Обо мне
+            | Обо мне
         .performer-description-about__text
           .expand-block.expand-block--hide
-            = simple_format current_user.profile.about
+            span.all_text style="display:none"
+              = simple_format current_user.profile.about
+            span.short_text
+              = simple_format current_user.profile.about.truncate(200)
+              - if current_user.profile.about.length > 200
+                a.link-default.category_desc_accordion href="#"
+                  | Развернуть

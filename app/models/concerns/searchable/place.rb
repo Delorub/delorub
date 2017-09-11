@@ -8,6 +8,10 @@ module Searchable::Place
       search_by_ids PlaceSearch.new(query: q, page: 1, per_page: 100).all.map(&:id)
     }
 
+    scope :by_search_in_types, ->(q, type) {
+      search_by_ids PlaceSearch.new(query: q, page: 1, per_page: 100, type: type).all.map(&:id)
+    }
+
     def self.ransackable_scopes auth_object = nil
       [:by_search_in]
     end
@@ -17,7 +21,7 @@ module Searchable::Place
     {
       full_name: full_name,
       name: name,
-      place_type_name: place_type_name.search_string,
+      place_type_name: place_type_name_search_string,
       search_string: search_string,
       place_type: place_type
     }

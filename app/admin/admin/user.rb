@@ -25,6 +25,7 @@ ActiveAdmin.register User, namespace: :admin do
       link_to user.name, admin_user_path(user)
     end
     column :email
+    column :phone
     actions
   end
 

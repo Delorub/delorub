@@ -39,6 +39,12 @@ class TasksController < ApplicationController
     render 'edit'
   end
 
+  def destroy
+    authorize resource
+    resource.destroy
+    redirect_to my_index_index_path, notice: 'Задание удалено'
+  end
+
   private
 
     def end_of_association_chain
@@ -85,7 +91,7 @@ class TasksController < ApplicationController
     end
 
     def all_cities
-      @all_cities = Place.only_cities
+      @all_cities = Place.only_cities.order(:name)
     end
 
     def all_regions

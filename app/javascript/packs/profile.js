@@ -19,8 +19,8 @@ $(document).ready(function () {
 
   $('.category_desc_accordion').on('click', function (e) {
     e.preventDefault()
-    var bottomText = $(this).closest('.bottom-text')
-    bottomText.find('.all_text').show()
-    bottomText.find('.short_text').empty()
+    var div = $(this).closest('div')
+    div.find('.all_text').show()
+    div.find('.short_text').empty()
   })
 })
