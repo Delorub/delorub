@@ -99,19 +99,19 @@ export default {
       var region = geoObject.properties.get('metaDataProperty.GeocoderMetaData.AddressDetails.Country.AdministrativeArea.AdministrativeAreaName')
       var city = geoObject.properties.getAll().name
 
-      this.model.place_id = ''
+      this.model.place_id = null
       if (city === region) {
         axios.post('/api/cities', {
           query: region
         }).then(response => {
-          this.recognitionCity(response.data, city)
+          this.recognizeCity(response.data, city)
         })
       } else {
         axios.post('/api/regions', {
           query: region
         }).then(response => {
           var arrayCities = response.data.length > 0 ? response.data[0].cities : []
-          this.recognitionCity(arrayCities, city)
+          this.recognizeCity(arrayCities, city)
         })
       }
     },
@@ -123,7 +123,7 @@ export default {
         this.placeLoading = false
       })
     },
-    recognitionCity (arrayCities, city) {
+    recognizeCity (arrayCities, city) {
       this.citiesList = arrayCities
       this.model.place_id = this.getCityId(city)
       var errorEl = document.getElementById('map_error')

@@ -15,8 +15,7 @@ class TaskPolicy < ApplicationPolicy
   end
 
   def destroy?
-    return false if user.blank?
-    record.user.id == user.id
+    owner?
   end
 
   def view_replies?

@@ -31,8 +31,6 @@ import TimerCountdown from '../components/timer_countdown.vue'
 
 import CitySelect from '../components/city_select.vue'
 
-import 'jquery-ujs'
-
 let token = document.getElementsByName('csrf-token')[0]
 if (token !== undefined) {
   axios.defaults.headers.common['X-CSRF-Token'] = token.getAttribute('content')
