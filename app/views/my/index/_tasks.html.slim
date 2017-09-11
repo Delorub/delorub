@@ -17,8 +17,7 @@
                   p.task-card-refinement__price
                     = task.price_exact.blank? ? 'Не указана' : "#{task.price_exact} руб."
                   p.task-card-refinement__date
-                    | Дата размещения
-                    br/
+                    | Размещено&nbsp;
                     span
                       = task.date_created_at
                   - unless task.date_type.blank?
@@ -35,12 +34,12 @@
               .col
                 .task-card-description
                   p.task-card-description__adress
-                    i.fa.fa-map-marker aria-hidden="true"
+                    img src="/images/icons/place_red.svg" alt="" /
                     = task.place_address
       hr/
       .task-card-container
         .task-card-link
           div
-            a.link-default href="#"  Отменить задание
+            = link_to 'Удалить задание', task, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'link-default'
             a.link-default href=edit_task_path(task)  Редактировать
   = paginate @tasks, theme: 'custom_theme'

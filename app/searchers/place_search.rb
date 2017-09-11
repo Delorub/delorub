@@ -25,10 +25,12 @@ class PlaceSearch < BaseSearch
     end
 
     def place_type_value type
-      if type.present? && type == 'city'
-        city_types
-      else
-        all_types
+      return all_types if type.blank?
+      case type
+        when 'city' then city_types
+        when 'region' then region_types
+        else
+          all_types
       end
     end
 
@@ -38,5 +40,9 @@ class PlaceSearch < BaseSearch
 
     def city_types
       %w[city]
+    end
+
+    def region_types
+      %w[region]
     end
 end

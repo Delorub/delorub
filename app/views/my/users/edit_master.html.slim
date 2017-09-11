@@ -14,8 +14,20 @@
           .row
             .col-lg-6
               label Выберите город
-              .form-group.string.required.profile_city_name
-                input#profile_city_name.form-control.string.required name="profile[city_name]" placeholder="Санкт-Петербург" type="text" /
+              = f.simple_fields_for :profile do |pf|
+                = content_tag 'edit-profile-form',
+                  'selected-city': pf.object.place_id,
+                  'inline-template': true \
+                  do
+                  span
+                    = pf.input_field :place_id, as: :hidden, 'v-model': 'placeId'
+                    selectbox(
+                      v-model="placeId"
+                      :options=pf.object.cities_list.pluck(:value).to_json
+                      :searchable="true"
+                      placeholder="Выберите город"
+                      :labels=pf.object.cities_list.to_json
+                      )
             .col-lg-6
               .form-group
                 label Укажите дату рождения

@@ -18,7 +18,7 @@
             .task-description-adress__input
               p
                 span
-                  i.fa.fa-map-marker aria-hidden="true"
+                  img src="/images/icons/place_red.svg" alt="" /
                   = task.place_address
             .task-description-adress__map
               = content_tag 'task-map', '', ':value': task.place_coordinates.to_json
@@ -53,11 +53,11 @@
               .task-profile-card__contacts style="display: none"
                 - unless task.user.phone.blank?
                   p
-                    i.fa.fa-mobile aria-hidden="true"
+                    img src="/images/icons/phone.svg" alt="" /
                     = task.user.phone
                 - unless task.user.email.blank?
                   p
-                    i.fa.fa-envelope-o aria-hidden="true"
+                    img src="/images/icons/mail.svg" alt="" /
                     = task.user.email
         = render 'files' unless task.files.blank?
         br/

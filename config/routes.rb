@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   resources :profiles, only: [:show, :edit, :update], path: 'profile'
   resources :profiles, only: [:new, :create]
 
-  resources :tasks, only: [:show, :edit, :update], path: 'task' do
+  resources :tasks, only: [:show, :edit, :update, :destroy], path: 'task' do
     resources :replies, only: [:show, :create, :edit, :update, :destroy] do
       resources :comments, only: [:create]
       member do

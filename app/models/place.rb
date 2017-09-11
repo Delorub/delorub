@@ -32,6 +32,7 @@ class Place < ApplicationRecord
   belongs_to :region_place, class_name: 'Place'
 
   has_many :categories_settings, class_name: 'PlaceCategoriesSettings', foreign_key: :place_id
+  has_many :cities, -> { only_cities }, class_name: 'Place', foreign_key: :region_place_id
 
   enumerize :place_type, in: { region: 1, district: 2, city: 3, locality: 4, street: 5, house: 6 }, i18n_scope: 'place_type'
 

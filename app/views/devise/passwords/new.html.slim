@@ -1,0 +1,22 @@
+.regular-content
+  .container
+    .row
+      .col-lg-6.offset-lg-3
+        .registration-form
+          .dr-block-style.dr-block-style--registration
+            .registration-form-container
+              .registration-form__header
+                p Восстановить пароль
+              .registration-form__content
+                .registration-form__links
+                  a.link-default href=new_user_session_path
+                    | Войти
+                  a.link-default href=new_user_registration_path
+                    | Регистрация
+                = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+                  .row
+                    .col-xl-8.col-lg-10
+                      .form__error-message
+                        = error_block_for :email
+                      = f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Ваш email'
+                  input.dr-btn-primary type="submit" value="Восстановить" /
