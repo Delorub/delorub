@@ -42,7 +42,7 @@ class TasksController < ApplicationController
   def destroy
     authorize resource
     resource.destroy
-    redirect_to :back
+    redirect_to my_index_index_path, notice: 'Задание удалено'
   end
 
   private

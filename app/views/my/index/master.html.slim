@@ -40,4 +40,10 @@
             b Об исполнителе
         .performer-description-about__text
           .expand-block.expand-block--hide
-            = simple_format current_user.profile.about
+            span.all_text style="display:none"
+              = simple_format current_user.profile.about
+            span.short_text
+              = simple_format current_user.profile.about.truncate(200)
+              - if current_user.profile.about.length > 200
+                a.link-default.category_desc_accordion href="#"
+                  | Развернуть

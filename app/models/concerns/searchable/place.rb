@@ -4,7 +4,11 @@ module Searchable::Place
   included do
     searchkick word_start: [:name, :full_name, :search_string], language: :russian
 
-    scope :by_search_in, ->(q, type = nil) {
+    scope :by_search_in, ->(q) {
+      search_by_ids PlaceSearch.new(query: q, page: 1, per_page: 100).all.map(&:id)
+    }
+
+    scope :by_search_in_types, ->(q, type) {
       search_by_ids PlaceSearch.new(query: q, page: 1, per_page: 100, type: type).all.map(&:id)
     }
 

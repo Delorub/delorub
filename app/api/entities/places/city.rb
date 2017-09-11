@@ -1,4 +1,4 @@
-class Entities::City < Grape::Entity
+class Entities::Places::City < Grape::Entity
   expose :id
   expose :name
   expose :slug

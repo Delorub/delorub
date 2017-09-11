@@ -1,6 +1,6 @@
 export default {
   props: [
-    'initialModel', 'categoriesList', 'citiesList'
+    'initialModel', 'categoriesList'
   ],
   data: function () {
     return {
@@ -10,19 +10,6 @@ export default {
         enableTime: false,
         dateFormat: 'd.m.Y'
       }
-    }
-  },
-  methods: {
-    cityLabel (id) {
-      var result
-      this.citiesList.every((e) => {
-        if (parseInt(e.value) === parseInt(id)) {
-          result = e
-          return false
-        }
-        return true
-      })
-      return result.label
     }
   }
 }

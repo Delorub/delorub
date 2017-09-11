@@ -1,5 +1,5 @@
-class Entities::Region < Grape::Entity
+class Entities::Places::Region < Grape::Entity
   expose :id, documentation: { type: 'integer' }
   expose :name, documentation: { type: 'string' }
-  expose :cities, using: Entities::City
+  expose :cities, using: Entities::Places::City
 end
