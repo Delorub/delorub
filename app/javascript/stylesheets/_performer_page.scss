@@ -142,6 +142,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      margin-bottom: 11px;
+    }
+    p + p {
+      margin-bottom: 0;
     }
     img {
       margin-right: 10px;

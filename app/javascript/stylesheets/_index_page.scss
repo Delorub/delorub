@@ -76,6 +76,8 @@
       .multiselect__tags {
         max-height: 56px;
         height: 56px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0 !important;
       }
       .multiselect__select {
         display: none;
@@ -85,13 +87,15 @@
         transition: none;
       }
       .multiselect--above.multiselect--active .multiselect__input {
-        border-radius: 3px !important;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
       }
       .dr-btn-danger {
         z-index: 2;
-        margin-left: -5px;
         margin-top: 0;
         display: flex;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
         font-size: 18px;
         font-family: $GothamMedium;
         justify-content: center;

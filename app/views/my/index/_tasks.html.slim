@@ -3,6 +3,12 @@
     p Список заданий пуст
 - else
   - tasks.each do |task|
+    .dr-block-style.dr-block-style--sort-padding
+      .profile-switcher
+        .profile-switcher__links
+          a.link-default.active href="#" Активные
+          a.link-default href="#" Архив
+        a.dr-btn-danger href="#" Добавить задание
     .dr-block-style.dr-block-style--profile-card
       .task-card-container
         .row
@@ -17,8 +23,7 @@
                   p.task-card-refinement__price
                     = task.price_exact.blank? ? 'Не указана' : "#{task.price_exact} руб."
                   p.task-card-refinement__date
-                    | Дата размещения
-                    br/
+                    | Размещено&nbsp;
                     span
                       = task.date_created_at
                   - unless task.date_type.blank?
@@ -35,7 +40,7 @@
               .col
                 .task-card-description
                   p.task-card-description__adress
-                    i.fa.fa-map-marker aria-hidden="true"
+                    img src="/images/icons/place_red.svg" alt="" /
                     = task.place_address
       hr/
       .task-card-container

@@ -15,15 +15,13 @@
           hr/
           .row
             .col-md
-              p
-                b
-                  ' Возраст:
-                span.gray-text = current_user.profile.formatted_age
+              span.dr-h5
+                ' Возраст:
+              span.gray-text = current_user.profile.formatted_age
             .col-md
-              p
-                b
-                  ' Город:
-                span.gray-text
-                  i.fa.fa-map-marker aria-hidden="true"
-                  '
-                  = current_user.profile.formatted_city_name
+              span.dr-h5
+                ' Город:
+              span.gray-text
+                img src="/images/icons/place_gray.svg" alt="" /
+                '
+                = current_user.profile.formatted_city_name
