@@ -1,9 +1,12 @@
+input + .form__error-message, div + .form__error-message, textarea + .form__error-message {
+  margin-top: -1rem;
+}
+
 .form {
   &__error-message {
     color: #f44336;
     font-weight: bold;
     margin-bottom: 1rem;
-    margin-top: -1rem;
   }
   &__approved {
     font-family: $GothamBold;
