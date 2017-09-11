@@ -19,14 +19,13 @@
         rows: 10,
       }
   .form-group id="task_files"
-    = content_tag 'upload-form',
-      class: 'dropzone',
-      'v-on:change': %(showTooltip('task_files')),
-      id: 'taskFilesUpload',
-      url: '/api/tasks/files' do
-      .dz-message data-dz-message="asd"
-        img.dz-plus src="/images/design/dz-plus.svg" alt="" /
-        span.upload-span Перетащите сюда файлы
+    task-upload-form(
+      url="/api/tasks/files"
+      v-model="model.files"
+      @change=%(showTooltip('task_files'))
+    )
+      template slot="file" scope="props"
+        input type="hidden" name=("#{f.object_name}[files][][id]") :value="props.file.id"
 .dr-block-style id="task_category"
   .form-group v-on:click="showTooltip('task_category')"
     h2 Специализация

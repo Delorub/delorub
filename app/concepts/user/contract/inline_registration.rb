@@ -1,4 +1,4 @@
-class User::Contract::Registration < Reform::Form
+class User::Contract::InlineRegistration < Reform::Form
   property :first_name
   property :email
   property :sms_confirmation,
@@ -18,6 +18,12 @@ class User::Contract::Registration < Reform::Form
   validates :first_name, :email, :sms_confirmation, :accept_terms, presence: true
   validates :accept_terms, inclusion: { in: ['1'], message: 'Вы должны согласиться с правилами сервиса' }
   validates :email, email: true
-  validates_uniqueness_of :email
-  validates_uniqueness_of :phone
+  validates_uniqueness_of :email, unless: :user_with_this_credentials_exists?
+  validates_uniqueness_of :phone, unless: :user_with_this_credentials_exists?
+
+  private
+
+    def user_with_this_credentials_exists?
+      User.by_phone(phone).where(email: email).exists?
+    end
 end

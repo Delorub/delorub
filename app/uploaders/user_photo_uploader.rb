@@ -7,7 +7,7 @@ class UserPhotoUploader < BaseUploader
     "original.#{model.photo.file.extension}" if original_filename
   end
 
-  version :small do
+  version :small, if: :image? do
     process resize_to_fill: [108, 108]
     process convert: 'png'
 
@@ -16,7 +16,7 @@ class UserPhotoUploader < BaseUploader
     end
   end
 
-  version :medium do
+  version :medium, if: :image? do
     process resize_to_fill: [174, 174]
     process convert: 'png'
 
