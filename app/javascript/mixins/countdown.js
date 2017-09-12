@@ -16,7 +16,7 @@ export default {
     countdownTo: function (value, seconds) {
       console.log(value, seconds)
       console.log(this.now)
-      console.log((this.now - Math.round(Date.parse(value) / 1000))
+      console.log((this.now - Math.round(Date.parse(value) / 1000)))
 
       if (value === null || value === undefined) {
         return 0
