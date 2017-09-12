@@ -22,11 +22,16 @@
       return {
         model: this.initialModel,
         requesting: false,
+        tokenRequestedAt: null,
         code: null
       }
     },
     methods: {
       requestToken: function () {
+        if (!this.resendAvailable) {
+          return false
+        }
+
         this.requesting = true
 
         axios.post('/api/sms_confirmations', {
@@ -39,6 +44,7 @@
           } else {
             this.errors = {}
             this.model.sms_confirmation = response.data
+            this.tokenRequestedAt = (new Date()).getTime()
           }
         }).catch(error => {
           if (error) {}
@@ -51,11 +57,7 @@
         return this.resendAvailableAt === 0
       },
       resendAvailableAt () {
-        if (this.model.sms_confirmation.created_at === null) {
-          return 0
-        }
-
-        return this.countdownTo(this.model.sms_confirmation.created_at, this.resendSeconds)
+        return this.countdownTo(this.tokenRequestedAt, this.resendSeconds)
       },
       sign_in_by: function () {
         if (this.model.sms_confirmation !== null) {

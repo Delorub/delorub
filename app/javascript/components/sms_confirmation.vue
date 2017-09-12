@@ -114,6 +114,7 @@
         this.model.code = null
         this.model.created_at = null
         this.model.accepted = false
+        this.tokenRequestedAt = null
       },
       requestToken: function () {
         if (!this.resendAvailable) {
@@ -131,6 +132,7 @@
             this.errors = response.data.errors
           } else {
             this.errors = {}
+            this.tokenRequestedAt = (new Date()).getTime()
             this.model = response.data
           }
         }).catch(error => {
@@ -164,11 +166,7 @@
         return this.resendAvailableAt === 0
       },
       resendAvailableAt () {
-        if (this.model.created_at === null) {
-          return 0
-        }
-
-        return this.countdownTo(this.model.created_at, this.resendSeconds)
+        return this.countdownTo(this.tokenRequestedAt, this.resendSeconds)
       }
     }
   }
