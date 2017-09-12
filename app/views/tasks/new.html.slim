@@ -22,6 +22,5 @@
                   .dr-block-style
                     = render 'shared/user/new_user_form', f: rf
             br/
-            .center
-              = f.submit 'Создать задание', class: 'dr-btn-danger'
+            = f.submit 'Создать задание', class: 'dr-btn-danger'
           = render 'tasks/form/popovers'
