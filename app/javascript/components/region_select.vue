@@ -1,30 +1,22 @@
-<template>
-  <span>
-    <custom-select
+<template lang="pug">
+  div
+    selectbox(
       v-model="regionValue"
       :options="regionsOptions"
       placeholder="Выберите регион"
       :searchable='true'
       @select="selectedRegion"
-      @search-change="populateRegions">
-      <span slot="noResult">
-        <p> Не найдено совпадений </p>
-      </span>
-    </custom-select>
-    <custom-select
+      @search-change="populateRegions"
+    )
+    selectbox(
       v-model="cityValue"
       :options="citiesOptions"
       placeholder="Выберите город"
-      :searchable="true"
+      :searchable='true'
       @select="selectedCity"
-      @search-change="populateCities">
-      <span slot="noResult">
-        <p> Не найдено совпадений </p>
-      </span>
-    </custom-select>
-  </span>
+      @search-change="populateCities"
+    )
 </template>
-
 <script>
 import axios from 'axios'
 
@@ -32,8 +24,8 @@ export default {
   props: ['regionSelected', 'citySelected', 'redirectUrl'],
   data: function () {
     return {
-      cityValue: '',
-      regionValue: '',
+      cityValue: this.citySelected,
+      regionValue: this.regionSelected,
       regionsList: [],
       citiesList: [],
       regionsOptions: [],
@@ -41,9 +33,6 @@ export default {
     }
   },
   mounted () {
-    this.cityValue = this.citySelected
-    this.regionValue = this.regionSelected
-
     if (this.citySelected !== '') {
       axios.post('/api/regions', {
         query: this.regionValue
