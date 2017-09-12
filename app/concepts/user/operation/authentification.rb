@@ -16,7 +16,7 @@ class User::Operation::Authentification < Trailblazer::Operation
   end
 
   def authorize! options, params:, **_
-    return true if options['user'].valid_password? params[:password]
+    return true if options['user'].valid_password? params['password']
     if params['sms_confirmation'].present?
       result = SmsConfirmation::Operation::Check.call params['sms_confirmation']
       return true if result.success?

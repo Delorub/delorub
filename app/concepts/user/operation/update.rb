@@ -17,11 +17,16 @@ class User::Operation::Update
     step Nested(Present)
     step Contract::Validate()
     step Contract::Persist()
-    step :update_photo!
+    success :recreate_versions!
+    success :destroy_temporary_photo!
 
-    def update_photo! options, model:, params:, **_
-      model.photo = options['contract.default'].temporary_photo.model.photo
-      model.save
+    def recreate_versions! options, model:, params:, **_
+      model.photo.recreate_versions! if model.photo.present?
+    end
+
+    def destroy_temporary_photo! options, model:, params:, **_
+      return if options['contract.default'].temporary_photo.model.new_record?
+      options['contract.default'].temporary_photo.model.destroy
     end
   end
 
@@ -43,11 +48,16 @@ class User::Operation::Update
     step Nested(Present)
     step Contract::Validate()
     step Contract::Persist()
-    step :update_photo!
+    success :recreate_versions!
+    success :destroy_temporary_photo!
 
-    def update_photo! options, model:, params:, **_
-      model.photo = options['contract.default'].temporary_photo.model.photo
-      model.save
+    def recreate_versions! options, model:, params:, **_
+      model.photo.recreate_versions! if model.photo.present?
+    end
+
+    def destroy_temporary_photo! options, model:, params:, **_
+      return if options['contract.default'].temporary_photo.model.new_record?
+      options['contract.default'].temporary_photo.model.destroy
     end
   end
 end

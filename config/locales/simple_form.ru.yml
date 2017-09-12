@@ -6,6 +6,10 @@ ru:
       text: 'обязательно'
       mark: '*'
     placeholders:
+      user:
+        first_name: Имя
+        middle_name: Отчество
+        last_name: Фамилия
       new_user:
         first_name: Ваше имя
         email: Ваш email

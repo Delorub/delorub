@@ -21,10 +21,10 @@ import EditProfileForm from '../components/forms/profile/edit_form.vue'
 import EditUserForm from '../components/forms/user/edit_form.vue'
 import UserPhotoUpload from '../components/forms/user/photo_upload.vue'
 import TaskForm from '../components/forms/task/edit_form.vue'
+import TaskUploadForm from '../components/forms/task/upload_form.vue'
 import SignInForm from '../components/forms/user/sign_in_form.vue'
 
 import TaskMap from '../components/task_map.vue'
-import UploadForm from '../components/fields/upload_form.vue'
 import SmsConfirmation from '../components/sms_confirmation.vue'
 import CategorySuggest from '../components/fields/category_suggest.vue'
 import TimerCountdown from '../components/timer_countdown.vue'
@@ -47,7 +47,6 @@ Vue.component('selectbox', SelectBox)
 Vue.component('custom-select', CustomSelect)
 Vue.component('flat-pickr', flatPickr)
 
-Vue.component('upload-form', UploadForm)
 Vue.component('sms-confirmation', SmsConfirmation)
 
 Vue.component('new-profile-form', NewProfileForm)
@@ -57,7 +56,9 @@ Vue.component('user-photo-upload', UserPhotoUpload)
 Vue.component('profile-specializations-form', ProfileSpecializationsForm)
 
 Vue.component('task-form', TaskForm)
+Vue.component('task-upload-form', TaskUploadForm)
 Vue.component('task-map', TaskMap)
+
 Vue.component('category-suggest', CategorySuggest)
 Vue.component('timer-countdown', TimerCountdown)
 Vue.component('city-select', CitySelect)
