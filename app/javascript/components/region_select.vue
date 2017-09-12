@@ -50,7 +50,7 @@ export default {
       }).then(response => {
         if (response.data.length > 0) {
           this.regionsList = response.data
-          this.selectedRegion (this.regionValue)
+          this.selectedRegion(this.regionValue)
         }
       })
     }
