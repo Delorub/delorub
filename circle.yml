@@ -1,6 +1,7 @@
 dependencies:
   pre:
     - cp config/database.yml.ci config/database.yml
+    - NPM_BINARY=$(which npm); mv $NPM_BINARY .; ln -s $(which yarn) $NPM_BINARY
   cache_directories:
     - public/assets
   post:
