@@ -40,7 +40,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       @omniauth.data = omniauth_data
       @omniauth.save
 
-      return sign_in_and_redirect @omniauth.user if @omniauth.user
+      if @omniauth.user.present?
+        sign_in @omniauth.user
+        return redirect_to my_index_index_path
+      end
 
       @user = User::OmniauthCreator.new(@omniauth).perform
       return success_sign_in @user if @user

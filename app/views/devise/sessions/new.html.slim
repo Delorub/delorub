@@ -35,15 +35,15 @@
                       .col-lg-6
                         a.link-default :disabled="requesting" href="#" v-on:click.prevent="requestToken"  Отправить повторно
                         br
-                        span
-                         | Доступно через 00:20
+                        span(v-if="!resendAvailable")
+                          | Доступно через {{ formatCountdown(resendAvailableAt) }}
                   template v-else=""
                     .sign_in-form__inputs
                       = f.input :email_or_phone, autofocus: true, label: false,
-                        input_html: { class: 'form-control form-control__item', 'v-model.trim': 'model.email_or_phone' },
+                        input_html: { class: 'form-control form-control__item', 'v-model.trim': 'model.email_or_phone', ':disabled': "requesting" },
                         wrapper: false, placeholder: 'Ваш email или номер телефона'
                       = f.input :password, label: false,
-                        input_html: { class: 'form-control form-control__item' },
+                        input_html: { class: 'form-control form-control__item', ':disabled': "requesting" },
                         wrapper: false, placeholder: 'Пароль'
                   .sign_in-form__sms
                     template v-if=%(sign_in_by != 'sms')

@@ -2,7 +2,6 @@
   = content_tag 'task-form',
     'inline-template': true,
     ':categories-list': f.object.categories_list.to_json,
-    ':date-types-list': f.object.model.class.enumerized_attributes[:date_type].options.map { |e| { label: e[0], value: e[1] } }.to_json,
     ':initial-model': f.object.to_nested_hash.to_json \
     do
     .regular-content
@@ -17,6 +16,5 @@
             .dr-form
               = render 'form', f: f
             br/
-            .center
-              = f.submit 'Редактировать задание', class: 'dr-btn-danger'
+            = f.submit 'Редактировать задание', class: 'dr-btn-danger'
           = render 'tasks/form/popovers'

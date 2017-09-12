@@ -69,7 +69,7 @@ module Profile::Contract
     property :new_user,
       prepopulator: ->(options) { self.new_user = User.new },
       populator: ->(model:, **) { model || self.new_user = User.new },
-      form: User::Contract::Registration,
+      form: User::Contract::InlineRegistration,
       virtual: true
   end
 

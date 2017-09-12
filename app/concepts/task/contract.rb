@@ -3,6 +3,15 @@ module Task::Contract
     property :title
     property :description
 
+    collection :files,
+      populator: ->(collection:, fragment:, **) {
+        item = collection.find_by(id: fragment['id'])
+        item ? item : collection.append(TaskFile.find_by(id: fragment['id']))
+      } do
+      property :id
+      property :file, parse: false
+    end
+
     property :category_id,
       prepopulator: ->(options) {
         return if options[:category].nil?
@@ -23,9 +32,9 @@ module Task::Contract
       }
 
     property :date_type, default: 'interval'
-    property :date_actual, default: -> { I18n.l(Time.zone.now + 1.day, format: :datepicker) }
-    property :date_interval_from, default: -> { I18n.l(Time.zone.now, format: :datepicker) }
-    property :date_interval_to, default: -> { I18n.l(Time.zone.now + 1.day, format: :datepicker) }
+    property :date_actual, default: -> { Time.zone.now + 1.day }
+    property :date_interval_from, default: -> { Time.zone.now }
+    property :date_interval_to, default: -> { Time.zone.now + 1.day }
 
     property :price_type, default: 'exact'
     property :price_exact
@@ -35,14 +44,6 @@ module Task::Contract
     property :place_lat
     property :place_long
     property :place_address
-
-    collection :files,
-      populator: ->(fragment:, **) {
-        item = files.find { |file| file.id == fragment['id'].to_i }
-        item ? item : files.append(TaskFile.find_by(id: fragment['id']))
-      } do
-      property :id
-    end
 
     property :contract_type, default: 'no_contract'
 
@@ -71,13 +72,23 @@ module Task::Contract
     def categories_list
       Category.all.map { |e| { label: e.title, value: e.id, parent_id: e.parent_id } }
     end
+
+    def deserialize! document
+      # TODO: find the right way to delete unpopulated elements from collection
+      files.each do |item|
+        next if document[:files].map { |e| e['id'].to_i }.include? item.id
+        files.delete item
+      end
+
+      super
+    end
   end
 
   class GuestForm < Form
     property :new_user,
       prepopulator: ->(options) { self.new_user = User.new },
       populator: ->(model:, **) { model || self.new_user = User.new },
-      form: User::Contract::Registration,
+      form: User::Contract::InlineRegistration,
       virtual: true
   end
 
