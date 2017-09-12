@@ -1,7 +1,7 @@
 <script>
-export default {
-  methods: {
-    showTooltip () {}
+  export default {
+    methods: {
+      showTooltip () {}
+    }
   }
-}
 </script>

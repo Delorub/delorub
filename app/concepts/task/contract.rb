@@ -32,9 +32,9 @@ module Task::Contract
       }
 
     property :date_type, default: 'interval'
-    property :date_actual, default: -> { I18n.l(Time.zone.now + 1.day, format: :datepicker) }
-    property :date_interval_from, default: -> { I18n.l(Time.zone.now, format: :datepicker) }
-    property :date_interval_to, default: -> { I18n.l(Time.zone.now + 1.day, format: :datepicker) }
+    property :date_actual, default: -> { Time.zone.now + 1.day }
+    property :date_interval_from, default: -> { Time.zone.now }
+    property :date_interval_to, default: -> { Time.zone.now + 1.day }
 
     property :price_type, default: 'exact'
     property :price_exact

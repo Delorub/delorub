@@ -21,7 +21,8 @@ class User::Operation::InlineRegistration < Trailblazer::Operation
 
     return false if registration.failure?
     self['model'] = registration['model']
-    return true
+
+    true
   end
 
   private

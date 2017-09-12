@@ -16,9 +16,7 @@ div id="form_contacts" v-on:click="showTooltip('form_contacts')"
         span = f.error (f.object.errors.keys & [:name, :email]).first
   .form__phone
     span Укажите ваш номер телефона и подтвердите его
-  = f.simple_fields_for :sms_confirmation do |sf|
-    = render 'shared/phone_confirmation', f: sf
-    = f.error :phone
+  = render 'shared/phone_confirmation', f: f
   .checkbox
     label
       = f.check_box :accept_terms

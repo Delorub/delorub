@@ -8,7 +8,7 @@ class User::Contract::Registration < Reform::Form
         token: fragment['token'],
         phone: PhonyRails.normalize_number(fragment['phone'])
       ) || SmsConfirmation.new
-      self.phone = self.sms_confirmation.phone
+      self.phone = sms_confirmation.phone
     },
     form: SmsConfirmation::Contract::Form,
     virtual: true
@@ -19,5 +19,5 @@ class User::Contract::Registration < Reform::Form
   validates :accept_terms, inclusion: { in: ['1'], message: 'Вы должны согласиться с правилами сервиса' }
   validates :email, email: true
   validates_uniqueness_of :email
-  validates_uniqueness_of :phone
+  validates_uniqueness_of :phone, allow_blank: true
 end

@@ -48,16 +48,16 @@
         })
       },
       removeFile (file) {
-        let file_index
+        let fileIndex
 
         this.internalValue.forEach((e, index) => {
-          if (e.id == file.id) {
-            file_index = index
+          if (e.id === file.id) {
+            fileIndex = index
           }
         })
 
-        if (file_index !== undefined) {
-          this.internalValue.splice(file_index, 1)
+        if (fileIndex !== undefined) {
+          this.internalValue.splice(fileIndex, 1)
         }
       },
       errorFile (file, message, xhr) {
@@ -80,7 +80,7 @@
           }
 
           this.dropzone.emit('addedfile', mockFile)
-          if(e.file.upload_preview.url !== null) {
+          if (e.file.upload_preview.url !== null) {
             this.dropzone.emit('thumbnail', mockFile, e.file.upload_preview.url)
           }
 

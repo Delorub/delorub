@@ -16,7 +16,8 @@ class TaskDecorator < Draper::Decorator
   end
 
   def date_created_at format = :date
-    I18n.l object.created_at, format: format
+    return if created_at.blank?
+    I18n.l created_at, format: format
   end
 
   def date_actual_time

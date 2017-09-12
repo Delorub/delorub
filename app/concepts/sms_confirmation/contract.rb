@@ -1,6 +1,9 @@
 module SmsConfirmation::Contract
   class Base < ::BaseForm
-    property :phone
+    property :phone,
+      populator: ->(fragment:, **) {
+        self.phone = PhonyRails.normalize_number(fragment)
+      }
     property :token, writeable: false
     property :accepted, writeable: false
     property :created_at, writeable: false
@@ -25,14 +28,14 @@ module SmsConfirmation::Contract
     end
   end
 
-  class CreateForm < Base
-  end
-
   class Form < Base
     validation :default, inherit: true do
       rule(phone: [:phone, :accepted]) do |phone, accepted|
         phone.filled? & accepted.accepted?
       end
     end
+  end
+
+  class CreateForm < Base
   end
 end
