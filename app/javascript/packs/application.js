@@ -29,7 +29,8 @@ import SmsConfirmation from '../components/sms_confirmation.vue'
 import CategorySuggest from '../components/fields/category_suggest.vue'
 import TimerCountdown from '../components/timer_countdown.vue'
 
-import CitySelect from '../components/city_select.vue'
+import RegionSelect from '../components/region_select.vue'
+import CitySelectForm from '../components/forms/city_select.vue'
 
 let token = document.getElementsByName('csrf-token')[0]
 if (token !== undefined) {
@@ -60,8 +61,9 @@ Vue.component('task-form', TaskForm)
 Vue.component('task-map', TaskMap)
 Vue.component('category-suggest', CategorySuggest)
 Vue.component('timer-countdown', TimerCountdown)
-Vue.component('city-select', CitySelect)
+Vue.component('city-select-form', CitySelectForm)
 Vue.component('sign-in-form', SignInForm)
+Vue.component('region-select', RegionSelect)
 
 document.addEventListener('DOMContentLoaded', () => {
   // eslint-disable-next-line no-new

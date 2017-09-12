@@ -60,8 +60,8 @@ module Profile::Contract
       Category.all.map { |e| { label: e.title, value: e.id, parent_id: e.parent_id } }
     end
 
-    def cities_list
-      Place.only_cities.map { |a| { label: a.full_name, value: a.id } }
+    def place
+      Place.only_cities.where(id: place_id).map { |a| { full_name: a.full_name, id: a.id } }
     end
   end
 
