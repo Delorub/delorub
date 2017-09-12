@@ -4,11 +4,11 @@
       img(alt="" :src="imageSrc")
       div.dr-profile-card__image-link(v-show="!uploading")
         a.link-default.openLink(href="#") Изменить
-      slot(name="input" scope="props" :id="imageId" v-if="imageId !== undefined")
+      slot(name="input" :id="imageId" v-if="imageId !== undefined")
+      div.dr-profile-card__image-error(v-if="errorMessage") {{ errorMessage }}
 </template>
 <script>
-  import Dropzone from 'dropzone'
-  Dropzone.autoDiscover = false
+  import Dropzone from 'lib/dropzone'
 
   export default {
     props: [
@@ -18,7 +18,9 @@
       return {
         imageSrc: this.image,
         imageId: this.id,
-        uploading: false
+        uploading: false,
+        errorMessage: undefined,
+        prevFile: undefined
       }
     },
     mounted () {
@@ -26,11 +28,12 @@
         url: this.url,
         maxFiles: 1,
         acceptedFiles: 'image/*',
-        maxFilesize: 1,
+        maxFilesize: 10,
         autoDiscover: false,
         clickable: '.openLink',
         addedfile: function () {},
-        error: function () {}
+        error: function () {},
+        dictFileTooBig: 'Превышен размер изображения! Максимальный размер изображения {{maxFilesize}} мб'
       })
 
       this.dropzone.on('maxfilesexceeded', function (file) {
@@ -38,17 +41,32 @@
         this.addFile(file)
       })
 
+      this.dropzone.on('addedfile', () => {
+        if (typeof this.prevFile !== 'undefined') {
+          this.dropzone.removeFile(this.prevFile)
+        }
+      })
+
       this.dropzone.on('sending', () => {
         this.uploading = true
       })
 
       this.dropzone.on('success', (file, response) => {
+        this.prevFile = file
         this.imageSrc = response.photo_url
         this.imageId = response.id
       })
 
       this.dropzone.on('complete', () => {
         this.uploading = false
+      })
+
+      this.dropzone.on('error', (file, message, xhr) => {
+        if (xhr !== undefined) {
+          this.errorMessage = 'Ошибка сервера'
+        } else {
+          this.errorMessage = message
+        }
       })
     }
   }

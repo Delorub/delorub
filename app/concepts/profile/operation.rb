@@ -28,7 +28,7 @@ class Profile::Operation < Trailblazer::Operation
       model.user = options['current_user']
       return true
     end
-    result = User::Registration.call(params['new_user'].to_hash)
+    result = User::Operation::InlineRegistration.call(params['new_user'].to_hash)
     return false if result.failure?
     model.user = result['model']
     options['sign_in_new_user'] = result['model']

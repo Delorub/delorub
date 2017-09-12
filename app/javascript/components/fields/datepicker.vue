@@ -14,7 +14,7 @@
 <script>
   import flatPickr from 'vue-flatpickr-component'
   import 'flatpickr/dist/flatpickr.css'
-  import moment from 'moment'
+  import moment from 'lib/moment'
 
   export default {
     props: {
@@ -29,8 +29,9 @@
       }
     },
     data: function () {
-      let internalValue = this.value
-      if (this.value !== undefined) {
+      let internalValue
+
+      if (this.value !== undefined && this.value !== '') {
         internalValue = moment(this.value, this.inputFormat).format(this.datepickerFormat)
       }
 
@@ -61,6 +62,9 @@
     },
     computed: {
       inputValue: function () {
+        if (this.internalValue === undefined || this.internalValue === '') {
+          return
+        }
         return moment(this.internalValue, this.datepickerFormat).format(this.inputFormat)
       }
     },
