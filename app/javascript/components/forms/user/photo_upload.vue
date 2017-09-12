@@ -19,7 +19,8 @@
         imageSrc: this.image,
         imageId: this.id,
         uploading: false,
-        errorMessage: undefined
+        errorMessage: undefined,
+        prevFile: undefined
       }
     },
     mounted () {
@@ -40,11 +41,18 @@
         this.addFile(file)
       })
 
+      this.dropzone.on('addedfile', () => {
+        if (typeof this.prevFile !== 'undefined') {
+          this.dropzone.removeFile(this.prevFile)
+        }
+      })
+
       this.dropzone.on('sending', () => {
         this.uploading = true
       })
 
       this.dropzone.on('success', (file, response) => {
+        this.prevFile = file
         this.imageSrc = response.photo_url
         this.imageId = response.id
       })
