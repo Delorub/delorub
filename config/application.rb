@@ -21,6 +21,9 @@ module Delorub
     config.i18n.default_locale = :ru
     config.encoding = 'utf-8'
 
+    config.time_zone = 'Europe/Moscow'
+    config.active_record.default_timezone = :local
+
     config.before_initialize do |app|
       app.config.paths.add 'app/services', eager_load: true
       app.config.paths.add 'app/value_objects', eager_load: true

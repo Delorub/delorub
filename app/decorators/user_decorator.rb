@@ -4,7 +4,11 @@ class UserDecorator < Draper::Decorator
   delegate_all
 
   def name
-    "#{first_name} #{last_name}".strip
+    [first_name, last_name].join(' ').strip
+  end
+
+  def full_name
+    [first_name, middle_name, last_name].join(' ').strip
   end
 
   def formatted_name

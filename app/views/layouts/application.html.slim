@@ -18,10 +18,11 @@ html
     meta[name="apple-mobile-web-app-status-bar-style" content="#000"]
   body
     #app
-      = render 'topbar'
-      = render 'navbar'
-      main
-        = yield
+      .wrap
+        = render 'topbar'
+        = render 'navbar'
+        main
+          = yield
       = render 'footer'
     = javascript_pack_tag 'application'
     = render 'analytics' if Rails.env.production?
