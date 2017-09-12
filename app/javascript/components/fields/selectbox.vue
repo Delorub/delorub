@@ -15,6 +15,8 @@
           v-if="showResetSlot"
           @mousedown.prevent.stop="clearAll(props.search)"
         ) x
+      span(slot="noResult").
+        Не найдено совпадений
     slot(name="input" :value="internalValue")
 </template>
 <script>
