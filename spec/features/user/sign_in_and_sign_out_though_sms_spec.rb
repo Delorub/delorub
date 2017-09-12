@@ -4,7 +4,7 @@ feature 'User signs in and signs out using sms authentification' do
     visit new_user_session_path
     login '+7 999 123 45 67'
 
-    expect(current_path).to eq '/'
+    expect(current_path).to eq my_index_index_path
     expect(page).not_to have_css('#header_sign_in')
 
     find('.dr-authorized-user__name a').hover

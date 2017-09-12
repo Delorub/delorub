@@ -18,8 +18,7 @@
                       .col-lg-8
                         = f.input :email, label: false, placeholder: 'Ваш email'
                     br/
-                    = f.simple_fields_for :sms_confirmation do |sf|
-                      = render 'shared/phone_confirmation', f: sf
+                    = render 'shared/phone_confirmation', f: f
                     .checkbox
                       label
                         = f.check_box :accept_terms

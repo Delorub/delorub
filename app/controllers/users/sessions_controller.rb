@@ -15,10 +15,15 @@ class Users::SessionsController < Devise::SessionsController
       end
       session[:signed_in_as] = @form.sign_in_as
 
-      return redirect_to root_path
+      return redirect_to my_index_index_path
     end
 
     render 'new'
+  end
+
+  def destroy
+    super
+    flash.delete(:notice)
   end
 
   def sign_in_as

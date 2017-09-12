@@ -4,14 +4,17 @@ class User::Contract::Update
     property :middle_name
     property :last_name
 
+    property :photo, parse: false
     property :temporary_photo,
       prepopulator: ->(options) {
         self.temporary_photo = ::User::TemporaryPhoto.new(photo: 'real')
         temporary_photo.user_model = model
       },
       populator: ->(fragment:, **) {
+        return if fragment['id'].blank?
         item = ::User::TemporaryPhoto.find_by(id: fragment['id'].to_i)
         self.temporary_photo = item || ::User::TemporaryPhoto.new
+        self.photo = File.open(temporary_photo.model.photo.path)
       },
       virtual: true do
       property :id
@@ -22,8 +25,6 @@ class User::Contract::Update
         model.photo
       end
     end
-
-    property :photo
 
     validates :first_name, presence: true
   end

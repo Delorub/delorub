@@ -16,17 +16,11 @@ class User::Operation::Settings < Trailblazer::Operation
   step Nested(Present)
   step Contract::Validate()
   step :set_password_if_changed!
-  step :set_phone!
   step Contract::Persist()
 
   def set_password_if_changed! options, model:, params:, **_
     return true if options['contract.default'].new_password.blank?
     model.password = options['contract.default'].new_password
-    true
-  end
-
-  def set_phone! options, model:, **_
-    options['contract.default'].phone = options['contract.default'].sms_confirmation.phone
     true
   end
 end
