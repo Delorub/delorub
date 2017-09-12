@@ -9,7 +9,7 @@
       .col-md-10
         .dr-profile-card__description
           .dr-profile-card__name
-            h2 #{current_user.name}
+            h2 #{current_user.full_name}
           .dr-profile-card__contacts
             .row
               - if current_user.phone.present?
