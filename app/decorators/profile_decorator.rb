@@ -22,7 +22,7 @@ class ProfileDecorator < Draper::Decorator
     price_project.present? ? I18n.t('profile.price_from', price: price_project) : I18n.t('profile.price_not_specified')
   end
 
-  def subcategories_by_main_category(main_category_id)
+  def subcategories_by_main_category main_category_id
     categories.where(parent_id: main_category_id)
   end
 end

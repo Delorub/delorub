@@ -70,13 +70,13 @@ ActiveAdmin.register Category, namespace: :admin do
   controller do
     def create
       super do |format|
-        redirect_to collection_path and return if resource.valid?
+        redirect_to collection_path && return if resource.valid?
       end
     end
 
     def update
       super do |format|
-        redirect_to collection_path and return if resource.valid?
+        redirect_to collection_path && return if resource.valid?
       end
     end
   end
