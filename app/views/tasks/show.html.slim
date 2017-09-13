@@ -19,9 +19,10 @@
               p
                 span
                   img src="/images/icons/place_red.svg" alt="" /
-                  = task.place_address
-            .task-description-adress__map
-              = content_tag 'task-map', '', ':value': task.place_coordinates.to_json
+                  = task.place_address.blank? ? 'Адрес не указан' : task.place_address
+            - unless task.place_address.blank?
+              .task-description-adress__map
+                = content_tag 'task-map', '', ':value': task.place_coordinates.to_json
       .col-lg-4
         .dr-block-style.dr-block-style--task-person
           .task-profile-card

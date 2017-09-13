@@ -37,5 +37,5 @@
               .task-card-description
                 p.task-card-description__adress
                   img src="/images/icons/place_red.svg" alt="" /
-                  = task.place_address
+                  = task.place_address.blank? ? 'Адрес не указан' : task.place_address
   = paginate collection, theme: 'custom_theme'

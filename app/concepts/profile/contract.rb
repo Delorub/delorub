@@ -51,10 +51,6 @@ module Profile::Contract
 
       super
     end
-
-    def cities_list
-      Place.only_cities.map { |a| { label: a.full_name, value: a.id } }
-    end
   end
 
   class GuestForm < Form
