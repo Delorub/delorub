@@ -9,7 +9,7 @@
             = link_to category.title,
               @place.present? ? category_tasks_path(category, city_code: @place.slug) : category_tasks_path(category),
               class: @category && @category.id == category.id ? 'active' : ''
-            - if @category && (@category.id == category.id || @category.parent.present?) && category.children.present?
+            - if @category && category.children.present? && (@category.id == category.id || category.children.ids.include?(@category.id))
               ul.subcategories-list__sub
                 - category.children.each do |sub_category|
                   li

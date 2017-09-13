@@ -41,7 +41,7 @@ ActiveAdmin.register Category, namespace: :admin do
     inputs 'Основное' do
       f.input :title
       f.input :position
-      f.input :parent, collection: Category.all.map{ |a| [a.title, a.id] }
+      f.input :parent, collection: Category.roots.map{ |a| [a.title, a.id] }
       f.input :photo
       f.input :is_main
       f.input :description
@@ -64,6 +64,20 @@ ActiveAdmin.register Category, namespace: :admin do
     attributes_table_for category do
       row :master_count
       row :form_count
+    end
+  end
+
+  controller do
+    def create
+      super do |format|
+        redirect_to collection_path and return if resource.valid?
+      end
+    end
+
+    def update
+      super do |format|
+        redirect_to collection_path and return if resource.valid?
+      end
     end
   end
 end
