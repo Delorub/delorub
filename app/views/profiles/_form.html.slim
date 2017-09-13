@@ -1,9 +1,9 @@
 = simple_form_for @form do |f|
-  = content_tag 'new-profile-form',
-    'inline-template': true,
-    ':categories-list': f.object.categories_list.to_json,
-    ':initial-model': f.object.to_nested_hash.to_json \
-    do
+  new-profile-form(
+    inline-template="true"
+    :categories=all_categories_list_for_select.to_json
+    :initial-model=f.object.to_nested_hash.to_json
+  )
     .regular-content
       .container
         nav.breadcrumb
@@ -50,14 +50,9 @@
                   .row
                     .col-lg-6
                       label Выберите город
-                      = f.input_field :place_id, as: :hidden, 'v-model': 'model.place_id'
-                      selectbox(
-                        v-model="model.place_id"
-                        :options=f.object.cities_list.pluck(:value).to_json
-                        :searchable="true"
-                        placeholder="Выберите город"
-                        :labels=f.object.cities_list.to_json
-                        )
+                      city-select :value=city_select_value_for(f.object.place_id).to_json
+                        template slot="input" scope="props"
+                          = f.input_field :place_id, as: :hidden, ':value': 'props.id'
                     .col-lg-6
                       .form-group
                         label Укажите дату рождения

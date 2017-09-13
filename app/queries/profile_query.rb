@@ -49,6 +49,6 @@ class ProfileQuery
     end
 
     def apply_paginate
-      @collection = collection.page(page.to_i.positive? ? page : 1).per(4)
+      @collection = collection.page(page.to_i.positive? ? page : 1).per(10)
     end
 end

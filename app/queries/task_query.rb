@@ -72,6 +72,6 @@ class TaskQuery
     end
 
     def apply_paginate
-      @collection = collection.page(page).per(3)
+      @collection = collection.page(page).per(10)
     end
 end

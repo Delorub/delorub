@@ -4,8 +4,7 @@
       p.subcategories__header
         | Город
       .subcategories-list
-        = content_tag 'city-select', '',
-          ':cities-list': all_cities.map { |a| {name: a.name, code: a.slug, region_id: a.region_place_id} }.to_json,
-          ':regions-list': all_regions.map { |a| {name: a.full_name, id: a.id} }.to_json,
+        = content_tag 'region-select', '',
+          'region-selected': @place && @place.region_place ? @place.region_place.full_name : '',
           'city-selected': @place.present? ? @place.name : '',
           'redirect-url': url

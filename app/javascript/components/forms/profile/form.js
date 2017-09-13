@@ -1,6 +1,6 @@
 export default {
   props: [
-    'initialModel', 'categoriesList'
+    'initialModel', 'categories'
   ],
   data: function () {
     return {
