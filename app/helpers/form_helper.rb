@@ -25,4 +25,8 @@ module FormHelper
     return if place.blank?
     { id: place.id, label: place.full_name }
   end
+
+  def all_categories_list_for_select
+    Category.all.map { |e| { label: e.title, value: e.id, parent_id: e.parent_id } }
+  end
 end
