@@ -1,5 +1,5 @@
 .dr-footer {
-  .container {    
+  .container {
     .row {
       justify-content: center;
       @media (min-width: 992px) {
@@ -14,9 +14,12 @@
     padding: 2.5rem 0;
   }
   &-right {
-    display: flex;    
+    display: flex;
     text-align: right;
-    padding: 2.5rem 0;
+    padding-bottom: 2.5rem;
+    @media (min-width: 448px) {
+      padding-top: 2.5rem;
+    }
   }
   &-block {
     margin: 0 15px;
@@ -43,7 +46,7 @@
       img {
         width: 34px;
         height: 34px;
-        margin: 0 9px; 
+        margin: 0 9px;
       }
     }
   }

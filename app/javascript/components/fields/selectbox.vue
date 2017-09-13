@@ -64,7 +64,7 @@
           }
           return true
         })
-        return result.label
+        return result ? result.label : id
       }
     },
     watch: {

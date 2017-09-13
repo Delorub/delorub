@@ -33,35 +33,35 @@
     .row
       .col-lg-6
         .form-group.black-content.multiselect-position
-          = f.input_field :category_id, as: :hidden, 'v-model': 'model.category_id'
-          = content_tag 'selectbox', '',
-            'v-model': 'model.category_id',
-            ':searchable': 'false',
-            ':allow-empty': 'false',
-            'placeholder': 'Выберите категорию',
-            ':options': f.object.main_category_collection.pluck(:id).to_json,
-            ':custom-label': 'categoryLabel',
-            '@select': 'populateSubcategories'
+          selectbox(
+            v-model="model.category_id"
+            placeholder="Выберите категорию"
+            :options="availableCategoriesIds"
+            :labels="categories"
+          )
+            template(slot="input" scope="props")
+              = f.input_field :category_id, as: :hidden, ':value': 'props.value'
           = f.error :category_id
       .col-lg-6
         .form-group.multiselect-position
-          = f.input_field :subcategory_ids,
-            as: :hidden,
-            'v-for': 'item in model.subcategory_ids',
-            'v-bind:value': 'item',
-            'name': "#{f.object_name}[subcategory_ids][]"
-          = content_tag 'selectbox', '',
-            'v-model': 'model.subcategory_ids',
-            ':searchable': 'false',
-            ':allow-empty': 'false',
-            ':show-reset': 'true',
-            ':limit': '0',
-            ':limit-text': 'limitSubcategoriesText',
-            ':disabled': '!model.category_id',
-            'placeholder': 'Выберите подкатегорию',
-            ':multiple': 'true',
-            ':custom-label': 'categoryLabel',
-            ':options': 'subcategories'
+          selectbox(
+            v-model="model.subcategory_ids"
+            :allow-empty="true"
+            :show-reset="true"
+            :limit="0"
+            :limit-text="limitSubcategoriesText"
+            :disabled="!model.category_id"
+            placeholder="Выберите подкатегорию"
+            :multiple="true"
+            :options="availableSubcategoriesIds"
+            :labels="categories"
+          )
+            template(slot="input" scope="props")
+              = f.input_field :subcategory_ids,
+                as: :hidden,
+                'v-for': 'item in props.value',
+                ':value': 'item',
+                'name': "#{f.object_name}[subcategory_ids][]"
           = f.error :subcategory_ids
 .dr-block-style
   .form-group v-on:click="showTooltip('task_dates')"

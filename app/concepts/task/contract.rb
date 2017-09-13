@@ -20,6 +20,12 @@ module Task::Contract
                            else
                              options[:category].parent_id
                            end
+      },
+      populator: ->(fragment:, **) {
+        category = Category.roots.find_by(id: fragment)
+        return if category.blank?
+        self.category_id = category.id
+        self.subcategory_ids = []
       }
     property :subcategory_ids,
       default: [],
@@ -28,7 +34,7 @@ module Task::Contract
         self.subcategory_ids = [options[:category].id] unless options[:category].parent_id.nil?
       },
       populator: ->(fragment:, **) {
-        self.subcategory_ids = Category.where(id: fragment).pluck(:id)
+        self.subcategory_ids = Category.where(id: fragment, parent_id: category_id).pluck(:id)
       }
 
     property :date_type, default: 'interval'
