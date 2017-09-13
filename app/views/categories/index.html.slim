@@ -13,6 +13,9 @@
                   h3= link_to category.title, new_task_path(category)
                 .category-card__content
                   ul.category-card__list
-                    - category.children.each do |child|
-                      li
-                        = link_to child.title, new_task_path(child)
+                    - if category.children.blank?
+                      | Список подкатегорий пуст
+                    - else
+                      - category.children.each do |child|
+                        li
+                          = link_to child.title, new_task_path(child)

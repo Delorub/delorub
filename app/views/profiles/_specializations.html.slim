@@ -1,4 +1,4 @@
-- @profile.main_categories_profiles.each do |main_category_profile|
+- profile.main_categories_profiles.each do |main_category_profile|
   - next if main_category_profile.main_category.blank?
   .dr-block-style.dr-block-style--profile-left
     .performer-description-category
@@ -7,12 +7,10 @@
           a.link-default.link-bold href=new_task_path(main_category_profile.main_category)
             = main_category_profile.main_category.title
         br/
-        .margin-bottom-05
-          a.link-black href="#" Услуги пешего курьера
-        .margin-bottom-05
-          a.link-black href="#" Услуги курьера на легковом автом
-        .margin-bottom-05
-          a.link-black href="#" Купить и доставить
+        - profile.subcategories_by_main_category(main_category_profile.main_category.id).each do |category|
+          .margin-bottom-05
+            a.link-black href=new_task_path(category)
+              = category.title
       hr.dr-block-hr
       .performer-description-category__text
         p.dr-h5
