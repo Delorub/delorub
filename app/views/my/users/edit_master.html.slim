@@ -17,7 +17,7 @@
               = f.simple_fields_for :profile do |pf|
                 = content_tag 'city-select', ':form-city-selected': pf.object.place.to_json
                   template slot="input" scope="props"
-                    = pf.input_field :place_id, as: :hidden, 'v-model': 'props.id'
+                    = pf.input_field :place_id, as: :hidden, 'v-model': 'props.value'
             .col-lg-6
               .form-group
                 label Укажите дату рождения

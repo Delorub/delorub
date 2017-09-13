@@ -52,7 +52,7 @@
                       label Выберите город
                       = content_tag 'city-select', ':form-city-selected': f.object.place.to_json
                         template slot="input" scope="props"
-                          = f.input_field :place_id, as: :hidden, ':value': 'props.id'
+                          = f.input_field :place_id, as: :hidden, ':value': 'props.value'
                     .col-lg-6
                       .form-group
                         label Укажите дату рождения

@@ -5,7 +5,7 @@
       :options="regionsOptions"
       placeholder="Выберите регион"
       :searchable='true'
-      @select="selectedRegion"
+      @select="selectRegion"
       @search-change="populateRegions"
     )
     selectbox(
@@ -13,7 +13,7 @@
       :options="citiesOptions"
       placeholder="Выберите город"
       :searchable='true'
-      @select="selectedCity"
+      @select="selectCity"
       @search-change="populateCities"
     )
 </template>
@@ -39,7 +39,7 @@ export default {
       }).then(response => {
         if (response.data.length > 0) {
           this.regionsList = response.data
-          this.selectedRegion(this.regionValue)
+          this.selectRegion(this.regionValue)
         }
       })
     }
@@ -62,11 +62,11 @@ export default {
         })
       }
     },
-    selectedRegion (selected) {
+    selectRegion (selected) {
       var region = this.getRegionByFullName(selected)
       this.putCities(region.cities)
     },
-    selectedCity (element) {
+    selectCity (element) {
       window.location.href = '/' + this.getCity(element).slug + this.redirectUrl
     },
     getCity (cityName) {
