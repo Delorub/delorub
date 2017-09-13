@@ -28,7 +28,7 @@
               | или
             a.link-default-white href=new_task_path(category)
               = " #{category.title} "
-.index-block
+.index-block.index-block--without-padding
   .container
     .row
       - main_categories.first(3).each do |category|

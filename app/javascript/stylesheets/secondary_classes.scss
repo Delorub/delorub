@@ -23,10 +23,12 @@
 
 .expand-block {
   &--hide {
-    max-height: 100px;
     overflow-y: hidden;
-    margin-bottom: 2rem;
   }
+}
+
+.div-navbar {
+  display: flex;
 }
 
 .display-inline {

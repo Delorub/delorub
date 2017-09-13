@@ -1,9 +1,9 @@
 = simple_form_for @form do |f|
-  = content_tag 'task-form',
-    'inline-template': true,
-    ':categories-list': f.object.categories_list.to_json,
-    ':initial-model': f.object.to_nested_hash.to_json \
-    do
+  task-form(
+    inline-template="true"
+    :categories=(Category.all.map { |e| { label: e.title, value: e.id, parent_id: e.parent_id } }.to_json)
+    :initial-model=f.object.to_nested_hash.to_json
+  )
     .regular-content
       .container
         nav.breadcrumb

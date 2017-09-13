@@ -22,7 +22,7 @@ module Profile::Contract
           self.category_ids = Category.where(id: fragment, parent_id: main_category_id).pluck(:id)
         }
 
-      validates :main_category_id, :category_ids, presence: true
+      validates :main_category_id, presence: true
     end
 
     property :about
@@ -52,14 +52,6 @@ module Profile::Contract
       super
     end
 
-    def main_category_collection
-      Category.roots
-    end
-
-    def categories_list
-      Category.all.map { |e| { label: e.title, value: e.id, parent_id: e.parent_id } }
-    end
-
     def place
       Place.only_cities.where(id: place_id).map { |a| { full_name: a.full_name, id: a.id } }
     end
@@ -69,7 +61,7 @@ module Profile::Contract
     property :new_user,
       prepopulator: ->(options) { self.new_user = User.new },
       populator: ->(model:, **) { model || self.new_user = User.new },
-      form: User::Contract::InlineRegistration,
+      form: User::Contract::Registration,
       virtual: true
   end
 

@@ -6,7 +6,7 @@
   export default {
     mixins: [formTooltips, yandexMap],
     props: [
-      'initialModel', 'categoriesList', 'dateTypesList'
+      'initialModel', 'categories'
     ],
     data: function () {
       return {
@@ -14,20 +14,12 @@
         map: null,
         placemark: null,
         suggestView: null,
-        subcategories: [],
         placeSuggestions: [],
         citiesList: [],
-        placeLoading: false,
-        datepickerConfig: {
-          allowInput: true,
-          enableTime: false,
-          dateFormat: 'd.m.Y',
-          wrap: true
-        }
+        placeLoading: false
       }
     },
     mounted () {
-      this.populateSubcategories(this.model.category_id)
       this.showTooltip('task_title')
     },
     methods: {
@@ -131,34 +123,6 @@
           errorEl.innerHTML = 'На данный момент города нет в нашей базе'
         }
       },
-      populateSubcategories (selected) {
-        if (selected !== this.model.category_id) {
-          this.model.subcategory_ids = []
-        }
-        this.subcategories = this.categoriesList.filter(e => e.parent_id === parseInt(selected)).map(e => e.value)
-      },
-      categoryLabel (id) {
-        var result
-        this.categoriesList.every((e) => {
-          if (parseInt(e.value) === parseInt(id)) {
-            result = e
-            return false
-          }
-          return true
-        })
-        return result.label
-      },
-      dateTypeLabel (id) {
-        var result
-        this.dateTypesList.every((e) => {
-          if (String(e.value) === String(id)) {
-            result = e
-            return false
-          }
-          return true
-        })
-        return result.label
-      },
       getCityId (cityName) {
         var result
         this.citiesList.every((e) => {
@@ -172,6 +136,23 @@
       },
       limitSubcategoriesText (count) {
         return `Выбрано ${count} подкатегорий`
+      }
+    },
+    computed: {
+      availableSubcategoriesIds () {
+        return this.categories
+          .filter(e => e.parent_id === parseInt(this.model.category_id))
+          .map(e => e.value)
+      },
+      availableCategoriesIds () {
+        return this.categories
+          .filter(e => e.parent_id === null)
+          .map(e => e.value)
+      }
+    },
+    watch: {
+      'model.category_id': function (newValue) {
+        this.model.subcategory_ids = []
       }
     }
   }
