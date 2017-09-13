@@ -1,57 +1,45 @@
 <template lang="pug">
   div
     selectbox(
-      v-model="placeId"
+      v-model="internalValue"
       :searchable="true"
       placeholder="Выберите город"
-      :options="citiesOptions"
-      :labels="citiesList"
-      @search-change='populateCities'
+      :options="cities"
+      track-by="id"
+      label="label"
+      @search-change='search'
       :clear-on-select="false"
     )
-    slot(name="input" :value="placeId")
+    slot(name="input" :id="inputValue")
 </template>
 
 <script>
-import axios from 'axios'
+  import axios from 'axios'
 
-export default {
-  props: ['value', 'formCitySelected'],
-  data: function () {
-    return {
-      placeId: this.value === undefined ? null : this.value,
-      citySelected: '',
-      citiesOptions: [],
-      citiesList: this.formCitySelected !== undefined ? this.putFormattedList(this.formCitySelected) : []
-    }
-  },
-  mounted () {
-    if ((this.formCitySelected !== undefined) && (this.formCitySelected.length > 0)) {
-      this.putCities(this.formCitySelected)
-      this.placeId = this.citiesList[0].value
-    }
-  },
-  methods: {
-    populateCities (city) {
-      axios.post('/api/cities', {
-        query: city
-      }).then(response => {
-        this.putCities(response.data)
-      })
+  export default {
+    props: ['value'],
+    data: function () {
+      return {
+        internalValue: this.value,
+        cities: []
+      }
     },
-    putCities (arrayCities) {
-      this.citiesList = this.putFormattedList(arrayCities)
-      this.citiesOptions = this.citiesList.map(e => e.value)
+    methods: {
+      search (query) {
+        axios.post('/api/cities', {
+          query: query
+        }).then(response => {
+          this.cities = response.data.map((e) => (
+            { id: e.id, label: e.full_name }
+          ))
+        })
+      }
     },
-    putFormattedList (arrayCities) {
-      var formattedList = arrayCities.map(function (e) {
-        return {value: e.id, label: e.full_name}
-      })
-      return formattedList
+    computed: {
+      inputValue () {
+        if (!this.internalValue) return
+        return this.internalValue.id
+      }
     }
   }
-}
 </script>
-
-
-

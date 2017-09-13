@@ -19,4 +19,10 @@ module FormHelper
       ' и ' +
       link_to('политикой обработки персональных данных', policy_path, class: 'link-default', target: 'blank')).html_safe
   end
+
+  def city_select_value_for place_id
+    place = Place.find_by(id: place_id)
+    return if place.blank?
+    { id: place.id, label: place.full_name }
+  end
 end

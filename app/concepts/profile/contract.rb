@@ -51,10 +51,6 @@ module Profile::Contract
 
       super
     end
-
-    def place
-      Place.only_cities.where(id: place_id).map { |a| { full_name: a.full_name, id: a.id } }
-    end
   end
 
   class GuestForm < Form

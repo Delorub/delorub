@@ -50,9 +50,9 @@
                   .row
                     .col-lg-6
                       label Выберите город
-                      = content_tag 'city-select', ':form-city-selected': f.object.place.to_json
+                      city-select :value=city_select_value_for(pf.object.place_id).to_json
                         template slot="input" scope="props"
-                          = f.input_field :place_id, as: :hidden, ':value': 'props.value'
+                          = f.input_field :place_id, as: :hidden, ':value': 'props.id'
                     .col-lg-6
                       .form-group
                         label Укажите дату рождения
