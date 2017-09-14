@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
   inherit_resources
 
-  helper_method :all_categories, :all_cities, :all_regions
+  helper_method :all_categories
   before_action :category_present?, only: [:index]
   before_action :place_present?, only: [:index]
   before_action :place_settings, only: [:index]
@@ -26,14 +26,6 @@ class ProfilesController < ApplicationController
 
     def all_categories
       @all_categories = Category.roots.includes(:children).except(:order).order(:position)
-    end
-
-    def all_cities
-      @all_cities = Place.only_cities.order(:name)
-    end
-
-    def all_regions
-      @all_regions = Place.only_regions
     end
 
     def category_present?

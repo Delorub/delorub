@@ -7,11 +7,7 @@
     .index-image-content
       .index-image-content__text
         p
-          | Бесплатно для
-          a.link-default-white href="#"  заказчиков
-        p
-          | Без комиссий и платы за отклики для
-          a.link-default-white href="#"  исполнителей
+          | Бесплатно для всех | Заказ без посредников
       .row
         .col-md-8.offset-md-2.col-lg-6.offset-lg-3
           = form_tag categories_path, method: :get, class: 'search_categories'
@@ -59,9 +55,9 @@ br/
 .index-block
   .container
     .index-block__header
-      | Оформив заказ на Делорубе,
+      | Создав заявку на Делорубе,
       br/
-      | Вы экономите до 50% стоимости.
+      | Вы найдете исполнителя по лучшей цене.
     .index-step
       .index-step__image
         img alt="" src="/images/design/step_1.jpg" /
@@ -71,7 +67,7 @@ br/
         p
           ' Опишите задачу, которую нужно выполнить.
           ' Уведомление о вашем задании получат все
-          ' подходящие мастера.
+          ' подходящие исполнители.
     .index-step
       .index-step__image
         img alt="" src="/images/design/step_2.jpg" /
@@ -89,9 +85,9 @@ br/
       .index-step__text
         span Выберите исполнителя
         p
-          ' Обсудите с кандидатами детали заказа
-          ' и назначьте исполнителя с самым выгодным
-          ' для вас предложением.
+          ' Обсудите с кандидатами детали заказа,
+          ' оцените отзывы их работы и выберите
+          ' подходящего вам исполнителя.
     .index-block__footer
       a.link-default href=new_task_path
         | Бесплатно создайте свое первое задание на ДелоРубе
@@ -107,8 +103,7 @@ br/
       span Нет комиссии и скрытых платежей
       p
         ' Вы оплачиваете работу исполнителя напрямую. При этом цены у частных
-        ' мастеров в 2 раза ниже, ведь у них нет расходов на аренду, рекламу
-        ' и зарплату сотрудникам.
+        ' мастеров привлекательнее, чем при работе с посредниками.
   .index-reference.index-reference--third
     .index-reference__text
       span Честные мастера и реальные заказы
@@ -119,12 +114,13 @@ br/
 br/
 br/
 .index-block
-  .index-block__header
-    | Оформив заказ на Делорубе,
-    br/
-    | Вы экономите до 50% стоимости.
-  a.dr-btn-danger href=new_task_path
-    | Разместить задание бесплатно
-  - if policy(Profile).new?
-    a.link-default.link-default-font-15 href=new_profile_path
-      | Стать исполнителем и начать зарабатывать
+  .index-block-resposive
+    .index-block__header
+      | Оформив заказ на Делорубе,
+      br/
+      | Вы экономите до 50% стоимости.
+    a.dr-btn-danger href=new_task_path
+      | Разместить задание бесплатно
+    - if policy(Profile).new?
+      a.link-default.link-default-font-15 href=new_profile_path
+        | Стать исполнителем и начать зарабатывать

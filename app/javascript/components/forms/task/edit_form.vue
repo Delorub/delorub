@@ -89,8 +89,7 @@
         this.model.place_long = coordinates[1]
 
         var region = geoObject.properties.get('metaDataProperty.GeocoderMetaData.AddressDetails.Country.AdministrativeArea.AdministrativeAreaName')
-        var city = geoObject.properties.getAll().name
-
+        var city = geoObject.getLocalities()[0]
         this.model.place_id = null
         if (city === region) {
           axios.post('/api/cities', {
