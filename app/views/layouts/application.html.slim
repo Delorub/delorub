@@ -23,6 +23,6 @@ html
         main
           = yield
       = render 'footer'
-    = javascript_pack_tag 'application', async: true
+    = javascript_pack_tag 'application'
     = render 'analytics' if Rails.env.production?
 = stylesheet_pack_tag 'application'
