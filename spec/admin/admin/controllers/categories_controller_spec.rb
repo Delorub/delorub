@@ -49,7 +49,7 @@ describe Admin::CategoriesController, type: :controller do
   describe 'POST #create' do
     it 'checks the redirect status' do
       post :create, params: { category: params }
-      expect(response.status).to eq 204
+      expect(response.status).to eq 302
     end
   end
 
@@ -73,7 +73,7 @@ describe Admin::CategoriesController, type: :controller do
     end
 
     it 'checks the redirect status' do
-      expect(response.status).to eq 204
+      expect(response.status).to eq 302
     end
   end
 

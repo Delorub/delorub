@@ -2,7 +2,7 @@ ActiveAdmin.register Category, namespace: :admin do
   config.sort_order = 'position_asc'
   config.paginate = false
 
-  permit_params :title, :parent_id, :photo, :description, :is_main
+  permit_params :title, :parent_id, :photo, :description, :is_main, :position
 
   filter :by_search_in, label: 'Поиск', as: :string
   filter :category_id
@@ -69,14 +69,14 @@ ActiveAdmin.register Category, namespace: :admin do
 
   controller do
     def create
-      super do |format|
-        redirect_to collection_path && return if resource.valid?
+      create! do |format|
+        format.html { redirect_to collection_path } if resource.valid?
       end
     end
 
     def update
-      super do |format|
-        redirect_to collection_path && return if resource.valid?
+      update! do |format|
+        format.html { redirect_to collection_path } if resource.valid?
       end
     end
   end
