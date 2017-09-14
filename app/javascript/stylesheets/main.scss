@@ -80,7 +80,10 @@ footer {
   &__container {
     display: flex;
     justify-content: space-between;
-    padding: 5px 0;
+    padding: 13px 0;
+    @media (min-width: 768px) {
+      padding: 5px 0;
+    }
   }
   &__link {
     margin-left: 30px;
@@ -109,15 +112,29 @@ footer {
   }
 }
 
-.navbar-toggler {
+.navbar-toggler[aria-expanded="false"] {
   border-color: rgba(0, 0, 0, 0.4);
   margin-top: 0.35rem;
   position: absolute;
-  @media (max-width: 575px) {
-    right: -70px;
-  }
-  .fa {
+  left: -60px;
+  &:before {
+    font-family: FontAwesome;
+    top:0;
     opacity: 0.5;
+    content: "\f0c9";
+  }
+}
+
+.navbar-toggler[aria-expanded="true"] {
+  border-color: rgba(0, 0, 0, 0.4);
+  margin-top: 0.35rem;
+  position: absolute;
+  left: -60px;
+  &:before {
+    font-family: FontAwesome;
+    top:0;
+    opacity: 0.5;
+    content: "\f00d";
   }
 }
 
@@ -126,6 +143,11 @@ footer {
   box-shadow: 0 1px 3px 0 rgba(121, 120, 120, 0.5);
   position: relative;
   z-index: 1;
+  .container {
+    @media (max-width: 991px) {
+      width: 75%;
+    }
+  }
   .navbar-collapse {
     justify-content: space-between;
   }
@@ -137,6 +159,14 @@ footer {
   .navbar-nav {
     > .nav-item {
       margin: 0 1rem;
+      @media (max-width: 991px) {
+        height: 80px;
+        border-top: solid 1px #e6e3e3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+      }
       > .nav-link {
         padding: 10px;
         margin-top: 5px;
@@ -154,11 +184,19 @@ footer {
     }
   }
   .navbar-right {
+    width: 100%;
     li {
       &:last-child {
         margin-right: 0;
       }
     }
+  }
+}
+
+div#navbarNav {
+  @media (max-width: 991px) {
+    margin-left: -20%;
+    margin-right: -20%;
   }
 }
 
