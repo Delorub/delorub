@@ -30,6 +30,7 @@ class User::OmniauthCreator
 
     def check_user_with_same_email
       @user = User.find_by(email: fetch_email)
+      return if user.nil?
       add_omniauth_relation
       user.save
       user
