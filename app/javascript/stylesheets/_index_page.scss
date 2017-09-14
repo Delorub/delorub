@@ -169,6 +169,15 @@
       font-size: 24px;
     }
   }
+  &-resposive {
+    @media (max-width: 447px) {
+      width: 80%;
+      margin: 0 auto;
+      .dr-btn-danger {
+        width: 280px;
+      }
+    }
+  }
   .col-lg-4 {
     @media (max-width: 447px) {
       padding: 0;

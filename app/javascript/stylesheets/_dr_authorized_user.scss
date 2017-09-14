@@ -2,7 +2,15 @@
   position: relative;
   display: flex;
   margin-left: 2rem;
+  @media (max-width: 991px) {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
   &__name {
+    @media (max-width: 991px) {
+      display: none;
+    }
     text-align: right;
     margin-top: 5px;
     span {
@@ -15,6 +23,10 @@
   &__image {
     margin-left: 1rem;
     img {
+      @media (max-width: 991px) {
+        width: 31px;
+        margin-top: 5px;
+      }
       width: 54px;
       display: block;
       height: auto;
