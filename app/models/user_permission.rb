@@ -22,6 +22,7 @@ class UserPermission < ApplicationRecord
       news: [:view, :edit, :delete],
       user: [:view, :edit, :delete, :permissions, :billing],
       page: [:view, :edit],
+      profile: [],
       reply: [],
       contract_template: [],
       help: [],
