@@ -8,7 +8,7 @@
           li
             = link_to category.title, category_city_profile_link_url(category, @place),
               class: @category && @category.id == category.id ? 'active' : ''
-            - if @category and (@category.id == category.id or @category.parent.present?) and category.children.present?
+            - if @category && category.children.present? && (@category.id == category.id || category.children.ids.include?(@category.id))
               ul.subcategories-list__sub
                 - category.children.each do |sub_category|
                   li
