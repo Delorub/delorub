@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     end
 
     def rescue_not_found exception
-      #raise exception if Rails.env.development?
+      raise exception if Rails.env.development?
       render_page_not_found
     end
 
