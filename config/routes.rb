@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   # API
   mount ApplicationAPI => '/api'
 
+  # sidekiq
+  require 'sidekiq/web'
+  authenticate :user, lambda { |user| user.permission.superadmin? || user.permission.admin? } do
+    mount Sidekiq::Web => '/admin/sidekiq'
+  end
+
   root 'main#index'
   resources :coming_soon_requests, only: [:new, :create], path: '', path_names: {
     new: 'coming-soon',
