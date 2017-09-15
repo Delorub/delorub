@@ -127,6 +127,7 @@ group :development do
   gem 'capistrano-rvm'
   gem 'capistrano3-puma', github: 'seuros/capistrano-puma'
   gem 'capistrano-yarn'
+  gem 'capistrano-sidekiq'
 end
 
 group :test do

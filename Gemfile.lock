@@ -154,6 +154,9 @@ GEM
     capistrano-rvm (0.1.2)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
+    capistrano-sidekiq (0.10.0)
+      capistrano
+      sidekiq (>= 3.4)
     capistrano-yarn (2.0.2)
       capistrano (~> 3.0)
     capybara (2.13.0)
@@ -674,6 +677,7 @@ DEPENDENCIES
   capistrano (~> 3.7)
   capistrano-rails (~> 1.2)
   capistrano-rvm
+  capistrano-sidekiq
   capistrano-yarn
   capistrano3-puma!
   capybara
