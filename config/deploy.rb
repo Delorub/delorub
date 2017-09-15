@@ -18,3 +18,9 @@ set :slackistrano,
   klass: Slackistrano::CustomMessaging,
   channel: '#deploy',
   webhook: 'https://hooks.slack.com/services/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'
+
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
+set :whenever_environment, fetch(:rails_env)
+
+set :sidekiq_config, "#{current_path}/config/sidekiq.yml"
+set :sidekiq_env, fetch(:rails_env)
