@@ -31,11 +31,17 @@
 }
 
 .your-balance {
-  display: flex;
-  align-items: center;
+  width: 100%;
   &-billet {
     display: flex;
     justify-content: space-between;
+  }
+  &-current {
+    display: flex;
+    align-items: center;
+    @media (max-width: 457px) {
+      margin-bottom: 1rem;
+    }
   }
   .delocoin-current {
     margin-left: 20px;

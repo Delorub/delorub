@@ -102,6 +102,11 @@
   margin-bottom: 1rem;
 }
 
+.no-gutters-col {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .dr-header {
   font-size: 1.5rem;
   font-family: $GothamBold;
@@ -149,6 +154,10 @@
   width: 100%;
   height: auto;
   border-radius: 2px;
+}
+
+.dr-text-15 {
+  font-size: 15px;
 }
 
 select.form-control:not([size]):not([multiple]) {
