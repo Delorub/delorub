@@ -8,4 +8,3 @@ server 'delorub.ru',
 
 set :rails_env, 'staging'
 set :deploy_to, '/var/www/delorub/staging'
-set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
