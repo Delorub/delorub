@@ -87,6 +87,8 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'foreman'
 gem 'dotiw'
+gem 'sitemap_generator'
+gem 'whenever', require: false
 
 # CHECK
 gem 'petrovich', '~> 1.0'
@@ -125,6 +127,7 @@ group :development do
   gem 'capistrano-rvm'
   gem 'capistrano3-puma', github: 'seuros/capistrano-puma'
   gem 'capistrano-yarn'
+  gem 'capistrano-sidekiq'
 end
 
 group :test do
