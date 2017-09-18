@@ -114,12 +114,13 @@ br/
 br/
 br/
 .index-block
-  .index-block__header
-    | Оформив заказ на Делорубе,
-    br/
-    | Вы экономите до 50% стоимости.
-  a.dr-btn-danger href=new_task_path
-    | Разместить задание бесплатно
-  - if policy(Profile).new?
-    a.link-default.link-default-font-15 href=new_profile_path
-      | Стать исполнителем и начать зарабатывать
+  .index-block-resposive
+    .index-block__header
+      | Оформив заказ на Делорубе,
+      br/
+      | Вы экономите до 50% стоимости.
+    a.dr-btn-danger href=new_task_path
+      | Разместить задание бесплатно
+    - if policy(Profile).new?
+      a.link-default.link-default-font-15 href=new_profile_path
+        | Стать исполнителем и начать зарабатывать
