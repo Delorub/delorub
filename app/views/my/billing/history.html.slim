@@ -1,0 +1,27 @@
+= render layout: 'my/layout', locals: { width: 9 }
+  .dr-content-header
+    h1
+      | История операций
+  = render 'heading'
+  .dr-block-style.dr-block-style--table
+    table.table.table-striped.table-history
+      thead
+        tr
+          th Дата
+          th Операция
+          th Способ оплаты
+          th Сумма, руб.
+          th Статус
+      tbody
+        - @billing_logs.each do |log|
+          tr
+            td.table-history__date
+              span = l(log.created_at, format: :date)
+              span = l(log.created_at, format: :timeofday)
+            td
+              = log.billable.name
+            td
+            td
+              = format_balance log.sum
+            td.table-history__processing
+              = log.state

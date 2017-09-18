@@ -31,6 +31,11 @@ Rails.application.routes.draw do
     resources :index, only: :index
     resource :user, only: [:edit, :update]
     resource :settings, only: [:edit, :update]
+    resources :billing, only: [:index, :create] do
+      collection do
+        get 'history', as: :history
+      end
+    end
   end
 
   resources :profiles, only: [:show, :edit, :update], path: 'profile'
@@ -79,6 +84,8 @@ Rails.application.routes.draw do
   resources :vacancies, only: :index
 
   get 'contract_designer/:template_id', to: 'contracts#new', as: :contract_designer
+
+  get 'yandex_kassa_callback', to: 'yandex_kassa_callback#success'
 
   get '*unmatched_route', to: 'pages#show'
 end
