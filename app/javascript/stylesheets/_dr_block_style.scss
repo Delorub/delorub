@@ -13,7 +13,7 @@
       box-shadow: 0 4px 15px 0 rgba(150, 149, 149, 0.5);
     }
   }
-  &--no-padding {
+  &--no-padding, &--category {
     padding: 0;
   }
   &--table {
@@ -44,9 +44,6 @@
   &--sort-padding {
     padding: 22px 40px;
   }
-  &--category {
-    padding: 0;
-  }
   &--left-menu-card {
     margin-bottom: 6px;
     padding: 25px 20px 25px 40px;
@@ -75,6 +72,9 @@
   }
   &--feedline {
     padding: 40px 30px 30px 40px;
+  }
+  &--margin-top{
+    margin-top: 6px;
   }
   >div {
     &:last-child {
