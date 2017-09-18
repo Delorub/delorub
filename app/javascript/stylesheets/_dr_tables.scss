@@ -1,0 +1,64 @@
+.table-history {
+  margin-bottom: 1rem;
+  @media (max-width: 767px) {
+    font-size: 12px;
+  }
+  @media (max-width: 525px) {
+    font-size: 10px;
+  }
+  th {
+    @media (max-width: 525px) {
+      font-size: 10px;
+    }
+    font-size: 12px;
+    font-family: $GothamMedium;
+    font-weight: normal;
+  }
+  td, th {
+    border: none;
+  }
+  thead th {
+    border-bottom: 1px solid #e6e3e3;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  &__date {
+    @media (max-width: 525px) {
+      font-size: 10px;
+    }
+    font-size: 12px;
+    span {
+      display: block;
+      &:last-child {
+        color: #9b9b9b;
+      }
+    }
+  }
+  &__processing {
+    color: #9b9b9b;
+  }
+  &__successful {
+    color: #60ad12;
+  }
+  &__error {
+    color: #f44336;
+  }
+  tbody tr td:first-child, thead tr th:first-child {
+    padding-left: 40px;
+  }
+  tbody tr td:last-child, thead tr th:last-child {
+    padding-right: 40px;
+    @media (max-width: 525px) {
+    padding-right: 10px;
+  }
+  }
+  tbody tr td:nth-of-type(4) {
+    font-family: $GothamMedium;
+  }
+  tbody tr:nth-of-type(even) {
+    background-color: #f9f9f9;
+  }
+  tbody tr:nth-of-type(odd) {
+    background-color: #FFF;
+  }
+}
