@@ -33,12 +33,33 @@
   align-items: center;
   span {
     margin-left: 15px;
+    font-size: 15px;
+  }
+  &__value, &__value-big {
     color: $blueColor;
     font-family: $GothamBold;
-    font-size: 20px;
+  }
+  &__value-big {
+    font-size: 20px !important;
   }
   a.link-default {
     margin-left: 15px;
+  }
+}
+
+.current-rate {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  img {
+    width: 32px;
+  }
+  span {
+    font-size: 15px;
+    margin-left: 15px;
+  }
+  span + img {
+    margin-left: 20px;
   }
 }
 
@@ -94,6 +115,13 @@
       border: solid 3px #5ca3cb;
       padding: 7px;
     }
+    .money-pocket {
+      padding: 6px 13px;
+    }
+  }
+  &__card.checked {
+    border: solid 3px #5ca3cb;
+    padding: 7px;
   }
   &__image {
     height: 100%;
@@ -104,5 +132,13 @@
       display: block;
       width: 100%;
     }
+  }
+}
+
+.delocoin-buy {
+  padding: 28px 40px;
+  p {
+    margin-top: 1rem;
+    font-size: 15px;
   }
 }

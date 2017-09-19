@@ -24,17 +24,17 @@ $(function () {
 })
 
 var ctx = document.getElementById('myChart').getContext('2d')
-var myChart = new Chart(ctx, {
+// eslint-disable-next-line no-new
+new Chart(ctx, {
   type: 'bar',
   data: {
     labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
     datasets: [{
-      label: 'Дата: 01.04.2018',
       data: [2, 5, 7.5, 11, 17, 25, 33, 57, 85, 128],
       backgroundColor: [
+        '#9bd4f4',
+        '#9bd4f4',
         '#00bfd8',
-        '#e6e8e8',
-        '#e6e8e8',
         '#e6e8e8',
         '#e6e8e8',
         '#e6e8e8',
@@ -44,9 +44,9 @@ var myChart = new Chart(ctx, {
         '#e6e8e8'
       ],
       borderColor: [
+        '#9bd4f4',
+        '#9bd4f4',
         '#00bfd8',
-        '#e6e8e8',
-        '#e6e8e8',
         '#e6e8e8',
         '#e6e8e8',
         '#e6e8e8',
@@ -59,8 +59,15 @@ var myChart = new Chart(ctx, {
     }]
   },
   options: {
-    tooltip: 'average',
-    cornerRadius: '0',
+    legend: {
+      display: false
+    },
+    tooltips: {
+      cornerRadius: 3,
+      position: 'average',
+      caretPadding: 0,
+      caretSize: 10
+    },
     scales: {
       yAxes: [{
         ticks: {
