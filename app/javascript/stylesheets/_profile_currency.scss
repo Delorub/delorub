@@ -35,12 +35,15 @@
     margin-left: 15px;
     font-size: 15px;
   }
-  &__value, &__value-big {
+  &__value, &__value-big, &__value-big-red {
     color: $blueColor;
     font-family: $GothamBold;
   }
-  &__value-big {
+  &__value-big, &__value-big-red {
     font-size: 20px !important;
+  }
+  &__value-big-red {
+    color: $errorColor;
   }
   a.link-default {
     margin-left: 15px;
@@ -131,6 +134,23 @@
     img {
       display: block;
       width: 100%;
+    }
+  }
+  &__pocket {
+    display: flex;
+    .dr-popover {
+      margin-bottom: 0;
+      height: 96px;
+      padding-top: 0;
+      padding-bottom: 0;
+      width: 400px;
+      &__text {
+        color: $errorColor;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        font-size: 15px;
+      }
     }
   }
 }
