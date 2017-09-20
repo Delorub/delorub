@@ -22,4 +22,12 @@ class User::BillingLog::Step
       result.success?
     end
   end
+
+  class Fail
+    extend Uber::Callable
+    def self.call options, model:, **_
+      result = User::BillingLog::Operation::Fail.call(id: model.billing_log.id)
+      result.success?
+    end
+  end
 end

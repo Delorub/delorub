@@ -21,7 +21,8 @@
             td
               = log.billable.name
             td
+              = log.billable.pay_type.text rescue ''
             td
               = format_balance log.sum
-            td.table-history__processing
-              = log.state
+            td class=[history_state_class(log.state)]
+              = User::BillingLog.human_attribute_name(log.state)

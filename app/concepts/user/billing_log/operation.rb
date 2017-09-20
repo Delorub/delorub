@@ -10,10 +10,8 @@ class User::BillingLog::Operation < Trailblazer::Operation
     step Model(::User::BillingLog, :find_by)
     step ->(options, model:, **_) {
       model.finish!
-      # TODO: make sql
-      model.user.balance = model.user.balance + model.sum
-      model.user.save
-
+      sql = "UPDATE users SET balance = #{model.user.balance + model.sum} WHERE id = #{model.user_id}"
+      ActiveRecord::Base.connection.execute(sql)
       model.save
     }
   end

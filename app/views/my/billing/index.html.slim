@@ -22,29 +22,21 @@
     .choose-payment
       .choose-payment-row
         .choose-payment__card
+          = f.radio_button :pay_type, 'WQ'
           .choose-payment__image
             img alt="" src="/images/payment/qiwi.png" /
         .choose-payment__card
+          = f.radio_button :pay_type, 'PC'
           .choose-payment__image
             img alt="" src="/images/payment/yandex.png" /
         .choose-payment__card
+          = f.radio_button :pay_type, 'AC'
           .choose-payment__image
             img alt="" src="/images/payment/visa.png" /
         .choose-payment__card
+          = f.radio_button :pay_type, 'WM'
           .choose-payment__image
             img alt="" src="/images/payment/webmoney.png" /
-        .choose-payment__card
-          .choose-payment__image
-            img alt="" src="/images/payment/qiwi.png" /
-        .choose-payment__card
-          .choose-payment__image
-            img alt="" src="/images/payment/qiwi.png" /
-        .choose-payment__card
-          .choose-payment__image
-            img alt="" src="/images/payment/qiwi.png" /
-        .choose-payment__card
-          .choose-payment__image
-            img alt="" src="/images/payment/qiwi.png" /
     .checkbox.form-group
       label
         = f.check_box :accept_terms

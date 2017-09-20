@@ -6,20 +6,28 @@ module Billing::YandexKassa::Deposit::Operation
     end
 
     step Nested(Present)
-    step Wrap ->(*, &block) { ActiveRecord::Base.transaction do block.call end } {
+    # step Wrap ->(*, &block) { ActiveRecord::Base.transaction do block.call end } {
       step Contract::Validate()
       step Contract::Persist()
+
       step ->(options, model:, **_) {
         options['sum'] = model.amount
       }
       step User::BillingLog::Step::Create
-    }
+    # }
   end
 
   class Finish < Trailblazer::Operation
     step Model(Billing::YandexKassa::Deposit, :find_by)
     step Wrap ->(*, &block) { ActiveRecord::Base.transaction do block.call end } {
       step User::BillingLog::Step::Finish
+    }
+  end
+
+  class Fail < Trailblazer::Operation
+    step Model(Billing::YandexKassa::Deposit, :find_by)
+    step Wrap ->(*, &block) { ActiveRecord::Base.transaction do block.call end } {
+      step User::BillingLog::Step::Fail
     }
   end
 end

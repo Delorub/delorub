@@ -1,0 +1,14 @@
+= render layout: 'my/layout', locals: { width: 9 }
+  .dr-content-header
+    h1
+      | Ваш валютный кошелек
+  .dr-block-style.dr-block-style--sort-padding
+    .profile-confirm-accept
+      i.fa.fa-check aria-hidden="true"
+      span
+        = "Оплата в процессе, по ее завершению ваш кошелек пополнится на #{@deposit.amount} руб."
+  = render 'heading'
+  = render 'payment_details'
+  br
+    div
+      a.dr-btn-primary.dr-btn-margin-right-20 href=success_my_billing_index_path(orderNumber: @deposit.uuid) role="button"  Проверить состояние

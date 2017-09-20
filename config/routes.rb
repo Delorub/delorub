@@ -32,7 +32,13 @@ Rails.application.routes.draw do
     resource :user, only: [:edit, :update]
     resource :settings, only: [:edit, :update]
     resources :billing, only: [:index, :create] do
+      member do
+        get 'confirm', as: :confirm
+        get 'processing', as: :processing
+      end
       collection do
+        get 'success'
+        match 'fail', via: [:get, :post]
         get 'history', as: :history
       end
     end
@@ -85,7 +91,13 @@ Rails.application.routes.draw do
 
   get 'contract_designer/:template_id', to: 'contracts#new', as: :contract_designer
 
-  get 'yandex_kassa_callback', to: 'yandex_kassa_callback#success'
+  scope '/my/billings' do
+    get   'success', to: 'my/billing#success'
+    match 'fail', to: 'my/billing#fail', via: [:get, :post]
+
+    post '/check', to: 'yandex_kassa_callback#check'
+    post '/process', to: 'yandex_kassa_callback#processing'
+  end
 
   get '*unmatched_route', to: 'pages#show'
 end
