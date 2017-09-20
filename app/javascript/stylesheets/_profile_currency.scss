@@ -16,15 +16,23 @@
   }
 }
 
-.profile-confirm-accept {
-  color: #60ad12;
-  display: flex;
-  align-items: center;
-  font-family: $GothamMedium;
-  font-size: 15px;
-  .fa {
-    font-size: 50px;
-    margin-right: 30px;
+.profile-confirm {
+  &-accept, &-process, &-error {
+    color: #60ad12;
+    display: flex;
+    align-items: center;
+    font-family: $GothamMedium;
+    font-size: 15px;
+    .fa {
+      font-size: 50px;
+      margin-right: 30px;
+    }
+  }
+  &-process {
+    color: #9b9b9b;
+  }
+  &-error {
+    color: #f44336;
   }
 }
 

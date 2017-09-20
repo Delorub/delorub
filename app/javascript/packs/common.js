@@ -28,7 +28,7 @@ $(function () {
 })
 
 let ctx = document.getElementById('myChart')
-if (ctx !== undefined) {
+if (ctx !== null) {
   ctx = ctx.getContext('2d')
   // eslint-disable-next-line no-new
   new Chart(ctx, {
