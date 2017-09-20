@@ -111,7 +111,7 @@
 
                 <div class="dr-content-header">
                   <h1>
-                    Подтверждение операции
+                    Ваш Delocoin-кошелек
                   </h1>
                 </div>
 
@@ -119,36 +119,58 @@
                   <div class="your-balance-billet">
                     <div class="your-balance">
                       <div class="row no-gutters">
-                        <div class="col no-gutters-col">
+                        <div class="col-md-6">
                           <div class="your-balance-current">
-                            <span class="dr-h5">Ваш баланс:</span>
+                            <span class="dr-h5">Количество монет:</span>
                             <div class="delocoin-current">
-                              <img src="/images/icons/ruble.svg" alt=""/>
+                              <img src="/images/icons/delocoin.svg" alt=""/>
                               <div>
-                                <span>12&nbsp;800</span>
+                                <span class="delocoin-current__value">1&nbsp;290</span>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
+                        <div class="col-md-6 flex align-center">
+                          <div class="your-balance-current">
+                            <span class="dr-h5">Текущий курс:</span>
+                            <div class="delocoin-current">
+                              <img src="/images/icons/delocoin.svg" alt=""/>
+                              <div>
+                                <span>1</span>
+                              </div>
+                              <div>
+                                <span>=</span>
+                              </div>
+                              <img src="/images/icons/ruble.svg" alt=""/>
+                              <div>
+                                <span>2</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>                      
                     </div>
-
+                  </div>
+                  <hr class="dr-block-hr" />
+                  <div class="row">
+                    <div class="col-xl-4 col-lg-6">
+                      <a href="#" class="dr-btn-danger dr-btn-long">Купить DELOCOIN</a>
+                    </div>
+                    <div class="col-xl-4 col-lg-6">
+                      <a href="#" class="dr-btn-primary dr-btn-long dr-btn-disabled" data-toggle="tooltip" data-placement="top" title="Продажа монет будет доступна с 01.07.2018">Продать монеты</a>
+                    </div>
+                    <div class="col-xl-4 col-lg-6">
+                      <a href="#" class="dr-btn-default dr-btn-long dr-btn-disabled">Оплатить услуги на ДелоРубе</a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="dr-block-style">
-                  <p class="dr-h5">Пополнение баланса на сумму:</p>
-                  <p class="dr-text-15">11 000 руб.</p>
-                  <br/>
-                  <p class="dr-h5">Выбранный способ оплаты</p>
-                  <p class="dr-text-15">Пополнение с помощью банковской карты</p>
-                </div>
 
-                <br/>
-                <div class="">
-                  <a class="dr-btn-primary dr-btn-margin-right-20" href="#" role="button">Вернуться</a>
-                  <a class="dr-btn-danger" href="#" role="button">Продолжить</a>
-                </div>
+                <div class="dr-block-style dr-block-style--margin-top">
+                  <br/>
+                  <canvas id="myChart" width="400" height="400"></canvas>
+                  <br/>
+                </div>                
 
               </div>
             </div>

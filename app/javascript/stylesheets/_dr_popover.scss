@@ -57,7 +57,7 @@
 
 .dr-popover {
   transition: -webkit-transform 0.2s ease-in-out;
-	transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
   padding: 19px 25px;
   background-color: #fff;
   border: solid 2px #e1dfdf;
@@ -124,6 +124,19 @@
       &:active {
         color: #cf3125 !important;
       }
+    }
+  }
+}
+
+.tooltip {
+  &-inner {
+    background-color: #4a4a4a;
+    padding: 10px;
+    &:before {
+      border-top-color: #4a4a4a !important;
+      bottom: -5px !important;
+      margin-left: -14px !important;
+      border-width: 14px 14px 0 !important;
     }
   }
 }

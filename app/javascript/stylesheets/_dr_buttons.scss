@@ -81,6 +81,8 @@
 
 .dr-btn-long {
   width: 100%;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .dr-btn-190 {
@@ -95,4 +97,33 @@
 
 .dr-btn-margin-right-20 {
   margin-right: 20px;
+}
+
+.dr-btn-disabled {
+  opacity: 0.4;
+  &:hover {
+    box-shadow: 0 1px 4px 0 rgba(174, 173, 173, 0.5);
+    cursor: default;
+  }
+}
+
+.dr-btn-disabled.dr-btn-default {
+  &:hover {
+    background-color: #fff;
+    color: #9b9b9b !important;
+  }
+}
+
+.dr-btn-disabled.dr-btn-primary {
+  &:hover {
+    color: #fff !important;
+    background-color: $blueColor;
+  }
+}
+
+.dr-btn-disabled.dr-btn-danger {
+  &:hover {
+    color: #fff !important;
+    background-color: #f44336;
+  }
 }
