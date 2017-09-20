@@ -43,7 +43,7 @@
     font-size: 20px !important;
   }
   &__value-big-red {
-    color: $errorColor;
+    color: #f44336;
   }
   a.link-default {
     margin-left: 15px;
@@ -145,7 +145,7 @@
       padding-bottom: 0;
       width: 400px;
       &__text {
-        color: $errorColor;
+        color: #f44336;
         display: flex;
         align-items: center;
         height: 100%;
