@@ -1,4 +1,4 @@
-class Billing::YandexKassaService
+class Billing::YandexKassa::RequestService
   require 'builder'
 
   PARAMS_MAP = {
@@ -30,10 +30,12 @@ class Billing::YandexKassaService
   self.shop_id = Figaro.env.shop_id
   self.password = Figaro.env.shop_password
 
-  attr_reader :params
+  attr_reader :params, :order
 
-  def initialize controller_params
+  def initialize controller_params, order, action_name
     @params = map_params(controller_params)
+    @order = order
+    @action_name = action_name
   end
 
   def valid_signature?
@@ -41,18 +43,15 @@ class Billing::YandexKassaService
     generate_signature(values) == params[:md5]
   end
 
-  def save_params
-    return unless order
-    order.params = params
-    order.save
+  def valid_params?
+    return false unless order
+    return false unless valid_signature?
+    order.amount.to_f == params[:order_sum_amount].to_f
   end
 
-  def order
-    @order ||= Billing::YandexKassa::Deposit.where(uuid: params[:order_id]).first
-  end
-
-  def response
-    raise NotImplementedError
+  def responce_code
+    return '1' unless valid_signature?
+    '0'
   end
 
   private

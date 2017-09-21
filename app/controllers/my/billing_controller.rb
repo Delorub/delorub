@@ -1,7 +1,8 @@
 class My::BillingController < My::ApplicationController
-  before_action :deposit_present?, only: [:confirm, :processing]
+  include Pundit
+
+  before_action :deposit_present?, only: [:confirm]
   before_action :deposit_present_with_yandex?, only: [:success, :fail]
-  before_action :billing_log_present?, only: [:success, :fail, :confirm]
 
   def index
     run Billing::YandexKassa::Deposit::Operation::Create::Present
@@ -16,17 +17,13 @@ class My::BillingController < My::ApplicationController
   end
 
   def confirm
-    not_found unless @billing_log.new?
+    authorize @deposit
   end
 
-  def processing; end
-
-  def success
-    redirect_to processing_my_billing_path(id: @deposit.uuid) if @billing_log.new?
-  end
+  def success; end
 
   def fail
-    run Billing::YandexKassa::Deposit::Operation::Fail, id: @deposit.id if @billing_log.new?
+    run Billing::YandexKassa::Deposit::Operation::Fail, id: @deposit.id
   end
 
   def history
@@ -36,18 +33,17 @@ class My::BillingController < My::ApplicationController
   private
 
     def deposit_present?
-      @deposit = current_user.billing_yandex_kassa_deposits.find_by(uuid: params[:id])
+      run Billing::YandexKassa::Deposit::Operation::Find, uuid: params[:id] do |result|
+        @deposit = result['model']
+      end
       not_found if @deposit.blank?
     end
 
     def deposit_present_with_yandex?
       params_uuid = params[:ordernumber].present? ? params[:ordernumber] : params[:orderNumber]
-      @deposit = current_user.billing_yandex_kassa_deposits.find_by(uuid: params_uuid)
+      run Billing::YandexKassa::Deposit::Operation::Find, uuid: params_uuid do |result|
+        @deposit = result['model']
+      end
       not_found if @deposit.blank?
-    end
-
-    def billing_log_present?
-      @billing_log = @deposit.billing_log
-      not_found if @billing_log.blank?
     end
 end

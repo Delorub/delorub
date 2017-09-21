@@ -15,20 +15,12 @@ class Billing::YandexKassa::Deposit < ApplicationRecord
   self.table_name = 'billing_yandex_kassa_deposits'
   serialize :params, JSON
 
-  has_one :billing_log, class_name: 'User::BillingLog', as: :billable
-
   extend Enumerize
   include Billing::Base
+
   enumerize :pay_type, in: %w[WQ PC AC WM]
-  after_initialize :defaults, if: :new_record?
 
   def name
     'Пополнение через Яндекс.Кассу'
   end
-
-  private
-
-    def defaults
-      self.uuid ||= SecureRandom.uuid
-    end
 end

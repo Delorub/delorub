@@ -34,7 +34,6 @@ Rails.application.routes.draw do
     resources :billing, only: [:index, :create] do
       member do
         get 'confirm', as: :confirm
-        get 'processing', as: :processing
       end
       collection do
         get 'success'
