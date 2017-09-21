@@ -21,7 +21,7 @@ module Billing::YandexKassa::Deposit::Operation
       count = 0
       model.uuid = loop do
         count += 1
-        random_token = Digest::SHA1.hexdigest([Time.now, rand].join)
+        random_token = Digest::SHA1.hexdigest([Time.now.utc, rand].join)
         break random_token unless Billing::YandexKassa::Deposit.exists?(uuid: random_token)
         break if count >= 5
       end
@@ -69,7 +69,7 @@ module Billing::YandexKassa::Deposit::Operation
 
   class Find < Trailblazer::Operation
     step :model!
-    step Policy::Pundit(Billing::YandexKassa::DepositPolicy, :is_owner?)
+    step Policy::Pundit(Billing::YandexKassa::DepositPolicy, :owner?)
 
     def model! options, params:, **_
       options['model'] = Billing::YandexKassa::Deposit.find_by uuid: params[:uuid]
