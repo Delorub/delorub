@@ -36,6 +36,13 @@ Rails.application.routes.draw do
         get 'history', as: :history
       end
     end
+    resources :delocoin, only: [:index] do
+      collection do
+        get 'buy', as: :buy
+        post 'buy'
+        get 'history', as: :history
+      end
+    end
   end
 
   resources :profiles, only: [:show, :edit, :update], path: 'profile'

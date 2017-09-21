@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170919072041) do
+ActiveRecord::Schema.define(version: 20170920085451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -169,6 +169,17 @@ ActiveRecord::Schema.define(version: 20170919072041) do
   create_table "deals", id: :serial, force: :cascade do |t|
     t.integer "task_id"
     t.integer "profile_id"
+  end
+
+  create_table "delocoin_packs", force: :cascade do |t|
+    t.integer "cost"
+    t.float "discount"
+  end
+
+  create_table "delocoin_steps", force: :cascade do |t|
+    t.date "date_from"
+    t.float "rate"
+    t.boolean "is_current"
   end
 
   create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
