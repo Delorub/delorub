@@ -40,6 +40,8 @@ Rails.application.routes.draw do
       collection do
         get 'buy', as: :buy
         post 'buy'
+        get 'confirm', as: :confirm
+        post 'confirm'
         get 'history', as: :history
       end
     end

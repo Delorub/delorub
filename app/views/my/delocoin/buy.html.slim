@@ -2,110 +2,49 @@
   .dr-content-header
     h1
       | Купить Delocoin
-  .dr-block-style
-    h2 Сколько монет Вы хотите приобрести?
-    br/
-    span.dr-h5 Текущий курс
-    .current-rate
-      img alt="" src="/images/icons/delocoin.svg" /
-      span 1
-      span =
-      img alt="" src="/images/icons/ruble.svg" /
-      span #{number_to_currency(@current_delocoin_cost, unit: '', precision: 0)}
-  .dr-block-style.dr-block-style--no-padding
-    .delocoin-buy
-      h2 Выберите пакет
-      p Чем больше монет в пакете, тем выше дисконт и выгода при дальнейшем росте валюты
-    table.table.table-buy
-      thead
-        tr
-          th
-          th
-            div
-              | Стоимость 
-              br>/
-              | пакета
-          th
-            div Дисконт
-          th
-            div
-              | Стоимость
-              br>/
-              | монеты ₽
-          th
-            div
-              | Количество 
-              br>/
-              | монет
-          th
-            div
-              | Стоимость монет ₽ на #{@last_step.number}
-              br/
-              | этапе, #{number_to_currency(@last_step.one_delocoin_cost, unit: '', precision: 0)} Р/монета
-      tbody
-        - @packs.each do |pack|
-          tr
-            td colspan="2"
-              .form-check
-                .dr-radio.form-group
-                  input id="pack-option-#{pack.id}" name="optionsRadios" type="radio" /
-                  label for="pack-option-#{pack.id}" = number_to_currency(pack.cost, unit: '', precision: 0)
-                  .check
-            td
-              div
-                - if pack.discount_in_percents.zero?
-                  | -
-                - else
-                  | -#{pack.discount_in_percents} %
-            td = number_to_currency(pack.one_delocoin_cost, unit: '', precision: 2)
-            td = number_to_currency(pack.delocoin_amount, unit: '', precision: 0)
-            td = number_to_currency(pack.delocoin_cost_on_last_step, unit: '', precision: 0)
-  .dr-content-header
-    h2
-      | Выберите способ оплаты
-  .choose-payment__card.checked
-    .money-pocket
-      h4 Кошелек
-      .delocoin-current
-        img alt="" src="/images/icons/ruble.svg" /
+  delocoin-buy-form(
+    inline-template="true"
+    :initial-model=@form.to_nested_hash.to_json
+  )
+    = simple_form_for @form, url: buy_my_delocoin_index_path do |f|
+      .dr-block-style
+        h2 Сколько монет Вы хотите приобрести?
+        br/
+        span.dr-h5 Текущий курс
+        .current-rate
+          img alt="" src="/images/icons/delocoin.svg" /
+          span.delocoin-current__value-big 1
+          span = '='
+          img alt="" src="/images/icons/ruble.svg" /
+          span.delocoin-current__value-big #{number_to_currency(@current_step_delocoin_cost, unit: '', precision: 0)}
+      .dr-block-style.dr-block-style--no-padding
+        .delocoin-buy
+          h2 Выберите пакет
+          p Чем больше монет в пакете, тем выше дисконт и выгода при дальнейшем росте валюты
+        delocoin-pack-form(
+          last-step-number=@last_step.number
+          last-step-delocoin-cost=@last_step_delocoin_cost
+          :packs-list=Entities::Delocoin::Pack.represent(@packs).to_json
+          v-model="model.pack_id"
+          @cost="cost = $event"
+        )
+          template slot="input" scope="props"
+            = f.input_field :pack_id, as: :hidden, ':value': 'props.value'
+      .dr-content-header
+        h2
+          | Выберите способ оплаты
+      delocoin-payment-form(
+        :cost="cost"
+        :payment-type-list=([:balance, :qiwi, :yandex, :visa, :webmoney].to_json)
+        balance=(current_user.balance)
+      )
+      .choose-payment
+        .checkbox.form-group
+          label
+            = f.check_box :accept_terms
+            span.checkbox-custom
+            = policy_checkbox_text
+          = f.error :accept_terms
+        br/
         div
-          span.delocoin-current__value-big = number_to_currency(current_user.balance, unit: '', precision: 0)
-  hr/
-  br/
-  .choose-payment
-    .choose-payment-row
-      .choose-payment__card
-        .choose-payment__image
-          img alt="" src="/images/payment/qiwi.png" /
-      .choose-payment__card
-        .choose-payment__image
-          img alt="" src="/images/payment/yandex.png" /
-      .choose-payment__card
-        .choose-payment__image
-          img alt="" src="/images/payment/visa.png" /
-      .choose-payment__card
-        .choose-payment__image
-          img alt="" src="/images/payment/webmoney.png" /
-      .choose-payment__card
-        .choose-payment__image
-          img alt="" src="/images/payment/qiwi.png" /
-      .choose-payment__card
-        .choose-payment__image
-          img alt="" src="/images/payment/qiwi.png" /
-      .choose-payment__card
-        .choose-payment__image
-          img alt="" src="/images/payment/qiwi.png" /
-      .choose-payment__card
-        .choose-payment__image
-          img alt="" src="/images/payment/qiwi.png" /
-  .checkbox.form-group
-    label
-      input type="checkbox" value="" /
-      span.checkbox-custom
-      | Я ознакомлен и согласен с
-      a.link-default href="#"  правилами сервиса
-      | и
-      a.link-default href="#"  договором оферты
-  br/
-  div
-    a.dr-btn-danger href="#" role="button"  Продолжить
+          input.dr-btn-danger type="submit" role="button" value="Продолжить"

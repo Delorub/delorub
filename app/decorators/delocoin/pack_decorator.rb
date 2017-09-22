@@ -7,15 +7,15 @@ class Delocoin::PackDecorator < Draper::Decorator
   end
 
   def one_delocoin_cost
-    Delocoin::Step::ConvertService.new.delocoins_to_balance(step: current_step, pack: object, delocoins: 1)
+    Delocoin::ConvertService.new.delocoins_to_balance(step: current_step, pack: object, delocoins: 1)
   end
 
   def delocoin_amount
-    Delocoin::Step::ConvertService.new.balance_to_delocoins(step: current_step, pack: object, balance: cost).to_i
+    Delocoin::ConvertService.new.balance_to_delocoins(step: current_step, pack: object, balance: cost).to_i
   end
 
   def delocoin_cost_on_last_step
-    Delocoin::Step::ConvertService.new.delocoins_to_balance(step: last_step, delocoins: delocoin_amount).to_i
+    Delocoin::ConvertService.new.delocoins_to_balance(step: last_step, delocoins: delocoin_amount).to_i
   end
 
   private
