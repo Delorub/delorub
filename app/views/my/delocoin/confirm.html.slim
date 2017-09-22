@@ -1,0 +1,6 @@
+= render layout: 'my/layout', locals: { width: 9 }
+  .dr-content-header
+    h1
+      | Купить Delocoin
+  = form_tag confirm_my_delocoin_index_path(id: @model.id) do
+    input type="submit"

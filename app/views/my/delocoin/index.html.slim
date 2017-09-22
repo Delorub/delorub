@@ -1,4 +1,39 @@
 = render layout: 'my/layout', locals: { width: 9 }
   .dr-content-header
     h1
-      | Ваш DELOCOIN кошелек
+      | Ваш Delocoin-кошелек
+  .dr-block-style.dr-block-style--sort-padding
+    .your-balance-billet
+      .your-balance
+        .row.no-gutters
+          .col-md-6
+            .your-balance-current
+              span.dr-h5 Количество монет:
+              .delocoin-current
+                img alt="" src="/images/icons/delocoin.svg" /
+                div
+                  span.delocoin-current__value = format_balance current_user.delocoin_balance
+          .col-md-6.flex.align-center
+            .your-balance-current
+              span.dr-h5 Текущий курс:
+              .delocoin-current
+                img alt="" src="/images/icons/delocoin.svg" /
+                div
+                  span 1
+                div
+                  span = '='
+                img alt="" src="/images/icons/ruble.svg" /
+                div
+                  span #{number_to_currency(@current_delocoin_cost, unit: '', precision: 0)}
+    hr.dr-block-hr/
+    .row
+      .col-xl-4.col-lg-6
+        a.dr-btn-danger.dr-btn-long href=buy_my_delocoin_index_path  Купить DELOCOIN
+      .col-xl-4.col-lg-6
+        a.dr-btn-primary.dr-btn-long.dr-btn-disabled data-original-title=("Продажа монет будет доступна с 01.07.2018") data-placement="top" data-toggle="tooltip" href="#" title=""  Продать монеты
+      .col-xl-4.col-lg-6
+        a.dr-btn-default.dr-btn-long.dr-btn-disabled href="#"  Оплатить услуги на ДелоРубе
+  .dr-block-style.dr-block-style--margin-top
+    br/
+    canvas#myChart height="400" width="400"
+    br/

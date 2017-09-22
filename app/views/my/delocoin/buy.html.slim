@@ -1,0 +1,50 @@
+= render layout: 'my/layout', locals: { width: 9 }
+  .dr-content-header
+    h1
+      | Купить Delocoin
+  delocoin-buy-form(
+    inline-template="true"
+    :initial-model=@form.to_nested_hash.to_json
+  )
+    = simple_form_for @form, url: buy_my_delocoin_index_path do |f|
+      .dr-block-style
+        h2 Сколько монет Вы хотите приобрести?
+        br/
+        span.dr-h5 Текущий курс
+        .current-rate
+          img alt="" src="/images/icons/delocoin.svg" /
+          span.delocoin-current__value-big 1
+          span = '='
+          img alt="" src="/images/icons/ruble.svg" /
+          span.delocoin-current__value-big #{number_to_currency(@current_step_delocoin_cost, unit: '', precision: 0)}
+      .dr-block-style.dr-block-style--no-padding
+        .delocoin-buy
+          h2 Выберите пакет
+          p Чем больше монет в пакете, тем выше дисконт и выгода при дальнейшем росте валюты
+        delocoin-pack-form(
+          last-step-number=@last_step.number
+          last-step-delocoin-cost=@last_step_delocoin_cost
+          :packs-list=Entities::Delocoin::Pack.represent(@packs).to_json
+          v-model="model.pack_id"
+          @cost="cost = $event"
+        )
+          template slot="input" scope="props"
+            = f.input_field :pack_id, as: :hidden, ':value': 'props.value'
+      .dr-content-header
+        h2
+          | Выберите способ оплаты
+      delocoin-payment-form(
+        :cost="cost"
+        :payment-type-list=([:balance, :qiwi, :yandex, :visa, :webmoney].to_json)
+        balance=(current_user.balance)
+      )
+      .choose-payment
+        .checkbox.form-group
+          label
+            = f.check_box :accept_terms
+            span.checkbox-custom
+            = policy_checkbox_text
+          = f.error :accept_terms
+        br/
+        div
+          input.dr-btn-danger type="submit" role="button" value="Продолжить"

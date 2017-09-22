@@ -51,4 +51,8 @@ class ApplicationController < ActionController::Base
     def _run_options options
       options.merge 'current_user' => current_user&.object
     end
+
+    def current_delocoin_step
+      @_current_delocoin_step ||= Delocoin::Step::CurrentService.new.perform
+    end
 end
