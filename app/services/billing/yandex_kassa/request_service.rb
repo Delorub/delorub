@@ -1,6 +1,4 @@
 class Billing::YandexKassa::RequestService
-  require 'builder'
-
   PARAMS_MAP = {
     requestDatetime: :request_datetime,
     action: :action,

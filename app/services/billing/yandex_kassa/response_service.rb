@@ -1,4 +1,6 @@
 class Billing::YandexKassa::ResponseService
+  require 'builder'
+
   class_attribute :invoice_id, :shop_id, :responce_code, :xml
   self.shop_id = Figaro.env.shop_id
 
