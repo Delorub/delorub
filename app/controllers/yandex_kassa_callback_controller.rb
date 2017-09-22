@@ -3,15 +3,15 @@ class YandexKassaCallbackController < ApplicationController
 
   def processing
     run Billing::YandexKassa::Deposit::Operation::Finish, params do |result|
-      return render plain: Billing::YandexKassa::Responce::AvisoService.new(params['invoiceId'], result['responce_code']).response
+      return render plain: Billing::YandexKassa::ResponseService.new(params['invoiceId'], 0).aviso_response
     end
-    render plain: Billing::YandexKassa::Responce::AvisoService.new(params['invoiceId'], 1).response
+    render plain: Billing::YandexKassa::ResponseService.new(params['invoiceId'], 1).aviso_response
   end
 
   def check
     run Billing::YandexKassa::Deposit::Operation::Check, params do |result|
-      return render plain: Billing::YandexKassa::Responce::CheckService.new(params['invoiceId'], 0).response
+      return render plain: Billing::YandexKassa::ResponseService.new(params['invoiceId'], 0).check_response
     end
-    render plain: Billing::YandexKassa::Responce::CheckService.new(params['invoiceId'], 100).response
+    render plain: Billing::YandexKassa::ResponseService.new(params['invoiceId'], 100).check_response
   end
 end

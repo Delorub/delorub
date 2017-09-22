@@ -33,16 +33,10 @@ module Billing::YandexKassa::Deposit::Operation
     step :model!
     step ->(options, params:, model:, **_) {
       aviso = Billing::YandexKassa::RequestService.new(params, model, 'paymentAviso')
-      options['responce_code'] = aviso.responce_code
-
-      if aviso.valid_signature?
-        step Wrap ->(*, &block) { ActiveRecord::Base.transaction do block.call end } {
-          step User::BillingLog::Step::Finish
-        }
-      else
-        step User::BillingLog::Step::Fail
-      end
+      aviso.valid_signature?
     }
+    step User::BillingLog::Step::Finish
+    failure User::BillingLog::Step::Fail
 
     def model! options, params:, **_
       options['model'] = Billing::YandexKassa::Deposit.find_by uuid: params['orderNumber']
@@ -67,22 +61,9 @@ module Billing::YandexKassa::Deposit::Operation
     end
   end
 
-  class Find < Trailblazer::Operation
-    step :model!
-    step Policy::Pundit(Billing::YandexKassa::DepositPolicy, :owner?)
-
-    def model! options, params:, **_
-      options['model'] = Billing::YandexKassa::Deposit.find_by uuid: params[:uuid]
-    end
-  end
-
   class Fail < Trailblazer::Operation
     step Model(Billing::YandexKassa::Deposit, :find_by)
-    step ->(options, params:, model:, **_) {
-      return false unless model.billing_log.new?
-      step Wrap ->(*, &block) { ActiveRecord::Base.transaction do block.call end } {
-        step User::BillingLog::Step::Fail
-      }
-    }
+    step Policy::Pundit(Billing::YandexKassa::DepositPolicy, :billing_log_is_new?)
+    step User::BillingLog::Step::Fail
   end
 end

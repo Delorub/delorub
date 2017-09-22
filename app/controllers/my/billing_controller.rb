@@ -20,9 +20,13 @@ class My::BillingController < My::ApplicationController
     authorize @deposit
   end
 
-  def success; end
+  def success
+    authorize @deposit
+  end
 
   def fail
+    authorize @deposit
+
     run Billing::YandexKassa::Deposit::Operation::Fail, id: @deposit.id
   end
 
@@ -33,17 +37,11 @@ class My::BillingController < My::ApplicationController
   private
 
     def deposit_present?
-      run Billing::YandexKassa::Deposit::Operation::Find, uuid: params[:id] do |result|
-        @deposit = result['model']
-      end
-      not_found if @deposit.blank?
+      @deposit = current_user.billing_yandex_kassa_deposits.find_by(uuid: params[:id])
     end
 
     def deposit_present_with_yandex?
       params_uuid = params[:ordernumber].present? ? params[:ordernumber] : params[:orderNumber]
-      run Billing::YandexKassa::Deposit::Operation::Find, uuid: params_uuid do |result|
-        @deposit = result['model']
-      end
-      not_found if @deposit.blank?
+      @deposit = current_user.billing_yandex_kassa_deposits.find_by(uuid: params_uuid)
     end
 end

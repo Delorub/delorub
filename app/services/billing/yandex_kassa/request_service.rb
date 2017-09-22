@@ -49,11 +49,6 @@ class Billing::YandexKassa::RequestService
     order.amount.to_f == params[:order_sum_amount].to_f
   end
 
-  def responce_code
-    return '1' unless valid_signature?
-    '0'
-  end
-
   private
 
     def map_params params
