@@ -19,16 +19,16 @@ nav.navbar.navbar-toggleable-md.bg-faded.navbar-dr-theme
             li.nav-item
               a.dr-btn-danger.dr-btn-165 href=new_task_path data-identity="header_btn_create_task"  Создать задание
         - if user_signed_in?
-          .dr-authorized-user
-            .dr-authorized-user__name
-              a href=my_index_index_path
-                span #{current_user.first_name}
-                br
-                span #{current_user.last_name}
-            - if current_user.photo
-    .dr-authorized-user__image
-      a href=my_index_index_path
-        img src=current_user.photo.url(:small) alt=""
+    .dr-authorized-user
+      .dr-authorized-user__name
+        a href=my_index_index_path
+          span #{current_user.first_name}
+          br
+          span #{current_user.last_name}
+      - if current_user.photo
+        .dr-authorized-user__image
+          a href=my_index_index_path
+            img src=current_user.photo.url(:small) alt=""
     .dr-authorized-user__dropdown
       ul
         li
