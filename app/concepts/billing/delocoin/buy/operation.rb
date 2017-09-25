@@ -11,14 +11,12 @@ module Billing::Delocoin::Buy::Operation
     end
 
     step Nested(Present)
-    step Rescue(handler: User::BillingLog::Step::RescueFail) {
-      step Wrap(Billing::Transaction) {
-        step Contract::Validate()
-        step :set_current_step!
-        step :calculate_amounts!
-        step Contract::Persist()
-        step User::BillingLog::Step::Create
-      }
+    step Wrap(Billing::Transaction) {
+      step Contract::Validate()
+      step :set_current_step!
+      step :calculate_amounts!
+      step Contract::Persist()
+      step User::BillingLog::Step::Create
     }
 
     def set_current_step! options, model:, **_

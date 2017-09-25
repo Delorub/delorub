@@ -3,7 +3,7 @@ class Delocoin::PackDecorator < Draper::Decorator
   delegate_all
 
   def discount_in_percents
-    ((1 - discount) * 100).to_i
+    ((1 - BigDecimal.new(discount.to_s)) * 100).to_i
   end
 
   def one_delocoin_cost

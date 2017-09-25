@@ -4,15 +4,18 @@ class Billing::Delocoin::Buy::Contract < Reform::Form
       self.pack_id = Delocoin::Pack.first.id
     },
     populator: ->(fragment:, **) {
-      item = Delocoin::Pack.find_by(id: fragment)
-      self.pack_id = item.id if item.present?
+      self.pack_id = Delocoin::Pack.find_by(id: fragment).try(:id)
     }
 
-  property :pay_type, default: 'balance'
+  property :pay_type,
+    default: 'balance',
+    populator: ->(fragment:, **_) {
+      self.pay_type = Billing::PaymentTypeList.for(model).detect { |e| e == fragment.to_sym }
+    }
+
   property :accept_terms, virtual: true, default: false
 
-  validates :pack_id, presence: true
-
+  validates :pack_id, :pay_type, presence: true
   validates :accept_terms, presence: true
   validates :accept_terms, inclusion: { in: ['1'], message: 'Вы должны согласиться с правилами сервиса' }
 

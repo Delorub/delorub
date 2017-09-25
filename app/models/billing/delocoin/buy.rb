@@ -17,7 +17,10 @@ require_dependency 'billing/delocoin'
 class Billing::Delocoin::Buy < ApplicationRecord
   self.table_name = 'billing_delocoin_buys'
 
+  extend Enumerize
   include Billing::Base
+
+  enumerize :pay_type, in: Billing::PaymentTypeList.for(self)
 
   belongs_to :pack, class_name: '::Delocoin::Pack'
   belongs_to :step, class_name: '::Delocoin::Step'

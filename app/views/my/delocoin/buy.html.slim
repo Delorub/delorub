@@ -36,7 +36,7 @@
       delocoin-payment-form(
         value=f.object.pay_type
         :cost="cost"
-        :payment-type-list=([:balance, :qiwi, :yandex, :visa, :webmoney].to_json)
+        :payment-type-list=(Billing::PaymentTypeList.for(f.object).to_json)
         balance=(current_user.balance)
         @can-pay="canPay = $event"
       )
