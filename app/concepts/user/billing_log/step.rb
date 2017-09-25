@@ -3,11 +3,14 @@ class User::BillingLog::Step
     extend Uber::Callable
 
     def self.call options, **_
-      result = User::BillingLog::Operation::Create.call({
-        user: options['current_user'],
-        billable: options['model'],
-        sum: options['sum'].to_i
-      }, 'current_user' => options['current_user'])
+      result = User::BillingLog::Operation::Create.call(
+        {
+          user: options['current_user'],
+          billable: options['model'],
+          sum: options['sum'].to_i
+        },
+        'current_user' => options['current_user']
+      )
 
       result.success?
     end
@@ -30,9 +33,10 @@ class User::BillingLog::Step
       p options
 
       if model.present? && model.billing_log.present?
-        User::BillingLog::Operation::Fail.({
-          id: model.billing_log.id
-        }, 'current_user' => options['current_user'])
+        User::BillingLog::Operation::Fail.call(
+          { id: model.billing_log.id },
+          'current_user' => options['current_user']
+        )
       end
 
       false
@@ -55,9 +59,10 @@ class User::BillingLog::Step
     extend Uber::Callable
 
     def self.call options, model:, **_
-      result = User::BillingLog::Operation::Finish.call({
-        id: model.billing_log.id
-      }, 'current_user' => options['current_user'])
+      result = User::BillingLog::Operation::Finish.call(
+        { id: model.billing_log.id },
+        'current_user' => options['current_user']
+      )
 
       result.success?
     end

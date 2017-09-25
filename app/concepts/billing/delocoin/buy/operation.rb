@@ -46,9 +46,10 @@ module Billing::Delocoin::Buy::Operation
     }
 
     def finish! options, model:, **_
-      result = ::Billing::Delocoin::Buy::Operation::Finish.call({
-        id: model.id
-      }, 'current_user' => options['current_user'])
+      result = ::Billing::Delocoin::Buy::Operation::Finish.call(
+        { id: model.id },
+        'current_user' => options['current_user']
+      )
 
       result.success?
     end

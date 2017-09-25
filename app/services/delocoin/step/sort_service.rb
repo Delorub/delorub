@@ -4,6 +4,7 @@ class Delocoin::Step::SortService
       number = 1
 
       all.map do |step|
+        # rubocop:disable Rails/SkipsModelValidations
         step.update_column(:number, number)
         number += 1
       end

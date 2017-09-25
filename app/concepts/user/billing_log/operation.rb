@@ -10,7 +10,7 @@ class User::BillingLog::Operation < Trailblazer::Operation
   class Finish < Trailblazer::Operation
     step Model(::User::BillingLog, :find_by)
     step Policy::Pundit(User::BillingLogPolicy, :finish?)
-    step :have_enough_balance?
+    step :enough_balance?
     step ->(options, model:, **_) {
       # TODO: make by sql
       model.user.balance = model.user.balance + model.sum
@@ -18,8 +18,8 @@ class User::BillingLog::Operation < Trailblazer::Operation
       model.finish!
     }
 
-    def have_enough_balance? options, model:, **_
-      model.user.balance + model.sum > 0
+    def enough_balance? options, model:, **_
+      (model.user.balance + model.sum).positive?
     end
   end
 

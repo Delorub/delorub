@@ -70,7 +70,7 @@
       }
     },
     watch: {
-      canPay(value) {
+      canPay (value) {
         this.$emit('can-pay', value)
       }
     }

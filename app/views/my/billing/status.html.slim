@@ -18,8 +18,8 @@
               span Ошибка платежа
       = render 'heading'
       .dr-block-style
-        p.dr-h5 = @model.billable_name
-        p.dr-text-15 = @model.billable_description
+        p.dr-h5 = @model.name
+        p.dr-text-15 = @model.description
       br/
       div
         a.dr-btn-primary.dr-btn-margin-right-20 href=my_billing_index_path role="button" Вернуться
