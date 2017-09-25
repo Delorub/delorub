@@ -10,7 +10,7 @@ class User::BillingLog::Operation < Trailblazer::Operation
   class Finish < Trailblazer::Operation
     step Model(::User::BillingLog, :find_by)
     step Policy::Pundit(User::BillingLogPolicy, :finish?)
-    step :have_enough_balance?
+    step :enough_balance?
     step ->(options, model:, **_) {
       model.finish!
       sql = "UPDATE users SET balance = #{model.user.balance + model.sum} WHERE id = #{model.user_id}"
@@ -18,8 +18,8 @@ class User::BillingLog::Operation < Trailblazer::Operation
       model.save
     }
 
-    def have_enough_balance? options, model:, **_
-      model.user.balance + model.sum > 0
+    def enough_balance? options, model:, **_
+      (model.user.balance + model.sum).positive?
     end
   end
 

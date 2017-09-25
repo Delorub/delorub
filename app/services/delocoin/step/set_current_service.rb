@@ -3,6 +3,7 @@ class Delocoin::Step::SetCurrentService
     ActiveRecord::Base.transaction do
       step_id = current_step_id
       all.map do |step|
+        # rubocop:disable Rails/SkipsModelValidations
         step.update_column(:is_current, step.id == step_id)
       end
     end
@@ -15,7 +16,7 @@ class Delocoin::Step::SetCurrentService
       return_id = nil
 
       all.each do |e|
-        value = e.date_from.to_time - Time.zone.now
+        value = (e.date_from - Time.zone.today).to_i
         next if value.positive?
         if min_value.nil? || value > min_value
           min_value = value

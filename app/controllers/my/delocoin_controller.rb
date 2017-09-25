@@ -22,7 +22,7 @@ class My::DelocoinController < My::ApplicationController
   def confirm
     run Billing::Delocoin::Buy::Operation::Confirm, id: params[:id]
 
-    return redirect_to my_billing_status_path(billing_id: result['model'].billing_log.id)
+    redirect_to my_billing_status_path(billing_id: result['model'].billing_log.id)
   end
 
   private
