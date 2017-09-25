@@ -18,7 +18,7 @@ class Billing::YandexKassa::Deposit < ApplicationRecord
   extend Enumerize
   include Billing::Base
 
-  enumerize :pay_type, in: %w[WQ PC AC WM]
+  has_one :user, through: :billing_log
 
   def name
     'Пополнение через Яндекс.Кассу'

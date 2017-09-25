@@ -1,8 +1,8 @@
 .dr-block-style
   p.dr-h5 Пополнение баланса на сумму:
   p.dr-text-15
-    = "#{@deposit.amount} руб."
+    = "#{deposit.amount} руб."
   br/
   p.dr-h5 Выбранный способ оплаты
   p.dr-text-15
-    = @deposit.pay_type.text
+    = deposit.formatted_pay_type

@@ -19,24 +19,12 @@
     .dr-content-header
       h2
         | Выберите способ оплаты
-    .choose-payment
-      .choose-payment-row
-        .choose-payment__card
-          = f.radio_button :pay_type, 'WQ'
-          .choose-payment__image
-            img alt="" src="/images/payment/qiwi.png" /
-        .choose-payment__card
-          = f.radio_button :pay_type, 'PC'
-          .choose-payment__image
-            img alt="" src="/images/payment/yandex.png" /
-        .choose-payment__card
-          = f.radio_button :pay_type, 'AC'
-          .choose-payment__image
-            img alt="" src="/images/payment/visa.png" /
-        .choose-payment__card
-          = f.radio_button :pay_type, 'WM'
-          .choose-payment__image
-            img alt="" src="/images/payment/webmoney.png" /
+    delocoin-payment-form(
+      value=f.object.pay_type
+      :payment-type-list=([:qiwi, :yandex, :visa, :webmoney].to_json)
+    )
+      template slot="input" scope="props"
+        = f.input_field :pay_type, as: :hidden, ':value': 'props.value'
     .checkbox.form-group
       label
         = f.check_box :accept_terms

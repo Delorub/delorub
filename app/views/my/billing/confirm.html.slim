@@ -7,13 +7,7 @@
   br/
   div
     form action="#{Figaro.env.yandex_kassa_url}" method="POST"
-      input name="shopId" type="hidden" value="#{Figaro.env.shop_id}" /
-      input name="scid" type="hidden" value="#{Figaro.env.scid}" /
-      input name="paymentType" type="hidden" value="#{@deposit.pay_type}" /
-      input name="sum" type="hidden" value="#{@deposit.amount.to_f}" /
-      input name="orderNumber" type="hidden" value="#{@deposit.uuid}" /
-      input name="customerNumber" type="hidden" value="#{current_user.email}" /
-      input name="shopSuccessURL" type="hidden" value="#{Figaro.env.base_url}/my/billing/success" /
-      input name="shopFailURL" type="hidden" value="#{Figaro.env.base_url}/my/billing/fail" /
+      - @fields.each do |field|
+        input name="#{field[0]}" type="hidden" value="#{field[1]}" /
       a.dr-btn-primary.dr-btn-margin-right-20 href=my_billing_index_path role="button"  Вернуться
       input.dr-btn-danger type="submit" value="Оплатить" /

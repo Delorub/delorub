@@ -1,8 +1,7 @@
 class My::BillingController < My::ApplicationController
   include Pundit
 
-  before_action :deposit_present?, only: [:confirm]
-  before_action :deposit_present_with_yandex?, only: [:success, :fail]
+  decorates_assigned :deposit, :model
 
   def index
     run Billing::YandexKassa::Deposit::Operation::Create::Present
@@ -17,21 +16,34 @@ class My::BillingController < My::ApplicationController
   end
 
   def confirm
+    @deposit = Billing::YandexKassa::Deposit.find_by(uuid: params[:id])
+
     authorize @deposit
+    apply_model_by_deposit
+    @fields = Billing::YandexKassa::RequestFieldsService.new(@deposit).perform
   end
 
   def success
+    @deposit = Billing::YandexKassa::Deposit.find_by(uuid: order_number)
+
     authorize @deposit
+    apply_model_by_deposit
+
+    render :status
   end
 
   def fail
-    authorize @deposit
+    @deposit = Billing::YandexKassa::Deposit.find_by(uuid: order_number)
 
+    authorize @deposit
     run Billing::YandexKassa::Deposit::Operation::Fail, id: @deposit.id
+    apply_model_by_deposit
+
+    render :status
   end
-  
+
   def status
-    @model = User::BillingLog.find(params[:billing_id]).decorate
+    @model = User::BillingLog.find(params[:billing_id])
 
     authorize @model
   end
@@ -42,12 +54,11 @@ class My::BillingController < My::ApplicationController
 
   private
 
-    def deposit_present?
-      @deposit = current_user.billing_yandex_kassa_deposits.find_by(uuid: params[:id])
+    def order_number
+      params[:ordernumber].present? ? params[:ordernumber] : params[:orderNumber]
     end
 
-    def deposit_present_with_yandex?
-      params_uuid = params[:ordernumber].present? ? params[:ordernumber] : params[:orderNumber]
-      @deposit = current_user.billing_yandex_kassa_deposits.find_by(uuid: params_uuid)
+    def apply_model_by_deposit
+      @model = @deposit.billing_log
     end
 end

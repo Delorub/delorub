@@ -51,14 +51,6 @@ Rails.application.routes.draw do
       end
       get 'status', as: :status
     end
-    resources :delocoin, only: [:index] do
-      collection do
-        get 'buy', as: :buy
-        post 'buy'
-        post 'confirm', as: :confirm
-        get 'history', as: :history
-      end
-    end
   end
 
   resources :profiles, only: [:show, :edit, :update], path: 'profile'

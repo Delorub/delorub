@@ -1,6 +1,7 @@
 class Billing::YandexKassa::DepositPolicy < ApplicationPolicy
   def confirm?
-    billing_log_is_new?
+    owner?
+    record.billing_log.new?
   end
 
   def success?
@@ -13,11 +14,6 @@ class Billing::YandexKassa::DepositPolicy < ApplicationPolicy
     owner?
     return false if record.billing_log.finished?
     true
-  end
-
-  def billing_log_is_new?
-    owner?
-    record.billing_log.new?
   end
 
   private

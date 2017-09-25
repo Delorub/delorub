@@ -48,6 +48,18 @@ ru:
     locality: "4 - Населенный пункт"
     street: "5 - Улица"
     house: "6 - Дом"
+  yandex_kassa:
+    pay_type:
+      qiwi: Qiwi
+      yandex: Кошелек Яндекс.Денег
+      visa: Банковская карта
+      webmoney: Кошелек WebMoneys
+    confirm:
+      pay_type:
+        WQ: Пополнение с помощью Qiwi
+        PC: Пополнение с помощью кошелька Яндекс.Денег
+        AC: Пополнение с помощью банковской карты
+        WM: Пополнение с помощью кошелька WebMoney
   enumerize:
     visitor_session_action:
       action_type:
@@ -77,18 +89,6 @@ ru:
       contract_type:
         contract: С договором
         no_contract: Без договора
-    billing/yandex_kassa/deposit:
-      pay_type:
-        WQ: Qiwi
-        PC: Кошелек Яндекс.Денег
-        AC: Банковская карта
-        WM: Кошелек WebMoney
-      confirm:
-        pay_type:
-          WQ: Пополнение с помощью Qiwi
-          PC: Пополнение с помощью кошелька Яндекс.Денег
-          AC: Пополнение с помощью банковской карты
-          WM: Пополнение с помощью кошелька WebMoney
   formtastic:
     create: 'Создать'
     update: 'Обновить'
