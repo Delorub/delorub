@@ -5,7 +5,7 @@ class MainController < ApplicationController
 
   def robots
     robots = File.read(Rails.root + "config/robots/#{Rails.env}.txt")
-    render :plain => robots, :layout => false, :content_type => 'text/plain'
+    render plain: robots, layout: false, content_type: 'text/plain'
   end
 
   private
