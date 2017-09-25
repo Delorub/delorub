@@ -84,6 +84,9 @@ if (ctx !== null) {
             var date = data['datasets'][0]['dates'][tooltipItem['index']]
             return 'Дата: ' + date
           },
+          afterTitle: function ([tooltipItem], data) {
+            return 'Текущий этап: ' + 1
+          },
           label: function (tooltipItem, data) {
           },
           afterLabel: function (tooltipItem, data) {
