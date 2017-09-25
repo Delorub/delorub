@@ -9,8 +9,9 @@
               img alt="" src="/images/icons/ruble.svg" /
               div
                 span.delocoin-current__value-big = format_balance current_user.balance
-        .col-auto.flex.align-center
-          .profile-switcher
-            .profile-switcher__links
-              a.link-default class=(active_class_if :billing, [:index, :create, :new]) href=my_billing_index_path Пополнить
-              a.link-default class=(active_class_if :billing, :history) href=history_my_billing_index_path История
+        - unless action_name == 'status'
+          .col-auto.flex.align-center
+            .profile-switcher
+              .profile-switcher__links
+                a.link-default class=(active_class_if :billing, [:index, :create, :new]) href=my_billing_index_path Пополнить
+                a.link-default class=(active_class_if :billing, :history) href=history_my_billing_index_path История

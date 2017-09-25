@@ -15,6 +15,12 @@ class My::BillingController < My::ApplicationController
     render 'index'
   end
 
+  def status
+    @model = User::BillingLog.find(params[:billing_id]).decorate
+
+    authorize @model
+  end
+
   def history
     @billing_logs = current_user.billing_logs.latest.limit(20)
   end

@@ -1,5 +1,6 @@
 <template lang="pug">
   div
+    slot(name="input" :value="internalValue")
     .choose-payment__pocket(v-if="showBalancePayment")
       .choose-payment__card(:class="paymentCheckedClass('balance')" @click="paymentSelect('balance')")
         .money-pocket
@@ -36,6 +37,9 @@
         internalValue: this.value
       }
     },
+    mounted () {
+      this.$emit('can-pay', this.canPay)
+    },
     methods: {
       paymentCheckedClass (payment) {
         return this.internalValue === payment ? 'checked' : ''
@@ -54,11 +58,20 @@
       haveEnoughBalance () {
         return this.cost <= this.balance
       },
+      canPay () {
+        if (this.internalValue !== 'balance') return true
+        return this.haveEnoughBalance
+      },
       showBalancePayment () {
         return this.paymentTypeList.find(e => e === 'balance')
       },
       paymentTypeListToDisplay () {
         return this.paymentTypeList.every(e => e !== 'balance')
+      }
+    },
+    watch: {
+      canPay(value) {
+        this.$emit('can-pay', value)
       }
     }
   }

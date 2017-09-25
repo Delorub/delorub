@@ -60,9 +60,9 @@ module Billing::Delocoin::Buy::Operation
       step Rescue(handler: User::BillingLog::Step::RescueFail) {
         step User::BillingLog::Step::Finish
         step :update_user_delocoin_balance!
-        failure User::BillingLog::Step::Fail
       }
     }
+    failure User::BillingLog::Step::Fail
 
     def update_user_delocoin_balance! model:, **_
       user = model.billing_log.user

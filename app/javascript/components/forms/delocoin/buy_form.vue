@@ -4,7 +4,8 @@
     data: function () {
       return {
         model: this.initialModel,
-        cost: null
+        cost: null,
+        canPay: false
       }
     }
   }
