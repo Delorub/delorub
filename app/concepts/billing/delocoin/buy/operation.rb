@@ -38,27 +38,30 @@ module Billing::Delocoin::Buy::Operation
       step Model(::Billing::Delocoin::Buy, :find_by)
     end
     step Nested(Present)
-    step Rescue(handler: User::BillingLog::Step::RescueFail) {
-      step Wrap(Billing::Transaction) {
+    step Wrap(Billing::Transaction) {
+      step Rescue(handler: User::BillingLog::Step::RescueFail) {
         step :finish!
         failure User::BillingLog::Step::Fail
       }
     }
 
     def finish! options, model:, **_
-      result = ::Billing::Delocoin::Buy::Operation::Finish.call(id: model.id)
+      result = ::Billing::Delocoin::Buy::Operation::Finish.call({
+        id: model.id
+      }, 'current_user' => options['current_user'])
+
       result.success?
     end
   end
 
   class Finish < Trailblazer::Operation
     step Model(::Billing::Delocoin::Buy, :find_by)
-    step Rescue(handler: User::BillingLog::Step::RescueFail) {
-      step Wrap(Billing::Transaction) {
+    step Wrap(Billing::Transaction) {
+      step Rescue(handler: User::BillingLog::Step::RescueFail) {
         step User::BillingLog::Step::Finish
         step :update_user_delocoin_balance!
+        failure User::BillingLog::Step::Fail
       }
-      failure User::BillingLog::Step::Fail
     }
 
     def update_user_delocoin_balance! model:, **_

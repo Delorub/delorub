@@ -8,6 +8,6 @@ class User::BillingLogPolicy < ApplicationPolicy
   end
 
   def fail?
-    record.may_fail? && owner?
+    owner?
   end
 end
