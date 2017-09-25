@@ -20,11 +20,9 @@ class My::DelocoinController < My::ApplicationController
   end
 
   def confirm
-    if request.post?
-      confirm_create
-    else
-      confirm_new
-    end
+    run Billing::Delocoin::Buy::Operation::Confirm, id: params[:id]
+
+    return redirect_to my_billing_status_path(billing_id: result['model'].billing_log.id)
   end
 
   private
@@ -35,17 +33,9 @@ class My::DelocoinController < My::ApplicationController
 
     def buy_create
       run Billing::Delocoin::Buy::Operation::Create, params[:billing_delocoin_buy] do |result|
-        return redirect_to confirm_my_delocoin_index_path(id: result['model'].id)
-      end
-    end
+        run Billing::Delocoin::Buy::Operation::Confirm::Present, id: result['model'].id
 
-    def confirm_new
-      run Billing::Delocoin::Buy::Operation::Confirm::Present, id: params[:id]
-    end
-
-    def confirm_create
-      run Billing::Delocoin::Buy::Operation::Confirm, id: params[:id] do |result|
-        return redirect_to my_delocoin_index_path
+        render 'confirm'
       end
     end
 end

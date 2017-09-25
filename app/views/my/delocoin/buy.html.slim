@@ -34,10 +34,14 @@
         h2
           | Выберите способ оплаты
       delocoin-payment-form(
+        value=f.object.pay_type
         :cost="cost"
         :payment-type-list=([:balance, :qiwi, :yandex, :visa, :webmoney].to_json)
         balance=(current_user.balance)
+        @can-pay="canPay = $event"
       )
+        template slot="input" scope="props"
+          = f.input_field :pay_type, as: :hidden, ':value': 'props.value'
       .choose-payment
         .checkbox.form-group
           label
@@ -47,4 +51,4 @@
           = f.error :accept_terms
         br/
         div
-          input.dr-btn-danger type="submit" role="button" value="Продолжить"
+          input.dr-btn-danger type="submit" role="button" value="Продолжить" :disabled="!canPay"

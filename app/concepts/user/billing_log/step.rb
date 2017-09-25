@@ -9,8 +9,6 @@ class User::BillingLog::Step
         sum: options['sum'].to_i
       }, 'current_user' => options['current_user'])
 
-      byebug
-
       result.success?
     end
   end
@@ -27,13 +25,16 @@ class User::BillingLog::Step
     extend Uber::Callable
 
     def self.call options, model:, **_
+      # TODO: write error to billing log
+      p '@@@ FAIL @@@'
+      p options
+
       if model.present? && model.billing_log.present?
-        # TODO: write error to billing log
-        # options['billing_transaction_exception']
-        User::BillingLog::Operation::Fail.call({
+        User::BillingLog::Operation::Fail.({
           id: model.billing_log.id
         }, 'current_user' => options['current_user'])
       end
+
       false
     end
   end
@@ -45,6 +46,7 @@ class User::BillingLog::Step
       # TODO: remove it and write exception to the logger
       p '@@@ RESCUE FAIL @@@'
       p exception
+
       false
     end
   end
@@ -56,6 +58,7 @@ class User::BillingLog::Step
       result = User::BillingLog::Operation::Finish.call({
         id: model.billing_log.id
       }, 'current_user' => options['current_user'])
+
       result.success?
     end
   end

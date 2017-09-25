@@ -43,6 +43,9 @@
   }
   &--sort-padding {
     padding: 22px 40px;
+    p {
+      margin-bottom: 0;
+    }
   }
   &--left-menu-card {
     margin-bottom: 6px;

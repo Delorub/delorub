@@ -10,4 +10,8 @@ module BillingHelper
       when 'failed' then 'table-history__error'
     end
   end
+        
+  def format_balance_with_currency number
+    number_to_currency number, unit: 'руб', precision: 0
+  end
 end

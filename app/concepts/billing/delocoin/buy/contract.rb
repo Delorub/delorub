@@ -8,7 +8,7 @@ class Billing::Delocoin::Buy::Contract < Reform::Form
       self.pack_id = item.id if item.present?
     }
 
-  property :pay_type
+  property :pay_type, default: 'balance'
   property :accept_terms, virtual: true, default: false
 
   validates :pack_id, presence: true

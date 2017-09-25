@@ -29,6 +29,12 @@ class My::BillingController < My::ApplicationController
 
     run Billing::YandexKassa::Deposit::Operation::Fail, id: @deposit.id
   end
+  
+  def status
+    @model = User::BillingLog.find(params[:billing_id]).decorate
+
+    authorize @model
+  end
 
   def history
     @billing_logs = current_user.billing_logs.latest.limit(20)

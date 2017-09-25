@@ -49,13 +49,13 @@ Rails.application.routes.draw do
         post 'confirm'
         get 'history', as: :history
       end
+      get 'status', as: :status
     end
     resources :delocoin, only: [:index] do
       collection do
         get 'buy', as: :buy
         post 'buy'
-        get 'confirm', as: :confirm
-        post 'confirm'
+        post 'confirm', as: :confirm
         get 'history', as: :history
       end
     end
