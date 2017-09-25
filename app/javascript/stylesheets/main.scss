@@ -86,7 +86,6 @@ footer {
     }
   }
   &__link {
-    margin-left: 30px;
     color: #fff;
     &:hover {
       color: #70bee9 !important;
@@ -109,6 +108,25 @@ footer {
   }
   &__left {
     color: #fff;
+  }
+  &__right {
+    a + a {
+      margin-left: 30px;
+    }
+  }
+}
+
+.top-line {
+  &--index {
+    .top-line__left {
+      display: none;
+    }
+    .top-line__container {
+      justify-content: flex-end;
+      @media (max-width: 991px) {
+        justify-content: center;
+      }
+    }
   }
 }
 
