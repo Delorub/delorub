@@ -6,7 +6,7 @@ class Billing::YandexKassa::RequestFieldsService
     'webmoney' => 'WM'
   }.freeze
 
-  class_attribute :model
+  attr_reader :model
 
   def initialize model
     @model = model

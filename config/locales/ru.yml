@@ -53,7 +53,7 @@ ru:
       qiwi: Qiwi
       yandex: Кошелек Яндекс.Денег
       visa: Банковская карта
-      webmoney: Кошелек WebMoneys
+      webmoney: Кошелек WebMoney
     confirm:
       pay_type:
         WQ: Пополнение с помощью Qiwi

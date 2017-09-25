@@ -15,12 +15,4 @@ class Billing::YandexKassa::DepositPolicy < ApplicationPolicy
     return false if record.billing_log.finished?
     true
   end
-
-  private
-
-    def owner?
-      return false if user.blank?
-      return false if record.billing_log.blank?
-      record.billing_log.user_id == user.id
-    end
 end
