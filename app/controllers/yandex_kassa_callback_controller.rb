@@ -1,12 +1,17 @@
 class YandexKassaCallbackController < ApplicationController
-  def success
-    # TODO: change it to the right way, move to API
-    some_id = Billing::YandexKassa::Deposit.last.id
+  skip_before_action :verify_authenticity_token
 
-    run Billing::YandexKassa::Deposit::Operation::Finish, id: some_id do |result|
-      return render text: 'ok'
+  def processing
+    run Billing::YandexKassa::Deposit::Operation::Finish, params do |result|
+      return render plain: Billing::YandexKassa::ResponseService.new(params['invoiceId'], 0).aviso_response
     end
+    render plain: Billing::YandexKassa::ResponseService.new(params['invoiceId'], 1).aviso_response
+  end
 
-    render text: 'fail'
+  def check
+    run Billing::YandexKassa::Deposit::Operation::Check, params do |result|
+      return render plain: Billing::YandexKassa::ResponseService.new(params['invoiceId'], 0).check_response
+    end
+    render plain: Billing::YandexKassa::ResponseService.new(params['invoiceId'], 100).check_response
   end
 end

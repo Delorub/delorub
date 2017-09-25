@@ -3,8 +3,15 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  provider               :string           default("email"), not null
+#  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
+#  middle_name            :string
+#  phone                  :string
+#  birthday               :date
+#  profile_id             :integer
+#  free_tasks_published   :integer          default(0), not null
+#  free_replies_published :integer          default(0), not null
+#  balance                :decimal(10, 2)   default(0.0), not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
@@ -13,18 +20,10 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string
 #  last_sign_in_ip        :string
-#  middle_name            :string
-#  phone                  :string
-#  email                  :string
-#  birthday               :date
-#  profile_id             :integer
-#  free_tasks_published   :integer          default(0), not null
-#  free_replies_published :integer          default(0), not null
-#  balance                :decimal(10, 2)   default(0.0), not null
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
 #  photo                  :string
 #  phone_confirmed        :boolean
-#  created_at             :datetime
-#  updated_at             :datetime
 #  access_token           :string
 #  place_id               :integer
 #  first_name             :string
@@ -55,6 +54,8 @@ class User < ApplicationRecord
   has_many :omniauth_relations, dependent: :nullify
 
   has_many :billing_logs, dependent: :destroy
+  has_many :billing_yandex_kassa_deposits, through: :billing_logs, source: :billable, source_type: 'Billing::YandexKassa::Deposit'
+
   has_many :tasks, dependent: :destroy
   has_many :replies, dependent: :destroy
   has_one :permission, class_name: 'UserPermission', dependent: :destroy

@@ -4,7 +4,7 @@ class User::BillingLogPolicy < ApplicationPolicy
   end
 
   def finish?
-    record.may_finish? && owner?
+    record.may_finish? # && owner?
   end
 
   def status?
@@ -12,6 +12,6 @@ class User::BillingLogPolicy < ApplicationPolicy
   end
 
   def fail?
-    owner?
+    record.may_fail? && owner?
   end
 end
