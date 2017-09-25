@@ -1,6 +1,6 @@
 nav.navbar.navbar-toggleable-md.bg-faded.navbar-dr-theme
   .container
-    button.navbar-toggler.navbar-toggler-right aria-controls="navbarNav" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarNav" data-toggle="collapse" type="button"
+    button.navbar-toggler.navbar-toggler-left aria-controls="navbarNav" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarNav" data-toggle="collapse" type="button"
     a.navbar-brand href= root_path
       img alt="" src="/images/design/logo.svg" /
     #navbarNav.collapse.navbar-collapse
@@ -9,6 +9,7 @@ nav.navbar.navbar-toggleable-md.bg-faded.navbar-dr-theme
           a.nav-link href=profiles_path data-identity="header_masters_index"  Исполнители
         li.nav-item
           a.nav-link href=tasks_path data-identity="header_tasks_index"  Все задания
+
       .div-navbar
         ul.navbar-nav.navbar-right
           - if policy(Profile).new?
@@ -17,22 +18,22 @@ nav.navbar.navbar-toggleable-md.bg-faded.navbar-dr-theme
           - if !user_signed_in? || user_signed_in? && !signed_in_as_master?
             li.nav-item
               a.dr-btn-danger.dr-btn-165 href=new_task_path data-identity="header_btn_create_task"  Создать задание
-        - if user_signed_in?
-          .dr-authorized-user
-            .dr-authorized-user__name
-              a href=my_index_index_path
-                span #{current_user.first_name}
-                br
-                span #{current_user.last_name}
-            - if current_user.photo
-              .dr-authorized-user__image
-                a href=my_index_index_path
-                  img src=current_user.photo.url(:small) alt=""
-            .dr-authorized-user__dropdown
-              ul
-                li
-                  a href=my_index_index_path Мой профиль
-                li
-                  a href=edit_my_settings_path Настройки
-                li
-                  a id="user_menu_sign_out" href=destroy_user_session_path Выход
+    - if user_signed_in?
+      .dr-authorized-user
+        .dr-authorized-user__name
+          a href=my_index_index_path
+            span #{current_user.first_name}
+            br
+            span #{current_user.last_name}
+        - if current_user.photo
+          .dr-authorized-user__image
+            a href=my_index_index_path
+              img src=current_user.photo.url(:small) alt=""
+        .dr-authorized-user__dropdown
+          ul
+            li
+              a href=my_index_index_path Мой профиль
+            li
+              a href=edit_my_settings_path Настройки
+            li
+              a id="user_menu_sign_out" href=destroy_user_session_path Выход
