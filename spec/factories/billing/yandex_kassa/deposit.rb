@@ -11,14 +11,13 @@
 #  params     :text
 #
 
-class Billing::YandexKassa::Deposit < ApplicationRecord
-  self.table_name = 'billing_yandex_kassa_deposits'
-  serialize :params, JSON
-
-  extend Enumerize
-  include Billing::Base
-
-  def name
-    'Пополнение через Яндекс.Кассу'
+FactoryGirl.define do
+  factory :deposit, class: Billing::YandexKassa::Deposit do
+    uuid SecureRandom.uuid
+    pay_type 'WQ'
+    amount { rand(10.0..1000.0) }
+    after(:create) do |deposit|
+      create(:user_billing_log, billable: deposit, sum: deposit.amount)
+    end
   end
 end
