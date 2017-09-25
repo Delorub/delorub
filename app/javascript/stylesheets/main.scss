@@ -110,7 +110,7 @@ footer {
     color: #fff;
   }
   &__right {
-    a + a {
+    a ~ a {
       margin-left: 30px;
     }
   }
@@ -168,6 +168,9 @@ footer {
     justify-content: space-between;
   }
   .navbar-brand {
+    @media (max-width: 991px) {
+      margin-right: 0;
+    }
     img {
       vertical-align: inherit;
     }
