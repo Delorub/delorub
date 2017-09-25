@@ -78,7 +78,7 @@ Rails.application.routes.draw do
 
   resources :vacancies, only: :index
 
-  get '/robots.:format', to: 'main#robots'
+  get '/robots.txt', to: 'main#robots'
   get 'contract_designer/:template_id', to: 'contracts#new', as: :contract_designer
 
   get '*unmatched_route', to: 'pages#show'
