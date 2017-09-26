@@ -1,4 +1,4 @@
-footer
+footer itemscope itemtype="http://schema.org/WPFooter"
   .dr-footer
     .container
       .row
@@ -34,18 +34,21 @@ footer
                   li
                     a.link-white href="#"  Конфиденциальность
         .dr-footer-right
-          .dr-footer-block
+          .dr-footer-block itemscope itemtype="http://schema.org/Organization"
             ul
+              li itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"
+                a.link-white-bold href="#" itemprop="addressLocality" Санкт-Петербург
               li
-                a.link-white-bold href="#"  Санкт-Петербург
-              li
-                a.link-white-bold href="mailto:info@delorub.ru"  Email: info@delorub.ru
+                a.link-white-bold href="mailto:info@delorub.ru" itemprop="email" Email: info@delorub.ru
     .dr-footer-sub
       .container
         .dr-footer-sub__content
           .dr-footer-sub__copyright
             i.fa.fa-copyright aria-hidden="true"
-            | 2017 Delorub. Все права защищены
+            span itemprop="copyrightYear"
+              | 2017
+            span
+              | Delorub. Все права защищены
           .dr-footer-sub__social
             div
               a href="#" data-identity="footer_vk"
