@@ -29,8 +29,8 @@ class My::BillingController < My::ApplicationController
             when 'Billing::Delocoin::Buy'
               run Billing::Delocoin::Buy::Operation::Finish, id: @billable.id
               return redirect_to status_my_billing_path(@model.billing_log.id)
-            end
-        end
+          end
+      end
 
       not_found
     end
@@ -44,7 +44,7 @@ class My::BillingController < My::ApplicationController
         render 'my/billing/confirm/balance'
       else
         not_found
-      end
+    end
   end
 
   def status

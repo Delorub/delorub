@@ -28,10 +28,10 @@ class My::DelocoinController < My::ApplicationController
     def buy_create
       run Billing::Delocoin::Buy::Operation::Create, params[:billing_delocoin_buy] do |result|
         payment_model = if result['nested_payment'].present?
-                  result['nested_payment']['model']
-                else
-                  result['model']
-                end
+                          result['nested_payment']['model']
+                        else
+                          result['model']
+                        end
 
         redirect_to confirm_my_billing_path(id: payment_model.billing_log.id)
       end

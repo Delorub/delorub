@@ -83,6 +83,9 @@ $(function () {
               var date = data['datasets'][0]['dates'][tooltipItem['index']]
               return 'Дата: ' + date
             },
+            afterTitle: function ([tooltipItem], data) {
+              return 'Текущий этап: ' + 1
+            },
             label: function (tooltipItem, data) {
             },
             afterLabel: function (tooltipItem, data) {
@@ -104,24 +107,6 @@ $(function () {
             scaleLabel: { display: true, labelString: 'Этапы удорожания' },
             gridLines: { color: '#e6e3e3' }
           }]
-        },
-        options: {
-          legend: {
-            display: false
-          },
-          tooltips: {
-            cornerRadius: 3,
-            position: 'average',
-            caretPadding: 0,
-            caretSize: 10
-          },
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: true
-              }
-            }]
-          }
         }
       }
     })

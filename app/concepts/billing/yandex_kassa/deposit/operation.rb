@@ -36,6 +36,7 @@ module Billing::YandexKassa::Deposit::Operation
     step :model!
     step Wrap(Billing::Transaction) {
       step Rescue(handler: User::BillingLog::Step::RescueFail) {
+        step :set_current_user!
         step :valid_signature?
         step User::BillingLog::Step::Finish
       }
@@ -44,6 +45,10 @@ module Billing::YandexKassa::Deposit::Operation
 
     def model! options, params:, **_
       options['model'] = Billing::YandexKassa::Deposit.find_by uuid: params['orderNumber']
+    end
+
+    def set_current_user! options, params:, **_
+      options['current_user'] = options['model'].billing_log.user
     end
 
     def valid_signature? options, params:, model:, **_

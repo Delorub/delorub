@@ -32,3 +32,8 @@ production:
   shop_id: '155590'
   scid: '557653'
   shop_password: '67696hgjfgkr'
+
+test:
+  shop_id: '155590'
+  scid: '557653'
+  shop_password: '67696hgjfgkr'
