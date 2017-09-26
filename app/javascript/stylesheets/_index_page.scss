@@ -1,14 +1,3 @@
-.top-line {
-  &--index {
-    .top-line__left {
-      display: none;
-    }
-    .top-line__container {
-      justify-content: flex-end;
-    }
-  }
-}
-
 .index-image {
   background-image: url("/images/design/coming_soon.jpg");
   height: 70vh;
