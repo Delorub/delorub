@@ -39,6 +39,9 @@
                       = task.user.tasks.count
                       '
                       | заданий
+            .tast-profile-card__links
+              a.link-default href="#" Редактировать задание
+              a.link-default href="#" Отменить задание
             .task-profile-card__time
               h2= task.date_type.text
               p= task.human_date
@@ -60,5 +63,19 @@
                   p
                     img src="/images/icons/mail.svg" alt="" /
                     = task.user.email
+
+            .dr-block-style.dr-block-style--profile-left
+              .performer-description-category
+                .performer-description-category__header
+                  h5
+                    a.link-default.link-bold href="#" Курьерская доставка
+                  br/
+                  .margin-bottom-05
+                    a.link-black href="#" Услуги пешего курьера
+                  .margin-bottom-05
+                    a.link-black href="#" Услуги курьера на легковом автом
+                  .margin-bottom-05
+                    a.link-black href="#" Купить и доставить
+                              
         = render 'files' unless task.files.blank?
         br/
