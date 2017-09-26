@@ -3,7 +3,7 @@ class User::BillingLog::Step
     extend Uber::Callable
 
     def self.call options, **_
-      result = User::BillingLog::Operation::Create.call(
+      options['billing_log'] = User::BillingLog::Operation::Create.call(
         {
           user: options['current_user'],
           billable: options['model'],
@@ -12,7 +12,7 @@ class User::BillingLog::Step
         'current_user' => options['current_user']
       )
 
-      result.success?
+      options['billing_log'].success?
     end
   end
 

@@ -17,6 +17,7 @@ module Billing::Delocoin::Buy::Operation
       step :calculate_amounts!
       step Contract::Persist()
       step User::BillingLog::Step::Create
+      step Billing::CreateNestedPayment
     }
 
     def set_current_step! options, model:, **_
@@ -31,28 +32,6 @@ module Billing::Delocoin::Buy::Operation
     end
   end
 
-  class Confirm < Trailblazer::Operation
-    class Present < Trailblazer::Operation
-      step Model(::Billing::Delocoin::Buy, :find_by)
-    end
-    step Nested(Present)
-    step Wrap(Billing::Transaction) {
-      step Rescue(handler: User::BillingLog::Step::RescueFail) {
-        step :finish!
-        failure User::BillingLog::Step::Fail
-      }
-    }
-
-    def finish! options, model:, **_
-      result = ::Billing::Delocoin::Buy::Operation::Finish.call(
-        { id: model.id },
-        'current_user' => options['current_user']
-      )
-
-      result.success?
-    end
-  end
-
   class Finish < Trailblazer::Operation
     step Model(::Billing::Delocoin::Buy, :find_by)
     step Wrap(Billing::Transaction) {
@@ -64,11 +43,9 @@ module Billing::Delocoin::Buy::Operation
     failure User::BillingLog::Step::Fail
 
     def update_user_delocoin_balance! model:, **_
-      user = model.billing_log.user
-
       # TODO: make sql
-      user.delocoin_balance += model.delocoin_amount
-      user.save
+      model.user.delocoin_balance += model.delocoin_amount
+      model.user.save
     end
   end
 end

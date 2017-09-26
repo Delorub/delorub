@@ -9,8 +9,8 @@ class Billing::PaymentTypeList
   end
 
   def perform
-    case model.class
-      when Billing::YandexKassa::Deposit
+    case class_name
+      when 'Billing::YandexKassa::Deposit'
         YANDEX_KASSA
       else
         BALANCE + YANDEX_KASSA
@@ -20,4 +20,11 @@ class Billing::PaymentTypeList
   def self.for model
     new(model).perform
   end
+
+  private
+
+    def class_name
+      return model.name if model.class.to_s == 'Class'
+      model.class.name
+    end
 end

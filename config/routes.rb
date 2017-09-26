@@ -34,10 +34,12 @@ Rails.application.routes.draw do
     resources :billing, only: [:index, :create] do
       member do
         get 'confirm', as: :confirm
+        post 'confirm'
+        get 'status', as: :status
       end
       collection do
-        get 'success'
-        match 'fail', via: [:get, :post]
+        # get 'success'
+        # match 'fail', via: [:get, :post]
         get 'history', as: :history
       end
     end
@@ -45,11 +47,8 @@ Rails.application.routes.draw do
       collection do
         get 'buy', as: :buy
         post 'buy'
-        get 'confirm', as: :confirm
-        post 'confirm'
         get 'history', as: :history
       end
-      get 'status', as: :status
     end
   end
 

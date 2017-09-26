@@ -1,8 +1,11 @@
+- display_billable = model.billable
+- display_billable = model.finish_after.billable.decorate if model.finish_after.present?
 .dr-block-style
-  p.dr-h5 Пополнение баланса на сумму:
+  p.dr-h5 = display_billable.name
   p.dr-text-15
-    = "#{deposit.amount} руб."
-  br/
-  p.dr-h5 Выбранный способ оплаты
-  p.dr-text-15
-    = deposit.formatted_pay_type
+    = display_billable.description
+  - unless display_billable.pay_type == 'balance'
+    br/
+    p.dr-h5 Выбранный способ оплаты
+    p.dr-text-15
+      = display_billable.pay_type

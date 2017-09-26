@@ -19,12 +19,6 @@ class My::DelocoinController < My::ApplicationController
     end
   end
 
-  def confirm
-    run Billing::Delocoin::Buy::Operation::Confirm, id: params[:id]
-
-    redirect_to my_billing_status_path(billing_id: result['model'].billing_log.id)
-  end
-
   private
 
     def buy_new
@@ -33,9 +27,13 @@ class My::DelocoinController < My::ApplicationController
 
     def buy_create
       run Billing::Delocoin::Buy::Operation::Create, params[:billing_delocoin_buy] do |result|
-        run Billing::Delocoin::Buy::Operation::Confirm::Present, id: result['model'].id
+        payment_model = if result['nested_payment'].present?
+                  result['nested_payment']['model']
+                else
+                  result['model']
+                end
 
-        render 'confirm'
+        redirect_to confirm_my_billing_path(id: payment_model.billing_log.id)
       end
     end
 end
