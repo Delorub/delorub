@@ -8,6 +8,7 @@
 
 <script>
   import Chart from 'lib/custom_chart'
+  import moment from 'lib/moment'
 
   export default {
     props: ['stepsList'],
@@ -109,17 +110,17 @@
             custom: this.customTooltips,
             callbacks: {
               title: function ([tooltipItem], data) {
-                var date = data['datasets'][0]['dates'][tooltipItem['index']]
-                return 'Дата: ' + date
+                var date = data.datasets[0].dates[tooltipItem['index']]
+                return moment(date).format('D MMMM YYYY')
               },
               afterTitle: function ([tooltipItem], data) {
-                return 'Текущий этап: ' + 1
+                return 'Этап ' + data.labels[tooltipItem['index']]
               },
               label: function (tooltipItem, data) {
               },
               afterLabel: function (tooltipItem, data) {
-                var count = data['datasets'][0]['data'][tooltipItem['index']]
-                return 'Стоимость Delocoin: ' + count
+                var count = data.datasets[0].data[tooltipItem['index']]
+                return 'Стоимость Delocoin: ' + count + '₽'
               }
             }
           },
