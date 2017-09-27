@@ -28,12 +28,15 @@
             a.link-default.show_contacts_all href="#" role="button"  Показать номер телефона
             .performer-profile-main__contacts style="display: none"
               p
+                .row
                 - unless profile.user.phone.blank?
-                  span
-                    img src="/images/icons/phone.svg" alt="" /
-                    = profile.user.phone
+                  .col-md-6
+                    span
+                      img src="/images/icons/phone.svg" alt="" /
+                      = profile.user.phone
                 - unless profile.user.email.blank?
-                  span
-                    img src="/images/icons/mail.svg" alt="" /
-                    = profile.user.email
+                  .col-md-6
+                    span
+                      img src="/images/icons/mail.svg" alt="" /
+                      = profile.user.email
   = paginate collection, theme: 'custom_theme'
