@@ -2,7 +2,6 @@ import 'app'
 import $ from 'jquery'
 import 'bootstrap/dist/js/bootstrap.js'
 import 'jquery-ujs'
-import Chart from 'chart.js'
 
 $(function () {
   $('div.dr-authorized-user').hover(function () {
