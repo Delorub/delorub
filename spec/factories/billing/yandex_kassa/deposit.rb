@@ -15,7 +15,7 @@ FactoryGirl.define do
   factory :deposit, class: Billing::YandexKassa::Deposit do
     uuid SecureRandom.uuid
     pay_type 'WQ'
-    amount { rand(10.0..1000.0) }
+    amount { rand(10..1000) }
     after(:create) do |deposit|
       create(:user_billing_log, billable: deposit, sum: deposit.amount)
     end

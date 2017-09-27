@@ -53,35 +53,7 @@ class My::BillingController < My::ApplicationController
     authorize @model
   end
 
-  # TODO: move this method to Yandex Endpoint controller
-  def success
-    @deposit = Billing::YandexKassa::Deposit.find_by(uuid: order_number)
-    authorize @deposit
-
-    redirect_to status_my_billing_path(@deposit.billing_log.id)
-  end
-
-  # TODO: move this method to Yandex Endpoint controller
-  def fail
-    @deposit = Billing::YandexKassa::Deposit.find_by(uuid: order_number)
-    authorize @deposit
-
-    run Billing::YandexKassa::Deposit::Operation::Fail, id: @deposit.id
-
-    redirect_to status_my_billing_path(@deposit.billing_log.id)
-  end
-
   def history
     @billing_logs = current_user.billing_logs.latest.limit(20)
   end
-
-  private
-
-    def order_number
-      params[:ordernumber].present? ? params[:ordernumber] : params[:orderNumber]
-    end
-
-    def apply_model_by_deposit
-      @model = @deposit.billing_log
-    end
 end
