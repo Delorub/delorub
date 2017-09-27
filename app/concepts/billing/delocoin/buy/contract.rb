@@ -1,6 +1,12 @@
 class Billing::Delocoin::Buy::Contract < Reform::Form
   property :pack_id,
     prepopulator: ->(options) {
+      pack_10_000 = Delocoin::Pack.find_by(cost: 10_000)
+      if pack_10_000.present?
+        self.pack_id = pack_10_000.id
+        return
+      end
+
       self.pack_id = Delocoin::Pack.first.id
     },
     populator: ->(fragment:, **) {
