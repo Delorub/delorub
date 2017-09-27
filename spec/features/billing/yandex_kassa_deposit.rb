@@ -13,7 +13,7 @@ feature 'Billing yandex kassa deposit' do
     fill_form(100, true)
     click_button 'Продолжить'
 
-    expect(current_path).to eq confirm_my_billing_path(Billing::YandexKassa::Deposit.last.uuid.to_s)
+    expect(current_path).to eq confirm_my_billing_path(Billing::YandexKassa::Deposit.last.billing_log.id)
   end
 
   scenario 'with incorrect details', js: true do
