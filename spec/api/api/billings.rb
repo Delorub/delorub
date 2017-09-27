@@ -24,28 +24,28 @@ describe Api::V10::Billings do
   context 'Api by yandex kassa callback' do
     it 'POST check value success' do
       post '/api/billings/check', params: generate_yandex_hash('checkOrder')
-      expect(response.status).to eq 201
+      expect(response.status).to eq 200
       xml = parse_xml(response.body)['checkOrderResponse']
       expect(xml['code']).to eq '0'
     end
 
-    it 'POST aviso value fail' do
+    it 'POST check value fail' do
       post '/api/billings/check', params: generate_yandex_hash('checkOrder', true)
-      expect(response.status).to eq 201
+      expect(response.status).to eq 200
       xml = parse_xml(response.body)['checkOrderResponse']
       expect(xml['code']).not_to eq '0'
     end
 
     it 'POST aviso value success' do
       post '/api/billings/process', params: generate_yandex_hash('paymentAviso')
-      expect(response.status).to eq 201
+      expect(response.status).to eq 200
       xml = parse_xml(response.body)['paymentAvisoResponse']
       expect(xml['code']).to eq '0'
     end
 
     it 'POST aviso value fail' do
       post '/api/billings/process', params: generate_yandex_hash('paymentAviso', true)
-      expect(response.status).to eq 201
+      expect(response.status).to eq 200
       xml = parse_xml(response.body)['paymentAvisoResponse']
       expect(xml['code']).not_to eq '0'
     end

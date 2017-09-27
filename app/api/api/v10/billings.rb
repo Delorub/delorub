@@ -5,6 +5,7 @@ class Api::V10::Billings < ApplicationAPI
     namespace :process do
       desc 'Yandex kassa process'
       post do
+        status 200
         if run!(Billing::YandexKassa::Deposit::Operation::Finish, params).success?
           return present Billing::YandexKassa::ResponseService.new(params['invoiceId'], 0).aviso_response
         end
@@ -15,6 +16,7 @@ class Api::V10::Billings < ApplicationAPI
     namespace :check do
       desc 'Yandex kassa check params'
       post do
+        status 200
         if run!(Billing::YandexKassa::Deposit::Operation::Check, params).success?
           return present Billing::YandexKassa::ResponseService.new(params['invoiceId'], 0).check_response
         end
