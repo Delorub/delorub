@@ -29,9 +29,11 @@
             .performer-profile-main__contacts style="display: none"
               p
                 - unless profile.user.phone.blank?
-                  img src="/images/icons/phone.svg" alt="" /
-                  = profile.user.phone
+                  span
+                    img src="/images/icons/phone.svg" alt="" /
+                    = profile.user.phone
                 - unless profile.user.email.blank?
-                  img src="/images/icons/mail.svg" alt="" /
-                  = profile.user.email
+                  span
+                    img src="/images/icons/mail.svg" alt="" /
+                    = profile.user.email
   = paginate collection, theme: 'custom_theme'
