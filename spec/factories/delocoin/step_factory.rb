@@ -2,11 +2,12 @@
 #
 # Table name: delocoin_steps
 #
-#  id         :integer          not null, primary key
-#  date_from  :date
-#  rate       :float
-#  is_current :boolean
-#  number     :integer
+#  id            :integer          not null, primary key
+#  date_from     :date
+#  rate          :float
+#  is_current    :boolean
+#  number        :integer
+#  buy_available :boolean
 #
 
 FactoryGirl.define do

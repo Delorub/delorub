@@ -3,6 +3,8 @@ class My::DelocoinController < My::ApplicationController
 
   def index
     @current_delocoin_cost = Delocoin::ConvertService.new.delocoins_to_balance(step: current_delocoin_step, delocoins: 1)
+
+    @steps = Delocoin::Step.order('number ASC').all
   end
 
   def buy

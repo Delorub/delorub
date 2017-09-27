@@ -33,7 +33,6 @@
         a.dr-btn-primary.dr-btn-long.dr-btn-disabled data-original-title=("Продажа монет будет доступна с 01.07.2018") data-placement="top" data-toggle="tooltip" href="#" title=""  Продать монеты
       .col-xl-4.col-lg-6
         a.dr-btn-default.dr-btn-long.dr-btn-disabled href="#"  Оплатить услуги на ДелоРубе
-  .dr-block-style.dr-block-style--margin-top
-    br/
-    canvas#myChart height="400" width="400"
-    br/
+  delocoin-chart(
+    :steps-list=Entities::Delocoin::Step.represent(@steps).to_json
+  )
