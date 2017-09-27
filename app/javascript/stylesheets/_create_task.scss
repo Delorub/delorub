@@ -6,6 +6,11 @@
     align-items: baseline;
     justify-content: space-between;
   }
+  h1 {
+    @media(max-width: 991px) {
+      margin-top: 15px;
+    }
+  }
   &__link {
     @extend .link-header;
   }
