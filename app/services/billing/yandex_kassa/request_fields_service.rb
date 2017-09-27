@@ -33,7 +33,7 @@ class Billing::YandexKassa::RequestFieldsService
           'tax' => 3,
           'text' => "Пополнение баланса на #{model.amount} руб."
         }]
-      }
+      }.to_json
     }
   end
 end
