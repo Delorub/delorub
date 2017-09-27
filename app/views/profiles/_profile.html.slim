@@ -27,8 +27,7 @@
               = profile.about.truncate(180) unless profile.about.blank?
             a.link-default.show_contacts_all href="#" role="button"  Показать номер телефона
             .performer-profile-main__contacts style="display: none"
-              p
-                .row
+              .row
                 - unless profile.user.phone.blank?
                   .col-md-6
                     span
