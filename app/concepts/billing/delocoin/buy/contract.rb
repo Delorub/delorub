@@ -3,7 +3,7 @@ class Billing::Delocoin::Buy::Contract < Reform::Form
     prepopulator: ->(options) {
       pack_10000 = Delocoin::Pack.find_by(cost: 10_000)
       if pack_10000.present?
-        self.pack_id = pack_10_000.id
+        self.pack_id = pack_10000.id
         return
       end
 
