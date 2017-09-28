@@ -25,11 +25,8 @@
         position: absolute;
         background-color: #8ac176;
         border-radius: 50%;
-        @media(min-width: 992px) {
+        @media(min-width: 992px) and (max-width: 1199px) {
           right: -20%;
-        }
-        @media(min-width: 1200px) {
-          right: 10%;
         }
       }
     }
