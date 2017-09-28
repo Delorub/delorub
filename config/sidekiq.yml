@@ -3,12 +3,12 @@
 :pidfile: ./tmp/pids/sidekiq.pid
 development:
   :concurrency: 1
-  logfile: ./log/sidekiq_development.log
+  :logfile: ./log/sidekiq_development.log
 staging:
   :concurrency: 10
-  logfile: ./log/sidekiq_staging.log
+  :logfile: ./log/sidekiq_staging.log
 production:
   :concurrency: 60
-  logfile: ./log/sidekiq_production.log
+  :logfile: ./log/sidekiq_production.log
 :queues:
   - default
