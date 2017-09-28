@@ -1,0 +1,59 @@
+.margin-side {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.margin-bottom-0 {
+  margin-bottom: 0;
+}
+
+.margin-bottom-05 {
+  margin-bottom: 0.5rem;
+}
+
+.margin-bottom-10 {
+  margin-bottom: 1rem;
+}
+
+.margin-right-15 {
+  margin-right: 15px;
+}
+
+.toggle-hr {
+  @media (min-width: 992px) {
+    display: none;
+  }
+}
+
+.lg-hide {
+  @media (max-width: 991px) {
+    display: none;
+  }
+}
+
+.xl-hide {
+  @media (max-width: 1199px) {
+    display: none;
+  }
+}
+
+.xl-right {
+  @media (min-width: 1200px) {
+    text-align: right;
+  }
+}
+
+.spacer-lg {
+  @media (min-width: 992px) {
+    margin-bottom: 2rem;
+  }
+}
+
+.col-margin-bottom {
+  margin-bottom: 1rem;
+}
+
+.no-gutters-col {
+  padding-left: 0;
+  padding-right: 0;
+}
