@@ -62,8 +62,12 @@ class ApplicationPolicy
 
       if record.respond_to? :user_id
         record.user_id == user.id
-      else
+      elsif record.respond_to? :user
+        record.user.id == user.id
+      elsif record.respond_to? :profile
         record.profile_id == user.profile.id
+      else
+        raise 'Cannot verify owner'
       end
     end
 

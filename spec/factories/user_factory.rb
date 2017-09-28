@@ -29,6 +29,7 @@
 #  place_id               :integer
 #  first_name             :string
 #  last_name              :string
+#  delocoin_balance       :decimal(10, 2)   default(0.0)
 #
 # Indexes
 #

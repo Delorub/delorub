@@ -29,6 +29,7 @@
 #  place_id               :integer
 #  first_name             :string
 #  last_name              :string
+#  delocoin_balance       :decimal(10, 2)   default(0.0)
 #
 # Indexes
 #
@@ -55,16 +56,8 @@ describe User do
     it { is_expected.to have_many(:billing_logs) }
     it { is_expected.to have_many(:tasks) }
     it { is_expected.to have_many(:replies) }
-    it { is_expected.to have_many(:task_packs) }
-    it { is_expected.to have_many(:task_subscriptions) }
-    it { is_expected.to have_many(:reply_packs) }
-    it { is_expected.to have_many(:reply_subscriptions) }
     it { is_expected.to have_one(:permission) }
     it { is_expected.to have_one(:profile) }
-    it { is_expected.to have_one(:active_task_subscription) }
-    it { is_expected.to have_one(:active_reply_subscription) }
-    it { is_expected.to have_one(:active_task_pack) }
-    it { is_expected.to have_one(:active_reply_pack) }
     it { is_expected.to validate_numericality_of(:balance).is_greater_than_or_equal_to(0) }
   end
 

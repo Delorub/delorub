@@ -1,0 +1,4 @@
+= render layout: 'my/billing/confirm/layout'
+  = form_tag confirm_my_billing_path(@model.id), method: :post do
+    a.dr-btn-primary.dr-btn-margin-right-20 href=buy_my_delocoin_index_path role="button"  Вернуться
+    input.dr-btn-danger type="submit" value="Продолжить"

@@ -15,9 +15,17 @@ module FormHelper
 
   def policy_checkbox_text
     ('Я согласен с ' +
-      link_to('правилами сервиса', terms_path, class: 'link-default', target: 'blank') +
+      link_to('политикой конфидециальности', policy_path, class: 'link-default', target: 'blank') +
+      ', ' +
+      link_to('пользовательским соглашением', terms_path, class: 'link-default', target: 'blank') +
       ' и ' +
-      link_to('политикой обработки персональных данных', policy_path, class: 'link-default', target: 'blank')).html_safe
+      link_to('регламентом оборота монет', billing_terms_path, class: 'link-default', target: 'blank')
+    ).html_safe
+  end
+
+  def payment_policy_checkbox_text
+    ('Я ознакомлен и согласен с ' +
+      link_to('договором оферты', billing_offer_path, class: 'link-default', target: 'blank')).html_safe
   end
 
   def city_select_value_for place_id

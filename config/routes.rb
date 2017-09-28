@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   # API
   mount ApplicationAPI => '/api'
 
+  # sidekiq
+  require 'sidekiq/web'
+  authenticate :user, lambda { |user| user.permission.superadmin? || user.permission.admin? } do
+    mount Sidekiq::Web => '/admin/sidekiq'
+  end
+
   root 'main#index'
   resources :coming_soon_requests, only: [:new, :create], path: '', path_names: {
     new: 'coming-soon',
@@ -31,6 +37,27 @@ Rails.application.routes.draw do
     resources :index, only: :index
     resource :user, only: [:edit, :update]
     resource :settings, only: [:edit, :update]
+    resources :billing, only: [:index, :create] do
+      member do
+        get 'confirm', as: :confirm
+        post 'confirm'
+        get 'status', as: :status
+      end
+      collection do
+        get 'history', as: :history
+        resources :yandex_endpoint, path: 'yandex', only: [] do
+          get 'success', on: :collection
+          match 'fail', via: [:get, :post], on: :collection
+        end
+      end
+    end
+    resources :delocoin, only: [:index] do
+      collection do
+        get 'buy', as: :buy
+        post 'buy'
+        get 'history', as: :history
+      end
+    end
   end
 
   resources :profiles, only: [:show, :edit, :update], path: 'profile'

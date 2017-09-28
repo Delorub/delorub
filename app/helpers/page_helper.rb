@@ -23,6 +23,14 @@ module PageHelper
     page_path 'policy'
   end
 
+  def billing_terms_path
+    page_path 'billing_terms'
+  end
+
+  def billing_offer_path
+    page_path 'billing_offer'
+  end
+
   def page_path name
     "/#{name}"
   end

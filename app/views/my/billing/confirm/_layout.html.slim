@@ -1,0 +1,9 @@
+= render layout: 'my/layout', locals: { width: 9 }
+  .dr-content-header
+    h1
+      | Подтверждение операции
+  = render 'heading'
+  = render 'payment_details'
+  br/
+  div
+    = yield

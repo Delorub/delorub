@@ -27,7 +27,6 @@ class TasksController < ApplicationController
   def edit
     authorize resource
     run Task::Operation::Update::Present, id: resource.id
-    p @form.to_nested_hash
   end
 
   def update

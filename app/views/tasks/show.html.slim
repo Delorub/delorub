@@ -2,7 +2,7 @@
   .container
     = render 'breadcrumb'
     .dr-content-header
-      h1
+      h1 itemprop="headline"
         = task.title
     .row
       .col-lg-8
@@ -10,14 +10,14 @@
           .task-description-about
             .task-description-about__header
               h2 Описание задачи
-            .task-description-about__text
+            .task-description-about__text itemprop="description"
               = simple_format task.description
         .dr-block-style.dr-block-style--profile
           .task-description-adress
             h2 Адрес
             .task-description-adress__input
               p
-                span
+                span itemprop="streetAddress"
                   img src="/images/icons/place_red.svg" alt="" /
                   = task.place_address.blank? ? 'Адрес не указан' : task.place_address
             - unless task.place_address.blank?
@@ -32,13 +32,20 @@
                   .master-card-person__image *{class: task.user.online? ? 'master-card-person__image--online' : '' }
                     = image_tag task.user.photo.url(:medium)
                 .col-lg-7
-                  .task-profile-card-person__name
-                    h4
+                  .task-profile-card-person__name(itemprop="author" itemscope itemtype="http://schema.org/Person")
+                    h4 itemprop="name"
                       = task.user.name
                     p
                       = task.user.tasks.count
                       '
                       | заданий
+            - if policy(task).edit? || policy(task).destroy?
+              .task-profile-card__links
+                - if policy(task).edit?
+                  a.link-default href=edit_task_path(task)  Редактировать
+                  br/
+                - if policy(task).destroy?
+                  = link_to 'Удалить задание', task, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'link-default'
             .task-profile-card__time
               h2= task.date_type.text
               p= task.human_date
@@ -60,5 +67,18 @@
                   p
                     img src="/images/icons/mail.svg" alt="" /
                     = task.user.email
+
+        .dr-block-style.dr-block-style--profile-left
+          .performer-description-category
+            .performer-description-category__header
+              - if task.category.present?
+                h5
+                  a.link-default.link-bold href=new_task_path(task.category)
+                    = task.category.title
+                br/
+                - task.subcategories.each do |sub_category|
+                  .margin-bottom-05
+                    a.link-black href=new_task_path(sub_category)
+                      = sub_category.title
         = render 'files' unless task.files.blank?
         br/
