@@ -3,6 +3,10 @@ module BillingHelper
     number_to_currency number, unit: '', precision: 0
   end
 
+  def formatted_pay_type pay_type
+    I18n.t("billing.pay_type.#{pay_type}")
+  end
+
   def history_state_class state
     case state
       when 'new' then 'table-history__processing'

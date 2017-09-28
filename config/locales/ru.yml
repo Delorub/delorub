@@ -48,12 +48,14 @@ ru:
     locality: "4 - Населенный пункт"
     street: "5 - Улица"
     house: "6 - Дом"
-  yandex_kassa:
+  billing:
     pay_type:
+      balance: Кошелек
       qiwi: Qiwi
       yandex: Кошелек Яндекс.Денег
       visa: Банковская карта
       webmoney: Кошелек WebMoney
+  yandex_kassa:
     confirm:
       pay_type:
         WQ: Пополнение с помощью Qiwi
