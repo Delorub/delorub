@@ -21,7 +21,7 @@
         | Выберите способ оплаты
     delocoin-payment-form(
       value=f.object.pay_type
-      :payment-type-list=([:qiwi, :yandex, :visa, :webmoney].to_json)
+      :payment-type-list=(Billing::PaymentTypeList.for(f.object.model).to_json)
     )
       template slot="input" scope="props"
         = f.input_field :pay_type, as: :hidden, ':value': 'props.value'
