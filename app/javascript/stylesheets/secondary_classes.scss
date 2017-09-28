@@ -8,6 +8,11 @@
   justify-content: center;
 }
 
+.justify-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
 .center {
   text-align: center;
 }
@@ -45,66 +50,6 @@
   display: inline-block;
 }
 
-.margin-side {
-  margin-left: 15px;
-  margin-right: 15px;
-}
-
-.margin-bottom-0 {
-  margin-bottom: 0;
-}
-
-.margin-bottom-05 {
-  margin-bottom: 0.5rem;
-}
-
-.margin-bottom-10 {
-  margin-bottom: 1rem;
-}
-
-.margin-right-15 {
-  margin-right: 15px;
-}
-
-.toggle-hr {
-  @media (min-width: 992px) {
-    display: none;
-  }
-}
-
-.lg-hide {
-  @media (max-width: 991px) {
-    display: none;
-  }
-}
-
-.xl-hide {
-  @media (max-width: 1199px) {
-    display: none;
-  }
-}
-
-.xl-right {
-  @media (min-width: 1200px) {
-    text-align: right;
-  }
-}
-
-.spacer-lg {
-  @media (min-width: 992px) {
-    margin-bottom: 2rem;
-  }
-}
-
-.col-margin-bottom {
-  margin-bottom: 1rem;
-}
-
-.no-gutters-col {
-  padding-left: 0;
-  padding-right: 0;
-}
-
 .dr-header {
   font-size: 1.5rem;
   font-family: $GothamBold;
@@ -114,6 +59,28 @@
     &-blue {
       color: $blueColor;
       font-size: 1.3rem;
+    }
+  }
+}
+
+.dr-content-header {
+  padding: 1rem 0 1rem;
+  @media(min-width: 992px) {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  h1 {
+    @media(max-width: 991px) {
+      margin-top: 15px;
+    }
+  }
+  &__link {
+    @extend .link-header;
+  }
+  &--reverse {
+    @media(min-width: 992px) {
+      flex-direction: row-reverse;
     }
   }
 }
@@ -162,22 +129,34 @@ select.form-control:not([size]):not([multiple]) {
   height: 100%;
 }
 
-//Яндекс карты
-
-.ymaps-2-1-53-_hidden-text {
-  display: none !important;
-}
-
-.ymaps-2-1-53 {
-  &-search {
-    display: none !important;
+.anonymous-avatar {
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  span {
+    font-family: $GothamMedium;
+    font-size: 40px;
+    color: #fff;
   }
-  &-scaleline {
-    display: none !important;
+  &--teal {
+    background-color: #00bcd4;
   }
-  &-controls {
-    &__toolbar_right {
-      display: none !important;
-    }
+  &--green {
+    background-color: #009688;
+  }
+  &--red {
+    background-color: #e91e63;
+  }
+  &--lime {
+    background-color: #4caf50;
+  }
+  &--gray {
+    background-color: #607d8b;
+  }
+  &--brown {
+    background-color: #b94824;
   }
 }
