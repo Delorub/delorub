@@ -84,11 +84,20 @@
               <br/>
               <p class="UI-header">Хлебные крошки</p>
               <br/>
-              <nav class="breadcrumb">              
-                <a class="breadcrumb-item" href="#">Главная</a>
-                <a class="breadcrumb-item" href="#">Вторая</a>
-                <span class="breadcrumb-item active">Текущая</span>
-              </nav>
+              <nav class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+                <a class="breadcrumb-item" href="#" itemprop="item">
+                  <span itemprop="name">Главная</span>
+                  <meta itemprop="position" content="1" />
+                </a>
+                <a class="breadcrumb-item" href="#" itemprop="item">
+                  <span itemprop="name">Вторая</span>
+                  <meta itemprop="position" content="2" />
+                </a>
+                <a class="breadcrumb-item active" href="#" itemprop="item">
+                  <span itemprop="name">Текущая</span>
+                  <meta itemprop="position" content="3" />
+                </a>
+              </nav>         
             </div>
 
 

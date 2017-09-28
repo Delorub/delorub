@@ -25,6 +25,9 @@
         position: absolute;
         background-color: #8ac176;
         border-radius: 50%;
+        @media(min-width: 992px) {
+          right: -20%;
+        }
       }
     }
     &__status {

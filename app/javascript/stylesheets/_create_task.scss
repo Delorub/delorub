@@ -1,8 +1,16 @@
 .dr-content-header {
   padding: 1rem 0 1rem;
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
+  @media(min-width: 992px) {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  h1 {
+    @media(max-width: 991px) {
+      margin-top: 15px;
+    }
+  }
   &__link {
     @extend .link-header;
   }

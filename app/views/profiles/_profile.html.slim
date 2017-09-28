@@ -27,11 +27,15 @@
               = profile.about.truncate(180) unless profile.about.blank?
             a.link-default.show_contacts_all href="#" role="button"  Показать номер телефона
             .performer-profile-main__contacts style="display: none"
-              p
+              .row
                 - unless profile.user.phone.blank?
-                  img src="/images/icons/phone.svg" alt="" /
-                  = profile.user.phone
+                  .col-md-auto
+                    span
+                      img src="/images/icons/phone.svg" alt="" /
+                      = profile.user.phone
                 - unless profile.user.email.blank?
-                  img src="/images/icons/mail.svg" alt="" /
-                  = profile.user.email
+                  .col-md-auto
+                    span
+                      img src="/images/icons/mail.svg" alt="" /
+                      = profile.user.email
   = paginate collection, theme: 'custom_theme'

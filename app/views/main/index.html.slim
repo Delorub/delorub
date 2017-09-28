@@ -1,9 +1,10 @@
 .index-image
   .container
     .index-image__header
-      | Сервис поиска специалистов
-      br/
-      | для любых поручений
+      h1
+        | Сервис поиска специалистов
+        br/
+        | для любых поручений
     .index-image-content
       .index-image-content__text
         p
@@ -55,9 +56,10 @@ br/
 .index-block
   .container
     .index-block__header
-      | Создав заявку на Делорубе,
-      br/
-      | Вы найдете исполнителя по лучшей цене.
+      span
+        | Создав заявку на Делорубе,
+        br/
+        | Вы найдете исполнителя по лучшей цене.
     .index-step
       .index-step__image
         img alt="" src="/images/design/step_1.jpg" /
@@ -116,9 +118,10 @@ br/
 .index-block
   .index-block-resposive
     .index-block__header
-      | Оформив заказ на Делорубе,
-      br/
-      | Вы экономите до 50% стоимости.
+      span
+        | Оформив заказ на Делорубе,
+        br/
+        | Вы экономите до 50% стоимости.
     a.dr-btn-danger href=new_task_path
       | Разместить задание бесплатно
     - if policy(Profile).new?
