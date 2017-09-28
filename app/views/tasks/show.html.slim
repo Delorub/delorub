@@ -39,11 +39,13 @@
                       = task.user.tasks.count
                       '
                       | заданий
-            - if policy(task).edit?
+            - if policy(task).edit? || policy(task).destroy?
               .task-profile-card__links
-                a.link-default href=edit_task_path(task)  Редактировать
-                br/
-                = link_to 'Удалить задание', task, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'link-default'
+                - if policy(task).edit?
+                  a.link-default href=edit_task_path(task)  Редактировать
+                  br/
+                - if policy(task).destroy?
+                  = link_to 'Удалить задание', task, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'link-default'
             .task-profile-card__time
               h2= task.date_type.text
               p= task.human_date
