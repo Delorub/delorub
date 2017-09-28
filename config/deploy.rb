@@ -20,7 +20,8 @@ set :slackistrano,
   webhook: 'https://hooks.slack.com/services/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'
 
 set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
-set :whenever_environment, fetch(:rails_env)
+set :whenever_environment, fetch(:stage)
 
 set :sidekiq_config, "#{current_path}/config/sidekiq.yml"
-set :sidekiq_env, fetch(:rails_env)
+set :sidekiq_env, fetch(:stage)
+set :pty, false
