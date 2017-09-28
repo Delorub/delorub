@@ -77,7 +77,10 @@ Vue.component('region-select', RegionSelect)
 document.addEventListener('DOMContentLoaded', () => {
   // eslint-disable-next-line no-new
   new Vue({
-    el: '#app'
+    el: '#app',
+    metaInfo: {
+      title: document.title
+    }
   })
 })
 
