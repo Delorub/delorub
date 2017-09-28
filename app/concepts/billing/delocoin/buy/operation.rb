@@ -42,6 +42,10 @@ module Billing::Delocoin::Buy::Operation
     }
     failure User::BillingLog::Step::Fail
 
+    def asd model:, **_
+      p " @@@ OK @@@@"
+    end
+
     def update_user_delocoin_balance! model:, **_
       # TODO: make sql
       model.user.delocoin_balance += model.delocoin_amount
