@@ -16,6 +16,7 @@ FactoryGirl.define do
   factory :billing_delocoin_buy, class: Billing::Delocoin::Buy do
     transient do
       user { create user }
+      state nil
     end
 
     pay_type 'balance'
@@ -28,7 +29,7 @@ FactoryGirl.define do
     end
 
     after(:create) do |model, evaluator|
-      create(:user_billing_log, billable: model, sum: -model.cost, user: evaluator.user)
+      create(:user_billing_log, billable: model, sum: -model.cost, user: evaluator.user, state: evaluator.state)
     end
   end
 end
