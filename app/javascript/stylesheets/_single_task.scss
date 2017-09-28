@@ -77,5 +77,13 @@
         margin-top: 1rem;
       }
     }
+    &__links {
+      padding: 25px 40px 15px;
+      border-bottom: 1px solid #d1d1d1;
+      a {
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+    }
   }
 }

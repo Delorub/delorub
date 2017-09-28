@@ -85,7 +85,8 @@ if (ctx !== null) {
             return 'Дата: ' + date
           },
           afterTitle: function ([tooltipItem], data) {
-            return 'Текущий этап: ' + 1
+            var stage = data['labels'][tooltipItem['index']]
+            return 'Этап: ' + stage
           },
           label: function (tooltipItem, data) {
           },

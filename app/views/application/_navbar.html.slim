@@ -2,22 +2,22 @@ nav.navbar.navbar-toggleable-md.bg-faded.navbar-dr-theme
   .container
     button.navbar-toggler.navbar-toggler-left aria-controls="navbarNav" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarNav" data-toggle="collapse" type="button"
     a.navbar-brand href= root_path
-      img alt="" src="/images/design/logo.svg" /
+      img alt="" src="/images/design/logo.svg" itemprop="logo" /
     #navbarNav.collapse.navbar-collapse
-      ul.navbar-nav
-        li.nav-item
-          a.nav-link href=profiles_path data-identity="header_masters_index"  Исполнители
-        li.nav-item
-          a.nav-link href=tasks_path data-identity="header_tasks_index"  Все задания
+      ul.navbar-nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
+        li.nav-item itemprop="name"
+          a.nav-link itemprop="url" href=profiles_path data-identity="header_masters_index"  Исполнители
+        li.nav-item itemprop="name"
+          a.nav-link itemprop="url" href=tasks_path data-identity="header_tasks_index"  Все задания
 
       .div-navbar
-        ul.navbar-nav.navbar-right
+        ul.navbar-nav.navbar-right(itemscope itemtype="http://schema.org/SiteNavigationElement")
           - if policy(Profile).new?
-            li.nav-item
-              a.dr-btn-primary.dr-btn-165 href=new_profile_path data-identity="header_btn_master_sign_up"  Стать исполнителем
+            li.nav-item itemprop="name"
+              a.dr-btn-primary.dr-btn-165 itemprop="url" href=new_profile_path data-identity="header_btn_master_sign_up"  Стать исполнителем
           - if !user_signed_in? || user_signed_in? && !signed_in_as_master?
-            li.nav-item
-              a.dr-btn-danger.dr-btn-165 href=new_task_path data-identity="header_btn_create_task"  Создать задание
+            li.nav-item itemprop="name"
+              a.dr-btn-danger.dr-btn-165 itemprop="url" href=new_task_path data-identity="header_btn_create_task"  Создать задание
     - if user_signed_in?
       .dr-authorized-user
         .dr-authorized-user__name
@@ -30,10 +30,10 @@ nav.navbar.navbar-toggleable-md.bg-faded.navbar-dr-theme
             a href=my_index_index_path
               img src=current_user.photo.url(:small) alt=""
         .dr-authorized-user__dropdown
-          ul
-            li
-              a href=my_index_index_path Мой профиль
-            li
-              a href=edit_my_settings_path Настройки
-            li
-              a id="user_menu_sign_out" href=destroy_user_session_path Выход
+          ul(itemscope itemtype="http://schema.org/SiteNavigationElement")
+            li itemprop="name"
+              a itemprop="url" href=my_index_index_path Мой профиль
+            li itemprop="name"
+              a itemprop="url" href=edit_my_settings_path Настройки
+            li itemprop="name"
+              a itemprop="url" id="user_menu_sign_out" href=destroy_user_session_path Выход
