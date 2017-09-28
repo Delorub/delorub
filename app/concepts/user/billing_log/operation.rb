@@ -22,7 +22,7 @@ class User::BillingLog::Operation < Trailblazer::Operation
     end
 
     def enough_balance? options, model:, **_
-      (model.user.balance + model.sum).positive?
+      (model.user.balance + model.sum) >= 0
     end
 
     def run_nested_operation! options, current_user:, model:, **_
