@@ -18,14 +18,14 @@ describe Billing::Delocoin::Buy::Operation::Finish do
     subject { described_class.call(params, options) }
 
     shared_examples 'change user balance and delocoin balance' do
-      specify { expect { subject }.to change { user.reload.balance }.by(-billing_delocoin_buy.cost) }
-      specify { expect { subject }.to change { user.reload.delocoin_balance }.by(billing_delocoin_buy.delocoin_amount) }
+      specify { expect { subject }.to(change { user.reload.balance }.by(-billing_delocoin_buy.cost)) }
+      specify { expect { subject }.to(change { user.reload.delocoin_balance }.by(billing_delocoin_buy.delocoin_amount)) }
     end
 
     # TODO: move to global shared examples?
     shared_examples 'not to change user balance and delocoin balance' do
-      specify { expect { subject }.not_to change { user.reload.balance } }
-      specify { expect { subject }.not_to change { user.reload.delocoin_balance } }
+      specify { expect { subject }.not_to(change { user.reload.balance }) }
+      specify { expect { subject }.not_to(change { user.reload.delocoin_balance }) }
     end
 
     context 'valid' do

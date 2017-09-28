@@ -17,21 +17,21 @@ describe Billing::Delocoin::Buy::Operation::Create do
 
     # TODO: move to global shared examples?
     shared_examples 'not to change user balance and delocoin balance' do
-      specify { expect { subject }.not_to change { user.reload.balance } }
-      specify { expect { subject }.not_to change { user.reload.delocoin_balance } }
+      specify { expect { subject }.not_to(change { user.reload.balance }) }
+      specify { expect { subject }.not_to(change { user.reload.delocoin_balance }) }
     end
 
     shared_examples 'creates new billing log' do
-      specify { expect { subject }.to change { Billing::Delocoin::Buy.count } }
-      specify { expect { subject }.to change { User::BillingLog.count } }
+      specify { expect { subject }.to(change { Billing::Delocoin::Buy.count }) }
+      specify { expect { subject }.to(change { User::BillingLog.count }) }
     end
 
     shared_examples 'not creates new billing log' do
-      specify { expect { subject }.not_to change { User::BillingLog.count } }
+      specify { expect { subject }.not_to(change { User::BillingLog.count }) }
     end
 
     shared_examples 'creates yandex_kassa model' do
-      specify { expect { subject }.to change { Billing::YandexKassa::Deposit.count } }
+      specify { expect { subject }.to(change { Billing::YandexKassa::Deposit.count }) }
     end
 
     context 'no pay type selected' do
