@@ -1,0 +1,36 @@
+= render layout: 'my/layout', locals: { width: 9 }
+  .dr-content-header
+    h1
+      | Ваш кошелек
+  = render 'heading'
+  = simple_form_for @form, url: my_billing_index_path do |f|
+    .dr-block-style
+      h2 Пополнение баланса
+      br/
+      .row
+        .col-xl-6.col-lg-8.col-md-10
+          .input-currency
+            img src="/images/icons/ruble.svg" /
+            .input-group
+              = f.input :amount, wrapper: false, label: false, error: false, placeholder: 'Введите сумму'
+      br/
+      = f.error :amount
+    br/
+    .dr-content-header
+      h2
+        | Выберите способ оплаты
+    delocoin-payment-form(
+      value=f.object.pay_type
+      :payment-type-list=(Billing::PaymentTypeList.for(f.object.model).to_json)
+    )
+      template slot="input" scope="props"
+        = f.input_field :pay_type, as: :hidden, ':value': 'props.value'
+    .checkbox.form-group
+      label
+        = f.check_box :accept_terms
+        span.checkbox-custom
+        = payment_policy_checkbox_text
+      = f.error :accept_terms
+    br/
+    div
+      input.dr-btn-danger type="submit" role="button" value="Продолжить"

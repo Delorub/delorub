@@ -29,6 +29,7 @@
 #  place_id               :integer
 #  first_name             :string
 #  last_name              :string
+#  delocoin_balance       :decimal(10, 2)   default(0.0)
 #
 # Indexes
 #
@@ -54,20 +55,12 @@ class User < ApplicationRecord
   has_many :omniauth_relations, dependent: :nullify
 
   has_many :billing_logs, dependent: :destroy
+  has_many :billing_yandex_kassa_deposits, through: :billing_logs, source: :billable, source_type: 'Billing::YandexKassa::Deposit'
+
   has_many :tasks, dependent: :destroy
   has_many :replies, dependent: :destroy
   has_one :permission, class_name: 'UserPermission', dependent: :destroy
   has_one :profile, class_name: '::Profile', dependent: :destroy
-
-  has_many :task_packs, class_name: 'Billing::TaskPack', dependent: :destroy
-  has_many :task_subscriptions, class_name: 'Billing::TaskSubscription', dependent: :destroy
-  has_many :reply_packs, class_name: 'Billing::ReplyPack', dependent: :destroy
-  has_many :reply_subscriptions, class_name: 'Billing::ReplySubscription', dependent: :destroy
-
-  has_one :active_task_subscription, -> { active }, class_name: 'Billing::TaskSubscription'
-  has_one :active_reply_subscription, -> { active }, class_name: 'Billing::ReplySubscription'
-  has_one :active_task_pack, -> { active }, class_name: 'Billing::TaskSubscription'
-  has_one :active_reply_pack, -> { active }, class_name: 'Billing::ReplySubscription'
 
   accepts_nested_attributes_for :permission
 
@@ -83,30 +76,6 @@ class User < ApplicationRecord
 
   def master?
     profile.present? && !profile.new_record?
-  end
-
-  def reply_packs_available_sum
-    reply_packs.sum(:amount) - reply_packs.sum(:spent)
-  end
-
-  def task_packs_available_sum
-    task_packs.sum(:amount) - task_packs.sum(:spent)
-  end
-
-  def free_tasks_available_sum
-    FREE_TASKS - free_tasks_published
-  end
-
-  def free_replies_available_sum
-    FREE_REPLIES - free_replies_published
-  end
-
-  def tasks_available_sum
-    task_packs_available_sum + free_tasks_available_sum
-  end
-
-  def replies_available_sum
-    reply_packs_available_sum + free_replies_available_sum
   end
 
   def permission

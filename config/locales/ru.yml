@@ -48,6 +48,20 @@ ru:
     locality: "4 - Населенный пункт"
     street: "5 - Улица"
     house: "6 - Дом"
+  billing:
+    pay_type:
+      balance: Кошелек
+      qiwi: Qiwi
+      yandex: Кошелек Яндекс.Денег
+      visa: Банковская карта
+      webmoney: Кошелек WebMoney
+  yandex_kassa:
+    confirm:
+      pay_type:
+        WQ: Пополнение с помощью Qiwi
+        PC: Пополнение с помощью кошелька Яндекс.Денег
+        AC: Пополнение с помощью банковской карты
+        WM: Пополнение с помощью кошелька WebMoney
   enumerize:
     visitor_session_action:
       action_type:
@@ -125,3 +139,13 @@ ru:
     deleted_at: Удалено
     actions: Действия
     reply: Ответ
+  activerecord:
+    attributes:
+      user/billing_log:
+        state:
+          new: В обработке
+          finished: Выполнена
+          failed: Ошибка
+        new: В обработке
+        finished: Выполнена
+        failed: Ошибка

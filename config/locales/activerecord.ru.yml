@@ -143,10 +143,6 @@ ru:
         last_sign_in_ip: "Последний IP"
         phone: "Телефон"
         name: "Имя"
-        free_replies_available_sum: "Бесплатные ответы"
-        reply_packs_available_sum: "Оплаченные ответы"
-        free_tasks_available_sum: "Бесплатные задания"
-        task_packs_available_sum: "Оплаченные задания"
       help_question:
         answered: "Отвечено"
         replied_at: "Дата ответа"

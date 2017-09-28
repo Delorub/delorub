@@ -4,8 +4,27 @@
       .subcategories-list
         ul.subcategories-list__sup
           li
-            a href=my_index_index_path class=(my_sidebar_item_class_for :index)  Профиль
+            a href=my_index_index_path class=(my_sidebar_item_class_for :index) Профиль
           li
-            a href=edit_my_user_path class=(my_sidebar_item_class_for :users)  Настройки профиля
+            a href=my_billing_index_path class=(my_sidebar_item_class_for :billing) Кошелек
           li
-            a href=edit_my_settings_path class=(my_sidebar_item_class_for :settings)  Настройки учетной записи
+            a href=edit_my_user_path class=(my_sidebar_item_class_for :users) Настройки профиля
+          li
+            a href=edit_my_settings_path class=(my_sidebar_item_class_for :settings) Настройки учетной записи
+  .dr-block-style.dr-block-style--left-menu-card
+    .left-side-card
+      p
+        a.dr-h5.link-black href=my_delocoin_index_path Delocoin-кошелек
+      .delocoin-current
+        img alt="" src="/images/icons/delocoin.svg" /
+        span.delocoin-current__value-big = format_balance current_user.delocoin_balance
+      a.dr-btn-danger href=buy_my_delocoin_index_path  Купить DELOCOIN
+      a.link-default target='_blank' href='/Delorub_White_Paper.pdf'   Что такое Delocoin?
+  .dr-block-style.dr-block-style--left-menu-card
+    .left-side-card
+      p
+        a.dr-h5.link-black href=my_billing_index_path Ваш баланс
+      .delocoin-current
+        img alt="" src="/images/icons/ruble.svg" /
+        div
+          span.delocoin-current__value-big = format_balance current_user.balance

@@ -1,0 +1,24 @@
+= render layout: 'my/layout', locals: { width: 9 }
+  .dr-content-header
+    h1
+      | Состояние операции
+  .dr-block-style.dr-block-style--sort-padding
+    - case model.state.to_sym
+      - when :finished
+        .profile-confirm-accept
+          i.fa.fa-check aria-hidden="true"
+          span Операция успешно произведена
+      - when :new
+        .profile-confirm-process
+          i.fa.fa-refresh aria-hidden="true"
+          span Оплата в процессе
+      - when :failed
+        .profile-confirm-error
+          i.fa.fa-remove aria-hidden="true"
+          span Ошибка платежа
+  = render 'heading'
+  = render 'payment_details'
+  br/
+  div
+    a.dr-btn-primary.dr-btn-margin-right-20 href=my_billing_index_path role="button" Вернуться
+    a.dr-btn-danger href=my_billing_index_path role="button" Продолжить

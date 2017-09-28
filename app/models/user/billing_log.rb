@@ -2,40 +2,36 @@
 #
 # Table name: user_billing_logs
 #
-#  id            :integer          not null, primary key
-#  sum           :float
-#  user_id       :integer
-#  billable_type :string
-#  billable_id   :integer
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
+#  id                          :integer          not null, primary key
+#  sum                         :float
+#  user_id                     :integer
+#  billable_type               :string
+#  billable_id                 :integer
+#  created_at                  :datetime         not null
+#  updated_at                  :datetime         not null
+#  state                       :string
+#  finish_after_billing_log_id :integer
 #
 
 class User::BillingLog < ApplicationRecord
-  PACK_TYPES = %w[Billing::TaskPack Billing::ReplyPack].freeze
-  SUBSCRIPTION_TYPES = %w[Billing::TaskSubscription Billing::ReplySubscription].freeze
-  TRANSFER_TYPES = %w[Billing::TransferManually].freeze
-  OTHER_TYPES = %w[Billing::TransferBlog Billing::TransferColor Billing::TransferAutorefresh].freeze
+  include AASM
 
   belongs_to :user
   belongs_to :billable, polymorphic: true
+  belongs_to :finish_after, class_name: '::User::BillingLog', foreign_key: 'finish_after_billing_log_id'
 
-  validate :user_have_enough_balance
+  scope :latest, -> { order('created_at DESC') }
 
-  after_save :update_user_amount
+  aasm column: :state do
+    state :new, initial: true
+    state :finished, :failed
 
-  scope :latest, -> { order{ created_at.desc } }
-  scope :packs, -> { where.has{ billable_type.in PACK_TYPES } }
-  scope :subscriptions, -> { where.has{ billable_type.in SUBSCRIPTION_TYPES } }
-
-  private
-
-    def update_user_amount
-      user.increment(:balance, sum)
-      user.save!
+    event :finish do
+      transitions from: :new, to: :finished
     end
 
-    def user_have_enough_balance
-      errors.add :sum, I18n.t('activerecord.errors.user_balance') if (user.balance + sum).negative?
+    event :fail do
+      transitions from: :new, to: :failed
     end
+  end
 end

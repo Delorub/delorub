@@ -2,9 +2,7 @@ module Billing::Base
   extend ActiveSupport::Concern
 
   included do
-    belongs_to :user
-    has_one :user_billing
-
-    validates :user, presence: true
+    has_one :billing_log, class_name: '::User::BillingLog', as: :billable
+    has_one :user, through: :billing_log
   end
 end

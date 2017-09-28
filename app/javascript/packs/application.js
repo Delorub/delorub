@@ -23,6 +23,10 @@ import UserPhotoUpload from '../components/forms/user/photo_upload.vue'
 import TaskForm from '../components/forms/task/edit_form.vue'
 import TaskUploadForm from '../components/forms/task/upload_form.vue'
 import SignInForm from '../components/forms/user/sign_in_form.vue'
+import DelocoinPackForm from '../components/forms/delocoin/pack_form.vue'
+import DelocoinBuyForm from '../components/forms/delocoin/buy_form.vue'
+import DelocoinPaymentForm from '../components/forms/delocoin/payment_form.vue'
+import DelocoinChart from '../components/delocoin_chart.vue'
 
 import TaskMap from '../components/task_map.vue'
 import SmsConfirmation from '../components/sms_confirmation.vue'
@@ -55,6 +59,10 @@ Vue.component('edit-profile-form', EditProfileForm)
 Vue.component('edit-user-form', EditUserForm)
 Vue.component('user-photo-upload', UserPhotoUpload)
 Vue.component('profile-specializations-form', ProfileSpecializationsForm)
+Vue.component('delocoin-pack-form', DelocoinPackForm)
+Vue.component('delocoin-buy-form', DelocoinBuyForm)
+Vue.component('delocoin-payment-form', DelocoinPaymentForm)
+Vue.component('delocoin-chart', DelocoinChart)
 
 Vue.component('task-form', TaskForm)
 Vue.component('task-upload-form', TaskUploadForm)
