@@ -39,10 +39,11 @@
                       = task.user.tasks.count
                       '
                       | заданий
-            .task-profile-card__links
-              a.link-default href="#" Редактировать задание
-              br/
-              a.link-default href="#" Отменить задание
+            - if policy(task).edit?
+              .task-profile-card__links
+                a.link-default href=edit_task_path(task)  Редактировать
+                br/
+                = link_to 'Удалить задание', task, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'link-default'
             .task-profile-card__time
               h2= task.date_type.text
               p= task.human_date
@@ -68,15 +69,14 @@
         .dr-block-style.dr-block-style--profile-left
           .performer-description-category
             .performer-description-category__header
-              h5
-                a.link-default.link-bold href="#" Курьерская доставка
-              br/
-              .margin-bottom-05
-                a.link-black href="#" Услуги пешего курьера
-              .margin-bottom-05
-                a.link-black href="#" Услуги курьера на легковом автом
-              .margin-bottom-05
-                a.link-black href="#" Купить и доставить
-
+              - if task.category.present?
+                h5
+                  a.link-default.link-bold href=new_task_path(task.category)
+                    = task.category.title
+                br/
+                - task.subcategories.each do |sub_category|
+                  .margin-bottom-05
+                    a.link-black href=new_task_path(sub_category)
+                      = sub_category.title
         = render 'files' unless task.files.blank?
         br/
