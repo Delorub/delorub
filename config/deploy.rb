@@ -22,6 +22,6 @@ set :slackistrano,
 set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 set :whenever_environment, fetch(:stage)
 
-set :sidekiq_config, "#{current_path}/config/sidekiq.yml"
+set :sidekiq_config, -> { File.join(current_path, 'config', 'sidekiq.yml') }
 set :sidekiq_env, fetch(:stage)
 set :pty, false

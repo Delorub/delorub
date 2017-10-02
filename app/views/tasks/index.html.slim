@@ -1,4 +1,5 @@
 - render 'shared/category_place_seo', default_text: 'Задания'
+- canonical_link(category_tasks_link_url(@category, @place)) if params[:page] || params[:order]
 .regular-content
   .container
     = render partial: 'breadcrumb', locals: { h1: @h1 }

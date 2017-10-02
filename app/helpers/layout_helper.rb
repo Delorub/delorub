@@ -46,4 +46,8 @@ module LayoutHelper
   def yield_meta_tag tag, default_text = ''
     content_for?(:"meta_#{tag}") ? content_for(:"meta_#{tag}") : default_text
   end
+
+  def canonical_link url
+    content_for(:canonical, tag(:link, rel: :canonical, href: URI.join(root_url, url).to_s)) if url
+  end
 end

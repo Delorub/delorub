@@ -28,6 +28,14 @@ module TaskHelper
     end
   end
 
+  def category_tasks_link_url category, city
+    if category.present?
+      city.present? ? category_tasks_path(city_code: city.slug) : category_tasks_path
+    else
+      city.present? ? city.slug + tasks_path : tasks_path
+    end
+  end
+
   def parse_city_settings settings, key, default_value = ''
     settings.present? && settings.settings.dig(key).present? ? settings.settings.dig(key) : default_value
   end

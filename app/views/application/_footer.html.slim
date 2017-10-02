@@ -4,35 +4,26 @@ footer(itemscope itemtype="http://schema.org/WPFooter")
       .row
         .dr-footer-left
           .row
-            .col-lg-4
+            .col-lg-6
               .dr-footer-block
                 ul(itemscope itemtype="http://www.schema.org/SiteNavigationElement")
                   li itemprop="name"
                     a.link-white-bold itemprop="url" href="#"  Заказчикам
+                  - unless user_signed_in?
+                    li itemprop="name"
+                      a.link-white itemprop="url" href=new_user_registration_path  Стать заказчиком
                   li itemprop="name"
-                    a.link-white itemprop="url" href="#"  Сколько это стоит?
-                  li itemprop="name"
-                    a.link-white itemprop="url" href="#"  Как это работает?
-            .col-lg-4
+                    a.link-white itemprop="url" href=new_task_path  Создать задание
+            .col-lg-6
               .dr-footer-block
                 ul(itemscope itemtype="http://www.schema.org/SiteNavigationElement")
                   li itemprop="name"
-                    a.link-white-bold itemprop="url" href="#"  Исполнителям
+                    a.link-white-bold itemprop="url" href=profiles_path Исполнителям
+                  - if policy(Profile).new?
+                    li itemprop="name"
+                      a.link-white itemprop="url" href=new_profile_path Стать исполнителем
                   li itemprop="name"
-                    a.link-white itemprop="url" href="#"  Как стать исполнителем?
-                  li itemprop="name"
-                    a.link-white itemprop="url" href="#"  Условия партнерского соглашения?
-            .col-lg-4
-              .dr-footer-block
-                ul(itemscope itemtype="http://www.schema.org/SiteNavigationElement")
-                  li itemprop="name"
-                    a.link-white-bold itemprop="url" href="#"  Помощь
-                  li itemprop="name"
-                    a.link-white itemprop="url" href="#"  Вопрос - ответ
-                  li itemprop="name"
-                    a.link-white itemprop="url" href="#"  Техподдержка
-                  li itemprop="name"
-                    a.link-white itemprop="url" href="#"  Конфиденциальность
+                    a.link-white itemprop="url" href=tasks_path Все задания
         .dr-footer-right
           .dr-footer-block(itemscope itemtype="http://schema.org/Organization")
             ul
@@ -52,10 +43,10 @@ footer(itemscope itemtype="http://schema.org/WPFooter")
           .dr-footer-sub__social
             div
               a href="#" data-identity="footer_vk"
-                img alt="vkontakte" src="/images/design/vk.png" /
+                img alt="vkontakte" rel="nofollow" src="/images/design/vk.png" /
             div
               a href="#" data-identity="footer_fb"
-                img alt="facebook" src="/images/design/fb.png" /
+                img alt="facebook" rel="nofollow" src="/images/design/fb.png" /
             div
               a href="#" data-identity="footer_ok"
-                img alt="odnoklassniki" src="/images/design/ok.png" /
+                img alt="odnoklassniki" rel="nofollow" src="/images/design/ok.png" /

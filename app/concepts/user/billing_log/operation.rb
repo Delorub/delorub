@@ -13,6 +13,7 @@ class User::BillingLog::Operation < Trailblazer::Operation
     step :enough_balance?
     step :update_user_balance
     success :run_nested_operation!
+    success :send_finish_operation_email!
 
     def update_user_balance options, model:, **_
       model.finish!
@@ -33,6 +34,15 @@ class User::BillingLog::Operation < Trailblazer::Operation
       case billable.class.name
         when 'Billing::Delocoin::Buy'
           Billing::Delocoin::Buy::Operation::Finish.call({ id: billable.id }, 'current_user' => current_user)
+      end
+    end
+
+    def send_finish_operation_email! options, model:, **_
+      case model.billable.class.name
+        when 'Billing::Delocoin::Buy'
+          UserMailer.buy_delocoin(model: model).deliver_later
+        when 'Billing::YandexKassa::Deposit'
+          UserMailer.replenishment_of_balance(model: model).deliver_later
       end
     end
   end

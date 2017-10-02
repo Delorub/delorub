@@ -20,15 +20,15 @@ module PageHelper
   end
 
   def policy_path
-    page_path 'policy'
+    page_path 'politika-konfidentsialnosti'
   end
 
   def billing_terms_path
-    page_path 'billing_terms'
+    page_path 'reglament-oborota-monet'
   end
 
   def billing_offer_path
-    page_path 'billing_offer'
+    page_path 'oferta'
   end
 
   def page_path name

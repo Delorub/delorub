@@ -3,11 +3,12 @@
 :pidfile: ./tmp/pids/sidekiq.pid
 :logfile: ./log/sidekiq.log
 :concurrency: 5
+:queues:
+  - default
+  - mailers
 development:
   :concurrency: 1
 staging:
   :concurrency: 10
 production:
   :concurrency: 60
-:queues:
-  - default

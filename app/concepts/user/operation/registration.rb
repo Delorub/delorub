@@ -13,6 +13,7 @@ class User::Operation::Registration < Trailblazer::Operation
   step Contract::Validate()
   step :set_phone!
   step :generate_password!
+  success :generate_avatar!
   step Contract::Persist()
   step :send_welcome_email!
 
@@ -27,8 +28,13 @@ class User::Operation::Registration < Trailblazer::Operation
     true
   end
 
+  def generate_avatar! options, params:, model:, **_
+    color = %w[00bcd4 009688 e91e63 4caf50 607d8b b94824 00bcd4].sample
+    model.photo = Dragonfly.app.generate(:initial_avatar, params['first_name'].first, background_color: color)
+  end
+
   def send_welcome_email! generated_password:, model:, **_
-    UserMailer.welcome(user: model, password: generated_password).deliver
+    UserMailer.welcome(user: model, password: generated_password).deliver_later
     true
   end
 end
