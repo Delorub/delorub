@@ -61,6 +61,7 @@ gem 'ckeditor'
 # Attachments
 gem 'rmagick', require: false
 gem 'carrierwave', '~> 1.0'
+gem 'avatar_magick'
 
 # API
 gem 'grape'
@@ -89,7 +90,6 @@ gem 'foreman'
 gem 'dotiw'
 gem 'sitemap_generator'
 gem 'whenever', require: false
-gem 'avatar_magick'
 
 # CHECK
 gem 'petrovich', '~> 1.0'

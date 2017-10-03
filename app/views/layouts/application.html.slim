@@ -12,14 +12,14 @@ html
     = stylesheet_pack_tag 'application'
     = csrf_meta_tags
     link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" /
-    = render 'google_tm_head' if Rails.env.production?
+    = render '/analytics/google_tm_head' if Rails.env.production?
     = render 'meta_tags'
     meta[name="theme-color" content="#000"]
     meta[name="msapplication-navbutton-color" content="#000"]
     meta[name="apple-mobile-web-app-status-bar-style" content="#000"]
     = yield :canonical
   body
-    = render 'google_tm_body' if Rails.env.production?
+    = render '/analytics/google_tm_body' if Rails.env.production?
     #app
       .wrap
         = render 'topbar'
@@ -28,4 +28,4 @@ html
           = yield
       = render 'footer'
     = javascript_pack_tag 'application'
-    = render 'analytics' if Rails.env.production?
+    = render '/analytics/analytics' if Rails.env.production?

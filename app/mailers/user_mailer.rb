@@ -10,7 +10,7 @@ class UserMailer < ApplicationMailer
     mail to: @user.email, subject: 'Создание профиля исполнителя'
   end
 
-  def replenishment_of_balance model:
+  def yandex_deposit_finish model:
     @model = model
     @user = @model.user.decorate
     mail to: @user.email, subject: 'Пополнение баланса'
