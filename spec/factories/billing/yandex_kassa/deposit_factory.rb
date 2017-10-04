@@ -12,12 +12,18 @@
 #
 
 FactoryGirl.define do
-  factory :deposit, class: Billing::YandexKassa::Deposit do
+  factory :billing_yandex_kassa_deposit, class: Billing::YandexKassa::Deposit do
+    transient do
+      user { create user }
+      state 'new'
+    end
+
     uuid SecureRandom.uuid
-    pay_type 'WQ'
-    amount { rand(10..1000) }
-    after(:create) do |deposit|
-      create(:user_billing_log, billable: deposit, sum: deposit.amount)
+    pay_type { pay_type }
+    amount { amount }
+
+    after(:create) do |model, evaluator|
+      create(:user_billing_log, billable: model, sum: model.amount, user: evaluator.user, state: evaluator.state)
     end
   end
 end
