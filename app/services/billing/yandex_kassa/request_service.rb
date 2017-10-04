@@ -51,7 +51,7 @@ class Billing::YandexKassa::RequestService
 
     def map_params params
       hashable_array = PARAMS_MAP.map do |param, mapped_param|
-        [mapped_param, params[param]]
+        [mapped_param, params[param.to_s]]
       end
       HashWithIndifferentAccess[hashable_array]
     end
