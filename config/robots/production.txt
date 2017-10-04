@@ -1,4 +1,5 @@
 User-agent: *
 Disallow: /admin/
 Disallow: /editor/
-Disallow: /users/
+Disallow: /my/
+Disallow: /*?*

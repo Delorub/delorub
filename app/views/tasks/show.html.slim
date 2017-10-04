@@ -18,7 +18,7 @@
             .task-description-adress__input
               p
                 span itemprop="streetAddress"
-                  img src="/images/icons/place_red.svg" alt="" /
+                  img src="/images/icons/place_red.svg" alt="place" /
                   = task.place_address.blank? ? 'Адрес не указан' : task.place_address
             - unless task.place_address.blank?
               .task-description-adress__map
@@ -61,11 +61,11 @@
               .task-profile-card__contacts style="display: none"
                 - unless task.user.phone.blank?
                   p
-                    img src="/images/icons/phone.svg" alt="" /
+                    img src="/images/icons/phone.svg" alt="phone" /
                     = task.user.phone
                 - unless task.user.email.blank?
                   p
-                    img src="/images/icons/mail.svg" alt="" /
+                    img src="/images/icons/mail.svg" alt="email" /
                     = task.user.email
 
         .dr-block-style.dr-block-style--profile-left
