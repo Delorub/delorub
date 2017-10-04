@@ -9,5 +9,8 @@ staging:
 production:
   <<: *default
 test:
-  db: 100
   <<: *default
+  db: 5
+parser:
+  <<: *default
+  db: 5

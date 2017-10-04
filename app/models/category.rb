@@ -29,6 +29,7 @@ class Category < ApplicationRecord
   include Searchable::Category
 
   serialize :settings, OpenStruct
+  serialize :external_data_settings, OpenStruct
 
   mount_uploader :photo, CategoryPhotoUploader
   acts_as_nested_set counter_cache: :children_count

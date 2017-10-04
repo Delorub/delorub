@@ -19,6 +19,8 @@ roistat_finish_delocoin_buy_status_id: '16603819'
 roistat_registration_user_status_id: '16603816'
 roistat_delocoin_buy_field_cost_id: '366243'
 
+anti_captcha_api_key: 'b8d9465270e998e5865d973c534317ef'
+
 rollbar_access_token: 'b8c60cbe68e74d888ef43f3837df377f'
 
 development:
@@ -31,6 +33,13 @@ development:
 staging:
   yandex_kassa_url: 'https://demomoney.yandex.ru/eshop.xml'
   base_url: 'https://new.delorub.ru'
+  shop_id: '155590'
+  scid: '557653'
+  shop_password: '67696hgjfgkr'
+
+parser:
+  yandex_kassa_url: 'https://demomoney.yandex.ru/eshop.xml'
+  base_url: 'https://parser.delorub.ru'
   shop_id: '155590'
   scid: '557653'
   shop_password: '67696hgjfgkr'

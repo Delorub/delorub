@@ -71,6 +71,10 @@ gem 'grape-swagger-entity'
 gem 'hashie-forbidden_attributes'
 gem 'httparty'
 
+# External API
+gem 'anti-captcha'
+gem 'vkontakte_api', '~> 1.4'
+
 # Frontend
 gem 'uglifier'
 gem 'erubis'
@@ -95,14 +99,26 @@ gem 'whenever', require: false
 gem 'newrelic_rpm'
 gem 'rollbar'
 
+# Parser
+gem 'daemons'
+
+# Excel
+gem 'zip-zip'
+gem 'roo'
+gem 'axlsx'
+
 # CHECK
 gem 'petrovich', '~> 1.0'
 gem 'simple_captcha2', require: 'simple_captcha'
 gem 'ipgeobase', git: 'https://github.com/mokevnin/ipgeobase'
 gem 'meta-tags', require: 'meta_tags'
 
+# Parsing
+gem 'capybara'
+gem 'poltergeist'
+gem 'capybara-webmock'
+
 group :development, :test do
-  gem 'capybara'
   gem 'selenium-webdriver'
   gem 'capybara-webkit'
   gem 'capybara-screenshot'
@@ -120,6 +136,7 @@ end
 
 group :development do
   gem 'slackistrano'
+  gem 'launchy'
   gem 'annotate'
   gem 'rubocop', require: false
   gem 'rubocop-rspec-focused', require: false
