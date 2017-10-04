@@ -3,7 +3,7 @@
     .top-line__container
       .top-line__left
         a.top-line__city.top-line__link href="#"
-          img src="/images/icons/place.svg" alt="" /
+          img src="/images/icons/place.svg" alt="place" /
           | &nbsp;Санкт-Петербург
       - if user_signed_in?
         .top-line__right
@@ -15,8 +15,8 @@
       - else
         .top-line__right
           a.top-line__link href=new_user_registration_path id="header_sign_up" data-identity="header_sign_up"
-            img src="/images/icons/pen.svg" alt="" /
+            img src="/images/icons/pen.svg" alt="pen" /
             | &nbsp;Регистрация
           a.top-line__link href=new_user_session_path id="header_sign_in"
-            img src="/images/icons/login.svg" alt="" /
+            img src="/images/icons/login.svg" alt="login" /
             | &nbsp;Вход

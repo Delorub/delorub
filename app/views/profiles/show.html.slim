@@ -17,11 +17,11 @@
             .performer-profile-main__contacts style="display: none"
               - unless profile.user.phone.blank?
                 p
-                  img src="/images/icons/phone.svg" alt="" /
+                  img src="/images/icons/phone.svg" alt="phone" /
                   = profile.user.phone
               - unless profile.user.email.blank?
                 p
-                  img src="/images/icons/mail.svg" alt="" /
+                  img src="/images/icons/mail.svg" alt="email" /
                   = profile.user.email
         = render 'specializations'
       .col-lg-8
@@ -43,7 +43,7 @@
                   span.dr-h5
                     ' Город:
                   span.gray-text
-                    img src="/images/icons/place_gray.svg" alt="" /
+                    img src="/images/icons/place_gray.svg" alt="place" /
                     '
                     = profile.formatted_city_name
         .dr-block-style.dr-block-style--profile-left
