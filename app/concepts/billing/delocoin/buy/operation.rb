@@ -38,6 +38,7 @@ module Billing::Delocoin::Buy::Operation
       step Rescue(handler: User::BillingLog::Step::RescueFail) {
         step User::BillingLog::Step::Finish
         step :update_user_delocoin_balance!
+        success :send_buy_delocoin_email!
       }
     }
     failure User::BillingLog::Step::Fail
@@ -46,6 +47,10 @@ module Billing::Delocoin::Buy::Operation
       # TODO: make sql
       model.user.delocoin_balance += model.delocoin_amount
       model.user.save
+    end
+
+    def send_buy_delocoin_email! options, model:, **_
+      UserMailer.buy_delocoin(model: model).deliver_later
     end
   end
 end

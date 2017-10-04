@@ -39,6 +39,7 @@ module Billing::YandexKassa::Deposit::Operation
         step :set_current_user!
         step :valid_signature?
         step User::BillingLog::Step::Finish
+        success :send_yandex_deposit_finish_email!
       }
     }
     failure User::BillingLog::Step::Fail
@@ -54,6 +55,10 @@ module Billing::YandexKassa::Deposit::Operation
     def valid_signature? options, params:, model:, **_
       aviso = Billing::YandexKassa::RequestService.new(params, model, 'paymentAviso')
       aviso.valid_signature?
+    end
+
+    def send_yandex_deposit_finish_email! options, model:, **_
+      UserMailer.yandex_deposit_finish(model: model).deliver_later
     end
   end
 

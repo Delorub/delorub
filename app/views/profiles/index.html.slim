@@ -1,4 +1,5 @@
 - render 'shared/category_place_seo', default_text: 'Исполнители'
+- canonical_link(category_city_profile_link_url(@category, @place)) if params[:page] || params[:direction_created]
 .regular-content
   .container
     = render partial: 'breadcrumb', locals: { h1: @h1 }
