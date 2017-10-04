@@ -1,5 +1,5 @@
 describe Billing::YandexKassa::Deposit::Operation::Finish do
-  include YandexKassaHelpers
+  include YandexKassaHelper
   let(:instance) { described_class }
 
   let(:user) { create :user, balance: 100 }
@@ -12,15 +12,9 @@ describe Billing::YandexKassa::Deposit::Operation::Finish do
 
     subject { described_class.call(params) }
 
-    shared_examples 'change user balance' do
-      specify { expect { subject }.to(change { user.reload.balance }.by(billing_yandex_deposit.amount)) }
-    end
-
-    shared_examples 'not to change user balance' do
-      specify { expect { subject }.not_to(change { user.reload.balance }) }
-    end
-
     context 'valid' do
+      let(:amount) { billing_yandex_deposit.amount }
+
       it { assert subject.success? }
       it_behaves_like 'change user balance'
     end

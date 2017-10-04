@@ -1,4 +1,4 @@
-module YandexKassaHelpers
+module YandexKassaHelper
   YANDEX_PARAMS = {
     'requestDatetime' => Time.now.getlocal,
     'shopId' => Figaro.env.shop_id,

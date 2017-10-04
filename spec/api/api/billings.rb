@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Api::V10::Billings do
-  include YandexKassaHelpers
+  include YandexKassaHelper
 
   let(:user) { create :user }
   let(:state) { :new }

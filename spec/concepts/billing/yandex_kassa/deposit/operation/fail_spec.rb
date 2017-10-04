@@ -1,5 +1,5 @@
 describe Billing::YandexKassa::Deposit::Operation::Fail do
-  include YandexKassaHelpers
+  include YandexKassaHelper
   let(:instance) { described_class }
 
   let(:user) { create :user, balance: 100 }
@@ -11,10 +11,6 @@ describe Billing::YandexKassa::Deposit::Operation::Fail do
     let(:params) { { id: billing_yandex_deposit.id } }
 
     subject { described_class.call(params) }
-
-    shared_examples 'not to change user balance' do
-      specify { expect { subject }.not_to(change { user.reload.balance }) }
-    end
 
     context 'valid' do
       it { assert subject.failure? }
