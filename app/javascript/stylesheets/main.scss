@@ -1,4 +1,6 @@
-html, body, div#app {height: 100%;}
+html, body {
+  height: 100%;
+}
 
 body {
   background-color: #edeef0;
@@ -6,6 +8,12 @@ body {
   font-size: 14px;
   color: $color;
   font-weight: 100;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -138,6 +146,9 @@ footer {
     font-family: FontAwesome;
     top:0;
     opacity: 0.5;
+  }
+  &:focus {
+    outline: none;
   }
 }
 .navbar-toggler[aria-expanded="false"] {
