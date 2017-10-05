@@ -87,6 +87,11 @@
         margin-left: 2rem;
       }
     }
+    .col-12 {
+      @media (max-width: 575px) {
+        margin-top: 10px;
+      }
+    }
   }
   &-error-message {
     color: #f44336;
