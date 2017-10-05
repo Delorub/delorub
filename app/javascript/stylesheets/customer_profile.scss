@@ -27,6 +27,9 @@
   }
   &__name {
     margin-bottom: 1rem;
+    @media (max-width: 767px) {
+      text-align: center;
+    }
   }
   &__contacts {
     &-header {
