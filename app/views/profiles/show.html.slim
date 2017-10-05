@@ -17,7 +17,7 @@
               inline-template="true"
             )
               div
-                .performer-profile-main__button v-on:click.prevent="isShow = !isShow" v-show="!isShow"
+                .performer-profile-main__button @click.prevent="toggleShow" v-show="!isShow"
                   a.dr-btn-primary.dr-btn-220 href="#"  Показать контакты
                 .performer-profile-main__contacts(v-show="isShow")
                   - unless profile.user.phone.blank?

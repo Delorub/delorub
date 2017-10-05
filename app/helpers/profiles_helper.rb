@@ -10,10 +10,6 @@ module ProfilesHelper
     end
   end
 
-  def order_direction_boolean direction_order
-    direction_order.present? && direction_order.to_i == 1 ? true : false
-  end
-
   def formatted_header_category category, city_settings = nil
     city_settings && city_settings.settings.dig(:h1).present? ? city_settings.settings.dig(:h1) : category.title
   end

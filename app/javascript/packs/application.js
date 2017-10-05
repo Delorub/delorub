@@ -17,6 +17,7 @@ import DatePicker from '../components/fields/datepicker.vue'
 import ProfileSpecializationsForm from '../components/forms/profile/specializations_form.vue'
 import NewProfileForm from '../components/forms/profile/new_form.vue'
 import EditProfileForm from '../components/forms/profile/edit_form.vue'
+import ProfileFiltersForm from '../components/forms/profile/filters_form.vue'
 import EditUserForm from '../components/forms/user/edit_form.vue'
 import UserPhotoUpload from '../components/forms/user/photo_upload.vue'
 import TaskForm from '../components/forms/task/edit_form.vue'
@@ -35,7 +36,6 @@ import TimerCountdown from '../components/timer_countdown.vue'
 import RegionSelect from '../components/region_select.vue'
 import CitySelect from '../components/city_select.vue'
 import HideShowElement from '../components/hide_show_element.vue'
-import FormFilters from '../components/form_filters.vue'
 
 let token = document.getElementsByName('csrf-token')[0]
 if (token !== undefined) {
@@ -75,7 +75,7 @@ Vue.component('city-select', CitySelect)
 Vue.component('sign-in-form', SignInForm)
 Vue.component('region-select', RegionSelect)
 Vue.component('hide-show-element', HideShowElement)
-Vue.component('form-filters', FormFilters)
+Vue.component('profile-filters-form', ProfileFiltersForm)
 
 document.addEventListener('DOMContentLoaded', () => {
   // eslint-disable-next-line no-new

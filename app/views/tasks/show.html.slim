@@ -61,7 +61,7 @@
                 inline-template="true"
               )
                 div
-                  a.dr-btn-primary.dr-btn-190 href="#" v-on:click.prevent="isShow = !isShow" v-show="!isShow"  Показать контакты
+                  a.dr-btn-primary.dr-btn-190 href="#" @click.prevent="toggleShow" v-show="!isShow"  Показать контакты
                   .task-profile-card__contacts(v-show="isShow")
                     - unless task.user.phone.blank?
                       p

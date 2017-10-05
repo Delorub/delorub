@@ -1,9 +1,82 @@
-<h2>Здравствуйте, <%= @user.name %>!</h2>
-<p>
-  Ваши данные для авторизации
-</p>
-<p>
-  логин: <%= @user.login_credentials_text %>
-  <br />
-  пароль: <%= @password %>
-</p>
+<tr>
+  <td align="center" valign="middle" style="padding-top:15px;height: 239px;width: 100%;background-color:#4a4a4a;background-image:url(<%= image_path('/images/design/email_background.jpg') %>);background-repeat: no-repeat;background-position: top center;">
+    <table>
+      <tr>
+        <td align="center" style="color:#fff;font-size: 24px;text-transform: uppercase; font-weight: bold;padding-bottom: 10px;">
+          Добро пожаловать на ДелоРуб
+        </td>
+      </tr>
+      <tr>
+        <td align="center" style="color:#fff;font-size: 18px;font-weight: bold;">
+          Сервис поиска специалистов для любых поручений
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+  <td valign="middle">
+    <br/>
+    <br/>
+    <table style="padding-left: 40px;padding-right: 40px;color:#4a4a4a; font-size:18px;border-bottom: solid 1px #d1d1d1;">
+      <tr>
+        <td style="padding-bottom: 20px;">Ваш профиль заказчика успешно создан!</td>
+      </tr>
+      <tr>
+        <td style="padding-bottom: 20px;">
+          Теперь Вы можете найти специалистов для вашего задания.
+          <br/>
+          <br/>
+        </td>
+      </tr>
+    </table>
+    <table style="padding-left: 40px;padding-right: 40px;color: #4a4a4a;">
+      <tr>
+        <td valign="middle">
+          <br/>
+          <table style="color:#4a4a4a; font-size:15px;">
+            <tr>
+              <td style="padding-bottom: 15px;">Регистрационные данные:</td>
+            </tr>
+            <tr>
+              <td style="padding-bottom: 10px;"><b>Имя пользователя:</b> <%= @user.name %> </td>
+            </tr>
+            <tr>
+              <td style="padding-bottom: 10px;"><b>Логин:</b> <%= @user.login_credentials_text %> </td>
+            </tr>
+            <tr>
+              <td style="padding-bottom: 10px;"><b>Пароль:</b> <%= @password %> </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding-bottom: 10px;">
+          <table>
+            <tr>
+              <td style="color: #4a4a4a;width: 180px;border: solid 2px #e1dfdf;padding: 13px 30px;border-radius: 3px;">
+                Для входа на сайт используйте Ваш телефон или почту
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Вы можете изменить данные Вашего аккаунта<br/> в
+          <%= link_to 'личном кабинете', edit_my_settings_url, style: 'color: #519dc7;border-bottom: 1px dashed;text-decoration: none;'%>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <br/>
+          <br/>
+          <%= link_to 'Ваш профиль заказчика', my_index_index_url, style: 'color:#fff;padding: 14px 30px; border-radius: 4px; background-color: #519dc7;text-decoration: none;box-shadow: 0 1px 4px 0 rgba(174, 173, 173, 0.5);' %>
+          <br/>
+          <br/>
+          <br/>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>

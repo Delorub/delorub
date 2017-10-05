@@ -29,7 +29,7 @@
               inline-template="true"
             )
               div
-                a.link-default href="#" role="button" v-on:click.prevent="isShow = !isShow" v-show="!isShow" Показать номер телефона
+                a.link-default href="#" role="button" @click.prevent="toggleShow" v-show="!isShow" Показать номер телефона
                 .performer-profile-main__contacts(v-show="isShow")
                   .row
                     - unless profile.user.phone.blank?
@@ -40,6 +40,6 @@
                     - unless profile.user.email.blank?
                       .col-md-auto
                         span
-                          img src="/images/icons/mail.svg" alt=email"" /
+                          img src="/images/icons/mail.svg" alt="email" /
                           = profile.user.email
   = paginate collection, theme: 'custom_theme'

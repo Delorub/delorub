@@ -13,16 +13,12 @@
             .row
               .col-xl-3.col-lg-6
                 .checkbox
-                  form-filters(
-                    inline-template="true"
+                  profile-filters-form(
                     current-url=category_city_profile_link_url(@category, @place)
-                    order-field="direction_created"
-                    order-value=(order_direction_boolean(params[:direction_created]) ? '' : 1)
+                    order-value=params[:direction_created]
                   )
-                    label v-on:click.prevent="redirectToUrl"
-                      input type="checkbox" checked=order_direction_boolean(params[:direction_created])
-                      span.checkbox-custom
-                      |Новые&nbsp;исполнители
+                    template slot="checkbox" scope="props"
+                      input(type="checkbox" :checked="props.value")
         = render 'profile'
       .col-lg-4.lg-hide
         = render partial: 'cities/select_cities', locals: {url: category_profile_link_url(@category)}

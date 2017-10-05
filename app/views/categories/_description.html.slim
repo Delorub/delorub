@@ -10,4 +10,4 @@
         span.short_text(v-show="!isShow")
           = simple_format description.truncate(150).html_safe
           - if description.length > 150
-            a.link-default.category_desc_accordion href="#" v-on:click.prevent="isShow = !isShow" Развернуть
+            a.link-default.category_desc_accordion href="#" @click.prevent="toggleShow" Развернуть

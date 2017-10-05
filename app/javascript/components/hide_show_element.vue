@@ -4,6 +4,11 @@
       return {
         isShow: false
       }
+    },
+    methods: {
+      toggleShow () {
+        this.isShow = !this.isShow
+      }
     }
   }
 </script>

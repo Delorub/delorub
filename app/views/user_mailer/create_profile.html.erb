@@ -1,4 +1,44 @@
-<h2>Здравствуйте, <%= @user.name %>!</h2>
-<p>
-  Был создан профиль исполнителя
-</p>
+<tr>
+  <td align="center" valign="middle" style="padding-top:15px;height: 239px;width: 100%;background-color:#4a4a4a;background-image:url(<%= image_path('/images/design/email_background.jpg') %>);background-repeat: no-repeat;background-position: top center;">
+    <table>
+      <tr>
+        <td align="center" style="color:#fff;font-size: 24px;text-transform: uppercase; font-weight: bold;padding-bottom: 10px;">
+          Добро пожаловать на ДелоРуб
+        </td>
+      </tr>
+      <tr>
+        <td align="center" style="color:#fff;font-size: 18px;font-weight: bold;">
+          Сервис поиска специалистов для любых поручений
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+  <td valign="middle">
+    <br/>
+    <br/>
+    <table style="padding-left: 40px;padding-right: 40px;color:#4a4a4a; font-size:18px;">
+      <tr>
+        <td style="padding-bottom: 20px;">Ваш профиль исполнителя успешно создан!</td>
+      </tr>
+      <tr>
+        <td style="padding-bottom: 20px;">
+          Теперь Вы можете найти подходящее для Вас задание и начать зарабатывать.
+          <br/>
+          <br/>
+        </td>
+      </tr>
+    </table>
+    <table style="padding-left: 40px;padding-right: 40px;color: #4a4a4a;">
+      <tr>
+        <td>
+          <%= link_to 'Ваш профиль исполнителя', my_index_index_url, style: 'color:#fff;padding: 14px 30px; border-radius: 4px; background-color: #519dc7;text-decoration: none;box-shadow: 0 1px 4px 0 rgba(174, 173, 173, 0.5);' %>
+          <br/>
+          <br/>
+          <br/>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
