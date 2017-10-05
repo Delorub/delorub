@@ -1,11 +1,13 @@
 - description = parse_city_settings(@place_settings, :description)
 - if @category and description.present?
   .dr-block-style
-    .bottom-text.center
-      span.all_text style="display:none"
-        = simple_format description.html_safe
-      span.short_text
-        = simple_format description.truncate(150).html_safe
-        - if description.length > 150
-          a.link-default.category_desc_accordion href="#"
-            | Развернуть
+    hide-show-element(
+      inline-template="true"
+    )
+      .bottom-text.center
+        span.all_text(v-show="isShow")
+          = simple_format description.html_safe
+        span.short_text(v-show="!isShow")
+          = simple_format description.truncate(150).html_safe
+          - if description.length > 150
+            a.link-default.category_desc_accordion href="#" @click.prevent="toggleShow" Развернуть

@@ -39,11 +39,13 @@
           h2
             | Обо мне
         .performer-description-about__text
-          .expand-block.expand-block--hide
-            span.all_text style="display:none"
-              = simple_format current_user.profile.about
-            span.short_text
-              = simple_format current_user.profile.about.truncate(200)
-              - if current_user.profile.about.length > 200
-                a.link-default.category_desc_accordion href="#"
-                  | Развернуть
+          hide-show-element(
+            inline-template="true"
+          )
+            .expand-block.expand-block--hide
+              span.all_text(v-show="isShow")
+                = simple_format current_user.profile.about
+              span.short_text(v-show="!isShow")
+                = simple_format current_user.profile.about.truncate(200)
+                - if current_user.profile.about.length > 200
+                  a.link-default.category_desc_accordion href="#" @click.prevent="toggleShow" Развернуть

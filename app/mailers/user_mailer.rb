@@ -1,4 +1,6 @@
 class UserMailer < ApplicationMailer
+  add_template_helper(BillingHelper)
+
   def welcome user:, password:
     @user = user.decorate
     @password = password

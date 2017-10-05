@@ -1,5 +1,5 @@
 ActiveAdmin.register Page, namespace: :admin do
-  permit_params :title, :content, :slug
+  permit_params :title, :content, :slug, :draft
 
   config.batch_actions = false
 
@@ -7,6 +7,16 @@ ActiveAdmin.register Page, namespace: :admin do
 
   index download_links: false do
     column(:title) { |page| link_to page.title, admin_page_path(page) }
+  end
+
+  form do |f|
+    inputs 'Основное' do
+      f.input :title
+      f.input :slug
+      f.input :content, as: :ckeditor
+      f.input :draft
+    end
+    actions
   end
 
   action_item :view, only: :show do
@@ -17,6 +27,20 @@ ActiveAdmin.register Page, namespace: :admin do
     h3 page.title
     div do
       simple_format page.content
+    end
+  end
+
+  controller do
+    def create
+      create! do |format|
+        format.html { redirect_to collection_path } if resource.valid?
+      end
+    end
+
+    def update
+      update! do |format|
+        format.html { redirect_to collection_path } if resource.valid?
+      end
     end
   end
 end

@@ -10,15 +10,15 @@
       .col-lg-8
         .dr-block-style.dr-block-style--sort-padding
           .task-sort
-            = form_for :data, url: category_city_profile_link_url(@category, @place), method: :get, html: {class: 'profile_form_sorting'} do |f|
-              .row
-                .col-xl-3.col-lg-6
-                  .checkbox
-                    label
-                      = hidden_field_tag 'city_code', @place.slug if @place
-                      = check_box_tag 'direction_created', 1, order_direction_boolean(params[:direction_created])
-                      span.checkbox-custom
-                      |Новые&nbsp;исполнители
+            .row
+              .col-xl-3.col-lg-6
+                .checkbox
+                  profile-filters-form(
+                    current-url=category_city_profile_link_url(@category, @place)
+                    order-value=params[:direction_created]
+                  )
+                    template slot="checkbox" scope="props"
+                      input(type="checkbox" :checked="props.value")
         = render 'profile'
       .col-lg-4.lg-hide
         = render partial: 'cities/select_cities', locals: {url: category_profile_link_url(@category)}
