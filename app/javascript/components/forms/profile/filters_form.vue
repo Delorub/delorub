@@ -14,7 +14,7 @@
     },
     computed: {
       checkedValue () {
-        return (this.orderValue !== undefined && this.orderValue === 1)
+        return (this.orderValue !== undefined && parseInt(this.orderValue) === 1)
       },
       redirectUrl () {
         return this.currentUrl + (!this.checkedValue ? '?direction_created=1' : '')
