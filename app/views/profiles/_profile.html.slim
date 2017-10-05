@@ -28,12 +28,15 @@
             hr.toggle-hr-sm/
             a.link-default.show_contacts_all href="#" role="button"  Показать номер телефона
             .performer-profile-main__contacts style="display: none"
-              - unless profile.user.phone.blank?
-                p
-                  img src="/images/icons/phone.svg" alt="phone" /
-                  = profile.user.phone
-              - unless profile.user.email.blank?
-                p
-                  img src="/images/icons/mail.svg" alt="email" /
-                  = profile.user.email
+              .row
+                - unless profile.user.phone.blank?
+                  .col-md-auto
+                    span
+                      img src="/images/icons/phone.svg" alt="phone" /
+                      = profile.user.phone
+                - unless profile.user.email.blank?
+                  .col-md-auto
+                    span
+                      img src="/images/icons/mail.svg" alt="email" /
+                      = profile.user.email
   = paginate collection, theme: 'custom_theme'

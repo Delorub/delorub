@@ -51,6 +51,9 @@
     }
     .show_contacts_all {
       display: inline-block;
+      @media (max-width: 575px) {
+        margin-top: 1rem;
+      }
     }
     &__header {
       font-weight: bold;
