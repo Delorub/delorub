@@ -125,7 +125,7 @@
     font-size: 50px;
     top: 5px;
   }
-  i {
+  > i {
     @media (max-width: 480px) {
       display: none;
     }
