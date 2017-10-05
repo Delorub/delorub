@@ -25,17 +25,21 @@
                   = profile.formatted_price
             p.master-card-description__text
               = profile.about.truncate(180) unless profile.about.blank?
-            a.link-default.show_contacts_all href="#" role="button"  Показать номер телефона
-            .performer-profile-main__contacts style="display: none"
-              .row
-                - unless profile.user.phone.blank?
-                  .col-md-auto
-                    span
-                      img src="/images/icons/phone.svg" alt="" /
-                      = profile.user.phone
-                - unless profile.user.email.blank?
-                  .col-md-auto
-                    span
-                      img src="/images/icons/mail.svg" alt="" /
-                      = profile.user.email
+            hide-show-element(
+              inline-template="true"
+            )
+              div
+                a.link-default href="#" role="button" v-on:click.prevent="isShow = !isShow" v-show="!isShow" Показать номер телефона
+                .performer-profile-main__contacts(v-show="isShow")
+                  .row
+                    - unless profile.user.phone.blank?
+                      .col-md-auto
+                        span
+                          img src="/images/icons/phone.svg" alt="" /
+                          = profile.user.phone
+                    - unless profile.user.email.blank?
+                      .col-md-auto
+                        span
+                          img src="/images/icons/mail.svg" alt="" /
+                          = profile.user.email
   = paginate collection, theme: 'custom_theme'

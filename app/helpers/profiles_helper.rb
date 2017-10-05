@@ -27,7 +27,7 @@ module ProfilesHelper
     if category.present?
       city.present? ? category_profiles_path(category, city_code: city.slug) : category_profiles_path(category)
     else
-      city.present? ? profiles_path(city_code: city.slug) : profiles_path
+      url_for(controller: 'profiles', action: 'index', city_code: city.present? ? city.slug : nil)
     end
   end
 

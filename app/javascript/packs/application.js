@@ -1,6 +1,5 @@
 import './common'
 import './visitor_sessions'
-import './profile'
 
 import axios from 'axios'
 
@@ -35,6 +34,8 @@ import TimerCountdown from '../components/timer_countdown.vue'
 
 import RegionSelect from '../components/region_select.vue'
 import CitySelect from '../components/city_select.vue'
+import HideShowElement from '../components/hide_show_element.vue'
+import FormFilters from '../components/form_filters.vue'
 
 let token = document.getElementsByName('csrf-token')[0]
 if (token !== undefined) {
@@ -73,6 +74,8 @@ Vue.component('timer-countdown', TimerCountdown)
 Vue.component('city-select', CitySelect)
 Vue.component('sign-in-form', SignInForm)
 Vue.component('region-select', RegionSelect)
+Vue.component('hide-show-element', HideShowElement)
+Vue.component('form-filters', FormFilters)
 
 document.addEventListener('DOMContentLoaded', () => {
   // eslint-disable-next-line no-new
