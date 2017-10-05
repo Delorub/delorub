@@ -17,10 +17,16 @@
     }
   }
   &__inputs {
-    margin: 1rem 0 0 2rem;
+    margin-top: 1rem;
+    @media (min-width: 768px) {
+      margin-left: 2rem;
+    }
   }
   &__price {
     font-size: 18px;
+    @media (max-width: 767px) {
+      text-align: center;
+    }
   }
   &__description {
     padding: 5px 0 0 0;

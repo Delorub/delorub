@@ -65,7 +65,7 @@
 
 .dr-content-header {
   padding: 1rem 0 1rem;
-  @media(min-width: 992px) {
+  @media(min-width: 768px) {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
@@ -110,14 +110,23 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media (max-width: 480px) {
+      margin-left: 0;
+    }
     a {
       color: #fff;
+      margin-left: 5px;
     }
   }
   .fa-check {
     position: absolute;
     font-size: 50px;
     top: 5px;
+  }
+  i {
+    @media (max-width: 480px) {
+      display: none;
+    }
   }
 }
 
