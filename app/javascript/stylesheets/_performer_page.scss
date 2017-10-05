@@ -140,11 +140,7 @@
     margin-top: 1rem;
     .col-md-auto {
       margin-left: 15px;
-      @media(max-width: 575px) {
-        &:first-child {
-          margin-bottom: 1px;
-        }
-      }
+      margin-bottom: 1px;
     }
     p {
       display: flex;

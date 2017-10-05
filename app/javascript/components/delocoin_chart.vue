@@ -1,5 +1,5 @@
 <template lang="pug">
-  div
+  div.lg-hide
     .tooltip.tooltip-top(ref="tooltip" style="display: none; opacity: 1;")
       .tooltip-inner(ref="tooltipText")
     .dr-block-style.dr-block-style--margin-top(style="padding: 0px" ref="asd")
