@@ -143,11 +143,13 @@
       margin-bottom: 1px;
       @media (max-width: 575px) {
         text-align: center;
-        span {
-          &:first-child {
-            margin-bottom: 10px;
-            display: block;
-          }
+      }
+    }
+    .col-md-auto + .col-md-auto {
+      span {
+        @media (max-width: 575px) {
+          display: block;
+          margin-top: 10px;
         }
       }
     }
