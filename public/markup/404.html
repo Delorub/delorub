@@ -15,273 +15,6 @@
     <meta name="msapplication-navbutton-color" content="#000">
     <!-- iOS Safari -->
     <meta name="apple-mobile-web-app-status-bar-style" content="#000">
-    <style>
-      @font-face {
-        font-family: 'GothamProLight';
-        src: local("GothamProLight"), url("../fonts/GothamProLight/GothamProLight.eot") format("embedded-opentype");
-        src: local("GothamProLight"), url("../fonts/GothamProLight/GothamProLight.woff") format("woff"), url("../fonts/GothamProLight/GothamProLight.ttf") format("truetype");
-      }
-      @font-face {
-        font-family: 'GothamProBlack';
-        src: local("GothamProBlack"), url("../fonts/GothamProBlack/GothamProBlack.eot") format("embedded-opentype");
-        src: local("GothamProBlack"), url("../fonts/GothamProBlack/GothamProBlack.woff") format("woff"), url("../fonts/GothamProBlack/GothamProBlack.ttf") format("truetype");
-      }
-
-      html, body, .wrap {
-        height: 100%;
-      }
-
-      body {
-        font-family: "GothamProLight", sans-serif;
-        background-color: #00a6d7;
-      }
-
-      .wrap {
-        height: auto;
-        min-height: 100%;
-      }
-
-      @media (min-width: 992px) {
-        footer {
-          position: relative;
-          margin-top: -221px;
-          height: 221px;
-          clear: both;
-        }
-      }
-
-      .top-line {
-        background-color: #335e79;
-      }
-      .top-line__container {
-        display: flex;
-        justify-content: space-between;
-        padding: 5px 0;
-      }
-      .top-line__link {
-        margin-left: 30px;
-        color: #fff;
-      }
-      .top-line__link:hover {
-        color: #70bee9 !important;
-      }
-      .top-line__link:visited {
-        color: #fff;
-      }
-      .top-line__link.active {
-        color: #519dc7;
-      }
-      .top-line__city {
-        color: #fff;
-        opacity: 1;
-        margin-left: 0.2rem;
-        border-bottom: 1px dashed;
-      }
-      .top-line__left {
-        color: #fff;
-      }
-
-      .navbar-toggler {
-        border-color: rgba(0, 0, 0, 0.4);
-        margin-top: 0.35rem;
-        position: absolute;
-      }
-      @media (max-width: 575px) {
-        .navbar-toggler {
-          right: -70px;
-        }
-      }
-      .navbar-toggler .fa {
-        opacity: 0.5;
-      }
-
-      .navbar-dr-theme {
-        padding: 8px 10px;
-        box-shadow: 0 1px 3px 0 rgba(121, 120, 120, 0.5);
-        position: relative;
-        z-index: 1;
-      }
-      .navbar-dr-theme .navbar-collapse {
-        justify-content: space-between;
-      }
-      .navbar-dr-theme .navbar-brand img {
-        vertical-align: inherit;
-      }
-      .navbar-dr-theme .navbar-nav > .nav-item {
-        margin: 0 1rem;
-      }
-      .navbar-dr-theme .navbar-nav > .nav-item > .nav-link {
-        padding: 10px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        color: #4a4a4a;
-        display: inline-block;
-        transition: .3s;
-      }
-      .navbar-dr-theme .navbar-nav > .nav-item > .nav-link:hover {
-        color: #519dc7;
-      }
-      .navbar-dr-theme .navbar-nav > .nav-item > .nav-link.active {
-        color: #519dc7;
-        transition: 0.3s;
-      }
-      .navbar-dr-theme .navbar-nav > .nav-item > .nav-link.active:hover {
-        color: #2a6585;
-      }
-      .navbar-dr-theme .navbar-right li:last-child {
-        margin-right: 0;
-      }
-
-      .index-image {
-        background-image: url("/images/design/404.svg");
-        height: 70vh;
-        min-height: 536px;
-        background-repeat: no-repeat;
-        background-position: top center;
-        background-size: 600px;
-        padding-top: 200px;
-      }
-      @media (max-width: 448px) {
-        .index-image {
-          height: 140vh;
-        }
-      }
-      @media (min-width: 1600px) {
-        .index-image {
-          height: 100%;
-        }
-        .index-image .container:first-child {
-          margin-top: 210px;
-        }
-      }
-      .index-image .container:first-child {
-        position: relative;
-        top: 65%;
-        -webkit-transform: translateY(-50%);
-        transform: translateY(-50%);
-      }
-      .index-image__header {
-        color: #fff;
-        font-size: 36px;
-        text-align: center;
-        text-transform: none;
-        font-family: "GothamProBlack", sans-serif;
-      }
-      .index-image-content {
-        text-align: center;
-        margin-top: 20px;
-      }
-      .index-image-content a+a {
-        margin-left: 30px;
-      }
-
-      .dr-btn-default, .dr-btn-danger {
-        color: #9b9b9b;
-        background-color: #ffffff;
-        box-shadow: 0 1px 4px 0 rgba(174, 173, 173, 0.5);
-        transition: 0.1s;
-        border: 0;
-        border-radius: 4px;
-        min-width: 170px;
-        text-align: center;
-        padding: 12px 10px 10px 10px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        display: inline-block;
-      }
-      .dr-btn-default:hover, .dr-btn-danger:hover {
-        color: #fff !important;
-        background-color: #70bee9;
-        box-shadow: 0 1px 4px 0 rgba(174, 173, 173, 0.5), 0 1px 2px 0 rgba(102, 102, 102, 0.5);
-        cursor: pointer;
-      }
-      .dr-btn-default:active, .dr-btn-danger:active {
-        background-color: #519dc7;
-        color: #fff;
-        box-shadow: 0 3px 4px 0 rgba(174, 173, 173, 0.5);
-      }
-      .dr-btn-default:focus, .dr-btn-danger:focus {
-        color: #fff;
-      }
-      .dr-btn-default:visited, .dr-btn-danger:visited {
-        color: #9b9b9b;
-      }
-
-      .dr-btn-danger {
-        color: #fff;
-        background-color: #f44336;
-      }
-      .dr-btn-danger:hover {
-        color: #fff;
-        background-color: #f44336;
-        box-shadow: 0 1px 4px 0 rgba(174, 173, 173, 0.5), 0 4px 6px 0 rgba(115, 110, 110, 0.5);
-      }
-      .dr-btn-danger:active {
-        background-color: #cf3025;
-        color: #fff;
-        box-shadow: 0 1px 4px 0 rgba(174, 173, 173, 0.5), 0 2px 4px 0 rgba(174, 173, 173, 0.5);
-      }
-      .dr-btn-danger:focus {
-        color: #fff;
-      }
-      .dr-btn-danger:visited {
-        color: #fff;
-      }
-
-      .dr-footer {
-        background-color: #335e79;
-        box-shadow: 0 2px 7px 0 rgba(121, 120, 120, 0.5);
-      }
-      .dr-footer .container .row {
-        justify-content: center;
-      }
-      @media (min-width: 992px) {
-        .dr-footer .container .row {
-          justify-content: space-between;
-        }
-      }
-      .dr-footer-left {
-        display: flex;
-        padding: 2.5rem 0;
-      }
-      .dr-footer-right {
-        display: flex;
-        text-align: right;
-        padding: 2.5rem 0;
-      }
-      .dr-footer-block {
-        margin: 0 15px;
-      }
-      @media (max-width: 991px) {
-        .dr-footer-block {
-          text-align: center;
-          margin: 15px;
-        }
-      }
-      .dr-footer-sub {
-        background-color: #ffffff;
-      }
-      .dr-footer-sub__content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-top: 9px;
-        padding-bottom: 9px;
-      }
-      .dr-footer-sub__copyright {
-        color: #9b9b9b;
-        font-size: 0.8rem;
-      }
-      .dr-footer-sub__social {
-        display: flex;
-      }
-      .dr-footer-sub__social img {
-        width: 34px;
-        height: 34px;
-        margin: 0 9px;
-      }
-
-    </style>
   </head>
   <body>
     <div class="wrap">
@@ -302,9 +35,7 @@
 
       <nav class="navbar navbar-toggleable-md bg-faded navbar-dr-theme">
         <div class="container">
-          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fa fa-bars" aria-hidden="true"></i>
-          </button>
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"></button>
           <a class="navbar-brand" href="#">
             <img src="/images/design/logo.svg" alt=""/>
           </a>
@@ -319,10 +50,10 @@
             </ul>
             <ul class="navbar-nav navbar-right">
               <li class="nav-item">
-                <a class="dr-btn-primary" href="#">Стать исполнителем</a>
+                <a class="dr-btn-primary dr-btn-165" href="#">Стать исполнителем</a>
               </li>
               <li class="nav-item">
-                <a class="dr-btn-danger" href="#">Создать задание</a>
+                <a class="dr-btn-danger dr-btn-165" href="#">Создать задание</a>
               </li>
             </ul>
           </div>
@@ -330,15 +61,16 @@
       </nav>
 
       <main>
-
-        <div class="not_found-image">
-          <div class="container">
-            <div class="index-image__header">
-              Страница не найдена
-            </div>
-            <div class="index-image-content">
-              <a class="dr-btn-default" href="#">Стать исполнителем</a>
-              <a class="dr-btn-danger" href="#">Создать задание</a>
+        <div class="dr-404">
+          <div class="index-image">
+            <div class="container">
+              <div class="index-image__header">
+                Страница не найдена
+              </div>
+              <div class="index-image-content">
+                <a class="dr-btn-default dr-btn-165" href="#">Стать исполнителем</a>
+                <a class="dr-btn-danger dr-btn-165" href="#">Создать задание</a>
+              </div>
             </div>
           </div>
         </div>
