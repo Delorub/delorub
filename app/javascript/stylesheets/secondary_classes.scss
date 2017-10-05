@@ -85,6 +85,12 @@
   }
 }
 
+.sm-center {
+  @media (max-width: 575px) {
+    text-align: center;
+  }
+}
+
 .change_succes {
   color: #fff;
   font-family: $GothamMedium;

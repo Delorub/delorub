@@ -4,6 +4,8 @@
   }
   @media (max-width: 525px) {
     font-size: 10px;
+    display: block;
+    overflow-x: auto;
   }
   th {
     @media (max-width: 525px) {

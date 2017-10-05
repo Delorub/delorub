@@ -56,8 +56,14 @@
       font-weight: bold;
       font-size: 1.2rem;
       margin-bottom: 1.5rem;
+      @extend .sm-center;
       a {
         @extend .link-default;
+      }
+    }
+    &__text {
+      @media (max-width: 575px) {
+        margin-top: 1rem;
       }
     }
     &__offline {

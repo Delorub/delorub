@@ -25,6 +25,13 @@
   }
 }
 
+.toggle-hr-sm {
+  margin: 0 -30px;
+  @media (min-width: 576px) {
+    display: none;
+  }
+}
+
 .lg-hide {
   @media (max-width: 991px) {
     display: none;

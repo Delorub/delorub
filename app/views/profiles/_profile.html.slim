@@ -20,22 +20,20 @@
               .col-sm.col-12
                 p.master-card-description__header
                   = link_to profile.user.name, profile_path(profile)
-              div
+              div.sm-center
                 span.master-card-description__price
                   = profile.formatted_price
             p.master-card-description__text
               = profile.about.truncate(180) unless profile.about.blank?
+            hr.toggle-hr-sm/
             a.link-default.show_contacts_all href="#" role="button"  Показать номер телефона
             .performer-profile-main__contacts style="display: none"
-              .row
-                - unless profile.user.phone.blank?
-                  .col-md-auto
-                    span
-                      img src="/images/icons/phone.svg" alt="phone" /
-                      = profile.user.phone
-                - unless profile.user.email.blank?
-                  .col-md-auto
-                    span
-                      img src="/images/icons/mail.svg" alt="email" /
-                      = profile.user.email
+              - unless profile.user.phone.blank?
+                p
+                  img src="/images/icons/phone.svg" alt="phone" /
+                  = profile.user.phone
+              - unless profile.user.email.blank?
+                p
+                  img src="/images/icons/mail.svg" alt="email" /
+                  = profile.user.email
   = paginate collection, theme: 'custom_theme'
