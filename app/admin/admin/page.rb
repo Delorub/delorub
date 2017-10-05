@@ -1,4 +1,6 @@
 ActiveAdmin.register Page, namespace: :admin do
+  include ActiveAdminShared::ControllerRedirects
+
   permit_params :title, :content, :slug, :draft
 
   config.batch_actions = false
@@ -7,6 +9,8 @@ ActiveAdmin.register Page, namespace: :admin do
 
   index download_links: false do
     column(:title) { |page| link_to page.title, admin_page_path(page) }
+    column :slug
+    actions
   end
 
   form do |f|
@@ -27,20 +31,6 @@ ActiveAdmin.register Page, namespace: :admin do
     h3 page.title
     div do
       simple_format page.content
-    end
-  end
-
-  controller do
-    def create
-      create! do |format|
-        format.html { redirect_to collection_path } if resource.valid?
-      end
-    end
-
-    def update
-      update! do |format|
-        format.html { redirect_to collection_path } if resource.valid?
-      end
     end
   end
 end

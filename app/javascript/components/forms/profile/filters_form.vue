@@ -1,6 +1,6 @@
 <template lang="pug">
   label(@click.present = "redirectToUrl")
-    slot(name="checkbox" :value="checkedValue")
+    input(type="checkbox" :checked="checkedValue")
     span.checkbox-custom
     | Новые&nbsp;исполнители
 </template>

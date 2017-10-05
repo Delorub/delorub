@@ -17,8 +17,6 @@
                     current-url=category_city_profile_link_url(@category, @place)
                     order-value=params[:direction_created]
                   )
-                    template slot="checkbox" scope="props"
-                      input(type="checkbox" :checked="props.value")
         = render 'profile'
       .col-lg-4.lg-hide
         = render partial: 'cities/select_cities', locals: {url: category_profile_link_url(@category)}

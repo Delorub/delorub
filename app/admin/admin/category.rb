@@ -1,4 +1,6 @@
 ActiveAdmin.register Category, namespace: :admin do
+  include ActiveAdminShared::ControllerRedirects
+
   config.sort_order = 'position_asc'
   config.paginate = false
 
@@ -64,20 +66,6 @@ ActiveAdmin.register Category, namespace: :admin do
     attributes_table_for category do
       row :master_count
       row :form_count
-    end
-  end
-
-  controller do
-    def create
-      create! do |format|
-        format.html { redirect_to collection_path } if resource.valid?
-      end
-    end
-
-    def update
-      update! do |format|
-        format.html { redirect_to collection_path } if resource.valid?
-      end
     end
   end
 end

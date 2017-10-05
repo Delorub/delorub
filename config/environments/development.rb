@@ -20,5 +20,5 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.default_url_options = { host: 'local.delorub.ru:4000' }
-  config.action_mailer.asset_host = 'http://localhost:5000'
+  config.action_mailer.asset_host = ENV['base_url']
 end
