@@ -1,0 +1,39 @@
+.dr-404 {
+  background-color: #00a6d7;
+  .index-image {
+    background-image: url("/images/design/404.svg");
+    background-size: 600px;
+    .container {
+      &:first-child {
+        top: 65%;
+      }
+    }
+    &__header {
+      color: #fff;
+      font-size: 36px;
+      text-align: center;
+      text-transform: none;
+      font-family: "GothamProBlack", sans-serif;
+    }
+    &-content {
+      text-align: center;
+      margin-top: 20px;
+      a+a {
+        margin-left: 30px;
+      }
+    }
+  }
+  @media (max-width: 448px) {
+    .index-image {
+      height: 140vh;
+    }
+  }
+  @media (min-width: 1600px) {
+    .index-image {
+      height: 100%;
+    }
+    .index-image .container:first-child {
+      margin-top: 210px;
+    }
+  }
+}
