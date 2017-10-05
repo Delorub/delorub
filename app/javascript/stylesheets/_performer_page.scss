@@ -141,6 +141,15 @@
     .col-md-auto {
       margin-left: 15px;
       margin-bottom: 1px;
+      @media (max-width: 575px) {
+        text-align: center;
+        span {
+          &:first-child {
+            margin-bottom: 10px;
+            display: block;
+          }
+        }
+      }
     }
     p {
       display: flex;

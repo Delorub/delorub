@@ -30,12 +30,12 @@
             .performer-profile-main__contacts style="display: none"
               .row
                 - unless profile.user.phone.blank?
-                  .col-md-auto
+                  .col-sm-12.col-md-auto
                     span
                       img src="/images/icons/phone.svg" alt="phone" /
                       = profile.user.phone
                 - unless profile.user.email.blank?
-                  .col-md-auto
+                  .col-sm-12.col-md-auto
                     span
                       img src="/images/icons/mail.svg" alt="email" /
                       = profile.user.email
