@@ -65,7 +65,7 @@
 
 .dr-content-header {
   padding: 1rem 0 1rem;
-  @media(min-width: 768px) {
+  @media(min-width: 992px) {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
@@ -79,12 +79,14 @@
     @extend .link-header;
   }
   &--reverse {
-    @media(min-width: 992px) {
+    display: flex;
+    @media(min-width: 768px) {
       flex-direction: row-reverse;
+      align-items: baseline;
+      justify-content: space-between;
     }
     @media(max-width: 767px) {
       flex-direction: column-reverse;
-      display: flex;
     }
   }
 }
