@@ -78,6 +78,10 @@
       font-size: 1.3rem;
       margin-right: 15px;
       font-weight: bold;
+      @media (max-width: 575px) {
+        margin-right: 0;
+        margin-left: 15px;
+      }
     }
     &__phone {
       margin-left: 2rem;

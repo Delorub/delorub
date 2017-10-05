@@ -20,7 +20,9 @@
     &__header {
       font-weight: bold;
       font-size: 1.3rem;
-      margin-bottom: 0;
+      @media (min-width: 576px) {
+        margin-bottom: 0;
+      }
       a {
         @extend .link-default;
       }
@@ -31,6 +33,11 @@
       @media (min-width: 768px) {
         position: absolute;
         bottom: 9px;
+        max-width: 450px;
+        max-height: 21px;
+      }
+      @media (min-width: 1200px) {
+        max-width: 600px;
       }
       img {
         margin-right: 5px;
@@ -43,7 +50,7 @@
   &-refinement, &-button {
     margin: 0 15px;
     &__price {
-      @media (min-width: 413px) {
+      @media (min-width: 576px) {
         text-align: right;
       }
       font-size: 1.5rem;
@@ -51,7 +58,7 @@
       margin-bottom: 0.5rem;
     }
     &__time {
-      @media (min-width: 413px) {
+      @media (min-width: 576px) {
         text-align: right;
       }
       font-size: 0.9rem;
@@ -63,7 +70,9 @@
       }
     }
     &__date {
-      text-align: right;
+      @media (min-width: 576px) {
+        text-align: right;
+      }
       font-size: 0.9rem;
       color: #9b9b9b;
     }
