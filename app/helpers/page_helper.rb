@@ -16,19 +16,23 @@ module PageHelper
   end
 
   def terms_path
-    page_path 'terms'
+    page_path 'rules'
   end
 
   def policy_path
-    page_path 'policy'
+    page_path 'conf'
   end
 
   def billing_terms_path
-    page_path 'billing_terms'
+    page_path 'reglament'
   end
 
   def billing_offer_path
-    page_path 'billing_offer'
+    page_path 'oferta'
+  end
+
+  def price_list_path
+    page_path 'pricelist'
   end
 
   def page_path name

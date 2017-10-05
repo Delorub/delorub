@@ -23,6 +23,7 @@ module Delorub
 
     config.time_zone = 'Europe/Moscow'
     config.active_record.default_timezone = :local
+    config.active_job.queue_adapter = :sidekiq
 
     config.before_initialize do |app|
       app.config.paths.add 'app/services', eager_load: true
