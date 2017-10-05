@@ -153,6 +153,9 @@
       padding-top: 0;
       padding-bottom: 0;
       width: 400px;
+      @media (max-width: 575px) {
+        display: none;
+      }
       &__text {
         color: #f44336;
         display: flex;
