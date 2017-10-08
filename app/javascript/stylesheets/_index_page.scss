@@ -27,7 +27,7 @@
       color: #fff;
       text-transform: uppercase;
       font-size: 2.6rem;
-      font-family: $GothamBlack;
+      font-weight: 800;
       line-height: 3.2rem;
       text-align: center;
       @media (max-width: 447px) {
@@ -47,20 +47,19 @@
       color: #fff;
       font-size: 2.2rem;
       margin-top: 1rem;
-      font-family: $GothamBold;
+      font-weight: 700;
       p {
         margin-bottom: 0;
       }
     }
     &__text {
-      font-family: $GothamPro;
       font-size: 1.2rem;
       text-align: center;
       &--nomargin {
         margin-top: 0;
       }
       a {
-        font-family: $GothamBold;
+        font-weight: 700;
       }
     }
     &__input {
@@ -91,7 +90,7 @@
       }
       .dr-btn-danger {
         font-size: 18px;
-        font-family: $GothamMedium;
+        font-weight: 600;
         justify-content: center;
         align-items: center;
         height: 100%;
@@ -111,13 +110,11 @@
         height: 100%;
         @include placeholder {
           color: #B2B2B2;
-          font-family: $GothamLight;
         }
       }
     }
     &__sub {
       color: #fff;
-      font-family: $GothamLight;
       margin-top: 1rem;
       text-align: center;
       @media (max-width: 575px) {
@@ -144,7 +141,7 @@
     margin: 1.5rem auto 1rem;
   }
   &__header {
-    font-family: $GothamBold;
+    font-weight: 700;
     font-size: 20px;
     @media (min-width: 448px) {
       font-size: 36px;
@@ -154,7 +151,7 @@
     margin-top: 30px;
     margin-bottom: 30px;
     font-size: 20px;
-    font-family: $GothamMedium;
+    font-weight: 600;
     @media (min-width: 448px) {
       margin-top: 70px;
       font-size: 24px;
@@ -188,7 +185,7 @@
   }
   &__text {
     span {
-      font-family: $GothamMedium;
+      font-weight: 600;
       font-size: 20px;
       line-height: 15px;
       @media (min-width: 768px) {
@@ -256,7 +253,7 @@
       }
     }
     span, a {
-      font-family: $GothamMedium;
+      font-weight: 600;
       font-size: 20px;
       line-height: 26px;
       @media (min-width: 575px) {
@@ -289,7 +286,7 @@
     display: block;
     padding: 5px 0;
     &:first-child {
-      font-family: $GothamMedium;
+      font-weight: 600;
       font-size: 24px;
     }
     &:last-child {
@@ -332,7 +329,7 @@
   margin-top: 38px;
   text-align: center;
   .dr-btn-primary {
-    font-family: $GothamMedium;
+    font-weight: 600;
     font-size: 15px;
     margin-top: 2rem;
   }

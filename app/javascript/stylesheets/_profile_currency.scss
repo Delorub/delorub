@@ -21,7 +21,7 @@
     color: #60ad12;
     display: flex;
     align-items: center;
-    font-family: $GothamMedium;
+    font-weight: 600;
     font-size: 15px;
     .fa {
       font-size: 50px;
@@ -45,7 +45,7 @@
   }
   &__value, &__value-big, &__value-big-red {
     color: $blueColor;
-    font-family: $GothamBold;
+    font-weight: 700;
   }
   &__value-big, &__value-big-red {
     font-size: 20px !important;

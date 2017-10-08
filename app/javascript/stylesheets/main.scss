@@ -4,7 +4,7 @@ html, body {
 
 body {
   background-color: #edeef0;
-  font-family: $GothamLight;
+  font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   color: $color;
   font-weight: 100;
@@ -18,25 +18,25 @@ body {
 
 h1 {
   font-size: 24px;
-  font-family: $GothamBold;
+  font-weight: 700;
   color: $color;
 }
 
 h2 {
   font-size: 20px;
-  font-family: $GothamMedium;
+  font-weight: 600;
   color: $color;
 }
 
 h3 {
   font-size: 18px;
-  font-family: $GothamMedium;
+  font-weight: 600;
   color: $color;
 }
 
 h4 {
   font-size: 14px;
-  font-family: $GothamMedium;
+  font-weight: 600;
   color: $color;
 }
 
@@ -238,7 +238,7 @@ div#navbarNav {
 }
 
 .UI-header {
-  font-family: "GothamProBold", sans-serif;
+  font-weight: 700;
   color: #9b9b9b;
   font-size: 32px;
   margin-bottom: 1.5rem;
