@@ -1,14 +1,16 @@
 = render layout: 'my/layout', locals: { width: 9 }
   .dr-content-header.dr-content-header--reverse
-    a.dr-btn-primary href=edit_my_user_path Редактировать
-    h1
-      | Ваш профиль исполнителя
+    .center
+      a.dr-btn-primary.dr-btn-165 href=edit_my_user_path Редактировать
+    .center
+      h1
+        | Ваш профиль исполнителя
   = render 'master_info'
   .dr-block-style
     .dr-profile-card__contacts
       .row
         - if current_user.phone.present?
-          .col-md-5
+          .col-md-5.margin-bottom-10-md
             span.dr-profile-card__contacts-header
              ' Телефон:
             span = current_user.phone
