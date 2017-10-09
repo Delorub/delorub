@@ -2,7 +2,7 @@ require 'reform/form/validation/unique_validator'
 
 class Billing::YandexKassa::Deposit::Contract < Reform::Form
   property :amount
-  property :pay_type, default: 'qiwi'
+  property :pay_type, default: 'visa'
   property :accept_terms, virtual: true, default: false
 
   validates :amount, presence: true
