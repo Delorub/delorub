@@ -1,6 +1,7 @@
 import 'app'
 import $ from 'jquery'
 import 'bootstrap/dist/js/bootstrap.js'
+import Hammer from 'hammerjs/hammer.js'
 import 'jquery-ujs'
 
 $(function () {
@@ -24,4 +25,12 @@ $(function () {
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
   })
+})
+
+var sidebar = document.getElementById('#sidebar')
+
+sidebar.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL })
+
+Hammer(sidebar).on('swiperight', function () {
+  $(this).animate({left: '+=100'}, 500)
 })
