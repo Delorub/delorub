@@ -1,4 +1,5 @@
 h3 'Основная информация'
+h4 link_to 'Войти под пользователем', login_as_admin_user_path(resource.id), target: '_blank'
 attributes_table_for user do
   row :email
   row :name

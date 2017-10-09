@@ -26,6 +26,9 @@ ActiveAdmin.register User, namespace: :admin do
     end
     column :email
     column :phone
+    column :balance
+    column :delocoin_balance
+    column :created_at
     actions
   end
 

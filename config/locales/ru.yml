@@ -143,6 +143,7 @@ ru:
     attributes:
       user/billing_log:
         state:
+          one: Статус
           new: В обработке
           finished: Выполнена
           failed: Ошибка
