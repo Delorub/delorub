@@ -29,7 +29,7 @@
 }
 
 .dr-h5 {
-  font-family: $GothamMedium;
+  font-weight: 600;
 }
 
 .gray-text {
@@ -52,7 +52,7 @@
 
 .dr-header {
   font-size: 1.5rem;
-  font-family: $GothamBold;
+  font-weight: 700;
   &-sub {
     font-size: 1.3rem;
     font-weight: bold;
@@ -79,15 +79,28 @@
     @extend .link-header;
   }
   &--reverse {
-    @media(min-width: 992px) {
+    display: flex;
+    @media(min-width: 768px) {
       flex-direction: row-reverse;
+      align-items: baseline;
+      justify-content: space-between;
     }
+    @media(max-width: 767px) {
+      flex-direction: column-reverse;
+    }
+  }
+}
+
+.sm-center {
+  @media (max-width: 575px) {
+    text-align: center;
+    width: 100%;
   }
 }
 
 .change_succes {
   color: #fff;
-  font-family: $GothamMedium;
+  font-weight: 600;
   font-size: 15px;
   background-color: #60ad12;
   padding: 20px 40px;
@@ -99,14 +112,23 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media (max-width: 480px) {
+      margin-left: 0;
+    }
     a {
       color: #fff;
+      margin-left: 5px;
     }
   }
   .fa-check {
     position: absolute;
     font-size: 50px;
     top: 5px;
+  }
+  > i {
+    @media (max-width: 480px) {
+      display: none;
+    }
   }
 }
 
@@ -137,7 +159,7 @@ select.form-control:not([size]):not([multiple]) {
   align-items: center;
   justify-content: center;
   span {
-    font-family: $GothamMedium;
+    font-weight: 600;
     font-size: 40px;
     color: #fff;
   }

@@ -4,14 +4,15 @@
   }
   @media (max-width: 525px) {
     font-size: 10px;
+    display: block;
+    overflow-x: auto;
   }
   th {
     @media (max-width: 525px) {
       font-size: 10px;
     }
     font-size: 12px;
-    font-family: $GothamMedium;
-    font-weight: normal;
+    font-weight: 600;
   }
   td, th {
     border: none;
@@ -52,7 +53,7 @@
     }
   }
   tbody tr td:nth-of-type(4) {
-    font-family: $GothamMedium;
+    font-weight: 600;
   }
   tbody tr:nth-of-type(even) {
     background-color: #f9f9f9;
@@ -62,6 +63,8 @@
 .table-buy {
   @media (max-width: 767px) {
     font-size: 12px;
+    display: block;
+    overflow-x: auto;
   }
   @media (max-width: 525px) {
     font-size: 10px;
@@ -71,8 +74,7 @@
       font-size: 10px;
     }
     font-size: 12px;
-    font-family: $GothamMedium;
-    font-weight: normal;
+    font-weight: 600;
   }
   td, th {
     border: none;
@@ -95,7 +97,7 @@
   }
   tbody tr td:nth-of-type(2) {
     div {
-      font-family: $GothamMedium;
+      font-weight: 600;
       width: 64px;
       height: 27px;
       display: flex;

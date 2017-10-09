@@ -17,14 +17,15 @@
         .col
           .master-card-description
             .row.justify-content-space-between
-              .col
+              .col-sm.col-12
                 p.master-card-description__header
                   = link_to profile.user.name, profile_path(profile)
-              div
+              div.sm-center
                 span.master-card-description__price
                   = profile.formatted_price
             p.master-card-description__text
               = profile.about.truncate(180) unless profile.about.blank?
+            hr.toggle-hr-sm/
             hide-show-element(
               inline-template="true"
             )

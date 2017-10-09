@@ -1,8 +1,10 @@
 = render layout: 'my/layout', locals: { width: 9 }
   .dr-content-header.dr-content-header--reverse
-    a.dr-btn-primary href=edit_my_user_path Редактировать
-    h1
-      | Ваш профиль заказчика
+    .center
+      a.dr-btn-primary.dr-btn-165 href=edit_my_user_path Редактировать
+    .center
+      h1
+        | Ваш профиль заказчика
   = render 'user_info'
   br/
   .dr-content-header
