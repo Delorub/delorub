@@ -32,7 +32,7 @@ production:
   yandex_kassa_url: 'https://money.yandex.ru/eshop.xml'
   base_url: 'https://delorub.ru'
   shop_id: '155590'
-  scid: '557653'
+  scid: '147953'
   shop_password: '67696hgjfgkr'
   base_url: 'https://delorub.ru'
 

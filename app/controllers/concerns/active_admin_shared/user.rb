@@ -9,7 +9,7 @@ module ActiveAdminShared::User
     end
 
     dsl.send :sidebar, 'Изображение', only: :show, if: proc{ !user.photo.file.nil? } do
-      img src: user.photo.upload_preview.url
+      img src: user.photo.small.url
     end
   end
 end
