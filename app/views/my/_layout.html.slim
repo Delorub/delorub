@@ -3,6 +3,6 @@
   .container
     .row
       = render 'my/shared/sidebar'
-      div class=("col-lg-#{width ||= 8}")
+      div#panel class=("col-lg-#{width ||= 8}")
         = render 'shared/flash'
         = yield

@@ -1,7 +1,7 @@
 import 'app'
 import $ from 'jquery'
 import 'bootstrap/dist/js/bootstrap.js'
-import Hammer from 'hammerjs/hammer.js'
+import Slideout from 'slideout/dist/slideout.js'
 import 'jquery-ujs'
 
 $(function () {
@@ -25,12 +25,13 @@ $(function () {
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
   })
-})
 
-var sidebar = document.getElementById('#sidebar')
-
-sidebar.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL })
-
-Hammer(sidebar).on('swiperight', function () {
-  $(this).animate({left: '+=100'}, 500)
+  /* eslint no-unused-vars: off */
+  /* eslint no-undef: off */
+  var slideout = new Slideout({
+    'panel': document.getElementById('panel'),
+    'menu': document.getElementById('menu'),
+    'padding': 230,
+    'tolerance': 70
+  })
 })
