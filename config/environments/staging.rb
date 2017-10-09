@@ -84,5 +84,6 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :sendmail
 
-  config.action_mailer.default_url_options = { host: 'new.delorub.ru' }
+  config.action_mailer.default_url_options = { host: Figaro.env.base_url }
+  config.action_mailer.asset_host = Figaro.env.base_url
 end

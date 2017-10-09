@@ -8,7 +8,7 @@
     &__image {
       position: relative;
       max-width: 90px;
-      margin: 0 auto;
+      margin: 0 auto 1rem;
       img {
         border-radius: 50%;
         max-width: 90px;
@@ -50,15 +50,23 @@
       padding-left: 10px;
     }
     .show_contacts_all {
-      margin-bottom: 3px;
       display: inline-block;
+      @media (max-width: 575px) {
+        margin-top: 1rem;
+      }
     }
     &__header {
       font-weight: bold;
       font-size: 1.2rem;
       margin-bottom: 1.5rem;
+      @extend .sm-center;
       a {
         @extend .link-default;
+      }
+    }
+    &__text {
+      @media (max-width: 575px) {
+        margin-top: 1rem;
       }
     }
     &__offline {
@@ -78,6 +86,9 @@
       font-size: 1.3rem;
       margin-right: 15px;
       font-weight: bold;
+      @media (max-width: 575px) {
+        margin-right: 0;
+      }
     }
     &__phone {
       margin-left: 2rem;

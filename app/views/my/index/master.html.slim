@@ -1,14 +1,16 @@
 = render layout: 'my/layout', locals: { width: 9 }
   .dr-content-header.dr-content-header--reverse
-    a.dr-btn-primary href=edit_my_user_path Редактировать
-    h1
-      | Ваш профиль исполнителя
+    .center
+      a.dr-btn-primary.dr-btn-165 href=edit_my_user_path Редактировать
+    .center
+      h1
+        | Ваш профиль исполнителя
   = render 'master_info'
   .dr-block-style
     .dr-profile-card__contacts
       .row
         - if current_user.phone.present?
-          .col-md-5
+          .col-md-5.margin-bottom-10-md
             span.dr-profile-card__contacts-header
              ' Телефон:
             span = current_user.phone
@@ -39,11 +41,13 @@
           h2
             | Обо мне
         .performer-description-about__text
-          .expand-block.expand-block--hide
-            span.all_text style="display:none"
-              = simple_format current_user.profile.about
-            span.short_text
-              = simple_format current_user.profile.about.truncate(200)
-              - if current_user.profile.about.length > 200
-                a.link-default.category_desc_accordion href="#"
-                  | Развернуть
+          hide-show-element(
+            inline-template="true"
+          )
+            .expand-block.expand-block--hide
+              span.all_text(v-show="isShow")
+                = simple_format current_user.profile.about
+              span.short_text(v-show="!isShow")
+                = simple_format current_user.profile.about.truncate(200)
+                - if current_user.profile.about.length > 200
+                  a.link-default.category_desc_accordion href="#" @click.prevent="toggleShow" Развернуть

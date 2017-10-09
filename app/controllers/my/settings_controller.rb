@@ -25,6 +25,7 @@ class My::SettingsController < My::ApplicationController
 
     def update_master
       run User::Operation::Settings, user_params do |result|
+        bypass_sign_in(result['model'])
         return redirect_to edit_my_settings_path, notice: 'Настройки отредактированы'
       end
 
@@ -39,6 +40,7 @@ class My::SettingsController < My::ApplicationController
 
     def update_user
       run User::Operation::Settings, user_params do |result|
+        bypass_sign_in(result['model'])
         return redirect_to edit_my_settings_path, notice: 'Настройки отредактированы'
       end
 

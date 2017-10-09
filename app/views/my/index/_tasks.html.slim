@@ -8,7 +8,7 @@
         .row
           .col
             .row
-              .col
+              .col-sm.col-12
                 .task-card-description
                   p.task-card-description__header
                     = link_to task.title.truncate(60), task_path(task)
@@ -39,7 +39,9 @@
       hr/
       .task-card-container
         .task-card-link
-          div
-            = link_to 'Удалить задание', task, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'link-default'
-            a.link-default href=edit_task_path(task)  Редактировать
+          .row
+            .col-sm-auto.col-12
+              = link_to 'Удалить задание', task, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'link-default'
+            .col-sm-auto.col-12
+              a.link-default href=edit_task_path(task)  Редактировать
   = paginate @tasks, theme: 'custom_theme'

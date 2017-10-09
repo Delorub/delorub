@@ -1,5 +1,6 @@
 ActiveAdmin.register User::BillingLog, namespace: :admin do
   config.batch_actions = false
+  actions :index, :show
 
   filter :user_id, as: :ransack_filter, url: '/admin/users', display_name: 'name'
   filter :billable_type
@@ -12,21 +13,13 @@ ActiveAdmin.register User::BillingLog, namespace: :admin do
         "#{log.sum} руб."
       end
     end
+    column :state do |log|
+      span class: "status_tag #{billing_log_state_class(log.state)}" do
+        User::BillingLog.human_attribute_name(log.state)
+      end
+    end
     column :user
     column :created_at
-  end
-
-  show do
-    h3 news.title
-    div do
-      simple_format news.content
-    end
-  end
-
-  sidebar 'Информация', only: :show do
-    attributes_table_for news do
-      row :created_at
-      row :updated_at
-    end
+    actions
   end
 end

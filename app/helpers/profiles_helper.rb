@@ -10,10 +10,6 @@ module ProfilesHelper
     end
   end
 
-  def order_direction_boolean direction_order
-    direction_order.present? && direction_order.to_i == 1 ? true : false
-  end
-
   def formatted_header_category category, city_settings = nil
     city_settings && city_settings.settings.dig(:h1).present? ? city_settings.settings.dig(:h1) : category.title
   end
@@ -27,7 +23,7 @@ module ProfilesHelper
     if category.present?
       city.present? ? category_profiles_path(category, city_code: city.slug) : category_profiles_path(category)
     else
-      city.present? ? profiles_path(city_code: city.slug) : profiles_path
+      url_for(controller: 'profiles', action: 'index', city_code: city.present? ? city.slug : nil)
     end
   end
 

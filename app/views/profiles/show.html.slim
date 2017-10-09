@@ -1,6 +1,7 @@
 .regular-content
   .container
     = render 'breadcrumb'
+    = render 'shared/flash'
     br/
     .row
       .col-lg-4
@@ -12,17 +13,21 @@
                 = online_status profile.user.online?
             .performer-profile-main__price
               = profile.formatted_price
-            .performer-profile-main__button
-              a.dr-btn-primary.dr-btn-220.show_contacts href="#"  Показать контакты
-            .performer-profile-main__contacts style="display: none"
-              - unless profile.user.phone.blank?
-                p
-                  img src="/images/icons/phone.svg" alt="phone" /
-                  = profile.user.phone
-              - unless profile.user.email.blank?
-                p
-                  img src="/images/icons/mail.svg" alt="email" /
-                  = profile.user.email
+            hide-show-element(
+              inline-template="true"
+            )
+              div
+                .performer-profile-main__button @click.prevent="toggleShow" v-show="!isShow"
+                  a.dr-btn-primary.dr-btn-220 href="#"  Показать контакты
+                .performer-profile-main__contacts(v-show="isShow")
+                  - unless profile.user.phone.blank?
+                    p
+                      img src="/images/icons/phone.svg" alt="phone" /
+                      = profile.user.phone
+                  - unless profile.user.email.blank?
+                    p
+                      img src="/images/icons/mail.svg" alt="mail" /
+                      = profile.user.email
         = render 'specializations'
       .col-lg-8
         .dr-block-style.dr-block-style--category
