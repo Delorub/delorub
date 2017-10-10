@@ -10,12 +10,13 @@
 #  updated_at :datetime         not null
 #
 
-class Billing::ManualTransfer < ApplicationRecord
-  self.table_name = 'billing_manual_transfer'
+class Billing::TransferManually < ApplicationRecord
+  self.table_name = 'billing_transfer_manually'
 
   include Billing::Base
 
   belongs_to :admin, class_name: 'User'
+  belongs_to :user
 
   validates :admin, presence: true
 

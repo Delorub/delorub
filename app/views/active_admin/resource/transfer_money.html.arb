@@ -1,7 +1,25 @@
-active_admin_form_for billing_resource, url: namespaced_path('transfer_money_namespace_user_path', resource), method: :put do |f|
-  f.inputs do
-    f.input :amount
-    para "Данная сумма будет зачислена на счет пользователя с примечанием «Ручное зачисление»"
-    f.actions
-  end
+panel 'Пополнение баланса' do
+    form_for billing_resource, url: namespaced_path('transfer_money_namespace_user_path', resource), method: :put do |f|
+        table do
+          tr do
+            td b 'Сумма'
+            td do
+                f.text_field :amount
+            end
+          end
+          tr do
+            td colspan:2 do
+                f.submit 'Пополнить'
+            end
+          end
+        end
+    end
 end
+
+#active_admin_form_for billing_resource, url: namespaced_path('transfer_money_namespace_user_path', resource), method: :put do |f|
+  #f.inputs do
+  #  f.input :amount
+  #  para "Данная сумма будет зачислена на счет пользователя с примечанием «Ручное зачисление»"
+  #  f.actions
+  #end
+#end
