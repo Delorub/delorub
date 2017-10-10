@@ -1,7 +1,6 @@
 import 'app'
 import $ from 'jquery'
 import 'bootstrap/dist/js/bootstrap.js'
-import Slideout from 'slideout/dist/slideout.js'
 import 'jquery-ujs'
 
 $(function () {
@@ -24,14 +23,5 @@ $(function () {
 
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
-  })
-
-  /* eslint no-unused-vars: off */
-  /* eslint no-undef: off */
-  var slideout = new Slideout({
-    'panel': document.getElementById('panel'),
-    'menu': document.getElementById('menu'),
-    'padding': 230,
-    'tolerance': 70
   })
 })
