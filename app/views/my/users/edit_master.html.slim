@@ -8,6 +8,7 @@
         .dr-content-header
           h1
             | Настройки профиля исполнителя
+        = render 'my/shared/navigation'
         .dr-block-style
           = render 'my/users/form/main', f: f
           hr.dr-block-hr/
@@ -56,3 +57,5 @@
           = render 'profiles/form/about', f: pf
         br/
         input.dr-btn-primary type="submit" value="Сохранить" /
+        br/
+        br.hide-on-large /

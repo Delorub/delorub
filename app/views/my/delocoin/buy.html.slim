@@ -2,6 +2,7 @@
   .dr-content-header
     h1
       | Купить Delocoin
+  = render 'my/shared/navigation'
   delocoin-buy-form(
     inline-template="true"
     :initial-model=@form.to_nested_hash.to_json
@@ -52,3 +53,4 @@
         br/
         div
           input.dr-btn-danger type="submit" role="button" value="Продолжить" :disabled="!canPay"
+        br.hide-on-large /

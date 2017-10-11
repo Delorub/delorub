@@ -22,10 +22,24 @@
         margin-left: 30px;
       }
     }
+    @media (max-width: 575px) {
+      height: 80vh;
+    }
   }
   @media (max-width: 448px) {
     .index-image {
-      height: 140vh;
+      background-size: 450px;
+      .container {
+        &:first-child {
+          top: 55%;
+        }
+      }
+      &-content {
+        a {
+          display: block;
+          margin: 10px auto !important;
+        }
+      }
     }
   }
   @media (min-width: 1600px) {

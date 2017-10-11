@@ -2,8 +2,11 @@
   .dr-content-header
     h1
       | Настройки профиля заказчика
+  = render 'my/shared/navigation'
   = simple_form_for(@form, url: my_user_path) do |f|
     .dr-block-style
       = render 'my/users/form/main', f: f
     br/
     input.dr-btn-primary type="submit" value="Сохранить" /
+    br/
+    br.hide-on-large /

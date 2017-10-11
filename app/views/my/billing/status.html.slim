@@ -2,6 +2,7 @@
   .dr-content-header
     h1
       | Состояние операции
+  = render 'my/shared/navigation'
   .dr-block-style.dr-block-style--sort-padding
     - case model.state.to_sym
       - when :finished
@@ -22,3 +23,4 @@
   div
     a.dr-btn-primary.dr-btn-margin-right-20 href=my_billing_index_path role="button" Вернуться
     a.dr-btn-danger href=my_billing_index_path role="button" Продолжить
+  br.hide-on-large /

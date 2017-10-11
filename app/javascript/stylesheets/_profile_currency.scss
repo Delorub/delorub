@@ -7,10 +7,12 @@
   }
   a.dr-btn-danger {
     margin-bottom: 1rem;
-    padding-left: 0;
-    padding-right: 0;
-    min-width: 100%;
-    @media (min-width: 1199px) {
+    @media (min-width: 992px) {
+      min-width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    @media (min-width: 1200px) {
       min-width: calc(100% - 20px);
     }
   }
@@ -83,8 +85,10 @@
     justify-content: space-between;
   }
   &-current {
-    display: flex;
-    align-items: center;
+    @media (min-width: 768px) {
+      display: flex;
+      align-items: center;
+    }
     padding: 10px 0;
     @media (max-width: 457px) {
       margin-bottom: 1rem;
@@ -94,6 +98,15 @@
     img {
       width: 32px;
       margin-left: 20px;
+    }
+    div + img {
+      margin-left: 20px;
+    }
+    @media (max-width: 767px) {
+      margin-top: 15px;
+      img {
+        margin-left: 0;
+      }
     }
   }
   .row {
