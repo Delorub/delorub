@@ -138,16 +138,14 @@
   }
   &__contacts {
     margin-top: 1rem;
-    .col-md-auto {
-      margin-bottom: 1px;
+    .contacts-container {
+      display: flex;
       @media (max-width: 575px) {
-        text-align: center;
-      }
-    }
-    .col-md-auto + .col-md-auto {
-      span {
-        @media (max-width: 575px) {
-          display: block;
+        flex-direction: column;
+        div {
+          text-align: center;
+        }
+        div+div {
           margin-top: 10px;
         }
       }
