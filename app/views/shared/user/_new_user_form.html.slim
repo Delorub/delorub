@@ -13,7 +13,7 @@ div id="form_contacts" v-on:click="showTooltip('form_contacts')"
           'v-on:focus': %(showTooltip('form_contacts')),
         }
       .form__error-message
-        span = f.error (f.object.errors.keys & [:name, :email]).first
+        p = f.error (f.object.errors.keys & [:name, :email]).first
   .form__phone
     span Укажите ваш номер телефона и подтвердите его
   = render 'shared/phone_confirmation', f: f
