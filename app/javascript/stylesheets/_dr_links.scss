@@ -32,31 +32,24 @@
 
 .link-white {
   transition: 0.3s;
-  color: #d1d1d1;
-  font-size: 0.8rem;
+  color: #fff;
+  font-size: 14px;
   &:hover {
     color: #70bee9 !important;
   }
   &:active {
-    color: #d1d1d1;
+    color: #fff;
   }
   &:visited {
-    color: #d1d1d1;
+    color: #fff;
   }
   &-bold {
-    transition: 0.3s;
     font-weight: bold;
-    color: #ffffff;
-    font-size: 1.1rem;
-    &:hover {
-      color: #70bee9 !important;
-    }
-    &:active {
-      color: #ffffff;
-    }
-    &:visited {
-      color: #ffffff;
-    }
+    font-size: 18px;
+  }
+  &-dashed {
+    font-weight: bold;
+    border-bottom: dashed 1px #ffffff;
   }
 }
 
