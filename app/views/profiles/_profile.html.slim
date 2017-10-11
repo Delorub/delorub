@@ -32,14 +32,14 @@
               div
                 a.link-default href="#" role="button" @click.prevent="toggleShow" v-show="!isShow" Показать номер телефона
                 .performer-profile-main__contacts(v-show="isShow")
-                  .row
+                  .contacts-container
                     - unless profile.user.phone.blank?
-                      .col-md-auto
+                      div
                         span
                           img src="/images/icons/phone.svg" alt="phone" /
                           = profile.user.phone
                     - unless profile.user.email.blank?
-                      .col-md-auto
+                      div
                         span
                           img src="/images/icons/mail.svg" alt="email" /
                           = profile.user.email
