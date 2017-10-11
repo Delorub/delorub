@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: billing_transfer_manually
+# Table name: billing_manual_transfer
 #
 #  id         :integer          not null, primary key
 #  user_id    :integer
@@ -10,8 +10,8 @@
 #  updated_at :datetime         not null
 #
 
-class Billing::TransferManually < ApplicationRecord
-  self.table_name = 'billing_transfer_manually'
+class Billing::ManualTransfer < ApplicationRecord
+  self.table_name = 'billing_manual_transfer'
 
   include Billing::Base
 

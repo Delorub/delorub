@@ -13,12 +13,13 @@ module ActiveAdminShared::UserBilling
   class << self
     def transfer_money dsl
       dsl.send :member_action, :transfer_money, method: [:get, :put] do
-        @billing_resource = Billing::TransferManually.new(user: resource)
+        run Billing::ManualTransfer::Operation::Create::Present
+        @billing_resource = @form
 
         if request.put?
-          @billing_resource.attributes = params[:billing_transfer_manually].permit(:amount)
-          if @billing_resource.save
-            redirect_to resource_path, notice: 'Сумма успешно зачислена на счет'
+          run Billing::ManualTransfer::Operation::Create, params[:billing_manual_transfer], user: resource do |result|
+            run Billing::ManualTransfer::Operation::Finish, id: result['model'].id
+            return redirect_to resource_path, notice: 'Сумма успешно зачислена на счет'
           end
         end
       end

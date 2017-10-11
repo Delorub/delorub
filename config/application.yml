@@ -12,6 +12,15 @@ vkontakte_app_secret: 'Xb0QfdGTu0myb4MAGxph'
 facebook_app_id: '161878731019435'
 facebook_app_secret: '26f3e11a32ed00ee8e490e51b17a1b19'
 
+roistat_apy_key: 'NzE1NDc6NTc2MDM6YzE4NTg2N2U3ZjMzMmQwNWM0NDNkZGZkNWY2YmI4Mzg'
+roistat_create_delocoin_buy_title: 'Выбрал пакет и оплату'
+roistat_create_delocoin_buy_status_id: '16636246'
+
+roistat_finish_delocoin_buy_title: 'Купил пакет'
+roistat_finish_delocoin_buy_status_id: '16603819'
+
+roistat_delocoin_buy_field_cost_id: '366243'
+
 development:
   yandex_kassa_url: 'https://demomoney.yandex.ru/eshop.xml'
   base_url: 'http://localhost:5000'

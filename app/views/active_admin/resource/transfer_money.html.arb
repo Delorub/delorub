@@ -15,11 +15,3 @@ panel 'Пополнение баланса' do
         end
     end
 end
-
-#active_admin_form_for billing_resource, url: namespaced_path('transfer_money_namespace_user_path', resource), method: :put do |f|
-  #f.inputs do
-  #  f.input :amount
-  #  para "Данная сумма будет зачислена на счет пользователя с примечанием «Ручное зачисление»"
-  #  f.actions
-  #end
-#end

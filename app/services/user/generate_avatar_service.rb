@@ -7,6 +7,6 @@ class User::GenerateAvatarService
   end
 
   def perform
-    Dragonfly.app.generate(:initial_avatar, name.first, background_color: COLORS.sample)
+    Dragonfly.app.generate(:initial_avatar, name.first.upcase, background_color: COLORS.sample)
   end
 end

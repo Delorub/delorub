@@ -3,6 +3,7 @@ module ActiveAdminShared::User
 
   def self.included dsl
     dsl.send :filter, :by_search_in, label: 'Поиск', as: :string
+    dsl.send :filter, :created_at
 
     dsl.send :show do
       render 'user_show'

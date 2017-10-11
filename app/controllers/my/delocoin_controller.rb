@@ -35,6 +35,7 @@ class My::DelocoinController < My::ApplicationController
                           result['model']
                         end
 
+        Roistat::DelocoinBuy::CreateWorker.perform_async(result['model'].id, cookies[:roistat_visit])
         redirect_to confirm_my_billing_path(id: payment_model.billing_log.id)
       end
     end
