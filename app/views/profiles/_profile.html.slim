@@ -29,9 +29,9 @@
             hide-show-element(
               inline-template="true"
             )
-              div
+              .performer-profile-main__contacts
                 a.link-default href="#" role="button" @click.prevent="toggleShow" v-show="!isShow" Показать номер телефона
-                .performer-profile-main__contacts(v-show="isShow")
+                div(v-show="isShow")
                   .contacts-container
                     - unless profile.user.phone.blank?
                       div

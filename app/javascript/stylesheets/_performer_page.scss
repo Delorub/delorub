@@ -140,12 +140,16 @@
     margin-top: 1rem;
     .contacts-container {
       display: flex;
+      div+div {
+          margin-left: 15px;
+        }
       @media (max-width: 575px) {
         flex-direction: column;
         div {
           text-align: center;
         }
         div+div {
+          margin-left: 0;
           margin-top: 10px;
         }
       }
