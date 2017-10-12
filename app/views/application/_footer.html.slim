@@ -8,7 +8,7 @@ footer(itemscope itemtype="http://schema.org/WPFooter")
               .dr-footer-block
                 ul(itemscope itemtype="http://www.schema.org/SiteNavigationElement")
                   li itemprop="name"
-                    a.link-white-bold itemprop="url" href="/" Главная
+                    a.link-white.link-white-bold itemprop="url" href="/" Главная
                   - unless user_signed_in?
                     li itemprop="name"
                       a.link-white itemprop="url" href=new_user_registration_path Стать заказчиком
@@ -20,7 +20,7 @@ footer(itemscope itemtype="http://schema.org/WPFooter")
               .dr-footer-block
                 ul(itemscope itemtype="http://www.schema.org/SiteNavigationElement")
                   li itemprop="name"
-                    a.link-white-bold itemprop="url" href=policy_path Конфиденциальность
+                    a.link-white.link-white-bold itemprop="url" href=policy_path Конфиденциальность
                   li itemprop="name"
                     a.link-white itemprop="url" href=terms_path Пользовательское соглашение
                   li itemprop="name"
@@ -30,28 +30,52 @@ footer(itemscope itemtype="http://schema.org/WPFooter")
                   li itemprop="name"
                     a.link-white itemprop="url" href=price_list_path Стоимость услуг
         .dr-footer-right
-          .dr-footer-block(itemscope itemtype="http://schema.org/Organization")
+          .dr-footer-block
             ul
-              li(itemprop="address" itemscope itemtype="http://schema.org/PostalAddress")
-                a.link-white-bold href="#" itemprop="addressLocality" Санкт-Петербург
               li
-                a.link-white-bold href="mailto:info@delorub.ru" itemprop="email" Email: info@delorub.ru
+                a.link-white.link-white-dashed href=new_task_path  Создать задание
+              li
+                a.link-white.link-white-dashed href=new_profile_path Стать исполнителем
     .dr-footer-sub
       .container
         .dr-footer-sub__content
-          .dr-footer-sub__copyright
-            i.fa.fa-copyright aria-hidden="true"
-            span itemprop="copyrightYear"
-              |  2017
-            span
-              |  Delorub. Все права защищены
-          .dr-footer-sub__social
-            div
-              a href="#" data-identity="footer_vk"
-                img alt="vkontakte" rel="nofollow" src="/images/design/vk.png" /
-            div
-              a href="#" data-identity="footer_fb"
-                img alt="facebook" rel="nofollow" src="/images/design/fb.png" /
-            div
-              a href="#" data-identity="footer_ok"
-                img alt="odnoklassniki" rel="nofollow" src="/images/design/ok.png" /
+          .dr-footer-sub-left
+            .dr-footer-sub__info(itemscope itemtype="http://schema.org/Organization")
+              h2.margin-bottom-10 itemprop="email" info@delorub.ru
+              .dr-h5.margin-bottom-05
+                span itemprop="telephone"
+                |  8-967-303-60-93
+                span itemprop="addressLocality"
+                |  г. Cанкт-Петербург,
+                span itemprop="streetAddress"
+                |  ул. Профессора Попова, 23м, оф.№213
+                br/
+                span itemprop="telephone"
+                |  8-967-303-60-93
+                span itemprop="addressLocality"
+                |  г. Москва,
+                span itemprop="streetAddress"
+                |  ул. Мельникова, 29
+              div
+                span
+                |  Время работы:  пн-пт с 10 до 21
+          .dr-footer-sub-right
+            h2 Мы в соцсетях
+            .dr-footer-sub__social
+              div
+                a href="#" data-identity="footer_vk"
+                  img alt="vkontakte" rel="nofollow" src="/images/design/vk.png" /
+              div
+                a href="#" data-identity="footer_fb"
+                  img alt="facebook" rel="nofollow" src="/images/design/fb.png" /
+              div
+                a href="#" data-identity="footer_ok"
+                  img alt="odnoklassniki" rel="nofollow" src="/images/design/ok.png" /
+            .dr-footer-sub__copyright
+              i.fa.fa-copyright aria-hidden="true"
+              span itemprop="copyrightYear"
+                |  2017
+              span itemprop="name"
+                |  Delorub.
+              span
+                |  Все права защищены
