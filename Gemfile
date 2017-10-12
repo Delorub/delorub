@@ -90,6 +90,9 @@ gem 'foreman'
 gem 'dotiw'
 gem 'sitemap_generator'
 gem 'whenever', require: false
+
+# External services
+gem 'newrelic_rpm'
 gem 'rollbar'
 
 # CHECK

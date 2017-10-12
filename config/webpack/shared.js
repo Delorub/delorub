@@ -9,7 +9,7 @@ const { sync } = require('glob')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const extname = require('path-complete-extname')
-const { env, settings, output, loadersDir } = require('./configuration.js')
+const { env, settings, output, loadersDir, gitVersion, rollbarClientAccessToken } = require('./configuration.js')
 
 const extensionGlob = `**/*{${settings.extensions.join(',')}}*`
 const entryPath = join(settings.source_path, settings.source_entry_path)
@@ -38,6 +38,15 @@ module.exports = {
   plugins: [
     new webpack.EnvironmentPlugin(JSON.parse(JSON.stringify(env))),
     new ExtractTextPlugin(env.NODE_ENV === 'production' ? '[name]-[chunkhash].css' : '[name].css'),
+    new webpack.DefinePlugin({
+      /* eslint-disable quote-props */
+      'process.env': {
+        'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+      },
+      /* eslint-enable quote-props */
+      __ROLLBAR_ACCESS_TOKEN__: JSON.stringify(rollbarClientAccessToken),
+      __GIT_REVISION__: JSON.stringify(gitVersion)
+    }),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',

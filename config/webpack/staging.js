@@ -1,11 +1,12 @@
 // Note: You must restart bin/webpack-dev-server for changes to take effect
 
 /* eslint global-require: 0 */
-
+const RollbarSourceMapPlugin = require('rollbar-sourcemap-webpack-plugin')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const CompressionPlugin = require('compression-webpack-plugin')
 const sharedConfig = require('./shared.js')
+const { output, gitVersion, rollbarServerAccessToken } = require('./configuration.js')
 
 module.exports = merge(sharedConfig, {
   output: { filename: '[name].js' },
@@ -34,6 +35,11 @@ module.exports = merge(sharedConfig, {
       asset: '[path].gz[query]',
       algorithm: 'gzip',
       test: /\.(js|css|html|json|ico|svg|eot|otf|ttf)$/
+    }),
+    new RollbarSourceMapPlugin({
+      accessToken: rollbarServerAccessToken,
+      version: gitVersion,
+      publicPath: output.publicPath
     })
   ]
 })

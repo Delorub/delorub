@@ -1,3 +1,5 @@
+import '../lib/rollbar'
+
 import './common'
 import './visitor_sessions'
 
