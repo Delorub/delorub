@@ -12,7 +12,7 @@
 
 common: &default_settings
   # Required license key associated with your New Relic account.
-  license_key: c1a57d89a10320221ada5fb4a0ccc7fd6c16f4e1
+  license_key: e4b4fb18349f7ebbf6809438aa1104e4539c8b1b
 
   # Your application name. Renaming here affects where data displays in New
   # Relic.  For more details, see https://docs.newrelic.com/docs/apm/new-relic-apm/maintenance/renaming-applications
@@ -30,7 +30,7 @@ common: &default_settings
 # If your application has other named environments, configure them here.
 development:
   <<: *default_settings
-  app_name: Delorub (Development)
+  agent_enabled: false
 
 test:
   <<: *default_settings

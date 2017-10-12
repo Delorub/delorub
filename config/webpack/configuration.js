@@ -38,10 +38,19 @@ try {
     encoding: 'utf8'
   })
 } catch (err) {
-  // eslint-disable-line no-console
-  console.log('Error getting revision', err)
-  process.exit(1)
+  try {
+    gitVersion = cp.execSync('cat ' + resolve('REVISION'), {
+      cwd: __dirname,
+      encoding: 'utf8'
+    })
+  } catch (err) {
+    // eslint-disable-line no-console
+    console.log('Error getting revision', err)
+    process.exit(1)
+  }
 }
+
+console.log(gitVersion)
 
 module.exports = {
   settings,
