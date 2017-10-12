@@ -90,6 +90,7 @@ gem 'foreman'
 gem 'dotiw'
 gem 'sitemap_generator'
 gem 'whenever', require: false
+gem 'rollbar'
 
 # CHECK
 gem 'petrovich', '~> 1.0'

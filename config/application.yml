@@ -15,11 +15,11 @@ facebook_app_secret: '26f3e11a32ed00ee8e490e51b17a1b19'
 roistat_apy_key: 'NzE1NDc6NTc2MDM6YzE4NTg2N2U3ZjMzMmQwNWM0NDNkZGZkNWY2YmI4Mzg'
 roistat_create_delocoin_buy_title: 'Выбрал пакет и оплату'
 roistat_create_delocoin_buy_status_id: '16636246'
-
 roistat_finish_delocoin_buy_title: 'Купил пакет'
 roistat_finish_delocoin_buy_status_id: '16603819'
-
 roistat_delocoin_buy_field_cost_id: '366243'
+
+rollbar_access_token: 'b8c60cbe68e74d888ef43f3837df377f'
 
 development:
   yandex_kassa_url: 'https://demomoney.yandex.ru/eshop.xml'
@@ -27,7 +27,6 @@ development:
   shop_id: '155590'
   scid: '557653'
   shop_password: '67696hgjfgkr'
-  base_url: 'http://localhost:5000'
 
 staging:
   yandex_kassa_url: 'https://demomoney.yandex.ru/eshop.xml'
@@ -35,7 +34,6 @@ staging:
   shop_id: '155590'
   scid: '557653'
   shop_password: '67696hgjfgkr'
-  base_url: 'https://new.delorub.ru'
 
 production:
   yandex_kassa_url: 'https://money.yandex.ru/eshop.xml'
@@ -43,7 +41,6 @@ production:
   shop_id: '155590'
   scid: '147953'
   shop_password: '67696hgjfgkr'
-  base_url: 'https://delorub.ru'
 
 test:
   shop_id: '155590'

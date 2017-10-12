@@ -23,6 +23,9 @@ require 'capistrano/rails/migrations'
 require 'slackistrano/capistrano'
 require_relative 'lib/slackistrano/custom_messaging'
 
+# Rollbar
+require 'rollbar/capistrano3'
+
 # Load Puma
 require 'capistrano/puma'
 install_plugin Capistrano::Puma
