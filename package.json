@@ -51,6 +51,8 @@
     "pug": "^2.0.0-rc.4",
     "rails-erb-loader": "^5.0.2",
     "resolve-url-loader": "^2.1.0",
+    "rollbar": "^2.2.9",
+    "rollbar-sourcemap-webpack-plugin": "^2.2.0",
     "sass-loader": "^6.0.6",
     "selectize": "^0.12.4",
     "slideout": "^1.0.1",
@@ -63,7 +65,7 @@
     "vue-multiselect": "^2.0.2",
     "vue-template-compiler": "^2.4.1",
     "webpack": "^3.2.0",
-    "webpack-dev-server": "^2.5.1",
+    "webpack-dev-server": "^2.9.1",
     "webpack-manifest-plugin": "^1.1.2",
     "webpack-merge": "^4.1.0"
   }

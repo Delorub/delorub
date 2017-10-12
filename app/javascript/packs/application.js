@@ -1,3 +1,5 @@
+import '../lib/rollbar'
+
 import './common'
 import './visitor_sessions'
 
@@ -42,6 +44,13 @@ if (token !== undefined) {
   axios.defaults.headers.common['X-CSRF-Token'] = token.getAttribute('content')
 }
 axios.defaults.headers.common['Accept'] = 'application/json'
+
+if (process.env.NODE_ENV === 'production') {
+  Vue.config.devtools = false
+  Vue.config.debug = false
+  Vue.config.silent = true
+  Vue.config.productionTip = false
+}
 
 Vue.use(VueMeta)
 
