@@ -75,7 +75,7 @@ gem 'httparty'
 gem 'uglifier'
 gem 'erubis'
 gem 'yui-compressor'
-gem 'webpacker'
+gem 'webpacker', '~> 3.0'
 gem 'react-rails'
 gem 'mini_racer', platforms: :ruby
 
@@ -90,6 +90,9 @@ gem 'foreman'
 gem 'dotiw'
 gem 'sitemap_generator'
 gem 'whenever', require: false
+
+# External services
+gem 'newrelic_rpm'
 gem 'rollbar'
 
 # CHECK
