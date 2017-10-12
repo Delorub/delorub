@@ -52,8 +52,6 @@ if (process.env.NODE_ENV === 'production') {
   Vue.config.productionTip = false
 }
 
-console.log(Vue.config)
-
 Vue.use(VueMeta)
 
 // Fields
