@@ -382,6 +382,7 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (4.1.0)
+    newrelic_rpm (4.2.0.334)
     nio4r (2.1.0)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
@@ -441,6 +442,8 @@ GEM
     rack-accept (0.4.5)
       rack (>= 0.4)
     rack-protection (2.0.0)
+      rack
+    rack-proxy (0.6.2)
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -647,9 +650,9 @@ GEM
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
-    webpacker (2.0)
+    webpacker (3.0.1)
       activesupport (>= 4.2)
-      multi_json (~> 1.2)
+      rack-proxy (>= 0.6.1)
       railties (>= 4.2)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
@@ -724,6 +727,7 @@ DEPENDENCIES
   meta-tags
   mini_magick
   mini_racer
+  newrelic_rpm
   nokogiri
   oj
   omniauth
@@ -772,7 +776,7 @@ DEPENDENCIES
   translit
   uglifier
   webmock
-  webpacker
+  webpacker (~> 3.0)
   whenever
   wicked
   wicked_pdf
