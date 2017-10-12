@@ -5,7 +5,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     run User::Operation::Registration, params.require(:user).permit! do |result|
+      Roistat::Users::RegistrationWorker.perform_async(result['model'].id, cookies[:roistat_visit])
       sign_in result['model']
+
       return redirect_to my_welcome_index_path
     end
 

@@ -1,4 +1,3 @@
-# rubocop:disable ClassLength
 class VisitorSessionService
   attr_reader :request, :session, :cookies
 
@@ -119,4 +118,3 @@ class VisitorSessionService
       )
     end
 end
-# rubocop:enable ClassLength
