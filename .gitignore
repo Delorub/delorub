@@ -114,3 +114,7 @@ node_modules
 
 Microsoft/*
 /rvm.sh
+
+# Sitemaps
+public/sitemap.xml
+public/sitemaps/*
