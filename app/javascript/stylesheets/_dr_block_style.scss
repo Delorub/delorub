@@ -16,6 +16,9 @@
   &--no-padding, &--category {
     padding: 0;
   }
+  &--margin-bottom-6 {
+    margin-bottom: 6px;
+  }
   &--table {
     padding: 0 0 2px 0;
   }
@@ -32,6 +35,9 @@
     padding: 25px 0;
     &:hover {
       box-shadow: 0 4px 15px 0 rgba(150, 149, 149, 0.5);
+    }
+    hr {
+      margin: 0;
     }
   }
   &--profile {

@@ -44,9 +44,6 @@
       }
     }
   }
-  &-refinement {
-    min-height: 68px;
-  }
   &-refinement, &-button {
     margin: 0 15px;
     &__price {
@@ -95,8 +92,6 @@
   }
   &-error-message {
     color: #f44336;
-    border-top: solid 1px #e6e3e3;
-    margin-top: 1rem;
     padding-top: 1rem !important;
     p {
       font-weight: 600;
@@ -117,6 +112,9 @@
   }
   &-container {
     padding: 0 40px;
+  }
+  &-masters {
+    background-color: #fafbfc;
   }
 }
 

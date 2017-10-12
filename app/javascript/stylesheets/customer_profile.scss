@@ -68,6 +68,9 @@
     }
     a.link-secondary {
       margin-left: 1rem;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
     }
     &--margin-bottom {
       margin-bottom: 2rem;

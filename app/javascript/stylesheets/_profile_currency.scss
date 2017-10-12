@@ -16,6 +16,34 @@
       min-width: calc(100% - 20px);
     }
   }
+  .paid-function {
+    position: relative;
+    padding: 12px 30px 12px 40px;
+    &:first-child {
+      padding-top: 25px;
+    }
+    &:last-child {
+      padding-bottom: 25px;
+    }
+    a {
+      &:hover {
+        svg g {
+          fill: #519dc7;
+        }
+      }
+      svg {
+        position: absolute;
+        top: 0;
+        right: 15px;
+        g {
+          transition: .3s;
+        }
+      }
+      svg.first {
+        top: 15px;
+      }
+    }
+  }
 }
 
 .profile-confirm {
