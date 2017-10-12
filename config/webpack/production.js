@@ -2,11 +2,12 @@
 
 /* eslint global-require: 0 */
 
+const RollbarSourceMapPlugin = require('rollbar-sourcemap-webpack-plugin')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const CompressionPlugin = require('compression-webpack-plugin')
 const sharedConfig = require('./shared.js')
-const { output, gitVersion, rollbarServerAccessToken } = require('./configuration.js')
+const { gitVersion, rollbarServerAccessToken } = require('./configuration.js')
 
 module.exports = merge(sharedConfig, {
   output: { filename: '[name]-[chunkhash].js' },
@@ -39,7 +40,7 @@ module.exports = merge(sharedConfig, {
     new RollbarSourceMapPlugin({
       accessToken: rollbarServerAccessToken,
       version: gitVersion,
-      publicPath: output.publicPath
+      publicPath: 'http://delorub.ru/packs'
     })
   ]
 })

@@ -23,8 +23,6 @@ if (process.env.NODE_ENV === 'development') {
   rollbarConfig['payload']['client']['javascript']['guess_uncaught_frames'] = false
 }
 
-console.log(rollbarConfig)
-
 var Rollbar = new RollbarConstructor(rollbarConfig)
 
 export default Rollbar

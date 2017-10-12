@@ -7,8 +7,8 @@ default: &default
   cache_path: tmp/cache/webpacker
 
   resolved_paths: []
-
   cache_manifest: false
+  compile: false
 
   extensions:
     - .coffee
@@ -30,11 +30,18 @@ development:
   <<: *default
 
   dev_server:
-    host: 0.0.0.0
+    compile: false
+    https: false
+    host: localhost
     port: 8080
     https: false
+    public: localhost:8080
     contentBase:
       - public
+    inline: true
+    overlay: true
+    disable_host_check: true
+    use_local_ip: false
 
 test:
   <<: *default
