@@ -22,6 +22,10 @@ set :slackistrano,
 set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 set :whenever_environment, fetch(:stage)
 
-set :sidekiq_config, -> { File.join(current_path, 'config', 'sidekiq', "#{fetch(:stage)}.yml") }
+set :sidekiq_config, -> { File.join(current_path, 'config', 'sidekiq.yml') }
 set :sidekiq_env, fetch(:stage)
 set :pty, false
+
+set :rollbar_token, 'b8c60cbe68e74d888ef43f3837df377f'
+set :rollbar_env, -> { fetch :stage }
+set :rollbar_role, -> { :app }

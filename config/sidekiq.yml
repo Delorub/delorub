@@ -2,7 +2,12 @@
 :verbose: true
 :pidfile: ./tmp/pids/sidekiq.pid
 :logfile: ./log/sidekiq.log
-:concurrency: 1
+development:
+  :concurrency: 1
+staging:
+  :concurrency: 5
+production:
+  :concurrency: 10
 :queues:
   - default
   - mailers
