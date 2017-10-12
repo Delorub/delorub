@@ -87,8 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
       title: document.title
     }
   })
-
-  document.testRollbackError()
 })
 
 window.ymapscallback = () => {
