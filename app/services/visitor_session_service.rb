@@ -35,10 +35,11 @@ class VisitorSessionService
   def model
     @model ||= VisitorSession.find_or_initialize_by(id: cookies.permanent.encrypted[:visitor_session_id]) do |visitor_session|
       visitor_session.ip = request.ip
+
       begin
         visitor_session.city = Ipgeobase.lookup(request.ip).city
-      rescue
-        visitor_session.city = ''
+      rescue StandartError
+        visitor_session.city = nil
       end
     end
   end
