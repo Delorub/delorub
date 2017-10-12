@@ -50,8 +50,6 @@ try {
   }
 }
 
-console.log(gitVersion)
-
 module.exports = {
   settings,
   env,
