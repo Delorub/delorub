@@ -443,6 +443,8 @@ GEM
       rack (>= 0.4)
     rack-protection (2.0.0)
       rack
+    rack-proxy (0.6.2)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.1.2)
@@ -648,9 +650,9 @@ GEM
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
-    webpacker (2.0)
+    webpacker (3.0.1)
       activesupport (>= 4.2)
-      multi_json (~> 1.2)
+      rack-proxy (>= 0.6.1)
       railties (>= 4.2)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
@@ -774,7 +776,7 @@ DEPENDENCIES
   translit
   uglifier
   webmock
-  webpacker
+  webpacker (~> 3.0)
   whenever
   wicked
   wicked_pdf

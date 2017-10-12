@@ -75,7 +75,7 @@ gem 'httparty'
 gem 'uglifier'
 gem 'erubis'
 gem 'yui-compressor'
-gem 'webpacker'
+gem 'webpacker', '~> 3.0'
 gem 'react-rails'
 gem 'mini_racer', platforms: :ruby
 
