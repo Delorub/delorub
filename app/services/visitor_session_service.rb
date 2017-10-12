@@ -38,7 +38,7 @@ class VisitorSessionService
 
       begin
         visitor_session.city = Ipgeobase.lookup(request.ip).city
-      rescue StandartError
+      rescue StandardError
         visitor_session.city = nil
       end
     end
