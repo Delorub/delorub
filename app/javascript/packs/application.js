@@ -45,6 +45,15 @@ if (token !== undefined) {
 }
 axios.defaults.headers.common['Accept'] = 'application/json'
 
+if (process.env.NODE_ENV === 'production') {
+  Vue.config.devtools = false
+  Vue.config.debug = false
+  Vue.config.silent = true
+  Vue.config.productionTip = false
+}
+
+console.log(Vue.config)
+
 Vue.use(VueMeta)
 
 // Fields
