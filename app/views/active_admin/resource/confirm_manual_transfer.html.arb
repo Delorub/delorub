@@ -1,0 +1,25 @@
+panel 'Подтверждение пополнения баланса' do
+  form_for '', url: namespaced_path('confirm_manual_transfer_namespace_billing_manual_transfer_path', resource), method: :put do |f|
+    table do
+      tr do
+        td b 'Пользователь'
+        td b resource.user.email
+      end
+      tr do
+          td b 'Сумма'
+          td b resource.amount
+      end
+      table do
+          tr do
+            td style: 'width:100px' do
+                link_to 'Отменить', admin_user_path(resource.user), class: 'button', style: 'color:red'
+            end
+            td style: 'width:100px' do
+              f.submit 'Пополнить'
+            end
+            td
+          end
+      end
+    end
+  end
+end

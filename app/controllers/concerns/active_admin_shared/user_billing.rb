@@ -17,9 +17,8 @@ module ActiveAdminShared::UserBilling
         @billing_resource = @form
 
         if request.put?
-          run Billing::ManualTransfer::Operation::Create, params[:billing_manual_transfer], user: resource do |result|
-            run Billing::ManualTransfer::Operation::Finish, id: result['model'].id
-            return redirect_to resource_path, notice: 'Сумма успешно зачислена на счет'
+          run Billing::ManualTransfer::Operation::Create, params[:billing_manual_transfer].merge(user_id: resource.id) do |result|
+            return redirect_to confirm_manual_transfer_admin_billing_manual_transfer_path(result['model'])
           end
         end
       end
