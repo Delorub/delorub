@@ -11,10 +11,10 @@ module Billing::ManualTransfer::Operation
     step Wrap(Billing::Transaction) {
       step Rescue(handler: User::BillingLog::Step::RescueFail) {
         success :set_admin!
-        success :set_user!
         step Contract::Validate()
         step Contract::Persist()
         success :put_options_sum!
+        success :set_current_user!
         step User::BillingLog::Step::Create
       }
     }
@@ -28,14 +28,15 @@ module Billing::ManualTransfer::Operation
       params['admin'] = options['current_user']
     end
 
-    def set_user! options, params:, **_
-      params['user'] = options[:user]
-      options['current_user'] = options[:user]
+    def set_current_user! options, params:, model:, **_
+      options['current_user'] = model.user
     end
   end
 
   class Finish < Trailblazer::Operation
+    step Policy::Pundit(Admin::Billing::ManualTransferPolicy, :confirm_manual_transfer?)
     step Model(::Billing::ManualTransfer, :find_by)
+
     step Wrap(Billing::Transaction) {
       step Rescue(handler: User::BillingLog::Step::RescueFail) {
         success :set_current_user!

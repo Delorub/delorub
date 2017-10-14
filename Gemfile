@@ -61,7 +61,7 @@ gem 'ckeditor'
 # Attachments
 gem 'rmagick', require: false
 gem 'carrierwave', '~> 1.0'
-gem 'avatar_magick'
+gem 'avatarly'
 
 # API
 gem 'grape'

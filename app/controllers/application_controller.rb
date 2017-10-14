@@ -55,4 +55,8 @@ class ApplicationController < ActionController::Base
     def current_delocoin_step
       @_current_delocoin_step ||= Delocoin::Step::CurrentService.new.perform
     end
+
+    def roistat
+      @_roistat ||= Roistat.new(current_user, cookies[:roistat_visit])
+    end
 end

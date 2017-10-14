@@ -28,7 +28,7 @@ class My::BillingController < My::ApplicationController
           case @billable.class.name
             when 'Billing::Delocoin::Buy'
               run Billing::Delocoin::Buy::Operation::Finish, id: @billable.id do |result|
-                Roistat::DelocoinBuy::FinishWorker.perform_async(result['model'].id, cookies[:roistat_visit])
+                roistat.push_async(:delocoin_buy_finish, result['model'].cost)
               end
 
               return redirect_to status_my_billing_path(@model.billing_log.id)
