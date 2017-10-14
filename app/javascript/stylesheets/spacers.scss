@@ -37,6 +37,18 @@
   }
 }
 
+.mobile-reverse {
+  @media (min-width: 992px) {
+    flex-direction: row-reverse;
+  }
+}
+
+.hide-on-large {
+  @media (min-width: 992px) {
+    display: none;
+  }
+}
+
 .lg-hide {
   @media (max-width: 991px) {
     display: none;
