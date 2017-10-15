@@ -31,10 +31,7 @@
       margin-top: 1rem;
       font-size: 0.9rem;
       @media (min-width: 768px) {
-        position: absolute;
-        bottom: 9px;
         max-width: 450px;
-        max-height: 21px;
       }
       @media (min-width: 1200px) {
         max-width: 600px;
@@ -78,7 +75,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 5px 0 0 0;
+    padding: 20px 0;
     a + a {
       @media (min-width: 576px) {
         margin-left: 2rem;
@@ -93,6 +90,7 @@
   &-error-message {
     color: #f44336;
     padding-top: 1rem !important;
+    padding-bottom: 20px !important;
     p {
       font-weight: 600;
     }

@@ -66,8 +66,16 @@
     }
     &__text {
       font-size: 15px;
+      max-width: 630px;
+      overflow-x: hidden;
       @media (max-width: 575px) {
         margin-top: 1rem;
+      }
+      @media (min-width: 992px) and (max-width: 1199px) {
+        max-width: 443px;
+      }
+      @media (min-width: 1200px) {
+        max-width: 560px;
       }
     }
     &__offline {
