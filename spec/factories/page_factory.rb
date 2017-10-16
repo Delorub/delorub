@@ -18,8 +18,13 @@ FactoryGirl.define do
     slug { Faker::Internet.slug }
     draft false
 
-    factory :news_draft do
+    factory :page_draft do
       draft true
+    end
+
+    factory :page_rules do
+      title { 'Пользовательское соглашение' }
+      slug { 'rules' }
     end
   end
 end
