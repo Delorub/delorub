@@ -13,15 +13,13 @@
   background-position: top center;
   padding-top: 200px;
   .container {
-    &:first-child {
-      position: relative;
-      top: 22%;
-      @media (min-width: 1600px) {
-        margin-top: 110px;
-      }
-      -webkit-transform: translateY(-50%);
-      transform: translateY(-50%);
+    position: relative;
+    top: 22%;
+    @media (min-width: 1600px) {
+      margin-top: 110px;
     }
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
   }
   &__header {
     h1 {

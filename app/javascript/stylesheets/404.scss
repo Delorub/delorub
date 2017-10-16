@@ -4,11 +4,9 @@
     background-image: url("/images/design/404.svg");
     background-size: 600px;
     .container {
-      &:first-child {
-        top: 50%;
-        -webkit-transform: none;
-        transform: none;
-      }
+      top: 50%;
+      -webkit-transform: none;
+      transform: none;
     }
     &__header {
       color: #fff;
@@ -32,9 +30,7 @@
     .index-image {
       background-size: 450px;
       .container {
-        &:first-child {
-          top: 25%;
-        }
+        top: 25%;
       }
       &-content {
         a {
