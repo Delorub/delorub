@@ -79,6 +79,7 @@ input + .form__error-message, div + .form__error-message, textarea + .form__erro
   margin-bottom: 0;
   textarea {
     resize: vertical;
+    min-height: 100px;
   }
   &__sublink {
     text-align: center;
