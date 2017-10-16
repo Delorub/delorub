@@ -78,7 +78,7 @@ input + .form__error-message, div + .form__error-message, textarea + .form__erro
 .form-group {
   margin-bottom: 0;
   textarea {
-    resize: none;
+    resize: vertical;
   }
   &__sublink {
     text-align: center;
