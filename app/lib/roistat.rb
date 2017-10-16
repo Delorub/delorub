@@ -1,6 +1,6 @@
 class Roistat
-  include Users
-  include DelocoinBuy
+  include Roistat::Users
+  include Roistat::DelocoinBuy
 
   attr_reader :visitor_id, :user
 
@@ -14,13 +14,13 @@ class Roistat
   end
 
   def push method, payload
-    make_push send(method, payload)
+    make_push send(method, cost: payload)
   end
 
   private
 
     def make_push params
-      Net::HTTP.get_response(URI.parse('https://cloud.roistat.com/api/proxy/1.0/leads/add?' + {
+      Net::HTTP.get_response(URI.parse(Figaro.env.roistat_url + {
         'roistat' => visitor_id,
         'key'     => Figaro.env.roistat_apy_key,
         'name'    => user.decorate.name,

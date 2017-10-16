@@ -136,6 +136,7 @@ group :development do
 end
 
 group :test do
+  gem 'rspec-sidekiq'
   gem 'rspec-its'
   gem 'rspec-rails', require: false
   gem 'simplecov', require: false
