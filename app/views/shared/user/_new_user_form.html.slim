@@ -3,17 +3,19 @@ div id="form_contacts" v-on:click="showTooltip('form_contacts')"
   br/
   .row.margin-bottom-10
     .col-lg-4.col-md-6
-      = f.input :first_name, label: false, error: false,
-        input_html: { \
-          'v-on:focus': %(showTooltip('form_contacts')),
-        }
+      .form-group
+        = f.input :first_name, label: false, error: false,
+          input_html: { \
+            'v-on:focus': %(showTooltip('form_contacts')),
+          }
     .col-lg-4.col-md-6
-      = f.input :email, label: false, error: false,
-        input_html: { \
-          'v-on:focus': %(showTooltip('form_contacts')),
-        }
-      .form__error-message
-        span = f.error (f.object.errors.keys & [:name, :email]).first
+      .form-group
+        = f.input :email, label: false, error: false,
+          input_html: { \
+            'v-on:focus': %(showTooltip('form_contacts')),
+          }
+        .form__error-message
+          p = f.error (f.object.errors.keys & [:name, :email]).first
   .form__phone
     span Укажите ваш номер телефона и подтвердите его
   = render 'shared/phone_confirmation', f: f
