@@ -5,7 +5,9 @@
     background-size: 600px;
     .container {
       &:first-child {
-        top: 65%;
+        top: 50%;
+        -webkit-transform: none;
+        transform: none;
       }
     }
     &__header {
@@ -31,7 +33,7 @@
       background-size: 450px;
       .container {
         &:first-child {
-          top: 45%;
+          top: 25%;
         }
       }
       &-content {
