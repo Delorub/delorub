@@ -3,32 +3,29 @@ footer(itemscope itemtype="http://schema.org/WPFooter")
     .container
       .row
         .dr-footer-left
-          .row
-            .col-lg-auto.col-md-6
-              .dr-footer-block
-                ul(itemscope itemtype="http://www.schema.org/SiteNavigationElement")
-                  li itemprop="name"
-                    a.link-white.link-white-bold itemprop="url" href="/" Главная
-                  - unless user_signed_in?
-                    li itemprop="name"
-                      a.link-white itemprop="url" href=new_user_registration_path Стать заказчиком
-                  li itemprop="name"
-                    a.link-white itemprop="url" href=tasks_path Все задания
-                  li itemprop="name"
-                    a.link-white itemprop="url" href=profiles_path Все исполнители
-            .col-lg-auto.col-md-6
-              .dr-footer-block
-                ul(itemscope itemtype="http://www.schema.org/SiteNavigationElement")
-                  li itemprop="name"
-                    a.link-white.link-white-bold itemprop="url" href=policy_path Конфиденциальность
-                  li itemprop="name"
-                    a.link-white itemprop="url" href=terms_path Пользовательское соглашение
-                  li itemprop="name"
-                    a.link-white itemprop="url" href=billing_terms_path Регламент оборота монет
-                  li itemprop="name"
-                    a.link-white itemprop="url" href=billing_offer_path Оферта
-                  li itemprop="name"
-                    a.link-white itemprop="url" href=price_list_path Стоимость услуг
+          .dr-footer-block
+            ul(itemscope itemtype="http://www.schema.org/SiteNavigationElement")
+              li itemprop="name"
+                a.link-white.link-white-bold itemprop="url" href="/" Главная
+              - unless user_signed_in?
+                li itemprop="name"
+                  a.link-white itemprop="url" href=new_user_registration_path Стать заказчиком
+              li itemprop="name"
+                a.link-white itemprop="url" href=tasks_path Все задания
+              li itemprop="name"
+                a.link-white itemprop="url" href=profiles_path Все исполнители
+          .dr-footer-block
+            ul(itemscope itemtype="http://www.schema.org/SiteNavigationElement")
+              li itemprop="name"
+                a.link-white.link-white-bold itemprop="url" href=policy_path Конфиденциальность
+              li itemprop="name"
+                a.link-white itemprop="url" href=terms_path Пользовательское соглашение
+              li itemprop="name"
+                a.link-white itemprop="url" href=billing_terms_path Регламент оборота монет
+              li itemprop="name"
+                a.link-white itemprop="url" href=billing_offer_path Оферта
+              li itemprop="name"
+                a.link-white itemprop="url" href=price_list_path Стоимость услуг
         .dr-footer-right
           .dr-footer-block
             ul
