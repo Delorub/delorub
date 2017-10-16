@@ -39,6 +39,7 @@
                             .input-group
                               = f.input :price_project, label: false, wrapper: false, error: false,
                                 input_html: { \
+                                  type: ‘number’,
                                   'v-model': 'model.price_project',
                                   'v-on:focus': %(showTooltip('profile_price_project')),
                                   'placeholder': '30 000',

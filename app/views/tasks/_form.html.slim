@@ -120,7 +120,7 @@
           = f.input :price_exact, label: false, wrapper: false, error: false,
             input_html: { \
               type: ‘number’,
-                ‘@focus’: %(showTooltip(‘task_prices’)),
+              ‘@focus’: %(showTooltip(‘task_prices’)),
             }
           i.input-group-addon.fa.fa-rub aria-hidden="true"
         = f.error :price_exact
