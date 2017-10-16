@@ -34,7 +34,7 @@
   }
   &-block {
     margin: 0 15px;
-    @media (max-width: 991px) {
+    @media (max-width: 767px) {
       text-align: center;
       margin: 15px;
     }
@@ -90,5 +90,11 @@
         }
       }
     }
+  }
+}
+
+@media (min-width: 768px) {
+  .dr-footer-block + .dr-footer-block {
+    margin-left: 45px;
   }
 }
