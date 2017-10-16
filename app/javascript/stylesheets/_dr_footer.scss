@@ -2,6 +2,7 @@
   .container {
     .row {
       flex-direction: column;
+      padding: 2.5rem 0;
       @media (min-width: 768px) {
         justify-content: space-between;
         flex-direction: row;
@@ -12,7 +13,6 @@
   box-shadow: 0 2px 7px 0 rgba(121, 120, 120, 0.5);
   &-left {
     display: flex;
-    padding: 2.5rem 0;
     flex-direction: column;
     @media (min-width: 768px) {
       flex-direction: row;
@@ -20,13 +20,9 @@
   }
   &-right {
     display: flex;
-    padding-bottom: 2.5rem;
     flex-direction: column;
     @media (min-width: 768px) {
       flex-direction: row;
-    }
-    @media (min-width: 448px) {
-      padding-top: 2.5rem;
     }
     li + li {
       margin-top: 5px;
