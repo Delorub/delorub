@@ -61,18 +61,7 @@
 }
 
 .table-buy {
-  @media (max-width: 767px) {
-    font-size: 12px;
-    display: block;
-    overflow-x: auto;
-  }
-  @media (max-width: 525px) {
-    font-size: 10px;
-  }
   th {
-    @media (max-width: 525px) {
-      font-size: 10px;
-    }
     font-size: 12px;
     font-weight: 600;
   }
@@ -133,6 +122,22 @@
   .dr-radio {
     label {
       padding-left: 55px;
+    }
+  }
+  @media (max-width: 767px) {
+    font-size: 12px;
+    display: block;
+    overflow-x: auto;
+  }
+  @media (max-width: 525px) {
+    font-size: 10px;
+    thead tr th:nth-of-type(3) {
+      div {
+        margin-top: -30px;
+      }
+    }
+    th {
+      font-size: 10px;
     }
   }
 }
