@@ -25,7 +25,7 @@ div
             :multiple='true'
             :limit='0'
             :limit-text='limitSubcategoriesText'
-            :disabled="internalValue[index]['main_category_id'] == null"
+            :disabled="isSubcategorySelectDisabled(index)"
             placeholder='Выберите подкатегорию'
             :clear-on-select='true'
             :options="categoriesListFor(internalValue[index]['main_category_id'])"
@@ -98,6 +98,9 @@ div
       },
       categoriesListFor (selected) {
         return this.categoriesList.filter(e => parseInt(e.parent_id) === parseInt(selected)).map(e => e.value)
+      },
+      isSubcategorySelectDisabled (subcategoryId) {
+        return this.internalValue[subcategoryId]['main_category_id'] === null || this.categoriesListFor(this.internalValue[subcategoryId]['main_category_id']).length === 0
       },
       mainCategoriesListFor (selected) {
         return this.categoriesList.filter((e) => {
