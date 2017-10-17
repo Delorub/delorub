@@ -30,7 +30,7 @@
               inline-template="true"
             )
               .performer-profile-main__contacts
-                a.link-default href="#" role="button" @click.prevent="toggleShow" v-show="!isShow" Показать номер телефона
+                a.link-default href="#" role="button" @click.prevent="toggleShow" v-show="!isShow" Показать контакты
                 div(v-show="isShow")
                   .contacts-container
                     - unless profile.user.phone.blank?
