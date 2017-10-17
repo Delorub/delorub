@@ -21,6 +21,6 @@ div id="form_contacts" v-on:click="showTooltip('form_contacts')"
     label
       = f.check_box :accept_terms
       span.checkbox-custom
-      = policy_checkbox_text
       span.checkbox-text
-      = f.error :accept_terms
+        = policy_checkbox_text
+    = f.error :accept_terms
