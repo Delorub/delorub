@@ -42,6 +42,15 @@
       font-weight: 600;
     }
   }
+  &__information {
+    font-size: 15px;
+    @media (max-width: 767px) {
+      margin-top: 30px;
+    }
+    div + div {
+      margin-top: 10px;
+    }
+  }
   hr {
     margin: 1.5rem 0;
   }
