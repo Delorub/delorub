@@ -17,7 +17,7 @@ div id="form_contacts" v-on:click="showTooltip('form_contacts')"
   .form__phone
     span Укажите ваш номер телефона и подтвердите его
   = render 'shared/phone_confirmation', f: f
-  .checkbox
+  .checkbox.form-group
     label
       = f.check_box :accept_terms
       span.checkbox-custom
