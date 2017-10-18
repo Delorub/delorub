@@ -1,5 +1,5 @@
 <template>
-  <custom-select>
+  <custom-select
     v-model="searchCategory"
     :options="categoriesOptions"
     placeholder="Что вас интересует?"
