@@ -19,11 +19,12 @@
                         = f.input :email, label: false, placeholder: 'Ваш email'
                     br/
                     = render 'shared/phone_confirmation', f: f
-                    .checkbox
+                    .checkbox.form-group
                       label
                         = f.check_box :accept_terms
                         span.checkbox-custom
-                        = policy_checkbox_text
+                        span.checkbox-text
+                          = policy_checkbox_text
                       = f.error :accept_terms
                   .registration-form__content-button-submit
                     input.dr-btn-primary type="submit" value=("Создать аккаунт") /
