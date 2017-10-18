@@ -10,7 +10,7 @@
   font-family: $GothamPro;
   border-radius: 3px;
   border: 1px solid #70bee9 !important;
-  margin-top: 3px;  
+  margin-top: 3px;
 }
 
 span.flatpickr-weekday {
@@ -85,7 +85,7 @@ label.date-addon {
 .input-group.date {
   border-radius: 3px;
   border: solid 1px #ccc9c9;
-  input[type=text] {
+  input[type=text], input[type=date] {
     padding-left: 40px;
     border: 0;
     box-shadow: none;
@@ -107,7 +107,7 @@ label.date-addon {
     position: absolute;
     right: 70px;
     top: 20%;
-  }  
+  }
 }
 
 .input-group.date.focus {
