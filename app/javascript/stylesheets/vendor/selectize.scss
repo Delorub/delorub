@@ -95,6 +95,10 @@
   }
 }
 
+.multiselect__tags.has-danger {
+  border-color: #d9534f;
+}
+
 .input-group .form-control {
   z-index: 0 !important;
 }

@@ -1,12 +1,12 @@
 .dr-404 {
-  background-color: #00a6d7;
   .index-image {
+    background-color: #00a6d7;
     background-image: url("/images/design/404.svg");
     background-size: 600px;
     .container {
-      &:first-child {
-        top: 65%;
-      }
+      top: 45%;
+      -webkit-transform: none;
+      transform: none;
     }
     &__header {
       color: #fff;
@@ -23,16 +23,14 @@
       }
     }
     @media (max-width: 575px) {
-      height: 80vh;
+      height: 450px;
     }
   }
   @media (max-width: 448px) {
     .index-image {
       background-size: 450px;
       .container {
-        &:first-child {
-          top: 55%;
-        }
+        top: 15%;
       }
       &-content {
         a {

@@ -2,6 +2,7 @@
   .regular-content
     .container
       .row
+        = render 'flash'
         .col-lg-5.offset-lg-1.col-md-6.offset-md-0
           .dr-block-style.dr-block-style--sign-in
             = content_tag 'sign-in-form', 'inline-template': true, ':initial-model': f.object.to_nested_hash.to_json do

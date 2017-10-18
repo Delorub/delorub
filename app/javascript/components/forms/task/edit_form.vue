@@ -148,6 +148,9 @@
         return this.categories
           .filter(e => e.parent_id === null)
           .map(e => e.value)
+      },
+      isSubcategorySelectDisabled () {
+        return !this.model.category_id || this.availableSubcategoriesIds.length === 0
       }
     },
     watch: {

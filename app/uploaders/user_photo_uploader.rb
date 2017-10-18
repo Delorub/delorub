@@ -13,7 +13,7 @@ class UserPhotoUploader < BaseUploader
   end
 
   version :medium do
-    process resize_to_fill: [174, 174]
+    process resize_to_fill: [193, 193]
     process convert: 'png'
 
     def full_filename for_file = model.photo.file
