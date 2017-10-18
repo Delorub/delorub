@@ -1,10 +1,10 @@
 <template lang="pug">
   div
     div.form-group
-      div(class="input-group date")
-        label(class="date-addon")
+      div.input-group.date
+        label.date-addon
         flat-pickr(v-model="dateValue" :config="datepickerConfig")
-        div(class="vertical-hr")
+        div.vertical-hr
         input(
           type="text"
           ref="timeInput"
@@ -37,6 +37,7 @@
           delimiter: ':'
         },
         datepickerConfig: {
+          disableMobile: true,
           allowInput: true,
           enableTime: false,
           dateFormat: 'd.m.Y',
