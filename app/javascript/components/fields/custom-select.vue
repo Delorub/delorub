@@ -22,7 +22,7 @@
       deselectLabel: {
         type: String,
         default: 'Нажмите enter для отмены'
-      },
+      }
     }
   }
 </script>
