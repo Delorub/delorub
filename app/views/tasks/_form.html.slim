@@ -121,7 +121,8 @@
             input_html: { \
               'v-model': 'model.task_prices',
               'v-on:focus': %(showTooltip('task_prices')),
-              type: 'number',
+              oninput: 'this.value = this.value.replace(/\D/g, "")',
+              type: 'text',
             }
           i.input-group-addon.fa.fa-rub aria-hidden="true"
         = f.error :price_exact
