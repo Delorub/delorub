@@ -31,8 +31,9 @@ footer(itemscope itemtype="http://schema.org/WPFooter")
             ul
               li
                 a.link-white.link-white-dashed href=new_task_path  Создать задание
-              li
-                a.link-white.link-white-dashed href=new_profile_path Стать исполнителем
+              - if policy(Profile).new?
+                li
+                  a.link-white.link-white-dashed href=new_profile_path Стать исполнителем
     .dr-footer-sub
       .container
         .dr-footer-sub__content

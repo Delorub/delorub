@@ -50,7 +50,7 @@
             :show-reset="true"
             :limit="0"
             :limit-text="limitSubcategoriesText"
-            :disabled="!model.category_id"
+            :disabled="isSubcategorySelectDisabled"
             placeholder="Выберите подкатегорию"
             :multiple="true"
             :options="availableSubcategoriesIds"
