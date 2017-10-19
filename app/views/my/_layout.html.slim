@@ -1,9 +1,14 @@
--
+- width ||= 8
 .regular-content
   .container
     .row.mobile-reverse
-      .col-lg-1.lg-hide
-      div class=("col-lg-#{width ||= 8}")
-        = render 'shared/flash'
-        = yield
+      - if (width==9)
+        .col-lg-9
+          = render 'shared/flash'
+          = yield
+      - else
+        .col-lg-1.lg-hide
+        .col-lg-8
+          = render 'shared/flash'
+          = yield
       = render 'my/shared/sidebar'
