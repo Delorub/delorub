@@ -64,11 +64,9 @@ label {
 }
 
 footer, .wrap:after {
-  @media (min-width: 992px) {
-    position: relative;
-    height: 366px;
-    clear:both;
-  }
+  position: relative;
+  height: 366px;
+  clear:both;
 }
 
 .regular-content {
