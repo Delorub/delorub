@@ -37,9 +37,12 @@
           delimiter: ':'
         },
         datepickerConfig: {
+          enableTime: true,
           disableMobile: true,
-          allowInput: true,
-          enableTime: false,
+          allowInput: false,
+          time_24hr: true,
+          minDate: 'today',
+          maxDate: new Date().fp_incr(365),
           dateFormat: 'd.m.Y',
           locale: {
             firstDayOfWeek: 1,
