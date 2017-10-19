@@ -2,10 +2,11 @@
 #
 # Table name: delocoin_packs
 #
-#  id       :integer          not null, primary key
-#  cost     :integer
-#  discount :float
-#  number   :integer
+#  id        :integer          not null, primary key
+#  cost      :integer
+#  discount  :float
+#  number    :integer
+#  is_public :boolean          default(FALSE)
 #
 
 FactoryGirl.define do

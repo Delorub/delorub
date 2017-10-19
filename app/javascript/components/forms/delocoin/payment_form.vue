@@ -40,6 +40,7 @@
     },
     mounted () {
       this.$emit('can-pay', this.canPay)
+      this.$emit('payment-type', this.paymentType)
     },
     methods: {
       paymentCheckedClass (payment) {
@@ -63,6 +64,9 @@
         if (this.internalValue !== 'balance') return true
         return this.haveEnoughBalance
       },
+      paymentType () {
+        return this.internalValue
+      },
       showBalancePayment () {
         return this.paymentTypeList.find(e => e === 'balance')
       },
@@ -73,6 +77,9 @@
     watch: {
       canPay (value) {
         this.$emit('can-pay', value)
+      },
+      paymentType (value) {
+        this.$emit('payment-type', value)
       }
     }
   }

@@ -3,7 +3,7 @@ ActiveAdmin.register Delocoin::Pack, namespace: :admin do
 
   config.sort_order = 'number_asc'
 
-  permit_params :cost, :discount
+  permit_params :cost, :discount, :is_public
 
   config.paginate = false
 
@@ -11,6 +11,7 @@ ActiveAdmin.register Delocoin::Pack, namespace: :admin do
     column :number
     column :cost
     column :discount
+    column :is_public
     actions
   end
 
@@ -18,6 +19,7 @@ ActiveAdmin.register Delocoin::Pack, namespace: :admin do
     inputs 'Основное' do
       input :cost
       input :discount
+      input :is_public
     end
     actions
   end
