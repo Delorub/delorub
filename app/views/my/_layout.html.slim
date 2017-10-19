@@ -2,8 +2,8 @@
 .regular-content
   .container
     .row.mobile-reverse
+      .col-lg-1.lg-hide
       div class=("col-lg-#{width ||= 8}")
         = render 'shared/flash'
         = yield
       = render 'my/shared/sidebar'
-
