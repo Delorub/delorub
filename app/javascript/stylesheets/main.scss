@@ -51,24 +51,21 @@ label {
 }
 
 .wrap {
-  height: auto;
   min-height: 100%;
+  margin-bottom: -366px;
+  &:after {
+    content: "";
+    display: block;
+  }
 }
 
 .hidden {
   display: none;
 }
 
-main {
-  @media (min-width: 992px) {
-    padding-bottom: 366px;
-  }
-}
-
-footer {
+footer, .wrap:after {
   @media (min-width: 992px) {
     position: relative;
-    margin-top: -366px;
     height: 366px;
     clear:both;
   }
