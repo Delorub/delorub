@@ -5,7 +5,7 @@ describe Roistat do
   let(:cookie_visit) { rand(1000..9999) }
   let(:method) { :user_registration }
   let(:instance) { described_class.new(user, cookie_visit) }
-  let(:payload) { {cost: rand(1000..9999)} }
+  let(:payload) { { cost: rand(1000..9999) } }
 
   let(:params) do
     {
