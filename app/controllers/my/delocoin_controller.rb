@@ -35,7 +35,7 @@ class My::DelocoinController < My::ApplicationController
                           result['model']
                         end
 
-        roistat.push_async(:delocoin_buy_create, result['model'].cost)
+        roistat.push_async(:delocoin_buy_create, cost: result['model'].cost)
         redirect_to confirm_my_billing_path(id: payment_model.billing_log.id)
       end
     end

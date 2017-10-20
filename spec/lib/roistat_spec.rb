@@ -5,7 +5,7 @@ describe Roistat do
   let(:cookie_visit) { rand(1000..9999) }
   let(:method) { :user_registration }
   let(:instance) { described_class.new(user, cookie_visit) }
-  let(:payload) { rand(1000..9999) }
+  let(:payload) { {cost: rand(1000..9999)} }
 
   let(:params) do
     {
@@ -40,14 +40,14 @@ describe Roistat do
 
   describe 'roistat push #delocoin_buy_create' do
     let(:method) { :delocoin_buy_create }
-    let(:send_params) { params.merge(instance.delocoin_buy_create(cost: payload)).to_query }
+    let(:send_params) { params.merge(instance.delocoin_buy_create(payload)).to_query }
 
     it { expect(instance.push(method, payload)) }
   end
 
   describe 'roistat push #delocoin_buy_finish' do
     let(:method) { :delocoin_buy_finish }
-    let(:send_params) { params.merge(instance.delocoin_buy_finish(cost: payload)).to_query }
+    let(:send_params) { params.merge(instance.delocoin_buy_finish(payload)).to_query }
 
     it { expect(instance.push(method, payload)) }
   end

@@ -14,7 +14,8 @@ class Roistat
   end
 
   def push method, payload
-    make_push send(method, cost: payload)
+    payload = payload.symbolize_keys unless payload.nil?
+    make_push send(method.to_sym, payload)
   end
 
   private
