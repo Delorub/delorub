@@ -2,7 +2,6 @@
   div
     div.form-group
       div.input-group.date
-        label.date-addon
         flat-pickr(v-model="dateValue" :config="datepickerConfig")
         div.vertical-hr
         input(
