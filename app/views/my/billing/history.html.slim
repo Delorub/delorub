@@ -25,7 +25,7 @@
             td
               = log.billable.name rescue ''
             td
-              = log.billable.decorate.formatted_pay_type rescue ''
+              = formatted_pay_type log.billable.pay_type rescue ''
             td
               = format_balance log.sum
             td class=[history_state_class(log.state)]

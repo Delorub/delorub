@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     get 'users/sign_in_as/:type', to: 'users/sessions#sign_in_as', as: :sign_in_as
   end
   resources :users, only: [:index, :destroy]
+  resources :delocoins, only: [:new, :create]
 
   namespace :my do
     resources :welcome, only: :index
@@ -53,8 +54,6 @@ Rails.application.routes.draw do
     end
     resources :delocoin, only: [:index] do
       collection do
-        get 'buy', as: :buy
-        post 'buy'
         get 'history', as: :history
       end
     end

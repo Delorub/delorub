@@ -2,8 +2,16 @@ module Billing::Delocoin::Buy::Operation
   class Create < Trailblazer::Operation
     class Present < Trailblazer::Operation
       step Model(::Billing::Delocoin::Buy, :new)
-      step Contract::Build(constant: ::Billing::Delocoin::Buy::Contract)
+      step Contract::Build(builder: :default_contract!)
       step :prepopulate!
+
+      def default_contract! options, model:, **_
+        if options['current_user']
+          Billing::Delocoin::Buy::Contract::UserForm.new(model, current_user: options['current_user'])
+        else
+          Billing::Delocoin::Buy::Contract::GuestForm.new(model, current_user: options['current_user'])
+        end
+      end
 
       def prepopulate! options, params:, **_
         options['contract.default'].prepopulate! params
@@ -13,6 +21,7 @@ module Billing::Delocoin::Buy::Operation
     step Nested(Present)
     step Wrap(Billing::Transaction) {
       step Contract::Validate()
+      step :register_new_user!
       step :set_current_step!
       step :calculate_amounts!
       step Contract::Persist()
@@ -29,6 +38,16 @@ module Billing::Delocoin::Buy::Operation
       model.cost = pack.cost
       model.delocoin_amount = Delocoin::ConvertService.new.balance_to_delocoins(step: model.step, pack: pack, balance: model.cost)
       options['sum'] = -model.cost
+    end
+
+    def register_new_user! options, params:, model:, **_
+      return true unless options['current_user'].nil?
+
+      result = User::Operation::InlineRegistration.call(params['new_user'].to_hash)
+      return false if result.failure?
+
+      options['sign_in_new_user'] = result['model']
+      options['current_user'] = result['model']
     end
   end
 

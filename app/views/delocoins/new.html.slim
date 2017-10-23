@@ -1,0 +1,17 @@
+.regular-content
+  .container
+    .row.justify-center
+      .col-lg-8.col-md-10.col-sm-12
+        .dr-content-header
+          h1
+            | Купить Delocoin
+        delocoin-buy-form(
+          inline-template="true"
+          :initial-model=@form.to_nested_hash.to_json
+        )
+          = simple_form_for @form, url: delocoins_path do |f|
+            = render 'table_steps', f: f
+            = render 'payment_methods', f: f, model: Billing::YandexKassa::Deposit
+            = f.simple_fields_for :new_user do |rf|
+              - unless rf.object.nil?
+                = render 'new_user_form', f: rf

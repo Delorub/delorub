@@ -28,6 +28,7 @@ import SignInForm from '../components/forms/user/sign_in_form.vue'
 import DelocoinPackForm from '../components/forms/delocoin/pack_form.vue'
 import DelocoinBuyForm from '../components/forms/delocoin/buy_form.vue'
 import DelocoinPaymentForm from '../components/forms/delocoin/payment_form.vue'
+import DelocoinOmniauthLinks from '../components/forms/delocoin/omniauth_links.vue'
 import DelocoinChart from '../components/delocoin_chart.vue'
 
 import TaskMap from '../components/task_map.vue'
@@ -72,6 +73,7 @@ Vue.component('profile-specializations-form', ProfileSpecializationsForm)
 Vue.component('delocoin-pack-form', DelocoinPackForm)
 Vue.component('delocoin-buy-form', DelocoinBuyForm)
 Vue.component('delocoin-payment-form', DelocoinPaymentForm)
+Vue.component('delocoin-omniauth-links', DelocoinOmniauthLinks)
 Vue.component('delocoin-chart', DelocoinChart)
 
 Vue.component('task-form', TaskForm)
