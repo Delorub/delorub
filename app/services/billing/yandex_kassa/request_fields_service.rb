@@ -2,7 +2,7 @@ class Billing::YandexKassa::RequestFieldsService
   include Rails.application.routes.url_helpers
 
   PAYMENT_TYPE = {
-    'qiwi' => 'WQ',
+    'qiwi' => 'QW',
     'yandex' => 'PC',
     'visa' => 'AC',
     'webmoney' => 'WM'

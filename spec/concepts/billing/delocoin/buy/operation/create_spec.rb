@@ -84,22 +84,6 @@ describe Billing::Delocoin::Buy::Operation::Create do
         it_behaves_like 'creates yandex_kassa model'
       end
 
-      context 'qiwi' do
-        let(:pay_type) { 'qiwi' }
-        it { assert subject.success? }
-        it_behaves_like 'not to change user balance and delocoin balance'
-        it_behaves_like 'creates new billing log'
-        it_behaves_like 'creates yandex_kassa model'
-      end
-
-      context 'webmoney' do
-        let(:pay_type) { 'webmoney' }
-        it { assert subject.success? }
-        it_behaves_like 'not to change user balance and delocoin balance'
-        it_behaves_like 'creates new billing log'
-        it_behaves_like 'creates yandex_kassa model'
-      end
-
       context 'yandex' do
         let(:pay_type) { 'yandex' }
         it { assert subject.success? }

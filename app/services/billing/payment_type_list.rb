@@ -1,6 +1,7 @@
 class Billing::PaymentTypeList
   BALANCE = [:balance].freeze
-  YANDEX_KASSA = [:visa, :qiwi, :yandex, :webmoney].freeze
+  # YANDEX_KASSA = [:visa, :qiwi, :yandex, :webmoney].freeze
+  YANDEX_KASSA = [:visa, :yandex].freeze
 
   attr_reader :model
 

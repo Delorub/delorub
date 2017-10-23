@@ -6,6 +6,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     run User::Operation::Registration, params.require(:user).permit! do |result|
       sign_in result['model']
+      roistat.push_async(:user_registration)
+
       return redirect_to my_welcome_index_path
     end
 

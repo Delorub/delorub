@@ -141,6 +141,13 @@ ru:
     deleted_at: Удалено
     actions: Действия
     reply: Ответ
+  activemodel:
+    errors:
+      models:
+        new_user:
+          attributes:
+            email:
+              not_email: Указан не верно
   activerecord:
     attributes:
       user/billing_log:

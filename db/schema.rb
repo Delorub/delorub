@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170927085412) do
+ActiveRecord::Schema.define(version: 20171011110335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 20170927085412) do
     t.float "cost"
     t.integer "delocoin_amount"
     t.integer "step_id"
+  end
+
+  create_table "billing_manual_transfer", id: :serial, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "admin_id"
+    t.decimal "amount", precision: 10, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "billing_reply_packs", id: :serial, force: :cascade do |t|
@@ -87,14 +95,6 @@ ActiveRecord::Schema.define(version: 20170927085412) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "billing_transfer_manually", id: :serial, force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "admin_id"
-    t.decimal "amount", precision: 10, scale: 2
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "billing_yandex_kassa_deposits", force: :cascade do |t|
     t.decimal "amount"
     t.string "pay_type"
@@ -122,11 +122,13 @@ ActiveRecord::Schema.define(version: 20170927085412) do
     t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 
-  create_table "categories_profiles", id: :serial, force: :cascade do |t|
+  create_table "categories_profiles", id: false, force: :cascade do |t|
     t.integer "profile_id"
     t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_categories_profiles_on_category_id"
+    t.index ["profile_id"], name: "index_categories_profiles_on_profile_id"
   end
 
   create_table "certificates", id: :serial, force: :cascade do |t|
@@ -147,8 +149,8 @@ ActiveRecord::Schema.define(version: 20170927085412) do
   create_table "comments", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.integer "parent_id"
-    t.integer "commentable_id"
     t.string "commentable_type"
+    t.integer "commentable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "text"
@@ -440,8 +442,15 @@ ActiveRecord::Schema.define(version: 20170927085412) do
   end
 
   create_table "users", id: :serial, force: :cascade do |t|
-    t.string "provider", default: "email", null: false
+    t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "middle_name"
+    t.string "phone"
+    t.date "birthday"
+    t.integer "profile_id"
+    t.integer "free_tasks_published", default: 0, null: false
+    t.integer "free_replies_published", default: 0, null: false
+    t.decimal "balance", precision: 10, scale: 2, default: "0.0", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -450,18 +459,10 @@ ActiveRecord::Schema.define(version: 20170927085412) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.string "middle_name"
-    t.string "phone"
-    t.string "email"
-    t.date "birthday"
-    t.integer "profile_id"
-    t.integer "free_tasks_published", default: 0, null: false
-    t.integer "free_replies_published", default: 0, null: false
-    t.decimal "balance", precision: 10, scale: 2, default: "0.0", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "photo"
     t.boolean "phone_confirmed"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string "access_token"
     t.integer "place_id"
     t.string "first_name"
