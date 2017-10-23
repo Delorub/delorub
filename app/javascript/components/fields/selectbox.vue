@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    vue-multiselect(
+    custom-select(
       ref="component"
       v-bind="attrs"
       v-bind:value="internalValue"

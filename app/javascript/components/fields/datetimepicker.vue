@@ -1,10 +1,9 @@
 <template lang="pug">
   div
     div.form-group
-      div(class="input-group date")
-        label(class="date-addon")
+      div.input-group.date
         flat-pickr(v-model="dateValue" :config="datepickerConfig")
-        div(class="vertical-hr")
+        div.vertical-hr
         input(
           type="text"
           ref="timeInput"
@@ -37,8 +36,12 @@
           delimiter: ':'
         },
         datepickerConfig: {
-          allowInput: true,
-          enableTime: false,
+          enableTime: true,
+          disableMobile: true,
+          allowInput: false,
+          time_24hr: true,
+          minDate: 'today',
+          maxDate: new Date().fp_incr(365),
           dateFormat: 'd.m.Y',
           locale: {
             firstDayOfWeek: 1,

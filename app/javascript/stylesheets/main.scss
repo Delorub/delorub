@@ -1,4 +1,4 @@
-html, body {
+html, body, #app {
   height: 100%;
 }
 
@@ -13,6 +13,10 @@ body {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+body.blue-background {
+  background-color: #00a6d7;
 }
 
 h1 {
@@ -51,27 +55,22 @@ label {
 }
 
 .wrap {
-  height: auto;
   min-height: 100%;
+  margin-bottom: -366px;
+  &:after {
+    content: "";
+    display: block;
+  }
 }
 
 .hidden {
   display: none;
 }
 
-main {
-  @media (min-width: 992px) {
-    padding-bottom: 221px;
-  }
-}
-
-footer {
-  @media (min-width: 992px) {
-    position: relative;
-    margin-top: -221px;
-    height: 221px;
-    clear:both;
-  }
+footer, .wrap:after {
+  position: relative;
+  height: 366px;
+  clear:both;
 }
 
 .regular-content {

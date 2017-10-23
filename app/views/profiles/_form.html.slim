@@ -42,7 +42,8 @@
                                   'v-model': 'model.price_project',
                                   'v-on:focus': %(showTooltip('profile_price_project')),
                                   'placeholder': '30 000',
-                                  type: 'number',
+                                  oninput: 'this.value = this.value.replace(/\D/g, "")',
+                                  type: 'text',
                                 }
                               i.input-group-addon.fa.fa-rub aria-hidden="true"
                             = f.error :price_exact

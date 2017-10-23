@@ -10,7 +10,7 @@
   font-family: $GothamPro;
   border-radius: 3px;
   border: 1px solid #70bee9 !important;
-  margin-top: 3px;  
+  margin-top: 3px;
 }
 
 span.flatpickr-weekday {
@@ -70,18 +70,6 @@ span.flatpickr-weekday {
   }
 }
 
-label.date-addon {
-  position: absolute;
-  top: 50%;
-  width: 16px;
-  height: 16px;
-  left: 15px;
-  margin-top: -8px;
-  background-position: 0 0;
-  z-index: 3;
-  background: url(/images/icons/calendar.svg) 0 0 no-repeat;
-}
-
 .input-group.date {
   border-radius: 3px;
   border: solid 1px #ccc9c9;
@@ -90,6 +78,10 @@ label.date-addon {
     border: 0;
     box-shadow: none;
   }
+  .flatpickr-input {
+      background: url(/images/icons/calendar.svg) 0 0 no-repeat;
+      background-position: 15px 50%;
+    }
   .date-time {
     border: none !important;
     padding: 16px 10px 14px 10px !important;
@@ -107,7 +99,7 @@ label.date-addon {
     position: absolute;
     right: 70px;
     top: 20%;
-  }  
+  }
 }
 
 .input-group.date.focus {

@@ -7,10 +7,6 @@
     background-color: #fefbfb;
     color: #a5a3a3;
   }
-  &__clear {
-    right: 0;
-    top: 15px;
-  }
   &__select {
     background-color: transparent !important;
     margin-top: 3px;
@@ -30,12 +26,16 @@
   }
   &__clear {
     position: absolute;
-    right: 41px;
+    right: 0px;
+    top: 15px;
     height: 40px;
     width: 40px;
     display: block;
     cursor: pointer;
-    z-index: 2
+    z-index: 2;
+    @media (max-width: 340px) {
+      display: none;
+    }
   }
 
   &--above {
@@ -102,7 +102,6 @@
 .input-group .form-control {
   z-index: 0 !important;
 }
-
 
 #chartjs-tooltip {
   opacity: 1;
