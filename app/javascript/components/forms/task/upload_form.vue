@@ -27,7 +27,21 @@
         acceptedFiles: 'image/*,application/pdf,.doc,.xls,.xlsx,.csv,.rtf,.txt,.zip,.bmp,.ttf',
         maxFilesize: 7,
         autoDiscover: false,
-        addRemoveLinks: true
+        addRemoveLinks: true,
+        accept: function(file, done) {
+          let cnt = 0
+          for(let i=0;i<this.files.length;i++){
+            if(this.files[i].name === file.name && this.files[i].size === file.size){
+              cnt++
+            }
+          }
+          if(cnt > 1){
+            done("Такой файл уже загружен")
+          }
+          else { 
+            done()
+          }
+        }
       })
 
       this.populateDropzone()

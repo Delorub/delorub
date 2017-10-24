@@ -119,3 +119,12 @@ input + .form__error-message, div + .form__error-message, textarea + .form__erro
     display: none;
   }
 }
+
+.task-upload-form-error {
+  &-message {
+    color: #f44336;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    display: block;
+  }
+}
