@@ -34,3 +34,4 @@ html
       = render 'footer'
     = javascript_pack_tag 'application'
     = render '/analytics/analytics' if Rails.env.production?
+    = render '/analytics/roistat_counter' if Rails.env.production?

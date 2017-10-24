@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: billing_transfer_manually
+# Table name: billing_manual_transfer
 #
 #  id         :integer          not null, primary key
 #  user_id    :integer
@@ -16,6 +16,7 @@ class Billing::ManualTransfer < ApplicationRecord
   include Billing::Base
 
   belongs_to :admin, class_name: 'User'
+  belongs_to :user
 
   validates :admin, presence: true
 
