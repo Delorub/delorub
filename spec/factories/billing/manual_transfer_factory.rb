@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: billing_transfer_manually
+# Table name: billing_manual_transfer
 #
 #  id         :integer          not null, primary key
 #  user_id    :integer

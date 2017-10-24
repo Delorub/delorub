@@ -8,6 +8,7 @@
           type="text"
           ref="timeInput"
           v-model="timeValue"
+          v-uppercase="timeValue"
           maxlength="5"
           placeholder="Время"
           class="form-control date-time"
@@ -30,6 +31,7 @@
       return {
         internalValue: moment(this.value).toISOString(),
         timeCleave: null,
+        timeValue: '',
         timeCleaveConfig: {
           numericOnly: true,
           blocks: [2, 2],
@@ -92,7 +94,7 @@
             .toISOString()
         }
       },
-      timeValue: {
+      /* timeValue: {
         get: function () {
           return moment(this.internalValue).format('HH:mm')
         },
@@ -104,7 +106,7 @@
             .set('second', date.second())
             .toISOString()
         }
-      },
+      }, */
       todayLinkClass () {
         let today = moment()
 
@@ -117,6 +119,21 @@
 
         if (tomorrow.isSame(moment(this.internalValue), 'd')) {
           return 'datetimepicker-date-active'
+        }
+      }
+    },
+    directives: {
+      uppercase: {
+        twoWay: true, // this transformation applies back to the vm
+        bind (el, binding) {
+          console.log('test', el, binding)
+        },
+        update (el, binding) {
+          console.log('upd', el, binding)
+          binding.value = '21:00'
+          el.value = '21:00'
+        },
+        unbind: function () {
         }
       }
     },
