@@ -21,9 +21,11 @@ module Billing::Delocoin::Buy::Operation
     step Nested(Present)
     step Wrap(Billing::Transaction) {
       step Contract::Validate()
-      step :register_new_user!
       step :set_current_step!
       step :calculate_amounts!
+      success :set_pay_type!
+      step User::BillingLog::Step::CheckBalance
+      step :register_new_user!
       step Contract::Persist()
       step User::BillingLog::Step::Create
       step Billing::CreateNestedPayment
@@ -31,6 +33,10 @@ module Billing::Delocoin::Buy::Operation
 
     def set_current_step! options, model:, **_
       model.step = Delocoin::Step::CurrentService.new.perform
+    end
+
+    def set_pay_type! options, params:, **_
+      options['pay_type'] = params['pay_type']
     end
 
     def calculate_amounts! options, model:, **_

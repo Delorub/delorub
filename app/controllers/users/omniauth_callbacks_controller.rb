@@ -70,7 +70,13 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       case omniauth_params['operation']
         when 'delocoin'
           run Billing::Delocoin::Buy::Operation::Create, omniauth_params.merge(accept_terms: '1') do |result|
-            return redirect_to confirm_my_billing_path(id: result['nested_payment']['model'].billing_log.id)
+            payment_model = if result['nested_payment'].present?
+                              result['nested_payment']['model']
+                            else
+                              result['model']
+                            end
+
+            return redirect_to confirm_my_billing_path(id: payment_model.billing_log.id)
           end
       end
 
