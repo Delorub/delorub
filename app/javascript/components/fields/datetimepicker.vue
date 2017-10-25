@@ -6,11 +6,20 @@
         div.vertical-hr
         input(
           type="text"
-          ref="timeInput"
+          ref="timeInputHour"
           v-model="timeValue"
           v-uppercase="timeValue"
-          maxlength="5"
-          placeholder="Время"
+          maxlength="2"
+          placeholder="20"
+          class="form-control date-time"
+        )
+        input(
+          type="text"
+          ref="timeInputMinute"
+          v-model="timeValue"
+          v-uppercase="timeValue"
+          maxlength="2"
+          placeholder="00"
           class="form-control date-time"
         )
         slot(name="input" :value="internalValue")
@@ -94,19 +103,6 @@
             .toISOString()
         }
       },
-      /* timeValue: {
-        get: function () {
-          return moment(this.internalValue).format('HH:mm')
-        },
-        set: function (newValue) {
-          let date = moment(newValue, 'HH:mm')
-          this.internalValue = moment(this.internalValue)
-            .set('hour', date.hour())
-            .set('minute', date.minute())
-            .set('second', date.second())
-            .toISOString()
-        }
-      }, */
       todayLinkClass () {
         let today = moment()
 
@@ -122,7 +118,7 @@
         }
       }
     },
-    directives: {
+    /* directives: {
       uppercase: {
         twoWay: true, // this transformation applies back to the vm
         bind (el, binding) {
@@ -136,7 +132,7 @@
         unbind: function () {
         }
       }
-    },
+    }, */
     watch: {
       internalValue () {
         this.$emit('input', this.internalValue)
