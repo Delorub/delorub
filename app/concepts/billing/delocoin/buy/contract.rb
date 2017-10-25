@@ -8,8 +8,8 @@ module Billing::Delocoin::Buy::Contract
   class GuestForm < Form
     property :pack_id,
       prepopulator: ->(options) {
-        pack_public = Delocoin::Pack.is_public.first
-        self.pack_id = pack_public.present? ? pack_public.id : nil
+        pack_public = Delocoin::Pack.find_by(cost: 10_000)
+        self.pack_id = pack_public.present? ? pack_public.id : Delocoin::Pack.first.id
       },
       populator: ->(fragment:, **) {
         self.pack_id = Delocoin::Pack.is_public.find_by(id: fragment).try(:id)
