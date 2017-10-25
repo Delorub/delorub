@@ -18,10 +18,18 @@ class Delocoin::PackDecorator < Draper::Decorator
     Delocoin::ConvertService.new.delocoins_to_balance(step: last_step, delocoins: delocoin_amount).to_i
   end
 
+  def delocoin_cost_next_year
+    Delocoin::ConvertService.new.delocoins_to_balance(step: next_year_step, delocoins: delocoin_amount).to_i
+  end
+
   private
 
     def current_step
       Delocoin::Step::CurrentService.new.perform
+    end
+
+    def next_year_step
+      Delocoin::Step::NextYearService.new.perform
     end
 
     def last_step

@@ -3,15 +3,8 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  email                  :string           default(""), not null
+#  provider               :string           default("email"), not null
 #  encrypted_password     :string           default(""), not null
-#  middle_name            :string
-#  phone                  :string
-#  birthday               :date
-#  profile_id             :integer
-#  free_tasks_published   :integer          default(0), not null
-#  free_replies_published :integer          default(0), not null
-#  balance                :decimal(10, 2)   default(0.0), not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
@@ -20,10 +13,18 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string
 #  last_sign_in_ip        :string
-#  created_at             :datetime         not null
-#  updated_at             :datetime         not null
+#  middle_name            :string
+#  phone                  :string
+#  email                  :string
+#  birthday               :date
+#  profile_id             :integer
+#  free_tasks_published   :integer          default(0), not null
+#  free_replies_published :integer          default(0), not null
+#  balance                :decimal(10, 2)   default(0.0), not null
 #  photo                  :string
 #  phone_confirmed        :boolean
+#  created_at             :datetime
+#  updated_at             :datetime
 #  access_token           :string
 #  place_id               :integer
 #  first_name             :string

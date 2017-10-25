@@ -44,7 +44,7 @@
                   | {{ '-' + pack.discount_in_percents + ' %' }}
             td {{ formatFloatNumber(pack.one_delocoin_cost) }}
             td {{ formatNumber(pack.delocoin_amount) }}
-            td {{ formatNumber(pack.delocoin_cost_on_last_step) }}
+            td {{ formatNumber(pack.delocoin_cost_next_year) }}
 </template>
 <script>
   import numeral from 'lib/numeral'
