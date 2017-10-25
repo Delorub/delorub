@@ -1,4 +1,4 @@
-- if collection.blank?
+- if profiles.blank?
   .dr-block-style.dr-block-style--card
     p В данной категории пока нет ни одного исполнителя
     - if policy(Profile).new?
@@ -43,4 +43,4 @@
                         span
                           img src="/images/icons/mail.svg" alt="email" /
                           = profile.user.email
-  = paginate collection, theme: 'custom_theme'
+  = paginate profiles.object, theme: 'custom_theme'

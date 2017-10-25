@@ -1,10 +1,9 @@
 class ProfileQuery
-  attr_accessor :category, :current_user, :collection, :page, :direction, :place
+  attr_accessor :category, :collection, :page, :direction, :place
 
-  def initialize collection:, category:, current_user:, page:, direction:, place: nil
+  def initialize collection:, category:, page:, direction:, place: nil
     @collection = collection
     @category = category
-    @current_user = current_user
     @page = page
     @direction = direction.present? && direction.to_i == 1 ? 'asc' : 'desc'
     @place = place
@@ -26,10 +25,6 @@ class ProfileQuery
 
     def apply_collection
       @collection = collection.includes(:user)
-    end
-
-    def apply_user
-      @collection = collection.by_user current_user
     end
 
     def apply_main_category
