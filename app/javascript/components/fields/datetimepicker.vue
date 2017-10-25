@@ -8,19 +8,19 @@
           type="text"
           ref="timeInputHour"
           v-model="timeValue"
-          v-uppercase="timeValue"
           maxlength="2"
           placeholder="20"
-          class="form-control date-time"
+          class="form-control date-time date-time-hour"
         )
+        span
+          | :
         input(
           type="text"
           ref="timeInputMinute"
           v-model="timeValue"
-          v-uppercase="timeValue"
           maxlength="2"
           placeholder="00"
-          class="form-control date-time"
+          class="form-control date-time date-time-minute"
         )
         slot(name="input" :value="internalValue")
     div.form-group__sublink
@@ -43,8 +43,7 @@
         timeValue: '',
         timeCleaveConfig: {
           numericOnly: true,
-          blocks: [2, 2],
-          delimiter: ':'
+          blocks: [2]
         },
         datepickerConfig: {
           enableTime: true,
@@ -118,7 +117,7 @@
         }
       }
     },
-    /* directives: {
+    directives: {
       uppercase: {
         twoWay: true, // this transformation applies back to the vm
         bind (el, binding) {
@@ -132,7 +131,7 @@
         unbind: function () {
         }
       }
-    }, */
+    },
     watch: {
       internalValue () {
         this.$emit('input', this.internalValue)

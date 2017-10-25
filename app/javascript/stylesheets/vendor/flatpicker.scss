@@ -84,12 +84,18 @@ span.flatpickr-weekday {
     }
   .date-time {
     border: none !important;
-    padding: 16px 10px 14px 10px !important;
+    padding: 16px 0px 14px 0px !important;
     text-align: center;
-    max-width: 70px;
+    max-width: 25px;
     box-shadow: none;
     &:focus {
       background-color: #fefbfb;
+    }
+    &-minute {
+      margin-right: 10px;
+    }
+    &-hour + span {
+      margin-top: 13px;
     }
   }
   .vertical-hr {
