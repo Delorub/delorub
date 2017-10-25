@@ -103,11 +103,17 @@
       timeValueHour: {
         get: function () {
           return moment(this.internalValue).format('HH')
+        },
+        set: function () {
+          return 0
         }
       },
       timeValueMinute: {
         get: function () {
           return moment(this.internalValue).format('mm')
+        },
+        set: function () {
+          return 0
         }
       },
       todayLinkClass () {
