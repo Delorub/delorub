@@ -116,10 +116,10 @@
       padding-top: 30px;
     }
   }
-  tbody tr:nth-of-type(4) {
+  tbody tr.top-shadow {
     box-shadow: 0 -5px 13px -5px rgba(79, 76, 76, 0.5);
   }
-  tbody tr:nth-of-type(6) {
+  tbody tr.bottom-shadow {
     box-shadow: 0 5px 13px -5px rgba(79, 76, 76, 0.5);
   }
   .dr-radio {
