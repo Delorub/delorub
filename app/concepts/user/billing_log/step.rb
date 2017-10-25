@@ -16,11 +16,14 @@ class User::BillingLog::Step
     end
   end
 
-  class Check
+  class CheckBalance
     extend Uber::Callable
 
     def self.call options, **_
-      options['current_user'].balance >= -options['sum'].to_i
+      return true if options['pay_type'].present? && options['pay_type'] != 'balance'
+      return false if options['current_user'].nil?
+
+      options['current_user'].balance.to_f >= -options['sum'].to_f
     end
   end
 

@@ -1,0 +1,13 @@
+.dr-content-header
+  h2
+    | Выберите способ оплаты
+delocoin-payment-form(
+  value=f.object.pay_type
+  :payment-type-list=(Billing::PaymentTypeList.for(model).to_json)
+  :cost="cost"
+  balance=(user_signed_in? ? current_user.balance : nil)
+  @can-pay="canPay = $event"
+  @payment-type="paymentType = $event"
+)
+  template slot="input" scope="props"
+    = f.input_field :pay_type, as: :hidden, ':value': 'props.value'

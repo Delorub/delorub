@@ -1,0 +1,29 @@
+.registration-form
+  .dr-block-style.dr-block-style--sign-in
+    h1 Укажите контактную информацию
+    .registration-form__content
+      .registration-form__content-inputs
+        .row
+          .col-lg-8
+            .form-group
+              = f.input :first_name, label: false, error: false
+          .col-lg-8
+            .form-group
+              = f.input :email, label: false, error: false
+        br/
+        = render 'shared/phone_confirmation', f: f
+        .registration-form__content-button-submit
+          = f.submit 'Продолжить', class: 'dr-btn-danger'
+        br/
+        delocoin-omniauth-links(
+          :omniauth-params="paramsForOmniauth"
+          operation="delocoin"
+        )
+        br/
+        .checkbox.form-group
+          label
+            = f.hidden_field :accept_terms, value: 1
+            span.checkbox-text
+              ' Нажимая кнопку "Продолжить" или регистрируясь через социальные сети вы соглашаетесь с
+              = policy_links true
+

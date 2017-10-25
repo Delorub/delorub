@@ -1,0 +1,23 @@
+.dr-block-style
+  h2 Сколько монет Вы хотите приобрести?
+  br/
+  span.dr-h5 Текущий курс
+  .current-rate
+    img alt="" src="/images/icons/delocoin.svg" /
+    span.delocoin-current__value-big 1
+    span = '='
+    img alt="" src="/images/icons/ruble.svg" /
+    span.delocoin-current__value-big #{number_to_currency(current_step_delocoin_cost, unit: '', precision: 0)}
+.dr-block-style.dr-block-style--no-padding
+  .delocoin-buy
+    h2 Выберите пакет
+  delocoin-pack-form(
+    last-step-number=last_step.number
+    last-step-delocoin-cost=last_step_delocoin_cost
+    :packs-list=Entities::Delocoin::Pack.represent(packs).to_json
+    v-model="model.pack_id"
+    @cost="cost = $event"
+    @pack-id="packId = $event"
+  )
+    template slot="input" scope="props"
+      = f.input_field :pack_id, as: :hidden, ':value': 'props.value'
