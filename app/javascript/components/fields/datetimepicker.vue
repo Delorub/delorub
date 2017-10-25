@@ -6,18 +6,18 @@
         div.vertical-hr
         input(
           type="text"
-          ref="timeInputHour"
-          v-model="timeValue"
+          ref="timeInput"
+          v-model="timeValueHour"
           maxlength="2"
-          placeholder="20"
+          placeholder="12"
           class="form-control date-time date-time-hour"
         )
         span
           | :
         input(
           type="text"
-          ref="timeInputMinute"
-          v-model="timeValue"
+          ref="timeInput"
+          v-model="timeValueMinute"
           maxlength="2"
           placeholder="00"
           class="form-control date-time date-time-minute"
@@ -40,13 +40,11 @@
       return {
         internalValue: moment(this.value).toISOString(),
         timeCleave: null,
-        timeValue: '',
         timeCleaveConfig: {
-          numericOnly: true,
-          blocks: [2]
+          numericOnly: true
         },
         datepickerConfig: {
-          enableTime: true,
+          enableTime: false,
           disableMobile: true,
           allowInput: false,
           time_24hr: true,
@@ -102,6 +100,16 @@
             .toISOString()
         }
       },
+      timeValueHour: {
+        get: function () {
+          return moment(this.internalValue).format('HH')
+        }
+      },
+      timeValueMinute: {
+        get: function () {
+          return moment(this.internalValue).format('mm')
+        }
+      },
       todayLinkClass () {
         let today = moment()
 
@@ -117,7 +125,7 @@
         }
       }
     },
-    directives: {
+    /* directives: {
       uppercase: {
         twoWay: true, // this transformation applies back to the vm
         bind (el, binding) {
@@ -131,7 +139,7 @@
         unbind: function () {
         }
       }
-    },
+    }, */
     watch: {
       internalValue () {
         this.$emit('input', this.internalValue)
