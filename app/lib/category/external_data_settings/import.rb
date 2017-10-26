@@ -30,6 +30,7 @@ class Category::ExternalDataSettings::Import
 
     def process_word word
       return if word.nil?
+      word = word.to_s
       word = word.strip
       word = word.downcase
       word = word.gsub(/\s+/, ' ')

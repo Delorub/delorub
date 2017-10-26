@@ -2,6 +2,7 @@ class ExternalData::Parser::Vkapi::Newsfeed < ExternalData::Parser
   attr_reader :vk_account
 
   def initialize vk_account
+    Hashie.logger = Logger.new(nil)
     @vk_account = vk_account
     super()
   end
