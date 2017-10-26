@@ -4,13 +4,14 @@ describe Billing::Delocoin::Buy::Operation::Create do
   let!(:pack) { create :delocoin_pack }
   let(:pack_id) { pack.id }
   let!(:step) { create :delocoin_step }
-  let(:user) { create :user }
+  let(:balance) { 1000 }
+  let(:user) { create :user, balance: balance }
 
   describe '#call' do
     let(:accept_terms) { '1' }
     let(:pay_type) { 'balance' }
 
-    let(:params) { { pack_id: pack_id, pay_type: pay_type, accept_terms: accept_terms } }
+    let(:params) { { pack_id: pack_id, pay_type: pay_type, accept_terms: accept_terms }.as_json }
     let(:options) { { 'current_user' => user } }
 
     subject { described_class.call(params, options) }
@@ -58,6 +59,14 @@ describe Billing::Delocoin::Buy::Operation::Create do
         it_behaves_like 'creates new billing log'
       end
 
+      context 'insufficient funds on the balance' do
+        let(:balance) { 0 }
+
+        it { assert subject.failure? }
+        it_behaves_like 'not to change user balance and delocoin balance'
+        it_behaves_like 'not creates new billing log'
+      end
+
       context 'not accepting terms' do
         let(:accept_terms) { nil }
 
@@ -76,8 +85,19 @@ describe Billing::Delocoin::Buy::Operation::Create do
     end
 
     context 'paying from different types' do
+      context 'pay_type is not balance and insufficient funds on the balance' do
+        let(:pay_type) { 'visa' }
+        let(:balance) { 0 }
+
+        it { assert subject.success? }
+        it_behaves_like 'not to change user balance and delocoin balance'
+        it_behaves_like 'creates new billing log'
+        it_behaves_like 'creates yandex_kassa model'
+      end
+
       context 'visa' do
         let(:pay_type) { 'visa' }
+
         it { assert subject.success? }
         it_behaves_like 'not to change user balance and delocoin balance'
         it_behaves_like 'creates new billing log'

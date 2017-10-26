@@ -41,12 +41,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       @omniauth.save
 
       if @omniauth.user.present?
-        sign_in @omniauth.user
-        return redirect_to my_index_index_path
+        return sign_in_and_redirect @omniauth.user, my_index_index_path
       end
 
       @user = User::OmniauthCreator.new(@omniauth).perform
-      return success_sign_in @user if @user
+      return sign_in_and_redirect @user, my_welcome_index_path if @user
 
       failure
     end
@@ -60,8 +59,27 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       request.env['omniauth.auth']
     end
 
-    def success_sign_in user
+    def omniauth_params
+      request.env['omniauth.params']
+    end
+
+    def sign_in_and_redirect user, redirect_url
       sign_in user
-      redirect_to my_welcome_index_path
+      return redirect_to redirect_url if omniauth_params.blank?
+
+      case omniauth_params['operation']
+        when 'delocoin'
+          run Billing::Delocoin::Buy::Operation::Create, omniauth_params.merge(accept_terms: '1') do |result|
+            payment_model = if result['nested_payment'].present?
+                              result['nested_payment']['model']
+                            else
+                              result['model']
+                            end
+
+            return redirect_to confirm_my_billing_path(id: payment_model.billing_log.id)
+          end
+      end
+
+      redirect_to new_delocoin_path
     end
 end

@@ -140,6 +140,7 @@ group :test do
   gem 'rspec-its'
   gem 'rspec-rails', require: false
   gem 'simplecov', require: false
+  gem 'timecop'
   gem 'webmock'
   gem 'shoulda', '~> 3.5'
   gem 'shoulda-matchers', '~> 2.0'

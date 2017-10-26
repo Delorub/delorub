@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171011110335) do
+ActiveRecord::Schema.define(version: 20171019110653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -119,6 +119,7 @@ ActiveRecord::Schema.define(version: 20171011110335) do
     t.text "settings"
     t.text "description"
     t.boolean "is_main", default: false
+    t.text "external_data_settings"
     t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 
@@ -187,6 +188,7 @@ ActiveRecord::Schema.define(version: 20171011110335) do
     t.integer "cost"
     t.float "discount"
     t.integer "number"
+    t.boolean "is_public", default: false
   end
 
   create_table "delocoin_steps", force: :cascade do |t|
@@ -195,6 +197,28 @@ ActiveRecord::Schema.define(version: 20171011110335) do
     t.boolean "is_current"
     t.integer "number"
     t.boolean "buy_available"
+  end
+
+  create_table "external_data", force: :cascade do |t|
+    t.text "data"
+    t.string "uid"
+    t.string "source"
+    t.string "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "payload"
+  end
+
+  create_table "external_data_vk_accounts", force: :cascade do |t|
+    t.string "login"
+    t.string "password"
+    t.string "state"
+    t.string "access_token"
+    t.datetime "access_token_generated_at"
+    t.integer "access_token_attempts_count", default: 0
+    t.text "info"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
