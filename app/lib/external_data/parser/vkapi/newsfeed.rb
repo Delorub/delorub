@@ -7,12 +7,28 @@ class ExternalData::Parser::Vkapi::Newsfeed < ExternalData::Parser
   end
 
   def fetch_data query
-    api_request(query).items.each do |item|
-      add_item item
+    response = api_request(query)
+
+    response.items.each do |item|
+      add_item item.merge(owner_from_response(item, response))
     end
   end
 
   private
+
+    def owner_from_response item, response
+      if item.owner_id.to_s[0] == '-'
+        {
+          owner_type: 'group',
+          group: response.groups.find { |e| e.id.to_s == item.owner_id.to_s[1..-1] }
+        }
+      else
+        {
+          owner_type: 'profile',
+          profile: response.profiles.find { |e| e.id.to_s == item.owner_id.to_s }
+        }
+      end
+    end
 
     def text item
       item['text']
@@ -23,7 +39,7 @@ class ExternalData::Parser::Vkapi::Newsfeed < ExternalData::Parser
     end
 
     def api_request query
-      api.newsfeed.search(q: query, count: 200, extended: 1, fields: 'city')
+      api.newsfeed.search(q: query, count: 200, extended: 1, fields: 'city,country')
     end
 
     def api

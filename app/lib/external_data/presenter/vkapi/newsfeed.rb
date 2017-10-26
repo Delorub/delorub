@@ -4,11 +4,24 @@ class ExternalData::Presenter::Vkapi::Newsfeed < ExternalData::Presenter
   end
 
   def fulltext
-    data.text
+    model.data['text']
+  end
+
+  def group?
+    data.owner_type == 'group'
+  end
+
+  def owner_name
+    case data.owner_type
+      when 'group'
+        data.group.name
+      when 'profile'
+        data.profile.first_name + ' ' + data.profile.last_name
+    end
   end
 
   def data
-    @_data ||= OpenStruct.new model.data
+    @_data ||= RecursiveOpenStruct.new model.data
   end
 
   def url

@@ -16,17 +16,19 @@ ActiveAdmin.register ExternalData, namespace: :admin do
 
   index download_links: false do
     column :text do |external_data|
-      ExternalData::Presenter.for(external_data).text
-    end
-    column :source do |external_data|
+      presenter = ExternalData::Presenter.for(external_data)
+      b presenter.owner_name, style: 'color: ' + (presenter.group? ? 'red' : 'green')
+      br
+      text_node presenter.text
+      br
       link_to ExternalData::Presenter.for(external_data).url, ExternalData::Presenter.for(external_data).url, target: '_blank'
     end
     actions defaults: false do |external_data|
-      item 'Approve', admin_external_data_path(external_data)
+      item 'Approve', approve_admin_external_datum_path(external_data)
       text_node ' '
-      item 'Reject', admin_external_data_path(external_data)
+      item 'Reject', reject_admin_external_datum_path(external_data)
       text_node ' '
-      item 'View', admin_external_data_path(external_data)
+      item 'View', admin_external_datum_path(external_data)
     end
   end
 
