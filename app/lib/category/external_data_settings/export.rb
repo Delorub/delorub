@@ -26,7 +26,7 @@ class Category::ExternalDataSettings::Export
       workbook.add_worksheet(name: sheet_title(category)) do |sheet|
         sheet.add_row [category.id, category_full_title(category)]
 
-        length = [category.external_data_settings.words.try(:size), category.external_data_settings.stopwords.try(:size)].max
+        length = [category.external_data_settings.words.try(:size), category.external_data_settings.stopwords.try(:size)].max || 0
 
         length.times do |i|
           sheet.add_row [category.external_data_settings.words[i], category.external_data_settings.stopwords[i]]
