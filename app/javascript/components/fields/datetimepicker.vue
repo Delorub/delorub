@@ -184,8 +184,7 @@
         if (newVal.length === 2) {
           if (parseInt(newVal[0]) >= 3) {
             this.timeValueHour = '0' + newVal[0]
-          }
-          else if (parseInt(newVal[0]) === 2 && parseInt(newVal[1]) > 3){
+          } else if (parseInt(newVal[0]) === 2 && parseInt(newVal[1]) > 3) {
             this.timeValueHour = '0' + newVal[0]
           }
           this.$refs.timeInputMinute.focus()
