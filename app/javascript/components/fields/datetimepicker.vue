@@ -26,6 +26,8 @@
           @keypress="inputMinute"
           @blur="blurTime"
         )
+        span
+          | 
         slot(name="input" :value="internalValue")
     div.form-group__sublink
       a(href="#" @click.prevent="setToday" :class="todayLinkClass")  сегодня

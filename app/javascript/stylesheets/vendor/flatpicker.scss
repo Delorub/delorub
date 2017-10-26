@@ -79,9 +79,9 @@ span.flatpickr-weekday {
     box-shadow: none;
   }
   .flatpickr-input {
-      background: url(/images/icons/calendar.svg) 0 0 no-repeat;
-      background-position: 15px 50%;
-    }
+    background: url(/images/icons/calendar.svg) 0 0 no-repeat;
+    background-position: 15px 50%;
+  }
   .date-time {
     border: none !important;
     padding: 16px 0px 14px 0px !important;
@@ -91,11 +91,13 @@ span.flatpickr-weekday {
     &:focus {
       background-color: #fefbfb;
     }
-    &-minute {
-      margin-right: 10px;
-    }
     &-hour + span {
-      margin-top: 13px;
+      padding-top: 13px;
+      background-color: #fefbfb;
+    }
+    &-minute + span {
+      width: 8px;
+      background-color: #fefbfb;
     }
   }
   .vertical-hr {
