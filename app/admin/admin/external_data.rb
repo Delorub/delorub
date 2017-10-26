@@ -47,7 +47,7 @@ ActiveAdmin.register ExternalData, namespace: :admin do
   end
 
   collection_action :delete_all, method: :get do
-    ExternalData.delete_all
+    ExternalData.where(state: 'new').delete_all
 
     redirect_to admin_external_data_path, notice: 'Записи удалены'
   end
