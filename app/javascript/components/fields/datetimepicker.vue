@@ -6,21 +6,25 @@
         div.vertical-hr
         input(
           type="text"
-          ref="timeInput"
+          ref="timeInputHour"
           v-model="timeValueHour"
           maxlength="2"
           placeholder="12"
           class="form-control date-time date-time-hour"
+          @keypress="inputHour"
+          @blur="blurTime"
         )
         span
           | :
         input(
           type="text"
-          ref="timeInput"
+          ref="timeInputMinute"
           v-model="timeValueMinute"
           maxlength="2"
           placeholder="00"
           class="form-control date-time date-time-minute"
+          @keypress="inputMinute"
+          @blur="blurTime"
         )
         slot(name="input" :value="internalValue")
     div.form-group__sublink
@@ -31,7 +35,6 @@
 <script>
   import flatPickr from 'vue-flatpickr-component'
   import 'flatpickr/dist/flatpickr.css'
-  import Cleave from 'cleave.js'
   import moment from 'lib/moment'
 
   export default {
@@ -39,10 +42,8 @@
     data () {
       return {
         internalValue: moment(this.value).toISOString(),
-        timeCleave: null,
-        timeCleaveConfig: {
-          numericOnly: true
-        },
+        timeValueHour: moment(this.internalValue).format('HH'),
+        timeValueMinute: moment(this.internalValue).format('mm'),
         datepickerConfig: {
           enableTime: false,
           disableMobile: true,
@@ -65,9 +66,6 @@
         }
       }
     },
-    mounted () {
-      this.timeCleave = new Cleave(this.$refs.timeInput, this.timeCleaveConfig)
-    },
     methods: {
       setToday () {
         let date = moment()
@@ -84,6 +82,66 @@
           .set('month', date.month())
           .set('year', date.year())
           .toISOString()
+      },
+      isNumeric (evt) {
+        var regex = /[0-9]|\./
+        if (!regex.test(evt.key)) {
+          return false
+        }
+        return true
+      },
+      blurTime (evt) {
+        if (this.timeValueHour.length === 0) {
+          this.timeValueHour = '00'
+        } else
+        if (this.timeValueHour.length === 1) {
+          this.timeValueHour = '0' + this.timeValueHour
+        }
+
+        if (this.timeValueMinute.length === 0) {
+          this.timeValueMinute = '00'
+        } else
+        if (this.timeValueMinute.length === 1) {
+          this.timeValueMinute = '0' + this.timeValueMinute
+        }
+      },
+      inputHour (evt) {
+        if (!this.isNumeric(evt)) {
+          evt.preventDefault()
+          return
+        }
+        var digit = parseInt(evt.key)
+
+        if (this.timeValueHour.length === 2) {
+          evt.preventDefault()
+        }
+
+        if (digit >= 3 && (this.timeValueHour.length === 0)) {
+          if (this.timeValueHour !== '0' + evt.key) {
+            this.timeValueHour = '0' + evt.key
+          }
+          this.$refs.timeInputMinute.focus()
+          return
+        }
+
+        if (this.timeValueHour === '2') {
+          if (digit > 3) {
+            this.timeValueHour = '02'
+            this.$refs.timeInputMinute.focus()
+            evt.preventDefault()
+          }
+        }
+      },
+      inputMinute (evt) {
+        if (!this.isNumeric(evt)) {
+          evt.preventDefault()
+          return
+        }
+        var digit = parseInt(evt.key)
+
+        if (digit >= 6 && (this.timeValueMinute.length === 0 || this.timeValueMinute.length === 2)) {
+          evt.preventDefault()
+        }
       }
     },
     computed: {
@@ -98,22 +156,6 @@
             .set('month', date.month())
             .set('year', date.year())
             .toISOString()
-        }
-      },
-      timeValueHour: {
-        get: function () {
-          return moment(this.internalValue).format('HH')
-        },
-        set: function () {
-          return 0
-        }
-      },
-      timeValueMinute: {
-        get: function () {
-          return moment(this.internalValue).format('mm')
-        },
-        set: function () {
-          return 0
         }
       },
       todayLinkClass () {
@@ -131,24 +173,41 @@
         }
       }
     },
-    /* directives: {
-      uppercase: {
-        twoWay: true, // this transformation applies back to the vm
-        bind (el, binding) {
-          console.log('test', el, binding)
-        },
-        update (el, binding) {
-          console.log('upd', el, binding)
-          binding.value = '21:00'
-          el.value = '21:00'
-        },
-        unbind: function () {
-        }
-      }
-    }, */
     watch: {
       internalValue () {
         this.$emit('input', this.internalValue)
+      },
+      timeValueHour (newVal) {
+        if (newVal.length < 2) {
+          return
+        }
+        if (newVal.length === 2) {
+          if (parseInt(newVal[0]) >= 3) {
+            this.timeValueHour = '0' + newVal[0]
+          }
+          else if (parseInt(newVal[0]) === 2 && parseInt(newVal[1]) > 3){
+            this.timeValueHour = '0' + newVal[0]
+          }
+          this.$refs.timeInputMinute.focus()
+        }
+        let hours = moment(this.timeValueHour, 'HH')
+        this.internalValue = moment(this.internalValue)
+          .set('hour', hours.hour())
+          .toISOString()
+      },
+      timeValueMinute (newVal) {
+        if (newVal.length < 2) {
+          return
+        }
+        if (newVal.length === 2) {
+          if (parseInt(newVal[0]) >= 6) {
+            this.timeValueMinute = '0' + newVal[0]
+          }
+        }
+        let minutes = moment(this.timeValueMinute, 'mm')
+        this.internalValue = moment(this.internalValue)
+          .set('minute', minutes.minute())
+          .toISOString()
       }
     },
     components: {
