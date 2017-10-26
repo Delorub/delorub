@@ -39,7 +39,7 @@ class Category::ExternalDataSettings::Export
     end
 
     def sheet_title category
-      category.title[0..26].gsub(%r{/[^\sа-яa-z0-9]/i}, '') + ' ' + category.id.to_s
+      category.title[0..26].gsub(/[^\sа-яa-z0-9]/i, '') + ' ' + category.id.to_s
     end
 
     def categories
