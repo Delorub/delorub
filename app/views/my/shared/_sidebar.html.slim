@@ -6,10 +6,6 @@
           li
             a href=my_index_index_path class=(my_sidebar_item_class_for :index) Мои задания
           li
-            a href=my_index_index_path class=(my_sidebar_item_class_for :my_messages) Мои сообщения
-          li
-            a href=price_list_path class=(my_sidebar_item_class_for :price_list) Тарифы и услуги
-          li
             a href=my_billing_index_path class=(my_sidebar_item_class_for :billing) Кошелек
           li
             a href=edit_my_user_path class=(my_sidebar_item_class_for :users) Настройки профиля
@@ -22,7 +18,7 @@
       .delocoin-current
         img alt="" src="/images/icons/delocoin.svg" /
         span.delocoin-current__value-big = format_balance current_user.delocoin_balance
-      a.dr-btn-danger.dr-btn-190-mobile href=buy_my_delocoin_index_path  Купить DELOCOIN
+      a.dr-btn-danger.dr-btn-190-mobile href=new_delocoin_path  Купить DELOCOIN
       br/
       a.link-default target='_blank' href='/Delorub_White_Paper.pdf'   Что такое Delocoin?
   .dr-block-style.dr-block-style--left-menu-card

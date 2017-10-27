@@ -2,21 +2,22 @@
 #
 # Table name: categories
 #
-#  id             :integer          not null, primary key
-#  title          :string
-#  parent_id      :integer
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
-#  lft            :integer
-#  rgt            :integer
-#  depth          :integer
-#  children_count :integer
-#  photo          :string
-#  position       :integer
-#  slug           :string
-#  settings       :text
-#  description    :text
-#  is_main        :boolean          default(FALSE)
+#  id                     :integer          not null, primary key
+#  title                  :string
+#  parent_id              :integer
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  lft                    :integer
+#  rgt                    :integer
+#  depth                  :integer
+#  children_count         :integer
+#  photo                  :string
+#  position               :integer
+#  slug                   :string
+#  settings               :text
+#  description            :text
+#  is_main                :boolean          default(FALSE)
+#  external_data_settings :text
 #
 # Indexes
 #

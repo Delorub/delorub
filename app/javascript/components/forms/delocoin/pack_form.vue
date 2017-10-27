@@ -9,24 +9,24 @@
             div
               | Стоимость 
               br
-              | пакета
+              | пакета, руб
           th
             div Дисконт
           th
             div
               | Стоимость
               br
-              | монеты ₽
+              | монеты, руб
           th
             div
               | Количество 
               br
-              | монет
+              | монет, шт
           th
             div
-              | Стоимость монет ₽ на {{ lastStepNumber }}
-              br/
-              | этапе, {{ formatNumber(lastStepDelocoinCost) }} Р/монета
+              | Стоимость монет
+              br
+              | через год, руб
       tbody
         template(v-for="pack in packsList")
           tr(@click="internalValue = pack.id" :class="(pack.id == internalValue) ? 'checked' : ''")
@@ -44,7 +44,7 @@
                   | {{ '-' + pack.discount_in_percents + ' %' }}
             td {{ formatFloatNumber(pack.one_delocoin_cost) }}
             td {{ formatNumber(pack.delocoin_amount) }}
-            td {{ formatNumber(pack.delocoin_cost_on_last_step) }}
+            td {{ formatNumber(pack.delocoin_cost_next_year) }}
 </template>
 <script>
   import numeral from 'lib/numeral'
@@ -62,6 +62,7 @@
       let pack = this.packsList.find(e => e.id === this.internalValue)
       if (pack !== undefined) {
         this.$emit('cost', pack.cost)
+        this.$emit('pack-id', pack.id)
       }
     },
     methods: {
@@ -78,6 +79,7 @@
 
         this.$emit('value', pack.id)
         this.$emit('cost', pack.cost)
+        this.$emit('pack-id', pack.id)
       }
     }
   }

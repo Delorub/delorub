@@ -7,3 +7,5 @@ en:
     rules:
       phone:
         accepted?: Подтвердите номер мобильного телефона
+      accept_terms:
+        included_in?: Вы должны согласиться с правилами сервиса

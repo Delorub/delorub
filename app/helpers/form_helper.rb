@@ -14,13 +14,20 @@ module FormHelper
   end
 
   def policy_checkbox_text
-    ('Я согласен с ' +
-      link_to('политикой конфидециальности', policy_path, class: 'link-default', target: 'blank') +
-      ', ' +
-      link_to('пользовательским соглашением', terms_path, class: 'link-default', target: 'blank') +
-      ' и ' +
-      link_to('регламентом оборота монет', billing_terms_path, class: 'link-default', target: 'blank')
-    ).html_safe
+    ('Я согласен с ' + policy_links).html_safe
+  end
+
+  def policy_links billing_offer = false
+    links = (link_to('политикой конфидециальности', policy_path, class: 'link-default', target: 'blank') +
+              ', ' +
+              link_to('пользовательским соглашением', terms_path, class: 'link-default', target: 'blank') +
+              ' и ' +
+              link_to('регламентом оборота монет', billing_terms_path, class: 'link-default', target: 'blank')
+            )
+    if billing_offer
+      links = link_to('договором оферты', billing_offer_path, class: 'link-default', target: 'blank') + ', ' + links
+    end
+    links
   end
 
   def payment_policy_checkbox_text
