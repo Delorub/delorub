@@ -4,13 +4,10 @@
     .performer-description-category
       .performer-description-category__header
         h5
-          a.link-default.link-bold href=new_task_path(main_category_profile.main_category)
-            = main_category_profile.main_category.title
-        br/
+          = main_category_profile.main_category.title
         - profile.subcategories_by_main_category(main_category_profile.main_category.id).each do |category|
           .margin-bottom-05
-            a.link-black href=new_task_path(category)
-              = category.title
+            = category.title
       hr.dr-block-hr
       .performer-description-category__text
         p.dr-h5
