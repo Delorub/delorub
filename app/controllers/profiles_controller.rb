@@ -45,7 +45,7 @@ class ProfilesController < ApplicationController
     end
 
     def end_of_association_chain
-      ProfileQuery.new(collection: super, category: @category, current_user: current_user, page: params[:page],
+      ProfileQuery.new(collection: super, category: @category, page: params[:page],
                        direction: params[:direction_created], place: @place).perform
     end
 

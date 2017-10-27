@@ -8,16 +8,12 @@
         = @h1.present? ? @h1 : 'Все исполнители'
     .row
       .col-lg-8
-        .dr-block-style.dr-block-style--sort-padding
-          .task-sort
-            .row
-              .col-xl-3.col-lg-6
-                .checkbox
-                  profile-filters-form(
-                    current-url=category_city_profile_link_url(@category, @place)
-                    order-value=params[:direction_created]
-                  )
-        = render 'profile'
+        profile-filters-form(
+          policy-create=policy(Profile).new?
+          :profiles=Entities::Profile.represent(profiles).to_json
+          :params-value=params.to_json
+          count-pages=profiles.object.total_pages
+        )
       .col-lg-4.lg-hide
         = render partial: 'cities/select_cities', locals: {url: category_profile_link_url(@category)}
         = render 'categories'
