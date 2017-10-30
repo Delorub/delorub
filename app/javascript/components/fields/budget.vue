@@ -1,10 +1,9 @@
 <template lang="pug">  
-  input(
+  input.form-control.string.required(
     type="text"
     ref="priceInput"
     maxlength="15"
     placeholder="300 000"
-    class="form-control string required"
   )
 </template>
 

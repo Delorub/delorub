@@ -44,8 +44,8 @@
     data () {
       return {
         internalValue: moment(this.value).toISOString(),
-        timeValueHour: moment(this.internalValue).format('HH'),
-        timeValueMinute: moment(this.internalValue).format('mm'),
+        timeValueHour: moment(this.value).format('HH'),
+        timeValueMinute: moment(this.value).format('mm'),
         datepickerConfig: {
           enableTime: false,
           disableMobile: true,
