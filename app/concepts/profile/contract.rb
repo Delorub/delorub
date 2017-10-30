@@ -33,6 +33,7 @@ module Profile::Contract
     property :category_ids, parse: false
 
     validates :about, presence: true
+    validates :price_project, numericality: { greater_than_or_equal_to: 0 }, allow_blank: true
 
     def deserialize! document
       # TODO: find the right way to delete unpopulated elements from collection

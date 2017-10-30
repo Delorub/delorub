@@ -54,6 +54,8 @@
                             'placeholder': '30 000',
                           }
                         i.input-group-addon.fa.fa-rub aria-hidden="true"
+                      div
+                        = pf.error :price_project
           = render 'profiles/form/about', f: pf
         br/
         input.dr-btn-primary type="submit" value="Сохранить" /
