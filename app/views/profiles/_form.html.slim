@@ -25,7 +25,7 @@
                     '@available': 'updateAvailable',
                     '@focus': "showTooltip('profile_category')",
                   }
-              .dr-block-style.dr-block-style--category
+              .dr-block-style.dr-block-style--category @click="showTooltip('profile_price_project')"
                 .row
                   .col-lg-12
                     .create-profile__budget
@@ -37,13 +37,9 @@
                             label for="profile_price_project" От
                           .col-lg-5
                             .input-group
-                              = f.input :price_project, label: false, wrapper: false, error: false,
-                                input_html: { \
-                                  'v-model': 'model.price_project',
-                                  'v-on:focus': %(showTooltip('profile_price_project')),
-                                  'placeholder': '30 000',
-                                  type: 'number',
-                                }
+                              budgetpicker v-model="model.price_project"
+                                template
+                                  = f.input :price_project, label: false, wrapper: false, error: false
                               i.input-group-addon.fa.fa-rub aria-hidden="true"
                             = f.error :price_exact
                 hr/
