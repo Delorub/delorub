@@ -7,7 +7,7 @@
           .money-pocket
             h4 Кошелек
             .delocoin-current
-              img(alt="" src="/images/icons/ruble.svg")
+              img(alt="Ruble" src="/images/icons/ruble.svg")
               div
                 span.delocoin-current__value-big {{ formatNumber(balance) }}
         .dr-popover.dr-popover-left(v-if="this.internalValue == 'balance' && !haveEnoughBalance")
@@ -24,7 +24,7 @@
           @click="paymentSelect(paymentType)"
         )
           .choose-payment__image
-            img(alt="" :src="imageForPaymentType(paymentType)")
+            img(alt="payment type" :src="imageForPaymentType(paymentType)")
 </template>
 <script>
   import numeral from 'lib/numeral'
