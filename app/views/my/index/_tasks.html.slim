@@ -24,7 +24,7 @@
                     - if time_expires_before_tomorrow?(task.date_type.end_at?, task.date_actual) || time_expires_before_tomorrow?(task.date_type.interval?, task.date_interval_to)
                       p.task-card-refinement__time.task-card-refinement__time--quickly
                         i.fa.fa-clock-o aria-hidden="true"
-                        = content_tag 'timer-countdown', '', 'expire_date': task.date_type.end_at? ? task.date_actual.to_s(:db) : task.date_interval_to.to_s(:db)
+                        = content_tag 'timer-countdown', '', 'expire_date': task.date_type.end_at? ? task.date_actual : task.date_interval_to
                     - else
                       p.task-card-refinement__time
                         = 'С ' if task.date_type.start_at? && task.date_actual.present?
@@ -34,8 +34,8 @@
               .col
                 .task-card-description
                   p.task-card-description__adress
-                    img src="/images/icons/place_red.svg" alt="" /
-                    = task.place_address
+                    img src="/images/icons/place_red.svg" alt="place" /
+                    = task.place_address.blank? ? 'Адрес не указан' : task.place_address
       hr/
       .task-card-container
         .task-card-link

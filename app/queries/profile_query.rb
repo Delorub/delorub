@@ -4,7 +4,7 @@ class ProfileQuery
   def initialize collection:, category:, page:, direction:, place: nil
     @collection = collection
     @category = category
-    @page = page
+    @page = page.to_i.positive? ? page : 1
     @direction = direction.present? && direction.to_i == 1 ? 'asc' : 'desc'
     @place = place
   end
@@ -44,6 +44,6 @@ class ProfileQuery
     end
 
     def apply_paginate
-      @collection = collection.page(page.to_i.positive? ? page : 1).per(10)
+      @collection = collection.page(page).per(10)
     end
 end
