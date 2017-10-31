@@ -31,6 +31,7 @@ import DelocoinBuyForm from '../components/forms/delocoin/buy_form.vue'
 import DelocoinPaymentForm from '../components/forms/delocoin/payment_form.vue'
 import DelocoinOmniauthLinks from '../components/forms/delocoin/omniauth_links.vue'
 import DelocoinChart from '../components/delocoin_chart.vue'
+import NameInput from '../components/forms/user/name_input.vue'
 
 import TaskMap from '../components/task_map.vue'
 import SmsConfirmation from '../components/sms_confirmation.vue'
@@ -77,6 +78,7 @@ Vue.component('delocoin-buy-form', DelocoinBuyForm)
 Vue.component('delocoin-payment-form', DelocoinPaymentForm)
 Vue.component('delocoin-omniauth-links', DelocoinOmniauthLinks)
 Vue.component('delocoin-chart', DelocoinChart)
+Vue.component('name-input', NameInput)
 
 Vue.component('task-form', TaskForm)
 Vue.component('task-upload-form', TaskUploadForm)

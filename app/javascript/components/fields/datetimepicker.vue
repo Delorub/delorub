@@ -86,7 +86,7 @@
           .toISOString()
       },
       isNumeric (evt) {
-        var regex = /[0-9]|\./
+        var regex = /[0-9]/
         if (!regex.test(evt.key)) {
           return false
         }
