@@ -3,13 +3,18 @@ div id="form_contacts" v-on:click="showTooltip('form_contacts')"
   br/
   .row.margin-bottom-10
     .col-lg-4.col-md-6
-      name-input v-model="model.first_name"
-        template
-          = f.input :first_name, label: false, error: false
+      = f.input :first_name, label: false, error: false,
+        input_html: { \
+          'v-on:focus': %(showTooltip('form_contacts')),
+          oninput: 'this.value = this.value.replace(/[|<>{\[\]}!~@#$%^&*)("№;:?.,\'`/+= ]|\d/g, "")',
+        }
       .form__error-message
         span = f.error (f.object.errors.keys & [:first_name]).first
     .col-lg-4.col-md-6
-      = f.input :email, label: false, error: false
+      = f.input :email, label: false, error: false,
+        input_html: { \
+          'v-on:focus': %(showTooltip('form_contacts')),
+        }
       .form__error-message
         span = f.error (f.object.errors.keys & [:email]).first
   .form__phone
