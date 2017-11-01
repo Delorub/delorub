@@ -120,7 +120,7 @@
               },
               afterLabel: function (tooltipItem, data) {
                 var count = data.datasets[0].data[tooltipItem['index']]
-                return 'Стоимость Delocoin: ' + count + '₽'
+                return 'Стоимость DeloCoin: ' + count + '₽'
               }
             }
           },
