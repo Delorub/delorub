@@ -1,5 +1,5 @@
 class Roistat
-  include Roistat::Users
+  include Roistat::UsersModule
   include Roistat::DelocoinBuy
 
   attr_reader :visitor_id, :user

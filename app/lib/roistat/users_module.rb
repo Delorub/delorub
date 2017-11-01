@@ -1,4 +1,4 @@
-module Roistat::Users
+module Roistat::UsersModule
   extend ActiveSupport::Concern
 
   def user_registration *args
