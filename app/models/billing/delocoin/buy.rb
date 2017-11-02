@@ -26,6 +26,6 @@ class Billing::Delocoin::Buy < ApplicationRecord
   belongs_to :step, class_name: '::Delocoin::Step'
 
   def name
-    'Покупка Delocoin'
+    'Покупка DeloСoin'
   end
 end
