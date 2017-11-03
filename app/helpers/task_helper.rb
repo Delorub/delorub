@@ -35,8 +35,4 @@ module TaskHelper
       city.present? ? city.slug + tasks_path : tasks_path
     end
   end
-
-  def parse_city_settings settings, key, default_value = ''
-    settings.present? && settings.settings.dig(key).present? ? settings.settings.dig(key) : default_value
-  end
 end
