@@ -1,5 +1,5 @@
 - if @category || @place
-  - @h1 = formatted_seo_settings_value(@place_settings, additional_text, @category, @place, :h1)
+  - put_seo_h1 formatted_seo_settings_value(@place_settings, additional_text, @category, @place, :h1)
   - seo_title formatted_seo_settings_value(@place_settings, additional_text, @category, @place, :seo_title).to_s.html_safe
 - else
   - seo_title default_text

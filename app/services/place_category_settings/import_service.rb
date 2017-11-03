@@ -36,7 +36,7 @@ class PlaceCategorySettings::ImportService
     end
 
     def settings_value value
-      { h1: value[1], seo_title: value[2], seo_keywords: value[3], seo_description: value[4] }
+      { h1: value[1].to_s, seo_title: value[2].to_s, seo_keywords: value[3].to_s, seo_description: value[4].to_s }
     end
 
     def find_setting sub_category

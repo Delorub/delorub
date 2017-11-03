@@ -7,7 +7,7 @@ columns do
             tr do
               td b 'Города'
               td do
-                select_tag 'city_id', options_for_select(cities.map{|a| [a.name, a.id]}, selected_city.id),
+                select_tag 'city_id', options_for_select(cities.map{|a| [a.full_name, a.id]}, selected_city.id),
                            {class: 'category_settings_select_cities', style: 'width:50%'}
               end
             end
@@ -84,14 +84,14 @@ unless selected_city.blank?
               hidden_field_tag :category_id, category.id
               hidden_field_tag :city_id, selected_city.id
               hidden_field_tag :settings_type, selected_type
-              f.text_field :h1, form:"form#{category.id}", style: 'width:100%', class: 'category_settings_field',
+              f.text_field :h1, form:"form#{category.id}", style: 'width:100%',
                            value: city_setting.present? ? city_setting.settings.dig(:h1) : ''
             end
-            td f.text_field :seo_title, form:"form#{category.id}", style: 'width:100%', class: 'category_settings_field',
+            td f.text_field :seo_title, form:"form#{category.id}", style: 'width:100%', class: 'category_settings_field seo_title',
                             value: city_setting.present? ? city_setting.settings.dig(:seo_title) : ''
             td f.text_area :seo_keywords, cols: 50, rows: 5, form:"form#{category.id}", style: 'width:100%', class: 'category_settings_textarea',
                            value: city_setting.present? ? city_setting.settings.dig(:seo_keywords) : ''
-            td f.text_area :seo_description, cols: 50, rows: 5, form:"form#{category.id}", style: 'width:100%', class: 'category_settings_textarea',
+            td f.text_area :seo_description, cols: 50, rows: 5, form:"form#{category.id}", style: 'width:100%', class: 'category_settings_textarea seo_description',
                            value: city_setting.present? ? city_setting.settings.dig(:seo_description) : ''
             td f.text_area :description, id: "txt-area-#{category.id}", form:"form#{category.id}", value: city_setting.present? ? city_setting.settings.dig(:description) : '', class: 'ckeditor'
             td f.button 'Сохранить', class: 'btn_save_city_category'

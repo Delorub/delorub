@@ -14,7 +14,7 @@ ActiveAdmin.register PlaceCategoriesSettings do
       flash[:error] = error.message
     end
 
-    redirect_to admin_seosettings_path(city_id: city.id, category_id: category.id, type: params[:type])
+    redirect_to admin_seosettings_path(city_id: city.id, category_id: category.id, settings_type: params[:type])
   end
 
   collection_action :change_category_settings, method: :put do

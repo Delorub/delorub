@@ -15,4 +15,12 @@ module SeoSettingsHelper
   def parse_seo_settings settings, key, default_value = ''
     settings.present? && settings.settings.dig(key).present? ? settings.settings.dig(key) : default_value
   end
+
+  def put_seo_h1 text
+    content_for :h1, text
+  end
+
+  def get_seo_h1 default_text
+    content_for?(:h1) ? content_for(:h1) : default_text
+  end
 end
