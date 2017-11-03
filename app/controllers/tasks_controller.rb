@@ -49,7 +49,7 @@ class TasksController < ApplicationController
 
     def end_of_association_chain
       TaskQuery.new(collection: super, scope: @scope, category: @category, current_user: current_user,
-                    page: params[:page], order_direction: params[:order], place: @place).perform
+                    page: params[:page], direction_created: params[:direction_created], place: @place).perform
     end
 
     def fetch_scope
@@ -72,8 +72,7 @@ class TasksController < ApplicationController
 
     def category_present?
       return unless params[:category_id]
-      @category = Category.friendly.where(slug: params[:category_id]).first
-      not_found if @category.blank?
+      @category = Category.friendly.find(params[:category_id])
     end
 
     def place_present?
