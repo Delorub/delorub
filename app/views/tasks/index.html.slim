@@ -1,5 +1,5 @@
 - render 'shared/category_place_seo', default_text: 'Задания'
-- canonical_link(category_tasks_link_url(@category, @place)) if params[:page] || params[:order]
+- canonical_link(category_tasks_link_url(@category, @place)) if params[:page]
 .regular-content
   .container
     = render partial: 'breadcrumb', locals: { h1: @h1 }
@@ -8,20 +8,11 @@
         = @h1.present? ? @h1 : 'Все задания'
     .row
       .col-lg-8
-        .dr-block-style.dr-block-style--sort-padding
-          .task-sort
-            .row
-              .col-md-6.col-xl-auto
-                span
-                  b
-                    | Сортировать по:
-              .col-xl-3.col-lg-6
-                = link_to category_tasks_direction_link_url(@category, @place, params[:order]),
-                  class: 'task-sort__link' do
-                  ' Дате размещения
-                  |
-                  = content_tag(:i, '', class: "fa fa-caret-#{fa_class_by_direction_order(params[:order])}")
-        = render 'tasks'
+        task-filters-form(
+          :tasks=Entities::Task.represent(tasks).to_json
+          :params-value=params.to_json
+          count-pages=tasks.object.total_pages
+          )
       .col-lg-4.lg-hide
         = render partial: 'cities/select_cities', locals: { url: @category.present? ? category_tasks_path(@category) : tasks_path }
         = render 'categories'
