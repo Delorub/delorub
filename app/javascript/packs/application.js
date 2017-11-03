@@ -25,6 +25,7 @@ import EditUserForm from '../components/forms/user/edit_form.vue'
 import UserPhotoUpload from '../components/forms/user/photo_upload.vue'
 import TaskForm from '../components/forms/task/edit_form.vue'
 import TaskUploadForm from '../components/forms/task/upload_form.vue'
+import TaskFiltersForm from '../components/forms/task/filters_form.vue'
 import SignInForm from '../components/forms/user/sign_in_form.vue'
 import DelocoinPackForm from '../components/forms/delocoin/pack_form.vue'
 import DelocoinBuyForm from '../components/forms/delocoin/buy_form.vue'
@@ -33,6 +34,7 @@ import DelocoinOmniauthLinks from '../components/forms/delocoin/omniauth_links.v
 import DelocoinChart from '../components/delocoin_chart.vue'
 
 import TaskMap from '../components/task_map.vue'
+import CustomPagination from '../components/custom-pagination.vue'
 import SmsConfirmation from '../components/sms_confirmation.vue'
 import CategorySuggest from '../components/fields/category_suggest.vue'
 import TimerCountdown from '../components/timer_countdown.vue'
@@ -80,7 +82,9 @@ Vue.component('delocoin-chart', DelocoinChart)
 
 Vue.component('task-form', TaskForm)
 Vue.component('task-upload-form', TaskUploadForm)
+Vue.component('task-filters-form', TaskFiltersForm)
 Vue.component('task-map', TaskMap)
+Vue.component('custom-pagination', CustomPagination)
 
 Vue.component('category-suggest', CategorySuggest)
 Vue.component('timer-countdown', TimerCountdown)

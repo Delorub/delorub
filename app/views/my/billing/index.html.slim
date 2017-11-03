@@ -30,7 +30,8 @@
       label
         = f.check_box :accept_terms
         span.checkbox-custom
-        = payment_policy_checkbox_text
+        span.checkbox-text
+          = payment_policy_checkbox_text
       = f.error :accept_terms
     br/
     div
