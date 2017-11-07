@@ -9,7 +9,7 @@
           ref="timeInputHour"
           v-model="timeValueHour"
           maxlength="2"
-          placeholder="12"
+          placeholder="00"
           class="form-control date-time date-time-hour"
           @keypress="inputHour"
           @blur="blurTime"
@@ -86,7 +86,7 @@
           .toISOString()
       },
       isNumeric (evt) {
-        var regex = /[0-9]|\./
+        var regex = /[0-9]/
         if (!regex.test(evt.key)) {
           return false
         }

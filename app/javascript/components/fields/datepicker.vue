@@ -41,8 +41,8 @@
           disableMobile: true,
           allowInput: false,
           enableTime: false,
-          minDate: 'today',
-          maxDate: new Date().fp_incr(365),
+          minDate: new Date().fp_incr(-36500),
+          maxDate: 'today',
           dateFormat: 'd.m.Y',
           locale: {
             firstDayOfWeek: 1,

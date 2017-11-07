@@ -2,7 +2,7 @@
   input.form-control.string.required(
     type="text"
     ref="priceInput"
-    maxlength="15"
+    maxlength="11"
     placeholder="300 000"
   )
 </template>
@@ -15,9 +15,9 @@
       return {
         priceCleave: null,
         priceCleaveConfig: {
-          numericOnly: true,
-          blocks: [3, 3, 3, 3],
-          delimeter: ' '
+          numeral: true,
+          numeralPositiveOnly: true,
+          delimiter: ' '
         }
       }
     },
