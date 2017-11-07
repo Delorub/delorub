@@ -6,7 +6,6 @@ div id="form_contacts" v-on:click="showTooltip('form_contacts')"
       = f.input :first_name, label: false, error: false,
         input_html: { \
           'v-on:focus': %(showTooltip('form_contacts')),
-          oninput: 'this.value = this.value.replace(/[|<>{\[\]}!~@#$%^&*)("№;:?.,\'`/+= ]|\d/g, "")',
         }
       .form__error-message
         span = f.error (f.object.errors.keys & [:first_name]).first
