@@ -1,12 +1,9 @@
 .album-cover {
   &-image {
-    width: 183px;
-    height: 176px;
-    background-position: center;
-    background-image: url('/images/design/room_1.jpg');
-    background-size: cover;
-    border-radius: 3px;
     position: relative;
+    img {
+      border-radius: 3px;
+    }
   }
   &-tooltip {
     width: 308px;
@@ -34,14 +31,11 @@
     }
   }
   &-item {
-    width: 118px;
-    height: 119px;
-    background-position: center;
-    background-image: url('/images/design/room_1.jpg');
-    background-size: cover;
-    border-radius: 3px;
     position: relative;
     margin-bottom: 10px;
+    img {
+      border-radius: 3px;
+    }
   }
   &-add {
     @media (min-width: 540px) {
