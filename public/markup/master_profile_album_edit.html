@@ -114,7 +114,7 @@
 
                 <div class="dr-content-header">
                   <h1>
-                    Создание альбома
+                    Редактирование альбома
                   </h1>
                 </div>
 
@@ -135,9 +135,8 @@
                   </div>
                   <p class="dr-h2 margin-bottom-20">Обложка альбома</p>
                   <div class="align-center">
-                    <div class="album-cover-image">
-                      <input type="file" name="upload" id="cover_upload_hidden" onchange="document.getElementById('cover_upload_visible').value = this.value;" />
-                      <input type="text" readonly="1" id="cover_upload_visible" value="+" onclick="document.getElementById('cover_upload_hidden').click();" />
+                    <div class="album-cover-image album-image-close">
+                      <img src="/images/design/room_1.jpg"/>
                     </div>
                     <div class="album-cover-tooltip">
                       <p>Загрузите фаил</p>
@@ -151,10 +150,45 @@
                   </div>
 
                   <p class="dr-h2 margin-bottom-20 margin-top-40">Загрузите фотографии в альбом</p>
+                  <div class="album-image-add">
+                    <div class="album-image-item album-image-close">
+                      <img src="/images/design/room_1_small.jpg"/>
+                    </div>
+                    <div class="form-group album-image-textarea">
+                      <textarea class="form-control" placeholder="Описание фотографии" rows="5"></textarea>
+                    </div>
+                  </div>
                   
-                  <div class="album-image-upload">
-                    <input type="file" name="upload" id="image_upload_hidden" onchange="document.getElementById('image_upload_visible').value = this.value;" />
-                    <input type="text" readonly="1" id="image_upload_visible" value="Прикрепить изображение" onclick="document.getElementById('image_upload_hidden').click();" />
+                  <div class="album-image-add">
+                    <div class="album-image-item">
+                      <img class="album-image-mask" src="/images/design/room_1_small.jpg"/>
+                    </div>
+                    <div class="album-image-error">
+                      <p>Файл слишком большой (максимальный размер файла - 7 Мб)</p>
+                    </div>
+                  </div>
+                  
+                  <div class="album-image-add">
+                    <div class="album-image-item">
+                      <img class="album-image-mask" src="/images/design/room_1_small.jpg"/>
+                    </div>
+                    <div class="album-image-error">
+                      <p>Ошибка загрузки изображения, <a href="#" class="link-default">попробовать снова</a></p>
+                    </div>
+                  </div>
+
+                  <div class="album-image-remove">
+                    <span>Удалено.</span>
+                    <a class="link-default" href="#">Восстановить</a>
+                  </div>
+                  
+                  <div class="album-image-add">
+                    <div class="album-image-item">
+                      <img src="/images/design/room_1_small.jpg"/>
+                    </div>
+                    <div class="form-group album-image-textarea">
+                      <textarea class="form-control" placeholder="Описание фотографии" rows="5"></textarea>
+                    </div>
                   </div>
                 </div>
                 <div class="margin-top-20">
