@@ -50,6 +50,13 @@
       align-items: top;
     }    
   }
+  &-remove {
+    border-radius: 3px;
+    background-color: #fefbfb;
+    border: solid 1px #e6e3e3;
+    margin-bottom: 1.5rem;
+    padding: 50px 30px;
+  }
   &-textarea {    
     @media (min-width: 540px) {
       min-width: 280px;
