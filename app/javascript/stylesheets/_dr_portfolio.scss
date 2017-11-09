@@ -88,6 +88,18 @@
       cursor: pointer;
     }
   }
+  &-success {
+    &:after {
+      content: '';
+      position: absolute;    
+      right: 38px;
+      bottom: 15px;
+      padding: 23px;
+      background-image: url("/images/icons/checked-symbol.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
   &-item {
     position: relative;
     margin-bottom: 10px;
