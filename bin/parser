@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require 'daemons'
+
+Daemons.run 'lib/parser/parser.rb',
+  log_output: true,
+  backtrace: true,
+  dir_mode: :normal,
+  output_logfilename: 'parser.rb.output',
+  logfilename: 'parser.rb.log',
+  dir: File.expand_path('../../tmp/pids', __FILE__),
+  log_dir: File.expand_path('../../log/', __FILE__)

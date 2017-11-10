@@ -3,11 +3,14 @@
 :pidfile: ./tmp/pids/sidekiq.pid
 :logfile: ./log/sidekiq.log
 development:
-  :concurrency: 1
+  :concurrency: 10
 staging:
   :concurrency: 5
 production:
   :concurrency: 10
+parser:
+  :concurrency: 10
 :queues:
   - default
   - mailers
+  - external_data_critical

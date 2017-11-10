@@ -8,14 +8,14 @@ class ActiveAdmin::CategorySettingsForm < BaseForm
       settings.price_ranges = [] if settings.price_ranges.nil?
       settings.price_ranges << OpenStruct.new(title: '', price: '')
     } do
-    include Struct
+    include Disposable::Twin::Property::Struct
     property :h1
     property :seo_title
     property :seo_description
     property :seo_keywords
 
     collection :price_ranges do
-      include Struct
+      include Disposable::Twin::Property::Struct
       property :title
       property :price
     end
