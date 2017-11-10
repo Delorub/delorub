@@ -1,4 +1,57 @@
 .performer-description {
+  &-portfolio {
+    margin-top: 45px;
+    &__item {
+      height: 170px;
+      max-width: 240px;
+      margin: 0 auto 25px;
+      img {
+        border-radius: 3px;
+      }
+      &-description {
+        position: absolute;
+        bottom: 30px;
+        color: #fff;
+        padding: 0 10px;
+        &__header {
+          font-weight: bold;
+          width: 220px;
+        }
+        &__header p, &__text p{
+          width: 160px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          margin-bottom: 0;
+        }
+        &__count {
+          position: absolute;
+          right: 10px;
+          bottom: 0;
+        }
+      }
+    }
+    &__remove-item {
+      border-radius: 3px;
+      background-color: #fefbfb;
+      border: solid 1px #e6e3e3;
+      text-align: center;
+      padding-top: 75px;
+    }
+    &__add-album {
+      background-color: #e6e3e3;
+      display: block;
+      height: 100%;
+      border-radius: 3px;
+      text-align: center;
+      font-size: 72px;
+      padding-top: 30px;
+      color: #9b9b9b;
+      &:hover, &:visited {
+        color: #9b9b9b;
+      }
+    }
+  }
   &__subcontent {
     padding: 20px 20px 30px 40px;
     margin-bottom: 3px;
@@ -23,6 +76,13 @@
     &__text {
       font-size: 15px;
       margin-top: 1rem;
+    }
+    &__price-border {
+      border-bottom: dashed 1px #d1d1d1;
+      margin: 0 10px;
+    }
+    &__about {
+      margin-left: 10px;
     }
   }
   &-about {
@@ -141,8 +201,8 @@
     .contacts-container {
       display: flex;
       div+div {
-          margin-left: 15px;
-        }
+        margin-left: 15px;
+      }
       @media (max-width: 575px) {
         flex-direction: column;
         div {

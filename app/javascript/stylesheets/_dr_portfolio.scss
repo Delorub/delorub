@@ -1,12 +1,29 @@
 .album-cover {
   &-image {
-    width: 183px;
-    height: 176px;
-    background-position: center;
-    background-image: url('/images/design/room_1.jpg');
-    background-size: cover;
-    border-radius: 3px;
     position: relative;
+    img {
+      border-radius: 3px;
+    }
+    input[type=text] {
+      height: 176px;
+      width: 183px;
+      border-radius: 3px;
+      background-color: #e6e3e3;
+      border: none;
+      text-align: center;
+      color: #9b9b9b;
+      font-size: 72px;
+      cursor: pointer;
+    }
+    input[type=file] {
+      position: absolute;
+      display: block;
+      overflow: hidden;
+      width: 0;
+      height: 0;
+      border: 0;
+      padding: 0;
+    }
   }
   &-tooltip {
     width: 308px;
@@ -21,27 +38,78 @@
 }
 
 .album-image {
+  &-mask {
+    filter: opacity(0.2);
+  }
+  &-error {    
+    color: #f44336;
+    width: 100%;
+    p {
+      @media (min-width: 540px) {
+        padding-top: 10px;
+        margin-left: 30px;
+      }
+    }
+  }
+  &-upload {
+    margin-top: 40px;
+    input[type=text] {
+      height: 62px;
+      width: 100%;
+      border: dashed 2px #979797;
+      text-align: center;
+      color: #9b9b9b;
+      font-size: 14px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    input[type=file] {
+      position: absolute;
+      display: block;
+      overflow: hidden;
+      width: 0;
+      height: 0;
+      border: 0;
+      padding: 0;
+    }
+  }
   &-close {
-    position: absolute;    
-    right: 6px;
-    top: 6px;
-    padding: 4px 9px 2px 8px;
-    color: #fff;
-    border-radius: 3px;
-    background-color: rgba(0, 0, 0, 0.58);
-    &:hover {
+    &:after {
+      content: '';
+      position: absolute;    
+      right: 6px;
+      top: 6px;
+      padding: 13px;
+      border-radius: 3px;
+      background-color: rgba(0, 0, 0, 0.58);
+      background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDEwIDEwIj4KICAgIDxwYXRoIGZpbGw9IiNmZmYiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTEwIDFMOSAwIDUgNCAxIDAgMCAxbDQgNC00IDQgMSAxIDQtNCA0IDQgMS0xLTQtNHoiIG9wYWNpdHk9IjEiLz4KPC9zdmc+Cg==");
+      background-repeat: no-repeat;
+      background-position: center;
       cursor: pointer;
     }
   }
+  &-success {
+    &:after {
+      content: '';
+      position: absolute;    
+      right: 38px;
+      bottom: 15px;
+      padding: 23px;
+      background-image: url("/images/icons/checked-symbol.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
   &-item {
-    width: 118px;
-    height: 119px;
-    background-position: center;
-    background-image: url('/images/design/room_1.jpg');
-    background-size: cover;
-    border-radius: 3px;
     position: relative;
     margin-bottom: 10px;
+    max-width: 120px;
+    @media (min-width: 540px) {
+      margin-bottom: 1.5rem;
+    }
+    img {
+      border-radius: 3px;
+    }
   }
   &-add {
     @media (min-width: 540px) {
