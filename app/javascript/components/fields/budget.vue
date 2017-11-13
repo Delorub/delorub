@@ -33,6 +33,9 @@
     },
     mounted () {
       this.priceCleave = new Cleave(this.$refs.priceInput, this.priceCleaveConfig)
+      if (this.priceCleave.properties && this.priceCleave.properties.result) {
+        this.internalValue = this.priceCleave.properties.result
+      }
     },
     computed: {
       normalizedValue () {
