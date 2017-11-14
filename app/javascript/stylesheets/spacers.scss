@@ -22,25 +22,32 @@
 
 .margin-bottom {
   &-15 {
-    margin-bottom: 15px;  
+    margin-bottom: 15px;
   }
   &-20 {
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
   }
 }
 
 .margin-top {
   &-15 {
-    margin-top: 15px;  
+    margin-top: 15px;
   }
   &-20 {
-    margin-top: 20px; 
+    margin-top: 20px;
   }
   &-30 {
-    margin-top: 30px; 
+
   }
   &-40 {
-    margin-top: 40px; 
+    margin-top: 40px;
+  }
+  &-on-small {
+    &-30 {
+      @media (max-width: 767px) {
+        margin-top: 30px;
+      }
+    }
   }
 }
 
@@ -53,8 +60,16 @@
   }
 }
 
-.margin-right-15 {
-  margin-right: 15px;
+.margin-right {
+  &-5 {
+    margin-right: 5px;
+  }
+  &-10 {
+    margin-right: 10px;
+  }
+  &-15 {
+    margin-right: 15px;
+  }
 }
 
 .toggle-hr {

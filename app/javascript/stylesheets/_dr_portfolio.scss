@@ -85,7 +85,6 @@
     }
   }
   &-links--profile {
-    right: 15px;
     .album-tooltip-close {
       left: -14px;
     }
@@ -118,8 +117,8 @@
     right: 38px;
     bottom: 15px;
     svg path {
-      fill-opacity: .0;
-      animation: success 3s linear;
+      fill-opacity: 1;
+      animation: success 5s forwards;
     }
   }
   &-unacceptable {
@@ -202,6 +201,6 @@
 
 @keyframes success {
  100% {
-   fill-opacity: 1;
+   fill-opacity: .0;
  }
 }

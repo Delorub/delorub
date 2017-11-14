@@ -3,14 +3,15 @@
     margin-top: 45px;
     &__item {
       height: 170px;
-      max-width: 240px;
+      width: 240px;
       margin: 0 auto 25px;
+      position: relative;
       img {
         border-radius: 3px;
       }
       &-description {
         position: absolute;
-        bottom: 30px;
+        bottom: 5px;
         color: #fff;
         padding: 0 10px;
         &__header {
@@ -188,14 +189,6 @@
       }
     }
   }
-  &__price {
-    font-weight: bold;
-    margin-top: 1rem;
-    font-size: 1.2rem;
-  }
-  &__button {
-    margin-top: 1rem;
-  }
   &__contacts {
     margin-top: 1rem;
     .contacts-container {
@@ -229,5 +222,14 @@
     img+img {
       margin-left: 2rem;
     }
+  }
+}
+
+.performer-social {
+  img {
+    width: 42px;
+  }
+  a + a {
+    margin-left: 15px;
   }
 }
