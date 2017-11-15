@@ -1,21 +1,23 @@
 .master-card {
-  &-vip {
-    background-color: #fff8eb !important;
-    border-right: 13px solid #dd8900;
-    padding-right: 17px !important;
+  &-contacts {
+    padding: 10px 30px 10px;
+  }
+  &-container {
+    padding: 20px 30px 10px;
   }
   &-person {
     &__image {
       position: relative;
       max-width: 90px;
       margin: 0 auto 1rem;
+      text-align: center;
       img {
         border-radius: 50%;
         max-width: 90px;
         margin: 0 auto;
         margin-top: 5px;
       }
-      &--online::after {
+      /*&--online::after {
         bottom: 0;
         right: 10%;
         border: 2px solid #fff;
@@ -28,74 +30,23 @@
         @media(min-width: 992px) and (max-width: 1199px) {
           right: -20%;
         }
-      }
-    }
-    &__status {
-      margin-top: 1rem;
-      text-align: center;
-      font-size: 0.7rem;
-      color: #bbcadb;
-      margin-bottom: 0.5rem;
-      font-weight: bold;
-      i {
-        font-size: 0.9rem;
-      }
-      span + span {
-        margin-left: 5px;
-      }
+      }*/
     }
   }
   &-description {
     @media (min-width: 992px) {
       padding-left: 10px;
     }
-    .show_contacts_all {
-      display: inline-block;
-      @media (max-width: 575px) {
-        margin-top: 1rem;
-      }
-    }
     &__header {
       font-weight: bold;
       font-size: 1.2rem;
-      margin-bottom: 1.5rem;
       @extend .sm-center;
-      a {
-        @extend .link-default;
-      }
     }
     &__text {
       font-size: 15px;
+      margin-top: 20px;
       @media (max-width: 575px) {
         margin-top: 1rem;
-      }
-    }
-    &__offline {
-      color: #9b9b9b;
-      position: absolute;
-      font-size: 0.62rem;
-      top: 4rem;
-      @media (min-width: 1200px) {
-        top: 2rem;
-      }
-
-      &--hide {
-        display: none;
-      }
-    }
-    &__price {
-      font-size: 1.3rem;
-      margin-right: 15px;
-      font-weight: bold;
-      @media (max-width: 575px) {
-        margin-right: 0;
-      }
-    }
-    &__phone {
-      margin-left: 2rem;
-      font-weight: bold;
-      &--hide {
-        display: none;
       }
     }
     .performer-profile-main__contacts {
@@ -106,13 +57,49 @@
       }
     }
   }
-  &-refinement {
-    &__price {
-      text-align: right;
-      font-size: 1.5rem;
+  &-portfolio {
+    padding: 10px 30px;
+    &__item {
+      height: 130px;
+      width: 160px;
+      margin: 20px auto;
+      position: relative;
+      img {
+        height: 100%;
+        width: 100%;
+        border-radius: 3px;
+      }
+      &-description {
+        position: absolute;
+        bottom: 5px;
+        color: #fff;
+        padding: 0 10px;
+        &__header {
+          font-weight: bold;
+          width: 140px;
+        }
+        &__header p{
+          width: 100px;
+          font-size: 12px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          margin-bottom: 0;
+        }
+        &__count {
+          position: absolute;
+          right: 10px;
+          bottom: 0;
+        }
+      }
     }
-    &__time {
-      text-align: right;
+    &__show-more {
+      height: 130px;
+      border-radius: 3px;
+      background-color: #fefbfb;
+      border: solid 1px #e6e3e3;
+      text-align: center;
+      padding-top: 55px;
     }
   }
 }

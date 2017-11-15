@@ -126,3 +126,13 @@
     background-color: #f44336;
   }
 }
+
+.dr-btn-checked {
+  position: relative;
+  &:before {
+    font-family: FontAwesome;
+    position: absolute;
+    right: 55px;
+    content: "\f00c";
+  }
+}
