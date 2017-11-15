@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171019110653) do
+ActiveRecord::Schema.define(version: 20171114103406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -119,15 +119,16 @@ ActiveRecord::Schema.define(version: 20171019110653) do
     t.text "settings"
     t.text "description"
     t.boolean "is_main", default: false
-    t.text "external_data_settings"
     t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 
-  create_table "categories_profiles", id: :serial, force: :cascade do |t|
+  create_table "categories_profiles", id: false, force: :cascade do |t|
     t.integer "profile_id"
     t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_categories_profiles_on_category_id"
+    t.index ["profile_id"], name: "index_categories_profiles_on_profile_id"
   end
 
   create_table "certificates", id: :serial, force: :cascade do |t|
@@ -148,8 +149,8 @@ ActiveRecord::Schema.define(version: 20171019110653) do
   create_table "comments", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.integer "parent_id"
-    t.integer "commentable_id"
     t.string "commentable_type"
+    t.integer "commentable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "text"
@@ -197,28 +198,6 @@ ActiveRecord::Schema.define(version: 20171019110653) do
     t.boolean "is_current"
     t.integer "number"
     t.boolean "buy_available"
-  end
-
-  create_table "external_data", force: :cascade do |t|
-    t.text "data"
-    t.string "uid"
-    t.string "source"
-    t.string "state"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.text "payload"
-  end
-
-  create_table "external_data_vk_accounts", force: :cascade do |t|
-    t.string "login"
-    t.string "password"
-    t.string "state"
-    t.string "access_token"
-    t.datetime "access_token_generated_at"
-    t.integer "access_token_attempts_count", default: 0
-    t.text "info"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
@@ -332,11 +311,31 @@ ActiveRecord::Schema.define(version: 20171019110653) do
   end
 
   create_table "portfolio_items", id: :serial, force: :cascade do |t|
-    t.integer "profile_id"
+    t.integer "portfolio_id"
     t.string "file"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["profile_id"], name: "index_portfolio_items_on_profile_id"
+    t.text "description"
+    t.datetime "deleted_at"
+    t.index ["portfolio_id"], name: "index_portfolio_items_on_portfolio_id"
+  end
+
+  create_table "portfolio_temporary_covers", force: :cascade do |t|
+    t.string "cover"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "portfolios", force: :cascade do |t|
+    t.bigint "profile_id"
+    t.string "name"
+    t.text "description"
+    t.string "cover"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["deleted_at"], name: "index_portfolios_on_deleted_at"
+    t.index ["profile_id"], name: "index_portfolios_on_profile_id"
   end
 
   create_table "profiles", id: :serial, force: :cascade do |t|
@@ -441,6 +440,17 @@ ActiveRecord::Schema.define(version: 20171019110653) do
     t.integer "finish_after_billing_log_id"
   end
 
+  create_table "user_logs", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "operational_type"
+    t.bigint "operational_id"
+    t.string "log_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["operational_type", "operational_id"], name: "index_user_logs_on_operational_type_and_operational_id"
+    t.index ["user_id"], name: "index_user_logs_on_user_id"
+  end
+
   create_table "user_omniauth_relations", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.string "provider"
@@ -464,8 +474,15 @@ ActiveRecord::Schema.define(version: 20171019110653) do
   end
 
   create_table "users", id: :serial, force: :cascade do |t|
-    t.string "provider", default: "email", null: false
+    t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "middle_name"
+    t.string "phone"
+    t.date "birthday"
+    t.integer "profile_id"
+    t.integer "free_tasks_published", default: 0, null: false
+    t.integer "free_replies_published", default: 0, null: false
+    t.decimal "balance", precision: 10, scale: 2, default: "0.0", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -474,18 +491,10 @@ ActiveRecord::Schema.define(version: 20171019110653) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.string "middle_name"
-    t.string "phone"
-    t.string "email"
-    t.date "birthday"
-    t.integer "profile_id"
-    t.integer "free_tasks_published", default: 0, null: false
-    t.integer "free_replies_published", default: 0, null: false
-    t.decimal "balance", precision: 10, scale: 2, default: "0.0", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "photo"
     t.boolean "phone_confirmed"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string "access_token"
     t.integer "place_id"
     t.string "first_name"

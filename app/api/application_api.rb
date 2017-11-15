@@ -1,6 +1,8 @@
 require 'grape-swagger'
 
 class ApplicationAPI < Grape::API
+  helpers Grape::AuthHelpers, Grape::PunditHelpers
+
   format :json
   cascade true
 

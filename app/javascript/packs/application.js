@@ -42,6 +42,9 @@ import RegionSelect from '../components/region_select.vue'
 import CitySelect from '../components/city_select.vue'
 import HideShowElement from '../components/hide_show_element.vue'
 
+import PortfolioUploadForm from '../components/forms/portfolio/upload_form.vue'
+import PortfolioUploadCover from '../components/forms/portfolio/upload_cover.vue'
+
 let token = document.getElementsByName('csrf-token')[0]
 if (token !== undefined) {
   axios.defaults.headers.common['X-CSRF-Token'] = token.getAttribute('content')
@@ -91,6 +94,8 @@ Vue.component('sign-in-form', SignInForm)
 Vue.component('region-select', RegionSelect)
 Vue.component('hide-show-element', HideShowElement)
 Vue.component('profile-filters-form', ProfileFiltersForm)
+Vue.component('portfolio-upload-form', PortfolioUploadForm)
+Vue.component('portfolio-upload-cover', PortfolioUploadCover)
 
 document.addEventListener('DOMContentLoaded', () => {
   // eslint-disable-next-line no-new

@@ -14,7 +14,7 @@ ActiveAdmin.register Comment do
     column :text
     column :parent
     column :user do |comment|
-      link_to comment.user.name, admin_user_path(comment.user)
+      link_to comment.user.decorate.name, admin_user_path(comment.user)
     end
     actions
   end

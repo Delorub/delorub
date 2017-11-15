@@ -15,11 +15,11 @@
 #  index_portfolio_items_on_portfolio_id  (portfolio_id)
 #
 
-class PortfolioItem < ApplicationRecord
-  acts_as_paranoid
-  mount_uploader :file, PortfolioItemUploader
-
-  belongs_to :portfolio, optional: true
-
-  validates :file, presence: true
+FactoryGirl.define do
+  factory :portfolio do
+    profile
+    cover do
+      Rack::Test::UploadedFile.new(File.open(Rails.root.join('spec', 'support', 'portfolio_item', 'files', 'image.png')))
+    end
+  end
 end

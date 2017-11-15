@@ -15,11 +15,15 @@
 #  index_portfolio_items_on_portfolio_id  (portfolio_id)
 #
 
-class PortfolioItem < ApplicationRecord
-  acts_as_paranoid
-  mount_uploader :file, PortfolioItemUploader
+describe Portfolio do
+  let(:portfolio) { build :portfolio }
+  subject { portfolio }
 
-  belongs_to :portfolio, optional: true
+  describe 'validations' do
+    it { is_expected.to be_valid }
+  end
 
-  validates :file, presence: true
+  describe 'relations' do
+    it { is_expected.to belong_to(:profile) }
+  end
 end

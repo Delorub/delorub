@@ -9,7 +9,7 @@ class PortfolioItemUploader < BaseUploader
   end
 
   version :preview, if: :image? do
-    process resize_to_limit: [100, 50]
+    process resize_to_fill: [118, 119]
     process convert: 'jpg'
 
     def full_filename for_file = model.photo.file

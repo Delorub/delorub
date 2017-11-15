@@ -21,7 +21,7 @@
 FactoryGirl.define do
   factory :comment do
     user
-    association :commentable, factory: :portfolio_item
+    association :commentable, factory: :reply
     text Faker::Lorem.sentences(2)
   end
 end

@@ -406,6 +406,8 @@ GEM
       omniauth-oauth2 (~> 1.2)
     orm_adapter (0.5.0)
     parallel (1.12.0)
+    paranoia (2.4.0)
+      activerecord (>= 4.0, < 5.2)
     parser (2.4.0.0)
       ast (~> 2.2)
     petrovich (1.1.1)
@@ -738,6 +740,7 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-odnoklassniki
   omniauth-vkontakte
+  paranoia (~> 2.2)
   petrovich (~> 1.0)
   pg
   phony_rails

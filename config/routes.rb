@@ -57,6 +57,7 @@ Rails.application.routes.draw do
         get 'history', as: :history
       end
     end
+    resources :portfolios, except: [:index, :destroy]
   end
 
   resources :profiles, only: [:show, :edit, :update], path: 'profile'
