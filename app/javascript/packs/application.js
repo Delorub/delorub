@@ -44,6 +44,7 @@ import HideShowElement from '../components/hide_show_element.vue'
 
 import PortfolioUploadForm from '../components/forms/portfolio/upload_form.vue'
 import PortfolioUploadCover from '../components/forms/portfolio/upload_cover.vue'
+import PortfolioPersonalList from '../components/forms/portfolio/personal_list.vue'
 
 let token = document.getElementsByName('csrf-token')[0]
 if (token !== undefined) {
@@ -96,6 +97,7 @@ Vue.component('hide-show-element', HideShowElement)
 Vue.component('profile-filters-form', ProfileFiltersForm)
 Vue.component('portfolio-upload-form', PortfolioUploadForm)
 Vue.component('portfolio-upload-cover', PortfolioUploadCover)
+Vue.component('portfolio-personal-list', PortfolioPersonalList)
 
 document.addEventListener('DOMContentLoaded', () => {
   // eslint-disable-next-line no-new

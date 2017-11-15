@@ -6,8 +6,22 @@ class PortfolioPolicy < ApplicationPolicy
   end
 
   def update?
-    return false if user.blank?
-    return false unless user.master?
-    user.id == record.profile.user_id
+    granted?
   end
+
+  def destroy?
+    granted?
+  end
+
+  def restore?
+    granted?
+  end
+
+  private
+
+    def granted?
+      return false if user.blank?
+      return false unless user.master?
+      user.id == record.user.id
+    end
 end

@@ -18,6 +18,7 @@
 #
 
 class Portfolio < ApplicationRecord
+  acts_as_paranoid
   mount_uploader :cover, PortfolioUploader
 
   belongs_to :profile

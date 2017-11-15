@@ -4,22 +4,8 @@
       h2
         | Портфолио
     .performer-description-portfolio
-      .row
-        - portfolios.each do |portfolio|
-          .col-xl-4.col-md-6
-            .performer-description-portfolio__item
-              a href=edit_my_portfolio_path(portfolio) Ред
-              a href="#" X
-              img src=portfolio.cover.preview.url
-              .performer-description-portfolio__item-description
-                .performer-description-portfolio__item-description__text
-                  p
-                    = portfolio.description.truncate(30) rescue ''
-                .performer-description-portfolio__item-description__header
-                  p
-                    = portfolio.name.truncate(20) rescue ''
-                  span.performer-description-portfolio__item-description__count
-                    = portfolio.portfolio_items.count
-        .col-xl-4.col-md-6
-          .performer-description-portfolio__item
-            a.performer-description-portfolio__add-album href=new_my_portfolio_path +
+      portfolio-personal-list(
+        :value=Entities::Portfolio.represent(portfolios).to_json
+        user-token=current_user.access_token
+      )
+

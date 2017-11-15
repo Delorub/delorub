@@ -14,10 +14,10 @@
         p Загрузите фаил
         p.gray-text
           | Поддерживаемые форматы файлов:
-          span.dr-h5 jpg, png, bmp.
+          span.dr-h5 &nbspjpg, png, bmp.
         p.gray-text
           | Максимальный размер файла -
-          span.dr-h5 10мб
+          span.dr-h5 &nbsp10мб
     slot(name="input" :id="imageId" v-if="imageId !== undefined")
 </template>
 <script>
@@ -41,8 +41,8 @@ export default {
     this.dropzone = new Dropzone(this.$refs.dropzone, {
       url: this.url,
       maxFiles: 1,
-      acceptedFiles: 'image/jpeg,image/png',
-      maxFilesize: 2,
+      acceptedFiles: 'image/jpeg, image/png, image/bmp, image/jpg',
+      maxFilesize: 10,
       autoDiscover: false,
       clickable: '#cover_upload_visible',
       addedfile: function () {},
