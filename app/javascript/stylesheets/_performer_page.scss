@@ -82,6 +82,9 @@
     &__price-border {
       border-bottom: dashed 1px #d1d1d1;
       margin: 0 10px;
+      @media (max-width: 767px) {
+        display: none;
+      }
     }
     &__about {
       margin-left: 10px;

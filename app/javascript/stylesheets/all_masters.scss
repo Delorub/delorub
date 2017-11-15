@@ -1,6 +1,9 @@
 .master-card {
   &-contacts {
     padding: 10px 30px 10px;
+    @media (max-width: 767px) {
+      text-align: center;
+    }
   }
   &-container {
     padding: 20px 30px 10px;
@@ -30,7 +33,7 @@
     }
     &__text {
       font-size: 15px;
-      margin-top: 20px;
+      margin-top: 10px;
       @media (max-width: 575px) {
         margin-top: 1rem;
       }
@@ -44,6 +47,9 @@
     }
   }
   &-portfolio {
+    @media (max-width: 767px) {
+      display: none;
+    }
     padding: 10px 30px;
     &__item {
       height: 130px;
@@ -119,6 +125,9 @@
     width: 100%;
     display: flex;
     align-items: center;
+    @media (max-width: 447px) {
+      display: none;
+    }
   }
 }
 

@@ -105,6 +105,13 @@
   }
 }
 
+.md-center {
+  @media (max-width: 767px) {
+    text-align: center;
+    width: 100%;
+  }
+}
+
 .change_succes {
   color: #fff;
   font-weight: 600;
