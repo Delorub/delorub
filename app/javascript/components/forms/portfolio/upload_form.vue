@@ -15,10 +15,10 @@
             .album-image-links(v-if="checkIfAllowDelete(file)" @click.prevent="deleteFile(file.id, index)")
               a.album-image-close(href="#")
                 .album-tooltip-close Удалить
-            template(v-if="file.incorrectFormat")
+            template(v-if="file.isIncorrectFormat")
               .album-image-unacceptable
             template(v-else)
-              img(:src="file.preview_url" style="width:118px; height:119px" v-bind:class="file.hasError ? 'album-image-mask' : ''")
+              img(:src="file.preview_url" v-bind:class="file.hasError ? 'album-image-mask' : ''")
               .progress(v-if="hasProgressBar(file)")
                 .progress-bar(aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" :style="progressBarWidth(file)")
           template(v-if="!file.hasError && !file.isDeleted")
@@ -26,7 +26,10 @@
               textarea.form-control(placeholder=("Описание фотографии") rows="5" v-model="file.description")
           template(v-else)
             .album-image-error
-              p {{ file.errorMessage }}
+              p(v-if="file.isServerError")
+                | Ошибка загрузки изображения,&nbsp
+                a.link-default(href="#" @click.prevent="downloadAgain(file)") попробовать снова
+              p(v-else v-html="file.errorMessage")
     .album-image-upload
       input#image_upload_hidden(name="file" type="file" multiple @change="handleFileSelect")
       input#image_upload_visible(onclick="document.getElementById('image_upload_hidden').click();" readonly="1" type="text" value=("Прикрепить изображение"))
@@ -55,95 +58,145 @@ export default {
     createImage (file) {
       var vm = this
       var reader = new window.FileReader()
-      reader.onload = (function (file) {
-        return function (e) {
-          var thisInternalValue = vm.pushInternalValue(e)
 
-          vm.validateFile(file, thisInternalValue)
-          if (!thisInternalValue.hasError) vm.addFile(file, thisInternalValue)
+      var img = new window.Image()
+      reader.onload = function (e) {
+        img.src = e.target.result
+
+        img.onload = function () {
+          vm.sendingToValidation(vm.pushInternalValue(file, vm.resizeImage(img, file)))
         }
-      })(file)
+        img.onerror = function () {
+          vm.sendingToValidation(vm.pushInternalValue(file, e.target.result))
+        }
+      }
       reader.readAsDataURL(file)
     },
-    addFile (file, internalValue) {
-      const formData = new window.FormData()
-      formData.append('file', file)
+    sendingToValidation (object) {
+      if (object === null) return
+      this.validateFile(object)
 
-      axios.post('/api/portfolio_items/files', formData, {
-        onUploadProgress: function (progressEvent) {
-          internalValue.percentLoader = Math.round((progressEvent.loaded * 100) / progressEvent.total)
-        }
-      }).then(function (response) {
-        internalValue.id = response.data.id
-        internalValue.percentLoader = 100
-        internalValue.isSave = true
-      }).catch(function (error) {
-        console.log(error)
-      })
+      if (object.hasError) return
+      this.saveFile(object)
     },
-    progressBarWidth (file) {
-      return 'width:' + file.percentLoader + '%'
+    progressBarWidth (object) {
+      return 'width:' + object.percentLoader + '%'
     },
-    validateFile (file, object) {
-      if (this.fileSize(file) > 10) {
+    validateFile (object) {
+      if (this.fileSize(object.file) > 1) {
         this.fileSetError(object, 'Файл слишком большой (максимальный размер файла - 10 Мб)')
-      } else if (!file.type.match(/.(bmp|jpeg|png|jpg)$/i)) {
+      } else if (!object.file.type.match(/.(bmp|jpeg|png|jpg)$/i)) {
         this.fileSetError(object, 'Недопустимый формат файла, поддерживаемые форматы: jpg, png, bmp', true)
       }
     },
     fileSize (file) {
       return file.size / (1024 * 1024)
     },
-    fileSetError (object, message, incorrectFormat = false) {
+    fileSetError (object, message, isIncorrectFormat = false) {
       object.hasError = true
       object.errorMessage = message
-      object.incorrectFormat = incorrectFormat
+      object.isIncorrectFormat = isIncorrectFormat
     },
-    hasProgressBar (file) {
-      return file.isSave !== undefined && !file.isSave &&
-        file.percentLoader !== undefined && file.percentLoader !== 100 &&
-        file.hasError !== undefined && !file.hasError
+    hasProgressBar (object) {
+      return object.isSave !== undefined && !object.isSave &&
+        object.percentLoader !== undefined && object.percentLoader !== 100 &&
+        object.hasError !== undefined && !object.hasError
+    },
+    saveFile (object) {
+      const formData = new window.FormData()
+      formData.append('file', object.file)
+
+      axios.post('/api/portfolio_items/files', formData, {
+        onUploadProgress: function (progressEvent) {
+          object.percentLoader = Math.round((progressEvent.loaded * 100) / progressEvent.total)
+        }
+      })
+        .then(function (response) {
+          object.id = response.data.id
+          object.percentLoader = 100
+          object.isSave = true
+        })
+        .catch(function () {
+          object.hasError = true
+          object.isServerError = true
+        })
+    },
+    downloadAgain (object) {
+      object.hasError = false
+      object.isServerError = false
+      this.saveFile(object)
     },
     deleteFile (fileId, index) {
       var vm = this
 
       axios.delete('/api/portfolio_items/' + fileId, {
         headers: { 'Access-Token': this.accessToken }
-      }).then(function (response) {
-        vm.internalValue[index].isDeleted = true
-        vm.setInternalValue(vm.internalValue[index], index)
       })
+        .then(function (response) {
+          vm.internalValue[index].isDeleted = true
+          vm.internalValue[index].isSave = undefined
+          vm.setInternalValue(vm.internalValue[index], index)
+        })
     },
     restoreFile (fileId, index) {
       var vm = this
 
       axios.delete('/api/portfolio_items/restore/' + fileId, {
         headers: { 'Access-Token': this.accessToken }
-      }).then(function (response) {
-        vm.internalValue[index].isDeleted = false
-        vm.setInternalValue(vm.internalValue[index], index)
       })
+        .then(function (response) {
+          vm.internalValue[index].isDeleted = false
+          vm.setInternalValue(vm.internalValue[index], index)
+        })
     },
     setInternalValue (value, index) {
       this.$set(this.internalValue, index, value)
     },
-    pushInternalValue (file) {
+    pushInternalValue (file, fileUrl) {
       this.internalValue.push({
-        preview_url: file.target.result,
+        file: file,
+        preview_url: fileUrl,
         isSave: false,
         isShowCloseIcon: false,
         description: '',
         percentLoader: 0,
         hasError: false,
         errorMessage: '',
-        incorrectFormat: false,
+        isIncorrectFormat: false,
+        isServerError: false,
         isDeleted: false
       })
 
       return this.internalValue[this.internalValue.length - 1]
     },
-    checkIfAllowDelete (file) {
-      return file.isShowCloseIcon && !file.hasError && this.countActiveItems > 1
+    checkIfAllowDelete (object) {
+      return object.isShowCloseIcon && !object.hasError && this.countActiveItems > 1 && (object.isSave === undefined || object.isSave)
+    },
+    resizeImage (img, file) {
+      var MAX_WIDTH = 118
+      var MAX_HEIGHT = 119
+
+      var width = img.width
+      var height = img.height
+      var sx = 0
+      var sy = 0
+
+      if (width > height) {
+        if (width / height > 1.5) sx = -MAX_WIDTH / (width / height) + 20 * (width / height)
+        width = MAX_WIDTH * width / height
+        height = MAX_HEIGHT
+      } else {
+        height = MAX_HEIGHT * height / width
+        width = MAX_WIDTH
+      }
+
+      var canvas = document.createElement('canvas')
+      canvas.width = MAX_WIDTH
+      canvas.height = MAX_HEIGHT
+
+      var ctx = canvas.getContext('2d')
+      ctx.drawImage(img, sx, sy, width, height)
+      return canvas.toDataURL(file.type)
     }
   },
   computed: {

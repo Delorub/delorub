@@ -51,7 +51,7 @@ class Portfolio::Contract < Reform::Form
     validates :file, presence: true
   end
 
-  validates :name, presence: true, length: { maximum: 150 }
+  validates :name, presence: true, length: { maximum: 200 }
   validates :profile, presence: true
   validates :portfolio_items, presence: true
 
