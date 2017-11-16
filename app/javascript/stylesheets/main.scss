@@ -1,4 +1,4 @@
-html, body {
+#app, body, html {
   height: 100%;
 }
 
@@ -50,28 +50,23 @@ label {
   }
 }
 
+.wrap:after, footer {
+  position: relative;
+  height: 366px;
+  clear: both;
+}
+
 .wrap {
-  height: auto;
   min-height: 100%;
+  margin-bottom: -366px;
+  &:after {
+    content: "";
+    display: block;
+  }
 }
 
 .hidden {
   display: none;
-}
-
-main {
-  @media (min-width: 992px) {
-    padding-bottom: 221px;
-  }
-}
-
-footer {
-  @media (min-width: 992px) {
-    position: relative;
-    margin-top: -221px;
-    height: 221px;
-    clear:both;
-  }
 }
 
 .regular-content {
