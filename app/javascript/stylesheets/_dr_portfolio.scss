@@ -122,8 +122,8 @@
   }
   &-success {
     position: absolute;
-    right: 38px;
-    bottom: 15px;
+    right: calc(50% - 22px);
+    top: calc(70% - 22px);
     svg path {
       fill-opacity: 1;
       animation: success 5s forwards;
