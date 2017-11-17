@@ -1,0 +1,39 @@
+.modalAlbum {
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 99999;
+  transition: opacity 400ms ease-in;
+  display: none;
+  pointer-events: none;
+  &:target {
+    display: block;
+    pointer-events: auto;
+  }
+  > div {
+    max-width: 750px;
+    position: relative;
+    margin: 10% auto;
+    border-radius: 3px;
+    background: #fff;
+    background: -moz-linear-gradient(#fff, #999);
+    background: -webkit-linear-gradient(#fff, #999);
+    background: -o-linear-gradient(#fff, #999);
+  }
+}
+
+.close-modal {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  background-image: url('/images/icons/close_big.svg');
+  width: 25px;
+  height: 25px;
+  &:hover {
+    cursor: pointer;
+  }
+}

@@ -1,3 +1,33 @@
+.album-modal {
+  &-slider {
+    img {
+      width: 100%;
+    }
+  }
+  &-text {
+    background-color: #fefbfb;
+    border: solid 1px #e6e3e3;
+    padding: 10px 15px;
+  }
+  &-items {
+    border-radius: 6px;
+    padding: 3px;
+    img {
+      border-radius: 3px;
+    }
+  }
+  &-items.checked {
+    border: solid 3px #519dc7;
+    padding: 0;
+  }
+  &-photo-container {
+    padding: 0 15px;
+  }
+  &-description {
+    padding: 5px 35px 25px;
+  }
+}
+
 .album-cover {
   &-image {
     position: relative;
@@ -25,15 +55,23 @@
       padding: 0;
     }
   }
+  &-description {
+    margin-left: 70px;
+    @media (max-width: 767px) {
+      margin-left: 30px;
+    }
+  }
   &-tooltip {
     width: 308px;
     border-radius: 3px;
     border: solid 2px #e1dfdf;
-    margin-left: 70px;
-    padding: 19px 26px 0px;
+    padding: 10px 26px 0px;
     @media (max-width: 767px) {
       display: none;
     }
+  }
+  &-error {
+    color: #f44336;
   }
 }
 
@@ -114,8 +152,8 @@
   }
   &-success {
     position: absolute;
-    right: 38px;
-    bottom: 15px;
+    right: calc(50% - 22px);
+    top: calc(70% - 22px);
     svg path {
       fill-opacity: 1;
       animation: success 5s forwards;
@@ -200,7 +238,7 @@
 }
 
 @keyframes success {
- 100% {
-   fill-opacity: .0;
- }
+  100% {
+    fill-opacity: .0;
+  }
 }
