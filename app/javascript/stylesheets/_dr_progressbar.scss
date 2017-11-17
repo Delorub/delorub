@@ -1,11 +1,10 @@
 .progress {
   border-radius: 50px;
   background-color: #d8d8d8;
-  margin: -40px 10% 30px;
-  position: relative;
-  @media (min-width: 540px) {
-    margin-bottom: 0px;
-  }
+  position: absolute;
+  width: 70%;
+  bottom: 15%;
+  margin: 0 15%;
 }
 
 .progress-bar {
