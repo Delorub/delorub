@@ -1,12 +1,9 @@
 nav.breadcrumb
   = link_to 'Главная', root_path, class: 'breadcrumb-item'
-  - if @category
-    span.breadcrumb-item.active
-      = h1
-  - elsif @profile
+  - if @profile
     = link_to 'Все исполнители', profiles_path, class: 'breadcrumb-item'
     span.breadcrumb-item.active
       = profile.user.name
   - else
     span.breadcrumb-item.active
-      = h1.present? ? h1 : 'Все исполнители'
+      = get_seo_h1 'Все исполнители'

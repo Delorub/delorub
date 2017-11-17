@@ -1,6 +1,9 @@
 - if @category || @place
-  - @h1 = "#{default_text} #{formatted_header_category_or_city @category, @place, @place_settings}"
-  - seo_title parse_city_settings(@place_settings, :seo_title, @h1.html_safe)
+  - put_seo_h1 formatted_seo_settings_value(@place_settings, additional_text, @category, @place, :h1)
+  - seo_title formatted_seo_settings_value(@place_settings, additional_text, @category, @place, :seo_title).to_s.html_safe
+- else
+  - seo_title default_text
+
 - if @category
-  - meta_tag :description, parse_city_settings(@place_settings, :seo_description)
-  - meta_tag :keywords, parse_city_settings(@place_settings, :seo_keywords)
+  - meta_tag :description, parse_seo_settings(@place_settings, :seo_description)
+  - meta_tag :keywords, parse_seo_settings(@place_settings, :seo_keywords)

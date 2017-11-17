@@ -5,3 +5,8 @@
 li.select select{
   min-width: 300px;
 }
+
+input.existing-value,
+textarea.existing-value {
+  border: 2px solid red;
+}
