@@ -1,7 +1,6 @@
 <template lang="pug">
   div(ref="dropzone")
-    p.dr-h2.margin-bottom-20 Обложка альбома
-    div.dr-profile-card__image-error(v-if="errorMessage !== undefined") {{ errorMessage }}
+    p.dr-h2.mb-3 Обложка альбома
     .align-center
       .album-cover-image
         div(v-if="imageSrc !== undefined" @mouseenter="isShowCloseIcon = true" @mouseleave="isShowCloseIcon = false")
@@ -15,14 +14,17 @@
             a.album-image-close(href="#" @click.prevent="removeCover")
               .album-tooltip-close Удалить
         input#cover_upload_visible(readonly="1" type="text" value="+" v-show="imageSrc === undefined")
-      .album-cover-tooltip
-        p Загрузите фаил
-        p.gray-text
-          | Поддерживаемые форматы файлов:
-          span.dr-h5 &nbspjpg, png, bmp.
-        p.gray-text
-          | Максимальный размер файла -
-          span.dr-h5 &nbsp10Мб
+      .album-cover-description
+        .album-cover-error(v-if="errorMessage !== undefined")
+          p(v-html="errorMessage")
+        .album-cover-tooltip
+          p Загрузите фаил
+          p.gray-text
+            | Поддерживаемые форматы файлов:
+            span.dr-h5 &nbspjpg, png, bmp.
+          p.gray-text
+            | Максимальный размер файла -
+            span.dr-h5 &nbsp10Мб
     slot(name="input" :id="imageId" v-if="imageId !== undefined")
 </template>
 <script>
@@ -56,7 +58,7 @@ export default {
       addedfile: function () {},
       error: function () {},
       prevFile: undefined,
-      dictInvalidFileType: 'Формат файла не поддерживается (поддерживаемые форматы файлов: png, jpg, jpeg, bmp)'
+      dictInvalidFileType: 'Недопустимый формат файла, поддерживаемые форматы: <span class="dr-h5"> jpg, png, bmp</span>'
     })
 
     this.dropzone.on('maxfilesexceeded', function (file) {

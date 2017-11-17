@@ -53,14 +53,16 @@ export default {
       return '/my/portfolios/' + portfolioId + '/edit'
     },
     deletePortfolio (portfolioId, index) {
-      var vm = this
+      if (window.confirm('Вы уверены?')) {
+        var vm = this
 
-      axios.delete('/api/portfolios/' + portfolioId, {
-        headers: { 'Access-Token': this.accessToken }
-      }).then(function (response) {
-        vm.internalValue[index].isDeleted = true
-        vm.setInternalValue(vm.internalValue[index], index)
-      })
+        axios.delete('/api/portfolios/' + portfolioId, {
+          headers: { 'Access-Token': this.accessToken }
+        }).then(function (response) {
+          vm.internalValue[index].isDeleted = true
+          vm.setInternalValue(vm.internalValue[index], index)
+        })
+      }
     },
     restoreFile (portfolioId, index) {
       var vm = this

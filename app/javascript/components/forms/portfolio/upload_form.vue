@@ -83,10 +83,10 @@ export default {
       return 'width:' + object.percentLoader + '%'
     },
     validateFile (object) {
-      if (this.fileSize(object.file) > 1) {
-        this.fileSetError(object, 'Файл слишком большой (максимальный размер файла - 10 Мб)')
-      } else if (!object.file.type.match(/.(bmp|jpeg|png|jpg)$/i)) {
+      if (!object.file.type.match(/.(bmp|jpeg|png|jpg)$/i)) {
         this.fileSetError(object, 'Недопустимый формат файла, поддерживаемые форматы: jpg, png, bmp', true)
+      } else if (this.fileSize(object.file) > 10) {
+        this.fileSetError(object, 'Файл слишком большой (максимальный размер файла - 10 Мб)')
       }
     },
     fileSize (file) {
@@ -127,16 +127,18 @@ export default {
       this.saveFile(object)
     },
     deleteFile (fileId, index) {
-      var vm = this
+      if (window.confirm('Вы уверены?')) {
+        var vm = this
 
-      axios.delete('/api/portfolio_items/' + fileId, {
-        headers: { 'Access-Token': this.accessToken }
-      })
-        .then(function (response) {
-          vm.internalValue[index].isDeleted = true
-          vm.internalValue[index].isSave = undefined
-          vm.setInternalValue(vm.internalValue[index], index)
+        axios.delete('/api/portfolio_items/' + fileId, {
+          headers: { 'Access-Token': this.accessToken }
         })
+          .then(function (response) {
+            vm.internalValue[index].isDeleted = true
+            vm.internalValue[index].isSave = undefined
+            vm.setInternalValue(vm.internalValue[index], index)
+          })
+      }
     },
     restoreFile (fileId, index) {
       var vm = this
