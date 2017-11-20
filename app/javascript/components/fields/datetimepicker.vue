@@ -1,18 +1,33 @@
 <template lang="pug">
   div
     div.form-group
-      div(class="input-group date")
-        label(class="date-addon")
+      div.input-group.date
         flat-pickr(v-model="dateValue" :config="datepickerConfig")
-        div(class="vertical-hr")
+        div.vertical-hr
         input(
           type="text"
-          ref="timeInput"
-          v-model="timeValue"
-          maxlength="5"
-          placeholder="Время"
-          class="form-control date-time"
+          ref="timeInputHour"
+          v-model="timeValueHour"
+          maxlength="2"
+          placeholder="00"
+          class="form-control date-time date-time-hour"
+          @keypress="inputHour"
+          @blur="blurTime"
         )
+        span
+          | :
+        input(
+          type="text"
+          ref="timeInputMinute"
+          v-model="timeValueMinute"
+          maxlength="2"
+          placeholder="00"
+          class="form-control date-time date-time-minute"
+          @keypress="inputMinute"
+          @blur="blurTime"
+        )
+        span
+          | 
         slot(name="input" :value="internalValue")
     div.form-group__sublink
       a(href="#" @click.prevent="setToday" :class="todayLinkClass")  сегодня
@@ -22,7 +37,6 @@
 <script>
   import flatPickr from 'vue-flatpickr-component'
   import 'flatpickr/dist/flatpickr.css'
-  import Cleave from 'cleave.js'
   import moment from 'lib/moment'
 
   export default {
@@ -30,15 +44,15 @@
     data () {
       return {
         internalValue: moment(this.value).toISOString(),
-        timeCleave: null,
-        timeCleaveConfig: {
-          numericOnly: true,
-          blocks: [2, 2],
-          delimiter: ':'
-        },
+        timeValueHour: moment(this.value).format('HH'),
+        timeValueMinute: moment(this.value).format('mm'),
         datepickerConfig: {
-          allowInput: true,
           enableTime: false,
+          disableMobile: true,
+          allowInput: false,
+          time_24hr: true,
+          minDate: 'today',
+          maxDate: new Date().fp_incr(365),
           dateFormat: 'd.m.Y',
           locale: {
             firstDayOfWeek: 1,
@@ -53,9 +67,6 @@
           }
         }
       }
-    },
-    mounted () {
-      this.timeCleave = new Cleave(this.$refs.timeInput, this.timeCleaveConfig)
     },
     methods: {
       setToday () {
@@ -73,6 +84,66 @@
           .set('month', date.month())
           .set('year', date.year())
           .toISOString()
+      },
+      isNumeric (evt) {
+        var regex = /[0-9]/
+        if (!regex.test(evt.key)) {
+          return false
+        }
+        return true
+      },
+      blurTime (evt) {
+        if (this.timeValueHour.length === 0) {
+          this.timeValueHour = '00'
+        } else
+        if (this.timeValueHour.length === 1) {
+          this.timeValueHour = '0' + this.timeValueHour
+        }
+
+        if (this.timeValueMinute.length === 0) {
+          this.timeValueMinute = '00'
+        } else
+        if (this.timeValueMinute.length === 1) {
+          this.timeValueMinute = '0' + this.timeValueMinute
+        }
+      },
+      inputHour (evt) {
+        if (!this.isNumeric(evt)) {
+          evt.preventDefault()
+          return
+        }
+        var digit = parseInt(evt.key)
+
+        if (this.timeValueHour.length === 2) {
+          evt.preventDefault()
+        }
+
+        if (digit >= 3 && (this.timeValueHour.length === 0)) {
+          if (this.timeValueHour !== '0' + evt.key) {
+            this.timeValueHour = '0' + evt.key
+          }
+          this.$refs.timeInputMinute.focus()
+          return
+        }
+
+        if (this.timeValueHour === '2') {
+          if (digit > 3) {
+            this.timeValueHour = '02'
+            this.$refs.timeInputMinute.focus()
+            evt.preventDefault()
+          }
+        }
+      },
+      inputMinute (evt) {
+        if (!this.isNumeric(evt)) {
+          evt.preventDefault()
+          return
+        }
+        var digit = parseInt(evt.key)
+
+        if (digit >= 6 && (this.timeValueMinute.length === 0 || this.timeValueMinute.length === 2)) {
+          evt.preventDefault()
+        }
       }
     },
     computed: {
@@ -86,19 +157,6 @@
             .set('date', date.date())
             .set('month', date.month())
             .set('year', date.year())
-            .toISOString()
-        }
-      },
-      timeValue: {
-        get: function () {
-          return moment(this.internalValue).format('HH:mm')
-        },
-        set: function (newValue) {
-          let date = moment(newValue, 'HH:mm')
-          this.internalValue = moment(this.internalValue)
-            .set('hour', date.hour())
-            .set('minute', date.minute())
-            .set('second', date.second())
             .toISOString()
         }
       },
@@ -120,6 +178,37 @@
     watch: {
       internalValue () {
         this.$emit('input', this.internalValue)
+      },
+      timeValueHour (newVal) {
+        if (newVal.length < 2) {
+          return
+        }
+        if (newVal.length === 2) {
+          if (parseInt(newVal[0]) >= 3) {
+            this.timeValueHour = '0' + newVal[0]
+          } else if (parseInt(newVal[0]) === 2 && parseInt(newVal[1]) > 3) {
+            this.timeValueHour = '0' + newVal[0]
+          }
+          this.$refs.timeInputMinute.focus()
+        }
+        let hours = moment(this.timeValueHour, 'HH')
+        this.internalValue = moment(this.internalValue)
+          .set('hour', hours.hour())
+          .toISOString()
+      },
+      timeValueMinute (newVal) {
+        if (newVal.length < 2) {
+          return
+        }
+        if (newVal.length === 2) {
+          if (parseInt(newVal[0]) >= 6) {
+            this.timeValueMinute = '0' + newVal[0]
+          }
+        }
+        let minutes = moment(this.timeValueMinute, 'mm')
+        this.internalValue = moment(this.internalValue)
+          .set('minute', minutes.minute())
+          .toISOString()
       }
     },
     components: {

@@ -95,6 +95,7 @@
         height: 100%;
         width: 100%;
         margin-top: -10px;
+        max-height: none;
         @media (min-width: 575px) {
           display: flex;
           border-top-left-radius: 0;

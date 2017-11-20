@@ -58,6 +58,12 @@ gem 'activeadmin_reorderable', github: 'delphist/activeadmin_reorderable', branc
 gem 'kaminari', github: 'kaminari/kaminari', ref: 'e95bb74'
 gem 'ckeditor'
 
+# Excel
+gem 'zip-zip'
+gem 'roo'
+gem 'roo-xls'
+gem 'axlsx'
+
 # Attachments
 gem 'rmagick', require: false
 gem 'carrierwave', '~> 1.0'

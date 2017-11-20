@@ -1,11 +1,12 @@
-- render 'shared/category_place_seo', default_text: 'Исполнители'
-- canonical_link(category_city_profile_link_url(@category, @place)) if params[:page] || params[:direction_created]
+- render 'shared/category_place_seo', default_text: 'Все исполнители', additional_text: 'Исполнители'
+
+- canonical_link(category_city_profile_link_url(@category, @place)) if params[:page]
 .regular-content
   .container
-    = render partial: 'breadcrumb', locals: { h1: @h1 }
+    = render partial: 'breadcrumb'
     .dr-content-header
       h1
-        = @h1.present? ? @h1 : 'Все исполнители'
+        = get_seo_h1 'Все исполнители'
     .row
       .col-lg-8
         profile-filters-form(
