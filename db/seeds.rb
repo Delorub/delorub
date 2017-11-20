@@ -9,17 +9,11 @@ Certificate.delete_all
 ### Admins
 admins = User.create([
   {
-    name: 'Алексей Петров',
+    first_name: 'Алексей',
+    last_name: 'Петров',
     password: 'test123123',
     email: 'admin@delorub.com',
     permission_attributes: { superadmin: true },
-    place: Place.only_cities.sample
-  },
-  {
-    name: 'Мария Иванова',
-    password: 'test123123',
-    email: 'editor@delorub.com',
-    permission_attributes: { editor: true },
     place: Place.only_cities.sample
   }
 ])

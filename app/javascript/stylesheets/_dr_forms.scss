@@ -7,6 +7,7 @@ input + .form__error-message, div + .form__error-message, textarea + .form__erro
     color: #f44336;
     font-weight: bold;
     margin-bottom: 1rem;
+    margin-top: -1rem;
   }
   &__approved {
     font-weight: 700;
@@ -104,13 +105,6 @@ input + .form__error-message, div + .form__error-message, textarea + .form__erro
   }
 }
 
-.form-group.multiselect-position {
-  .multiselect {
-    position: relative;
-    z-index: 5;
-  }
-}
-
 .error-display, .phone-display {
   &--show {
     display: block;
@@ -123,5 +117,14 @@ input + .form__error-message, div + .form__error-message, textarea + .form__erro
 .adress-arrow-hide + .multiselect{ //прячем стрелочку
   .multiselect__select {
     display: none;
+  }
+}
+
+.task-upload-form-error {
+  &-message {
+    color: #f44336;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    display: block;
   }
 }
