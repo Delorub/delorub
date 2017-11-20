@@ -31,7 +31,7 @@
         br
         span(v-if="!resendAvailable")
           | Доступно через {{ formatCountdown(resendAvailableAt) }}
-    div.row.margin-bottom-05(v-else-if="!model.accepted")
+    div.row(v-else-if="!model.accepted")
       div.col-xl-4.col-lg-6
         input.form-control.form-control__item(
           type="text"
@@ -51,9 +51,8 @@
           @click.prevent="requestToken"
           value="Подтвердить"
         )
-    div.row(v-if="errors.phone")
-      div.col-12
-        span.form__error-message {{ errors.phone[0] }}
+    div.row.no-gutters(v-if="errors.phone")
+      .form__error-message {{ errors.phone[0] }}
     div.row(v-if="model.accepted")
       div.col.form__phone-change
         a.link-default(:disabled="requesting" href="#" @click.prevent="changePhone") Изменить номер телефона

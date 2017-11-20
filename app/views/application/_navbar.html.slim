@@ -10,10 +10,15 @@ nav.navbar.navbar-toggleable-md.bg-faded.navbar-dr-theme
     #navbarNav.collapse.navbar-collapse
       ul.navbar-nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
         li.nav-item itemprop="name"
-          a.nav-link itemprop="url" href=profiles_path data-identity="header_masters_index"  Исполнители
+          - if current_page?(profiles_path)
+            a.nav-link.active itemprop="url" href=profiles_path data-identity="header_masters_index"  Исполнители
+          - else
+            a.nav-link itemprop="url" href=profiles_path data-identity="header_masters_index"  Исполнители
         li.nav-item itemprop="name"
-          a.nav-link itemprop="url" href=tasks_path data-identity="header_tasks_index"  Все задания
-
+          - if current_page?(tasks_path)
+            a.nav-link.active itemprop="url" href=tasks_path data-identity="header_tasks_index"  Все задания
+          - else
+            a.nav-link itemprop="url" href=tasks_path data-identity="header_tasks_index"  Все задания
       .div-navbar
         ul.navbar-nav.navbar-right(itemscope itemtype="http://schema.org/SiteNavigationElement")
           - if policy(Profile).new?

@@ -38,8 +38,11 @@
       return {
         internalValue: internalValue,
         datepickerConfig: {
-          allowInput: true,
+          disableMobile: true,
+          allowInput: false,
           enableTime: false,
+          minDate: new Date().fp_incr(-36500),
+          maxDate: 'today',
           dateFormat: 'd.m.Y',
           locale: {
             firstDayOfWeek: 1,
