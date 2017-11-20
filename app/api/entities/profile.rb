@@ -19,4 +19,5 @@ class Entities::Profile < Grape::Entity
   expose :is_online do |e|
     e.user.decorate.online?
   end
+  expose :portfolios, using: Entities::Portfolio
 end

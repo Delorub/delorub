@@ -1,5 +1,6 @@
 <template lang="pug">
   div
+    .form__error-message.error-display-show(v-if="errorMessage !== null") {{ errorMessage }}
     template(v-for="(file, index) in internalValue")
       slot(name="file" :file="file" v-if="file.id !== undefined && !file.isDeleted")
       template(v-if="file.isDeleted")
@@ -42,7 +43,8 @@ export default {
   data: function () {
     return {
       internalValue: [],
-      accessToken: this.userToken
+      accessToken: this.userToken,
+      errorMessage: null
     }
   },
   mounted () {
@@ -52,7 +54,11 @@ export default {
     handleFileSelect (event) {
       var files = event.target.files || event.dataTransfer.files
       for (var i = 0; i < files.length; i++) {
-        this.createImage(files[i])
+        if (this.internalValue.length >= 50) {
+          this.errorMessage = 'Превышено максимальное количество загружаемых файлов, максимальное количество - 50'
+        } else {
+          this.createImage(files[i])
+        }
       }
     },
     createImage (file) {

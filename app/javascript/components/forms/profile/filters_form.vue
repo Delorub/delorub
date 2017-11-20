@@ -18,45 +18,65 @@
                   span.checkbox-custom(@click.present="executeQuery")
                   span(@click.present="executeQuery")
                     | Новые&nbsp;исполнители
-      template(v-for="profile in profilesList")
-        .dr-block-style.dr-block-style--card
-          .row
-            .col-lg-2
-              .master-card-person
-                .master-card-person__image(:class="profile.is_online ? 'master-card-person__image--online' : ''")
-                  img(alt="" :src="profile.photo_url")
-              .master-card-person__mark
-            .col
-              .master-card-description
-                .row.justify-content-space-between
-                  .col-sm.col-12
-                    p.master-card-description__header
-                      a(:href="profilePath(profile.id)")
-                        | {{ profile.name }}
-                  div.sm-center
-                    span.master-card-description__price
-                      | {{ profile.formatted_price }}
-                p.master-card-description__text
-                  | {{ truncateString(profile.about, 180) }}
-                hr.toggle-hr-sm/
-                .performer-profile-main__contacts
-                  a.link-default(href="#" role="button" @click.prevent="toggleShowContacts(profile.id)" v-show="!isShowContacts(profile.id)") Показать контакты
-                  div(v-show="isShowContacts(profile.id)")
-                    .contacts-container
-                      template(v-if="profile.phone !== null && profile.phone !==''")
-                        div
-                          span
-                            img(src="/images/icons/phone.svg" alt="phone")
-                            | {{ profile.phone }}
-                      template(v-if="profile.email !== null && profile.email !==''")
-                        div
-                          span
-                            img(src="/images/icons/mail.svg" alt="email")
-                            | {{ profile.email }}
+      template(v-for="(profile, index) in profilesList")
+        .dr-block-style.dr-block-style--no-padding.dr-block-style--margin-top
+          .master-card-container
+            .row.mt-2
+              .col-lg-2
+                .master-card-person
+                  .master-card-person__image
+                    img(alt="Аватар" :src="profile.photo_url")
+                    .performer-profile-main__status(v-if="profile.is_online")
+                      span.status-online Online
+                  .master-card-person__mark
+              .col
+                .master-card-description
+                  .row.align-items-baseline
+                    .col-md.col-12
+                      p.master-card-description__header.md-center
+                        a.link-default(:href="profilePath(profile.id)") {{ profile.name }}
+                    .col-md-auto.col-12
+                      b {{ profile.formatted_price }}
+                  p.master-card-description__text {{ truncateString(profile.about, 180) }}
+          hr
+          .master-card-contacts
+            a.link-default(href="#" role="button" @click.prevent="toggleIsShow(profile)" v-show="!profile.isShow") Показать контакты
+            .row(v-show="profile.isShow")
+              .col-md-4.col-12(v-if="profile.phone !== null && profile.phone !==''")
+                img.mr-2(alt="phone" src="/images/icons/phone.svg")
+                span {{ profile.phone }}
+              .col-md-8.col-12.mt-2.mt-md-0(v-if="profile.email !== null && profile.email !==''")
+                img.mr-2(alt="email" src="/images/icons/mail.svg")
+                span {{ profile.email }}
+          hr
+          template(v-if="profile.portfolios.length > 0")
+            .master-card-portfolio
+              .master-card-portfolio__header
+                h2
+                  | Портфолио
+              .master-card-portfolio__content
+                .row
+                  template(v-for="(portfolio, index) in profile.portfolios.slice(0, 3)")
+                    .col-xl-3.col-md-4.col-sm-6
+                      .master-card-portfolio__item
+                        a(href="#" @click.prevent="modalPortfolio = portfolio")
+                          img(:src="portfolio.small_url")
+                        .master-card-portfolio__item-description
+                          .master-card-portfolio__item-description__header
+                            p {{ truncateString(portfolio.name, 20) }}
+                            span.master-card-portfolio__item-description__count {{ portfolio.count_items }}
+                  template(v-if="profile.portfolios.length > 3")
+                    .col-xl-3.col-md-4.col-sm-6
+                      .master-card-portfolio__item
+                        .master-card-portfolio__show-more
+                          a.link-default(:href="profilePath(profile.id)") Показать еще
+            hr
       custom-pagination(
         :current-page="currentPage"
         :count-pages="countPages"
       )
+      template(v-if="modalPortfolio !== null")
+        portfolio-modal-form(:portfolio="modalPortfolio" @modal-portfolio="modalPortfolio = $event" :can-edit="false")
 </template>
 <script>
   import axios from 'axios'
@@ -65,22 +85,22 @@
     props: ['profiles', 'policyCreate', 'paramsValue', 'countPages'],
     data: function () {
       return {
-        profilesList: this.profiles,
+        profilesList: [],
         checkboxIsChecked: true,
         currentPage: this.paramsValue.page,
-        showContactsArray: []
+        modalPortfolio: null
       }
     },
     mounted: function () {
-      this.fillContactsArray()
+      this.profiles.every((e) => this.profilesList.push(Object.assign(e, { isShow: false })))
     },
     methods: {
       executeQuery () {
         axios.post('/api/profiles/order', {
           query: this.queryParams
         }).then(response => {
-          this.profilesList = response.data
-          this.fillContactsArray()
+          this.profilesList = []
+          response.data.every((e) => this.profilesList.push(Object.assign(e, { isShow: false })))
           this.oppositeCheckedValue()
         })
       },
@@ -94,29 +114,11 @@
           return string.substring(0, num) + '...'
         }
       },
-      toggleShowContacts (profileId) {
-        this.showContactsArray = this.showContactsArray.map((e) => (
-          { id: e.id, isShow: ((e.id === profileId) ? !e.isShow : e.isShow) }
-        ))
-      },
-      isShowContacts (profileId) {
-        var result = false
-        this.showContactsArray.every((e) => {
-          if (e.id === profileId) {
-            result = e.isShow
-            return false
-          }
-          return true
-        })
-        return result
+      toggleIsShow (profile) {
+        profile.isShow = !profile.isShow
       },
       oppositeCheckedValue () {
         this.checkboxIsChecked = !this.checkboxIsChecked
-      },
-      fillContactsArray () {
-        this.showContactsArray = this.profilesList.map((e) => (
-          { id: e.id, isShow: false }
-        ))
       }
     },
     computed: {
@@ -125,6 +127,11 @@
       },
       directionCreatedValue () {
         return this.checkboxIsChecked ? '1' : ''
+      }
+    },
+    watch: {
+      modalPortfolio (value) {
+        this.$emit('portfolio', value)
       }
     }
   }

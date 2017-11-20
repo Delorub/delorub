@@ -1,5 +1,5 @@
 class Portfolio::Contract < Reform::Form
-  property :profile
+  property :profile_id
   property :name
   property :description
   property :cover, parse: false
@@ -52,7 +52,7 @@ class Portfolio::Contract < Reform::Form
   end
 
   validates :name, presence: true, length: { maximum: 200 }
-  validates :profile, presence: true
+  validates :profile_id, presence: true
   validates :portfolio_items, presence: true
 
   private

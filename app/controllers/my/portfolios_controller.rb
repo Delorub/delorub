@@ -8,7 +8,9 @@ class My::PortfoliosController < My::ApplicationController
   end
 
   def create
-    run Portfolio::Operation::Create, params[:portfolio].merge(profile: current_user.profile) do |result|
+    authorize Portfolio
+
+    run Portfolio::Operation::Create, params[:portfolio].merge(profile_id: current_user.profile.id) do |result|
       return redirect_to my_index_index_path, notice: 'Портфолио успешно создано'
     end
 

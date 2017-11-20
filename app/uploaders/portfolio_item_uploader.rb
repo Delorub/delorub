@@ -1,10 +1,12 @@
 class PortfolioItemUploader < BaseUploader
-  version :thumb, if: :image? do
-    process resize_to_limit: [245, 175]
+  include CarrierWave::MiniMagick
+
+  version :small, if: :image? do
+    process resize_to_fill: [66, 66]
     process convert: 'jpg'
 
     def full_filename for_file = model.photo.file
-      'thumb.jpg'
+      'small.jpg'
     end
   end
 
@@ -17,16 +19,12 @@ class PortfolioItemUploader < BaseUploader
     end
   end
 
-  version :upload_preview do
-    process resize_to_fill: [108, 108]
+  version :thumb do
+    process resize_to_limit: [750, 480]
     process convert: 'jpg'
 
     def full_filename for_file = model.file.file
-      'upload_preview.jpg'
+      'thumb.jpg'
     end
   end
-
-  # def extension_whitelist
-  #  %w(jpg jpeg gif png)
-  # end
 end
