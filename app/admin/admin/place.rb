@@ -17,23 +17,6 @@ ActiveAdmin.register Place, namespace: :admin do
     end
   end
 
-  collection_action :change_category_settings, method: :post do
-    city = Place.only_cities.find(params[:city_id])
-    if city.present?
-      city_setting = city.categories_settings.where(category_id: params[:category_id],
-                                                    settings_type: params[:settings_type]).first
-      if city_setting.blank?
-        city_setting = city.categories_settings.create(category_id: params[:category_id], settings_type: params[:settings_type])
-      end
-      city_setting.settings = RecursiveOpenStruct.new(params[:settings], recurse_over_arrays: true)
-      city_setting.save
-    end
-    respond_to do |format|
-      format.html { redirect_to admin_categoriessetting_path }
-      format.json { render json: { result: true } }
-    end
-  end
-
   form do |f|
     inputs 'Основное' do
       input :name
