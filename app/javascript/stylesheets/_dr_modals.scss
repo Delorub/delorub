@@ -28,6 +28,7 @@
 
 .close-modal {
   position: absolute;
+  z-index: 1;
   right: 12px;
   top: 12px;
   background-image: url('/images/icons/close_big.svg');
