@@ -49,11 +49,9 @@
                       label for="profile_price_project"  От
                     .col-lg-5
                       .input-group
-                        = pf.input :price_project, label: false, wrapper: false, error: false,
-                          input_html: { \
-                            'placeholder': '30 000',
-                          }
-                        i.input-group-addon.fa.fa-rub aria-hidden="true"
+                        budgetpicker :value=f.object.profile.price_project
+                          template(slot="input" scope="props")
+                            = pf.input_field :price_project, as: :hidden, ':value': 'props.value'
                       div
                         = pf.error :price_project
           = render 'profiles/form/about', f: pf

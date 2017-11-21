@@ -39,10 +39,10 @@
     },
     computed: {
       normalizedValue () {
-        if (this.internalValue === '') {
+        if (!this.internalValue) {
           return ''
         }
-        return parseInt(this.internalValue.replace(/\s/g, ''))
+        return parseInt(this.internalValue.toString().replace(/\s/g, ''))
       }
     }
   }
