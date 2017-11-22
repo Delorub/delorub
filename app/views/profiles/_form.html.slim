@@ -38,9 +38,8 @@
                           .col-lg-5
                             .input-group
                               budgetpicker v-model="model.price_project"
-                                template
-                                  = f.input :price_project, label: false, wrapper: false, error: false
-                              i.input-group-addon.fa.fa-rub aria-hidden="true"
+                                template(slot="input" scope="props")
+                                  = f.input_field :price_project, as: :hidden, ':value': 'props.value'
                             div
                               = f.error :price_project
                 hr/
