@@ -1,4 +1,4 @@
-class Admin::PortfolioItemPolicy < AdminPolicy
+class Admin::PortfolioPolicy < AdminPolicy
   private
 
   def granted?

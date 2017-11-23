@@ -58,3 +58,4 @@
                 ' Об исполнителе
             .performer-description-about__text
               = simple_format profile.about
+        profile-show-portfolio(:portfolios=Entities::Portfolio.represent(profile.portfolios).to_json)

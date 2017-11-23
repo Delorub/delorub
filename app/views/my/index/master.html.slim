@@ -23,6 +23,7 @@
     hr.dr-block-hr/
     .row
       = render 'my/shared/omniauth'
+  = render 'portfolios'
   - if current_user.profile.present?
     .dr-block-style.dr-block-style--profile
       - current_user.profile.main_categories_profiles.each do |main_category_profile|

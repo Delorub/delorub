@@ -1,0 +1,10 @@
+= render layout: 'my/layout', locals: { width: 9 }
+  .dr-content-header
+    h1
+      | Создание альбома
+  .dr-block-style
+    = simple_form_for @form, url: my_portfolios_path do |f|
+      = render 'form', f: f
+      .mt-3
+        a.dr-btn-primary href=my_index_index_path  Вернуться
+        input.dr-btn-danger.margin-left-20 type="submit" role="button" value="Создать альбом"

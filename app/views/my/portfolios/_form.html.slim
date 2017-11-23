@@ -1,0 +1,28 @@
+p.dr-h2.mb-3 Введите название альбома
+.row
+  .col-xl-5.col-lg-8.col-12
+    .form-group
+      = f.input :name, wrapper: false, label: false, error: false, placeholder: 'Например: ремонт квартиры'
+    = f.error :name
+p.dr-h2.mb-3 Описание
+.form-group
+  = f.input :description, as: :text, label: false,
+            placeholder: "Например: Работы по подготовке стен: штукатурка) грунтовка, шпатлевка в два слоя, шлифовка, грунтовка, оклейка обоев.",
+            input_html: { rows: 10 }
+= f.simple_fields_for :temporary_cover do |tpf|
+  portfolio-upload-cover(
+    url="/api/portfolios/temporary_covers"
+    image=tpf.object.uploaded_or_real_photo.url(:medium)
+    id=tpf.object.id
+  )
+    template slot="input" scope="props"
+      = tpf.input_field :id, as: :hidden, ':value': 'props.id'
+p.dr-h2.margin-bottom-20.margin-top-40 Загрузите фотографии в альбом
+= f.error :portfolio_items
+portfolio-upload-form(
+  user-token=current_user.access_token
+  :value=Entities::PortfolioItem.represent(f.object.portfolio_items).to_json
+)
+  template slot="file" scope="props"
+    input type="hidden" name=("#{f.object_name}[portfolio_items][][id]") :value="props.file.id"
+    input type="hidden" name=("#{f.object_name}[portfolio_items][][description]") :value="props.file.description"

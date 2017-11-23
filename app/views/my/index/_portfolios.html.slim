@@ -1,0 +1,10 @@
+.dr-block-style.dr-block-style--profile.dr-block-style--margin-top
+  .performer-description-category
+    .performer-description-category__header
+      h2
+        | Портфолио
+    .performer-description-portfolio
+      portfolio-personal-list(
+        :value=Entities::Portfolio.represent(portfolios).to_json
+        user-token=current_user.access_token
+      )

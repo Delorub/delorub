@@ -31,7 +31,7 @@ class Profile < ApplicationRecord
   has_many :main_categories_profiles
   has_many :main_categories, through: :main_categories_profiles
 
-  has_many :portfolio_items
+  has_many :portfolios, class_name: '::Portfolio', dependent: :destroy
   has_many :certificates
 
   validates :user_id, presence: true

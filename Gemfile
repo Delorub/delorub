@@ -96,6 +96,7 @@ gem 'foreman'
 gem 'dotiw'
 gem 'sitemap_generator'
 gem 'whenever', require: false
+gem 'paranoia', '~> 2.2'
 
 # External services
 gem 'newrelic_rpm'
