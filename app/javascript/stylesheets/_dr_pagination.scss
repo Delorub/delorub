@@ -24,18 +24,20 @@
       &:active {
         background-color: #e9e0e0;
       }
-    }    
+    }
   }
-  .prev {
+  .prev, .next {
     a {
       margin-right: 14px;
       min-width: 95px;
-    }      
+      @media (max-width: 480px) {
+        display: none;
+      }
+    }
   }
   .next {
     a {
       margin-left: 14px;
-      min-width: 95px;
     }
   }
   .current {
@@ -50,7 +52,7 @@
   }
   .disabled {
     a {
-      color: #dad5db;      
+      color: #dad5db;
     }
   }
 }
