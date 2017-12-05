@@ -8,34 +8,32 @@
   - tasks.each do |task|
     .dr-block-style.dr-block-style--task-card
       .row
+        .col-sm.col-12.overflow-hidden
+          .task-card-description
+            p.task-card-description__header
+              = link_to task.title.truncate(60), task_path(task)
+        div
+          .task-card-refinement
+            p.task-card-refinement__price
+              = task.price_exact.blank? ? 'Не указана' : "#{task.price_exact} руб."
+            p.task-card-refinement__date
+              | Размещено&nbsp;
+              span
+                = task.date_created_at
+            - unless task.date_type.blank?
+              - if time_expires_before_tomorrow?(task.date_type.end_at?, task.date_actual) || time_expires_before_tomorrow?(task.date_type.interval?, task.date_interval_to)
+                p.task-card-refinement__time.task-card-refinement__time--quickly
+                  i.fa.fa-clock-o aria-hidden="true"
+                  = content_tag 'timer-countdown', '', 'expire_date': task.date_type.end_at? ? task.date_actual.to_s(:db) : task.date_interval_to.to_s(:db)
+              - else
+                p.task-card-refinement__time
+                  = 'С ' if task.date_type.start_at? && task.date_actual.present?
+                  = 'До ' if task.date_type.end_at? && task.date_actual.present?
+                  = task.human_date(:date_without_year)
+      .row
         .col
-          .row
-            .col-sm.col-12
-              .task-card-description
-                p.task-card-description__header
-                  = link_to task.title.truncate(60), task_path(task)
-            div
-              .task-card-refinement
-                p.task-card-refinement__price
-                  = task.price_exact.blank? ? 'Не указана' : "#{task.price_exact} руб."
-                p.task-card-refinement__date
-                  | Размещено&nbsp;
-                  span
-                    = task.date_created_at
-                - unless task.date_type.blank?
-                  - if time_expires_before_tomorrow?(task.date_type.end_at?, task.date_actual) || time_expires_before_tomorrow?(task.date_type.interval?, task.date_interval_to)
-                    p.task-card-refinement__time.task-card-refinement__time--quickly
-                      i.fa.fa-clock-o aria-hidden="true"
-                      = content_tag 'timer-countdown', '', 'expire_date': task.date_type.end_at? ? task.date_actual.to_s(:db) : task.date_interval_to.to_s(:db)
-                  - else
-                    p.task-card-refinement__time
-                      = 'С ' if task.date_type.start_at? && task.date_actual.present?
-                      = 'До ' if task.date_type.end_at? && task.date_actual.present?
-                      = task.human_date(:date_without_year)
-          .row
-            .col
-              .task-card-description
-                p.task-card-description__adress
-                  img src="/images/icons/place_red.svg" alt="place" /
-                  = task.place_address.blank? ? 'Адрес не указан' : task.place_address
+          .task-card-description
+            p.task-card-description__adress
+              img src="/images/icons/place_red.svg" alt="place" /
+              = task.place_address.blank? ? 'Адрес не указан' : task.place_address
   = paginate collection, theme: 'custom_theme'

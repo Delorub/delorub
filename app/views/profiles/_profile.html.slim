@@ -14,7 +14,7 @@
             .master-card-person__image *{class: profile.user.online? ? 'master-card-person__image--online' : '' }
               = image_tag profile.user.photo.url(:medium)
             .master-card-person__mark
-        .col
+        .col.overflow-hidden
           .master-card-description
             .row.justify-content-space-between
               .col-sm.col-12
