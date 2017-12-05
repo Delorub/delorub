@@ -71,6 +71,7 @@
 
 .dr-content-header {
   padding-bottom: 1rem;
+  overflow: hidden;
   @media(min-width: 992px) {
     display: flex;
     align-items: center;

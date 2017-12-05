@@ -13,6 +13,8 @@
     }
     text-align: right;
     margin-top: 5px;
+    overflow: hidden;
+    max-width: 150px;
     span {
       color: $color;
     }
