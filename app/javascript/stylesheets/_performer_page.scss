@@ -78,6 +78,7 @@
     &__text {
       font-size: 15px;
       margin-top: 1rem;
+      overflow: hidden;
     }
     &__price-border {
       border-bottom: dashed 1px #d1d1d1;
@@ -94,6 +95,7 @@
     &__text {
       font-size: 15px;
       margin-top: 2rem;
+      overflow: hidden;
     }
   }
   &-examples {
