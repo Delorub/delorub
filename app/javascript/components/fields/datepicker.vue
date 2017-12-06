@@ -42,7 +42,7 @@
           allowInput: false,
           enableTime: false,
           minDate: new Date().fp_incr(-36500),
-          maxDate: 'today',
+          maxDate: new Date().fp_incr(-5110),
           dateFormat: 'd.m.Y',
           locale: {
             firstDayOfWeek: 1,
