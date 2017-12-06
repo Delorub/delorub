@@ -20,41 +20,39 @@
                 |
                 i.fa(:class="classDirectionCreatedAt")
       template(v-for="task in tasksList")
-        .dr-block-style.dr-block-style--task-card
+        .dr-block-style.dr-block-style--task-card          
+          .row
+            .col-sm.col-12.overflow-hidden
+              .task-card-description
+                p.task-card-description__header
+                  a(:href="taskPath(task.id)") {{ truncateString(task.title, 60) }}
+            div
+              .task-card-refinement
+                p.task-card-refinement__price
+                  | {{ isBlank(task.price_exact) ? 'Не указана' : `${task.price_exact} руб.` }}
+                p.task-card-refinement__date
+                  | Размещено&nbsp;
+                  span {{ task.date_created_at }}
+                template(v-if="!isBlank(task.date_type)")
+                  template(v-if="timeExpiresBeforeTomorrow(task.date_type, 'end_at', task.date_actual) || timeExpiresBeforeTomorrow(task.date_type, 'interval', task.date_interval_to)")
+                    p.task-card-refinement__time.task-card-refinement__time--quickly
+                      i.fa.fa-clock-o(aria-hidden="true")
+                      timer-countdown(:expire_date = "expireDate(task)")
+                  template(v-else)
+                    p.task-card-refinement__time
+                      template(v-if="checkDateType(task.date_type, 'start_at', task.date_actual)")
+                        | C
+                        |
+                      template(v-else-if="checkDateType(task.date_type, 'end_at', task.date_actual)")
+                        | До
+                        |
+                      | {{ task.human_date }}
           .row
             .col
-              .row
-                .col-sm.col-12
-                  .task-card-description
-                    p.task-card-description__header
-                      a(:href="taskPath(task.id)") {{ truncateString(task.title, 60) }}
-                div
-                  .task-card-refinement
-                    p.task-card-refinement__price
-                      | {{ isBlank(task.price_exact) ? 'Не указана' : `${task.price_exact} руб.` }}
-                    p.task-card-refinement__date
-                      | Размещено&nbsp;
-                      span {{ task.date_created_at }}
-                    template(v-if="!isBlank(task.date_type)")
-                      template(v-if="timeExpiresBeforeTomorrow(task.date_type, 'end_at', task.date_actual) || timeExpiresBeforeTomorrow(task.date_type, 'interval', task.date_interval_to)")
-                        p.task-card-refinement__time.task-card-refinement__time--quickly
-                          i.fa.fa-clock-o(aria-hidden="true")
-                          timer-countdown(:expire_date = "expireDate(task)")
-                      template(v-else)
-                        p.task-card-refinement__time
-                          template(v-if="checkDateType(task.date_type, 'start_at', task.date_actual)")
-                            | C
-                            |
-                          template(v-else-if="checkDateType(task.date_type, 'end_at', task.date_actual)")
-                            | До
-                            |
-                          | {{ task.human_date }}
-              .row
-                .col
-                  .task-card-description
-                    p.task-card-description__adress
-                      img(src="/images/icons/place_red.svg" alt="place")
-                      | {{ isBlank(task.place_address) ? 'Адрес не указан' : task.place_address }}
+              .task-card-description
+                p.task-card-description__adress
+                  img(src="/images/icons/place_red.svg" alt="place")
+                  | {{ isBlank(task.place_address) ? 'Адрес не указан' : task.place_address }}
       custom-pagination(
         :current-page="currentPage"
         :count-pages="countPages"

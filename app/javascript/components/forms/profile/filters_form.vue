@@ -26,7 +26,7 @@
                 .master-card-person__image(:class="profile.is_online ? 'master-card-person__image--online' : ''")
                   img(alt="" :src="profile.photo_url")
               .master-card-person__mark
-            .col
+            .col.overflow-hidden
               .master-card-description
                 .row.justify-content-space-between
                   .col-sm.col-12
