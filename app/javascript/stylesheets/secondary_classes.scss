@@ -60,6 +60,12 @@
   overflow: hidden;
 }
 
+.form-flex {
+  form {
+    display: flex;
+  }
+}
+
 .dr-header {
   font-size: 1.5rem;
   font-weight: 700;
