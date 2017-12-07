@@ -9,6 +9,7 @@
         return true
       },
       checkNameFiled (evt) {
+        console.log(evt)
         if (!this.isLetter(evt)) {
           evt.preventDefault()
         }
