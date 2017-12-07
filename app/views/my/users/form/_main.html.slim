@@ -11,6 +11,6 @@
             = tpf.input_field :id, as: :hidden, ':value': 'props.id'
     .col-xl-7.col-md-10
       .dr-profile-card__inputs
-        = f.input :first_name, label: false
+        = f.input :first_name, label: false, input_html: { '@keydown' => 'isLetter' }
         = f.input :last_name, label: false
         = f.input :middle_name, label: false

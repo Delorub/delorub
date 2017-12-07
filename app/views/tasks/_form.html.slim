@@ -113,10 +113,9 @@
 .dr-block-style id="task_prices" @click="showTooltip('task_prices')"
   .form-group
     h2  На какой бюджет ориентироваться исполнителям
-    br/
-    .row.align-items-baseline
-      .col-lg-5        
+    .row.align-items-baseline.mt-4
+      .col-lg-5
         budgetpicker v-model="model.price_exact"
           template(slot="input" scope="props")
-            = f.input_field :price_exact, as: :hidden, ':value': 'props.value'          
+            = f.input_field :price_exact, as: :hidden, ':value': 'props.value'
         = f.error :price_exact
