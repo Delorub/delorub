@@ -16,7 +16,7 @@ import SelectBox from '../components/fields/selectbox.vue'
 import DatetimePicker from '../components/fields/datetimepicker.vue'
 import DatePicker from '../components/fields/datepicker.vue'
 import BudgetPicker from '../components/fields/budget.vue'
-import NameField from '../components/fields/name_field.vue'
+import TextField from '../components/fields/text_field.vue'
 
 import ProfileSpecializationsForm from '../components/forms/profile/specializations_form.vue'
 import NewProfileForm from '../components/forms/profile/new_form.vue'
@@ -62,7 +62,7 @@ Vue.use(VueMeta)
 // Fields
 Vue.component('datetimepicker', DatetimePicker)
 Vue.component('budgetpicker', BudgetPicker)
-Vue.component('namefiled', NameField)
+Vue.component('textfiled', TextField)
 Vue.component('datepicker', DatePicker)
 Vue.component('selectbox', SelectBox)
 

@@ -12,13 +12,12 @@
                   p Регистрация нового пользователя
                 .registration-form__content
                   .registration-form__content-inputs
-                    namefiled(inline-template="true")
-                      .row
+                    textfiled(inline-template="true")
+                      .row.mb-4
                         .col-lg-8
                           = f.input :first_name, label: false, autofocus: true, placeholder: 'Ваше имя', input_html: { "@input" => "checkTextField" }
                         .col-lg-8
                           = f.input :email, label: false, placeholder: 'Ваш email'
-                    br/
                     = render 'shared/phone_confirmation', f: f
                     .checkbox.form-group
                       label
