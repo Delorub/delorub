@@ -11,7 +11,6 @@
       checkNameFiled (evt) {
         if (!this.isLetter(evt)) {
           evt.preventDefault()
-          return
         }
       }
     }
