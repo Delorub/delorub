@@ -1,7 +1,7 @@
 <template lang="pug">
   div
     template(v-if="this.tasksList.length === 0")
-      .dr-block-style.dr-block-style--card
+      .dr-block-style.dr-block-style--single-card
         p В данной категории пока не создано ни одного задания
         p
           b Станьте первым!

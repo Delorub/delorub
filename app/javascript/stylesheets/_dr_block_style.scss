@@ -13,6 +13,13 @@
       box-shadow: 0 4px 15px 0 rgba(150, 149, 149, 0.5);
     }
   }
+  &--single-card {
+    padding: 30px;
+    transition: .3s;
+    &:hover {
+      box-shadow: 0 4px 15px 0 rgba(150, 149, 149, 0.5);
+    }
+  }
   &--no-padding, &--category {
     padding: 0;
   }
