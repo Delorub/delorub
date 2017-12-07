@@ -10,7 +10,8 @@
           template slot="input" scope="props"
             = tpf.input_field :id, as: :hidden, ':value': 'props.id'
     .col-xl-7.col-md-10
-      .dr-profile-card__inputs
-        = f.input :first_name, label: false, input_html: { '@keydown' => 'checkNameField' }
-        = f.input :last_name, label: false
-        = f.input :middle_name, label: false
+      namefiled(inline-template="true")
+        .dr-profile-card__inputs
+          = f.input :first_name, label: false, input_html: { :oninput => 'checkNameField(this)' }
+          = f.input :last_name, label: false
+          = f.input :middle_name, label: false
