@@ -1,8 +1,7 @@
 .dr-block-style
   .form-group v-on:click="showTooltip('task_title')"
     h2 Заголовок
-    br/
-    .row
+    .row.mt-4
       .col-lg-8.col-12
         = f.input :title, label: false,
           input_html: { \
@@ -11,13 +10,13 @@
           }
   .form-group v-on:click="showTooltip('task_description')"
     h2 Описание задачи
-    br/
-    = f.input :description, as: :text, label: false,
-      input_html: { \
-        'v-model': 'model.description',
-        'v-on:focus': %(showTooltip('task_description')),
-        rows: 10,
-      }
+    .mt-4
+      = f.input :description, as: :text, label: false,
+        input_html: { \
+          'v-model': 'model.description',
+          'v-on:focus': %(showTooltip('task_description')),
+          rows: 10,
+        }
   .form-group id="task_files"
     task-upload-form(
       url="/api/tasks/files"
@@ -29,8 +28,7 @@
 .dr-block-style id="task_category"
   .form-group v-on:click="showTooltip('task_category')"
     h2 Специализация
-    br/
-    .row
+    .row.mt-4
       .col-lg-6
         .form-group.black-content.multiselect-position
           selectbox(
@@ -66,8 +64,7 @@
 .dr-block-style
   .form-group v-on:click="showTooltip('task_dates')"
     h2 Дата и время
-    br/
-    .row
+    .row.mt-4
       .col-lg-4
         .form-group id="task_dates"
           = f.input_field :date_type,
@@ -90,8 +87,7 @@
             = f.input_field :date_interval_to, as: :hidden, ':value': 'props.value'
   .form-group id="task_place" v-on:click="showTooltip('task_place')"
     h2 Адрес
-    br/
-    .row
+    .row.mt-4
       .col-lg-8.col-12
         .adress-arrow-hide
         = f.input_field :place_id, as: :hidden, 'v-model': 'model.place_id'
